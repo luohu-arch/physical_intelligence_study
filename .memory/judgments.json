@@ -1,0 +1,56 @@
+{
+  "category_aliases": {
+    "humanoid": "humanoid foundation model",
+    "steerable vla": "steerable generalist VLA",
+    "rl post training": "RL post-training",
+    "latent action": "latent action / cross-embodiment",
+    "flow vla": "efficient flow VLA",
+    "diffusion vla": "diffusion VLM to action",
+    "world model": "unified token model / world modeling",
+    "foresight": "visual foresight / inverse dynamics",
+    "reasoning": "reasoning-action integration"
+  },
+  "priority_overrides": {},
+  "skip_reasons": {
+    "gen-1": "no public arXiv paper, commercial claims only — track as industry observation",
+    "gene-26-5": "no public arXiv paper, commercial claims only — track as industry observation"
+  },
+  "interpretations": [
+    {
+      "context": "note_depth",
+      "before": "basic template",
+      "after": "deep with math/physics/engineering",
+      "date": "2026-05-10"
+    },
+    {
+      "context": "file_organization",
+      "before": "papers/ root",
+      "after": "papers/curriculum/ + date-stamped",
+      "date": "2026-05-10"
+    },
+    {
+      "context": "incremental_notes",
+      "before": "basic only",
+      "after": "same deep quality as curriculum",
+      "date": "2026-05-10"
+    },
+    {
+      "context": "workflow",
+      "before": "AI does everything",
+      "after": "script for metadata/template, AI for understanding",
+      "date": "2026-05-10"
+    },
+    {
+      "context": "diagrams",
+      "before": "none",
+      "after": "mermaid for novel architectures",
+      "date": "2026-05-10"
+    },
+    {
+      "context": "content_source",
+      "before": "generate from scratch",
+      "after": "extract from vla.md first",
+      "date": "2026-05-10"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "missed_sections": {
+    "底层原理与数学推导": 14,
+    "物理直觉解释": 14,
+    "工程细节与实操指南": 14,
+    "技术权衡（Trade-off）": 14,
+    "技术价值与演进定位": 14
+  },
+  "common_corrections": {
+    "empty_abstract": 14,
+    "missing_local_pdf": 4,
+    "待补充_placeholder": 65
+  },
+  "style_rules": [
+    "use Chinese for note content",
+    "use mermaid for architecture diagrams",
+    "use $$ for LaTeX math blocks",
+    "use markdown tables for trade-off analysis",
+    "include concrete benchmark numbers",
+    "cross-reference related papers",
+    "never leave 待补充 — write content or note as 暂无公开信息",
+    "prefer extracting from vla.md before researching from scratch"
+  ],
+  "section_order": [
+    "一句话总结",
+    "核心技术",
+    "底层原理与数学推导",
+    "物理直觉解释",
+    "工程细节与实操指南",
+    "技术权衡（Trade-off）",
+    "技术价值与演进定位",
+    "与其他论文的关系",
+    "精读问题"
+  ]
+}

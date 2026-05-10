@@ -1,0 +1,31 @@
+{
+  "note_depth": "deep",
+  "note_language": "zh-CN",
+  "require_math_derivation": true,
+  "require_architecture_diagram": true,
+  "require_tradeoff_table": true,
+  "require_physical_intuition": true,
+  "content_priorities": [
+    "math_derivation",
+    "physical_intuition",
+    "engineering_details",
+    "tradeoff_analysis",
+    "evolution_positioning"
+  ],
+  "auto_download": true,
+  "auto_backfill": true,
+  "principle_script_first": true,
+  "section_order": [
+    "一句话总结",
+    "核心技术",
+    "底层原理与数学推导",
+    "物理直觉解释",
+    "工程细节与实操指南",
+    "技术权衡（Trade-off）",
+    "技术价值与演进定位",
+    "与其他论文的关系",
+    "精读问题"
+  ],
+  "_session_count": 4,
+  "_last_session": "2026-05-10"
+}
