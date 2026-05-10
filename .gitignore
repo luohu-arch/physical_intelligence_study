@@ -1,5 +1,5 @@
 # Large binaries — keep local, not in repo
-papers/
+papers/**/*.pdf
 
 # AI assistant project files
 .claude/
