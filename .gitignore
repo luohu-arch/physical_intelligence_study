@@ -8,5 +8,8 @@ papers/**/*.pdf
 __pycache__/
 *.pyc
 
+# Obsidian config (personal, not shared)
+.obsidian/
+
 # macOS
 .DS_Store
