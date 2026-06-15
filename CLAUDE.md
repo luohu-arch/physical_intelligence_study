@@ -6,13 +6,21 @@ Local study library for Vision-Language-Action (VLA), robot foundation model, an
 
 ```
 papers/
-  curriculum/      — PDFs from vla.md core curriculum (RT-1, RT-2, OpenVLA, etc.)
-  YYYY-MM-DD/      — Incrementally pulled PDFs, organized by pull date
+  vla-architecture/ — VLA core architecture + action generation (RT-1, RT-2, π0, G0.5, etc.)
+  vla-reasoning/    — Reasoning-action fusion + visual foresight (PaLM-E, GR00T N1, F1-VLA, etc.)
+  world-model/      — World models, JEPA, video prediction (Dreamer, TD-MPC2, UniPi, etc.)
+  data-infra/       — Datasets, teleoperation, self-improvement (Open X-Embodiment, ACT, etc.)
+  YYYY-MM-DD/       — Incrementally pulled PDFs, organized by pull date
 notes/
-  curriculum/      — Reading notes for curriculum papers
-  YYYY-MM-DD/      — Reading notes for incrementally pulled papers
-tables/            — CSV watchlists and paper matrices
+  vla-architecture/ — Reading notes for VLA architecture papers
+  vla-reasoning/    — Reading notes for reasoning-action papers
+  world-model/      — Reading notes for world model papers
+  data-infra/       — Reading notes for data + infrastructure papers
+  industry/         — Commercial briefs without public papers (GEN-1, GENE-26.5, etc.)
+  YYYY-MM-DD/       — Reading notes for incrementally pulled papers
+tables/            — CSV watchlists, paper matrices, and taxonomy
 plans/             — Reading plans and curricula
+labs/              — Lab and advisor research analysis for PhD applications
 skills/            — Automation skills for paper discovery and organization
 vla.md             — Master VLA research overview and curriculum
 ```
@@ -20,6 +28,7 @@ vla.md             — Master VLA research overview and curriculum
 ## Available Skills
 
 - **pull-vla-research** (`skills/pull-vla-research/SKILL.md`) — Discover, download, and organize recent VLA/robotics papers from arXiv. Creates PDFs, Markdown notes, and CSV watchlists. Run via `python3 skills/pull-vla-research/scripts/pull_vla_papers.py`.
+- **evaluate-paper-value** (`skills/evaluate-paper-value/SKILL.md`) — Score paper candidates across 4 dimensions (peer review, impact, methodological contribution, research alignment) before bulk downloading. Filter out company tech reports, incremental tweaks, and off-topic papers before they waste time and disk space.
 
 ## Common Tasks
 
@@ -55,7 +64,8 @@ python3 skills/pull-vla-research/scripts/pull_vla_papers.py \
 
 ## Key Conventions
 
-- Curriculum papers from `vla.md` live in `papers/curriculum/` and `notes/curriculum/`
+- Curriculum papers from `vla.md` live in `papers/vla-architecture/`, `papers/vla-reasoning/`, and `papers/data-infra/` with matching notes directories
+- World model papers (Dreamer, JEPA, video prediction, etc.) live in `papers/world-model/` and `notes/world-model/`
 - Incrementally pulled papers go in date-stamped subfolders (`papers/YYYY-MM-DD/`, `notes/YYYY-MM-DD/`)
 - Never mix curriculum and incremental papers in the same directory
 - Never overwrite user-annotated notes; append new sections
@@ -72,7 +82,7 @@ python3 skills/pull-vla-research/scripts/pull_vla_papers.py \
   - `待确认：商业声明，无独立评测验证`
 - **Distinguish source quality.** Clearly separate: paper claims (from PDF), abstract summaries (from arXiv page), official blog posts, and third-party reports. Do not present blog claims as paper conclusions.
 - **Prefer the paper.** When arXiv abstract and paper PDF conflict, the PDF is authoritative. When only the abstract is available, limit claims to what the abstract actually states.
-- **Run `--validate` after writing notes** to catch structural issues before committing.
+- **Always run `--validate` after writing or editing notes.** The quality gate must pass (39/39) before considering the task done. Never skip this step — it catches section name mismatches, missing mermaid diagrams, broken PDF paths, and mermaid unsafe characters that manual review misses.
 
 ## Gotchas
 

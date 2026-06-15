@@ -1,14 +1,38 @@
 filename	title	url	type
-RT-1_Robotics_Transformer_2212.06817.pdf	RT-1: Robotics Transformer	https://arxiv.org/pdf/2212.06817	pdf
-PaLM-E_Embodied_Multimodal_Language_Model_2303.03378.pdf	PaLM-E: An Embodied Multimodal Language Model	https://arxiv.org/pdf/2303.03378	pdf
-RT-2_Vision_Language_Action_Models_2307.15818.pdf	RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control	https://arxiv.org/pdf/2307.15818	pdf
-VoxPoser_Composable_3D_Value_Maps_2307.05973.pdf	VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models	https://arxiv.org/pdf/2307.05973	pdf
-RoboCat_Self_Improving_Robot_Agent_2306.11706.pdf	RoboCat: A Self-Improving Generalist Agent for Robotic Manipulation	https://arxiv.org/pdf/2306.11706	pdf
-RT-Trajectory_Robotic_Task_Generalization_2311.01977.pdf	RT-Trajectory	https://arxiv.org/pdf/2311.01977	pdf
-Mobile_ALOHA_ACT_2401.02117.pdf	Mobile ALOHA / Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware	https://arxiv.org/pdf/2401.02117	pdf
-Open_X_Embodiment_RT-X_2310.08864.pdf	Open X-Embodiment / RT-X	https://arxiv.org/pdf/2310.08864	pdf
-Octo_Open_Source_Generalist_Robot_Policy_2405.12213.pdf	Octo: An Open-Source Generalist Robot Policy	https://arxiv.org/pdf/2405.12213	pdf
-OpenVLA_Open_Source_Vision_Language_Action_Model_2406.09246.pdf	OpenVLA: An Open-Source Vision-Language-Action Model	https://arxiv.org/pdf/2406.09246	pdf
-Diffusion_Policy_2303.04137.pdf	Diffusion Policy	https://arxiv.org/pdf/2303.04137	pdf
-Flow_Matching_for_Generative_Modeling_2210.02747.pdf	Flow Matching for Generative Modeling	https://arxiv.org/pdf/2210.02747	pdf
-FAST_Tokenizer_2501.09747.pdf	FAST: Efficient Action Tokenization for Vision-Language-Action Models	https://arxiv.org/pdf/2501.09747	pdf
+vla-architecture/RT-1_Robotics_Transformer_2212.06817.pdf	RT-1: Robotics Transformer	https://arxiv.org/pdf/2212.06817	pdf
+vla-architecture/RT-2_Vision_Language_Action_Models_2307.15818.pdf	RT-2: Vision-Language-Action Models	https://arxiv.org/pdf/2307.15818	pdf
+vla-architecture/OpenVLA_Open_Source_Vision_Language_Action_Model_2406.09246.pdf	OpenVLA: An Open-Source Vision-Language-Action Model	https://arxiv.org/pdf/2406.09246	pdf
+vla-architecture/pi0_2410.24164.pdf	π0: A Vision-Language-Action Flow Model for General Robot Control	https://arxiv.org/pdf/2410.24164	pdf
+vla-architecture/pi05_2504.16054.pdf	π0.5: A Vision-Language-Action Model with Open-World Generalization	https://arxiv.org/pdf/2504.16054	pdf
+vla-architecture/G0.5_tech_report.pdf	Galaxea G0.5: Unified Autoregressive VLA Foundation Model	https://opengalaxea.github.io/G05/Galaxea_G0_5.pdf	pdf
+vla-architecture/Diffusion_Policy_2303.04137.pdf	Diffusion Policy: Visuomotor Policy Learning via Action Diffusion	https://arxiv.org/pdf/2303.04137	pdf
+vla-architecture/Flow_Matching_for_Generative_Modeling_2210.02747.pdf	Flow Matching for Generative Modeling	https://arxiv.org/pdf/2210.02747	pdf
+vla-architecture/FAST_Tokenizer_2501.09747.pdf	FAST: Efficient Action Tokenization for VLA Models	https://arxiv.org/pdf/2501.09747	pdf
+vla-architecture/Octo_Open_Source_Generalist_Robot_Policy_2405.12213.pdf	Octo: An Open-Source Generalist Robot Policy	https://arxiv.org/pdf/2405.12213	pdf
+vla-architecture/pi07_2604.15483.pdf	π0.7: A Steerable Generalist Robotic Foundation Model	https://arxiv.org/pdf/2604.15483	pdf
+vla-architecture/FLOWER_2509.04996.pdf	FLOWER: Democratizing Generalist Robot Policies with Efficient VLA	https://arxiv.org/pdf/2509.04996	pdf
+vla-architecture/LLaDA-VLA_2509.06932.pdf	LLaDA-VLA: Vision-Language Diffusion Action Models	https://arxiv.org/pdf/2509.06932	pdf
+vla-architecture/UniVLA_2506.19850.pdf	UniVLA: Unified Vision-Language-Action Model	https://arxiv.org/pdf/2506.19850	pdf
+vla-architecture/UniVLA-ODL_2505.06111.pdf	UniVLA: Learning to Act Anywhere with Task-centric Latent Actions	https://arxiv.org/pdf/2505.06111	pdf
+vla-architecture/MoS-VLA_2510.16617.pdf	MoS-VLA: A VLA Model with One-Shot Skill Adaptation	https://arxiv.org/pdf/2510.16617	pdf
+vla-architecture/SimpleVLA-RL_2509.09674.pdf	SimpleVLA-RL: Scaling VLA Training via Reinforcement Learning	https://arxiv.org/pdf/2509.09674	pdf
+vla-reasoning/PaLM-E_Embodied_Multimodal_Language_Model_2303.03378.pdf	PaLM-E: An Embodied Multimodal Language Model	https://arxiv.org/pdf/2303.03378	pdf
+vla-reasoning/RT-Trajectory_Robotic_Task_Generalization_2311.01977.pdf	RT-Trajectory: Robotic Task Generalization via Hindsight Trajectory Sketches	https://arxiv.org/pdf/2311.01977	pdf
+vla-reasoning/VoxPoser_Composable_3D_Value_Maps_2307.05973.pdf	VoxPoser: Composable 3D Value Maps for Robotic Manipulation	https://arxiv.org/pdf/2307.05973	pdf
+vla-reasoning/GR00T-N1_2503.14734.pdf	GR00T N1: An Open Foundation Model for Generalist Humanoid Robots	https://arxiv.org/pdf/2503.14734	pdf
+vla-reasoning/OneTwoVLA_2505.11917.pdf	OneTwoVLA: A Unified VLA Model with Adaptive Reasoning	https://arxiv.org/pdf/2505.11917	pdf
+vla-reasoning/TriVLA_2507.01424.pdf	TriVLA: A Triple-System Based Unified VLA Model	https://arxiv.org/pdf/2507.01424	pdf
+vla-reasoning/Gemini_Robotics_2503.20020.pdf	Gemini Robotics: Bringing AI into the Physical World	https://arxiv.org/pdf/2503.20020	pdf
+vla-reasoning/F1-VLA_2509.06951.pdf	F1-VLA: Bridging Understanding and Generation to Action	https://arxiv.org/pdf/2509.06951	pdf
+vla-reasoning/DreamVLA_2507.04447.pdf	DreamVLA: A VLA Model Dreamed with Comprehensive World Knowledge	https://arxiv.org/pdf/2507.04447	pdf
+data-infra/Open_X_Embodiment_RT-X_2310.08864.pdf	Open X-Embodiment: Robotic Learning Datasets and RT-X Models	https://arxiv.org/pdf/2310.08864	pdf
+data-infra/Mobile_ALOHA_ACT_2401.02117.pdf	Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Hardware	https://arxiv.org/pdf/2401.02117	pdf
+data-infra/RoboCat_Self_Improving_Robot_Agent_2306.11706.pdf	RoboCat: A Self-Improving Generalist Agent for Robotic Manipulation	https://arxiv.org/pdf/2306.11706	pdf
+world-model/DayDreamer_2206.14176.pdf	DayDreamer: World Models for Physical Robot Learning	https://arxiv.org/pdf/2206.14176	pdf
+world-model/Dreamer_v3_2301.04104.pdf	DreamerV3: Mastering Diverse Domains through World Models	https://arxiv.org/pdf/2301.04104	pdf
+world-model/TD-MPC2_2310.16828.pdf	TD-MPC2: Scalable, Robust World Models for Continuous Control	https://arxiv.org/pdf/2310.16828	pdf
+world-model/I-JEPA_2301.08243.pdf	I-JEPA: Joint-Embedding Predictive Architecture	https://arxiv.org/pdf/2301.08243	pdf
+world-model/V-JEPA_2404.08471.pdf	V-JEPA: Revisiting Feature Prediction for Video Representations	https://arxiv.org/pdf/2404.08471	pdf
+world-model/UniPi_2302.00111.pdf	UniPi: Learning Universal Policies via Text-Guided Video Generation	https://arxiv.org/pdf/2302.00111	pdf
+world-model/SuSIE_2310.10639.pdf	SuSIE: Zero-Shot Robotic Manipulation with Image-Editing Diffusion Models	https://arxiv.org/pdf/2310.10639	pdf
+world-model/GR-MG_2408.14368.pdf	GR-MG: Multi-Modal Goal Conditioned Policy	https://arxiv.org/pdf/2408.14368	pdf
