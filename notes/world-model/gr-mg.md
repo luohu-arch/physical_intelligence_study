@@ -50,6 +50,17 @@ GR-MG 的核心直觉：**看视频学操作，同时想象"做完是什么样"*
 - 推理延迟 **106ms**，可满足大多数操作场景实时性
 - 预训练后 fine-tune 到特定任务/本体，类似 π0 的 co-training 策略
 
+## 消融实验与分析
+
+| 消融因子 | 变化 | 结论 |
+|---------|------|------|
+| 未来 RGB 预测 | with vs without L_future | 未来预测辅助任务提升世界理解 |
+| Goal image generation | with vs without L_goal | 目标图像生成对长程任务贡献最大 |
+| CVAE action chunking | CVAE vs direct regression | CVAE 处理多模态动作分布更优 |
+| 三任务联合 vs 单任务 | L_act+L_future+L_goal vs L_act only | 三任务联合显著优于单任务 |
+
+**核心结论**：三任务联合训练是 GR-MG 的核心——未来预测和 goal 生成通过共享视觉表征增强动作生成。
+
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |

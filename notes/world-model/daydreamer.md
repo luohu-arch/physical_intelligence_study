@@ -88,6 +88,17 @@ DayDreamer 的核心直觉：**在脑子里模拟，而不是在现实里试错*
 - **超参统一**: 网络结构、学习率、batch size、imagination horizon 16 步，所有 4 个实验完全一致
 - **开源**: 论文公开了基础设施代码，可直接复现
 
+## 消融实验与分析
+
+| 消融因子 | 变化 | 结论 |
+|---------|------|------|
+| Dreamer vs SAC (A1 四足) | RL algorithm | Dreamer 1h 学会走路，SAC 仅学会翻身 |
+| Dreamer vs Rainbow (XArm) | RL algorithm | RSSM 世界模型比 model-free 样本效率高数十倍 |
+| Dreamer vs DrQv2 (Sphero) | Image-based RL | Dreamer 在视觉导航上同样优于 model-free |
+| 异步 vs 同步 | async learner-actor vs sync | 异步架构对 20Hz 实时控制必要 |
+
+**核心结论**：Dreamer 的世界模型是实现真实机器人 1h 在线 RL 的关键——model-free 方法完全无法匹配。
+
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |

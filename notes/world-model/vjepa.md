@@ -49,6 +49,17 @@ graph LR
 | Something-Something-v2 | **72.2%** | 动作理解远超像素预测方法 |
 | ImageNet1K | **77.9%** | 仅视频训练零样本迁移图像 |
 
+## 消融实验与分析
+
+| 消融因子 | 变化 | 结论 |
+|---------|------|------|
+| 时空 mask vs 纯空间 mask | spatiotemporal vs spatial-only | 时空 mask 对运动理解（SSv2）至关重要 |
+| Context 帧数 | 多帧 vs 单帧 | 多帧 context 对时序预测必要 |
+| Video-only vs image+video | pure video vs mixed | 纯视频训练即满足 image transfer |
+| Frozen vs fine-tune | frozen vs ft | Frozen eval 证明了表征的通用性 |
+
+**核心结论**：时空 mask 策略在时间维度扩展 context-target 预测，使模型学会运动理解。纯视频训练即可零样本迁移到图像任务。
+
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |

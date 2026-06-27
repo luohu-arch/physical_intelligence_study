@@ -78,7 +78,7 @@ Two note template levels are available:
 | Flag | Template | Sections |
 |------|----------|----------|
 | `--notes` (default) | Basic | Why This Matters, Abstract, Reading Questions, Key Ideas, Architecture, Implementation, My Notes |
-| `--notes --deep` | Deep Dive | 一句话总结, 核心技术, 底层原理与数学推导, 物理直觉解释, 工程细节与实操指南, 技术权衡(Trade-off), 技术价值与演进定位, 与论文关系, 精读问题 |
+| `--notes --deep` | Deep Dive | 一句话总结, 核心技术, 底层原理与数学推导, 物理直觉解释, 工程细节与实操指南, 消融实验与分析, 技术权衡(Trade-off), 技术价值与演进定位, 与论文关系, 精读问题 |
 
 Use `--deep` for high-priority papers that need detailed technical analysis. Use the basic template for screening candidates. Existing notes are never overwritten — use `--backfill` to fill metadata into already-created notes.
 
@@ -93,7 +93,7 @@ python3 skills/pull-vla-research/scripts/pull_vla_papers.py --validate --workspa
 ```
 
 The gate checks every note for:
-- [x] All 9 deep-dive sections present
+- [x] All 10 deep-dive sections present
 - [x] Zero `待补充` placeholders
 - [x] Mermaid architecture diagram present
 - [x] Trade-off table in 技术权衡 section

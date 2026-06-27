@@ -62,6 +62,17 @@ Flow matching 好比不是在迷宫中随机游走寻找出口（扩散模型）
 - 支持高频精细动作（10Hz+ 推理）
 - VLM 提供语义 grounding，action expert 提供精准动作
 
+## 消融实验与分析
+
+| 消融因子 | 变化 | 结论 |
+|---------|------|------|
+| Flow Matching vs DDPM | 10步 Flow vs 16步 DDPM | Flow 更少步数达到同等或更优精度 |
+| VLM 骨干 | PaliGemma vs 更小 VLM | VLM 的语义理解对复杂指令跟随关键 |
+| Action Expert 参数量 | 300M vs 150M vs 50M | 300M 最佳，过小损失精度 |
+| 跨具身预训练 | 多配置 vs 单配置 | 跨具身预训练提升泛化 |
+
+**核心结论**：Flow Matching 是 pi0 相比 Diffusion Policy 的核心效率优势，10 步推理即可达到高质量动作。
+
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |

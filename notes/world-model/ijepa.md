@@ -73,6 +73,17 @@ $$L = \sum_{i \in \text{targets}} \| \text{Predictor}_\theta(s_{ctx})_i - s_{tgt
 
 I-JEPA 就像看图猜局部——给你看一张图的大部分区域（context），让你猜被遮住的一大块（target）在 latent 空间的样子。猜的块越大、越语义化，你学到的东西就越"理解"图像的高层结构。但如果你猜的块太小（只有几个像素），你学到的只是纹理。关键不是猜什么（像素 vs 表示），而是猜多大。
 
+## 消融实验与分析
+
+| 消融因子 | 变化 | 结论 |
+|---------|------|------|
+| Target block 尺度 | semantic (15-20% area) vs small | 语义级 target 产生更语义化的表征 |
+| Context block 分布 | 空间分散 vs 集中 | 分散 context 学到语义，集中 context 仅学到纹理 |
+| Target block 数量 | 4 vs 1 vs 8 | 多 target 迫使 predictor 学习更通用的表征 |
+| EMA 更新 tau | 0.99 vs 0.9 vs 0.999 | tau=0.99 在稳定性和更新速度间最优 |
+
+**核心结论**：Target block 的尺度是最关键的消融发现——尺度决定了下游任务的语义层级。Mask 策略是 JEPA 的灵魂。
+
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |

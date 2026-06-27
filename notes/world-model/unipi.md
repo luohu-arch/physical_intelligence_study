@@ -72,6 +72,16 @@ UniPi 的核心直觉：**把"规划"变成"拍电影"**。传统规划器在抽
 | 长序规划 | 粗到细视频生成处理 multi-step |
 | Internet 知识迁移 | 从 YouTube 视频到真实机器人操作 |
 
+## 消融实验与分析
+
+| 消融因子 | 变化 | 结论 |
+|---------|------|------|
+| Tiling 策略 | with vs without tiling | Tiling 保持环境一致性，防止背景漂移 |
+| Internet 预训练 | with vs without YouTube data | Internet 预训练知识迁移至关重要 |
+| Hierarchical planning | coarse-to-fine vs single resolution | 层次化规划处理长序列更有效 |
+
+**核心结论**：Tiling 和 Internet-scale 预训练是 UniPi 最关键的设计——前者保证环境一致性，后者提供常识性的物体交互知识。
+
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |
