@@ -10,6 +10,7 @@ papers/
   vla-reasoning/    — Reasoning-action fusion + visual foresight (PaLM-E, GR00T N1, F1-VLA, etc.)
   world-model/      — World models, JEPA, video prediction (Dreamer, TD-MPC2, UniPi, etc.)
   data-infra/       — Datasets, teleoperation, self-improvement (Open X-Embodiment, ACT, etc.)
+  perception/       — SLAM, odometry, sensor perception (FAST-LIO2, etc.)
   YYYY-MM-DD/       — Incrementally pulled PDFs, organized by pull date
 notes/
   vla-architecture/ — Reading notes for VLA architecture papers
@@ -17,12 +18,11 @@ notes/
   world-model/      — Reading notes for world model papers
   data-infra/       — Reading notes for data + infrastructure papers
   industry/         — Commercial briefs without public papers (GEN-1, GENE-26.5, etc.)
-  YYYY-MM-DD/       — Reading notes for incrementally pulled papers
-tables/            — CSV watchlists, paper matrices, and taxonomy
+  perception/       — Reading notes for SLAM and perception papers
+tables/            — CSV watchlists, paper matrices, taxonomy, master curriculum (vla.md), and tech evolution
 plans/             — Reading plans and curricula
 labs/              — Lab and advisor research analysis for PhD applications
 skills/            — Automation skills for paper discovery and organization
-vla.md             — Master VLA research overview and curriculum
 ```
 
 ## Available Skills
