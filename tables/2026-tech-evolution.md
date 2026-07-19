@@ -119,7 +119,9 @@ VLA ───────────┼── 推理增强路线 ─── PALM
                 │
                 ├── 符号推理路线 ─── SymSkill, VoxPoser
                 │
-                └── 高效部署路线 ─── FLOWER, Octo, LLaDA-VLA, BridgeVLA
+                ├── 动作表示革新 ─── FAST, MINT (频域), XR-1 (VQ), G0.5 (ActionCodec)
+                │
+                └── 高效/工业落地 ─── LingBot-VLA 2.0, Green-VLA, FLOWER, Fabrica
 ```
 
 **融合趋势**：这些路线不是互斥的。未来最强 VLA 可能是 3D perception + world model + reasoning + RL self-improvement 的组合。
@@ -154,16 +156,38 @@ VLA ───────────┼── 推理增强路线 ─── PALM
 | **VLA-FixBench** | VLA 故障诊断与恢复 benchmark：VLM-VLA 协作定位时空偏差并回滚，真机 +35% |
 | **Anchor-Centric Adaptation** | 识别 "diversity trap"：先锚定核心场景再扩展边界，同等预算优于均匀采样 |
 
-### RSS 2026（7 月）精选
+### RSS 2026 精选
 
-- **Best Paper Finalist**: Configuration Space Distance Fields for Manipulation Planning
-- **BiDemoSyn**：1 次真实示教 → 自动合成数千条双臂数据
-- **TactAlign**（UC Berkeley/Meta）：触觉手套实现人机策略零样本迁移
-- **SID**（HKUST）：2 次示教保持 ~90% 成功率
+| 论文 | 核心贡献 |
+|------|---------|
+| **FlashSAC (Best Paper)** | 低 UTD off-policy RL, 2.5M 模型, 60+ 任务 SOTA, 人形 <20min sim-to-real |
+| **MINT** | DCT 频谱分解: 意图 vs 执行, one-shot 迁移 +60% |
+| **RISE** | 组合世界模型: imagination RL, 真机 +35-45% |
+| **SimDist** | 仿真蒸馏世界模型, 15-30min 数据, peg 25%→85% |
+| BiDemoSyn | 1 次示教→数千条双臂数据 |
+| SID (HKUST) | 2 次示教 ~90% 成功率 |
 
-## 对你（申请者）的启示
+### 产业/开源 7 月
 
-1. **World model 是最活跃的交叉点**：同时连接 VLA（LingBot-VA）、3D（FP3）、RL（Dreamer v3）和推理（PALM）。如果你要做 world model + manipulation，可以横跨多条路线。
-2. **3D 是不可避免的方向**：FP3 证明了 2D→3D 有几十个百分点的增益。丁方的 4D radar 天然提供 3D 信息，这是一个独特的交叉优势。
-3. **数据效率不再是瓶颈**：5 分钟数据（SymSkill）→ 50 demos（LingBot-VA）→ 80 demos（FP3）。manipulation 方向不需要 π0 级别的海量数据。
-4. **因果世界模型是新范式**：LingBot-VA 证明了 "先预测未来，再解码动作" 比直接映射好。这和丁方的 expertise（RadarOcc 做占据预测 → 世界模型做时序预测）直接衔接。
+| 工作 | 核心 |
+|------|------|
+| **LingBot-VLA 2.0** | 60K h, 20+ 构型, 55D, MoE, <130ms, 开源, 超越 π0.5 |
+| **WEAVER (CMU+Mila)** | 离线 improvement +38% over π0.5, zero-interaction |
+| **PAIWorld (中科院)** | 3D 一致世界模型, WorldArena 第一 |
+| **Green-VLA (Sber)** | 五阶段训练, CALVIN 4.62 |
+| **ROVE (小鹏)** | 人形人在环 RL, OVE 过滤不完美干预 |
+
+### ICRA 2026 补充
+
+| 论文 | 奖项 |
+|------|------|
+| **IMR-LLM** | Best Paper on Automation |
+| **FAST-LIVO2** | King-Sun Fu Memorial Best Paper |
+| **FlashSAC** → 实为 RSS 2026 Best Paper |
+
+## 对你（申请者）的最新定位
+
+1. **World model 爆发窗口**：RISE + WEAVER + PAIWorld + SimDist + LingBot-VA，5 篇世界模型论文同时在 2026 顶会出现——这个方向正在从学术研究走向实用。你的积累直接命中这个窗口
+2. **RL for VLA 是新蓝海**：FlashSAC (RSS Best) + RL Token + ROVE + SimpleVLA-RL。VLA 从模仿走向 RL 自改进是确定趋势，竞争者还不多
+3. **频域动作表示是差异点**：FAST + MINT 都用 DCT——刚起步，切入空间大
+4. **3D 不可避免**：FP3 + PAIWorld + View-Invariant 同时证明 2D 天花板已到
