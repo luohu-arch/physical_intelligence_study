@@ -20,6 +20,17 @@ MINT 提出模仿学习应模仿"行为意图"而非"轨迹细节"。用 DCT 将
 
 ## 底层原理与数学推导
 
+```mermaid
+graph LR
+    ACT["Action Chunk"] --> DCT["DCT 频谱分解"]
+    DCT --> INTENT["低频 → Intent Token (S1)"]
+    DCT --> EXEC["高频 → Execution Tokens (S2-Sk)"]
+    INTENT --> VQ1["VQ-VAE Scale 1"]
+    EXEC --> VQ2["VQ-VAE Scale 2..k"]
+    VQ1 --> RECON["渐进重建 (S1→Sk)"]
+    VQ2 --> RECON
+```
+
 DCT 将 action chunk $a_{1:T}$ 变换为频谱系数 $c_{1:K}$，其中 $c_{1:k_1}$ → Intent (S1), $c_{k_1+1:k_2}$ → S2... 多尺度 VQ-VAE 用渐进重建 loss 确保不同尺度的 codebook 专门化于不同频率分量。
 
 ## 物理直觉解释

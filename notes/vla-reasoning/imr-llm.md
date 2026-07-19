@@ -19,6 +19,16 @@ IMR-LLM 用 LLM 做"翻译器"——LLM 将自然语言任务转为析取图(dis
 
 ## 底层原理与数学推导
 
+```mermaid
+graph LR
+    NL["自然语言任务"] --> LLM1["LLM: 任务分解 + 机器人分派"]
+    LLM1 --> GRAPH["析取图 (Disjunctive Graph)"]
+    GRAPH --> SOLVER["OR 求解器 (最优调度)"]
+    SOLVER --> SCHEDULE["无死锁调度方案"]
+    SCHEDULE --> LLM2["LLM: Process Tree 路径选择"]
+    LLM2 --> CODE["可执行 Python 代码"]
+```
+
 析取图: 节点=操作工序, 边=优先约束+资源冲突。LLM 生成图的节点和边结构，经典 Johnson 或遗传算法在图上求解最优调度。
 
 ## 物理直觉解释

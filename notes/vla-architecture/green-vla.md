@@ -20,7 +20,15 @@ Green-VLA 提出五阶段训练范式（L0 VLM 预训练→L1 多模态 groundin
 
 ## 底层原理与数学推导
 
-基于 Qwen3-VL-4B 或 PaliGemma 3B backbone + Flow Matching action expert + FAST tokenizer。五阶段训练 L0→L1→R0→R1→R2，R2 阶段用 RL 超越 BC 性能上限。
+```mermaid
+graph LR
+    L0["L0: VLM 预训练 (Internet-scale)"] --> L1["L1: 多模态 Grounding (24M web)"]
+    L1 --> R0["R0: 跨具身预训练 (3000h, 184M samples)"]
+    R0 --> R1["R1: 具身特定微调"]
+    R1 --> R2["R2: RL 策略对齐 (超越 BC)"]
+```
+
+基于 Qwen3-VL-4B 或 PaliGemma 3B backbone + Flow Matching action expert + FAST tokenizer。五阶段训练每阶段有明确目标和数据配比，64D 统一动作空间覆盖人形/移动操作/固定臂。
 
 ## 物理直觉解释
 
