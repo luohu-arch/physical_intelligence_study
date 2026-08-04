@@ -11,7 +11,7 @@ papers/
   world-model/      — World models, JEPA, video prediction (Dreamer, TD-MPC2, UniPi, etc.)
   data-infra/       — Datasets, teleoperation, self-improvement (Open X-Embodiment, ACT, etc.)
   perception/       — SLAM, odometry, sensor perception (FAST-LIO2, etc.)
-  YYYY-MM-DD/       — Incrementally pulled PDFs, organized by pull date
+  memory/           — Robot memory, TTT, world model memory (RoboTTT, MemoryWAM, etc.)
 notes/
   vla-architecture/ — Reading notes for VLA architecture papers
   vla-reasoning/    — Reading notes for reasoning-action papers
