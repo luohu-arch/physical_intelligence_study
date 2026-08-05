@@ -1,0 +1,1064 @@
+IEEE ROBOTICS AND AUTOMATION LETTERS. PREPRINT VERSION. ACCEPTED DECEMBER, 2024
+1
+GR-MG: Leveraging Partially-Annotated Data via Multi-Modal
+Goal-Conditioned Policy
+Peiyan Li1,2†, Hongtao Wu3∗‡, Yan Huang1,2∗, Chilam Cheang3, Liang Wang1,2, Tao Kong3
+Abstract—The robotics community has consistently aimed to
+achieve generalizable robot manipulation with flexible natural
+language instructions. One primary challenge is that obtain-
+ing robot trajectories fully annotated with both actions and
+texts is time-consuming and labor-intensive. However, partially-
+annotated data, such as human activity videos without action
+labels and robot trajectories without text labels, are much
+easier to collect. Can we leverage these data to enhance the
+generalization capabilities of robots? In this paper, we propose
+GR-MG, a novel method which supports conditioning on a text
+instruction and a goal image. During training, GR-MG samples
+goal images from trajectories and conditions on both the text
+and the goal image or solely on the image when text is not
+available. During inference, where only the text is provided, GR-
+MG generates the goal image via a diffusion-based image-editing
+model and conditions on both the text and the generated image.
+This approach enables GR-MG to leverage large amounts of
+partially-annotated data while still using languages to flexibly
+specify tasks. To generate accurate goal images, we propose
+a novel progress-guided goal image generation model which
+injects task progress information into the generation process. In
+simulation experiments, GR-MG improves the average number
+of tasks completed in a row of 5 from 3.35 to 4.04. In real-robot
+experiments, GR-MG is able to perform 58 different tasks and
+improves the success rate from 68.7% to 78.1% and 44.4% to
+60.6% in simple and generalization settings, respectively. It also
+outperforms comparing baseline methods in few-shot learning of
+novel skills. Video demos, code, and checkpoints are available on
+the project page: https://gr-mg.github.io/.
+Index Terms—Deep Learning in Grasping and Manipulation,
+Imitation Learning, Learning from Demonstration
+I. INTRODUCTION
+T
+HE robotics research community is striving to achieve
+generalizable robot manipulation using language-based
+instructions. Among various methods, imitation learning from
+human demonstrations is one of the most promising endeavors
+[1]–[5]. However, human demonstration data are scarce. And
+the process of collecting human demonstrations with action
+and text labels is time-consuming and labor-intensive. On the
+Manuscript received: August, 12, 2024; Revised November, 15, 2024;
+Accepted Decemeber, 17, 2024.
+This paper was recommended for publication by Editor Markus Vincze
+upon evaluation of the Associate Editor and Reviewers’ comments.
+Digital Object Identifier (DOI): see top of this page.
+† Work done during internship at Bytedance Research.
+* Corresponding author ‡ Project lead
+1New Laboratory of Pattern Recognition (NLPR), State Key Laboratory of
+Multimodal Artificial Intelligence Systems (MAIS), Institute of Automation,
+Chinese Academy of Sciences. 2School of Artificial Intelligence, University
+of Chinese Academy of Sciences. 3ByteDance Research
+peiyan.li@cripac.ia.ac.cn
+wuhongtao.123@bytedance.com
+yhuang@nlpr.ia.ac.cn
+other hand, trajectories without language annotations are a
+scalable source of data. They do not require executing pre-
+defined tasks or text labeling, and can be collected without
+human constant supervision [6]. These data can be automati-
+cally labeled with hindsight goal relabeling [7]: any frame in a
+video can be used as a goal image to condition the policy for
+predicting actions to evolve towards this frame from previous
+frames. Furthermore, there is a substantial collection of text-
+annotated human activity videos without action labels from
+various public datasets [8]–[10]. These data contain valuable
+information about how the agent should move to change
+the environment according to the text description. Can we
+develop a policy to effectively leverage all the above partially-
+annotated data?
+Previous methods have ventured into this domain, but most
+were limited to using data without either text labels or action
+labels [4], [7], [11]–[13]. Recent initiatives introduce diffusion
+models for generating goal images [14] and future videos [15],
+[16]. The generated image or video is then used as inputs
+for goal-conditioned policies or inverse dynamics models to
+predict actions, enabling the use of all the above-mentioned
+partially-annotated data. However, these approaches often
+overlook crucial information, such as task progress, during the
+goal generation phase. This can lead to inaccurate generated
+goals which may significantly affect the subsequent action
+prediction. Furthermore, these policies rely solely on the goal
+image or video for action prediction, making them brittle in
+the case where the generated goal is inaccurate.
+To tackle these issues, we introduce GR-MG, a model
+designed to support multi-modal goals. It comprises two
+modules: a progress-guided goal image generation model and
+a multi-modal goal-conditioned policy. GR-MG is able to
+leverage data without action labels (e.g., text-annotated human
+activity videos) to train the goal image generation model
+along with the fully-annotated robot trajectories. And data
+without text labels can be used for training the multi-modal
+goal-conditioned policy. Given that robot manipulation is a
+sequential decision-making process, we incorporate a novel
+task progress condition into the goal image generation model.
+This significantly improves the performance on both the goal
+image generation and action prediction. During training, we
+sample goal images from trajectories and condition the policy
+on both the goal image and the text instruction or solely the
+goal image if text is unavailable. During inference, the policy
+utilizes both the text instruction and the goal image generated
+by the goal image generation model to predict actions. Since
+GR-MG is conditioned on both the text and goal image, the
+policy can still rely on the text condition to guide action
+arXiv:2408.14368v2  [cs.RO]  23 Dec 2024
+
+2
+IEEE ROBOTICS AND AUTOMATION LETTERS. PREPRINT VERSION. ACCEPTED DECEMBER, 2024
+Progress-guided Goal 
+Image Generation Model
+Multi-Modal 
+Goal-Conditioned
+Policy
+Progress
+Goal 
+Image
+Text
+Language
+Action
+“close the drawer”
+“moving tomato across a surface until it 
+falls down”
+“press the toaster switch”
+“pulling knife from right to left”
+“open the drawer”
+“pick up the red block lying in the 
+drawer”
+GR-MG
+Real Robot
+Simulation
+Data w/o Action Labels
+Data w/o Text Labels
+Fully-Annotated Robot 
+Data
+Language
+Action
+Language
+Action
+Action
+“close the drawer”
+Fig. 1.
+Overview. GR-MG consists of two modules: a progress-guided goal image generation model and a multi-modal goal-conditioned policy. The former
+generates a goal image based on the current observation, text instruction, and task progress. The latter predicts task progress and actions based on the text
+and the goal image produced by the former. Data without action labels can be used to train the goal image generation model, while the multi-modal goal-
+conditioned policy can leverage data without text labels. Fully-annotated data is used for training both modules.
+prediction even if the generated goal image is inaccurate,
+substantially improving the robustness of the model.
+We perform extensive experiments on the challenging
+CALVIN simulation benchmark [17] and a real-robot platform.
+In CALVIN, without using additional partially-annotated data,
+GR-MG significantly outperforms all the comparing state-
+of-the-art methods in a zero-shot generalization setting. It
+improves the success rates of completing 1 and 5 tasks in a
+row from 93.8% to 96.8% and 41.2% to 64.4%, respectively.
+When incorporating data without text labels into training, GR-
+MG achieves an average length of 3.11 with only 10% of
+the provided fully-annotated data, outperforming the com-
+petitive GR-1 [4] baseline which uses all the data. In real-
+robot experiments, we evaluate GR-MG in a simple and four
+challenging generalization settings. In total, GR-MG is able
+to perform 58 tasks and improves the average success rate
+from 68.7% to 78.1% in the simple setting and from 44.4%
+to 60.6% in generalization settings. GR-MG also surpasses
+comparing baseline methods in few-shot learning of novel
+skills. In summary, the contribution of this paper is threefold:
+• We propose a novel Generative Robot Policy with Multi-
+modal Goals (GR-MG), which is able to leverage both
+data without action labels and data without text labels
+during training.
+• We introduce the task progress condition in goal image
+generation, substantially improving the accuracy of the
+generated goal image.
+• We perform extensive experiments and ablation studies in
+simulation and the real world to verify the effectiveness of
+GR-MG in simple, generalization, and few-shot learning
+settings.
+II. RELATED WORK
+A. Leveraging Multi-Modal Goals in Policy Learning
+Language is probably the most flexible and intuitive way
+for a human to specify tasks for a robot [1], [2], [4], [5],
+[18]. However, language and visual signals exist in different
+domains. And the information contained in a language instruc-
+tion may be abstract for a visual policy to comprehend. A
+line of research explores goal-image conditioned policies [19],
+[20]. But obtaining goal images during rollouts is challenging
+in robot manipulation tasks. Recently, some studies have
+proposed leveraging both language and visual goals (goal
+images or videos) as conditions during training [3], [7], [21]–
+[24]. And Mutex [25] is able to leverage multiple modal-
+ities for task specification, including speech, text, images,
+and videos. However, in language-conditioned manipulation,
+where language is the only condition provided, these methods
+do not generate goal images. Instead, they rely solely on
+the language to condition the prediction of actions during
+inference. GR-MG differs from these methods in that it uses
+both the language and the goal image during training and
+inference. And the goal image is generated via a diffusion
+model from the language and current observation. The most
+related work to GR-MG is Susie [14]. It also uses a diffusion
+model to generate the goal image. The goal image is then
+fed into a diffusion policy [26] for action prediction. GR-MG
+follows a similar paradigm but differs in two key aspects.
+First, it introduces a novel task progress condition in goal
+image generation, significantly enhancing the accuracy of the
+generated goal image. Second, GR-MG conditions the policy
+with both the language and goal image, whereas Susie relies
+solely on the generated goal images. This design enables GR-
+MG to address situations where the generated goal image is
+inaccurate, thereby improving its robustness in challenging
+out-of-distribution settings.
+B. Leveraging Partially-Annotated Data in Policy Learning
+Given that collecting fully-annotated robot data with action
+and language labels is time-consuming, many studies turn
+to alternative sources of data with partial annotations. One
+approach involves learning useful representations from text-
+annotated videos without action labels, which are subsequently
+used for downstream policy learning [27]–[29]. Recently,
+RT-2 [2] introduces a vision-language-action model that in-
+corporates both robot data and large-scale vision-language
+data during training, demonstrating powerful generalization
+capabilities. Another popular method is to learn a video model
+
+LI et al.: GR-MG: LEVERAGING PARTIALLY-ANNOTATED DATA VIA MULTI-MODAL GOAL-CONDITIONED POLICY
+3
+Multi-Modal Goal-Conditioned Policy
+×T
+“pick up the 
+red block 
+lying in the 
+drawer”
+“pick up the red 
+block lying in the 
+drawer. And {0%} of 
+the instruction has 
+been finished.”
+Progress-
+guided 
+Goal Image
+Generation
+Model
+Robot
+State
+[PROG]
+[OBS0]
+[ACT]
+Action
+Trajectory
+progress 
+{5%}
+[OBS1]
+𝑜!
+"
+𝑜!
+#
+𝑜!$%
+"
+𝑜!$%
+#
+Every n steps
+Update
+Fig. 2.
+Network Architecture. We use a diffusion model to generate the goal image based on the current image, text instruction, and task progress. The
+generated goal image is then sent to the multi-modal goal-conditioned policy, which takes as inputs the text instruction, sequences of observations images
+and robot states. The policy is a GPT-style transformer. We insert query tokens [PROG], [OBS], and [ACT] after the input tokens to predict actions, future
+images, and the task progress, respectively. The progress is fed back to the goal image generation model. In this figure, we show the setup with two camera
+views: a static view and a view captured from a wrist-mounted camera.
+or world model from existing video data to predict future
+videos [11], [15], [16], [30]. An inverse dynamics model or
+goal-conditioned policy is then employed to predict actions
+based on the predicted video. Recently, Wu et al. [4] proposes
+GR-1, which is pretrained on large-scale text-annotated videos
+and then finetuned on robot trajectories with text labels.
+GR-MG differs from GR-1 in two aspects. First, GR-MG
+leverages data without text labels during training, while GR-
+1 does not. Second, GR-MG utilizes both the language and
+goal image as conditions, whereas GR-1 relies solely on the
+language. These differences significantly enhance GR-MG’s
+generalization capabilities.
+III. METHOD
+We aim to learn a policy π for language-conditioned visual
+robot manipulation. Specifically, the policy takes as inputs a
+text instruction l, a sequence of observation images ot−h:t,
+and a sequence of robot states st−h:t. The observation images
+ot−h:t include RGB images captured from timestep t −h to
+t. In this paper, we use a static camera and a wrist-mounted
+camera to capture these images. The robot states st−h:t include
+the 6-DoF poses of the end-effector and the binary gripper
+states from timestep t −h to t. The policy outputs an action
+trajectory at in an end-to-end manner:
+at = π(l, ot−h:t, st−h:t)
+(1)
+A. Data
+Training a language-conditioned policy typically requires
+fully-annotated robot trajectories τ which contain both action
+and text labels:
+τ = {l, (o1, s1, a1), (o2, s2, a2), . . . , (oT , sT , aT )}
+(2)
+However, collecting fully-annotated data is time-consuming.
+The motivation behind GR-MG is to leverage partially-
+annotated data in training. There are two main types of
+partially-annotated data: data without action labels and data
+without text labels. For brevity, we abbreviate them as data w/o
+action labels and data w/o text labels, respectively, throughout
+the rest of the paper.
+Data w/o action labels contains videos with text annotations
+but does not include action labels. This type of data can be
+readily sourced from various public datasets [8]–[10]. Data
+w/o text labels, on the other hand, contains videos with corre-
+sponding action labels but does not include text annotations.
+They can be collected on a large scale by allowing robots to
+execute policies without constant human supervision [6]. GR-
+MG is designed to leverage both types of partially-annotated
+data along with fully-annotated data to maximum the usage of
+data available.
+B. Network Architecture
+The network architecture of GR-MG is illustrated in Fig. 2.
+It consists of two modules: a progress-guided goal image
+generation model and a multi-modal goal-conditioned policy.
+1) Progress-guided Goal Image Generation Model: This
+module generates the goal image based on the current ob-
+servation image, a text description of the task, and the task
+progress. Specifically, we use InstructPix2Pix [31], a diffusion-
+based image-editing model, as the network. Following the
+approach in Susie [14], we generate a sub-goal representing
+an intermediate state rather than the final state, and update the
+sub-goal at fixed time intervals during the rollout. However,
+unlike Susie which generates the goal image solely based on
+the current observation and the text instruction, we incorporate
+task progress information in the image generation process. The
+insight is that robot manipulation is a sequential decision pro-
+cess instead of static image editing. Additionally, the current
+observation can be ambiguous in the case where there are
+identical observations throughout the rollout of a task, e.g.,
+moving an object back-and-forth. The progress information
+can provide valuable global information for goal image gen-
+eration. During training, the progress of a frame can be easily
+obtained from its timestep in the trajectory (or video). During
+
+4
+IEEE ROBOTICS AND AUTOMATION LETTERS. PREPRINT VERSION. ACCEPTED DECEMBER, 2024
+inference, such information is not accessible. To address this,
+we train the policy to predict task progress alongside the
+action trajectory, as outlined in the following paragraph. To
+incorporate progress information into the generation model, we
+append a sentence to the task description, e.g., "pick up the red
+block. And 60% of the instruction has been completed.".
+We use T5-Base [32] to encode the text.
+2) Multi-modal Goal-Conditioned Policy: Following GR-
+1 [4], we employ a similar GPT-style transformer net-
+work [33]. We briefly review GR-1 for completeness. GR-1
+takes as inputs a text instruction, a sequence of observation
+images, and a sequence of robot states. It outputs actions
+and future images. The inputs are encoded into tokens with
+corresponding encoders [34], [35] or linear layers. GR-1
+leverages an [ACT] query token and multiple [OBS] query
+tokens for action and future image prediction, respectively. The
+query tokens and the input tokens are concatenated together
+before being fed into the transformer. The output embedding
+of the [ACT] token are passed through linear layers to predict
+actions. The output embeddings of the [OBS] tokens are
+concatenated with learnable mask tokens to predict future
+images with a transformer. We refer readers to [4] for more
+details.
+GR-MG differs from GR-1 in three ways. Firstly, GR-MG
+is a multi-modal goal-conditioned policy which takes a goal
+image and a text instruction as conditions; GR-1 only uses
+the text for conditioning. To inject the goal image condition,
+we use MAE [35] to tokenize the goal image generated by
+the goal image generation model and append the tokens at
+the front of the input token sequence (Fig. 2). These tokens
+can be attended by all the subsequent tokens for conditioning.
+Secondly, in order to predict task progress, a [PROG] query
+token is included. The output embedding of the token is passed
+through linear layers to regress the progress value. Finally, we
+follow recent work [36] to predict action trajectories instead
+of a single action as in GR-1 via a conditional variational
+autoencoder (cVAE) [37], [38]. Specifically, we use a VAE
+encoder to encode the action trajectory into a style vector
+embedding. We concatenate the style vector embedding, the
+output embedding of the [ACT] token, and k learnable token
+embeddings together and input them to a transformer for
+predicting an action trajectory of k steps.
+C. Training
+To train the goal image generation model, we follow the
+training setting in InstructPix2Pix [31] and train a noise pre-
+diction model as in DDPM [39]. We sample the frame which
+is N steps away from the current frame in the trajectory/video
+as the goal image. As a rough task progress can already be
+very informative and can bring about more stable training, we
+discretize the task progress predicted from the policy from
+0% to 100% into 10 bins before passing it to the goal image
+generation model. As the training of goal image generation
+model only requires videos with text annotations, we are able
+to incorporate data w/o action labels in the training alongside
+the fully-annotated robot trajectories.
+For training the multi-modal goal-conditioned policy, we
+initialize its weight with the pre-trained model weight derived
+from the generative video pre-training on Ego4d [10] in
+alignment with GR-1 [4]. The multi-modal goal conditioning
+allows the policy to utilize partially-annotated data w/o text
+labels. Specifically, if data w/o text labels is available, we first
+train the policy with the data, where a null string is provided
+as the text condition. After that, we finetune the policy on
+fully-annotated robot trajectories.
+The input task progress in the training of the goal image
+generation model is computed from the timestep of the image
+frame in the video. The goal image in the training of the policy
+is sampled from the ground-truth goal image in the trajectory.
+Therefore, the training of the two modules are independent.
+We leave the investigation of jointly training the two modules
+as future work.
+D. Inference
+During inference, the task progress is initially set as zero.
+And the goal image generation model uses the current obser-
+vation image, text instruction, and task progress to generate the
+goal image. The goal image is passed to the multi-modal goal-
+conditioned policy together with the text instruction, sequence
+of observation images, and sequence of robot states to predict
+action trajectories and task progress. As the goal image is set
+as N steps away from the current image in training, we run
+the goal image generation model only every n < N steps in
+a closed-loop manner for efficiency.
+IV. EXPERIMENTS
+We perform extensive experiments in a simulation bench-
+mark and the real world to evaluate the performance of
+GR-MG. We aim to answer three questions. 1) Can GR-
+MG perform multi-task learning and deal with challenging
+generalization settings including unseen distractors, unseen
+instructions, unseen backgrounds, and unseen objects? 2) Does
+incorporating data w/o text labels enhance the performance of
+GR-MG, especially when fully-annotated data is scarce? 3)
+How does the inclusion of data w/o action labels improve the
+performance of GR-MG? 4) Can GR-MG learn novel skills in
+a few-shot setting?
+A. CALVIN Benchmark Experiments
+1) Experiment Settings: We perform experiments in the
+challenging CALVIN [17] benchmark environment. CALVIN
+focuses on language-conditioned visual robot manipulation. It
+contains 34 tasks and four different environments, i.e., Env
+A, B, C, and D (Fig. 3). Each environment contains a Franka
+Emika Panda robot with a parallel-jaw gripper and a desk for
+performing different manipulation tasks.
+As indicated by [17], only 1% of the collected trajectories
+were annotated with texts. The remaining trajectories with-
+out text labels contain unstructured play data collected by
+untrained users with no information about the downstream
+tasks. These trajectories can be used as data w/o text labels for
+training the multi-modal goal-conditioned policy of GR-MG.
+We refer the readers to [17] for more details on the dataset.
+
+LI et al.: GR-MG: LEVERAGING PARTIALLY-ANNOTATED DATA VIA MULTI-MODAL GOAL-CONDITIONED POLICY
+5
+TABLE I
+RESULTS ON THE ABC->D SPLITS OF CAVLIN BENCHMARK
+Method
+Fully-Annotated
+Data
+Partially-Annotated
+Data
+No. Instructions in a Row (1000 chains)
+1
+2
+3
+4
+5
+Avg. Len.
+Hulc [23]
+100%
+✓
+41.8%
+16.5%
+5.7%
+1.9%
+1.1%
+0.67±0.10
+MDT [22]
+100%
+✓
+61.7%
+40.6%
+23.8%
+14.7%
+8.7%
+1.54±0.04
+Spil [40]
+100%
+✓
+74.2%
+46.3%
+27.6%
+14.7%
+8.0%
+1.71
+Roboflamingo [5]
+100%
+×
+82.4%
+61.9%
+46.6%
+33.1%
+23.5%
+2.47
+Susie [14]
+100%
+✓
+87.0%
+69.0%
+49.0%
+38.0%
+26.0%
+2.69
+GR-1 [4]
+100%
+×
+85.4%
+71.2%
+59.6%
+49.7%
+40.1%
+3.06
+3D Diff Actor [41]
+100%
+×
+93.8%
+80.3%
+66.2%
+53.3%
+41.2%
+3.35±0.04
+GR-MG w/o image
+100%
+×
+91.0%
+79.1%
+67.8%
+56.9%
+47.7%
+3.42±0.28
+GR-MG w/o text
+100%
+×
+91.8%
+79.8%
+68.9%
+58.1%
+48.1%
+3.46±0.04
+GR-MG w/o progress
+100%
+×
+94.1%
+85.0%
+75.2%
+65.4%
+56.3%
+3.76±0.11
+GR-MG (Ours)
+100%
+×
+96.8%
+89.3%
+81.5%
+72.7%
+64.4%
+4.04±0.03
+GR-1 [4]
+10%
+×
+67.2%
+37.1%
+19.8%
+10.8%
+6.9%
+1.41±0.06
+GR-MG w/o part. ann. data
+10%
+×
+82.4%
+60.8%
+42.2%
+28.7%
+19.7%
+2.33±0.04
+GR-MG (Ours)
+10%
+✓
+90.3%
+74.5%
+61.2%
+47.4%
+37.5%
+3.11±0.08
+"100%" and "10%" denote the proportion of fully-annotated data used for training. "w/o progress" indicates that task progress is not provided for the goal
+image generation model. "w/o text" indicates that the policy uses only the goal image as the condition. "w/o image" indicates that the policy uses only
+the text as the condition. "w/o part. ann. data" indicates that the policy does not use the trajectories without text labels for training.
+CALVIN Benchmark
+Real-Robot Experiments
+open the drawer
+pick up the red 
+block lying in 
+the drawer
+grasp the red block 
+and turn it right
+slide the door 
+to the left
+flip cup upright
+pick up the 
+mandarin from the 
+green plate
+pick up the green 
+bottle from the 
+white box
+uncap the white mug
+open the oven
+close the drawer
+pour the black 
+seasoning powder in 
+the red bowl
+press the toaster 
+switch
+Env A
+Env B
+Env C
+Env D
+Env A
+Env B
+Env C
+Env D
+Fig. 3. Experiments. CALVIN benchmark consists of 34 tasks across four different environments. Real-robot experiments encompass 58 tasks, including
+pick-and-place and non-pick-and-place manipulations.
+2) Generalization to Unseen Environments: We perform
+experiments on the ABC→D split: we train GR-MG with data
+collected from Env A, B, and C and evaluate in Env D. This
+experiment helps us evaluate the performance of GR-MG on
+handling unseen environments. In total, the number of fully-
+annotated trajectories from Env A, B, and C is about 18k.
+We use these data to train GR-MG. Following the evaluation
+protocol from [17], we command the robot to perform 1,000
+sequences of tasks. Each sequence consists of five tasks in
+a row. The language instruction for a new task is sent to the
+robot only after the current task is successfully completed. We
+train GR-MG with three seeds and evaluate the performance
+of the last five epochs for each seed. We report the mean and
+variance of all these checkpoints.
+We compare GR-MG with various state-of-the-art methods.
+Results are shown in Tab. I. Results of baseline methods are
+sourced from the original papers or provided by the authors.
+GR-MG outperforms all the comparing baseline methods,
+establishing a new state-of-the-art. The average length reported
+in the last column of Tab. I serves as a comprehensive metric,
+indicating the average number of tasks the robot is able
+to accomplish in a row of five across the evaluated 1,000
+sequences. GR-MG improves the average length from 3.35 to
+4.04. Additionally, it increases the success rate of completing
+one and five tasks in a row from 93.8% to 96.8% and from
+41.2% to 64.4%, respectively. These results showcase that GR-
+MG possesses strong capabilities of multi-task learning and
+generalization to unseen environments.
+3) Data Scarcity: Obtaining large-scale fully-annotated tra-
+jectories is challenging, especially in the real world. In this
+experiment, we simulate the data scarcity challenge by training
+GR-MG with only 10% of the fully-annotated data in the
+ABC→D split (about 1.8k trajectories for 34 tasks). However,
+we make use of all the data without text labels in Env A, B,
+and C to train the policy first before finetuning on the 10%
+fully-annotated trajectories. The data w/o text labels contains
+1M frames, while the 10% fully-annotated data contains 0.1M
+frames. Through this experiments, we hope to verify the
+effectiveness of incorporating data w/o text labels in enhancing
+the performance of policy learning. Results are shown in
+Tab. I. GR-MG significantly outperforms GR-1 [4], improving
+the success rate from 67.2% to 90.3% and the average length
+from 1.41 to 3.11. We also compare with a variant of our
+method, GR-MG w/o partially-annotated data (GR-MG w/o
+
+6
+IEEE ROBOTICS AND AUTOMATION LETTERS. PREPRINT VERSION. ACCEPTED DECEMBER, 2024
+Current
+observation
+Ground 
+truth
+GR-MG
+GR-MG w/o 
+progress
+toggle the button 
+to turn on the LED
+light
+store the object in 
+the drawer
+pick up the white bottle 
+from the green plate
+press the toaster switch
+(a)
+GR-MG
+Current observation 
+GR-MG w/o 
+part. ann. data 
+(b)
+Fig. 4. Visualization of the generated goal images in CALVIN Benchmark and Real-Robot Experiments. (a) The generated images of GR-MG closely
+align with the ground truths. Without task progress information, the goal images generated by GR-MG w/o progress diverge from the text instructions. (b)
+Without partially-annotated data, the generated goal images do not adhere to the text instructions and suffer from hallucination.
+TABLE II
+ABLATION STUDIES ON TASK PROGRESS FOR GOAL IMAGE GENERATION
+Method
+MSE ↓
+PSNR ↑
+SSIM ↑
+CD-ResNet50 ↑
+GR-MG w/o progress
+965.347
+18.821
+0.721
+0.945
+GR-MG (Ours)
+903.139
+19.121
+0.730
+0.946
+part. ann. data), which does not utilize the data w/o text labels
+during training. GR-MG significantly outperforms this variant.
+Based on our observation, this variant is capable of generating
+correct goal images most of the time. However, the policy
+often struggles to accurately follow the generated goal image.
+This justifies the usefulness of data w/o text labels in training
+the multi-modal goal-conditioned policy, especially in the case
+where fully-annotated data is scarce.
+4) Ablation Studies: To assess the impact of using multi-
+modal goals as conditions, we compare with two variants,
+GR-MG w/o text and GR-MG w/o image, which remove the
+text condition and goal image condition in the policy during
+training, respectively. We retrain the two variants to ensure fair
+comparison. The performance of these two variants is similar.
+GR-MG significantly outperforms both of them, indicating that
+both modalities are essential for effective policy conditioning.
+To investigate the effectiveness of task progress, we also
+compare with GR-MG w/o progress, which excludes the task
+progress information in the goal image generation model. GR-
+MG surpasses this variant, showcasing the effectiveness of
+incorporating task progress information.
+In addition, we perform quantitative comparison on the goal
+images generated by GR-MG and GR-MG w/o progress. We
+compare the similarity between generated goal images and
+ground truths using four metrics: Mean Squared Error (MSE),
+Peak Signal-to-Noise Ratio (PSNR), Structural Similarity
+Index Measure (SSIM), and Cosine Distance of ResNet50
+Features (CD-ResNet50). Results are shown in Tab. II. GR-
+MG outperforms GR-MG w/o progress in all four metrics,
+underscoring the effectiveness of incorporating task progress
+information in goal image generation. Qualitative results are
+shown in Fig. 4(a). Although GR-MG w/o progress is able to
+generate goal images with high visual quality, these images
+do not align well with the text instructions. In contrast, GR-
+MG accurately follows the text instructions and generates goal
+images that closely match the ground truths.
+B. Real-Robot Experiments
+1) Experiment Settings: To evaluate the performance of
+GR-MG in the real world, we perform experiments on a
+real robot platform. The platform consists of a Kinova Gen-3
+robot arm equipped with a Robotiq 2F-85 parallel-jaw gripper
+and two cameras, i.e., one static camera for capturing the
+workspace and another camera mounted on the end-effector.
+The training dataset consists of 18k human demonstrations
+across 37 tasks, which include 23 pick-and-place tasks and
+14 non pick-and-place tasks such as pouring, flipping, and
+rotating. See Fig. 3 for some examples.
+In this experiment, we aim to verify the effectiveness of
+leveraging data w/o action labels in training. Specifically, we
+combine the data from Something-Something-V2 [8] and RT-
+1 [1] with our real robot data to create the training dataset for
+training the goal image generation model. It is worth noting
+that any videos with text annotations can be included in the
+training process.
+We design five different settings to evaluate the model
+performance: Simple, Unseen Distractors, Unseen Instructions,
+Unseen Backgrounds, and Unseen Objects. In Simple, the
+scene is set to be similar to those in the training data. In
+Unseen Distractors, unseen distractors are added to the scene.
+In Unseen Instructions, we follow [5] and use GPT-4 to
+generate unseen synonyms for the verbs in the instructions.
+For example, we replace "pick up" with "take", "cap" with
+"cover", and "stack" with "pile". In Unseen Backgrounds, the
+background is modified by introducing two new tablecloths
+that were not present in the training data. In Unseen Objects,
+the robot is instructed to manipulate objects that were not
+included in the training dataset. And the language instructions
+are adjusted accordingly, i.e., the language instructions are also
+unseen. In total, we evaluate 58 different tasks: 37 of which
+were seen during training, while the rest were unseen. See
+the appendix on the project page for the full list of training
+tasks and the 58 evaluated tasks. We compare the performance
+of GR-MG with OpenVLA [42], Octo [3], and GR-1 [4]. To
+study the effectiveness of leveraging data w/o action labels, we
+also compare with the variant which only uses fully-annotated
+data for training the goal image generation model, GR-MG
+w/o part. ann. data.
+2) Results: Results are shown in Fig. 5. Real-robot roll-
+out videos can be found in the supplementary material and
+on the project page. GR-MG outperforms all the baseline
+
+LI et al.: GR-MG: LEVERAGING PARTIALLY-ANNOTATED DATA VIA MULTI-MODAL GOAL-CONDITIONED POLICY
+7
+Fig. 5.
+Success Rates of Real-Robot Experiments. Unseen Average shows the average success rate of the four unseen generalization settings.
+methods in all five evaluation settings. A typical failure
+mode of OpenVLA is inaccurate grasping. We believe this
+is because it uses an discretized action space, making the
+action prediction inaccurate. Also, it does not support inputs
+of observation history and wrist camera observation, making
+it difficult to accurately identify the appropriate timestep to
+close/open the gripper in some tasks. Octo supports inputs
+of observation history, proprioceptive data, and observation
+from the wrist camera. However, it is not able to generalize
+well in unseen settings, especially for Unseen Backgrounds
+and Unseen Objects. GR-1 performs well in most settings,
+but it is not able to pick the correct object in the setting of
+Unseen Objects. GR-MG is able to generalize well to unseen
+settings. The performance degradation in Unseen Instructions
+is modest for GR-MG compared to other baseline methods.
+We believe the powerful generalization capabilities of GR-
+MG stem from the video pre-training for both the goal image
+generation model and the policy. It allows the model to harness
+the prior knowledge gained from pre-training to enhance its
+performance in downstream manipulation tasks.
+By comparing with GR-MG w/o part. ann. data, we con-
+clude that additional partially-annotated data w/o action labels
+are crucial for enhancing the generalization capabilities of GR-
+MG. We qualitatively compare the goal images generated by
+GR-MG and GR-MG w/o part. ann. data in Fig. 4(b). GR-
+MG generates high-quality and accurate goal images, while
+the goal images generated by GR-MG w/o part. ann. data
+do not adhere to the language instructions. In the setting
+of Unseen Objects (second row of Fig. 4(b)), the absence
+of additional partially-annotated training data increases the
+likelihood of hallucination: objects from the training set will
+unexpectedly appear in the generated goal images even if
+they are not present in the current scene. These findings
+indicate that incorporating more data w/o action labels into
+training enhances 1) understanding of language semantics and
+2) robustness against out-of-distribution data.
+3) Few-Shot Learning of Novel Skills: We further perform
+experiments to evaluate the few-shot learning capabilities of
+GR-MG. In particular, we first hold out 8 tasks from the 37
+tasks and train the model on the rest 29 tasks. The total number
+of trajectories used for training is 15k. These 8 tasks include
+7 novel skills which are unseen in the 29 training tasks. For
+example, we hold out "wipe the cutting board" and there are
+no wiping tasks in the 29 training tasks. For the full list of
+all the held-out tasks, please see the appendix on the project
+page. After training, we further finetune the model with data
+TABLE III
+SUCCESS RATES OF FEW-SHOT LEARNING
+Methods
+10-shot
+30-shot
+OpenVLA [42]
+0.0%
+2.5%
+Octo [3]
+0.0%
+0.0%
+GR-1 [4]
+2.5%
+22.5%
+GR-MG w/o part. ann. data
+10.0%
+27.5%
+GR-MG (Ours)
+17.5%
+37.5%
+containing 10 (or 30) trajectories per held-out task. That is, the
+total number of trajectories used for finetuning in this stage is
+80 (or 240). We evaluate on the 8 held-out tasks and results
+are shown in Tab. III. GR-MG outperforms all the comparing
+baseline methods in both 10-shot and 30-shot settings. We
+observe that the main bottleneck of GR-MG lies within the
+policy. The goal image generation model is able to generate
+accurate goal images on the these novel skills after few-shot
+finetuning, but the policy struggles to perform well. To tackle
+this challenge, we plan to investigate scaling up the training
+of the policy with more real-world data w/o text labels in the
+future.
+V. CONCLUSIONS
+In this paper, we introduce GR-MG, a novel method that
+leverages multi-modal goals to predict actions. GR-MG uses
+both a language and a goal image to condition the action
+prediction. It requires only the language as input and generate
+the goal image based on the language via a goal image
+generation model. This design enables GR-MG to effectively
+leverage large amounts of partially-annotated data that are
+missing either text or action labels. To improve the robustness
+of the generated goal images, we incorporate task progress
+information in the goal image generation model. GR-MG
+showcases exceptional performance in both simulation and
+real-world experiments, showing strong generalization capa-
+bilities across various out-of-distribution settings. It can also
+efficiently learn novel skills in a few-shot setting. We plan to
+scale up the training of both the goal image generation model
+and the policy by incorporating more partially-annotated data
+in the future. Additionally, we plan to investigate integrating
+depth information to further improve the accuracy of action
+prediction.
+VI. ACKNOWLEDGEMENT
+This work was partially supported by National Natu-
+ral Science Foundation of China (62322607, 62236010 and
+62276261), and Youth Innovation Promotion Association of
+Chinese Academy of Sciences under Grant 2021128.
+
+8
+IEEE ROBOTICS AND AUTOMATION LETTERS. PREPRINT VERSION. ACCEPTED DECEMBER, 2024
+REFERENCES
+[1] A. Brohan, N. Brown, J. Carbajal, Y. Chebotar, J. Dabis, C. Finn,
+K. Gopalakrishnan, K. Hausman, A. Herzog, J. Hsu et al., “Rt-1:
+Robotics transformer for real-world control at scale,” arXiv preprint
+arXiv:2212.06817, 2022.
+[2] A. Brohan, N. Brown, J. Carbajal, Y. Chebotar, X. Chen, K. Choroman-
+ski, T. Ding, D. Driess, A. Dubey, C. Finn et al., “Rt-2: Vision-language-
+action models transfer web knowledge to robotic control,” arXiv preprint
+arXiv:2307.15818, 2023.
+[3] O. M. Team, D. Ghosh, H. Walke, K. Pertsch, K. Black, O. Mees,
+S. Dasari, J. Hejna, T. Kreiman, C. Xu et al., “Octo: An open-source
+generalist robot policy,” arXiv preprint arXiv:2405.12213, 2024.
+[4] H. Wu, Y. Jing, C. Cheang, G. Chen, J. Xu, X. Li, M. Liu, H. Li,
+and T. Kong, “Unleashing large-scale video generative pre-training for
+visual robot manipulation,” in International Conference on Learning
+Representations, 2024.
+[5] X. Li, M. Liu, H. Zhang, C. Yu, J. Xu, H. Wu, C. Cheang, Y. Jing,
+W. Zhang, H. Liu et al., “Vision-language foundation models as effective
+robot imitators,” arXiv preprint arXiv:2311.01378, 2023.
+[6] M. Ahn, D. Dwibedi, C. Finn, M. G. Arenas, K. Gopalakrishnan,
+K. Hausman, B. Ichter, A. Irpan, N. Joshi, R. Julian et al., “Autort:
+Embodied foundation models for large scale orchestration of robotic
+agents,” arXiv preprint arXiv:2401.12963, 2024.
+[7] C. Lynch and P. Sermanet, “Language conditioned imitation learning
+over unstructured data,” Robotics: Science and Systems, 2021. [Online].
+Available: https://arxiv.org/abs/2005.07648
+[8] R. Goyal, S. Ebrahimi Kahou, V. Michalski, J. Materzynska, S. West-
+phal, H. Kim, V. Haenel, I. Fruend, P. Yianilos, M. Mueller-Freitag et al.,
+“The" something something" video database for learning and evaluat-
+ing visual common sense,” in Proceedings of the IEEE international
+conference on computer vision, 2017, pp. 5842–5850.
+[9] A. Miech, D. Zhukov, J.-B. Alayrac, M. Tapaswi, I. Laptev, and
+J. Sivic, “Howto100m: Learning a text-video embedding by watching
+hundred million narrated video clips,” in Proceedings of the IEEE/CVF
+international conference on computer vision, 2019, pp. 2630–2640.
+[10] K. Grauman, A. Westbury, E. Byrne, Z. Chavis, A. Furnari, R. Girdhar,
+J. Hamburger, H. Jiang, M. Liu, X. Liu et al., “Ego4d: Around the world
+in 3,000 hours of egocentric video,” in Proceedings of the IEEE/CVF
+Conference on Computer Vision and Pattern Recognition, 2022, pp.
+18 995–19 012.
+[11] R. Mendonca, S. Bahl, and D. Pathak, “Structured world models from
+human videos,” arXiv preprint arXiv:2308.10901, 2023.
+[12] B. Baker, I. Akkaya, P. Zhokov, J. Huizinga, J. Tang, A. Ecoffet,
+B. Houghton, R. Sampedro, and J. Clune, “Video pretraining (vpt):
+Learning to act by watching unlabeled online videos,” Advances in
+Neural Information Processing Systems, vol. 35, pp. 24 639–24 654,
+2022.
+[13] O. Mees, J. Borja-Diaz, and W. Burgard, “Grounding language with
+visual affordances over unstructured data,” in 2023 IEEE International
+Conference on Robotics and Automation (ICRA).
+IEEE, 2023, pp.
+11 576–11 582.
+[14] K. Black, M. Nakamoto, P. Atreya, H. Walke, C. Finn, A. Kumar,
+and S. Levine, “Zero-shot robotic manipulation with pretrained image-
+editing diffusion models,” arXiv preprint arXiv:2310.10639, 2023.
+[15] Y. Du, S. Yang, B. Dai, H. Dai, O. Nachum, J. Tenenbaum, D. Schu-
+urmans, and P. Abbeel, “Learning universal policies via text-guided
+video generation,” Advances in Neural Information Processing Systems,
+vol. 36, 2024.
+[16] Y. Du, M. Yang, P. Florence, F. Xia, A. Wahid, B. Ichter, P. Sermanet,
+T. Yu, P. Abbeel, J. B. Tenenbaum et al., “Video language planning,”
+arXiv preprint arXiv:2310.10625, 2023.
+[17] O. Mees, L. Hermann, E. Rosete-Beas, and W. Burgard, “Calvin: A
+benchmark for language-conditioned policy learning for long-horizon
+robot manipulation tasks,” IEEE Robotics and Automation Letters, vol. 7,
+no. 3, pp. 7327–7334, 2022.
+[18] H. Bharadhwaj, J. Vakil, M. Sharma, A. Gupta, S. Tulsiani, and
+V. Kumar, “Roboagent: Generalization and efficiency in robot manipu-
+lation via semantic augmentations and action chunking,” arXiv preprint
+arXiv:2309.01918, 2023.
+[19] K. Bousmalis, G. Vezzani, D. Rao, C. Devin, A. X. Lee, M. Bauza,
+T. Davchev, Y. Zhou, A. Gupta, A. Raju et al., “Robocat: A self-
+improving foundation agent for robotic manipulation,” arXiv preprint
+arXiv:2306.11706, 2023.
+[20] D. Shah, A. Sridhar, N. Dashora, K. Stachowicz, K. Black, N. Hirose,
+and S. Levine, “Vint: A foundation model for visual navigation,” arXiv
+preprint arXiv:2306.14846, 2023.
+[21] E. Jang, A. Irpan, M. Khansari, D. Kappler, F. Ebert, C. Lynch,
+S. Levine, and C. Finn, “Bc-z: Zero-shot task generalization with robotic
+imitation learning,” in Conference on Robot Learning.
+PMLR, 2022,
+pp. 991–1002.
+[22] M. Reuss, Ö. E. Ya˘gmurlu, F. Wenzel, and R. Lioutikov, “Multimodal
+diffusion transformer: Learning versatile behavior from multimodal
+goals,” in First Workshop on Vision-Language Models for Navigation
+and Manipulation at ICRA 2024, 2024.
+[23] O. Mees, L. Hermann, and W. Burgard, “What matters in language
+conditioned robotic imitation learning over unstructured data,” IEEE
+Robotics and Automation Letters, vol. 7, no. 4, pp. 11 205–11 212, 2022.
+[24] Y. Jiang, A. Gupta, Z. Zhang, G. Wang, Y. Dou, Y. Chen, L. Fei-Fei,
+A. Anandkumar, Y. Zhu, and L. Fan, “Vima: General robot manipulation
+with multimodal prompts,” arXiv preprint arXiv:2210.03094, vol. 2,
+no. 3, p. 6, 2022.
+[25] R. Shah, R. Martín-Martín, and Y. Zhu, “Mutex: Learning uni-
+fied policies from multimodal task specifications,” arXiv preprint
+arXiv:2309.14320, 2023.
+[26] C. Chi, S. Feng, Y. Du, Z. Xu, E. Cousineau, B. Burchfiel, and S. Song,
+“Diffusion policy: Visuomotor policy learning via action diffusion,”
+arXiv preprint arXiv:2303.04137, 2023.
+[27] S. Nair, A. Rajeswaran, V. Kumar, C. Finn, and A. Gupta, “R3m: A
+universal visual representation for robot manipulation,” arXiv preprint
+arXiv:2203.12601, 2022.
+[28] T. Xiao, I. Radosavovic, T. Darrell, and J. Malik, “Masked visual pre-
+training for motor control,” arXiv preprint arXiv:2203.06173, 2022.
+[29] A. Majumdar, K. Yadav, S. Arnaud, J. Ma, C. Chen, S. Silwal, A. Jain,
+V.-P. Berges, T. Wu, J. Vakil et al., “Where are we in the search for an
+artificial visual cortex for embodied intelligence?” Advances in Neural
+Information Processing Systems, vol. 36, pp. 655–677, 2023.
+[30] M. Yang, Y. Du, K. Ghasemipour, J. Tompson, D. Schuurmans, and
+P. Abbeel, “Learning interactive real-world simulators,” arXiv preprint
+arXiv:2310.06114, 2023.
+[31] T. Brooks, A. Holynski, and A. A. Efros, “Instructpix2pix: Learning
+to follow image editing instructions,” in Proceedings of the IEEE/CVF
+Conference on Computer Vision and Pattern Recognition, 2023, pp.
+18 392–18 402.
+[32] C. Raffel, N. Shazeer, A. Roberts, K. Lee, S. Narang, M. Matena,
+Y. Zhou, W. Li, and P. J. Liu, “Exploring the limits of transfer learning
+with a unified text-to-text transformer,” Journal of machine learning
+research, vol. 21, no. 140, pp. 1–67, 2020.
+[33] A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, I. Sutskever et al.,
+“Language models are unsupervised multitask learners,” OpenAI blog,
+vol. 1, no. 8, p. 9, 2019.
+[34] A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal,
+G. Sastry, A. Askell, P. Mishkin, J. Clark et al., “Learning transferable
+visual models from natural language supervision,” in International
+conference on machine learning.
+PMLR, 2021, pp. 8748–8763.
+[35] K. He, X. Chen, S. Xie, Y. Li, P. Dollár, and R. Girshick, “Masked au-
+toencoders are scalable vision learners,” in Proceedings of the IEEE/CVF
+conference on computer vision and pattern recognition, 2022, pp.
+16 000–16 009.
+[36] T. Z. Zhao, V. Kumar, S. Levine, and C. Finn, “Learning fine-
+grained bimanual manipulation with low-cost hardware,” arXiv preprint
+arXiv:2304.13705, 2023.
+[37] K. Sohn, H. Lee, and X. Yan, “Learning structured output represen-
+tation using deep conditional generative models,” Advances in neural
+information processing systems, vol. 28, 2015.
+[38] D. P. Kingma and M. Welling, “Auto-encoding variational bayes,” arXiv
+preprint arXiv:1312.6114, 2013.
+[39] J. Ho, A. Jain, and P. Abbeel, “Denoising diffusion probabilistic models,”
+Advances in neural information processing systems, vol. 33, pp. 6840–
+6851, 2020.
+[40] H. Zhou, Z. Bing, X. Yao, X. Su, C. Yang, K. Huang, and A. Knoll,
+“Language-conditioned imitation learning with base skill priors under
+unstructured data,” arXiv preprint arXiv:2305.19075, 2023.
+[41] T.-W. Ke, N. Gkanatsios, and K. Fragkiadaki, “3d diffuser ac-
+tor: Policy diffusion with 3d scene representations,” arXiv preprint
+arXiv:2402.10885, 2024.
+[42] M. J. Kim, K. Pertsch, S. Karamcheti, T. Xiao, A. Balakrishna, S. Nair,
+R. Rafailov, E. Foster, G. Lam, P. Sanketi et al., “Openvla: An open-
+source vision-language-action model,” arXiv preprint arXiv:2406.09246,
+2024.

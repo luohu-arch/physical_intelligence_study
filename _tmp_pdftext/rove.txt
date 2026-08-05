@@ -1,0 +1,1025 @@
+ROVE: Unlocking Human Interventions for
+Humanoid Manipulation via Reinforcement Learning
+Wei Xiao1,2,∗
+Weiliang Tang1,3,∗
+Yuying Ge1,†
+Hui Zhou1
+Yao Mu4
+Li Zhang2
+Yixiao Ge1
+1XPENG Robotics
+2Fudan University
+3The Chinese University of Hong Kong
+4Shanghai Jiao Tong University
+∗Equal contribution
+†Corresponding author
+https://xpeng-robotics.github.io/rove
+VLA
+VLA Rollout
+Actual Human
+Intervention
+(Hesitate, Mistake...)
+Ideal Human
+Intervention 
+Value
+Function
+ROVE
+Learning from Experience
+Advantage +/-
+Value
+Put bread into toaster (Fine-grained)
+Re-erase
+Success Rate - Iter.1
+Success Rate - Multi-Iteration
+Erase whiteboard (Contact-rich)
+Mixed Quality 
+(Success & Failure)
+Cross Embodiment 
+(Humanoid & Human)
+Experience Buffer
+Re-match
+Figure 1:
+ROVE learns from imperfect humanoid interventions. (Left) Our method recovers
+task progress through re-matching and re-erasing. (Middle) Human interventions after near-failure
+VLA rollouts can deviate from ideal corrections in humanoid manipulation; our method learns a
+value function from mixed-quality and cross-embodiment experience to extract a better VLA policy.
+(Right) It outperforms all baselines and consistently improves across multiple iterations.
+Abstract:
+Human interventions provide crucial corrective signals for post-
+training Vision-Language-Action (VLA) models. However, enabling seamless
+humanoid interventions is a formidable systems challenge due to complex whole-
+body kinematics and dexterous-hand control. Consequently, the collected inter-
+vention trajectories are often suboptimal, and methods that rely on human in-
+terventions as expert supervision can absorb hesitant, inefficient, or even erro-
+neous behaviors. To address both the system and algorithmic challenges, we pro-
+pose ROVE, a reinforcement learning framework for humanoid VLA post-training
+with imperfect human interventions. First, ROVE introduces a human-in-the-loop
+pipeline capable of collecting deployment and intervention data for humanoid ma-
+nipulation. Second, it utilizes Optimistic Value Estimation (OVE) to prioritize
+high-value behaviors from mixed-quality trajectories. To further robustify value
+estimation, we incorporate cross-embodiment human experience videos to provide
+rich supervision for long-tailed failure and recovery modes. The resulting critic
+yields informative advantage signals, steering the VLA actor to focus on high-
+value behaviors rather than indiscriminately imitating all actions. On challenging
+real-world contact-rich and fine-grained humanoid manipulation tasks, ROVE out-
+performs experience-learning baselines and consistently improves across multiple
+rollout-intervention iterations.
+Keywords: Vision-Language-Action Model, Reinforcement Learning, Humanoid
+Manipulation
+arXiv:2606.17011v1  [cs.RO]  15 Jun 2026
+
+1
+Introduction
+Vision-Language-Action (VLA) models provide a promising foundation for general-purpose robot
+policies by grounding language instructions and visual observations into actions [1, 2]. Most re-
+cent progress has been largely demonstrated on robot-arm manipulation with parallel-jaw grippers,
+while extending VLA to humanoid robots with dexterous hands substantially increases the com-
+plexity of the robot dynamics and kinematics. This inherent complexity makes the humanoid robot
+fragile to accumulated errors stemming from whole-body poses, systematic errors, object contacts,
+etc. As a result, VLA policies trained only on offline demonstrations often fail to reach satisfactory
+performance during deployment, struggling to handle deployment-time distribution shift. Conse-
+quently, we seek a post-training solution to harness the deployment data for policy improvement.
+Reinforcement learning (RL) [3] and interactive imitation learning (IIL) [4, 5] allow robots to col-
+lect autonomous rollouts, observe their own failures, and incorporate human corrections. Recent
+post-training methods for VLA have shown that the deployment experience can improve pretrained
+policies beyond the offline demonstration tuning. Yet extending this paradigm to humanoid ma-
+nipulation introduces a new difficulty: human teleoperation itself can be suboptimal, and this issue
+becomes especially severe during intervention takeover.
+In a robot-arm with grippers setup, teleoperation interfaces such as 3D space mouse or leader-
+follower arms can often provide smooth and effective corrective actions [6, 7]. In contrast, humanoid
+teleoperation with dexterous hands is harder to master due to difficulty in whole-body coordination,
+dexterous manipulation, and joint-limit handling under imperfect retargeting and limited force or
+tactile feedback. During the takeover, even skilled operators may hesitate, retract their hands, or
+spend a period of time adapting to the humanoid’s current configuration. Prior human-in-the-loop
+RL (e.g., HIL-SERL [6], RECAP [3]) and IIL (e.g., HG-DAgger [5]) methods typically assume
+that human interventions provide optimal corrective actions, so intervention data can be directly
+treated as expert supervision or positive improvement signals. This assumption becomes fragile in
+humanoid manipulation: due to the large teleoperation gap, the takeover phase often contains hes-
+itant, redundant, or retargeting-induced actions. The key challenge is therefore how to learn from
+suboptimal data.
+In this work, we propose ROVE, an RL framework with Optimistic Value Estimation for humanoid
+VLA post-training. ROVE builds a human-in-the-loop data collection pipeline that supports whole-
+body and dexterous-hand intervention during VLA rollouts. To account for suboptimal collected
+data, we decompose intervention episodes into rollout, adaptation, and recovery stages, and con-
+struct value labels with a conservative boundary at the end of adaptation. We further learn a state
+value function with Optimistic Value Estimation (OVE), which combines TD bootstrapping with
+expectile regression to estimate high-value recoverable behavior from mixed-quality data. Beyond
+robot trajectories, the critic also learns from videos of humans, which provide cross-embodiment
+supervision for progress and recovery without requiring robot-aligned actions. The learned critic
+provides advantage labels for advantage-conditioned policy extraction, allowing the VLA actor to
+emphasize high-value actions instead of imitating all collected actions uniformly. As shown in
+Fig. 1, ROVE improves upon SFT and experience-learning baselines, including RL and IIL meth-
+ods, and continues to gain performance over multiple rollout-intervention iterations.
+Our main contributions are summarized as follows: (i) Human-in-the-loop data collection pipeline
+for humanoid manipulation. We build a whole-body human-in-the-loop collection pipeline and
+model the suboptimality of humanoid teleoperation, especially the noisy adaptation phase during in-
+tervention takeover; (ii) Optimistic value estimation for heterogeneous experience. We propose a
+state-value learning recipe that combines robot rollouts, human intervention trajectories, and human
+experience videos, producing robust advantage signals for policy extraction; (iii) Iterative VLA
+policy improvement in real-world tasks. Real-world experiments on two manipulation tasks, il-
+lustrated in Fig. 2, show that ROVE improves VLA policies from demonstrations, experience, and
+multiple rounds of rollout-intervention data.
+2
+
+Figure 2: Task procedures for Put the bread into the toaster (top) and Erase the whiteboard (bottom).
+2
+Preliminary
+Problem setting and notation. We formulate the humanoid manipulation problem as a Markov
+Decision Process (MDP) M : (S, A, P, r, γ) in a standard RL setting [8], where S = (O, L),
+O is the image observation space from humanoid’s ego-view, L is the language space of the
+robot’s task instruction. A is the action space of the robot, P : S × A →∆(S) is the stochas-
+tic dynamics of the environment, r : S × A →R is the reward function, the discount factor
+γ ∈[0, 1]. ROVE starts from a generalist VLA model as the initial policy at:t+H−1 ∼π(·|st),
+st
+=
+(ot, l), ot
+∈
+O, l
+∈
+L, H is the action chunk horizon.
+Given the robot policy
+and environment’s transition st+1:t+H ∼P(·|st, at:t+H−1), a set of trajectories is collected:
+ξ = (s0, a0, r1, s1, · · · , aT −1, rT , sT ) ∈S × A × R · · · S through interactions between the policy
+π and environment, and the distribution of trajectories is ρπ(ξ). We can define the discounted cu-
+mulative reward, or return, as R(ξ) = PT
+t=0 γtrt. The goal of RL is to maximize the expected
+discounted return: J (π) = Eξ∼ρπ[R(ξ)] = Eξ∼ρπ[PT
+t=0 γtrt].
+Value estimation.
+For a policy π, the value function V π(st) is the expected future return
+Eξt+1:T [PT
+i=t γi−tri]. Then, we can define the advantage of the action chunk at:t+H−1 at state
+st as Aπ(st, at:t+H−1) = Eρπ(ξ)[Pt+H−1
+i=t
+γi−tri + γHV π(st+H)] −V π(st). In practice, we learn
+a parametric critic Vϕ(st) to approximate V π(st) from collected trajectories. Monte-Carlo method
+(MC) regresses the critic toward the empirical discounted return, while Temporal-difference method
+(TD) bootstraps after the action chunk:
+MC:
+Vϕ(st) ←
+T
+X
+i=t
+γi−tri,
+TD:
+Vϕ(st) ←
+t+H−1
+X
+i=t
+γi−tri + γHV ¯ϕ(st+H).
+(1)
+where V ¯ϕ denotes a target network or a stop-gradient copy of Vϕ. MC estimates are unbiased when
+complete returns are observed but can have high variance, while TD estimates reduce variance at the
+cost of bootstrapping bias.
+3
+Methodology
+Fig. 3 summarizes the overall ROVE framework. The method first collects mixed-quality real-world
+experience on the humanoid robot, then learns a state-value critic from robot trajectories and human
+experience videos, and finally uses the resulting advantage signals to extract a stronger VLA policy.
+We describe these components in order.
+3.1
+Human-in-the-loop data collection
+Pipeline overview. We build a human-in-the-loop data collection pipeline that enables whole-body
+intervention during VLA policy rollouts. Each episode starts with autonomous execution, where
+the VLA policy predicts action chunks conditioned on the ego-view observation, task instruction,
+and proprioceptive state. When the supervisor detects a potential failure, the VLA action publisher
+is paused. Meanwhile, the motion-capture operator observes the robot state through a VR headset
+and aligns their body and hand pose with the current humanoid and dexterous hand configuration as
+closely as possible.
+3
+
+VLA (Actor)
+State-Value Function (Critic)
+Expectile Reg. & TD learning
+Fine-tuning objective
+MSE & MC Return
+....
+Pre-training objective
+Policy Extraction
+Intervention-Recovery&Completion
+3
+Intervention-Adaptation
+2
+Autonomous-VLA Rollout
+1
+VR
+Hand
+MoCap
+Whole-Body
+MoCap
+Heterogeneous Data Buffer
+Switch to Intervene
+Success
+Near-failure
+Robot
+Experience
+Human
+Experience
+Long-tail 
+Failure/Recover
+Patterns
+(Feeds Critic)
+(Feeds
+Actor&Critic)
+Figure 3: Overview of ROVE framework. A VLA actor collects autonomous rollouts and triggers
+whole-body human intervention near failure. The resulting trajectories are decomposed into rollout,
+adaptation, and recovery stages, and combined with cross-embodiment human experience to train a
+state-value critic. The critic provides advantage conditions for policy extraction, guiding the actor
+toward high-value recovery behaviors from mixed-quality data.
+Once the operator is ready, the supervisor switches the robot from autonomous execution to tele-
+operation. The teleoperation interface maps the operator’s whole-body and hand motion to hu-
+manoid control commands. Since the human pose and robot state may not be perfectly aligned at
+the takeover moment, we apply a command filter in the controller to smooth the transition and avoid
+abrupt changes in robot joint angles. The pause interval between policy rollout and human takeover
+is removed during post-processing. During takeover, the operator starts from the terminal state of
+the VLA rollout, which is typically close to failure, and provides corrective actions until the task is
+completed. To balance the data distribution and increase trajectory diversity, we also initialize data
+collection from different task progress stages rather than only from the beginning of each task [9].
+Teleoperation gap and intervention suboptimality. Human-in-the-loop episodes are split into
+three stages: (1) Autonomous VLA rollout, (2) Intervention–adaptation, and (3) Intervention–
+recovery and task completion. Unlike prior human-in-the-loop settings on standard robot arms,
+whole-body humanoid intervention with dexterous hands introduces a much larger teleoperation
+gap. This gap arises from the higher complexity of the robot morphology, the lack of force and tac-
+tile feedback, imperfections in motion retargeting, operator skill differences, and robot joint limits.
+As a result, a seamless transition from policy rollout to human intervention is difficult to achieve in
+practice. Even for highly skilled motion-capture operators, the initial takeover phase often involves
+unstable or hesitant motion. Common behaviors in this phase include retracting the hand, contin-
+uing to manipulate from a near-failure state, or spending a period of time adapting to the robot’s
+current configuration. We refer to this transient phase as the adaptation stage. After the operator
+significantly advances task progress, the trajectory enters the recovery and completion stage, where
+the operator continues the task until the task is completed.
+Reward design. Following the stage decomposition above, we assign rewards according to both
+task outcome and intervention phase:
+rt =
+
+
+
+
+
+
+
+0,
+t = T and the episode succeeds,
+Cfail,
+t = T and an autonomous rollout fails,
+Cfail,
+t = tr at the end of the adaptation stage,
+−1,
+otherwise.
+(2)
+4
+
+Here, T denotes the terminal timestep of an episode, and tr marks the end of the initial adaptation
+stage, after which intervention begins to produce sustained task progress. We therefore assign the
+penalty at tr rather than at intervention onset; this conservative boundary avoids mixing adaptation-
+stage alignment behavior into recovery labels (see Appendix B). During task fine-tuning, we set
+Cfail = −500. During pretraining, we set Cfail to the negative mean episode length of each task,
+which provides a task-normalized failure scale. Although standard RL typically uses γ < 1, we
+set γ = 1 in our experiments. Non-terminal steps already receive a constant penalty rt = −1,
+so cumulative return naturally encodes time-to-completion: shorter successful trajectories receive
+higher returns. After normalizing return labels to [0, 1], this step penalty acts as an implicit linear
+discount over trajectory length.
+3.2
+Value function training
+Data recipe and pretraining objective. The value function is trained in stages. We first pretrain
+the critic on large-scale robot and egocentric human demonstrations [10] to learn a general notion of
+task progress, then fine-tune it for the downstream task. In later iterations, we train the critic on au-
+tonomous rollouts and intervention trajectories, with task-relevant human experience videos. These
+videos provide cross-embodiment examples of recovery and completion that are sparse in robot ex-
+perience, improving value estimates on partial-progress and near-failure states. For pretraining, we
+use a Monte-Carlo regression objective to fit the cumulative return from each state:
+LMC(ϕ) = E(st,ξ)∼D
+
+
+ 
+Vϕ(st) −
+T
+X
+i=t
+γi−tri
+!2
+.
+(3)
+This objective estimates the average return of the dataset behavior distribution. It is stable for large-
+scale pretraining on heterogeneous data from different tasks and embodiments, and provides a robust
+initialization for task-level fine-tuning.
+Optimistic value estimation. For fine-tuning, however, estimating only the average return can
+be overly conservative. Our training data contain many suboptimal teleoperated behaviors, failed
+autonomous rollouts, and transient adaptation segments after takeover. If the critic simply averages
+over these trajectories, the estimated value can be much lower than the value of the best recoverable
+behavior from the same state.
+To address this issue, we introduce Optimistic Value Estimation (OVE), which combines an H-step
+TD bootstrap [11] with expectile regression. Given a transition segment of length H, we define the
+bootstrapped target as
+ˆVt =
+t+H−1
+X
+i=t
+γi−tri + γHV ¯ϕ(st+H),
+(4)
+LOVE(ϕ) = E(st,ξ)∼D
+τ −1{ ˆVt −Vϕ(st) < 0}
+
+
+ˆVt −Vϕ(st)
+2
+,
+(5)
+where V ¯ϕ is an EMA target critic updated from Vϕ. Instead of fitting the bootstrapped target ˆVt with
+a symmetric squared loss, we use an expectile loss, where τ controls the degree of optimism. When
+τ = 0.5, the objective reduces to standard mean regression; as τ approaches 1, the critic places
+more weight on higher-value outcomes. Thus, OVE estimates an in-distribution optimistic statistic:
+it favors better recoveries observed in the data without querying out-of-distribution actions.
+Another line of work learns action-value functions for policy extraction; for example, IQL [12]
+uses expectile regression to estimate a state-action value function Q(st, at). Appendix C further
+compares OVE with IQL. In contrast, we learn a state value function V (st), because our data include
+robot rollouts, human interventions, and cross-embodiment human experience, where action spaces
+are not always directly comparable. Avoiding Q-value also reduces the risk of overfitting to robot-
+specific actions or overestimation of out-of-distribution actions [11, 13] while still providing a value
+signal for advantage estimation.
+5
+
+SFT
+Ours
+0
+30
+40
+50
+Learn from Demo. (Erase)
+SFT
+(more demo.)
+HG-DAgger
+Filtered BC
+RECAP
+Ours
+0
+20
+30
+40
+50
+60
+70
+Learn from Exp. (Erase)
+0
+1
+2
+3
+0
+40
+60
+80
+Multi-iteration (Erase)
+SFT
+Ours
+0
+30
+40
+50
+60
+70
+Learn from Demo. (Bread)
+SFT
+(more demo.)
+HG-DAgger
+Filtered BC
+RECAP
+Ours
+0
+50
+60
+70
+80
+Learn from Exp. (Bread)
+0
+1
+2
+3
+0
+40
+60
+80
+100
+Multi-iteration (Bread)
+Figure 4: Policy improvement results on two real-world humanoid manipulation tasks. ROVE
+(Ours) outperforms SFT in the demonstration-only setting, achieves the best average performance
+among experience-learning methods, and consistently improves across multiple iterations of rollout
+and intervention data.
+3.3
+Policy improvement and implementation details
+The VLA actor is trained with advantage conditioning to indicate whether an action chunk is pre-
+dicted to improve task progress. Algorithm 1 summarizes the iterative loop. In each iteration, we
+update critic and actor sequentially: train the critic with Dcritic
+k
+, compute advantage statistics on
+Dactor
+k
+, assign binary advantage via a threshold, and fine-tune the actor (details in Appendix F). Our
+experiments use the IRON-R01-1.11 humanoid robot with a 50-dimensional proprioceptive state
+and action space covering body joints and dexterous hands. With limited task-specific robot data,
+conditioning on the high-dimensional proprioceptive state can overfit to brittle joint-level cues. We
+therefore apply state dropout and perturbation during training to rely more on visual task progress
+(details in Appendix G).
+4
+Experiments
+Our experiments are conducted in two real-world humanoid manipulation tasks: a contact-rich task
+(Erase the whiteboard) and a fine-grained task (Put the bread into the toaster). The analysis is
+organized around two aspects: policy improvement and value estimation.
+4.1
+Policy improvement results and analysis
+Learn from demonstrations. We fine-tune the pretrained VLA with either standard SFT or ROVE
+using teleoperated demonstrations. Fig. 4 shows that ROVE improves over SFT on both tasks. This
+suggests that humanoid teleoperation demonstrations can be suboptimal due to the teleoperation
+gap and operator variability, and that value-guided extraction recovers higher-quality behavior than
+uniform imitation.
+Learn from experience. We compare ROVE with experience-learning baselines, including HG-
+DAgger [5], Filtered BC, and RECAP [3] (details in Appendix E). Fig. 4 shows that ROVE achieves
+the best average success rate across tasks. A notable result is that HG-DAgger performs poorly, even
+below the base demonstration-only policy on one task, and its learned policy often exhibits hesitant
+behavior. This pattern reflects the suboptimality of directly imitating intervention data. Compared
+6
+
+0.0s
+4.0s
+9.3s
+4.3s
+start
+end
+try to erase
+erase half handwriting
+Figure 5: Human experience improves value estimation. Adding human experience helps the
+critic assign lower values to incomplete erasing states and better reflect true task progress.
+Erase Fail
+t = 9.0s
+t = 7.7s
+Re-Erase Success
+Figure 6: OVE provides sharper value estimates than Monte-Carlo estimates, producing clearer
+negative-advantage regions during failure and recovery.
+with RECAP, the remaining gap reflects the combined effect of critic quality and advantage assign-
+ment of post-adaptation intervention segments. Compared with Filtered BC, the gap suggests that
+RL-style policy learning provides additional gains beyond BC-style data filtering, particularly in
+how negative samples are incorporated during policy optimization. As a control, scaling up SFT
+demonstrations yields additional gains, while the failure-recovery behaviors of ROVE are rarely
+observed in these demonstration-only policies at deployment.
+Iterative improvement. We collect a comparable amount of real-world rollout and intervention data
+in each iteration, then update the value function and policy from the previous iteration. As shown in
+Fig. 4, ROVE consistently improves across three iterations on both tasks. The success rate increases
+from 45.0% to 80.0% on Erase the whiteboard, and from 56.7% to 86.7% on Put the bread into the
+toaster. This demonstrates that it forms a closed-loop improvement process: better policies collect
+more informative experience, and the value function provides increasingly useful advantage signals
+for subsequent policy updates.
+4.2
+Value estimation analysis
+We then examine the value function behind policy gains, focusing on how human experience and
+optimistic value estimation affect the reliability and resolution of value estimates.
+Human experience. Fig. 5 compares two critics trained with and without human experience videos
+on the same held-out trajectory. Without human experience, the critic tends to overestimate inter-
+mediate states where the robot only partially erases the handwriting. In contrast, the critic trained
+with human experience assigns lower values to these incomplete states and produces a value curve
+that better follows actual task progress. Human trajectories provide examples of recovery from near-
+failure or incomplete states that are rarely covered by autonomous rollouts, yielding more reliable
+advantage estimates for policy improvement.
+7
+
+Value learning objective. Fig. 6 compares OVE with MC value estimation on a held-out trajectory
+containing both failure and recovery segments. The MC critic estimates the average return of the
+full data buffer and tends to produce noisy, less discriminative values when successful recoveries and
+failed rollouts are mixed. OVE instead produces a more structured value curve that better follows
+task progress. In particular, during the erase-failure segment, OVE assigns lower values and yields
+negative-advantage regions, indicating that the critic recognizes actions that move the trajectory
+away from successful completion. When the robot later re-erases the board and recovers the task,
+the value increases accordingly. These observations are consistent with OVE providing a sharper
+training signal for policy extraction by distinguishing harmful actions from recoverable progress
+while remaining in-distribution over observed trajectories.
+5
+Related work
+Reinforcement learning for VLA post-training. Reinforcement learning has become a key route
+for improving VLA policies beyond imitation-only tuning. Prior work spans simulation-scale on-
+policy RL [14, 15], real-world experience learning with advantage conditioning [3], world-model-
+based policy improvement [16, 17, 18, 19], and fleet-scale offline-to-online adaptation [20]. Col-
+lectively, these results establish the importance of learning from deployment experience for VLA
+improvement. ROVE extends this paradigm to real-world humanoid manipulation with dexterous
+hands, where higher embodiment complexity makes experience distributions noisier and critic ro-
+bustness more critical than in robot-arm settings.
+Human-in-the-loop robot learning. Human-in-the-loop learning improves data efficiency by let-
+ting humans recover policy failures during deployment [21, 6]. Recent work extends this idea to
+preference-style refinement [22], dexterous interventions [23], and seamless hand-arm takeover [24],
+often under assumptions that intervention corrections can be treated as high-quality supervision. As
+embodiment complexity increases, however, takeover misalignment and adaptation behavior nat-
+urally become more prominent in intervention trajectories. ROVE is designed for this regime by
+treating intervention data as mixed-quality and learning value signals that separate recovery behav-
+ior from naturally occurring takeover noise.
+A more comprehensive discussion is provided in Appendix A.
+6
+Conclusion
+We presented ROVE, an RL framework for post-training humanoid VLA policies from demonstra-
+tions, autonomous rollouts, human interventions, and human experience videos. The core challenge
+is that humanoid teleoperation data are not uniformly expert, especially during intervention. We
+address this with stage-aware intervention labeling, an optimistic state-value critic learned from het-
+erogeneous experience, and advantage-conditioned actor training. Real-world experiments show
+that ROVE improves over SFT, compares favorably with experience-learning baselines, and contin-
+ues to improve over rollout-intervention iterations. These results support ROVE as a practical path
+for robust humanoid VLA post-training from informative but imperfect deployment experience.
+7
+Limitations
+First, human experience is currently used only for value learning, not for direct policy learning.
+Future work could use representation-level supervision to let policies benefit from human videos.
+Second, our system lacks end-effector sensing such as wrist cameras and tactile feedback, which
+limits precise manipulation. Third, we have not yet extended ROVE to loco-manipulation. Future
+extensions will need to handle locomotion and intervention safety. Finally, ROVE is mainly an of-
+fline or iterative offline RL framework. Extending it to online RL would require efficient exploration
+and stable deployment-time updates.
+8
+
+References
+[1] J. Bjorck, F. Casta˜neda, N. Cherniadev, X. Da, R. Ding, L. Fan, Y. Fang, D. Fox, F. Hu,
+S. Huang, et al. Gr00t n1: An open foundation model for generalist humanoid robots. arXiv
+preprint, 2025.
+[2] P. Intelligence, K. Black, N. Brown, J. Darpinian, K. Dhabalia, D. Driess, A. Esmail, M. Equi,
+C. Finn, N. Fusai, M. Y. Galliker, D. Ghosh, L. Groom, K. Hausman, B. Ichter, S. Jakubczak,
+T. Jones, L. Ke, D. LeBlanc, S. Levine, A. Li-Bell, M. Mothukuri, S. Nair, K. Pertsch, A. Z.
+Ren, L. X. Shi, L. Smith, J. T. Springenberg, K. Stachowicz, J. Tanner, Q. Vuong, H. R. Walke,
+A. Walling, H. Wang, L. Yu, and U. Zhilinsky. π0.5: a vision-language-action model with
+open-world generalization. In CoRL, 2025.
+[3] P. Intelligence, A. A. Amin, R. J. Aniceto, A. Balakrishna, K. Black, K. Conley, G. Connors,
+J. Darpinian, K. Dhabalia, J. DiCarlo, D. Driess, M. Equi, A. Esmail, Y. Fang, C. Finn, C. Glos-
+sop, T. Godden, I. Goryachev, L. Groom, H. Hancock, K. Hausman, G. Hussein, B. Ichter,
+S. Jakubczak, R. Jen, T. Jones, B. Katz, L. Ke, C. Kuchi, M. Lamb, D. LeBlanc, S. Levine,
+A. Li-Bell, Y. Lu, V. Mano, M. Mothukuri, S. Nair, K. Pertsch, A. Z. Ren, C. Sharma, L. X. Shi,
+L. Smith, J. T. Springenberg, K. Stachowicz, W. Stoeckle, A. Swerdlow, J. Tanner, M. Torne,
+Q. Vuong, A. Walling, H. Wang, B. Williams, S. Yoo, L. Yu, U. Zhilinsky, and Z. Zhou. π*0.6:
+a vla that learns from experience. arXiv preprint, 2025.
+[4] S. Ross, G. Gordon, and D. Bagnell. A reduction of imitation learning and structured prediction
+to no-regret online learning. In AISTATS, 2011.
+[5] M. Kelly, C. Sidrane, K. Driggs-Campbell, and M. J. Kochenderfer. Hg-dagger: Interactive
+imitation learning with human experts. In ICRA, 2019.
+[6] J. Luo, C. Xu, J. Wu, and S. Levine. Precise and dexterous robotic manipulation via human-
+in-the-loop reinforcement learning. Science Robotics, 2025.
+[7] T. Z. Zhao, V. Kumar, S. Levine, and C. Finn. Learning fine-grained bimanual manipulation
+with low-cost hardware. In RSS, 2023.
+[8] R. S. Sutton, A. G. Barto, et al. Reinforcement learning: An introduction. MIT press Cam-
+bridge, 1998.
+[9] I. Uchendu, T. Xiao, Y. Lu, B. Zhu, M. Yan, J. L. P. Sim´on, M. Bennice, C. Fu, C. Ma, J. Jiao,
+S. Levine, and K. Hausman. Jump-start reinforcement learning. ICML, 2023.
+[10] R. Hoque, P. Huang, D. J. Yoon, M. Sivapurapu, and J. Zhang. Egodex: Learning dexterous
+manipulation from large-scale egocentric video. In ICLR, 2026.
+[11] S. Park, K. Frans, D. Mann, B. Eysenbach, A. Kumar, and S. Levine. Horizon reduction makes
+rl scalable. In NeurIPS, 2025.
+[12] I. Kostrikov, A. Nair, and S. Levine. Offline reinforcement learning with implicit q-learning.
+In ICLR, 2022.
+[13] W. Xiao, J. Liu, Z. Zhuang, R. Suo, S. Lyu, and D. Wang. Efficient online rl fine tuning with
+offline pre-trained policy only. arXiv preprint, 2025.
+[14] H. Li, Y. Zuo, J. Yu, Y. Zhang, Z. Yang, K. Zhang, X. Zhu, Y. Zhang, T. Chen, G. Cui, et al.
+Simplevla-rl: Scaling vla training via reinforcement learning. In ICLR, 2026.
+[15] G. Lu, W. Guo, C. Zhang, Y. Zhou, H. Jiang, Z. Gao, Y. Tang, and Z. Wang. Vla-rl: To-
+wards masterful and general robotic manipulation with scalable reinforcement learning. arXiv
+preprint, 2025.
+9
+
+[16] J. Yang, K. Lin, J. Li, W. Zhang, T. Lin, L. Wu, Z. Su, H. Zhao, Y.-Q. Zhang, L. Chen, et al.
+Rise: Self-improving robot policy with compositional world model. arXiv preprint, 2026.
+[17] J. Zhang, Z. Huang, C. Gu, Z. Ma, and L. Zhang. Reinforcing action policies by prophesying.
+arXiv preprint, 2025.
+[18] F. Zhu, Z. Yan, Z. Hong, Q. Shou, X. Ma, and S. Guo. Wmpo: World model-based policy
+optimization for vision-language-action models. In ICLR, 2026.
+[19] H. Li, P. Ding, R. Suo, Y. Wang, Z. Ge, D. Zang, K. Yu, M. Sun, H. Zhang, D. Wang, and
+W. Su.
+Vla-rft: Vision-language-action reinforcement fine-tuning with verified rewards in
+world simulators. arXiv preprint, 2025.
+[20] Y. Wang, X. Li, P. Xie, P. Yang, B. Nie, Y. Cai, Q. Zhang, C. Qu, J. Wu, J. Song, et al.
+Learning while deploying: Fleet-scale reinforcement learning for generalist robot policies.
+arXiv preprint, 2026.
+[21] H. Liu, S. Nasiriany, L. Zhang, Z. Bao, and Y. Zhu. Robot learning on the job: Human-in-the-
+loop autonomy and learning during deployment. In RSS, 2023.
+[22] W. Xia, Y. Yang, H. Wu, X. Ma, T. Kong, and D. Hu. Human-assisted robotic policy refinement
+via action preference optimization. In NeurIPS, 2025.
+[23] Y. Han, Z. Chen, Y. Zhao, C. Xu, Y. Shao, Y. Peng, Y. Mu, and W. Lian. Dexhil: A human-in-
+the-loop framework for vision-language-action model post-training in dexterous manipulation.
+arXiv preprint, 2026.
+[24] Z. Li, L. Huang, W. Xu, Z. Zhu, N. Lin, X. Ma, X. Sheng, and R. Wen. Hand-in-the-loop:
+Improving dexterous vla via seamless interventional correction. arXiv preprint, 2026.
+[25] J. Luo, Z. Hu, C. Xu, Y. L. Tan, J. Berg, A. Sharma, S. Schaal, C. Finn, A. Gupta, and S. Levine.
+Serl: A software suite for sample-efficient robotic reinforcement learning. In ICRA, 2024.
+[26] K. Lei, H. Li, D. Yu, Z. Wei, L. Guo, Z. Jiang, Z. Wang, S. Liang, and H. Xu.
+Rl-100:
+Performant robotic manipulation with real-world reinforcement learning. arXiv preprint, 2025.
+[27] J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov. Proximal policy optimization
+algorithms. arXiv preprint, 2017.
+[28] Z. Shao, P. Wang, Q. Zhu, R. Xu, J. Song, X. Bi, H. Zhang, M. Zhang, Y. Li, Y. Wu, et al.
+Deepseekmath: Pushing the limits of mathematical reasoning in open language models. arXiv
+preprint, 2024.
+[29] C. Xu, J. T. Springenberg, M. Equi, A. Amin, A. Esmail, S. Levine, and L. Ke. Rl token:
+Bootstrapping online rl with vision-language-action models. arXiv preprint, 2026.
+[30] T. Johannink, S. Bahl, A. Nair, J. Luo, A. Kumar, M. Loskyll, J. A. Ojea, E. Solowjow, and
+S. Levine. Residual reinforcement learning for robot control. In ICRA, 2019.
+[31] Z. Gong, S. Lyu, P. Ding, W. Xiao, and D. Wang.
+Robust online residual refinement via
+koopman-guided dynamics modeling. arXiv preprint, 2025.
+[32] Y. Li, X. Ma, J. Xu, Y. Cui, Z. Cui, Z. Han, L. Huang, T. Kong, Y. Liu, H. Niu, et al. Gr-rl:
+Going dexterous and precise for long-horizon robotic manipulation. arXiv preprint, 2025.
+[33] A. Wagenmaker, M. Nakamoto, Y. Zhang, S. Park, W. Yagoub, A. Nagabandi, A. Gupta, and
+S. Levine. Steering your diffusion policy with latent space reinforcement learning. In CoRL,
+2025.
+[34] S. Levine, A. Kumar, G. Tucker, and J. Fu. Offline reinforcement learning: Tutorial, review,
+and perspectives on open problems. arXiv preprint, 2020.
+10
+
+[35] A. Kumar, A. Zhou, G. Tucker, and S. Levine. Conservative q-learning for offline reinforce-
+ment learning. In NeurIPS, 2020.
+[36] H. Xu, L. Jiang, J. Li, Z. Yang, Z. Wang, V. Chan, and X. Zhan. Offline rl with no ood actions:
+In-sample learning via implicit value regularization. In ICLR, 2023.
+[37] K. Frans, S. Park, P. Abbeel, and S. Levine. Diffusion guidance is a controllable policy im-
+provement operator. arXiv preprint, 2025.
+[38] J. Fu, A. Kumar, O. Nachum, G. Tucker, and S. Levine. D4rl: Datasets for deep data-driven
+reinforcement learning. ArXiv, 2021.
+[39] S. Zhai, Q. Zhang, T. Zhang, F. Huang, H. Zhang, M. Zhou, S. Zhang, L. Liu, S. Lin, and
+J. Pang. A vision-language-action-critic model for robotic real-world reinforcement learning.
+arXiv preprint, 2025.
+[40] A. Yang, A. Li, B. Yang, B. Zhang, B. Hui, B. Zheng, B. Yu, C. Gao, C. Huang, C. Lv,
+C. Zheng, D. Liu, F. Zhou, F. Huang, F. Hu, H. Ge, H. Wei, H. Lin, J. Tang, J. Yang, J. Tu,
+J. Zhang, J. Yang, J. Yang, J. Zhou, J. Zhou, J. Lin, K. Dang, K. Bao, K. Yang, L. Yu, L.-C.
+Deng, M. Li, M. Xue, M. Li, P. Zhang, P. Wang, Q. Zhu, R. Men, R. Gao, S.-Q. Liu, S. Luo,
+T. Li, T. Tang, W. Yin, X. Ren, X. Wang, X. Zhang, X. Ren, Y. Fan, Y. Su, Y.-C. Zhang,
+Y. Zhang, Y. Wan, Y. Liu, Z. Wang, Z. Cui, Z. Zhang, Z. Zhou, and Z. Qiu. Qwen3 technical
+report. arXiv preprint, 2025.
+[41] W. S. Peebles and S. Xie. Scalable diffusion models with transformers. In ICCV, 2023.
+11
+
+A
+Extended related work
+This section provides an extended related-work discussion with additional representative directions
+and technical context.
+A.1
+Reinforcement learning for VLA post-training
+Reinforcement learning has shown the potential to improve robot policies beyond imitation learn-
+ing by optimizing task outcomes from physical interaction. Recent systems demonstrate strong
+performance on real-world manipulation with efficient off-policy RL [25], human corrections [6],
+and carefully designed training pipelines [26]. In parallel, reinforcement post-training for Vision-
+Language-Action (VLA) models has become an active direction. Li et al. [14], Lu et al. [15] improve
+VLAs via on-policy RL [27, 28] in simulation, while Intelligence et al. [3] shows experience learning
+with advantage conditioning in real-world deployment. Yang et al. [16], Zhang et al. [17], Zhu et al.
+[18], Li et al. [19] improve VLAs through imagined rollouts and value-based evaluation in learned
+world models, and Wang et al. [20] studies fleet-scale offline-to-online RL for continual adaptation
+of generalist policies. Additional interfaces include representation-level residual RL [29, 30, 31]
+and latent-space RL with progress-based filtering [32, 33]. Within this landscape, ROVE targets
+real-world humanoid post-training with dexterous hands, where embodiment complexity makes ex-
+perience statistics and critic robustness especially important.
+A.2
+Human-in-the-loop robot learning
+Human-in-the-loop robot learning improves data efficiency by allowing humans to correct policy
+failures during deployment. Liu et al. [21] studies human-in-the-loop autonomy where assistance is
+used both for failure recovery and policy improvement over time. Luo et al. [6] integrates demon-
+strations and online corrections into real-world RL, showing substantial acceleration. Action pref-
+erence optimization further uses human-assisted rollouts for preference-style refinement [22]. For
+dexterous settings, Han et al. [23] extends human-in-the-loop post-training to coordinated arm-hand
+interventions, while Li et al. [24] shows that takeover mismatch can cause abrupt gesture jumps and
+post-intervention degradation. Together, these studies highlight both the value of intervention data
+and the growing importance of takeover quality as embodiment complexity increases. ROVE fol-
+lows this direction but treats intervention trajectories as inherently mixed-quality in high-complexity
+humanoid teleoperation, rather than assuming uniformly high-quality corrective supervision.
+A.3
+Value learning for offline and off-policy data
+Value learning is central to extracting improved behavior from offline and off-policy data, especially
+when datasets mix successful recoveries with suboptimal teleoperation and failed rollouts [34]. In
+classical offline RL, a state-action value function Q(s, a) is often trained on static or heterogeneous
+data, leading to distributional shift and overestimation of out-of-distribution actions. Kumar et al.
+[35] mitigates this issue by penalizing over-optimistic Q-values, while in-sample methods such as
+Xu et al. [36], Kostrikov et al. [12] avoid querying unseen actions through implicit regularization.
+Recent robot and VLA post-training systems also increasingly use value or critic models to improve
+policies from deployment data: Lei et al. [26], Wang et al. [20] combine offline and online learning
+with IQL [12] or its distributional variant in real-world settings. ROVE follows this broad value-
+learning motivation but learns a state value V (s) rather than a state-action value Q(s, a), allowing
+the critic to use robot rollouts, human intervention trajectories, and cross-embodiment human expe-
+rience videos under a unified objective for optimistic state-value estimation.
+B
+Sensitivity of value-label construction
+Table 1 studies two implementation choices in value-label construction: the horizon used for TD
+bootstrapping and advantage computation, and the timing tr of the penalty reward. Increasing the
+12
+
+Table 1: Sensitivity of value-label construction. We vary critic horizon and penalty reward timing tr
+while keeping all other settings fixed on the Erase the whiteboard task.
+Setting
+Success rate
+Change vs. default
+ROVE (default) (H = 16, tr after adaptation)
+80%
+-
+Long critic horizon (H = 50)
+65%
+-15%
+tr at intervention start (H = 50)
+50%
+-30%
+horizon from H = 16 to H = 50 reduces success from 80% to 65%, indicating that an overly
+long horizon makes advantage labels less responsive to local recovery progress. Moving the penalty
+reward to takeover start further reduces success to 50%, because adaptation-stage alignment be-
+havior is then mixed into recovery labels. This result does not suggest that the boundary requires
+precise manual tuning; instead, it reveals an asymmetric risk in intervention data. A slightly de-
+layed boundary is conservative and may omit some early recovery actions, whereas an overly early
+boundary introduces noisier adaptation-stage behavior into value targets. Since OVE preferentially
+propagates high-value continuations observed in data, this early-boundary noise can be amplified
+into misleadingly optimistic labels. We therefore place the boundary after the adaptation stage so
+OVE propagates value through cleaner recovery segments.
+C
+Comparison with IQL
+IQL [12] is an offline RL method that learns an in-distribution optimistic value through expectile
+regression. In the standard IQL formulation, a state-action critic Qθ(st, at) is first trained with a
+Bellman backup:
+LIQL
+Q
+(θ) = E(st,at,rt,st+1)∼D
+h
+(Qθ(st, at) −rt −γVψ(st+1))2i
+.
+The value function is then fitted as an upper expectile of the action-value distribution under dataset
+actions:
+LIQL
+V
+(ψ) = E(st,at)∼D
+h
+|τ −1{Qθ(st, at) −Vψ(st) < 0}| (Qθ(st, at) −Vψ(st))2i
+.
+The resulting advantage is computed as
+A(st, at) = Qθ(st, at) −Vψ(st),
+and is then used for CFGRL-style policy extraction [37]. This design avoids explicitly querying
+out-of-distribution actions, but it still relies on a state-action value function whose action input must
+be well defined within a single embodiment and action space.
+We adopt the same principle of in-distribution optimism, but use it differently. Instead of learning
+Q(st, at), we directly learn a state value Vϕ(st) with a bootstrapped target: ˆVt = rt + γV ¯ϕ(st+1).
+For brevity, we present the one-step TD form here to align with the IQL notation above. The expec-
+tile objective is applied between ˆVt and Vϕ(st), yielding an optimistic state-value estimator. This
+choice is important for our setting because the data used for value learning include robot rollouts,
+human intervention trajectories, and cross-embodiment human experience videos. These sources
+do not always share a compatible robot action representation, making a unified Q(s, a) difficult
+to define and prone to action-space overfitting. A state-value critic, in contrast, allows ROVE to
+use heterogeneous experience for value learning while still producing advantage labels for policy
+extraction.
+We additionally compare OVE with IQL on D4RL-AntMaze tasks [38] in Fig. 7. The results show
+that OVE achieves competitive performance across medium and large maze variants, supporting that
+state-value optimistic estimation can serve as a practical alternative to Q-based expectile learning.
+D
+Task description and evaluation protocol
+Fig. 2 illustrates the manipulation procedure for each task. For Put the bread into the toaster, the
+task begins with bread slices in a container and a two-slot toaster on the table. A trial proceeds
+13
+
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+1e6
+0.0
+0.2
+0.4
+0.6
+0.8
+Normalized Return
+antmaze-medium-diverse-v2
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+1e6
+0.0
+0.2
+0.4
+0.6
+0.8
+antmaze-medium-play-v2
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Steps
+1e6
+0.0
+0.2
+0.4
+0.6
+Normalized Return
+antmaze-large-diverse-v2
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Steps
+1e6
+0.0
+0.2
+0.4
+0.6
+antmaze-large-play-v2
+IQL-CFGRL
+OVE-CFGRL
+Figure 7: Performance comparison between OVE and IQL on D4RL-AntMaze tasks.
+40cm
+30cm
+13cm x 3cm
+11cm x 1.7cm
+11cm x 5cm
+Figure 8: Evaluation objects and layout for our tasks.
+through reaching into the container, grasping one slice, lifting and transporting it above the toaster
+slot, inserting the bread, releasing it, and retracting the hand. A trial is counted as successful if the
+bread is fully inserted into the toaster slot and remains stable. For Erase the whiteboard, the task be-
+gins with an eraser on a tray and handwriting marks on the board. A trial proceeds through picking
+up the eraser, moving to the marked region, establishing contact, wiping across the assigned marks
+with sufficient coverage, and lifting the eraser after erasing. A trial is successful if all handwriting
+marks assigned to that trial are removed. To complete these tasks, a humanoid robot requires co-
+ordinated dexterous hand manipulation, head motion(e.g., locating handwriting on the board), and
+waist adjustment (left-right rotation or forward lean) to maintain effective contact and reachability.
+Fig. 8 summarizes the evaluation objects and scene layout used in our experiments. For Erase the
+whiteboard, we draw twenty handwriting marks uniformly distributed on the whiteboard and run one
+evaluation trial per mark, for twenty trials in total. For Put the bread into the toaster, we run thirty
+14
+
+independent trials per policy. Success rate is computed as the number of successful trials divided by
+the total number of trials.
+E
+Baselines
+We compare ROVE against three experience-learning baselines, implemented on the same humanoid
+platform, data collection protocol, and VLA backbone.
+HG-DAgger [5, 4] follows the interactive imitation learning paradigm: during policy rollouts, a
+human operator takes over when the policy approaches failure, and the corrected trajectories are
+aggregated into the training set for behavior cloning. In our implementation, HG-DAgger uses
+the same rollout–intervention episodes as ours but treats all human-intervention actions as positive
+supervision.
+RECAP [3] follows the π∗
+0.6-style experience-learning recipe: a critic provides progress or ad-
+vantage signals from deployment experience, and the VLA actor is fine-tuned with advantage-
+conditioned behavior cloning to prefer high-value action chunks over uniform imitation. For a
+controlled comparison with ROVE, RECAP uses the same robot data and the same reward-label
+construction pipeline; the key differences are that its critic training objective differs from OVE and
+its labeling strategy treats human intervention segments after the adaptation stage as uniformly pos-
+itive advantages.
+Filtered BC filters rollout and intervention data before behavior cloning. Following progress-based
+data refinement ideas [32], we retain trajectory segments whose critic-estimated advantage exceeds a
+threshold and discard segments associated with failed or low-advantage states. To isolate the policy-
+learning objective, Filtered BC uses the same critic checkpoint as ours for advantage scoring and
+performs thresholded data filtering plus standard BC.
+F
+Policy extraction via advantage conditioning
+Advantage conditioning provides a supervised way to extract an improved policy from experi-
+ence [37, 3].
+Let I denote an improvement event indicating that an action chunk is preferred
+over the typical behavior of a reference policy πref at the same state. Given an advantage estimate
+Aπref(st, at:t+H−1), policy improvement can be written as a target action distribution that reweights
+the reference policy by the likelihood of improvement:
+ˆπ(at:t+H−1|st) ∝πref(at:t+H−1|st) p(I|Aπref(st, at:t+H−1))β.
+(6)
+Since the improvement event is determined by the advantage label, p(I|Aπref) can be imple-
+mented as an additional condition on the action model. Equivalently, we train a conditional policy
+πθ(at:t+H−1|st, I) by behavior cloning on trajectories annotated with discretized or binary advan-
+tage labels:
+max
+θ
+E(st,at:t+H−1,I)∼D [log πθ(at:t+H−1|st, I)] .
+(7)
+In implementation, we instantiate the improvement event I as a binary advantage label computed
+by the learned critic. Before actor training, we set the threshold ηk to the 70th percentile of the
+advantage distribution. Each training action chunk is then labeled as positive if its advantage exceeds
+ηk and negative otherwise. For CFGRL-style conditioning [37], we append a text condition to the
+instruction and train the VLA actor with the standard action prediction loss. At inference time, the
+actor uses classifier-free-guidance-style decoding: it predicts action velocities under both positive
+and negative conditions, and combines them as vcfg = vneg+β(vpos−vneg). This guides generation
+toward high-advantage actions rather than simply querying a single positive condition.
+G
+Additional training and implementation details
+This appendix records the full policy-improvement procedure and the implementation settings that
+complement the main method description.
+15
+
+Algorithm 1 ROVE: Iterative policy improvement
+Require: Initial policy πθ0, initial actor and critic data buffers Dactor
+0
+and Dcritic
+0
+, number of itera-
+tions K
+1: for k = 0, . . . , K −1 do
+2:
+Train critic Vϕk on Dcritic
+k
+with the OVE objective
+3:
+Compute advantages for each transition segment:
+Aϕk(st, at:t+H−1) =
+t+H−1
+X
+i=t
+γi−tri + γHVϕk(st+H) −Vϕk(st)
+4:
+Compute threshold ηk from advantage statistics
+5:
+Assign binary improvement label
+It = 1{Aϕk(st, at:t+H−1) > ηk}
+6:
+Update actor to obtain πθk+1 with advantage-conditioned policy extraction:
+max
+θ
+E(st,at:t+H−1,It)∼Dactor
+k
+[log πθ(at:t+H−1|st, It)]
+7:
+Deploy πθk+1 to collect new rollouts and human intervention trajectories
+8:
+Update data buffer with robot experience Dactor
+k+1
+9:
+Update data buffer with both robot and human experience Dcritic
+k+1
+10: end for
+Action chunk horizons. At inference, and during critic training and advantage computation, we
+use a chunk horizon H = 16. Specifically, the policy executes the first 16 steps of each predicted
+chunk before replanning; OVE bootstraps over 16-step segments when constructing TD targets; and
+advantage labels are assigned to (st, at:t+H−1) pairs with H = 16. We use a longer training chunk
+of 50 to improve temporal consistency during supervised learning, while the shorter operational
+horizon stabilizes value bootstrapping and makes advantage estimation more responsive to local
+progress changes during deployment and intervention data.
+Model architecture. We use a separate state-value critic and a VLA policy. The value model
+is initialized from the VLAC [39] checkpoint as its VLM backbone: we extract intermediate rep-
+resentations from transformer layer 23 (hidden dimension 2048) and regress a scalar value with
+a lightweight transformer value head. The policy is initialized from Qwen3-VL-4B-Instruct [40],
+consumes the final-layer backbone features (hidden dimension 2560), and outputs continuous action
+chunks with a flow-matching diffusion-transformer (DiT [41]) action decoder. For both models, we
+freeze the pretrained vision-language model and train only the value head and action head.
+Critic training. The critic is trained with TD bootstrapping and an expectile value loss with coef-
+ficient τ = 0.7. Optimization uses 8000 steps on 8 GPUs with 140GB RAM, per-device batch size
+64, and learning rate 1×10−4 for first iteration, and 1×10−5 for subsequent iterations. At iteration
+0, the critic initializes from the pretrained value checkpoint; thereafter it initializes from the previous
+iteration’s critic. TD targets are normalized to [−1, 0] before expectile regression.
+Actor training. The actor is fine-tuned with advantage conditioning for 8000 steps on 8 GPUs with
+140GB RAM, per-device batch size 16, and learning rate 1×10−4 for first iteration, and 1×10−5
+for subsequent iterations. At iteration 0, the actor starts from the pretrained VLA checkpoint; for
+k > 0, it initializes from the policy checkpoint of iteration k −1.
+Data buffers. Dactor
+k
+stores robot experience used for policy learning: teleoperated demonstra-
+tions, autonomous rollouts, and human intervention trajectories. Dcritic
+k
+extends this robot data with
+human experience videos for value learning.
+State regularization. State regularization is enabled only during training and disabled at evaluation.
+In the actor action head, full-state dropout is applied per sample with probability 0.3. Gaussian state
+noise is applied per sample with probability 0.4 and base standard deviation 0.01, with smaller scales
+16
+
+Table 2: Data scale used for iterative policy improvement. Counts report base-policy demonstration
+episodes and newly collected episodes at each iteration; intervention fraction denotes the fraction of
+episode time under human intervention, computed over rollout–intervention episodes.
+Task
+Demo episodes
+Iter. 1
+Iter. 2
+Iter. 3
+Intervention fraction
+Erase the whiteboard
+225
+82
+71
+79
+25.50%
+Put the bread into the toaster
+220
+97
+69
+104
+4.53%
+for head and waist state blocks and unit scale for arm, hand, and end-effector state blocks. In the
+data transform, perturbation adds Gaussian noise to configured state/action keys and clips the result
+to the original value range; dropout zeros the configured keys when sampled. These settings are
+applied to proprioceptive inputs rather than image tokens.
+Data scale. Table 2 summarizes episode growth across iterations and intervention-time fractions.
+The base policies are trained only on teleoperated demonstrations. For iterative training, each round
+adds newly collected robot experience from policy deployment and human intervention. For Erase
+the whiteboard, interventions are typically triggered when the policy is about to fail in picking up the
+eraser, wipes in a direction that does not advance toward the handwriting, or leaves the whiteboard
+partially erased. For Put the bread into the toaster, interventions mainly occur after the policy has
+made repeated insertion attempts 3 to 5 times but remains misaligned with the toaster slot. Since
+these autonomous alignment attempts can occupy a relatively long portion of the episode before
+takeover, the intervention fraction is lower than in Erase the whiteboard.
+Beyond robot data, we additionally collect 180 ego-centric human experience videos per task us-
+ing a head-mounted capture device, split evenly between successful and failed executions. These
+videos reproduce the behavior patterns observed in robot rollouts and interventions and further ex-
+tend the coverage of partial-progress, near-failure, and recovery states, providing additional cross-
+embodiment supervision for value learning.
+H
+Consecutive success examples
+Fig. 9 and Fig. 10 visualize four consecutive successful trials from our policy on Put the bread into
+the toaster and Erase the whiteboard, respectively.
+17
+
+Figure 9: Four consecutive successful trials on Put the bread into the toaster. Frames are arranged
+in a 7 × 6 grid and read left to right, top to bottom, in temporal order.
+18
+
+Figure 10: Four consecutive successful trials on Erase the whiteboard. Frames are arranged in a
+7 × 6 grid and read left to right, top to bottom, in temporal order.
+19

@@ -1,0 +1,915 @@
+Human-as-Humanoid: Enabling Zero-Shot
+Humanoid Learning from Ego-Exo Human Videos
+with Human-Aligned Embodiments
+Xiaopeng Lin1,2,*, Ruoqi Yang2,*, Shijie Lian3,6,*, Zhaolong Shen3,7,*, Bin Yu3,5,*, Changti Wu3, Haibao Liu2,
+Yuxiang Zhang2, Hong Li2, Qiyuan Su2, Haochen Liu2, Xuguo He2, Yukun Shi4, Cong Huang3,4, Zhirui Zhang2,
+Bojun Cheng1,†, Kai Chen2,3,4,†
+1The Hong Kong University of Science and Technology (Guangzhou)
+2DeepCybo
+3ZGCA
+4ZGCI
+5Harbin Institute of Technology
+6Huazhong University of Science and Technology
+7Beihang University
+*Equal contribution, †Corresponding author
+Vision-language-action (VLA) models across robot embodiments require high-quality observation–
+action supervision to learn deployable action distributions, yet scaling such robot data remains difficult,
+especially for high-DoF humanoids. Teleoperation provides controller-aligned supervision, while human
+egocentric videos capture diverse bimanual manipulation but do not directly provide executable robot
+actions. We introduce Human-as-Humanoid, a human-to-humanoid supervision framework that
+enables near-real-time human-centric action generation, making human demonstrations usable for
+high-DoF humanoid VLA training by jointly aligning the robot embodiment, the sensing setup, and
+the action-label interface. Built on PrimeU, a human-aligned 60-DoF upper-body humanoid, Human-
+as-Humanoid uses synchronized ego-exo videos to pair deployment-aligned egocentric observations
+with exocentric motion recovery, retargets the recovered human motion through staged Inverse
+Kinematics (IK) into controller-aligned 60-DoF action chunks, and trains the VLA model with
+Forward Kinematics (FK)-aware supervision to preserve wrist and fingertip task-space geometry. This
+converts large-scale human demonstrations from visual observations into executable observation–action
+supervision for the target humanoid. Experiments validate the conversion chain at the motion-recovery,
+robot-action-space, and real-robot deployment levels. Human-as-Humanoid yields a 4.8–7.2x raw
+demonstration-throughput gain over humanoid teleoperation in our data-collection analysis, and
+on several downstream tasks, policies post-trained only with the converted human labels generalize
+to real-robot deployment without target-task robot demonstrations. The official project website is
+available at https://zgc-embodyai.github.io/Human-as-Humanoid/.
+Date: July 1, 2026
+Keywords: Humanoid Manipulation, Human Data, Teleoperation, VLA Models
+1
+Introduction
+Vision-language-action (VLA) policies provide a unified interface for general robot control by mapping visual
+observations and language instructions to robot actions (Zitkovich et al., 2023; Team et al., 2024; Black
+et al., 2024; Intelligence et al., 2025; Kim et al., 2024, 2025; Bjorck et al., 2025). This formulation makes
+policy learning depend not only on visual-language representation, but also on the quality and scale of
+observation-action supervision. Scalable VLA training therefore requires sufficient and reliable observation-
+action supervision. Such supervision allows the policy to learn an executable action distribution for the target
+robot.
+The granularity and representation of action supervision in VLA learning are coupled to the target robot’s
+embodiment and controller interface. For human-centered manipulation, full-size dexterous humanoids offer a
+suitable VLA embodiment: their human-scale upper body and dexterous hands support bimanual, contact-rich
+manipulation (Fu et al., 2024a; He et al., 2024; Bjorck et al., 2025). This morphology makes the required
+labels higher-dimensional and more interface-specific. Wrist or end-effector pose with gripper state remains a
+arXiv:2606.32009v1  [cs.RO]  30 Jun 2026
+
+compact and effective task-space abstraction, especially for many gripper-based manipulation settings (Chi
+et al., 2024). For dexterous humanoid control, execution also depends on hand preshape, fingertip contact,
+bimanual coordination, arm-redundancy resolution, and controller-level joint commands (Liu et al., 2025;
+Wang et al., 2024; Fu et al., 2025). This setting motivates action labels aligned with the robot execution
+interface while preserving wrist and fingertip geometry as task-space constraints.
+Conventional robot teleoperation is the standard way to obtain such action-interface-aligned supervision: it
+records observations and actions on the target hardware, with trajectories that already respect the robot
+controller. The limitation is throughput. Although the robotics community has made major efforts to scale
+robot data collection (Brohan et al., 2022; Walke et al., 2023; O’Neill et al., 2024; Khazatsky et al., 2024;
+AgiBot-World-Contributors, 2025; Fu et al., 2024b; Zhao et al., 2024; Ding et al., 2025), collecting high-DoF
+humanoid trajectories directly on hardware remains slow, labor-intensive, constrained by safety, and difficult
+to diversify across scenes. The core data-efficiency question is therefore how to reduce the dependence on
+robot-side teleoperation without losing executable action supervision.
+Human demonstrations are a natural way to scale this action data (Grauman et al., 2022, 2024; Build AI,
+2025; Hoque et al., 2025; Liu et al., 2022; Kareer et al., 2025; Yang et al., 2025; Bi et al., 2025; Luo et al.,
+2025). Human bimanual manipulation is fast to collect and contains rich behavior, including hand-shape
+changes, contact timing, regrasping, two-hand coordination, and active visual observation. Egocentric human
+video is also close to the head-view observation used by humanoid policies. However, raw human video is not
+robot training data. It contains visual observations and human motion, but it does not contain target-robot
+action labels; humans and humanoids also differ in body scale, joint structure, hand morphology, degrees of
+freedom, sensing viewpoints, and reachable workspace. To make human demonstrations useful for VLA action
+learning, the problem is not simply to collect more videos, but to convert human behavior into robot-learnable
+and robot-executable supervision.
+This conversion exposes four coupled requirements:
+(i) Embodiment alignment requires the robot morphology and sensing layout to remain compatible with
+human demonstrations, reducing retargeting error from differences in body scale, reachable workspace,
+hand morphology, and viewpoints.
+(ii) Observation–motion compatibility requires egocentric streams for deployment-aligned policy inputs and
+exocentric views for robust upper-body and hand recovery under occlusion.
+(iii) Action-interface alignment requires converted labels to be compatible with the robot’s joint ordering,
+URDF convention, joint limits, and controller interface, in addition to task-space motion intent.
+(iv) Joint–task consistency requires executable joint commands to preserve the wrist and fingertip geometry
+that is critical for contact-rich manipulation.
+To meet these requirements, we introduce Human-as-Humanoid, a human-to-humanoid supervision pipeline
+that converts synchronized ego-exo human videos into robot-executable high-DoF labels. The pipeline is built
+on PrimeU, a human-aligned 60-DoF upper-body humanoid whose dexterous hands, actuated neck and waist,
+and head- and wrist-view sensing reduce the embodiment and sensing gap to human bimanual manipulation.
+During data collection, synchronized ego-exo videos provide both deployment-aligned egocentric observations
+and exocentric visual evidence for reliable motion recovery. The recovered motion is retargeted through staged
+IK into controller-aligned 60-DoF action chunks, and FK-aware VLA training preserves wrist and fingertip
+geometry while learning executable joint actions.
+Figure 1 summarizes this shift from robot-side teleoperation to ego-exo human video conversion. The pipeline
+runs at around 20 FPS and, under a 15 Hz capture setting, yields a 4.8–7.2x raw demonstration-throughput
+gain over motion-capture teleoperation in our representative data-collection analysis.
+We validate the same conversion chain before policy deployment. For observation–motion compatibility,
+ego-exo camera-only recovery produces more stable human keypoints than motion-capture-suit keypoints in
+the target manipulation setting. For action-interface alignment, an action tokenizer trained on human-derived
+robot actions reconstructs unseen robot trajectories with low normalized MAE (0.008 average, 0.0097 at the
+95th percentile). For joint–task consistency, a FK-aware VLA policy fine-tuned only on converted human
+2
+
+Figure 1 Overview of Human-as-Humanoid and its effect on humanoid action-data generation. Conventional robot data
+collection obtains executable actions through teleoperation, coupling data throughput to robot execution. Human-
+as-Humanoid instead uses synchronized ego-exo human videos, estimates human keypoints, and retargets them into
+executable 60-DoF humanoid actions near the video capture rate. The upper-right panel reports a cross-domain
+action-replay compatibility check, where an action tokenizer trained on human-derived action chunks reconstructs
+unseen robot trajectories. The lower-right panel shows zero-shot real-robot policy rollouts from a VLA fine-tuned
+on converted human demonstrations, not direct replay of generated trajectories, on water pouring, bag packing, cap
+twisting, and ring placement.
+demonstrations deploys on real high-DoF tasks including ring placement, bag packing, cap twisting, and water
+pouring, without target-task robot demonstrations.
+Our contributions are:
+• We design and use PrimeU, a human-aligned 60-DoF upper-body humanoid that supports embodiment-
+aligned conversion from human bimanual manipulation to humanoid action supervision.
+• We introduce Human-as-Humanoid, a near-real-time ego-exo video-to-action pipeline that converts
+camera-only human demonstrations into controller-aligned 60-DoF humanoid action chunks without
+motion-tracking wearables.
+• We train high-DoF VLA policies with FK-aware supervision, preserving wrist and fingertip geometry
+while keeping the policy output in executable joint space.
+• We validate the conversion chain through keypoint stability, tokenizer reconstruction on unseen robot
+trajectories, a 4.8–7.2x raw throughput gain, and zero target-task robot-demonstration deployment on
+real humanoid manipulation tasks.
+2
+Related Work
+Egocentric and ego-exo human data. Large-scale human video datasets have made first-person behavior a
+realistic supervision source for embodied learning. Ego4D (Grauman et al., 2022) provides thousands of hours
+3
+
+of daily-life egocentric video and benchmarks for first-person perception, while Ego-Exo4D (Grauman et al.,
+2024) extends this direction to synchronized first- and third-person views of skilled human activities, and
+Egocentric-100K (Build AI, 2025) further increases the scale of egocentric video resources. More manipulation-
+oriented resources further move from perception toward action: HOI4D (Liu et al., 2022) provides 4D
+egocentric human-object interaction data, EgoDex (Hoque et al., 2025) collects large-scale egocentric dexterous
+manipulation with 3D hand tracking, EgoMimic (Kareer et al., 2025) uses wearable egocentric video and
+hand tracking to co-train imitation policies with robot data, ActiveMimic (Lin et al., 2026) studies egocentric
+pretraining for active viewpoint control, and EgoScale (Zheng et al., 2026) shows that dexterous manipulation
+performance can scale with diverse egocentric human data. These datasets and systems establish the value
+of human egocentric data. Our work uses the same scaling opportunity, but targets a different output:
+near-real-time executable 60-DoF upper-body humanoid joint supervision from synchronized camera-only
+videos, rather than only perception labels, hand trajectories, or pretraining signals.
+Robot learning from human videos. Recent methods increasingly use human data to reduce the dependence
+on robot demonstrations. H-RDT (Bi et al., 2025) pretrains on egocentric human manipulation videos and
+transfers to robot policies through cross-embodiment action modules and robot fine-tuning. In-N-On (Cai et al.,
+2025) combines in-the-wild and on-task egocentric human data to train language-conditioned manipulation
+policies.
+Several recent works further move from semantic video pretraining toward explicit motion or
+action supervision: EgoVLA (Yang et al., 2025) learns VLA models from egocentric human videos with
+3D hand action annotations, Being-H0 (Luo et al., 2025) scales VLA pretraining with human hand-motion
+representations, VITRA (Li et al., 2025) converts real-life human activity videos into robot-aligned action
+segments, and MotionTrans (Yuan et al., 2025) studies motion-level learning from human VR demonstrations.
+Ego-Pi (Kim et al., 2026) uses ego-centric human and robot data jointly, showing that human videos can
+contribute high-level task semantics such as ordering, sorting rules, and skill composition for dexterous
+humanoids; its demonstrated transfer is therefore complementary to ours, which learns target-task low-level
+action labels without target-task robot demonstrations. PhysBrain (Lin et al., 2025) and PhysBrain 1.0 (Lian
+et al., 2026) translate human egocentric videos into physical commonsense, planning, state-tracking, and
+interaction supervision for VLM/VLA adaptation. EgoEngine (Liu et al., 2026) converts Aria egocentric
+human videos into paired robot observations and executable dexterous trajectories through digital-twin
+reconstruction, robot-video synthesis, and object-centric simulation optimization. HumanEgo (He et al.,
+2026) takes a strong robot-data-free direction by learning from minutes of human egocentric video through
+hand-object interaction representations, but its action interface is a virtual gripper rather than a dexterous
+humanoid upper body. In contrast, Human-as-Humanoid focuses on the action-label generation problem for
+humanoids: it converts synchronized camera-only human videos into robot-controller-aligned actions over
+arms, dexterous hands, neck, and waist, runs at around the video capture rate, and supports real-robot
+deployment without target-task robot demonstrations.
+3
+Human-Aligned Humanoid Embodiment
+Our system starts from the robot embodiment rather than treating human-to-robot transfer as a purely
+post-hoc retargeting problem. If the target robot differs strongly from the human in reach, sensing viewpoint,
+or dexterous action structure, then human demonstrations must cross a large embodiment gap before they
+can supervise a policy. PrimeU is designed to reduce this gap at the source. Its upper body follows standard
+adult-male manipulation proportions, including overall height, shoulder width, and arm length, so that
+common human demonstrations occupy a workspace close to the robot’s reachable workspace.
+Table 1 makes this human alignment numerically checkable. We compare action-relevant upper-body dimensions
+of PrimeU against adult-male anthropometric references from ANSUR II (Gordon et al., 2014). The goal is
+not to exactly reproduce human anatomy, but to keep the robot’s shoulder span, reach length, and hand scale
+close to a common human manipulation scale. The shoulder-to-head measurement is included to characterize
+the head-camera mounting height; it is less central to manipulation reach than shoulder breadth, arm reach,
+and hand length, which are all close to human scale.
+Kinematic alignment. PrimeU exposes a unified 60-DoF upper-body action space over arms, dexterous hands,
+neck, and waist.
+The command interface contains 14 arm joints, 40 hand joints, 3 neck joints, and 3
+4
+
+Figure 2 PrimeU human-aligned humanoid embodiment. The upper body is developed in-house and is designed around
+adult-male manipulation scale, with two 7-DoF arms, a 3-DoF neck, and a 3-DoF waist. The platform uses two 20-DoF
+Wuji dexterous hands for fine manipulation. Head-view and wrist-view cameras are Intel RealSense D435 cameras,
+matching the viewpoint structure used by the deployed VLA policy.
+Table 1 Action-relevant anthropometric scale alignment. Human values are 50th-percentile male measurements from
+ANSUR II (Gordon et al., 2014); PrimeU values are computed from the URDF kinematic tree and visual meshes.
+Human shoulder-to-head height is sitting height minus sitting acromial height. For PrimeU, shoulder breadth is the
+shoulder-roll joint-center span, shoulder-to-head height is measured from the shoulder-roll level to the head visual top,
+and reach is the shoulder-roll-to-palm kinematic chain plus the palm-to-middle-fingertip link.
+Dimension
+Human (cm)
+PrimeU (cm)
+Ratio
+Shoulder breadth
+41.5
+40.4
+0.97
+Shoulder-to-head height
+31.5
+37.1
+1.18
+Shoulder-to-middle-fingertip reach
+78.6
+80.3
+1.02
+Hand length
+19.3
+19.3
+1.00
+commanded waist DoFs. Each arm follows a serial shoulder-pitch/roll/yaw, elbow-pitch, wrist-roll/pitch/yaw
+chain, providing human-like reaching redundancy. Each Wuji hand is modeled as five four-joint finger chains
+mounted to a palm, with explicit fingertip links that are later used as FK endpoints for geometric supervision.
+The actuated neck controls the sensor-bearing head, and the actuated waist expands the reachable workspace
+for torso-assisted manipulation. This design makes the robot action space closer to the structure of human
+upper-body motion than a low-DoF gripper interface, while still remaining a directly executable joint-space
+controller interface.
+Sensing alignment. The robot uses head-view and wrist-view RealSense D435 cameras. The head-view camera
+provides an egocentric view of the workspace, while wrist-view cameras capture hand-centric contact and
+object geometry. These viewpoints mirror the human camera streams used for policy inputs, so the visual
+observations seen during deployment are aligned with the observation structure used during human-data
+training.
+Action-interface alignment. Human alignment alone does not make human data executable. We expose the
+robot to learning as one joint-space action vector over the controllable upper-body groups, rather than mixing
+human pose, end-effector pose, and virtual-gripper commands. Human videos are therefore converted into
+PrimeU action chunks rather than generic human-motion annotations. This action-level interface is the
+foundation that lets Human-as-Humanoid treat human demonstration as a scalable source of robot-action
+supervision.
+5
+
+4
+Near-Real-Time Human-Centric Action Generation
+Given PrimeU as the target embodiment, we convert synchronized camera-only human demonstrations into
+executable humanoid action labels at collection time. A head-mounted egocentric camera provides the policy
+observation. Optional wrist cameras can be recorded as extra policy inputs, but they are not used for pose
+tracking. One or more exocentric RGB views provide stable evidence for human body and hand recovery. Since
+all streams are time-aligned, each egocentric observation can be paired with the corresponding upper-body
+motion. The conversion runs at about 20 FPS in our implementation, which is close to a common 15 Hz
+capture rate.
+The label-construction pipeline has four stages. First, we track the demonstrated person in the exocentric video
+and propagate the target mask over short temporal windows. Second, a mesh-aware human reconstruction
+module recovers the upper-body pose and hand motion from the tracked video. We use the reconstructed
+mesh only as a motion-estimation intermediate. The stored representation is a compact camera-coordinate
+skeleton with upper-body and hand keypoints. Third, the skeleton is smoothed in a root-relative coordinate
+frame and mapped into the selected kinematic convention. This step aligns axes, interpolates torso and neck
+joints, and builds palm frames for both hands. Finally, a staged IK solver retargets the skeleton to PrimeU
+and emits controller-aligned 60-DoF labels.
+The output is not a human-pose annotation. It is a robot training tuple:
+(ot, ℓ, qt, q∗
+t+1:t+H),
+where ot is the egocentric observation, ℓis the language instruction, qt is the current robot state, and q∗
+t+1:t+H
+is a future robot action chunk, both qt and q∗
+t+1:t+H are robot states obtained by retargeting the recovered
+human motion to PrimeU joint space. The goal is to turn human motion into the same joint space used by
+policy training and robot control.
+The robot label is a unified upper-body humanoid joint vector
+q =
+
+qL
+arm, qL
+hand, qneck, qwaist, qR
+arm, qR
+hand
+
+∈R60,
+(1)
+which contains two 7-DoF arms, two 20-DoF Wuji dexterous hands, a 3-DoF neck, and a 3-DoF waist. This
+single joint-space convention is used for retargeting, learning, and deployment. The hands preserve fine finger
+articulation. The neck controls the egocentric sensor pose. The waist expands the reachable workspace and
+supports torso-assisted reaching.
+Retargeting is solved in stages because different robot parts require different target geometry. A monolithic
+60-DoF IK problem couples fingers, wrists, arms, neck, and waist, and it is poorly conditioned. We instead
+define a target vector y∗
+b and a robot kinematic map fb for each body part b, then solve a regularized IK
+problem
+q⋆
+b = arg min
+qb∈Qb ∥Wb (fb(qb; ¯q) −y∗
+b)∥2
+2 + λb
+qb −q0
+b
+2
+2 ,
+(2)
+where Qb denotes joint limits, ¯q contains already-fixed upstream joints, and q0
+b is the seed or previous solution.
+Hands are solved first. The targets include calibrated fingertip points and finger-segment directions. For
+an observed human fingertip xh
+i , the target is aligned by a calibrated similarity transform Th→r, producing
+residuals of the form
+ehand
+i
+(qb) = pr
+i (qb) −Th→r(xh
+i ),
+(3)
+which are minimized by a seed retargeter followed by per-finger Levenberg–Marquardt refinement. Arm
+motion is then solved with wrist, palm, and elbow targets using damped Jacobian IK. Wrist orientation is
+extracted from the hand frame and refined after the arm solve, so the final palm pose remains consistent
+with the shoulder-elbow chain. Neck and waist motion use semantic head and torso frames rather than point
+targets. We minimize an SO(3) residual
+eori(qb) = Log
+ Rb(qb)⊤R∗
+b
+
+,
+(4)
+with temporal regularization. The order is therefore hand, arm and wrist, neck and waist, then guard and
+smooth.
+6
+
+After the per-part solves, the trajectory is filtered by joint limits, velocity bounds, and acceleration bounds.
+Local wrist-palm refinements are accepted only when they improve the relevant task-space residual over the
+current baseline:
+qnew =
+(
+˜q,
+Eb(˜q) < Eb(qbase) −ϵ,
+qbase,
+otherwise,
+(5)
+where Eb is the residual used by the corresponding body-part solver. This guarded rule prevents local solver
+failures from degrading otherwise good labels.
+The result is a robot-centric action corpus rather than a human-motion corpus. The same URDF and joint
+ordering are used by the IK retargeting pipeline, the differentiable FK layer during training, and the robot
+controller at deployment. Wrist positions, fingertip positions, and joint limits therefore have the same meaning
+throughout the system.
+5
+PhysDex: VLA Learning from Human-Derived High-DoF Actions
+5.1
+Formulation
+After human-to-humanoid retargeting, each segment is represented as (ot, ℓ, qt, q∗
+t+1:t+H). Here ot is the
+egocentric image, ℓis the language instruction, qt ∈R60 is the current robot state, and q∗
+t+1:t+H is the future
+robot joint trajectory. The policy predicts future-relative joint offsets. For FK and pose losses, these offsets
+are decoded back to absolute joints:
+ˆqt+h = qt + ˆAh,
+q∗
+t+h = qt + A∗
+h,
+h = 1, . . . , H.
+(6)
+In our implementation, the chunk contains 40 future states and each state follows the same 60-DoF ordering
+used by the IK labels.
+The action is represented in joint space rather than as end-effector poses. This choice is central to the method.
+It avoids deployment-time IK, preserves the null-space structure of the multi-finger hands, and makes neck
+and waist motion part of the same action convention as the arms and hands. The cost of this choice is that
+plain joint-space supervision is poorly aligned with dexterous task geometry. The remainder of the method
+addresses this cost without changing the executable output space.
+The policy-learning stack receives the image observation, language instruction, current robot state, and a noisy
+action chunk. A VLM encodes the visual-language context. A flow-matching DiT predicts future 60-DoF
+joint actions. Dual-Space Hierarchical Kinematic Constraint (DS-HKC) then supervises the same prediction
+in task space through differentiable FK. Figure 3 summarizes this two-stage conversion and learning pipeline.
+5.2
+Action Backbone
+The egocentric image and instruction are encoded by PhysBrain, which we use as an existing manipulation-
+aware VLM backbone. PhysBrain supplies visual-language tokens for objects, hands, contact cues, and task
+progress. Proprioception and diffusion noise enter the action model directly. They are not routed through the
+VLM, which keeps the perceptual prior separate from the action-generation mechanism.
+The action backbone is a conditional flow-matching DiT. Let hϕ = Eϕ(ot, ℓ) denote the visual-language tokens,
+A∗the future-relative target chunk, and z0 ∼N(0, I) a noise chunk. For an interpolation time τ, the model
+is trained on the linear path zτ = (1 −τ)z0 + τA∗with target velocity A∗−z0:
+Lfm = EA∗,z0,τ
+h
+∥vθ(zτ, τ, qt, hϕ) −(A∗−z0)∥2
+2
+i
+.
+(7)
+At inference, integrating the velocity field yields a future-relative 60-DoF action chunk. The chunk is decoded
+through the robot kinematic convention and sent directly to the controller. We use four denoising steps at
+inference.
+7
+
+Figure 3 Overview of the PhysDex learning pipeline.
+(Top) Synchronized human ego-exo videos are converted
+into controller-aligned 60-DoF robot action labels: egocentric views provide deployment-aligned policy observations,
+exocentric views support human mesh and upper-body/hand keypoint recovery, and staged IK maps the recovered
+motion into PrimeU joint chunks. (Bottom) The VLA policy is trained in the same robot action space. Visual-language
+features, the current robot state, and a noisy action chunk condition a flow-matching DiT, while DS-HKC applies
+differentiable FK supervision to the predicted joint chunk through wrist poses and fingertip positions.
+5.3
+Dual-Space Hierarchical Kinematic Constraint
+High-DoF humanoid action learning has a space mismatch. The policy must output executable joint commands,
+but manipulation success is often decided by wrist motion, fingertip placement, and contact geometry. DS-HKC
+addresses this mismatch with supervision in two spaces. Joint-space losses keep the output close to the
+demonstrated 60-DoF trajectory. FK-space losses supervise the terminal geometry induced by that trajectory.
+The FK map is induced by the PrimeU URDF and uses the same joint order as retargeting and deployment.
+Given an absolute joint state q, it returns wrist positions W(q), wrist rotations R(q), and fingertip positions
+P(q):
+FU(q) = (W(q), R(q), P(q)) .
+(8)
+Here W(q) ∈R2×3 covers the two wrists, R(q) ∈R2×3×3 covers their orientations, and P(q) ∈R2×5×3 covers
+five fingertips on each hand.
+DS-HKC supervises two end-effector levels as a hierarchical architecture. The wrist level constrains the
+proximal hand pose. The fingertip level constrains distal contact geometry. For a predicted chunk ˆA and
+target chunk A∗, we decode both to absolute trajectories and compute
+Lwrist = 1
+H
+H
+X
+h=1
+hW(ˆqt+h) −W(q∗
+t+h)
+2
+2 + λR
+R(ˆqt+h) −R(q∗
+t+h)
+2
+F
+i
+,
+Ltip = 1
+H
+H
+X
+h=1
+P(ˆqt+h) −P(q∗
+t+h)
+2
+2 .
+(9)
+The DS-HKC term aggregates wrist-level geometry, fingertip-level geometry, and joint-limit feasibility:
+Ldshkc = λwristLwrist + λtipLtip + λlimLlim.
+(10)
+8
+
+These task-space quantities do not require additional annotations; they are computed by applying the same
+URDF-induced FK map to predicted and target joint trajectories. Let fU denote the FK map from robot
+joints to the selected wrist and fingertip sites. For a local squared task-space error, the gradient with respect
+to the joint configuration is
+∇q∥fU(q) −fU(q∗)∥2
+2 = 2J(q)⊤(fU(q) −fU(q∗)) ,
+(11)
+where J(q) is the manipulator Jacobian. Under a local linearization, this objective weights joint-space errors
+through the configuration-dependent matrix J(q)⊤J(q). Joint deviations that produce larger wrist or fingertip
+displacement receive stronger corrective gradients, making DS-HKC complementary to joint-space regression
+for contact-rich manipulation.
+5.4
+Training Objective
+The objective combines flow matching, decoded action losses, trajectory smoothness, and DS-HKC. The
+flow-matching term Lfm is defined in Eq. (7). The decoded action terms supervise absolute future pose,
+step-wise delta, and temporal smoothness. DS-HKC supervises wrist geometry, fingertip geometry, and joint
+limits through the robot kinematic model. The full objective is
+L =λfmLfm + λabsLabs + λ∆L∆+ λsmLsm + α(s)Ldshkc,
+(12)
+where λfm, λabs, λ∆, and λsm weight the flow-matching, absolute-pose, action-delta, and smoothness terms,
+respectively. α(s) denotes the warm-up coefficient for the DS-HKC term at training step s.
+6
+Experiments
+The experiments evaluate whether the proposed ego-exo Human-as-Humanoid data-processing pipeline provides
+reliable supervision for PhysDex, our high-DoF humanoid VLA policy. We follow the four requirements
+introduced in Section 1: embodiment alignment, observation–motion compatibility, controller-aligned action
+labels, and task-space geometry under joint-space execution. Concretely, we ask:
+1. Does the target embodiment reduce the human-to-robot morphology gap enough for stable conversion
+into executable robot actions?
+2. Is camera-only ego-exo motion recovery stable enough for upper-body and hand supervision when
+compared with a wearable motion-capture suit?
+3. Do human-derived 60-DoF action chunks remain compatible with unseen real PrimeU trajectories?
+4. Does FK-aware training in PhysDex improve task-space wrist and fingertip geometry while preserving
+executable high-DoF joint actions and supporting target-task deployment?
+6.1
+Experimental Setup and Data Protocol
+Each policy receives visual observations, a language instruction, and the current 60-DoF robot state, and
+predicts a future action chunk. Human-derived data is collected with synchronized egocentric and exocentric
+cameras, converted into upper-body and hand keypoints, and retargeted through staged IK into PrimeU
+action labels. The egocentric stream matches the policy-observation perspective, while the exocentric stream
+supplies less occluded evidence for motion recovery.
+Embodiment alignment is evaluated as a prerequisite for the conversion chain. Section 3 and Table 1 show
+that PrimeU is close to human manipulation scale in shoulder breadth, arm reach, and hand length, while
+also characterizing the shoulder-to-head geometry that determines the head-view sensing height. This design
+reduces the extrapolation required by retargeting: recovered human wrist, hand, neck, and torso motion
+can be mapped into the robot’s reachable workspace and 60-DoF action structure by staged IK, rather than
+being interpreted only as generic human pose. The end-to-end replay in Figure 6 then checks the action-level
+consequence of this alignment by verifying that the converted commands preserve the main phases of bimanual
+manipulation in simulation and on the real robot.
+9
+
+Table 2 Stage-wise evaluation protocol for real-robot manipulation tasks. Stage completion rates are computed for the
+ordered subgoals listed below; final task success is counted only when the full task objective is achieved.
+Task
+Ordered evaluation stages
+Temperature-gun
+measurement
+S1. Right hand approaches and aligns with the thermometer gun.
+S2. Right hand grasps the thermometer gun.
+S3. Left hand approaches and aligns with the object.
+S4. Left hand grasps the object.
+S5. Right hand aims at the object and presses the button.
+Ring placement
+S1. Hand approaches the ring.
+S2. Hand correctly lifts the ring.
+S3. The ring is successfully placed onto the peg.
+Light-bulb loosening
+S1. Left hand stabilizes the bulb base.
+S2. Right hand approaches and grasps the bulb.
+S3. Right hand performs a twisting motion.
+S4. The bulb is loosened and removed.
+Magic-cube packing
+S1. Right hand approaches the cube.
+S2. Right hand grasps the cube.
+S3. The cube is successfully placed into the bag.
+Water pouring
+S1. Hand aligns with the kettle handle.
+S2. Hand successfully grasps the handle.
+S3. The robot lifts the kettle and initiates a pouring motion.
+S4. Water is poured into the cup.
+Bottle-cap loosening
+S1. Left hand approaches and grasps the bottle.
+S2. Right hand approaches and aligns with the cap.
+S3. Right hand performs a twisting motion.
+S4. The cap is loosened and removed.
+Cup stacking
+S1. Left hand aligns with and grasps the left cup.
+S2. The left cup is stacked onto the center cup.
+S3. Right hand aligns with and grasps the right cup.
+S4. The right cup is stacked onto the center cup.
+The wrist-view assumption is stage-specific. The broad human-video pretraining stage does not require
+wrist-camera input, since wrist views are not available for all human sequences. In the post-training and
+robot-aligned evaluation stage, the observation streams are collected under the same head- and wrist-view
+convention as the robot data, so the policy interface remains consistent with deployment.
+Robot experiments use the PrimeU humanoid described in Section 3. Downstream tasks cover object placement,
+container manipulation, pouring, cup stacking, tool use, and rotational dexterous manipulation: measuring
+object temperature with a thermometer gun, placing rings on pegs, loosening and removing a light bulb,
+packing a magic cube into a bag, pouring water from a cold-water pitcher into a cup, loosening and removing
+a bottle cap, and stacking cups. We report the stage completion rates and final task success rate. Lower is
+better for action and geometry metrics. For real-robot deployment, stage completion measures whether each
+ordered subgoal in Table 2 is reached within a rollout, while final task success requires completing the full
+task objective.
+6.2
+Ego-Exo Motion Recovery
+This validation corresponds to the observation–motion compatibility requirement in Section 1. The question
+is whether camera-only ego-exo data can provide reliable motion recovery while preserving the egocentric
+observation used by the policy. Figure 4 shows the synchronized capture setup used to separate these two
+roles: egocentric cameras provide policy-aligned observations, while exocentric cameras provide less occluded
+evidence for motion recovery. We evaluate this requirement with a projection-based diagnostic. For each
+sequence, we project the skeletons recovered by the ego-exo Human-as-Humanoid pipeline and by the wearable
+motion-capture system back onto the human video. Image-plane alignment with the visible body provides an
+10
+
+Figure 4 Ego-exo data-collection setup. The egocentric cameras provide policy-aligned observations, while synchronized
+exocentric cameras provide complementary visual evidence for upper-body and hand motion recovery.
+intuitive check of recovery accuracy for the upper body, wrists, and hands, which are the components later
+mapped to PrimeU joints.
+Figure 5 shows that the wearable inertial capture result exhibits visible localization drift in the projected view.
+This behavior is consistent with the known sensitivity of inertial capture to accumulated global-position error
+and calibration quality. The effect is especially relevant for close-range bimanual manipulation, where wrist
+and hand positions must remain aligned with objects. In data collection, this drift often requires operator
+compensation or repeated recalibration. Both interventions restrict the range of natural demonstrations and
+reduce effective collection throughput.
+Under the same actions, the ego-exo recovery maintains closer projected alignment with the observed body and
+hands. The exocentric views provide stable geometric evidence for motion recovery, while the egocentric stream
+remains available as the deployment-aligned policy input. This directly addresses the observation–motion
+conflict: the system can recover manipulation-relevant joints without replacing the policy observation with an
+exocentric view. The recovered motion is then retargeted through the PrimeU URDF, joint limits, and staged
+IK solver, so this recovery stage supports low-cost and high-precision generation of robot action labels.
+We further evaluate the full conversion chain after motion recovery. Figure 6 traces matched timestamps
+from the source human video to recovered skeletal keypoints, simulator replay, and real-robot replay. The
+four-row comparison tests whether the recovered motion remains consistent after retargeting into PrimeU
+joint commands, rather than only after projection onto the human image. The simulator and real-robot rows
+preserve the main bimanual motion phases, including approach, grasp, object transfer, and release. This
+qualitative consistency supports the accuracy of the data-processing pipeline used to generate high-DoF
+action labels. Since the same pipeline runs near the video capture rate, it also supports near-real-time
+teleoperation-style replay for data collection and system debugging.
+11
+
+Figure 5 Projection-based comparison between human video, camera-only ego-exo motion recovery, and wearable
+motion capture at matched relative timestamps. The visualization evaluates observation–motion compatibility by
+showing how the recovered skeletons align with the visible human body before retargeting into robot action labels.
+6.3
+Action-Interface Compatibility
+This experiment addresses the third question in our evaluation: whether human-derived 60-DoF action chunks
+are compatible with the action space used by real PrimeU trajectories. Motion recovery and simulator replay
+verify that human motion can be recovered and retargeted, but motion-level consistency alone is insufficient
+to establish compatibility with the robot action interface used for policy learning. As illustrated by the
+upper-right panel of Figure 1, we therefore use a cross-domain action-replay test. A discrete action tokenizer
+is trained on action chunks generated from human data, using the same PrimeU joint ordering, kinematic
+convention, joint limits, and controller interface as deployment. We then evaluate whether this tokenizer can
+encode and decode held-out real-robot trajectories that were not used to train the tokenizer. If the converted
+labels formed an interface-specific distribution far from real robot actions, the tokenizer would reconstruct
+these held-out robot trajectories with large distortion.
+We evaluate action-interface compatibility with two complementary tokenizer diagnostics, summarized in
+Table 3. First, we train a single 60-DoF tokenizer only on human-derived robot-action chunks and evaluate
+it on held-out real-robot action windows. This is a strict cross-domain test: the tokenizer never observes
+robot trajectories during fitting, but must still discretize and reconstruct them under the same PrimeU action
+convention. On 100 real-robot windows, the human-only tokenizer reaches a mean normalized MAE of 0.0080
+and a 95th-percentile normalized MAE of 0.0097. This low cross-domain reconstruction error indicates that
+the actions produced by our human-to-PrimeU conversion occupy a normalized action manifold close to real
+PrimeU demonstrations.
+12
+
+Figure 6 End-to-end ego-exo conversion and replay at matched timestamps. Rows show the source human video,
+recovered skeleton keypoints, simulator replay, and real-robot replay. The visualization evaluates whether the recovered
+human motion remains coherent after retargeting into PrimeU actions and whether the resulting commands preserve
+the temporal structure required for near-real-time teleoperation-style replay.
+We further measure the effect of action reconstruction in task space by applying the original and decoded actions
+to the PrimeU kinematic model and comparing the resulting left- and right-hand end-effector trajectories.
+The human-only tokenizer reconstructs unseen robot windows with a mean bi-manual end-effector error
+of 5.34 mm, showing that the cross-domain action error remains small after forward kinematics. We use
+robot-only and robot+human-data tokenizers with the same single-60-DoF architecture as complementary
+replay diagnostics for the effect of adding human-derived actions. A tokenizer trained only on robot data
+reaches a mean bi-manual end-effector error of 4.09 mm, while the tokenizer trained on robot data plus
+full human-derived actions reaches 4.86 mm. Normalized MAE is reported to show that the cross-domain
+action-space discrepancy is small, but it is not used to rank the cross-domain and in-domain settings because
+it also depends on the action variation scale and the normalization induced by each training distribution.
+We therefore use end-effector error as the primary replay-quality metric. Under this task-space metric, the
+robot-only tokenizer gives the lowest error, while the human-only and mixed-domain tokenizers still maintain
+millimeter-scale replay accuracy. Together, these diagnostics support that our staged-IK conversion produces
+human-derived labels that are compatible with the real PrimeU action interface.
+6.4
+FK-Aware VLA Training
+The action-interface test verifies representability, but policy learning also requires the predicted joint actions
+to preserve task-space geometry. We therefore evaluate the network-level effect of FK-aware supervision in the
+PhysDex action head. All variants predict executable joint-space action chunks. The baseline is trained with
+joint-space action losses only, while the FK-aware variants add DS-HKC constraints that map the predicted
+joint chunk through the differentiable PrimeU kinematic model and supervise wrist and fingertip geometry in
+task space.
+Figure 7 shows that adding FK supervision does not merely add an auxiliary penalty; it improves the
+optimization geometry of high-DoF action learning. A joint-only flow objective treats the 60 action dimensions
+largely as independent regression targets. In contrast, FK supervision couples the joints through the robot
+13
+
+Table 3 Action-interface compatibility diagnostics. All settings use a single 60-DoF tokenizer and 100 real-robot
+evaluation windows. The human-only tokenizer is evaluated cross-domain, while the robot-only and robot+human-data
+tokenizers provide complementary replay diagnostics for the effect of adding human-derived actions. End-effector
+error is computed by forward kinematics on the decoded action sequence and averaged over the left and right hand
+sites. Normalized MAE is reported as an action-space compatibility diagnostic, not as a strict ranking criterion across
+settings. Lower is better for both metrics.
+Diagnostic
+Training data
+Eval.
+EE error (mm)
+Norm. MAE
+mean / p95
+mean / p95
+Cross-domain
+Human only
+Robot
+5.34 / 12.67
+0.0080 / 0.0097
+In-domain baseline
+Robot only
+Robot
+4.09 / 6.84
+0.0099 / 0.0117
+Mixed-domain
+Robot + human data
+Robot
+4.86 / 9.11
+0.0096 / 0.0114
+Figure 7 Training-loss comparison for high-DoF VLA action learning. FK-aware supervision reduces the loss by
+constraining the joint prediction through robot kinematics, and the PhysBrain-initialized FK-aware model reaches the
+lowest loss under the same training budget.
+kinematic chain and measures whether the induced wrist and fingertip poses remain consistent with task-space
+manipulation geometry. The joint-limit term further discourages physically invalid solutions, and the warmup
+schedule lets the flow objective first learn coarse action alignment before the FK terms refine terminal geometry.
+This structured constraint reduces unconstrained trajectory memorization and yields smoother, lower loss
+curves, supporting the use of FK-aware training before real-robot deployment.
+6.5
+Data Efficiency and Target-Task Deployment
+The final evaluation connects the validated Human-as-Humanoid conversion chain to robot-data efficiency and
+closed-loop PhysDex deployment. We compare against GR00T N1.7 (Bjorck et al., 2025) under the stage-wise
+protocol in Table 2. For each task, we run 10 trials and report both ordered stage-completion rates and final
+task success. This protocol separates early perceptual or reaching failures from later dexterous failures, and
+therefore gives a more diagnostic comparison than a single binary success number.
+Pretraining corpus and adaptation protocol. PhysDex uses a two-part initialization. The visual-language
+model is PhysBrain, a VLM trained on large-scale egocentric human data, which provides manipulation-
+aware visual-language features for objects, hands, contact cues, and task progress. The action autoencoding
+component is pretrained with our human-derived 60-DoF labels. The pretraining corpus contains 1,500 hours
+of self-collected ego-exo human demonstrations covering diverse daily-life manipulation scenarios, and every
+sequence is converted into controller-aligned 60-DoF robot action labels by the Human-as-Humanoid staged-IK
+pipeline. Thus the pretraining supervision is not only visual imitation data; it is high-DoF robot-action
+supervision in the target joint order, URDF convention, joint-limit range, and controller interface.
+Downstream adaptation is evaluated in two regimes. For ring placement, magic-cube packing, cup stacking
+14
+
+and water pouring, post-training uses target-task human demonstrations only; these tasks therefore test zero
+target-task robot-demonstration generalization. For temperature-gun measurement, light-bulb loosening, and
+bottle-cap loosening, sustained contact and fine hand-object interaction make the tasks more sensitive to
+hardware grounding. We therefore use a small amount of real-robot data for mid-training anchoring and
+task-specific post-training, following the EgoScale training recipe (Zheng et al., 2026). GR00T N1.7 is adapted
+under the same downstream data setting: no target-task robot data for the human-only tasks, and the same
+real-robot data budget for the robot-assisted tasks.
+Figure 8 provides synchronized rollout frames for the downstream task suite, showing the policy-observation
+view together with a third-person view used only for qualitative visualization of real-robot execution.
+This protocol tests two questions at deployment time. The human-only tasks evaluate whether Human-as-
+Humanoid labels support PhysDex target-task transfer without robot demonstrations. The robot-assisted
+tasks evaluate whether the 1,500-hour human-derived pretraining reduces the amount of real robot data
+needed when precise contact and hardware grounding are required. Across both regimes, the comparison
+between PhysDex and GR00T N1.7 measures stage-wise task progress and final deployment success under the
+same rollout budget and matched downstream data condition.
+Figure 9 summarizes the preliminary stage-final composite results over seven real-robot tasks. The score
+combines ordered stage completion with final task success, providing a progress-aware measure of deployment
+performance rather than a binary success indicator alone. PhysDex obtains higher composite scores than
+GR00T N1.7 across the evaluated tasks. The improvement is more pronounced in the human-only adaptation
+regime, where target-task training uses converted human demonstrations without robot demonstrations, and
+is smaller in the robot-assisted regime, where both methods receive the same limited amount of real-robot
+data. This trend is consistent with the role of Human-as-Humanoid labels: the converted data provides
+embodiment-specific, controller-aligned high-DoF action supervision that directly matches the PrimeU action
+interface. GR00T N1.7 remains a strong generalist humanoid baseline, but this evaluation stresses target-
+robot-specific dexterous action learning under limited robot data, where additional human-derived action
+supervision provides a more specialized action prior. Since each task currently uses 10 rollouts, we interpret
+the result as a controlled preliminary comparison rather than a final statistical claim.
+Together, the deployment comparison, action-tokenizer reconstruction, and FK-aware loss analysis support the
+same conclusion: human demonstrations are not only useful as visual pretraining data, but can also serve as a
+stable source of executable action supervision for VLA scaling. Robot data remains important for defining
+the controller interface, grounding the policy to hardware, and refining contact-rich edge cases, but scalable
+human-derived supervision reduces the amount of target-task robot data that the policy must rely on.
+7
+Discussion and Limitations
+Our results support near-real-time human-to-humanoid action generation as a practical route for scaling
+humanoid action data, but several limitations remain. First, pose-estimation quality bounds downstream
+retargeting quality: systematic pose-estimation failures can become action-label bias. Second, IK quality
+bounds policy quality because the human-derived action data inherits the robot model, joint limits, and
+calibration used by the retargeter. Third, the current pipeline is tied to a specific robot URDF and joint
+convention; transferring to a new embodiment requires retargeting and adapting the action dimension. Fourth,
+human-derived actions capture kinematics more directly than contact forces, so robot data remains important
+for anchoring, evaluation, and final adaptation in contact-rich settings. This limitation is especially pronounced
+for fine-grained dexterous manipulation. Human-derived labels primarily provide kinematic supervision, while
+tasks such as cap loosening, bulb loosening, and button pressing depend on contact force, friction, local
+slip, fingertip placement, and hand-object morphology. Small errors in retargeted finger pose or contact
+geometry can change the task outcome, and the morphology gap between the human hand and the robot
+dexterous hand cannot be eliminated by skeleton alignment alone. Zero target-task robot demonstrations
+are therefore more feasible for geometry-dominant or moderate-contact tasks, while high-precision dexterous
+tasks still benefit from limited real-robot data for hardware grounding. Our zero-shot claim therefore refers
+to target-task deployment without target-task robot demonstrations, not to eliminating all robot-specific
+modeling assumptions.
+15
+
+Figure 8 Synchronized rollout frames for downstream manipulation tasks. Each panel corresponds to one task; within
+each panel, the upper row shows the egocentric policy observation and the lower row shows a third-person visualization
+view at matched phases from early to late execution.
+16
+
+Figure 9 Stage-final composite score in real-robot deployment. The score aggregates ordered stage completion and final
+task success over 10 rollouts per task, providing a progress-aware measure of deployment performance rather than a
+binary final-success rate alone.
+These limitations clarify rather than weaken the central claim that human data can improve the data efficiency
+of VLA scaling. The point is not to replace robot data, but to avoid asking target-task robot demonstrations
+to carry all of the scale. Human data can provide broad, diverse, executable action supervision through
+collection-time keypoint estimation and IK retargeting; robot-specific resources can then be concentrated where
+they have the highest value: defining the kinematic interface, grounding the policy to hardware, measuring
+deployment performance, and calibrating the remaining embodiment gap.
+In future work, we will further relax the data-capture assumptions of Human-as-Humanoid. The current
+pipeline uses synchronized ego-exo videos because exocentric views provide stable evidence for upper-body and
+hand recovery. We will study accurate egocentric skeleton and hand-keypoint recovery under occlusion, motion
+blur, and camera motion. Beyond recovering motion from recorded videos, we will also study egocentric
+hand-object interaction generation: by explicitly specifying interaction objects, task goals, and hand/object
+trajectories, the generator could synthesize temporally stable and physically plausible first-person interaction
+videos. Coupled with the Human-as-Humanoid conversion chain, such generated interaction data could be
+transformed into a larger corpus of humanoid-executable action supervision for high-DoF VLA pretraining.
+8
+Conclusion
+High-DoF humanoid VLA learning requires scalable observation–action supervision that is both diverse and
+executable on the target robot. We presented Human-as-Humanoid, a human-to-humanoid data-processing
+pipeline that converts synchronized ego-exo human demonstrations into controller-aligned 60-DoF action
+chunks on the human-aligned PrimeU embodiment. These labels make human videos usable for PhysDex,
+which predicts executable joint-space actions while preserving wrist and fingertip geometry through FK-
+aware constraints. Experiments validate the conversion chain across motion recovery, robot-action-space
+compatibility, and real-robot deployment, showing a 4.8–7.2x raw throughput gain over humanoid teleoperation
+and successful deployment without target-task robot demonstrations on several tasks. Overall, the results
+suggest that human-derived executable supervision can reduce the robot-data burden for humanoid VLA
+scaling, while robot data remains valuable for hardware grounding and contact-rich refinement.
+Acknowledgments
+We gratefully acknowledge the DeepCybo hardware team for their substantial support in the development
+and integration of the humanoid platform, with particular thanks to Xuguo HE, Qiyuan SU, Hong LI and
+Haochen LIU. We also acknowledge Wuji for their technical support on the dexterous-hand system.
+17
+
+References
+AgiBot-World-Contributors. Agibot world colosseo: A large-scale manipulation platform for scalable and intelligent
+embodied systems. IROS, pages 3549–3556, 2025. https://api.semanticscholar.org/CorpusID:276902669.
+Hongzhe Bi, Lingxuan Wu, Tianwei Lin, Hengkai Tan, Zhizhong Su, Hang Su, and Jun Zhu. H-RDT: Human
+manipulation enhanced bimanual robotic manipulation. arXiv preprint arXiv:2507.23523, 2025.
+Johan Bjorck, Fernando Castañeda, Nikita Cherniadev, Xingye Da, Runyu Ding, Linxi Fan, Yu Fang, Dieter Fox,
+Fengyuan Hu, Spencer Huang, et al. GR00T N1: An open foundation model for generalist humanoid robots. arXiv
+preprint arXiv:2503.14734, 2025.
+Kevin Black, Noah Brown, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai, Lachy Groom,
+Karol Hausman, Brian Ichter, Szymon Jakubczak, Tim Jones, Liyiming Ke, Sergey Levine, Adrian Li-Bell, Mohith
+Mothukuri, Suraj Nair, Karl Pertsch, Lucy Xiaoyang Shi, James Tanner, Quan Vuong, Anna Walling, Haohuan
+Wang, and Ury Zhilinsky. π0: A vision-language-action flow model for general robot control. arXiv preprint
+arXiv:2410.24164, 2024.
+Anthony Brohan, Noah Brown, Justice Carbajal, Yevgen Chebotar, Joseph Dabis, Chelsea Finn, Keerthana Gopalakr-
+ishnan, Karol Hausman, Alex Herzog, Jasmine Hsu, Julian Ibarz, Brian Ichter, Alex Irpan, Tomas Jackson, Sally
+Jesmonth, Nikhil Joshi, Ryan Julian, Dmitry Kalashnikov, Yuheng Kuang, Isabel Leal, Kuang-Huei Lee, Sergey
+Levine, Yao Lu, Utsav Malla, Deeksha Manjunath, Igor Mordatch, Ofir Nachum, Carolina Parada, Jodilyn Peralta,
+Emily Perez, Karl Pertsch, Jornell Quiambao, Kanishka Rao, Michael Ryoo, Grecia Salazar, Pannag Sanketi, Kevin
+Sayed, Jaspiar Singh, Sumedh Sontakke, Austin Stone, Clayton Tan, Huong Tran, Vincent Vanhoucke, Steve Vega,
+Quan Vuong, Fei Xia, Ted Xiao, Peng Xu, Sichun Xu, Tianhe Yu, and Brianna Zitkovich. Rt-1: Robotics transformer
+for real-world control at scale. In arXiv preprint arXiv:2212.06817, 2022.
+Build AI. Egocentric-100k. https://huggingface.co/datasets/builddotai/Egocentric-100K, 2025.
+Xiongyi Cai, Ri-Zhao Qiu, Geng Chen, Lai Wei, Isabella Liu, Tianshu Huang, Xuxin Cheng, and Xiaolong Wang.
+In-N-On: Scaling egocentric manipulation with in-the-wild and on-task data. arXiv preprint arXiv:2511.15704, 2025.
+Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, and Shuran
+Song. Universal manipulation interface: In-the-wild robot teaching without in-the-wild robots. arXiv preprint
+arXiv:2402.10329, 2024.
+Runyu Ding, Yuzhe Qin, Jiyue Zhu, Chengzhe Jia, Shiqi Yang, Ruihan Yang, Xiaojuan Qi, and Xiaolong Wang. Bunny-
+visionpro: Real-time bimanual dexterous teleoperation for imitation learning. In 2025 IEEE/RSJ International
+Conference on Intelligent Robots and Systems (IROS), pages 12248–12255. IEEE, 2025.
+Yankai Fu, Ning Chen, Junkai Zhao, Shaozhe Shan, Guocai Yao, Pengwei Wang, Zhongyuan Wang, and Shanghang
+Zhang. METIS: Multi-source egocentric training for integrated dexterous vision-language-action model. arXiv
+preprint arXiv:2511.17366, 2025.
+Zipeng Fu, Qingqing Zhao, Qi Wu, Gordon Wetzstein, and Chelsea Finn. Humanplus: Humanoid shadowing and
+imitation from humans. arXiv preprint arXiv:2406.10454, 2024a.
+Zipeng Fu, Tony Z Zhao, and Chelsea Finn. Mobile aloha: Learning bimanual mobile manipulation with low-cost
+whole-body teleoperation. arXiv preprint arXiv:2401.02117, 2024b.
+Claire C. Gordon, Cynthia L. Blackwell, Bruce Bradtmiller, Joseph L. Parham, Patricia Barrientos, Stephen P.
+Paquette, Brian D. Corner, Jeremy M. Carson, Joseph C. Venezia, Belva M. Rockwell, Michael Mucher, and Shirley
+Kristensen. 2012 anthropometric survey of U.S. army personnel: Methods and summary statistics. Technical Report
+NATICK/TR-15/007, U.S. Army Natick Soldier Research, Development and Engineering Center, December 2014.
+https://apps.dtic.mil/sti/tr/pdf/ADA611869.pdf.
+Kristen Grauman, Andrew Westbury, Eugene Byrne, Zachary Chavis, Antonino Furnari, Rohit Girdhar, Jackson
+Hamburger, Hao Jiang, Miao Liu, Xingyu Liu, et al. Ego4d: Around the world in 3,000 hours of egocentric video. In
+Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pages 18995–19012,
+2022.
+Kristen Grauman, Andrew Westbury, Lorenzo Torresani, Kris Kitani, Jitendra Malik, Triantafyllos Afouras, Kumar
+Ashutosh, Vijay Baiyya, Siddhant Bansal, Bikram Boote, Eugene Byrne, Zach Chavis, Joya Chen, Feng Cheng,
+Fu-Jen Chu, Sean Crane, Avijit Dasgupta, Jing Dong, Maria Escobar, Cristhian Forigua, Abrham Gebreselasie,
+Sanjay Haresh, Jing Huang, Md Mohaiminul Islam, Suyog Jain, Rawal Khirodkar, Devansh Kukreja, Kevin J Liang,
+Jia-Wei Liu, Sagnik Majumder, Yongsen Mao, Miguel Martin, Effrosyni Mavroudi, Tushar Nagarajan, Francesco
+18
+
+Ragusa, Santhosh Kumar Ramakrishnan, Luigi Seminara, Arjun Somayazulu, Yale Song, Shan Su, Zihui Xue,
+Edward Zhang, Jinxu Zhang, Angela Castillo, Changan Chen, Xinzhu Fu, Ryosuke Furuta, Cristina Gonzalez, Prince
+Gupta, Jiabo Hu, Yifei Huang, Yiming Huang, Weslie Khoo, Anush Kumar, Robert Kuo, Sach Lakhavani, Miao
+Liu, Mi Luo, Zhengyi Luo, Brighid Meredith, Austin Miller, Oluwatumininu Oguntola, Xiaqing Pan, Penny Peng,
+Shraman Pramanick, Merey Ramazanova, Fiona Ryan, Wei Shan, Kiran Somasundaram, Chenan Song, Audrey
+Southerland, Masatoshi Tateno, Huiyu Wang, Yuchen Wang, Takuma Yagi, Mingfei Yan, Xitong Yang, Zecheng
+Yu, Shengxin Cindy Zha, Chen Zhao, Ziwei Zhao, Zhifan Zhu, Jeff Zhuo, Pablo Arbelaez, Gedas Bertasius, David
+Crandall, Dima Damen, Jakob Engel, Giovanni Maria Farinella, Antonino Furnari, Bernard Ghanem, Judy Hoffman,
+C. V. Jawahar, Richard Newcombe, Hyun Soo Park, James M. Rehg, Yoichi Sato, Manolis Savva, Jianbo Shi,
+Mike Zheng Shou, and Michael Wray. Ego-Exo4D: Understanding skilled human activity from first-and third-person
+perspectives. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR),
+pages 19383–19400, 2024.
+Botao He, Kelin Yu, Seungjae Lee, Ruohan Gao, Furong Huang, Yiannis Aloimonos, et al. Humanego: Zero-shot robot
+learning from minutes of human egocentric videos. arXiv preprint arXiv:2605.24934, 2026.
+Tairan He, Zhengyi Luo, Xialin He, Wenli Xiao, Chong Zhang, Weinan Zhang, Kris Kitani, Changliu Liu, and Guanya
+Shi. Omnih2o: Universal and dexterous human-to-humanoid whole-body teleoperation and learning. arXiv preprint
+arXiv:2406.08858, 2024.
+Ryan Hoque, Peide Huang, David J Yoon, Mouli Sivapurapu, and Jian Zhang. Egodex: Learning dexterous manipulation
+from large-scale egocentric video. arXiv preprint arXiv:2505.11709, 2025.
+Physical Intelligence, Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail,
+Michael Equi, Chelsea Finn, Niccolo Fusai, Manuel Y. Galliker, Dibya Ghosh, Lachy Groom, Karol Hausman,
+Brian Ichter, Szymon Jakubczak, Tim Jones, Liyiming Ke, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Mohith
+Mothukuri, Suraj Nair, Karl Pertsch, Allen Z. Ren, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg,
+Kyle Stachowicz, James Tanner, Quan Vuong, Homer Walke, Anna Walling, Haohuan Wang, Lili Yu, and Ury
+Zhilinsky. π0.5: a vision-language-action model with open-world generalization. arXiv preprint arXiv:2504.16054,
+2025.
+Simar Kareer, Dhruv Patel, Ryan Punamiya, Pranay Mathur, Shuo Cheng, Chen Wang, Judy Hoffman, and Danfei
+Xu. Egomimic: Scaling imitation learning via egocentric video. In IEEE International Conference on Robotics and
+Automation (ICRA), pages 13226–13233. IEEE, 2025.
+Alexander Khazatsky, Karl Pertsch, Suraj Nair, Ashwin Balakrishna, Sudeep Dasari, Siddharth Karamcheti, Soroush
+Nasiriany, Mohan Kumar Srirama, Lawrence Yunliang Chen, Kirsty Ellis, et al. Droid: A large-scale in-the-wild
+robot manipulation dataset. arXiv preprint arXiv:2403.12945, 2024.
+Ji Woong Kim, Ke Wang, Zipeng Fu, Sirui Chen, Jeff Lai, Chelsea Finn, et al. Ego-pi: Vla fine-tuning for ego-centric
+human and robot data. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition
+Findings (CVPRF), pages 1515–1524, 2026.
+Moo Jin Kim, Karl Pertsch, Siddharth Karamcheti, Ted Xiao, Ashwin Balakrishna, Suraj Nair, Rafael Rafailov,
+Ethan P Foster, Pannag R Sanketi, Quan Vuong, Thomas Kollar, Benjamin Burchfiel, Russ Tedrake, Dorsa Sadigh,
+Sergey Levine, Percy Liang, and Chelsea Finn. OpenVLA: An open-source vision-language-action model. In
+Conference on Robot Learning (CoRL), 2024.
+Moo Jin Kim, Chelsea Finn, and Percy Liang. Fine-tuning vision-language-action models: Optimizing speed and
+success. arXiv preprint arXiv:2502.19645, 2025.
+Qixiu Li, Yu Deng, et al. Scalable vision-language-action model pretraining for robotic manipulation with real-life
+human activity videos. arXiv preprint arXiv:2510.21571, 2025.
+Shijie Lian, Bin Yu, Xiaopeng Lin, Changti Wu, Hang Yuan, Xiaolin Hu, Zhaolong Shen, Yuzhuo Miao, Haishan Liu,
+Yuxuan Tian, Yukun Shi, Cong Huang, and Kai Chen. Physbrain 1.0 technical report, 2026.
+Xiaopeng Lin, Shijie Lian, Bin Yu, Ruoqi Yang, Changti Wu, Yuzhuo Miao, Yurun Jin, Yukun Shi, Cong Huang, Bojun
+Cheng, et al. PhysBrain: Human egocentric data as a bridge from vision language models to physical intelligence.
+arXiv preprint arXiv:2512.16793, 2025.
+Xingyao Lin, Guojin Zhong, Tianyi Lu, Ziyi Ye, Yichen Zhu, Zuxuan Wu, and Yu-Gang Jiang. Activemimic: Egocentric
+video pretraining with active perception. arXiv preprint arXiv:2606.06194, 2026.
+19
+
+Songming Liu, Lingxuan Wu, Bangguo Li, Hengkai Tan, Huayu Chen, Zhengyi Wang, Ke Xu, Hang Su, and Jun
+Zhu. RDT-1b: a diffusion foundation model for bimanual manipulation. In International Conference on Learning
+Representations (ICLR), 2025.
+Yangcen Liu, Shuo Cheng, Xinchen Yin, Woo Chul Shin, Alfred Cueva, Yiran Yang, Zhenyang Chen, Chuye Zhang,
+and Danfei Xu. Egoengine: From egocentric human videos to high-fidelity dexterous robot demonstrations. arXiv
+preprint arXiv:2606.12604, 2026.
+Yunze Liu, Yun Liu, et al. HOI4D: A 4d egocentric dataset for category-level human-object interaction. In Proceedings
+of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022.
+Hao Luo, Yicheng Feng, et al. Being-H0: Vision-language-action pretraining from large-scale human videos. arXiv
+preprint arXiv:2507.15597, 2025.
+Abby O’Neill, Abdul Rehman, Abhiram Maddukuri, Abhishek Gupta, Abhishek Padalkar, Abraham Lee, Acorn Pooley,
+Agrim Gupta, Ajay Mandlekar, Ajinkya Jain, et al. Open x-embodiment: Robotic learning datasets and rt-x models:
+Open x-embodiment collaboration. In IEEE International Conference on Robotics and Automation (ICRA), pages
+6892–6903. IEEE, 2024.
+Octo Model Team, Dibya Ghosh, Homer Walke, Karl Pertsch, Kevin Black, Oier Mees, Sudeep Dasari, Joey Hejna,
+Tobias Kreiman, Charles Xu, et al. Octo: An open-source generalist robot policy. arXiv preprint arXiv:2405.12213,
+2024.
+Homer Rich Walke, Kevin Black, Tony Z Zhao, Quan Vuong, Chongyi Zheng, Philippe Hansen-Estruch, Andre Wang
+He, Vivek Myers, Moo Jin Kim, Max Du, et al. Bridgedata v2: A dataset for robot learning at scale. In Conference
+on Robot Learning (CoRL), pages 1723–1736. PMLR, 2023.
+Chen Wang, Haochen Shi, Weizhuo Wang, Ruohan Zhang, Li Fei-Fei, and C Karen Liu. Dexcap: Scalable and portable
+mocap data collection system for dexterous manipulation. arXiv preprint arXiv:2403.07788, 2024.
+Ruihan Yang, Qinxi Yu, et al. EgoVLA: Learning vision-language-action models from egocentric human videos. arXiv
+preprint arXiv:2507.12440, 2025.
+Chengbo Yuan, Rui Zhou, et al. Motiontrans: Human vr data enable motion-level learning for robotic manipulation
+policies. In H2R Workshop at the Conference on Robot Learning (CoRL), 2025.
+Tony Z Zhao, Jonathan Tompson, Danny Driess, Pete Florence, Kamyar Ghasemipour, Chelsea Finn, and Ayzaan
+Wahid. Aloha unleashed: A simple recipe for robot dexterity. arXiv preprint arXiv:2410.13126, 2024.
+Ruijie Zheng, Dantong Niu, Yuqi Xie, Jing Wang, Mengda Xu, Yunfan Jiang, Fernando Castañeda, Fengyuan Hu,
+You Liang Tan, Letian Fu, et al. Egoscale: Scaling dexterous manipulation with diverse egocentric human data.
+arXiv preprint arXiv:2602.16710, 2026.
+Brianna Zitkovich, Tianhe Yu, Sichun Xu, Peng Xu, Ted Xiao, Fei Xia, Jialin Wu, Paul Wohlhart, Stefan Welker,
+Ayzaan Wahid, et al. Rt-2: Vision-language-action models transfer web knowledge to robotic control. In Conference
+on Robot Learning (CoRL), pages 2165–2183, 2023.
+20

@@ -47,6 +47,9 @@ def main() -> int:
     parser.add_argument("--deep", action="store_true")
     parser.add_argument("--backfill", action="store_true")
     parser.add_argument("--validate", action="store_true")
+    parser.add_argument("--quality", action="store_true", help="Grade note content quality (A/B/C/D)")
+    parser.add_argument("--quality-min", choices=["A","B","C","D"], default="C",
+                        help="Block if any note below this grade")
     parser.add_argument("--crossref", action="store_true", help="Generate cross-reference suggestions between notes")
     parser.add_argument("--stats", action="store_true", help="Show paper library statistics")
     parser.add_argument("--notes-dir", default=None, help="Subdirectory under notes/")
@@ -64,6 +67,21 @@ def main() -> int:
         if passed < total:
             print(f"\nGate: BLOCKED — {total - passed} notes need fixes")
             return 1
+        return 0
+
+    # --quality: content depth grading
+    if args.quality:
+        from lib.quality import grade_all, print_quality_report
+        reports = grade_all(workspace)
+        a, b, c, d = print_quality_report(reports)
+        min_ok = {"A": a+b+c+d, "B": b+c+d, "C": c+d, "D": d}
+        below = sum(1 for r in reports.values()
+                    if r.grade != "S" and
+                    {"A": 1, "B": 2, "C": 3, "D": 4}[r.grade] > {"A": 1, "B": 2, "C": 3, "D": 4}[args.quality_min])
+        if below > 0:
+            print(f"Quality gate: BLOCKED — {below} notes below {args.quality_min}-grade")
+            return 1
+        print(f"Quality gate: passed (all notes >= {args.quality_min})")
         return 0
 
     # --stats: library statistics

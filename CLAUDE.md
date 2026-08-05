@@ -12,6 +12,7 @@ papers/
   data-infra/       — Datasets, teleoperation, self-improvement (Open X-Embodiment, ACT, etc.)
   perception/       — SLAM, odometry, sensor perception (FAST-LIO2, etc.)
   memory/           — Robot memory, TTT, world model memory (RoboTTT, MemoryWAM, etc.)
+  rl/               — RL for manipulation, world model RL, sim-to-real (RL-100, FlashSAC, RISE, etc.)
 notes/
   vla-architecture/ — Reading notes for VLA architecture papers
   vla-reasoning/    — Reading notes for reasoning-action papers
@@ -54,6 +55,13 @@ python3 skills/pull-vla-research/scripts/pull_vla_papers.py --backfill
 **Validate all notes pass the quality gate:**
 ```bash
 python3 skills/pull-vla-research/scripts/pull_vla_papers.py --validate
+```
+
+**Grade note content quality (A/B/C/D):**
+```bash
+python3 skills/pull-vla-research/scripts/pull_vla_papers.py --quality
+# Block on low quality:
+python3 skills/pull-vla-research/scripts/pull_vla_papers.py --quality --quality-min B
 ```
 
 **Regenerate everything (ignore incremental skip):**

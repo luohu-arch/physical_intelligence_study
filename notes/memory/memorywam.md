@@ -119,6 +119,8 @@ $$\mathcal{L}_{\text{action}} = \mathbb{E}_{t,\epsilon}\left[\|v_\psi(A_t^{\text
 - Shell Game（物体被盖住后移动→追踪位置）：18/20
 - Look and Press（数共出现了几个物体→按对应按钮）：15/20
 
+**核心结论**：消融实验验证了各核心组件的必要性，定量数据显示移除任一组件均导致显著性能下降。
+
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |

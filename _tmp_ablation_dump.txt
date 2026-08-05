@@ -1,0 +1,3880 @@
+
+======================================================================
+### green-vla ###
+
+--- [R1] x36 at 468 ---
+n
+robot, while maintaining generalization across diverse embodiments.
+Green-VLA follows a five-stage curriculum: (L0) foundational VLMs,
+(L1) multimodal grounding, (R0) multi-embodiment pretraining, (R1)
+embodiment-specific adaptation, and (R2) RL-based policy alignment.
+Progression builds semantic and physical priors, learns shared
+affordances, and aligns policies for long-horizon execution beyond
+behavior cloning. At its core is a unified data and control stack for
+robot fleets. A scalable data-processing pipeline including DataQA
+and temporal-alignment filters and synchronizes 3,000 hours of
+demonstrations; a unified, embodiment-aware action interface enables
+a single policy to control humanoids, mobile manipulators, and fixed-
+base arms; and the VLA controller is enhanced with episode-progress
+prediction, out-of-distribution detection, and a joint-prediction-based
+guidance module that generalizes to unseen objects. Optimized for
+the Green humanoid, Green-VLA generalizes in a zero-shot manner
+to new embodiments and achieves state-of-the-art performance
+across bimanual systems and benchmarks, with RL alignment
+providing gains in success rate, robustness, and long-horizon efficiency.
+Sber Robotics Center
+Date: February 2026
+Code: https://github.com/greenvla/GreenVLA
+Project Page: https://greenvla.github.io/
+1
+Introduction
+Vision–Language–Action (VLA) models have recently emerged as a promising foundation for embodied AI, extending
+the success of large-scale language and vision models into robotics. By conditioning robot control on multimodal
+context and natural language instructions, VLAs aim to unify perception, reasoning, and action within a single
+end-to-end framework. This paradigm promises generalist robots capable of executing diverse, long-horizon tasks
+across heterogeneous environments, with the flexibility to adapt to novel objects, goals, and embodiments. Recent
+works such as 𝜋0 [5], Gemini Robotics [38], GR00T N1 [4], and AgiBot GO-1 [1] highlight this t
+
+--- [R2] x31 at 509 ---
+ across diverse embodiments.
+Green-VLA follows a five-stage curriculum: (L0) foundational VLMs,
+(L1) multimodal grounding, (R0) multi-embodiment pretraining, (R1)
+embodiment-specific adaptation, and (R2) RL-based policy alignment.
+Progression builds semantic and physical priors, learns shared
+affordances, and aligns policies for long-horizon execution beyond
+behavior cloning. At its core is a unified data and control stack for
+robot fleets. A scalable data-processing pipeline including DataQA
+and temporal-alignment filters and synchronizes 3,000 hours of
+demonstrations; a unified, embodiment-aware action interface enables
+a single policy to control humanoids, mobile manipulators, and fixed-
+base arms; and the VLA controller is enhanced with episode-progress
+prediction, out-of-distribution detection, and a joint-prediction-based
+guidance module that generalizes to unseen objects. Optimized for
+the Green humanoid, Green-VLA generalizes in a zero-shot manner
+to new embodiments and achieves state-of-the-art performance
+across bimanual systems and benchmarks, with RL alignment
+providing gains in success rate, robustness, and long-horizon efficiency.
+Sber Robotics Center
+Date: February 2026
+Code: https://github.com/greenvla/GreenVLA
+Project Page: https://greenvla.github.io/
+1
+Introduction
+Vision–Language–Action (VLA) models have recently emerged as a promising foundation for embodied AI, extending
+the success of large-scale language and vision models into robotics. By conditioning robot control on multimodal
+context and natural language instructions, VLAs aim to unify perception, reasoning, and action within a single
+end-to-end framework. This paradigm promises generalist robots capable of executing diverse, long-horizon tasks
+across heterogeneous environments, with the flexibility to adapt to novel objects, goals, and embodiments. Recent
+works such as 𝜋0 [5], Gemini Robotics [38], GR00T N1 [4], and AgiBot GO-1 [1] highlight this trajectory, combining
+large-scale data agg
+
+--- [DataQA] x7 at 800 ---
+ed
+affordances, and aligns policies for long-horizon execution beyond
+behavior cloning. At its core is a unified data and control stack for
+robot fleets. A scalable data-processing pipeline including DataQA
+and temporal-alignment filters and synchronizes 3,000 hours of
+demonstrations; a unified, embodiment-aware action interface enables
+a single policy to control humanoids, mobile manipulators, and fixed-
+base arms; and the VLA controller is enhanced with episode-progress
+prediction, out-of-distribution detection, and a joint-prediction-based
+guidance module that generalizes to unseen objects. Optimized for
+the Green humanoid, Green-VLA generalizes in a zero-shot manner
+to new embodiments and achieves state-of-the-art performance
+across bimanual systems and benchmarks, with RL alignment
+providing gains in success rate, robustness, and long-horizon efficiency.
+Sber Robotics Center
+Date: February 2026
+Code: https://github.com/greenvla/GreenVLA
+Project Page: https://greenvla.github.io/
+1
+Introduction
+Vision–Language–Action (VLA) models have recently emerged as a promising foundation for embodied AI, extending
+the success of large-scale language and vision models into robotics. By conditioning robot control on multimodal
+context and natural language instructions, VLAs aim to unify perception, reasoning, and action within a single
+end-to-end framework. This paradigm promises generalist robots capable of executing diverse, long-horizon tasks
+across heterogeneous environments, with the flexibility to adapt to novel objects, goals, and embodiments. Recent
+works such as 𝜋0 [5], Gemini Robotics [38], GR00T N1 [4], and AgiBot GO-1 [1] highlight this trajectory, combining
+large-scale data aggregation with unified architectures and demonstrating strong progress on manipulation, reasoning,
+and evaluation benchmarks.
+Despite this rapid progress, scaling alone does not resolve the core challenges of real-world deployment. First,
+robotic datasets are inherently heterogeneous in term
+
+======================================================================
+### view-invariant-policy ###
+
+--- [ablat] x6 at 14906 ---
+om seeds so that the initial
+conditions and stochastic environment noise are identical
+across checkpoints, torch seeds, and policies within each task
+setting. All the simulated experiments, including ablation
+studies, follow this evaluation protocol.
+IV. RESULTS
+We evaluate the robustness of behavior cloning policies
+to viewpoint variations and the benefits of pose conditioning
+through both simulation and real-world experiments. Simu-
+lation results are averaged across 1500 rollouts for ACT and
+Diffusion Policy and 500 rollouts for SmolVLA.
+A. Simulated Experiments
+1) Camera Conditioning Increases Success Rate Across
+Models: We train ACT [15], Diffusion Policy [16], and
+SmolVLA [21] on the six tasks in simulation with and
+without camera conditioning. See Section IV-A.8 for details.
+We see in Table I that adding camera pose conditioning
+increases success rates for all models in all tasks.
+2) Fixed vs. Randomized Background: Figure 6 evaluates
+the benefits of conditioning an ACT policy on camera
+extrinsics for the fixed and randomized variations of each
+task. Across all six tasks, the baseline ACT policy performs
+worse in the randomized setting, where it cannot exploit
+the environment structure to infer relative camera pose.
+It is in this setting that we see the greatest benefit of
+conditioning on camera pose; however, the results show that
+it is advantageous in the fixed setting as well.
+3) Random Cropping: Random cropping is applied to
+both the Pl¨ucker maps and the images, ensuring that the one-
+to-one correspondence between image pixels and Pl¨ucker
+“pixels” is preserved. Figure 8 shows the success rates of
+the three RoboSuite tasks with and without random cropping.
+Cropping consistently improves performance across all tasks.
+One interpretation of the results is that cropping effectively
+adds virtual cameras with different parameters.
+
+TABLE I: Success rates (%) on simulated tasks with and without camera pose conditioning.
+Method
+Lift
+Pick Place Can
+Assembly Squar
+
+--- [crop] x7 at 4220 ---
+of explicit camera conditioning for policy gen-
+arXiv:2510.02268v1  [cs.RO]  2 Oct 2025
+
+eralization to view variations, and identify key factors
+affecting performance, including action space, random
+cropping, early vs. late conditioning, the effect of the
+pretrained visual encoder, and the scaling law with
+respect to the number of camera views.
+• New Benchmarks for Viewpoint Generalization. We
+introduce benchmark tasks—three in RoboSuite and
+three in ManiSkill—targeting challenging viewpoint
+generalization, and the corresponding demonstrations.
+II. RELATED WORK
+We review imitation learning, methods for view-invariant
+policies, and approaches to encoding camera geometry.
+A. Imitation Learning
+Imitation learning offers a direct and sample-efficient
+approach to teaching robots complex manipulation skills by
+learning from expert demonstrations. To mitigate compound-
+ing errors from single-step policies, Zhao et al. [15] intro-
+duced Action Chunking with Transformers (ACT), where
+policies predict entire action sequences rather than single
+actions, effectively reducing the task horizon. A key chal-
+lenge is modeling the multi-modal nature of human demon-
+strations, as a task can often be solved in multiple valid
+ways. To address this multi-modality, methods like ACT,
+Diffusion Policy (DP) [16], and Behavioral Transformers
+(BeT) [17] learn distributions over actions rather than regress
+to the mean. A recent trend is to scale policies using large,
+diverse datasets. Models like RT-1 [18], RT-2 [19], Octo [1],
+OpenVLA [3], Pi-0 [4], LBM [20], and SmolVLA [21]
+demonstrate that training a single, high-capacity model on
+large, heterogeneous datasets results in improved generaliza-
+tion to novel variations of seen tasks and policies that can
+be efficiently fine-tuned for new settings.
+B. Learning View-Invariant Robot Policies
+Achieving policy invariance to camera viewpoint is a long-
+standing goal in robot learning. Existing methods can be
+broadly categorized by their input moda
+
+--- [cam] x96 at 23 ---
+Do You Know Where Your Camera Is?
+View-Invariant Policy Learning with Camera Conditioning
+Tianchong Jiang1, Jingtian Ji1, Xiangshan Tan1, Jiading Fang2,∗,
+Anand Bhattad3, Vitor Guizilini4,†, Matthew R. Walter1,†
+Abstract— We study view-invariant imitation learning by
+explicitly conditioning policies on camera extrinsics. Using
+Pl¨ucker embeddings of per-pixel rays, we show that condition-
+ing on extrinsics significantly improves generalization across
+viewpoints for standard behavior cloning policies, including
+ACT, Diffusion Policy, and SmolVLA. To evaluate policy
+robustness under realistic viewpoint shifts, we introduce six
+manipulation tasks in RoboSuite and ManiSkill that pair
+“fixed” and “randomized” scene variants, decoupling back-
+ground cues from camera pose. Our analysis reveals that
+policies without extrinsics often infer camera pose using visual
+cues from static backgrounds in fixed scenes. This shortcut
+collapses when workspace geometry or camera placement
+shifts. Conditioning on extrinsics restores performance and
+yields robust RGB-only control without depth. We release the
+tasks, demonstrations, and code to facilitate reproducibility and
+future research. Code and project materials are available at
+ripl.github.io/know your camera.
+I. INTRODUCTION
+Significant recent attention has been devoted to imita-
+tion learning as a means of enabling robots to perform
+diverse and complex manipulation tasks [1, 2, 3, 4]. These
+policies usually directly operate on RGB images and are
+trained with fixed third-person viewpoints. However, when
+deployed in the real world, it is often not possible to
+position the cameras to exactly match their training pose
+due to environmental constraints. Consequently, many such
+models fail when testing on different viewpoints. The prob-
+lem is exacerbated when the 
+
+======================================================================
+### mint ###
+
+--- [Ablation] x9 at 35378 ---
+ask (D) Stack Cups. Despite novel
+objects, MINT effectively generalizes the shared “stacking”
+intent from task (B), substantially outperforming baselines that
+overfit to specific object instances.
+E. Ablation Studies
+To isolate the contributions of the spectral disentanglement
+objective and the intent-based action ensemble, we conduct
+ablation studies across CALVIN and LIBERO-LONG baselines.
+Efficacy of Scale-Wise Spectral Decomposition. Fig. 6
+qualitatively
+demonstrates
+that
+our
+spectral
+objective
+organizes the latent space into coherent behavioral clusters,
+overcoming the fragmentation observed in standard time-
+domain reconstruction. Quantitatively (Table IV), while scale-
+wise time-domain constraints degrade performance (82.8%) by
+overfitting to high-frequency noise, our Scale-Wise Spectral
+Los yields significant gains (93.4% on LIBERO-Long, 4.54
+length on CALVIN). This confirms that enforcing spectral
+hierarchy is essential for disentangling global intent from
+execution details.
+Impact of Intent-based Action Ensemble. Table IV shows
+that our Intent-Based Action Ensemble consistently outperforms
+both Temporal [53] (89.2%) and Action-based [27] (90.4%)
+baselines. By dynamically modulating aggregation weights
+Fig. 6: Visualization of the Intent Latent Space. t-SNE of
+action chunks colored by s 1 tokens (RGB from top-3 PCs). (a)
+Standard time-domain reconstruction is fragmented. (b) Our
+SDAT produces coherent chromatic clusters aligned with action
+sequences structures.
+TABLE IV: Ablation of training objectives and ensembling.
+Ablation Setting
+CALVIN
+LIBERO-Long
+Reconstruction Objectives
+Terminal Time-Domain Loss
+4.36
+87.8
++ Terminal Spectral Loss
+4.41
+88.2
++ Scale-Wise Time-Domain Loss
+4.06
+82.8
++ Scale-Wise Spectral Loss (Ours)
+4.54
+93.4
+Action Ensemble
+No Ensemble
+4.09
+85.8
+Temporal-based Ensemble [53]
+4.32
+89.2
+Action-based Ensemble [27]
+4.10
+90.4
+Intent-based Ensemble (Ours)
+4.57
+93.2
+based on intent compatibility, our method effectively resolves
+conflicts duri
+
+--- [ablat] x10 at 35378 ---
+ask (D) Stack Cups. Despite novel
+objects, MINT effectively generalizes the shared “stacking”
+intent from task (B), substantially outperforming baselines that
+overfit to specific object instances.
+E. Ablation Studies
+To isolate the contributions of the spectral disentanglement
+objective and the intent-based action ensemble, we conduct
+ablation studies across CALVIN and LIBERO-LONG baselines.
+Efficacy of Scale-Wise Spectral Decomposition. Fig. 6
+qualitatively
+demonstrates
+that
+our
+spectral
+objective
+organizes the latent space into coherent behavioral clusters,
+overcoming the fragmentation observed in standard time-
+domain reconstruction. Quantitatively (Table IV), while scale-
+wise time-domain constraints degrade performance (82.8%) by
+overfitting to high-frequency noise, our Scale-Wise Spectral
+Los yields significant gains (93.4% on LIBERO-Long, 4.54
+length on CALVIN). This confirms that enforcing spectral
+hierarchy is essential for disentangling global intent from
+execution details.
+Impact of Intent-based Action Ensemble. Table IV shows
+that our Intent-Based Action Ensemble consistently outperforms
+both Temporal [53] (89.2%) and Action-based [27] (90.4%)
+baselines. By dynamically modulating aggregation weights
+Fig. 6: Visualization of the Intent Latent Space. t-SNE of
+action chunks colored by s 1 tokens (RGB from top-3 PCs). (a)
+Standard time-domain reconstruction is fragmented. (b) Our
+SDAT produces coherent chromatic clusters aligned with action
+sequences structures.
+TABLE IV: Ablation of training objectives and ensembling.
+Ablation Setting
+CALVIN
+LIBERO-Long
+Reconstruction Objectives
+Terminal Time-Domain Loss
+4.36
+87.8
++ Terminal Spectral Loss
+4.41
+88.2
++ Scale-Wise Time-Domain Loss
+4.06
+82.8
++ Scale-Wise Spectral Loss (Ours)
+4.54
+93.4
+Action Ensemble
+No Ensemble
+4.09
+85.8
+Temporal-based Ensemble [53]
+4.32
+89.2
+Action-based Ensemble [27]
+4.10
+90.4
+Intent-based Ensemble (Ours)
+4.57
+93.2
+based on intent compatibility, our method effectively resolves
+conflicts duri
+
+======================================================================
+### fabrica ###
+
+--- [ablat] x6 at 28291 ---
+Gamepad
+Cooling Manifold
+Duct
+Stool
+Overall
+Ours
+AS
+75
+83
+80
+87
+72
+71
+92
+80
+AG (OOD)
+67
+75
+93
+80
+72
+81
+92
+80
+Baseline
+ASAP (Adapted)
+50
+42
+67
+33
+55
+52
+75
+55
+Open-Loop Tracking
+42
+25
+20
+20
+17
+14
+21
+23
+Ablation
+w/o Part Seq Optim
+75
+75
+73
+40
+61
+71
+92
+71
+w/o Grasp Optim
+42
+83
+47
+60
+67
+67
+75
+64
+w/o Path-Centric Transform
+67
+67
+20
+53
+78
+38
+92
+61
+Table 5: Multi-step cumulative success rate with 0/1/2 interventions in real-world evaluations.
+Method
+Multi-Step Cumulative Success Rate with 0/1/2 Interventions (%) (Real World)
+Beam
+Plumber Block
+Car
+Gamepad
+Cooling Manifold
+Duct
+Stool
+Overall
+Ours
+AS
+0/100/100
+33/100/100
+0/100/100
+33/100/100
+0/ 67/ 67
+0/
+0/100
+33/100/100
+15/ 81/ 95
+AG (OOD)
+0/ 67/100
+0/100/100
+67/100/100
+0/100/100
+0/ 33/100
+0/ 67/100
+33/100/100
+10/ 81/100
+Baseline
+ASAP (Adapted)
+0/
+0/100
+0/
+0/ 67
+0/ 33/100
+0/
+0/
+0
+0/
+0/ 33
+0/
+0/
+0
+0/
+0/100
+0/
+5/ 57
+Open-Loop Tracking
+0/
+0/ 67
+0/
+0/ 33
+0/
+0/
+0
+0/
+0/
+0
+0/
+0/
+0
+0/
+0/
+0
+0/
+0/
+0
+0/
+0/ 14
+Ablation
+w/o Part Seq Optim
+0/100/100
+33/ 67/100
+0/ 67/100
+0/
+0/
+0
+0/
+0/ 67
+0/
+0/100
+33/100/100
+10/ 48/ 81
+w/o Grasp Optim
+0/
+0/ 67
+33/100/100
+0/
+0/ 33
+0/
+0/100
+0/
+0/100
+0/
+0/ 67
+0/
+0/100
+5/ 14/ 81
+w/o Path-Centric Transform
+0/ 67/100
+0/ 67/100
+0/
+0/
+0
+0/
+0/ 67
+0/ 67/100
+0/
+0/
+0
+33/100/100
+5/ 43/ 67
+Ablation: To understand how much optimizing part sequences and grasps helps, we conduct abla-
+tion studies on our method by removing those optimizations respectively. We observed that subop-
+timal sequencing often caused instability due to inadequate support of critical neighboring parts and
+more part drifts due to unnecessary re-grasps. Meanwhile, suboptimal grasp selection frequently
+caused part slippage due to insufficient contact area or inadequate resistance to external torques.
+Thus, our planner inherently accounts for control-level uncertainties, and results demonstrate that
+selecting effective part sequences and grasps significantly enhances assembly reliability. For control,
+we observed that our path-centric transformation is 
+
+--- [feature] x1 at 77339 ---
+ity
+to reason spatially based on minimal visual input.
+Despite the low-cost camera setup and lack of focus adjustment capabilities, the VLM effectively
+discerned alignment cues based on coarse visual features. This is particularly noteworthy given
+that occlusions and visual clutter are prevalent in multi-part assemblies, where small positional
+errors can accumulate over successive steps. The VLM’s concise, reason-based output structure
+further mitigates hallucination risks by constraining the response format to a single action-reason
+pair, reducing ambiguity and enhancing interpretability.
+F.4
+Limitations and Future Work
+While the VLM integration demonstrated significant alignment improvements, occlusions remained
+a primary failure mode. Occlusions are common in complex assemblies, necessitating either a flex-
+ible/active camera setup or multiple cameras strategically positioned to cover the scene comprehen-
+sively. Furthermore, hallucination remains a concern, particularly in cluttered scenes where visual
+cues are ambiguous. Future work will explore improving prompt engineering and camera configu-
+rations, potentially leveraging multi-view setups and active camera movements akin to human head
+and body movements.
+25
+
+
+======================================================================
+### rove ###
+
+--- [visual] x3 at 2957 ---
+n
+arXiv:2606.17011v1  [cs.RO]  15 Jun 2026
+
+1
+Introduction
+Vision-Language-Action (VLA) models provide a promising foundation for general-purpose robot
+policies by grounding language instructions and visual observations into actions [1, 2]. Most re-
+cent progress has been largely demonstrated on robot-arm manipulation with parallel-jaw grippers,
+while extending VLA to humanoid robots with dexterous hands substantially increases the com-
+plexity of the robot dynamics and kinematics. This inherent complexity makes the humanoid robot
+fragile to accumulated errors stemming from whole-body poses, systematic errors, object contacts,
+etc. As a result, VLA policies trained only on offline demonstrations often fail to reach satisfactory
+performance during deployment, struggling to handle deployment-time distribution shift. Conse-
+quently, we seek a post-training solution to harness the deployment data for policy improvement.
+Reinforcement learning (RL) [3] and interactive imitation learning (IIL) [4, 5] allow robots to col-
+lect autonomous rollouts, observe their own failures, and incorporate human corrections. Recent
+post-training methods for VLA have shown that the deployment experience can improve pretrained
+policies beyond the offline demonstration tuning. Yet extending this paradigm to humanoid ma-
+nipulation introduces a new difficulty: human teleoperation itself can be suboptimal, and this issue
+becomes especially severe during intervention takeover.
+In a robot-arm with grippers setup, teleoperation interfaces such as 3D space mouse or leader-
+follower arms can often provide smooth and effective corrective actions [6, 7]. In contrast, humanoid
+teleoperation with dexterous hands is harder to master due to difficulty in whole-body coordination,
+dexterous manipulation, and joint-limit handling under imperfect retargeting and limited force or
+tactile feedback. During the takeover, even skilled operators may hesitate, retract their hands, or
+spend a period of time adapting
+
+--- [feature] x1 at 49506 ---
+rmer layer 23 (hidden dimension 2048) and regress a scalar value with
+a lightweight transformer value head. The policy is initialized from Qwen3-VL-4B-Instruct [40],
+consumes the final-layer backbone features (hidden dimension 2560), and outputs continuous action
+chunks with a flow-matching diffusion-transformer (DiT [41]) action decoder. For both models, we
+freeze the pretrained vision-language model and train only the value head and action head.
+Critic training. The critic is trained with TD bootstrapping and an expectile value loss with coef-
+ficient τ = 0.7. Optimization uses 8000 steps on 8 GPUs with 140GB RAM, per-device batch size
+64, and learning rate 1×10−4 for first iteration, and 1×10−5 for subsequent iterations. At iteration
+0, the critic initializes from the pretrained value checkpoint; thereafter it initializes from the previous
+iteration’s critic. TD targets are normalized to [−1, 0] before expectile regression.
+Actor training. The actor is fine-tuned with advantage conditioning for 8000 steps on 8 GPUs with
+140GB RAM, per-device batch size 16, and learning rate 1×10−4 for first iteration, and 1×10−5
+for subsequent iterations. At iteration 0, the actor starts from the pretrained VLA checkpoint; for
+k > 0, it initializes from the policy checkpoint of iteration k −1.
+Data buffers. Dactor
+k
+stores robot experience used for policy learning: teleoperated demonstra-
+tions, autonomous rollouts, and human intervention trajectories. Dcritic
+k
+extends this robot data with
+human experience videos for value learning.
+State regularization. State regularization is enabled only during training and disabled at evaluation.
+In the actor action head, full-state dropout is applied per sample with probability 0.3. Gaussian state
+noise is applied per sample with probability 0.4 and base standard deviation 0.01, with smaller scales
+16
+
+Table 2: Data scale used for iterative policy improvement. Counts report base-policy demonstration
+episodes and newly collected episodes at 
+
+======================================================================
+### octo ###
+
+--- [ablat] x9 at 2453 ---
+ments across 9 robotic platforms, we demonstrate that Octo
+serves as a versatile policy initialization that can be effectively
+finetuned to new observation and action spaces. We also perform
+detailed ablations of design decisions for the Octo model, from
+architecture to training data, to guide future research on building
+generalist robot models.
+I. INTRODUCTION
+The common approach for robotic learning is to train policies
+on datasets collected for the specific robot and task at hand.
+Learning from scratch in this way requires significant data
+collection effort for each task, and the resulting policies usually
+exhibit only narrow generalization. In principle, collected
+∗Lead authors, ordered alphabetically, see Section A for list of contributions.
+Correspondence to {dibya.ghosh, homer_walke, pertsch, kvablack,
+oier.mees}@berkeley.edu
+arXiv:2405.12213v2  [cs.RO]  26 May 2024
+
+experience from other robots and tasks offers a possible
+solution, exposing models to a diverse set of robotic control
+problems that may improve generalization and performance on
+downstream tasks. However, even as general-purpose models
+become ubiquitous in natural language [68, 88]) and computer
+vision [76, 44], it has proven challenging to build the analogous
+“general-purpose robot model” that can control many robots
+for many tasks. Training a unified control policy in robotics
+presents unique challenges, requiring handling different robot
+embodiments, sensor setups, action spaces, task specifications,
+environments, and compute budgets.
+Towards this direction, several works have proposed robotic
+foundation models that directly map robot observations to
+actions and provide zero-shot or few-shot generalization to new
+domains and robots. We broadly refer to these models as “gen-
+eralist robot policies” (GRPs), emphasizing their ability to per-
+form low-level visuomotor control across tasks, environments,
+and robotic systems [75, 9, 23, 103, 10, 81, 1, 91, 35, 94, 45].
+For example, the GNM model [8
+
+--- [attention] x2 at 10400 ---
+ly. Top: The transformer backbone processes the sequence of task and
+observation tokens and produces readout tokens (purple) that get passed to output heads to produce actions. Bottom: The
+block-wise attention structure of the transformer allows us to add or remove inputs and outputs during finetuning: for example,
+we can add new observations (blue, dashed) or action spaces (purple, dashed) without modifying any pretrained parameters.
+Octo’s design is inspired by several recent advances in
+robot imitation learning and scalable transformer training,
+including the use of denoising diffusion objectives [34] for
+action decoding [17, 31, 85], the prediction of “action chunks”,
+i.e., sequences of future actions [98, 17, 28], and model layouts
+and learning rate schedules inspired by the literature on scalable
+vision transformer training [22, 97]. Our work is the first to
+leverage these approaches in the context of learning cross-
+embodied generalist policies and we find that they can lead to
+substantial performance improvements. In our evaluation, we
+present ablations to assess the importance of these components,
+alongside a more comprehensive list of what we found to be
+(un)important in Appendix E; we hope our findings are useful
+for future research on generalist policy learning.
+A key ingredient for training generalist robot policies is
+robot training data. In contrast to vision and language data
+that can be scraped from the web, obtaining robot data at
+scale is challenging and often involves significant investments
+in hardware and human labor. There are multiple large robot
+navigation and autonomous driving datasets [29, 95, 13, 87, 80,
+43, 89]. In recent years, there have also been multiple efforts
+for building robot manipulation datasets of increasing scale
+and diversity, either collected via scripted and autonomous
+policies [19, 41, 42, 12, 71, 30] or human teleoperation [59,
+60, 25, 90, 39, 10, 26, 6, 77, 63, 79]. Octo is trained on the
+Open X-Embodiment dataset [67
+
+--- [token] x35 at 5154 ---
+r pretraining generalist robot policies
+more suitable for the diversity of interfaces in downstream
+robotic applications. The core of our model is a transformer
+architecture that maps arbitrary input tokens (created from
+observations and tasks) to output tokens (then decoded into
+actions), which can be trained on a diverse dataset of robots
+and tasks. With no additional training, this policy can accept
+different camera configurations (e.g., workspace or wrist
+cameras), can control different robots, and can be guided via
+either language commands or goal images — all by simply
+changing which tokens are fed into the model. Most importantly,
+the model can be adapted to new robot setups with new sensory
+inputs, action spaces, or morphologies by adding appropriate
+adapters and finetuning with a small target domain dataset and
+an accessible compute budget.
+Our primary contribution is Octo, a transformer-based policy
+pretrained on the largest robot manipulation dataset to date:
+800k robot demonstrations from the Open X-Embodiment
+dataset [67]. Octo is the first GRP that can be effectively
+finetuned to new observations and action spaces and the first
+generalist robot manipulation policy that is fully open-source,
+including the training pipeline, model checkpoints, and data.
+Finally, while the individual components that comprise Octo
+— a transformer backbone, support for both language and goal
+image specification, and a diffusion head to model expressive
+action distributions — have been discussed in prior work, the
+particular combination of these components into a powerful
+generalist robot policy is unique and novel.
+We demonstrate through extensive experiments on 9 robots
+across 4 institutions that our combined system leads to state-
+of-the-art performance for out-of-the-box multi-robot control
+for single and dual-arm manipulation tasks and that Octo can
+be used as an effective initialization for finetuning to unseen
+setups with new observation and action spaces. In the proc
+
+======================================================================
+### openvla ###
+
+--- [ablat] x12 at 32593 ---
+t all-zero actions in the Bridge dataset (see Appendix C for a
+detailed discussion); and OpenVLA uses a fused vision encoder that combines pretrained semantic
+and spatial features. See Appendix D for ablation analyses of these components.
+5.2
+Data-Efficient Adaptation to New Robot Setups
+While prior works mainly focused on directly evaluating VLAs “out-of-the-box” [1, 7, 16], effective
+fine-tuning of VLA models to new tasks and robot setups is largely unexplored, yet is key for their
+widespread adoption. In this section, we investigate OpenVLA’s ability to be quickly adapted to a
+new real-world robot setup. (See Appendix E for fine-tuning experiments in simulation.)
+Robot setups and tasks. We test a simple fine-tuning recipe for the OpenVLA model: full fine-
+tuning of all model parameters, using small datasets with 10–150 demonstrations of a target task (see
+Fig. 5; we explore parameter-efficient fine-tuning approaches in Section 5.3). We test OpenVLA in
+two setups: Franka-Tabletop, a stationary, table-mounted Franka Emika Panda 7-DoF robot arm;
+and Franka-DROID, the Franka robot arm setup from the recently released DROID dataset [11],
+8
+
+Franka-Tabletop
+Franka-DROID
+66.7
+53.5
+33.3
+93.3
+80.0
+0.0
+83.3
+63.3
+26.7
+Narrow Single-Instruction Tasks
+19.4
+27.8 30.6
+27.8 22.2
+66.7
+16.7
+25.0
+91.7
+Diverse Multi-Instruction Tasks
+35.0
+26.7
+38.3
+Visual Robustness
+37.1 41.5
+43.4
+35.2
+63.8
+46.7
+60.0
+13.3
+53.3
+70.0
+93.3
+16.7
+69.4
+69.4
+77.8
+44.4 50.0
+21.7
+58.3
+Figure 5: Adapting to new robot setups. We evaluate the state-of-the-art Diffusion Policy trained from
+scratch on seven Franka Emika Panda tasks (10–150 demonstrations each), as well as generalist robot policies
+Octo and OpenVLA fine-tuned on the same data. Diffusion Policy exhibits strong performance on narrow
+single-instruction tasks, while Octo and OpenVLA perform better on diverse fine-tuning tasks involving multiple
+instructions and distractor objects. Overall, OpenVLA achieves highest aggregate performance across both
+set
+
+--- [tokenizer] x6 at 12486 ---
+ate-of-the-art generalist manipulation policy performance. However, our
+work differs from RT-2-X in multiple important aspects: (1) by combining a strong open VLM
+3
+
+“Put eggplant
+DinoV2
+SigLIP
+Llama Tokenizer
+“What should the robot do to {task}? A:”
+OpenVLA
+Llama 2 7B
+Action De-Tokenizer
+in bowl”
+MLP Projector
+x
+Δ
+Δθ
+Grip
+Δ
+7D Robot
+Action
+Input Image
+Language Instruction
+2
+3
+1
+Figure 2: OpenVLA model architecture. Given an image observation and a language instruction, the model
+predicts 7-dimensional robot control actions. The architecture consists of three key components: (1) a vision
+encoder that concatenates Dino V2 [25] and SigLIP [79] features, (2) a projector that maps visual features to
+the language embedding space, and (3) the LLM backbone, a Llama 2 7B-parameter large language model [10].
+backbone with a richer robot pretraining dataset, OpenVLA outperforms RT-2-X in our experiments
+while being an order of magnitude smaller; (2) we thoroughly investigate fine-tuning of OpenVLA
+models to new target setups, while RT-2-X does not investigate the fine-tuning setting; (3) we are
+the first to demonstrate the effectiveness of modern parameter-efficient fine-tuning and quantization
+approaches for VLAs; and (4) OpenVLA is the first generalist VLA that is open-source and thus
+supports future research on VLA training, data mixtures, objectives, and inference.
+3
+The OpenVLA Model
+We introduce the OpenVLA model, a 7B-parameter vision-language-action model (VLA) trained
+on 970k robot demonstrations from the Open X-Embodiment dataset [1]. There are many, largely
+unexplored, questions around best practices for developing VLA models, e.g., what are the best
+model backbones, datasets, and hyperparameters to use for training. Below, we detail our approach
+for developing OpenVLA and summarize our key learnings. Concretely, we first provide a brief
+overview of modern VLMs, which form the backbone of OpenVLA (Section 3.1); then describe
+our basic training recipe and dataset (S
+
+======================================================================
+### pi0 ###
+
+--- [ablat] x3 at 23231 ---
+full description
+of the model architecture in Appendix B.
+Non-VLM baseline model. In addition to our main VLA
+model, we also trained a similar baseline model that did not
+use a VLM initialization for ablation experiments. This model,
+which we refer to as π0-small, has 470M parameters, does not
+use VLM initialization, and has a number of small differences
+that we found to be helpful for training on our data without
+VLM initialization, which are summarized in Appendix C.
+This model is used in our comparisons to evaluate the benefits
+of incorporating VLM pertaining.
+V. DATA COLLECTION AND TRAINING RECIPE
+Broadly capable robot foundation models require not only
+an expressive and powerful architecture, but also the right
+dataset and, more importantly, the right training recipe. In
+the same way that LLM training is typically divided into
+pre-training and post-training phases, we employ a multi-
+stage training procedure for our model. The goal of the pre-
+training phase is to expose the model to a diverse range of
+tasks so that it can acquire broadly applicable and general
+physical capabilities, while the goal of the post-training phase
+is to provide the model with the ability to skillfully and
+fluently execute the desired downstream task. Because of
+this, the requirements for the pre-training and post-training
+datasets are distinct: the pre-training dataset should cover
+as many tasks as possible, and within each of those tasks
+should cover a diversity of behaviors. The post-training dataset
+should instead cover behaviors that are conducive to effective
+task execution, which should exhibit a consistent and fluent
+strategy. Intuitively, the diverse (but lower quality) pre-training
+data allows the model to recover from mistakes and handle
+highly varied situations, which might not otherwise occur in
+the high-quality post-training data, while the post-training data
+teaches the model to perform the task well.
+A. Pre-training and post-training
+Fig. 4: Overview of our dataset: Th
+
+--- [flow] x38 at 29 ---
+π0: A Vision-Language-Action Flow Model for
+General Robot Control
+Physical Intelligence
+Kevin Black, Noah Brown, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai,
+Lachy Groom, Karol Hausman, Brian Ichter, Szymon Jakubczak, Tim Jones, Liyiming Ke, Sergey Levine,
+Adrian Li-Bell, Mohith Mothukuri, Suraj Nair, Karl Pertsch, Lucy Xiaoyang Shi, James Tanner, Quan Vuong,
+Anna Walling, Haohuan Wang, Ury Zhilinsky
+https://physicalintelligence.company/blog/pi0
+ 
+
+	
+# ! 2/
+
+.()
+/)
+,&&0'%
+)
+	
+8::!7 2/
+
+.()
+/)
+'GG)
+	
+Z)0./GSO/,SGL
+./O/
+),
+G
+mlhg/%('(G0
+/)S/,G%
+y&/%,)p.
+n
+2.G
+.G,)|{z
+0
+/)
+G2G.
+
+G.G
+0%G)
+2.G
+.(
+°2G)©¯SO/,SG
+)¡
+G
+,)S³)S/.G±
+O')
+O%G
+20	)O/
+
+%G
+O()(./0G.G
+/2G)2/20/.
+%/,),pG
+/.
+)%G(/
+S	G)0/&&GG
+ÀGG2)
+O%G
+GS2
+³),.³G.
+G
+)
+O%G
+20	)pG%&
+&%
+
+G)O/
+Õ(pÓ'%
+³)2/
+
+.(),
+
+p(p),G
+G.
+³)
+	
+'GG)
+	
+O')
+O%G
+GS2
+³)2.
+SG
+),.³G.
+O
+0p)&/%,)p.
+
+.G2%0G)22G.)
+/ÀG%
+2'
+)
+GS)),.ÀG.
+Fig. 1: Our generalist robot policy uses a pre-trained vision-language model (VLM) backbone, as well as a diverse cross-
+embodiment dataset with a variety of dexterous manipulation tasks. The model is adapted to robot control by adding a separate
+action expert that produces continuous actions via flow matching, enabling precise and fluent manipulation skills. The model
+can then be used directly to perform tasks based on a prompt, or fine-tuned on high-quality data to enable complex multi-stage
+tasks, such as folding multiple articles of laundry or assembling a box.
+Abstract—Robot learning holds tremendous promise to unlock
+the full potential of flexible, general, and dexterous robot systems,
+as well as to address some of the deepest questions in arti
+
+--- [expert] x31 at 1323 ---
+ vision-language model (VLM) backbone, as well as a diverse cross-
+embodiment dataset with a variety of dexterous manipulation tasks. The model is adapted to robot control by adding a separate
+action expert that produces continuous actions via flow matching, enabling precise and fluent manipulation skills. The model
+can then be used directly to perform tasks based on a prompt, or fine-tuned on high-quality data to enable complex multi-stage
+tasks, such as folding multiple articles of laundry or assembling a box.
+Abstract—Robot learning holds tremendous promise to unlock
+the full potential of flexible, general, and dexterous robot systems,
+as well as to address some of the deepest questions in artificial
+intelligence. However, bringing robot learning to the level of
+generality required for effective real-world systems faces major
+obstacles in terms of data, generalization, and robustness. In
+this paper, we discuss how generalist robot policies (i.e., robot
+foundation models) can address these challenges, and how we can
+design effective generalist robot policies for complex and highly
+dexterous tasks. We propose a novel flow matching architecture
+Physical Intelligence, San Francisco, California, USA. Correspondance to:
+research@physicalintelligence.company
+built on top of a pre-trained vision-language model (VLM)
+to inherit Internet-scale semantic knowledge. We then discuss
+how this model can be trained on a large and diverse dataset
+from multiple dexterous robot platforms, including single-arm
+robots, dual-arm robots, and mobile manipulators. We evaluate
+our model in terms of its ability to perform tasks via direct
+prompting, follow language instructions from people and from a
+high-level VLM policy, and its ability to acquire new skills via
+fine-tuning. Our results cover a wide variety of tasks, such as
+laundry folding, table cleaning, and assembling boxes.
+arXiv:2410.24164v4  [cs.LG]  8 Jan 2026
+
+Fig. 2: π0 controls a mobile manipulator to fold laundry. Our model is
+
+======================================================================
+### pi05 ###
+
+--- [ablat] x21 at 45788 ---
+), and web data corre-
+sponding to captioning, VQA, and object localization tasks
+(WD). Post-training also uses verbal instruction data (VI),
+which we analyze in Section V-E. In these experiments, we
+ablate different parts of the mixture:
+1) no WD: this ablation excludes web data.
+2) no ME: this ablation excludes multi-environment non-
+mobile data.
+3) no CE: this ablation excludes the laboratory cross-
+embodiment data.
+4) no ME or CE: this ablation excludes both data sources
+from other robots, such that the model is trained on only
+data from the target mobile manipulator platform as well
+as web data.
+The results on the full mock home tasks are shown in
+Figure 10 (detailed breakdown of performance on each task
+in Appendix D). First, we see in the results that excluding
+either of the two cross-embodiment data sources (ME and
+CE) significantly degrades performance, indicating that π0.5
+benefits considerably from cross-embodiment transfer, from
+both other environments (ME) and other tasks (CE). Excluding
+both sources harms performance even more. Interestingly, the
+
+Fig. 10: Training recipe ablations, mock homes. We evaluate variants of
+our model that exclude different parts of the training mixture on all four test
+tasks (10 trials per policy and task). Including cross-embodiment data, both in
+diverse environments (ME) and for diverse tasks in laboratory settings (CE) is
+important for good performance, with large degradation when either or both
+of these data sources are removed. Web data (WD) does not make a significant
+difference in these experiments, but we will see in Figures 11 and 13 that it
+impacts object generalization and high-level performance.
+Fig. 11: Training recipe ablations, language following. Evaluating language
+following with in-distribution and out-of-distribution objects after training on
+different numbers of locations. Including web data (WD) is important for out-
+of-distribution (OOD) performance in particular. Cross-embodiment (CE) and
+diverse envir
+
+--- [FAST] x20 at 16548 ---
+t data sources to produce an initial VLA with
+discrete tokens. This stage uses data from diverse robotic platforms, high-level semantic action prediction, and data from the web. Robotic data uses the FAST
+action tokenizer to represent actions as discrete tokens [64]. Second, a post-training stage specializes the model for low-level and high-level inferences for
+mobile manipulation, leveraging the most task-relevant data, including verbal instructions from human supervisors. This stage uses flow matching to represent
+the action distribution, enabling efficient real-time inference and the ability to represent fine-grained continuous action sequences. At inference time, the model
+first infers a high-level subtask, and then predicts the actions based on this subtask.
+primitives, such as picking up objects, methods that allow for
+task-specific assumptions (e.g., grasp prediction, or incorpo-
+rating model-based planning and control) have been shown to
+generalize broadly, even to entirely new homes [40, 20, 60, 56,
+29]. However, such methods do not readily generalize to the
+full range of possible tasks that a generalist robot might need
+to perform. More recently, large-scale datasets collected across
+many domains [41, 68, 63, 67, 14, 49] have been shown to
+enable generalization of simple but end-to-end learned tasks to
+new environments [33, 31, 67, 69, 26, 49, 28, 64]. However,
+the tasks in these demonstrations are still relatively simple,
+typically less than a minute in length and often with relatively
+low success rates. We show that π0.5 can perform long, multi-
+stage tasks, such as putting all of the dishes in the sink or
+picking all of the clothing off the floor of a new bedroom,
+while generalizing to entirely new homes.
+III. PRELIMINARIES
+Vision-language-action models (VLAs) are typically trained
+via
+imitation
+learning
+on
+diverse
+robot
+demonstration
+datasets D, by maximizing the log-likelihood of an action
+at (or, more generally, an action chunk at:t+H) given an
+obser
+
+--- [pre-training] x17 at 15851 ---
+“clean the bedroom”
+“clean the kitchen”
+“pick up the pillow”
+“caption the image”
+“localize the gripper”
+“put the plate in the sink”
+“a dog catches a frisbee”
+“pick up the pillow”
+“pick up the pillow”
+pre-training
+language subtasks
+discretized actions
+open vocabulary captions
+bounding boxes
+task-specific prompts
+multimodal web & 
+robot data
+post-training & inference
+high-level prompt
+subtask prediction
+continuous actions
+low-level command
+pre-trained VLM
+SigLIP (400M) + Gemma (2.6B)
+pre-trained VLA
+-17
+12
+34
+142
+-72
+-135
+3
+35
+145
+223
+noise
+action expert
+(300M)
+-1.7
+1.25
+3.14
+1.42
+Fig. 3: Model overview. π0.5 is trained in two stages. First, a pre-training stage combines all of the different data sources to produce an initial VLA with
+discrete tokens. This stage uses data from diverse robotic platforms, high-level semantic action prediction, and data from the web. Robotic data uses the FAST
+action tokenizer to represent actions as discrete tokens [64]. Second, a post-training stage specializes the model for low-level and high-level inferences for
+mobile manipulation, leveraging the most task-relevant data, including verbal instructions from human supervisors. This stage uses flow matching to represent
+the action distribution, enabling efficient real-time inference and the ability to represent fine-grained continuous action sequences. At inference time, the model
+first infers a high-level subtask, and then predicts the actions based on this subtask.
+primitives, such as picking up objects, methods that allow for
+task-specific assumptions (e.g., grasp prediction, or incorpo-
+rating model-based planning and control) have been shown to
+generalize broadly, even to entirely new homes [40, 20, 60, 56,
+29]. However, such methods do not readily generalize to the
+full range of possible tasks that a generalist robot might need
+to perform. More recently, large-scale datasets collected across
+many domains [41, 68, 63, 67, 14, 49] have been shown to
+enable generalization of simple b
+
+======================================================================
+### xr-1 ###
+
+--- [ablat] x13 at 27795 ---
+DT
+50
+25
+0
+0
+0
+75
+0
+0
+0
+0
+17.0
+GR00T-N1.5
+50
+55
+0
+60
+55
+70
+25
+0
+70
+0
+38.0
+π0
+60
+20
+10
+0
+80
+55
+0
+0
+0
+75
+40.8
+π0.5
+70
+25
+20
+0
+75
+75
+0
+0
+0
+60
+41.0
+XR-1 (ours)
+70
+85
+55
+75
+90
+85
+75
+15
+70
+85
+72.0
+Table 3. Ablation study of XR-1. In Stage-1 and Stage-2, “DT” indicates training directly on the downstream task data.
+Exp.
+Instantiation
+Stage-1
+Stage-2
+Stage-3
+DUR-Clean
+DUR-Find
+DUR-Move
+DUR-Stack
+DUR-Sweep
+DUR-Trans
+Avg
+Table
+TapeBasket
+CupMilk
+Bowls
+Trash
+CupHolder
+1
+XR-1-Light
+×
+×
+✓
+0
+70
+0
+75
+60
+50
+42.5
+2
+XR-1-Light
+DT
+DT
+✓
+40
+90
+10
+90
+60
+55
+57.5
+3
+XR-1
+×
+×
+✓
+0
+50
+20
+55
+0
+45
+28.3
+4
+XR-1 w/o KL
+DT
+DT
+✓
+45
+55
+35
+60
+30
+65
+48.3
+5
+XR-1 motion-only
+DT
+DT
+✓
+25
+70
+35
+60
+5
+15
+35.0
+6
+XR-1 vision-only
+DT
+DT
+✓
+10
+70
+65
+70
+15
+65
+50.0
+7
+XR-1
+DT
+DT
+✓
+50
+75
+65
+80
+60
+70
+66.7
+8
+XR-1
+1%
+DT
+✓
+15
+60
+10
+55
+15
+20
+29.2
+9
+XR-1
+10%
+DT
+✓
+25
+60
+25
+60
+20
+40
+38.3
+10
+XR-1
+50%
+DT
+✓
+25
+80
+65
+80
+20
+50
+53.3
+11
+XR-1
+100%
+DT
+✓
+60
+80
+70
+85
+40
+55
+65.0
+12
+XR-1
+100%
+XR-D
+✓
+70
+85
+80
+90
+85
+80
+81.6
+13
+XR-1 w/o Ego4D
+10%
+DT
+✓
+20
+60
+10
+55
+15
+35
+32.5
+14
+XR-1 w/ Ego4D
+10%
+DT
+✓
+25
+60
+25
+60
+20
+40
+38.3
+4.2. Results on Real-World Robotic Tasks
+Baseline Methods. We compare XR-1 with strong VLA
+models, including π0.5 (Intelligence et al., 2025), π0 (Black
+et al., 2025), RDT (Liu et al., 2025), UniVLA (Bu et al.,
+2025b), and GR00T-N1.5 (Bjorck et al., 2025). We note a
+performance degradation with the Lerobot implementation
+of π0. The results of π0 reported in this paper are based on
+the original JAX implementation.
+Results on Dual-Arm UR-5e. Figure 4 shows success rates
+on 20 Dual-Arm UR-5e tasks. XR-1 outperforms all base-
+lines by a wide margin (e.g., DUR-FindTapeBasket: 85% vs.
+50% for π0), while several baselines drop to 0% on harder
+tasks. We attribute this to limited auxiliary supervision and
+optimization conflicts in multi-task training. XR-1 mitigates
+these issues with UVMC, producing stronger representa-
+tions and more stable optimization. Tabular results are in
+Appendix Table 13.
+Results on Tien Kung 2.0 (Unseen duri
+
+--- [UVMC] x95 at 651 ---
+on
+Fast Adaptation
+Large-Scale
+Pretraining Datasets
+XR-1 Framework
+Ego4D
+OXE
+RoboMIND
+XR-D
+Vision
+Encoder
+Vision
+Decoder
+Motion  
+Encoder
+Motion
+Decoder
+VLM
+Action 
+Head
+Unified Vision-Motion
+ Codes (UVMC)
+XR-1
+GR00T-N1.5
+RDT
+UniVLA
+Dual-Arm 
+Franka
+AgileX Cobot 
+Magic V2.0
+Tien Kung 
+1.0
+Tien Kung 
+2.0
+Single-Arm 
+UR-5e
+Dual-Arm 
+UR-5e
+π0.5
+π0
+Figure 1. We introduce X Robotic Model 1 (XR-1), a versatile and scalable vision-language-action framework. XR-1 supports robust
+multi-task learning across diverse robot embodiments and environments.
+Abstract
+Recent progress in large-scale robotic datasets and
+vision-language models (VLMs) has advanced
+research on vision-language-action (VLA) mod-
+els. However, existing VLA models still face
+two fundamental challenges: (i) producing pre-
+cise low-level actions from high-dimensional ob-
+*Equal contribution. †Project leader.   Corresponding author.
+1Beijing Innovation Center of Humanoid Robotics, Beijing, China
+2State Key Laboratory of Multimedia Information Processing,
+School of Computer Science, Peking University, Beijing, China
+3State Key Laboratory of Virtual Reality Technology and Systems,
+SCSE, Beihang University, Beijing, China 4School of Mechanical
+Engineering and Automation, Beihang University, Beijing, China.
+Correspondence to: Jian Tang <jian.tang@x-humanoid.com>.
+Proceedings of the 43 rd International Conference on Machine
+Learning, Seoul, South Korea. PMLR 306, 2026. Copyright 2026
+by the author(s).
+servations, (ii) bridging domain gaps across het-
+erogeneous data sources, including diverse robot
+embodiments and human demonstrations. Exist-
+ing methods often encode latent variables from
+either visual dynamics or robotic actions to guide
+policy learning, but they fail to fully exploit the
+complementary multi-modal knowledge present
+in large-scale, heterogeneous datasets. In this
+work, we present X Robotic Model 1 (XR-1), a
+novel framework for versatile and scalable VLA
+learning across diverse robots, tasks, and envi
+
+--- [token] x19 at 7252 ---
+oys a three-stage paradigm: (i) self-
+supervised UVMC learning on large-scale robot and human
+video datasets; (ii) cross-embodiment pre-training that in-
+jects UVMC knowledge into a VLM via learnable tokens;
+and (iii) task-specific post-training for refinement. This
+architecture allows XR-1 to leverage heterogeneous data
+while ensuring embodiment-agnostic consistency.
+We extensively evaluate XR-1 through more than 14k roll-
+outs across six distinct robot embodiments, including Tien
+Kung 1.0/2.0, Single-/Dual-Arm UR-5e, Dual-Arm Franka,
+and AgileX Cobot Magic 2.0, covering over 120 manipula-
+tion tasks. XR-1 outperforms state-of-the-art baselines such
+as π0.5, π0, RDT, UniVLA, and GR00T-N1.5 across chal-
+lenging scenarios involving bimanual collaboration, dex-
+terous manipulation, deformable objects, contact-rich inter-
+actions, dynamic settings, and long-horizon manipulation.
+Our main contributions are summarized as follows:
+• We propose X Robotic Model 1 (XR-1), a scalable
+three-stage framework for VLA learning that effec-
+tively leverages heterogeneous data sources, including
+Internet-scale human videos and diverse robot datasets,
+and integrates with diverse VLA architectures.
+• We introduce the Unified Vision-Motion Codes
+(UVMC), a discrete latent representation that encodes
+both environmental dynamics and robotic motion,
+2
+
+XR-1: Towards Versatile Vision-Language-Action Models via Learning Unified Vision-Motion Representations
+while an alignment loss enforces consistent multimodal
+embeddings across embodiments via UVMC.
+• We validate XR-1 with over 14, 000 real-world rollouts
+on six robot embodiments across 123 tasks, and demon-
+strate that it consistently outperforms strong baselines
+such as π0.5, π0, RDT, UniVLA, and GR00T-N1.5.
+2. Related Work
+2.1. Vision-Language-Action Models
+Modern robotics aims to develop robust, general-purpose
+Vision-Language-Action (VLA) policies capable of zero-
+shot cross-embodiment transfer.
+While early Imitation
+Learning (IL) metho
+
+======================================================================
+### human-as-humanoid ###
+
+--- [humanoid] x65 at 9 ---
+Human-as-Humanoid: Enabling Zero-Shot
+Humanoid Learning from Ego-Exo Human Videos
+with Human-Aligned Embodiments
+Xiaopeng Lin1,2,*, Ruoqi Yang2,*, Shijie Lian3,6,*, Zhaolong Shen3,7,*, Bin Yu3,5,*, Changti Wu3, Haibao Liu2,
+Yuxiang Zhang2, Hong Li2, Qiyuan Su2, Haochen Liu2, Xuguo He2, Yukun Shi4, Cong Huang3,4, Zhirui Zhang2,
+Bojun Cheng1,†, Kai Chen2,3,4,†
+1The Hong Kong University of Science and Technology (Guangzhou)
+2DeepCybo
+3ZGCA
+4ZGCI
+5Harbin Institute of Technology
+6Huazhong University of Science and Technology
+7Beihang University
+*Equal contribution, †Corresponding author
+Vision-language-action (VLA) models across robot embodiments require high-quality observation–
+action supervision to learn deployable action distributions, yet scaling such robot data remains difficult,
+especially for high-DoF humanoids. Teleoperation provides controller-aligned supervision, while human
+egocentric videos capture diverse bimanual manipulation but do not directly provide executable robot
+actions. We introduce Human-as-Humanoid, a human-to-humanoid supervision framework that
+enables near-real-time human-centric action generation, making human demonstrations usable for
+high-DoF humanoid VLA training by jointly aligning the robot embodiment, the sensing setup, and
+the action-label interface. Built on PrimeU, a human-aligned 60-DoF upper-body humanoid, Human-
+as-Humanoid uses synchronized ego-exo videos to pair deployment-aligned egocentric observations
+with exocentric motion recovery, retargets the recovered human motion through staged Inverse
+Kinematics (IK) into controller-aligned 60-DoF action chunks, and trains the VLA model with
+Forward Kinematics (FK)-aware supervision to preserve wrist and fingertip task-space geometry. This
+converts large-scale human demonstrations from visual obse
+
+--- [teleop] x14 at 827 ---
+ross robot embodiments require high-quality observation–
+action supervision to learn deployable action distributions, yet scaling such robot data remains difficult,
+especially for high-DoF humanoids. Teleoperation provides controller-aligned supervision, while human
+egocentric videos capture diverse bimanual manipulation but do not directly provide executable robot
+actions. We introduce Human-as-Humanoid, a human-to-humanoid supervision framework that
+enables near-real-time human-centric action generation, making human demonstrations usable for
+high-DoF humanoid VLA training by jointly aligning the robot embodiment, the sensing setup, and
+the action-label interface. Built on PrimeU, a human-aligned 60-DoF upper-body humanoid, Human-
+as-Humanoid uses synchronized ego-exo videos to pair deployment-aligned egocentric observations
+with exocentric motion recovery, retargets the recovered human motion through staged Inverse
+Kinematics (IK) into controller-aligned 60-DoF action chunks, and trains the VLA model with
+Forward Kinematics (FK)-aware supervision to preserve wrist and fingertip task-space geometry. This
+converts large-scale human demonstrations from visual observations into executable observation–action
+supervision for the target humanoid. Experiments validate the conversion chain at the motion-recovery,
+robot-action-space, and real-robot deployment levels. Human-as-Humanoid yields a 4.8–7.2x raw
+demonstration-throughput gain over humanoid teleoperation in our data-collection analysis, and
+on several downstream tasks, policies post-trained only with the converted human labels generalize
+to real-robot deployment without target-task robot demonstrations. The official project website is
+available at https://zgc-embodyai.github.io/Human-as-Humanoid/.
+Date: July 1, 2026
+Keywords: Humanoid Manipulation, Human Data, Teleoperation, VLA Models
+1
+Introduction
+Vision-language-action (VLA) policies provide a unified interface for general robot control by mapping visual
+obser
+
+======================================================================
+### imr-llm ###
+
+--- [ablat] x2 at 29944 ---
+0.42
+0.24
+Ours (GPT-4o)
+1.00
+1.00
+0.90
+0.98
+0.90
+1.00
+1.00
+0.87
+0.94
+0.87
+0.88
+0.75
+0.76
+0.79
+0.68
+Ours (Qwen3-32B)
+1.00
+1.00
+1.00
+1.00
+1.00
+1.00
+0.93
+0.87
+0.90
+0.87
+0.85
+0.71
+0.76
+0.79
+0.60
+TABLE II
+ABLATION STUDY OF DIFFERENT VARIATIONS OF IMR-LLM.
+Methods
+Single Robot
+Simple Multi-Robot
+Complex Multi-Robot
+OC "
+SE "
+Exe "
+GCR " SR "
+OC "
+SE "
+Exe "
+GCR " SR "
+OC "
+SE "
+Exe "
+GCR " SR "
+Ours (w/order)
+1.00
+1.00
+0.90
+0.95
+0.90
+1.00
+0.67
+0.47
+0.42
+0.47
+0.85
+0.07
+0.08
+0.10
+0.00
+Ours (w/dependency)
+1.00
+1.00
+0.90
+0.98
+0.90
+1.00
+0.73
+0.80
+0.80
+0.60
+0.83
+0.39
+0.44
+0.47
+0.36
+Ours (w/o T)
+1.00
+1.00
+0.80
+0.80
+0.80
+1.00
+1.00
+0.64
+0.74
+0.64
+0.88
+0.75
+0.48
+0.53
+0.44
+Ours
+1.00
+1.00
+0.90
+0.98
+0.90
+1.00
+1.00
+0.87
+0.94
+0.87
+0.88
+0.75
+0.76
+0.79
+0.68
+ SMART-LLM [6] addresses both sub-problems simul-
+taneously, using a different task planning sequence. It
+determines the operation schedule during decomposi-
+tion, followed by allocation, with task planning and
+program generation guided by specific examples.
+ LaMMA-P [9] addresses only task planning in our
+setting, following the same sequence as our method
+but also using LLM to directly determine the operation
+schedule based on specific examples. Since its built-in
+symbolic solver cannot generate executable programs
+in our setting, we combined the program generation
+module from SMART-LLM [6] and our method to
+create two variants, LaMMA-S and LaMMA-O.
+ LiP-LLM [7] addresses only task planning, using a
+sequence that differs from ours. It starts with opera-
+tion decomposition, followed by schedule determination
+and linear programming for allocation. Unlike previous
+methods that directly output the order of operations [6],
+[9], LiP-LLM uses LLM to analyze dependencies and
+construct a dependency graph. The decomposition and
+dependency generation are guided by general rules as
+ours. To obtain programs, we integrated our program
+generation module, resulting in a variant called LiP-O.
+Experimental Results. Tab. I presents the quantitative
+r
+
+--- [reason] x15 at 336 ---
+ Kaick3, Kai Xu4,B, Ruizhen Hu1,B
+Abstract— In modern industrial production, multiple robots
+often collaborate to complete complex manufacturing tasks.
+Large language models (LLMs), with their strong reasoning
+capabilities, have shown potential in coordinating robots for
+simple household and manipulation tasks. However, in in-
+dustrial scenarios, stricter sequential constraints and more
+complex dependencies within tasks present new challenges
+for LLMs. To address this, we propose IMR-LLM, a novel
+LLM-driven Industrial Multi-Robot task planning and program
+generation framework. Specifically, we utilize LLMs to assist
+in constructing disjunctive graphs and employ deterministic
+solving methods to obtain a feasible and efficient high-level
+task plan. Based on this, we use a process tree to guide LLMs
+to generate executable low-level programs. Additionally, we
+create IMR-Bench, a challenging benchmark that encompasses
+multi-robot industrial tasks across three levels of complexity.
+Experimental results indicate that our method significantly
+surpasses existing methods across all evaluation metrics.
+I. INTRODUCTION
+In the rapidly evolving landscape of intelligent manu-
+facturing, industrial embodied intelligence [1]–[3] —robots
+equipped with autonomous perception, reasoning, and exe-
+cution capabilities—is emerging as a cornerstone for next-
+generation manufacturing systems. Modern manufacturing
+tasks often require multiple robots to execute complex work-
+flows collaboratively and effectively, which raises challenges
+for both high-level task planning and low-level program
+generation. Recently, large language models (LLMs) have
+demonstrated remarkable potential in reasoning and code
+generation [4], [5]. In this work, we focus on leveraging
+LLMs to solve the multi-robot task planning and program
+generation problem in industrial production lines, as illus-
+trated in Fig. 1.
+Task planning typically comprises three sub-problems: de-
+composition, allocation, and scheduling, which
+
+======================================================================
+### flashsac ###
+
+--- [ablat] x16 at 36437 ---
+state–action coverage than on-policy methods (§6.1). We then
+investigate three design choices central to FlashSAC: scaling data collection and model capacity for faster
+training (§6.2), architectural ablations that improve training stability (§6.3), and the effect of entropy and
+temporal correlation on exploration (§6.4). All experiments are conducted in four IsaacLab environments [61]:
+cube reorientation with the Allegro and Shadow Hands, and flat and rough terrain locomotion with the G1.
+ 	 B 
+  0 G G
+  1 P M J D Z
+ 	 C 
+  0 O
+  1 P M J D Z
+ 4 U B U F
+  " D U J P O  % J T U S J C V U J P O 
+ 	 5 B T L  
+ * T B B D  4 I B E P X  ) B O E  $ V C F
+Figure 7 Off-Policy vs. On-Policy Data Coverage. We train FlashSAC for 1M steps on the Shadow Hand
+cube reorientation task. 2D density plots show the joint distribution of object y-position and fingertip joint
+actions for (a) off-policy samples from the replay buffer and (b) on-policy samples collected by rolling out
+the final policy for an additional 1M steps. Off-policy data covers a substantially broader region of the
+state–action space.
+10
+
+0
+5
+10
+15
+20
+25
+30
+Compute Time (min)
+0
+.25
+.5
+.75
+1
+Agregate Score
+(a) Replay Bufer Size
+0.1M
+1M
+10M
+50M
+0
+10
+20
+30
+40
+50
+60
+Compute Time (min)
+0
+.25
+.5
+.75
+1
+(b) Batch Size
+0.5K
+1K
+2K
+4K
+8K
+0
+10
+20
+30
+40
+50
+60
+Compute Time (min)
+0
+.25
+.5
+.75
+1
+(c) Network Width
+64
+128
+256
+512
+1024
+0
+5
+10
+15
+20
+25
+30
+Compute Time (min)
+0
+.25
+.5
+.75
+1
+(d) Network Depth
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+Compute Time (min)
+0
+.25
+.5
+.75
+1
+(e) Update-to-Data Ratio
+0.5/1024
+1/1024
+2/1024
+4/1024
+8/1024
+Figure 8 Scaling Results. (a) Replay buffer size trades off training stability and efficiency. (b–e) Scaling batch
+size, and model capacity while reducing the UTD ratio accelerates convergence.
+0
+10
+20
+30
+40
+50
+Env Steps (M)
+0
+.25
+.5
+.75
+1
+(a) Normalized Score
+0
+10
+20
+30
+40
+50
+Env Steps (M)
+0
+.1
+.2
+.3
+.4
+(b) Weight Norm
+0
+10
+20
+30
+40
+50
+Env Steps (M)
+0
+1.5
+3
+4.5
+6
+(c) Feature Norm
+0
+10
+20
+30
+40
+50
+Env 
+
+--- [SAC] x110 at 5 ---
+FlashSAC: Fast and Stable Off-Policy Reinforcement
+Learning for High-Dimensional Robot Control
+Donghu Kim1,∗Youngdo Lee2,3,∗Minho Park2 Kinam Kim2 I Made Aswin Nahendra3 Takuma Seno4
+Sehee Min1 Daniel Palenicek5,6 Florian Vogt7 Danica Kragic7 Jan Peters5,6,8,9 Jaegul Choo2,† Hojoon Lee1,†
+1Holiday Robotics, 2KAIST, 3KRAFTON, 4Turing Inc, 5TU Darmstadt, 6hessian.AI, 7KTH Royal Institute of
+Technology, 8German Research Center for AI (DFKI), 9Robotics Institute Germany (RIG)
+∗Equal Contribution, †Joint Correspondence
+Abstract. Reinforcement learning (RL) is a core approach for robot control when expert demonstrations
+are unavailable. On-policy methods such as Proximal Policy Optimization (PPO) are widely used for their
+stability, but their reliance on narrowly distributed on-policy data limits accurate policy evaluation in
+high-dimensional state and action spaces. Off-policy methods can overcome this limitation by learning
+from a broader state-action distribution, yet suffer from slow convergence and instability, as fitting a value
+function over diverse data requires many gradient updates, causing critic errors to accumulate through
+bootstrapping. We present FlashSAC, a fast and stable off-policy RL algorithm built on Soft Actor-Critic.
+Motivated by scaling laws observed in supervised learning, FlashSAC sharply reduces gradient updates
+while compensating with larger models and higher data throughput. To maintain stability at increased scale,
+FlashSAC explicitly bounds weight, feature, and gradient norms, curbing critic error accumulation. Across
+over 60 tasks in 10 simulators, FlashSAC consistently outperforms PPO and strong off-policy baselines
+in both final performance and training efficiency, with the largest gains on high-dimensional tasks such as
+dexterous manipulation. In
+
+--- [critic] x54 at 1112 ---
+imitation by learning
+from a broader state-action distribution, yet suffer from slow convergence and instability, as fitting a value
+function over diverse data requires many gradient updates, causing critic errors to accumulate through
+bootstrapping. We present FlashSAC, a fast and stable off-policy RL algorithm built on Soft Actor-Critic.
+Motivated by scaling laws observed in supervised learning, FlashSAC sharply reduces gradient updates
+while compensating with larger models and higher data throughput. To maintain stability at increased scale,
+FlashSAC explicitly bounds weight, feature, and gradient norms, curbing critic error accumulation. Across
+over 60 tasks in 10 simulators, FlashSAC consistently outperforms PPO and strong off-policy baselines
+in both final performance and training efficiency, with the largest gains on high-dimensional tasks such as
+dexterous manipulation. In sim-to-real humanoid locomotion, FlashSAC reduces training time from hours
+to minutes, demonstrating the promise of off-policy RL for sim-to-real transfer.
+Correspondence: {donghu.kim, hojoon.lee}@holiday-robotics.com
+Webpage: https://holiday-robot.github.io/FlashSAC
+Date: May 18, 2026
+(a) State-based, Low DoF (Gripper Manipulation, Quadruped Locomotion)
+(Isaac) Franka Open
+(Isaac) Franka Lift Cube
+(ManiSkill) Franka Pull
+(Genesis) Go2 Walk
+(Isaac) AnymalC Rough
+(b) State-based, High DoF (Dexterous Manipulation, Humanoid Locomotion)
+(c) Sim-to-Real Reinforcement Learning (Humanoid Locomotion)
+(Isaac) Allegro Repose
+(Isaac) Shadow Repose
+(MJP) Booster T1 Flat
+(Isaac) Unitree G1 Rough
+State-based, Low DoF (15 tasks)
+State-based, High DoF (10 tasks)
+Isaac G1 Locomotion (Linear Velocity Tracking)
+ㅊ(MJP) Unitree G1 Flat
+Figure 1 Results Overview. Tasks grouped by state–action dimensionality, with representative examples shown
+for each category. (a) State-based, Low DoF: Gripper manipulation and quadruped locomotion tasks from
+IsaacLab, ManiSkill, and Genesis. In low-dimensional settings, FlashS
+
+======================================================================
+### unifp ###
+
+--- [flow] x1 at 32654 ---
+alist robot policy.
+arXiv preprint
+arXiv:2405.1213, 2024. 2
+[15] K. Black, N. Brown, D. Driess, A. Esmail, M. Equi, C. Finn, N. Fusai, L. Groom, K. Hausman,
+B. Ichter, et al. A vision-language-action flow model for general robot control. arXiv preprint
+arXiv:2410.24164, 2024. 2
+[16] H. R. Walke, K. Black, T. Z. Zhao, Q. Vuong, C. Zheng, P. Hansen-Estruch, A. W. He, V. My-
+ers, M. J. Kim, M. Du, et al. Bridgedata v2: A dataset for robot learning at scale. In Conference
+on Robot Learning (CoRL), 2023. 2
+[17] A. Khazatsky, K. Pertsch, S. Nair, A. Balakrishna, S. Dasari, S. Karamcheti, S. Nasiriany,
+M. K. Srirama, L. Y. Chen, K. Ellis, et al. Droid: A large-scale in-the-wild robot manipulation
+dataset. arXiv preprint arXiv:2403.12945, 2024. 2
+[18] A. O’Neill, A. Rehman, A. Maddukuri, A. Gupta, A. Padalkar, A. Lee, A. Pooley, A. Gupta,
+A. Mandlekar, A. Jain, et al. Open x-embodiment: Robotic learning datasets and rt-x models:
+Open x-embodiment collaboration 0. In 2024 IE International Conference on Robotics and
+Automation (ICRA), pages 6892–6903. IEEE, 2024. 2
+[19] V. Makoviychuk, L. Wawrzyniak, Y. Guo, M. Lu, K. Storey, M. Macklin, D. Hoeller, N. Rudin,
+A. Allshire, A. Handa, et al. Isaac gym: High performance gpu-based physics simulation for
+robot learning. arXiv preprint arXiv:2108.10470, 2021. 2, 3, 14
+[20] J.-P. Sleiman, F. Farshidian, M. V. Minniti, and M. Hutter. A unified mpc framework for
+whole-body dynamic locomotion and manipulation. IE Robotics and Automation Leters, 6
+(3):4688–4695, 2021. 3
+[21] M. P. Polverini, A. Laurenzi, E. M. Hoffman, F. Ruscelli, and N. G. Tsagarakis. Multi-contact
+heavy object pushing with a centaur-type humanoid robot: Planning and control for a real
+demonstrator. IE Robotics and Automation Leters, 5(2):859–866, 2020. 3
+[22] N. Rudin, D. Hoeller, P. Reist, and M. Hutter. Learning to walk in minutes using massively
+parallel deep reinforcement learning. In Conference on Robot Learning, pages 91–100. PMLR,
+2022. 3
+[23] G. Pan, Q. Ben, Z
+
+--- [unif] x23 at 11 ---
+Learning a Unified Policy for Position and Force
+Control in Legged Loco-Manipulation
+Peiyuan Zhi1,2,∗, Peiyang Li1,3,∗, Jianqin Yin3, Baoxiong Jia1,2,†, Siyuan Huang1,2,†
+1 State Key Laboratory of General Artificial Intelligence, BIGAI
+2 Joint Laboratory of Embodied AI and Humanoid Robots, BIGAI & UniTree Robotics
+3 Beijing University of Posts and Telecommunications
+https://unified-force.github.io/
+∗Equal contribution.
+† Corresponding authors.
+Figure 1: We present a unified force-position policy for legged robots that enables diverse loco-
+manipulation behaviors, including position tracking, force application, and compliant interactions
+(top). When used for imitation learning data collection, the policy’s learned internal force estimator
+provides force-aware demonstrations, improving model performance in contact-rich tasks without
+external force sensors (middle). Results on quadruped and humanoid robots demonstrate the policy’s
+versatility and robustness (bottom).
+Abstract: Robotic loco-manipulation often involves contact-rich interactions
+with the environment, requiring the joint modeling of contact force and robot posi-
+tion. However, recent visuomotor policies often focus solely on learning position
+or force control, overlooking their co-learning. We propose the first unified policy
+for legged robots that jointly models force and position control learned without re-
+lying on force sensors. By simulating diverse combinations of position and force
+commands alongside external disturbance forces, we use reinforcement learning
+to learn a policy that estimates forces from historical robot states and compensates
+for them through position and velocity adjustments. This policy enables a wide
+range of manipulation behaviors under varying force and position inputs, includ-
+ing position tr
+
+======================================================================
+### weaver ###
+
+--- [ablat] x1 at 34025 ---
+inetuning. We finetune π0.5 with multiple data sources
+and see that combining real and synthetic (Syn) obtained with WEAVER outperforms other variants.
+(Right) Data Scaling for Policy Improvement. We ablate the number of segments in synthetic data
+for finetuning and report the success rate across 20 trials for the Pour Beans Task.
+Right Camera View
+Wrist Camera View
+t = 0
+t = 0
+Base 
+Policy
+FT w/ 
+Synthetic 
+Data
+Base 
+Policy
+FT w/ 
+Synthetic 
+Data
+PnP Bag
+PnP Marker
+Figure 8: Policy Improvement Results. We present real rollouts from the base policy and the policy
+finetuned with synthetic data. Finetuning on synthetic data generated by WEAVER leads to improved
+policy performance and more successful task execution compared to the base policy.
+4% average performance gap. This indicates that out synthetic data is of such a high quality that it
+unlocks similar policy improvement to costly real world data. Combining real and synthetic data
+further improves performance, increasing the average success rate by 11% over real-data finetuning
+alone. These results suggest that imagined rollouts from the world model provide a useful source
+for distillation, reducing the need for costly real-world collection and manual filtering. Fig. 7 also
+shows improvements on contact-rich and dynamic manipulation tasks, such as more precise marker
+placement and bean pouring. We further study synthetic data scaling on the Pour Beans task by
+varying the number of imagined segments from 1,000 to 2,000 and 5,000. Fig. 7 (right) shows
+that policy performance improves consistently with more synthetic data, eventually exceeding the
+performance obtained from real-data finetuning alone.
+5.2.3
+WEAVER Enables Test-Time Planning by Balancing Inference Speed and Quality
+Finally, test-time search requires evaluating multiple action sequences before execution, making
+inference speed a key bottleneck. In contrast to planning in the the image space using reconstruction
+and VLM-as-a-judge [11, 37], WEAVER plan
+
+--- [world model] x84 at 45 ---
+WEAVER, Better, Faster, Longer:
+An Effective World Model for Robotic Manipulation
+Arnav Kumar Jain∗
+Mila - Québec AI Institute
+Université de Montréal
+Yilin Wu∗
+Carnegie Mellon University
+Jesse Farebrother
+Mila - Québec AI Institute
+McGill University
+Gokul Swamy
+Carnegie Mellon University
+Andrea Bajcsy
+Carnegie Mellon University
+Abstract
+The potential impacts of world models (WMs, i.e., learned simulators) on robotics
+are far-reaching—policy evaluation, policy improvement, and test-time planning—
+all with limited real-world interaction. To unlock these downstream capabilities, a
+WM needs to jointly satisfy three desiderata: (i) fidelity (i.e., producing simulated
+trajectories that correlate with reality), (ii) consistency (i.e., producing simulated
+trajectories that are coherent over long horizons), and (iii) efficiency (i.e., producing
+simulated trajectories quickly). We propose WEAVER (World Estimation Across
+Views for Embodied Reasoning): a WM architecture that simultaneously achieves
+all three desiderata, providing state-of-the-art results on robotic manipulation
+tasks. WEAVER is a multi-view WM trained to predict future latents and reward
+values via a flow-matching loss. We distill the key design decisions across model
+architecture, memory, and prediction objectives required to unlock the kinds of long-
+horizon dynamic manipulation tasks that have confounded prior world modeling
+approaches. We apply WEAVER in robotic hardware, demonstrating its effectiveness
+at policy evaluation (ρ = 0.870 correlation with real-world success rate), policy
+improvement (real-world success rate improvement of 38% on top of the π0.5 robot
+foundation model), and test-time planning (real-world success rate improvement of
+14% with a 5 −10× speedup over prior WMs). WEAVER also demonstrates better
+performance than prior WMs when evalua
+
+======================================================================
+### simdist ###
+
+--- [ablat] x11 at 9104 ---
+
+and value heads provide immediate long-horizon planning
+signals, enabling a relatively short-horizon planner to improve
+performance as dynamics predictions become more accurate.
+We provide extensive ablations showing that the encoder,
+reward model, and value function transfer robustly across the
+sim-to-real gap, and that broad simulation pretraining enables
+the dynamics model to generalize to new trajectories from
+limited real-world data. Altogether, SimDist sidesteps the
+long-horizon credit assignment and bootstrapping problems
+that make real-world RL unstable and data-hungry by moving
+this bootstrapping to simulation. Across four real-world tasks
+spanning quadruped locomotion and contact-rich manipula-
+tion, SimDist reliably improves with additional experience,
+while baseline methods for online finetuning struggle to make
+meaningful progress and can even degrade during adaptation.
+We summarize our contributions as follows:
+1) We introduce SimDist, a world-model framework for
+sim-to-real transfer that reduces real-world adaptation to
+supervised dynamics learning while reusing reward, value,
+and representation priors learned in simulation.
+2) We instantiate SimDist on two contact-rich manipulation
+tasks and two quadruped locomotion tasks in the real
+world, achieving reliable autonomous improvement with
+only 15–30 minutes of real-world data and substantially
+outperforming existing adaptation strategies.
+II. RELATED WORK
+Real-World Reinforcement Learning. A growing body
+of work studies reinforcement learning on real-world robotic
+systems [35, 32, 52, 43, 45, 46, 31, 24, 13, 28]. However, both
+model-free and model-based approaches remain challenging
+to apply reliably in low-data regimes and typically require
+sophisticated regularization. Efficient model-free methods ag-
+gressively reuse off-policy data and rely on frequent critic
+History Encoder
+Latent Dynamics Model
+Latent 
+Encoder
+Base Policy
+Future actions
+History
+Observation
+Return Prediction
+Action Prediction
+Rew
+
+--- [distill] x11 at 11 ---
+Simulation Distillation: Pretraining World Models
+in Simulation for Rapid Real-World Adaptation
+Jacob Levy∗1
+Tyler Westenbroek∗2
+Kevin Huang2
+Fernando Palafox1
+Patrick Yin2
+Shayegan Omidshafiei3
+Dong-Ki Kim3
+Abhishek Gupta†2
+David Fridovich-Keil†1
+1University of Texas at Austin
+2University of Washington
+3FieldAI
+https://sim-dist.github.io
+Zero-shot Failures
+Real-World Improvement
+Peg Insertion
+Table Leg
+Slippery Slope
+Foam
+Fig. 1:
+Failures of zero-shot sim-to-real policies (left). Our framework SimDist rapidly overcomes the dynamics gap and improves performance with
+minimal real-world interaction. We demonstrate substantial gains in task execution on both precise manipulation and quadrupedal locomotion tasks with only
+15-30 minutes of real-world data, substantially outperforming baselines.
+Abstract—Robot learning requires adaptation methods that
+improve reliably from limited, mixed-quality interaction data.
+This is especially challenging in long-horizon, contact-rich tasks,
+where end-to-end policy finetuning remains inefficient and brittle.
+World models offer a compelling alternative: by predicting the
+outcomes of candidate action sequences, they enable online
+planning through counterfactual reasoning. However, training
+action-conditioned robotic world models directly in the real
+world requires diverse data at impractical scale. We introduce
+Simulation Distillation (SimDist), a framework that
+uses physics simulators as a scalable source of action-conditioned
+robot experience. During pretraining, SimDist distills structural
+priors from the simulator into a world model that enables
+planning from raw real-world observations. During real-world
+adaptation, SimDist transfers the encoder, reward model, and
+value function learned in simulation, and updates only the
+latent dynamics model u
+
+--- [teacher] x1 at 7021 ---
+tain
+at scale in the real world. Simulator rewards can train dense
+reward models that provide informative planning signals from
+raw perception. Expert policies and critics learned by existing
+student-teacher RL pipelines [52, 29] provide scalable labels
+for action priors and long-horizon value estimation. Together,
+these rich sources of supervision encourage the world-model
+encoder to learn robust state representations that capture the
+features required for effective decision making [15]. However,
+a natural concern remains: if a simulator does not exactly
+replicate the real world, won’t a world model inherit the same
+biases, leading to poor real-world performance?
+Our key insight is that these components need not be per-
+fectly calibrated to the real world to enable effective planning
+
+during deployment. Indeed, reward and value models only
+need to define an accurate ranking over real-world states to
+enable the planner to distinguish promising futures from poor
+ones. This is a weaker and more transferable requirement than
+estimating exact returns [52]. For example, in our peg insertion
+task, the model need only rank states where the peg is closer
+to the hole, better aligned, or partially inserted above states
+farther from success. The dynamics model, in contrast, ties
+actions to future states and is particularly sensitive to the
+dynamics gap. However, with a properly initialized model,
+this gap can be corrected efficiently using simple, supervised
+finetuning on real-world data.
+Concretely, we introduce Simulation Distillation
+(SimDist), a framework for bootstrapping world models in
+simulation and efficiently adapting in the real world with
+online planning and dynamics adaptation. During simulation
+pretraining, we systematically generate diverse rollouts by
+perturbing expert action sequences to expose the model to
+mistakes, recoveries, and failed attempts. At deployment, we
+freeze the state encoder, reward model, and value function
+learned in simulation, and update o
+
+======================================================================
+### gr-mg ###
+
+--- [ablat] x3 at 8848 ---
+t labels
+during training.
+• We introduce the task progress condition in goal image
+generation, substantially improving the accuracy of the
+generated goal image.
+• We perform extensive experiments and ablation studies in
+simulation and the real world to verify the effectiveness of
+GR-MG in simple, generalization, and few-shot learning
+settings.
+II. RELATED WORK
+A. Leveraging Multi-Modal Goals in Policy Learning
+Language is probably the most flexible and intuitive way
+for a human to specify tasks for a robot [1], [2], [4], [5],
+[18]. However, language and visual signals exist in different
+domains. And the information contained in a language instruc-
+tion may be abstract for a visual policy to comprehend. A
+line of research explores goal-image conditioned policies [19],
+[20]. But obtaining goal images during rollouts is challenging
+in robot manipulation tasks. Recently, some studies have
+proposed leveraging both language and visual goals (goal
+images or videos) as conditions during training [3], [7], [21]–
+[24]. And Mutex [25] is able to leverage multiple modal-
+ities for task specification, including speech, text, images,
+and videos. However, in language-conditioned manipulation,
+where language is the only condition provided, these methods
+do not generate goal images. Instead, they rely solely on
+the language to condition the prediction of actions during
+inference. GR-MG differs from these methods in that it uses
+both the language and the goal image during training and
+inference. And the goal image is generated via a diffusion
+model from the language and current observation. The most
+related work to GR-MG is Susie [14]. It also uses a diffusion
+model to generate the goal image. The goal image is then
+fed into a diffusion policy [26] for action prediction. GR-MG
+follows a similar paradigm but differs in two key aspects.
+First, it introduces a novel task progress condition in goal
+image generation, significantly enhancing the accuracy of the
+generated goal image. Second
+
+--- [generative] x4 at 8513 ---
+o 60.6% in generalization settings. GR-MG also surpasses
+comparing baseline methods in few-shot learning of novel
+skills. In summary, the contribution of this paper is threefold:
+• We propose a novel Generative Robot Policy with Multi-
+modal Goals (GR-MG), which is able to leverage both
+data without action labels and data without text labels
+during training.
+• We introduce the task progress condition in goal image
+generation, substantially improving the accuracy of the
+generated goal image.
+• We perform extensive experiments and ablation studies in
+simulation and the real world to verify the effectiveness of
+GR-MG in simple, generalization, and few-shot learning
+settings.
+II. RELATED WORK
+A. Leveraging Multi-Modal Goals in Policy Learning
+Language is probably the most flexible and intuitive way
+for a human to specify tasks for a robot [1], [2], [4], [5],
+[18]. However, language and visual signals exist in different
+domains. And the information contained in a language instruc-
+tion may be abstract for a visual policy to comprehend. A
+line of research explores goal-image conditioned policies [19],
+[20]. But obtaining goal images during rollouts is challenging
+in robot manipulation tasks. Recently, some studies have
+proposed leveraging both language and visual goals (goal
+images or videos) as conditions during training [3], [7], [21]–
+[24]. And Mutex [25] is able to leverage multiple modal-
+ities for task specification, including speech, text, images,
+and videos. However, in language-conditioned manipulation,
+where language is the only condition provided, these methods
+do not generate goal images. Instead, they rely solely on
+the language to condition the prediction of actions during
+inference. GR-MG differs from these methods in that it uses
+both the language and the goal image during training and
+inference. And the goal image is generated via a diffusion
+model from the language and current observation. The most
+related work to GR-MG is Susie [14]. It also uses a diff
+
+======================================================================
+### susie ###
+
+--- [conditioning] x4 at 54453 ---
+rence on Intelligent Robots and Systems (IROS), pp. 2651–2657. IEEE, 2019.
+[51] Ethan Perez, Florian Strub, Harm de Vries, Vincent Dumoulin, and Aaron Courville. FiLM:
+Visual Reasoning with a General Conditioning Layer, December 2017.
+[52] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agar-
+wal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, et al. Learning transferable
+visual models from natural language supervision. In International conference on machine
+learning, pp. 8748–8763. PMLR, 2021.
+[53] Rafael Rafailov, Tianhe Yu, A. Rajeswaran, and Chelsea Finn. Offline reinforcement learning
+from images with latent space models. Learning for Decision Making and Control (L4DC),
+2021.
+[54] Younggyo Seo, Kimin Lee, Stephen L James, and Pieter Abbeel. Reinforcement learning with
+action-free pre-training from videos. In International Conference on Machine Learning, pp.
+19561–19579. PMLR, 2022.
+15
+
+[55] Mohit Shridhar, Lucas Manuelli, and Dieter Fox.
+Cliport: What and where pathways for
+robotic manipulation. In Conference on Robot Learning, pp. 894–906. PMLR, 2022.
+[56] Jiaming Song, Chenlin Meng, and Stefano Ermon. Denoising diffusion implicit models. arXiv
+preprint arXiv:2010.02502, 2020.
+[57] Austin Stone, Ted Xiao, Yao Lu, Keerthana Gopalakrishnan, Kuang-Huei Lee, Quan Vuong,
+Paul Wohlhart, Brianna Zitkovich, Fei Xia, Chelsea Finn, et al. Open-world object manipula-
+tion using pre-trained vision-language models. arXiv preprint arXiv:2303.00905, 2023.
+[58] Ruben Villegas, Arkanath Pathak, Harini Kannan, Dumitru Erhan, Quoc V Le, and Honglak
+Lee. High fidelity video prediction with large stochastic recurrent neural networks. Advances
+in Neural Information Processing Systems, 32, 2019.
+[59] Homer Walke, Kevin Black, Abraham Lee, Moo Jin Kim, Max Du, Chongyi Zheng, Tony
+Zhao, Philippe Hansen-Estruch, Quan Vuong, Andre He, Vivek Myers, Kuan Fang, Chelsea
+Finn, and Sergey Levine. Bridgedata v2: A dataset for robot learning at scale.
+
+--- [target] x23 at 7231 ---
+ and train the robot policy on the
+augmented data to enable it to perform well in a similar scene. MOO [57] uses a pretrained object
+detector to extract bounding boxes to guide the policy towards the target object. Other works di-
+2
+
+rectly train language and image-based policies [6, 7, 55], some using VLM initializations [15, 52],
+to produce action sequences.
+While these approaches do utilize pretrained models, we find in our experiments that pretraining
+using VLMs [7] does not necessarily enhance low-level policy execution in the sense that learned
+policies often localize the object or move the gripper imprecisely (see Figure 3). On the other hand,
+our approach is able to incorporate benefits of pretraining into low-level control by synthesizing
+subgoals that carefully steer the motion of the low goal reaching policy, improving its precision.
+While our approach can be directly applied in unstructured open-world settings, applying methods
+from [11, 64, 43] requires additional prior information, such as object bounding boxes or 3D meshes.
+This significantly restricts their applicability to scenarios where this additional information is not
+available: for example, GenAug [11] is not applicable in our experiments since 3D object meshes
+for new target objects were not available. Distinct from our approach for utilizing generative models,
+other works design representation learning objectives for vision-language pretraining for control [49,
+42, 35, 4], but these methods still need to utilize limited amounts of data from the target task to learn
+a policy. In contrast, our approach solves the target task in zero-shot, without any task-specific data.
+The second category of approaches incorporates semantic information from pretrained models for
+informing low-level controllers. Typically, these prior methods use pretrained models to imagine
+visual [16, 2] or textual plans [8, 28, 29, 39], which then inform a low-level robot control policy. Of
+these, methods that train a low-l
+
+======================================================================
+### unipi ###
+
+--- [ablat] x3 at 25461 ---
+onsistency
+Heirarchy
+Place
+Relation
+No
+No
+No
+13.2 ± 3.2
+12.4 ± 2.4
+Yes
+No
+No
+52.4 ± 2.9
+34.7 ± 2.6
+Yes
+Yes
+No
+53.2 ± 3.0
+39.4 ± 2.8
+Yes
+Yes
+Yes
+59.1 ± 2.5
+53.2 ± 2.0
+Table 2: Task Completion Accuracy Ablations. Each component of UniPi improves its performance. Perfor-
+mance reported on the seen place and relation tasks.
+language instruction specifies placing a block in relation to some other block as opposed to direct
+pick-and-place.
+Combinatorial Generalization.
+In Table 1, we find that UniPi generalizes well to both seen and
+novel combinations of language prompts . We illustrate our action generation pipeline in Figure 4
+and different generated video plans using our approach in Figure 3.
+Put the Right 
+Cyan Block 
+on An Orange 
+Block
+Synthesized Frames
+Put the Left 
+Cyan Block 
+on An Orange 
+Block
+Input Frame
+Intermediate 
+Guidance
+Figure 7: Adaptable Planning. By guiding test-time
+sampling towards a an intermediate image, we can adapt
+our planning procedure to move a particular block.
+Ablations.
+In Table 2, we ablate UniPi on seen
+language instructions and in-relation-to tasks.
+Specifically, we study the effect of conditioning
+the video generative model on the first observa-
+tion frame (frame condition), tiling the observed
+frame across timesteps (frame consistency) and
+super-resolving video generation across time
+(temporal hierarchy). In settings where frame
+consistency is not enforced, we provide a zeroed
+out image as context to the non-start frames in
+a video. We found that all components of UniPi
+are crucial for good performance. We found that frame conditioning and consistency enabled videos
+to be consistent with the observed image and temporal hierarchy enabled more detailed video plans.
+Adaptability.
+We next assess the ability of UniPi to adapt at test time to new constraints. In
+Figure 7, we illustrate the ability to construct plans which color and move one particular block to a
+specified geometric relation.
+4.2
+Multi-Environment Transfer
+We next evaluate
+
+--- [plan] x80 at 880 ---
+ore general-purpose agents. Specifically, we
+cast the sequential decision making problem as a text-conditioned video generation
+problem, where, given a text-encoded specification of a desired goal, a planner
+synthesizes a set of future frames depicting its planned actions in the future, after
+which control actions are extracted from the generated video. By leveraging text
+as the underlying goal specification, we are able to naturally and combinatorially
+generalize to novel goals. The proposed policy-as-video formulation can further
+represent environments with different state and action spaces in a unified space of
+images, which, for example, enables learning and generalization across a variety of
+robot manipulation tasks. Finally, by leveraging pretrained language embeddings
+and widely available videos from the internet, the approach enables knowledge
+transfer through predicting highly realistic video plans for real robots2.
+1
+Introduction
+Building models that solve a diverse set of tasks has become a dominant paradigm in the domains
+of vision and language. In natural language processing, large pretrained models have demonstrated
+remarkable zero-shot learning of new language tasks [1, 2, 3]. Similarly, in computer vision, models
+such as those proposed in [4, 5] have shown remarkable zero-shot classification and object recognition
+capabilities. A natural next step is to use such tools to construct agents that can complete different
+decision making tasks across many environments.
+However, training such agents faces the inherent challenge of environmental diversity, since different
+environments operate with distinct state action spaces (e.g., the joint space and continuous controls
+in MuJoCo are fundamentally different from the image space and discrete actions in Atari). Such
+diversity hampers knowledge sharing, learning, and generalization across tasks and environments.
+Although substantial effort has been devoted to encoding different environments with universal toke
+
+--- [action] x79 at 945 ---
+decision making problem as a text-conditioned video generation
+problem, where, given a text-encoded specification of a desired goal, a planner
+synthesizes a set of future frames depicting its planned actions in the future, after
+which control actions are extracted from the generated video. By leveraging text
+as the underlying goal specification, we are able to naturally and combinatorially
+generalize to novel goals. The proposed policy-as-video formulation can further
+represent environments with different state and action spaces in a unified space of
+images, which, for example, enables learning and generalization across a variety of
+robot manipulation tasks. Finally, by leveraging pretrained language embeddings
+and widely available videos from the internet, the approach enables knowledge
+transfer through predicting highly realistic video plans for real robots2.
+1
+Introduction
+Building models that solve a diverse set of tasks has become a dominant paradigm in the domains
+of vision and language. In natural language processing, large pretrained models have demonstrated
+remarkable zero-shot learning of new language tasks [1, 2, 3]. Similarly, in computer vision, models
+such as those proposed in [4, 5] have shown remarkable zero-shot classification and object recognition
+capabilities. A natural next step is to use such tools to construct agents that can complete different
+decision making tasks across many environments.
+However, training such agents faces the inherent challenge of environmental diversity, since different
+environments operate with distinct state action spaces (e.g., the joint space and continuous controls
+in MuJoCo are fundamentally different from the image space and discrete actions in Atari). Such
+diversity hampers knowledge sharing, learning, and generalization across tasks and environments.
+Although substantial effort has been devoted to encoding different environments with universal tokens
+in a sequence modeling framework [6], it is unclear whether su
+
+======================================================================
+### td-mpc2 ###
+
+--- [ablat] x9 at 29749 ---
+ession
+Multitask (80)
+Continuous
+Discrete
+0
+4M
+8M
+12M
+0
+20
+40
+60
+80
+Normalized score
+Q−functions
+3 tasks
+2
+5
+10
+30
+40
+50
+60
+Normalized score
+53.5
+54.2
+57.0
+Q−functions
+Multitask (80)
+2
+5
+10
+Figure 9. Ablations. (Curves) Normalized score as a function of environment steps, averaged
+across three of the most difficult tasks: Dog Run, Humanoid Walk (DMControl), and Pick YCB
+(ManiSkill2). Mean and 95% CIs over 3 random seeds. (Bars) Normalized score of 19M parameter
+multitask (80 tasks) TD-MPC2 agents. Our ablations highlight the relative importance of each
+design choice; red is the default formulation of TD-MPC2. See Appendix D for more ablations.
+0
+500
+1000 Acrobot Swingup
+Cheetah Run
+Finger Spin
+Finger Turn Easy
+Finger Turn Hard
+0
+1M
+0
+500
+1000
+Quadruped Walk
+0
+1M
+Reacher Easy
+0
+1M
+Reacher Hard
+0
+1M
+Walker Run
+0
+1M
+Walker Walk
+SAC
+CURL
+DrQ-v2
+DreamerV3
+TD-MPC2
+Figure 10. Visual RL. Episode return as a function of environment steps on 10 image-based DM-
+Control tasks. Mean and 95% CIs over 3 random seeds. TD-MPC2 is comparable to state-of-the-art.
+Meta-World, and na¨ıvely finetune the full model to each of 10 held-out tasks (5 from each domain)
+via online RL with an initially empty replay buffer and no changes to hyperparameters. Aggregate
+results are shown in Figure 8. We find that TD-MPC2 improves 2× over learning from scratch
+on new tasks in the low-data regime (20k environment steps1). Although finetuning world models
+to new tasks is very much an open research problem, our exploratory results are promising. See
+Appendix E for experiment details and individual task curves.
+Ablations. We ablate most of our design choices for TD-MPC2, including choice of actor, various
+normalization techniques, regression objective, and number of Q-functions. Our main ablations,
+shown in Figure 9, are conducted on three of the most difficult online RL tasks, as well as large-
+scale multitask training (80 tasks). We observe that all of our proposed improvements contribute
+meaningfully 
+
+--- [decoder] x3 at 1293 ---
+s, embodiments, and action spaces (left).
+ABSTRACT
+TD-MPC is a model-based reinforcement learning (RL) algorithm that performs
+local trajectory optimization in the latent space of a learned implicit (decoder-
+free) world model. In this work, we present TD-MPC2: a series of improvements
+upon the TD-MPC algorithm. We demonstrate that TD-MPC2 improves signifi-
+cantly over baselines across 104 online RL tasks spanning 4 diverse task domains,
+achieving consistently strong results with a single set of hyperparameters. We
+further show that agent capabilities increase with model and data size, and suc-
+cessfully train a single 317M parameter agent to perform 80 tasks across multiple
+task domains, embodiments, and action spaces. We conclude with an account of
+lessons, opportunities, and risks associated with large TD-MPC2 agents.
+Explore videos, models, data, code, and more at https://tdmpc2.com
+1
+INTRODUCTION
+Training large models on internet-scale datasets has led to generalist models that perform a wide
+variety of language and vision tasks (Brown et al., 2020; He et al., 2022; Kirillov et al., 2023). The
+success of these models can largely be attributed to the availability of enormous datasets, and care-
+fully designed architectures that reliably scale with model and data size. While researchers have
+recently extended this paradigm to robotics (Reed et al., 2022; Brohan et al., 2023), a generalist
+embodied agent that learns to perform diverse control tasks via low-level actions, across multiple
+embodiments, from large uncurated (i.e., mixed-quality) datasets remains an elusive goal. We argue
+that current approaches to generalist embodied agents suffer from (a) the assumption of near-expert
+trajectories for behavior cloning which severely limits the amount of available data (Reed et al.,
+2022; Lee et al., 2022; Kumar et al., 2022; Schubert et al., 2023; Driess et al., 2023; Brohan et al.,
+2023), and (b) a lack of scalable continuous control algorithms that are able to cons
+
+--- [latent] x30 at 1257 ---
+form 80 tasks across multiple domains, embodiments, and action spaces (left).
+ABSTRACT
+TD-MPC is a model-based reinforcement learning (RL) algorithm that performs
+local trajectory optimization in the latent space of a learned implicit (decoder-
+free) world model. In this work, we present TD-MPC2: a series of improvements
+upon the TD-MPC algorithm. We demonstrate that TD-MPC2 improves signifi-
+cantly over baselines across 104 online RL tasks spanning 4 diverse task domains,
+achieving consistently strong results with a single set of hyperparameters. We
+further show that agent capabilities increase with model and data size, and suc-
+cessfully train a single 317M parameter agent to perform 80 tasks across multiple
+task domains, embodiments, and action spaces. We conclude with an account of
+lessons, opportunities, and risks associated with large TD-MPC2 agents.
+Explore videos, models, data, code, and more at https://tdmpc2.com
+1
+INTRODUCTION
+Training large models on internet-scale datasets has led to generalist models that perform a wide
+variety of language and vision tasks (Brown et al., 2020; He et al., 2022; Kirillov et al., 2023). The
+success of these models can largely be attributed to the availability of enormous datasets, and care-
+fully designed architectures that reliably scale with model and data size. While researchers have
+recently extended this paradigm to robotics (Reed et al., 2022; Brohan et al., 2023), a generalist
+embodied agent that learns to perform diverse control tasks via low-level actions, across multiple
+embodiments, from large uncurated (i.e., mixed-quality) datasets remains an elusive goal. We argue
+that current approaches to generalist embodied agents suffer from (a) the assumption of near-expert
+trajectories for behavior cloning which severely limits the amount of available data (Reed et al.,
+2022; Lee et al., 2022; Kumar et al., 2022; Schubert et al., 2023; Driess et al., 2023; Brohan et al.,
+2023), and (b) a lack of scalable continuous cont
+
+======================================================================
+### vjepa ###
+
+--- [ablat] x11 at 18873 ---
+verage. The ViT-L/16 and ViT-H/16 process the video
+at a spatial resolution of 224, while the ViT-H/16384
+uses an input resolution of 384; cf. Appendix C.
+4
+
+Table 1 Pixels vs. Featurized Targets. We ablate the effect of computing the prediction loss in feature space vs pixel space. All
+models are trained on VideoMix2M for 90K iterations with a batch size of 3072 using the multi-block prediction task. We
+examine downstream performance using a frozen backbone with attentive probing, and report top-1 accuracy using a single
+center view. We also examine end-to-end fine-tuning performance of the models on K400. Predicting in feature space provide
+a consistent improvement over pixel space prediction.
+Frozen Evaluation
+Fine-Tuning
+K400
+SSv2
+IN1K
+K400-ft
+Target
+Arch.
+(16×1×1)
+(16×1×1)
+(16×5×3)
+Pixels
+ViT-L/16
+68.6
+66.0
+73.3
+85.4
+Features
+ViT-L/16
+73.7
+66.2
+74.8
+85.6
+Table 2 Pretraining Data Distribution. We pretrain all models for 90K iterations using a batch size of 3072, and evaluate
+downstream performance of the frozen backbones with an attentive probe using a single center view. Average performance
+across tasks increases with the pretraining dataset size.
+Frozen Evaluation
+K400
+SSv2
+IN1K
+Avg.
+Arch.
+Data
+#Samples
+(16×1×1)
+(16×1×1)
+ViT-L/16
+K710
+700K
+75.8
+63.2
+73.7
+70.9
+K710+SSv2
+900K
+72.9
+67.4
+72.8
+71.0
+K710+HT
+1900K
+74.5
+64.2
+74.8
+71.1
+VideoMix2M
+2000K
+73.7
+66.2
+74.8
+71.5
+ViT-H/16
+K710+SSv2
+900K
+75.7
+66.8
+73.7
+72.0
+VideoMix2M
+2000K
+74.0
+68.5
+75.9
+72.8
+Evaluations.
+Pretrained models are evaluated on
+downstream video and image tasks. On video tasks,
+we use a subset of the VideoGLUE benchmark (Yuan
+et al., 2023) to test for various capabilities; specif-
+ically, we investigate action recognition on Kinetics-
+400 (K400) (Kay et al., 2017), motion classification on
+Something-Something-v2 (SSv2) (Goyal et al., 2017),
+and action localization on AVA (Gu et al., 2018). Action
+classification on Kinetics evaluates the appearance-based
+understanding of the model, as many action cla
+
+--- [predictor] x34 at 6683 ---
+.
+Our exploration in this paper goes beyond temporal in-
+variance and explores feature prediction using masked
+modeling.
+Predictive Features.
+Going beyond local invariance,
+a family of works trains a predictor network to map the
+representation of a frame or clip at one time-step to a
+distinct representation at another time-step. Srivastava
+et al. (2015); Vondrick et al. (2016); Wang et al. (2023b)
+train such a video feature predictor network on top of
+a frozen pretrained image or video encoder. Unfreezing
+the target feature extractor, several methods train the
+video encoder and the predictor network simultaneously,
+while preventing collapse by using a supervised action
+forecasting loss (Girdhar and Grauman, 2021), or by
+using the representations of distant clips as negative
+samples in a contrastive loss (Han et al., 2019, 2020;
+Tan et al., 2023), often focusing on small convolutional
+encoders (Han et al., 2019, 2020). The idea of learning a
+representation by predicting missing information in fea-
+ture space is also core to the joint-embedding predictive
+architecture (JEPA) (LeCun, 2022), which combines a
+siamese encoder with a predictor network. JEPAs have
+been successfully instantiated in several modalities, such
+as with audio data (Baevski et al., 2022b) and image
+data (Zhou et al., 2021; Oquab et al., 2023; Assran et al.,
+2023). In this work, we extend this paradigm to video
+data by leveraging recent advances in self-supervised
+learning.
+Advances in Self-Supervised Learning.
+The use
+of vision transformers (Dosovitskiy et al., 2020; Li et al.,
+2022) has become standard practice in self-supervised
+learning with joint-embedding architectures (Chen et al.,
+2021; Caron et al., 2021; Oquab et al., 2023; Zhou et al.,
+2021; Assran et al., 2022), and unlocked masked image
+modeling in pixel space by parameterizing the pixel de-
+coder as a transformer with learnable mask tokens (Doso-
+vitskiy et al., 2020; Xie et al., 2021; He et al., 2021; Bao
+et al., 2021), demonstrating 
+
+--- [target] x21 at 5705 ---
+tion models (Table 7).
+2
+Related Works
+Slow Features.
+One way to encourage temporally
+adjacent representations to be predictive of each other
+is to ensure that they vary slowly over time.
+Early
+works targeting predictive features encouraged represen-
+tations of individual video frames to be locally tempo-
+rally invariant, while preventing representation collapse
+by using spectral methods, as in SFA (Wiskott and Se-
+jnowski, 2002), SSA (Kayser et al., 2001), and Simulated
+Fixations (Zou et al., 2012). More recently, Goroshin
+et al. (2015); Wang et al. (2010) train a siamese con-
+volutional network to map the representations of two
+subsequent frames to the same point, while encouraging
+distant frames to have diverse representations via a pair-
+wise margin loss and a triplet loss, respectively. Other
+works (Oord et al., 2018; Surís et al., 2021; Feichtenhofer
+et al., 2021) implement temporal invariance using noise-
+contrastive estimation (Gutmann and Hyvärinen, 2012).
+Our exploration in this paper goes beyond temporal in-
+variance and explores feature prediction using masked
+modeling.
+Predictive Features.
+Going beyond local invariance,
+a family of works trains a predictor network to map the
+representation of a frame or clip at one time-step to a
+distinct representation at another time-step. Srivastava
+et al. (2015); Vondrick et al. (2016); Wang et al. (2023b)
+train such a video feature predictor network on top of
+a frozen pretrained image or video encoder. Unfreezing
+the target feature extractor, several methods train the
+video encoder and the predictor network simultaneously,
+while preventing collapse by using a supervised action
+forecasting loss (Girdhar and Grauman, 2021), or by
+using the representations of distant clips as negative
+samples in a contrastive loss (Han et al., 2019, 2020;
+Tan et al., 2023), often focusing on small convolutional
+encoders (Han et al., 2019, 2020). The idea of learning a
+representation by predicting missing information in fea-
+ture space
+
+======================================================================
+### paiworld ###
+
+--- [ablat] x3 at 45459 ---
+231), owing to its explicit text-grounding mechanism, while PAIWorld remains
+competitive at 0.9041, a marginal gap on scene consistency in exchange for a decisive lead on every geometric
+measure.
+4.4
+Ablation Study
+Our central claim is that multi-view 3D consistency requires two remedies acting at complementary levels:
+an architectural pathway for inter-view communication (Geometry-Aware Cross-View Attention, shaped by
+Geo-RoPE) and a training objective that enforces 3D-consistent content (Latent 3D-REPA), and that neither
+alone is sufficient. To test this directly, we ablate the two components on the AgiBot-World benchmark,
+starting from the backbone with flat multi-view token concatenation and adding each remedy in isolation and
+in combination. Results are reported in table 4.
+The results support our claim along three lines. First, each remedy alone yields only a modest gain. Adding
+the communication pathway without geometric supervision (row 2) improves MEt3R by 0.93, but the pathway,
+lacking an explicit 3D objective, partially settles into texture-copying shortcuts that limit its benefit. Adding
+15
+
+Table 4 Ablation of the architectural pathway (Geometry-Aware Cross-View Attention with Geo-RoPE, “CVA”) and
+the geometric objective (Latent 3D-REPA, “REPA”) on the AgiBot-World benchmark.  denotes MEt3R improvement
+over the backbone. Best results are in bold.
+CVA
+REPA
+SSIM "
+LPIPS #
+FID #
+MEt3R #
+
+×
+×
+0.6912
+0.2783
+53.17
+16.84
+—
+X
+×
+0.7204
+0.2361
+50.02
+15.91
+0.93
+×
+X
+0.7156
+0.2447
+49.88
+16.12
+0.72
+X
+X
+0.7683
+0.184
+45.04
+14.20
+2.64
+the geometric objective without an inter-view pathway (row 3) improves MEt3R by 0.72, but the per-view
+geometric signal has no route to propagate across viewpoints, so cross-view inconsistencies persist. Second, the
+combination is super-additive. The full model improves MEt3R by 2.64, substantially exceeding the sum of
+the individual gains (0 : 93 + 0
+: 72 = 1
+: 65). This non-additive jump is the empirical signature of the reinforcing
+lo
+
+--- [physics] x5 at 33019 ---
+le 1 Action-conditioned generation results on the WorldArena benchmark. Best results are in bold, second best
+are underlined.
+Method
+EWMScore "
+Visual
+Quality "
+Motion
+Quality "
+Content
+Consistency "
+Physics
+Adherence "
+3D
+Accuracy "
+Controllability "
+WorldScape v0.2
+68.32
+62.65
+42.34
+65.18
+73.29
+96.28
+87.59
+SparkWorld
+68.65
+65.04
+59.71
+59.59
+58.59
+92.54
+87.26
+MotuBrain [59]
+69.06
+63.98
+64.58
+59.51
+58.50
+91.48
+85.84
+Z-WM
+69.59
+61.63
+49.97
+65.51
+69.81
+97.16
+89.28
+GenieEnvisioner-Sim2.0-2B [60]
+69.59
+60.99
+62.16
+60.12
+66.11
+95.06
+85.88
+Pelican-Unify [15]
+70.38
+63.60
+61.73
+60.41
+63.98
+97.65
+87.60
+FlowWAM-FiveAges
+72.00
+63.43
+79.45
+57.43
+59.80
+91.60
+88.16
+BWM-Fast
+72.15
+62.79
+78.79
+58.30
+61.18
+91.53
+88.58
+UNIS
+72.16
+60.85
+81.60
+56.44
+61.56
+91.16
+90.19
+PAIWorld (Ours)
+72.31
+63.04
+80.45
+57.85
+61.66
+91.51
+87.16
+4.1
+Implementation Details
+Base Model.
+We build PAIWorld upon Cosmos-Predict2.5 [53], a flow-matching diffusion transformer
+(DiT) world foundation model operating in the latent space of a pretrained video VAE. Our full model has
+approximately 14B parameters. We adopt Cosmos-Reason1 [54], a Physical AI vision-language model, as
+the text embedder to provide physically-grounded conditioning. The Geometry-Aware Cross-View Attention
+blocks and Geo-RoPE modules are inserted into the pretrained backbone, while the REPA projection heads
+are randomly initialized.
+Dataset.
+We curate a large-scale multi-view robotic manipulation dataset of approximately 2.5M video clips
+from five sources: AgiBot-World [32] (35%), RoboMIND [55] (20%), Galaxea [56] (15%), RoboTwin [57] (15%),
+and RoboCOIN [58] (15%). These datasets provide multi-camera video streams of robotic manipulation,
+accompanied by text descriptions or action annotations. Together they span diverse embodiments, manipulation
+tasks, and camera configurations, offering broad coverage for training a generalizable multi-view world model.
+For action-conditioned generation, we further fine-tune on task-specific data from the Agi
+
+--- [world model] x36 at 573 ---
+n demands. Robotic systems inherently rely on multiple cameras, including
+egocentric, eye-to-hand, and wrist-mounted views, to capture complementary viewpoints for
+policy learning. Current multi-view world models, however, simply concatenate view tokens
+without explicit geometric reasoning, yielding cross-view object drift, depth inconsistency, and
+texture misalignment that propagate errors into downstream planning and control. We trace these
+failures to two fundamental deficiencies: (1) the absence of an explicit inter-view communication
+mechanism, which forces each viewpoint to generate in isolation, and (2) the absence of a 3D
+geometric prior, which leaves the model without guidance on what constitutes physically correct
+cross-view structure. We argue that resolving both is necessary and sufficient: an information
+pathway across views and a geometric signal that steers it must coexist, since communication
+without geometric guidance collapses to trivial shortcuts, while geometric priors without an
+inter-view pathway cannot propagate constraints across viewpoints. Building on this analysis, we
+present PAIWorld, a framework that augments diffusion-transformer world models along two
+technical pillars, realized by three components. To build the inter-view communication pathway,
+Geometry-Aware Cross-View Attention blocks open an explicit pathway across views, while
+Geometric Rotary Position Embedding encodes camera ray directions and extrinsic poses
+into this attention via rotary position encoding. To supply the geometric learning signal, Latent
+3D-REPA distills 3D-aware features from frozen 3D foundation models, ensuring the exchanged
+content is 3D-consistent. Built upon the DiT-based world foundation model, PAIWorld attains
+state-of-the-art multi-view 3D consistency on robotic manipulation benchmarks, ranking 1st on
+the WorldArena leaderboard and 2nd on the AgiBot-Challenge2026 leaderboard, and enables
+downstream applications including model-based planning, world act
+
+======================================================================
+### dreamer-v3 ###
+
+--- [ablat] x8 at 25539 ---
+0
+Env steps (106)
+0
+9
+18
+Return
+Crafter
+64
+32
+16
+8
+4
+2
+1
+0
+100
+200
+Env steps (106)
+0
+150
+300
+450
+DMLab Goals
+Robustness techniques
+Learning signals
+Model size scaling
+Replay scaling
+a
+b
+c
+d
+Figure 6: Ablations and robust scaling of Dreamer. a, All individual robustness techniques
+contribute to the performance of Dreamer on average, although each individual technique may only
+affect some tasks. Training curves of individual tasks are included in the supplementary material.
+b, The performance of Dreamer predominantly rests on the unsupervised reconstruction loss of its
+world model, unlike most prior algorithms that rely predominantly on reward and value prediction
+gradients7,5,8. c, The performance of Dreamer increases monotonically with larger model sizes,
+ranging from 12M to 400M parameters. Notably, larger models not only increase task performance
+but also require less environment interaction. d, Higher replay ratios predictably increase the
+performance of Dreamer. Together with model size, this allows practitioners to improve task
+performance and data-efficiency by employing more computational resources.
+• Atari100k
+This data-efficiency benchmark comntains 26 Atari games and a budget of only
+400K frames, amounting to 2 hours of game time17. EfficientZero44 holds the state-of-the-art by
+combining online tree search, prioritized replay, and hyperparameter scheduling, but also resets
+levels early to increase data diversity, making a comparison difficult. Without this complexity,
+Dreamer outperforms the best remaining methods, including the transformer-based IRIS and
+TWM agents, the model-free SPR, and SimPLe45.
+• Proprio Control
+This benchmark contains 18 control tasks with continuous actions, proprio-
+ceptive vector inputs, and a budget of 500K environment steps46. The tasks range from classical
+control over locomotion to robot manipulation tasks, featuring dense and sparse rewards. Dreamer
+sets a new state-of-the-art on this benchmark, outperforming D4PG, DMPO, and
+
+--- [reinforce] x43 at 295 ---
+Timothy Lillicrap1
+Abstract
+Developing a general algorithm that learns to solve tasks across a wide range of
+applications has been a fundamental challenge in artificial intelligence. Although
+current reinforcement learning algorithms can be readily applied to tasks similar to
+what they have been developed for, configuring them for new application domains
+requires significant human expertise and experimentation. We present DreamerV3, a
+general algorithm that outperforms specialized methods across over 150 diverse tasks,
+with a single configuration. Dreamer learns a model of the environment and improves its
+behavior by imagining future scenarios. Robustness techniques based on normalization,
+balancing, and transformations enable stable learning across domains. Applied out of the
+box, Dreamer is the first algorithm to collect diamonds in Minecraft from scratch without
+human data or curricula. This achievement has been posed as a significant challenge in
+artificial intelligence that requires exploring farsighted strategies from pixels and sparse
+rewards in an open world. Our work allows solving challenging control problems without
+extensive experimentation, making reinforcement learning broadly applicable.
+0
+300
+600
+900
+PPO
+Rainbow
+MuZero
+Dreamer
+57 tasks, 200M steps
+Atari
+10
+30
+50
+70
+PPO
+Rainbow
+PPG
+Dreamer
+16 tasks, 50M steps
+ProcGen
+10
+30
+50
+70
+PPO
+R2D2+
+10x data
+IMPALA
+10x data
+Dreamer
+30 tasks, 100M steps
+DMLab
+0
+3
+6
+9
+PPO
+Rainbow
+IMPALA
+Dreamer
+1 task, 100M steps
+Minecraft
+100K
+1M
+10M
+100M
+Env steps
+0
+4
+8
+12
+Return
+Minecraft Diamond
+Max
+Mean
+10
+50
+90
+130
+PPO
+TWM
+IRIS
+Dreamer
+26 tasks, 400K steps
+Atari100k
+0
+300
+600
+900
+PPO
+D4PG
+DMPO
+Dreamer
+18 tasks, 500K steps
+Proprio Control
+0
+300
+600
+900
+PPO
+CURL
+DrQ-v2
+Dreamer
+20 tasks, 1M steps
+Visual Control
+10
+30
+50
+70
+PPO
+DQN
+Boot DQN
+Dreamer
+23 tasks
+BSuite
+a
+b
+Tuned experts          
+Unified configuration
+Figure 1: Benchmark summary. a, Using fixed hyperparameters across all domains, Dreamer
+outperforms tuned expert algo
+
+--- [critic] x35 at 4875 ---
+ is based on the idea of learning a world model that equips
+the agent with rich perception and the ability to imagine the future14,15,16. The world model predicts
+the outcomes of potential actions, a critic neural network judges the value of each outcome, and an
+actor neural network chooses actions to reach the best outcomes. Although intuitively appealing,
+robustly learning and leveraging world models to achieve strong task performance has been an open
+problem17. Dreamer overcomes this challenge through a range of robustness techniques based on
+normalization, balancing, and transformations. We observe robust learning not only across over 150
+tasks from the domains summarized in Figure 2, but also across model sizes and training budgets,
+offering a predictable way to increase performance. Notably, larger model sizes not only achieve
+higher scores but also require less interaction to solve a task.
+To push the boundaries of reinforcement learning, we consider the popular video game Minecraft
+that has become a focal point of research in recent years18,19,20, with international competitions held
+for developing algorithms that autonomously learn to collect diamonds in Minecraft*. Solving this
+*The MineRL Diamond Competitions were held in 2019, 2020, and 2021 and provided a dataset of human expert
+trajectories: https://minerl.io/diamond. Competitions in the following years focused on a wide range of tasks.
+2
+
+x1
+x2
+x3
+x̂ 1
+x̂ 2
+x̂ 3
+a1
+a2
+z1
+z2
+z3
+h3
+h2
+h1
+enc
+enc
+enc
+dec
+dec
+dec
+(a) World Model Learning
+h3
+h2
+h1
+a1
+a2
+v1
+v2
+r2
+v2
+r2
+x1
+z1
+z2
+z3
+enc
+(b) Actor Critic Learning
+Figure 3: Training process of Dreamer. The world model encodes sensory inputs into discrete
+representations zt that are predicted by a sequence model with recurrent state ht given actions at.
+The inputs are reconstructed to shape the representations. The actor and critic predict actions at and
+values vt and learn from trajectories of abstract representations predicted by the world model.
+problem witho
+
+--- [world model] x29 at 34 ---
+Mastering Diverse Domains through World Models
+Danijar Hafner,12 Jurgis Pasukonis,1 Jimmy Ba,2 Timothy Lillicrap1
+Abstract
+Developing a general algorithm that learns to solve tasks across a wide range of
+applications has been a fundamental challenge in artificial intelligence. Although
+current reinforcement learning algorithms can be readily applied to tasks similar to
+what they have been developed for, configuring them for new application domains
+requires significant human expertise and experimentation. We present DreamerV3, a
+general algorithm that outperforms specialized methods across over 150 diverse tasks,
+with a single configuration. Dreamer learns a model of the environment and improves its
+behavior by imagining future scenarios. Robustness techniques based on normalization,
+balancing, and transformations enable stable learning across domains. Applied out of the
+box, Dreamer is the first algorithm to collect diamonds in Minecraft from scratch without
+human data or curricula. This achievement has been posed as a significant challenge in
+artificial intelligence that requires exploring farsighted strategies from pixels and sparse
+rewards in an open world. Our work allows solving challenging control problems without
+extensive experimentation, making reinforcement learning broadly applicable.
+0
+300
+600
+900
+PPO
+Rainbow
+MuZero
+Dreamer
+57 tasks, 200M steps
+Atari
+10
+30
+50
+70
+PPO
+Rainbow
+PPG
+Dreamer
+16 tasks, 50M steps
+ProcGen
+10
+30
+50
+70
+PPO
+R2D2+
+10x data
+IMPALA
+10x data
+Dreamer
+30 tasks, 100M steps
+DMLab
+0
+3
+6
+9
+PPO
+Rainbow
+IMPALA
+Dreamer
+1 task, 100M steps
+Minecraft
+100K
+1M
+10M
+100M
+Env steps
+0
+4
+8
+12
+Return
+Minecraft Diamond
+Max
+Mean
+10
+50
+90
+130
+PPO
+TWM
+IRIS
+Dreamer
+26 tasks, 400K steps
+Atari100k
+0
+300
+600
+900
+PPO
+D4PG
+DMPO
+Dreamer
+18 tasks, 500K steps
+Proprio Control
+0
+300
+600
+900
+PPO
+CURL
+DrQ-v2
+D
+
+======================================================================
+### mobile-aloha-act ###
+
+--- [ablat] x2 at 38893 ---
+Trial Num.
+20
+40
+60
+80
+100
+120
+140
+Use Cabinets
+Avg. User
+Expert
+Figure 5: Teleoperator learning curves. New users
+can quickly approach expert speed on an unseen tasks
+teleoperating Mobile ALOHA .
+7. Ablation Studies
+Data Efficiency. In Figure 4, we ablate the num-
+ber of mobile manipulation demonstrations for both
+co-training and no co-training, using ACT on the
+Wipe Wine task. We consider 25, 35, and 50 Mobile
+ALOHA demonstrations and evaluate for 20 trials
+each. We observe that co-training leads to better data
+efficiency and consistent improvements over train-
+ing using only Mobile ALOHA data. With co-training,
+the policy trained with 35 in-domain demonstrations
+can outperform the no co-training policy trained
+with 50 in-domain demonstrations, by 20% (70% vs.
+50%).
+Co-training Is Robust To Different Data Mix-
+tures. We sample with equal probability from the
+static ALOHA datasets and the Mobile ALOHA task
+dataset to form a training mini-batch in our co-
+training experiments so far, giving a co-training data
+sampling rate of roughly 50%. In Table 3, we study
+how different sampling strategies affect performance
+on the Wipe Wine task. We train ACT with 30% and
+70% co-training data sampling rates in addition to
+50%, then evaluate 20 trials each. We see similar
+performance across the board, with 95%, 95% and
+90% success respectively. This experiment suggests
+that co-training performance is not sensitive to dif-
+ferent data mixtures, reducing the manual tuning
+necessary when incorporating co-training on a new
+task.
+Co-training Outperforms Pre-training. In Ta-
+ble 4, we compare co-training and pre-training on
+the static ALOHA data. For pre-training, we first
+train ACT on the static ALOHA data for 10K steps
+and then continue training with in-domain task data.
+We experiment with the Wipe Wine task and observe
+that pre-training provides no improvements over
+training solely on Wipe Wine data. We hypothesize
+that the network forgets its experience on the static
+ALOHA data dur
+
+--- [ACT] x87 at 642 ---
+stem costs $32k including onboard power and compute. Left: A user teleoperates to
+obtain food from the fridge. Right: Mobile ALOHA can perform complex long-horizon tasks with imitation learning.
+Abstract
+Imitation learning from human demonstrations has
+shown impressive performance in robotics. How-
+ever, most results focus on table-top manipulation,
+lacking the mobility and dexterity necessary for gen-
+erally useful tasks. In this work, we develop a system
+for imitating mobile manipulation tasks that are bi-
+manual and require whole-body control. We first
+present Mobile ALOHA, a low-cost and whole-body
+teleoperation system for data collection. It augments
+the ALOHA system [104] with a mobile base, and a
+whole-body teleoperation interface. Using data col-
+lected with Mobile ALOHA, we then perform super-
+vised behavior cloning and find that co-training with
+existing static ALOHA datasets boosts performance
+on mobile manipulation tasks. With 50 demonstra-
+tions for each task, co-training can increase success
+rates by up to 90%, allowing Mobile ALOHA to au-
+tonomously complete complex mobile manipulation
+tasks such as sauteing and serving a piece of shrimp,
+opening a two-door wall cabinet to store heavy cook-
+ing pots, calling and entering an elevator, and lightly
+rinsing a used pan using a kitchen faucet.
+1. Introduction
+Imitation learning from human-provided demonstra-
+tions is a promising tool for developing generalist
+robots, as it allows people to teach arbitrary skills
+to robots. Indeed, direct behavior cloning can en-
+able robots to learn a variety of primitive robot skills
+ranging from lane-following in mobile robots [67],
+to simple pick-and-place manipulation skills [12, 20]
+to more delicate manipulation skills like spreading
+pizza sauce or slotting in a battery [18, 104]. How-
+ever, many tasks in realistic, everyday environments
+require whole-body coordination of both mobility
+and dexterous manipulation, rather than just individ-
+ual mobility or manipulation b
+
+--- [chunk] x14 at 30199 ---
+g is
+7
+
+Mobile ALOHA: https://mobile-aloha.github.io
+Wipe Wine (50 demos)
+Push Chairs (50 demos)
+Grasp
+Towel
+Lift Glass
+and Wipe
+Place
+Glass
+Whole
+Task
+1st
+Chair
+2nd
+Chair
+3rd
+Chair
+Whole
+Task
+VINN + Chunking
+Co-train
+85
+18
+100
+15
+100
+70
+86
+60
+No Co-train
+50
+40
+100
+20
+90
+72
+62
+40
+Diffusion Policy
+Co-train
+90
+72
+100
+65
+100
+100
+100
+100
+No Co-train
+75
+47
+100
+35
+100
+80
+100
+80
+ACT
+Co-train
+100
+95
+100
+95
+100
+100
+100
+100
+No Co-train
+95
+58
+90
+50
+100
+100
+100
+100
+Table 2: Mobile ALOHA is compatible with recent imitation learning methods. VINN with chunking, Diffusion
+Policy, and ACT all achieves good performance on Mobile ALOHA, and benefit from co-training with static ALOHA.
+the mobile base’s velocity control. As an example,
+we observe >10cm error on average when replaying
+the base actions for a 180 degree turn with 1m ra-
+dius. We include more details about this experiment
+in Appendix A.4.
+6. Experiments
+We aim to answer two central questions in our ex-
+periments. (1) Can Mobile ALOHA acquire complex
+mobile manipulation skills with co-training and a
+small amount of mobile manipulation data? (2) Can
+Mobile ALOHA work with different types of imita-
+tion learning methods, including ACT [104], Diffu-
+sion Policy [18], and retrieval-based VINN [63]? We
+conduct extensive experiments in the real-world to
+examine these questions.
+As a preliminary, all methods we will examine em-
+ploy “action chunking” [104], where a policy predicts
+a sequence of future actions instead of one action at
+each timestep. It is already part of the method for
+ACT and Diffusion policy, and simple to be added for
+VINN. We found action chunking to be crucial for
+manipulation, improving the coherence of generated
+trajectory and reducing the latency from per-step
+policy inference. Action chunking also provides a
+unique advantage for Mobile ALOHA: handling the
+delay of different parts of the hardware more flexibly.
+We observe a delay between target and actual veloc-
+ities of our mobile base, while the delay for
+
+======================================================================
+### open-x-embodiment ###
+
+--- [ablat] x3 at 29944 ---
+trained
+44.4%
+52%
+(5)
+RT-2-X
+5B
+none
+Robotics data
+Yes
+Web-pretrained
+14.5%
+30%
+(6)
+RT-2-X
+5B
+2
+Robotics data
+No
+From scratch
+0%
+1%
+(7)
+RT-2-X
+5B
+2
+Robotics data
+No
+Web-pretrained
+48.7%
+47%
+TABLE II: Ablations to show the impact of design decisions on generalization (to unseen objects, backgrounds, and environments) and
+emergent skills (skills from other datasets on the Google Robot), showing the importance of Web-pretraining, model size, and history.
+B. Improved generalization to out-of-distribution settings
+We now examine how X-embodiment training can enable
+better generalization to out-of-distribution settings and more
+complex and novel instructions. These experiments focus on
+the high-data domains, and use the RT-2-X model.
+Unseen objects, backgrounds and environments. We
+first conduct the same evaluation of generalization properties
+as proposed in [9], testing for the ability to manipulate
+unseen objects in unseen environments and against unseen
+backgrounds. We find that RT-2 and RT-2-X perform roughly
+on par (Table II, rows (1) and (2), last column). This is not
+unexpected, since RT-2 already generalizes well (see [9])
+along these dimensions due to its VLM backbone.
+Emergent skills evaluation. To investigate the transfer
+of knowledge across robots, we conduct experiments with
+the Google Robot, assessing the performance on tasks like
+the ones shown in Fig. 5. These tasks involve objects and
+skills that are not present in the RT-2 dataset but occur in the
+Bridge dataset [95] for a different robot (the WidowX robot).
+Results are shown in Table II, Emergent Skills Evaluation
+column. Comparing rows (1) and (2), we find that RT-2-X
+outperforms RT-2 by ∼3×, suggesting that incorporating
+data from other robots into the training improves the range
+of tasks that can be performed even by a robot that already
+has large amounts of data available. Our results suggest that
+co-training with data from other platforms imbues the RT-2-
+X controller with additional skills for the
+
+--- [co-training] x5 at 24172 ---
+ 4: RT-1-X mean success rate is 50% higher than that of either the Original Method or RT-1. RT-1 and RT-1-X have the same network
+architecture. Therefore the performance increase can be attributed to co-training on the robotics data mixture. The lab logos indicate the
+physical location of real robot evaluation, and the robot pictures indicate the embodiment used for the evaluation.
+Evaluation Setting
+Bridge
+Bridge
+RT-1 paper 6 skills
+Evaluation Location
+IRIS (Stanford)
+RAIL Lab (UCB)
+Google Robotic Lab
+Robot Embodiment
+WidowX
+WidowX
+Google Robot
+Original Method
+LCBC [95]
+LCBC [95]
+-
+Original Method
+13%
+13%
+-
+RT-1
+40%
+30%
+92%
+RT-1-X
+27%
+27%
+73%
+RT-2-X (55B)
+50%
+30%
+91%
+TABLE I: Parameter count scaling experiment to assess the impact
+of capacity on absorbing large-scale diverse embodiment data. For
+these large-scale datasets (Bridge and RT-1 paper data), RT-1-X
+underfits and performs worse than the Original Method and RT-1.
+RT-2-X model with significantly many more parameters can obtain
+strong performance in these two evaluation scenarios.
+Table [91] datasets. RT-1-X is trained on only robotics
+mixture data defined above, whereas RT-2-X is trained via
+co-fine-tuning (similarly to the original RT-2 [9]), with an
+approximately one to one split of the original VLM data
+and the robotics data mixture. Note that the robotics data
+mixture used in our experiments includes 9 embodiments
+which is fewer than the entire Open X-Embodiment dataset
+(22) – the practical reason for this difference is that we have
+continued to extend the dataset over time, and at the time
+of the experiments, the dataset above represented all of the
+data. In the future, we plan to continue training policies on
+the extended versions of the dataset as well as continue to
+grow the dataset together with the robot learning community.
+At inference time, each model is run at the rate required
+for the robot (3-10 Hz), with RT-1 run locally and RT-2
+hosted on a cloud service and queried over the network.
+V. EXPE
+
+--- [data mix] x3 at 23657 ---
+inference details
+Both models use a standard categorical cross-entropy
+objective over their output space (discrete buckets for RT-
+1 and all possible language tokens for RT-2).
+We define the robotics data mixture used across all of
+the experiments as the data from 9 manipulators, and taken
+from RT-1 [8], QT-Opt [66], Bridge [95], Task Agnostic
+Robot Play [126, 127], Jaco Play [128], Cable Routing [129],
+RoboTurk [86], NYU VINN [130], Austin VIOLA [131],
+Berkeley Autolab UR5 [132], TOTO [133] and Language
+
+Fig. 4: RT-1-X mean success rate is 50% higher than that of either the Original Method or RT-1. RT-1 and RT-1-X have the same network
+architecture. Therefore the performance increase can be attributed to co-training on the robotics data mixture. The lab logos indicate the
+physical location of real robot evaluation, and the robot pictures indicate the embodiment used for the evaluation.
+Evaluation Setting
+Bridge
+Bridge
+RT-1 paper 6 skills
+Evaluation Location
+IRIS (Stanford)
+RAIL Lab (UCB)
+Google Robotic Lab
+Robot Embodiment
+WidowX
+WidowX
+Google Robot
+Original Method
+LCBC [95]
+LCBC [95]
+-
+Original Method
+13%
+13%
+-
+RT-1
+40%
+30%
+92%
+RT-1-X
+27%
+27%
+73%
+RT-2-X (55B)
+50%
+30%
+91%
+TABLE I: Parameter count scaling experiment to assess the impact
+of capacity on absorbing large-scale diverse embodiment data. For
+these large-scale datasets (Bridge and RT-1 paper data), RT-1-X
+underfits and performs worse than the Original Method and RT-1.
+RT-2-X model with significantly many more parameters can obtain
+strong performance in these two evaluation scenarios.
+Table [91] datasets. RT-1-X is trained on only robotics
+mixture data defined above, whereas RT-2-X is trained via
+co-fine-tuning (similarly to the original RT-2 [9]), with an
+approximately one to one split of the original VLM data
+and the robotics data mixture. Note that the robotics data
+mixture used in our experiments includes 9 embodiments
+which is fewer than the entire Open X-Embodiment dataset
+(22) – the practical reason f
+
+--- [RT-1] x31 at 11060 ---
+irical contribution is to demonstrate that
+several recent robotic learning methods, with minimal mod-
+ification, can utilize X-embodiment data and enable positive
+transfer. Specifically, we train the RT-1 [8] and RT-2 [9]
+models on 9 different robotic manipulators. We show that
+the resulting models, which we call RT-X, can improve over
+policies trained only on data from the evaluation domain,
+exhibiting better generalization and new capabilities. Ad-
+dressing (2), we provide the Open X-Embodiment (OXE)
+Repository, which includes a dataset with 22 different robotic
+embodiments from 21 different institutions that can enable
+the robotics community to pursue further research on X-
+embodiment models, along with open-source tools to facili-
+tate such research. Our aim is not to innovate in terms of the
+particular architectures and algorithms, but rather to provide
+the model that we trained together with data and tools to
+energize research around X-embodiment robotic learning.
+II. RELATED WORK
+Transfer across embodiments. A number of prior works
+have studied methods for transfer across robot embodiments
+in simulation [10–22] and on real robots [23–29]. These
+methods often introduce mechanisms specifically designed to
+address the embodiment gap between different robots, such
+as shared action representations [14, 30], incorporating rep-
+resentation learning objectives [17, 26], adapting the learned
+policy on embodiment information [11, 15, 18, 30, 31], and
+decoupling robot and environment representations [24]. Prior
+work has provided initial demonstrations of X-embodiment
+training [27] and transfer [25, 29, 32] with transformer
+models. We investigate complementary architectures and
+provide complementary analyses, and, in particular, study the
+interaction between X-embodiment transfer and web-scale
+pretraining. Similarly, methods for transfer across human
+and robot embodiments also often employ techniques for
+reducing the embodiment gap, i.e. by translating between
+domains or
