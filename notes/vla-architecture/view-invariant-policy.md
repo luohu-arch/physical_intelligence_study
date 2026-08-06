@@ -88,6 +88,17 @@ $$
 5. 外参标定误差（平移/旋转噪声）对 conditioning 增益的敏感性如何？能否用自监督方式在推理时在线估计 $(R,t)$？
 6. 联合随机裁剪的裁剪比例与位置分布是超参还是可自适应？裁剪是否等效于"虚拟相机内参增强"从而可以替代真实内参随机化？
 
+
+## 工程细节与实操指南
+
+- **Plücker Ray 计算**: direction = R @ K^{-1} @ [u,v,1]^T, moment = t × direction
+- **输入格式**: RGB [H,W,3] + Plücker map [H,W,6] → channel-wise concat [H,W,9]
+- **预训练 encoder 适配**: late fusion via small CNN for Plücker → merge with frozen encoder features
+- **联合随机裁剪**: 图像和 Plücker map 做相同的 spatial crop, 防止背景泄露相机位姿
+- **Hardware**: UR5 + 3 movable third-person cameras
+- **Tasks**: Pick Place, Plate Insertion, Hang Mug 等 6 个新 benchmark (RoboSuite + ManiSkill)
+- **Code**: github.com/ripl/CamPoseOpensource
+
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |

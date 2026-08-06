@@ -69,6 +69,17 @@ IMR-Bench 上按任务类别分组的 SR（成功完成全部工序且全局约�
 
 **核心结论**：消融清晰显示 IMR-LLM 的优势随任务复杂度单调扩大——单机器人任务各方法几乎打平（SR 0.80-1.00），复杂多机器人任务上完整方法 0.68 而"LLM 直接排程"归零（0.00）、无依赖建模仅 0.36、无 Process Tree 0.44，说明析取图求解器与依赖约束建模是多机器人协同的核心保障；与基线对比（LiP-O 0.24、LaMMA-O 0.20、SMART-LLM 0.00）进一步印证纯 LLM 或简化形式化方法都无法应对工业级多机器人调度。
 
+
+## 工程细节与实操指南
+
+- **Input**: 自然语言任务描述 + 产线配置（机器人数量/类型/工作空间）
+- **LLM**: Task decomposition → operation → robot assignment → disjunctive graph
+- **OR Solver**: Johnson algorithm / genetic algorithm on disjunctive graph → deadlock-free schedule (100% consistency, 98% efficiency)
+- **Code Gen**: Process tree navigation (not open-ended generation) → executable Python code (87-90% success)
+- **Benchmark**: IMR-Bench — 23 real industrial scenes, 50 tasks, up to 7 robots × 24 operations
+- **Real deployment**: 3-robot production line with visual positioning, grasping, collaborative transport
+- **Speedup**: Manual programming hours → minutes
+
 ## 技术权衡
 
 | 优势 | 劣势 |

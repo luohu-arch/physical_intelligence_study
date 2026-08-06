@@ -68,6 +68,16 @@ $$
 
 **核心结论**：这条"硬件-感知-接口"对齐链路的每一环都可独立消融——身体比例对齐（0.97/1.02/1.00）把迁移难度从学习问题降为 IK 求解；ego-exo 双视角提供稳定的人体关键点恢复（相机方案甚至优于动捕服）；分阶段 IK 避免高维整体求解的不稳定；DS-HKC 的 FK 任务空间监督弥补"关节像 ≠ 结果对"的错配。四者叠加使 60-DoF 人形在无任何目标任务机器人演示的情况下，仅凭人类视频转换标签完成真实部署，吞吐增益 4.8–7.2× 则回答了"为什么值得这么做"的工程问题。
 
+
+## 工程细节与实操指南
+
+- **Hardware**: PrimeU humanoid — 双臂 7-DoF + 双灵巧手 20-DoF + 颈 3-DoF + 腰 3-DoF = 60-DoF upper body
+- **身体比例**: 肩宽比 0.97, 臂长比 1.02, 手长比 1.00 对齐人类（硬件-软件协同设计）
+- **Sensing**: 头戴 + 腕部 RealSense D435 (ego + exo)
+- **Pipeline**: Exo→人体跟踪 + Mesh 重建 → Staged IK (arm→hand) → 60-DoF action chunks → PhysDex VLA (DS-HKC loss)
+- **Training**: Action tokenizer 仅用人类衍生动作训练，normalized MAE 0.008
+- **Tasks**: ring placement, magic-cube packing, water pouring, cup stacking, bottle-cap loosening (zero-shot)
+
 ## 技术权衡
 
 | 优势 | 劣势 |
