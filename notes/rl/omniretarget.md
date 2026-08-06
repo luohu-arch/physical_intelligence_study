@@ -1,6 +1,6 @@
 # OmniRetarget: Interaction Mesh for Humanoid Whole-Body Motion Retargeting
 
-- 本地 PDF：`papers/rl/OmniRetarget_2605.19310.pdf`（**注意：该 PDF 内容不匹配本论文**，实为其他论文，属下载错配；待确认：正确 PDF 需从 arXiv 2509.26633 重新获取）
+- 本地 PDF：`papers/rl/OmniRetarget_2509.26633.pdf`（**注意：该 PDF 内容不匹配本论文**，实为其他论文，属下载错配；
 - arXiv：https://arxiv.org/abs/2509.26633
 - 年份：2026 (ICRA 2026 Best Conference Paper + Best Manipulation Paper 双料)
 - 团队：Amazon FAR + MIT + UCB + Stanford + Cornell
