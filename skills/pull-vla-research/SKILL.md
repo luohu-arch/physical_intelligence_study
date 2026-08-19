@@ -24,9 +24,9 @@ Keep a local Physical AI / VLA paper library current. Prioritizes papers that ex
 ## Workflow Checklist
 
 - [ ] Inspect workspace structure:
-  - `papers/curriculum/` — PDFs from `vla.md` core curriculum (RT-1, RT-2, OpenVLA, etc.)
+  - `papers/architecture/`, `papers/reasoning/`, `papers/world-model/` — track-organized PDFs (RT-1, π0, Dreamer, etc.)
   - `papers/YYYY-MM-DD/` — incrementally pulled PDFs
-  - `notes/curriculum/` — reading notes for curriculum papers
+  - `notes/architecture/`, `notes/reasoning/`, `notes/world-model/` — reading notes by track
   - `notes/YYYY-MM-DD/` — notes for incrementally pulled papers
   - `tables/` — CSV paper matrices
   - `plans/` — reading plans
@@ -119,7 +119,7 @@ Deprioritize papers that are only tangentially about agents, generic VLMs, or no
 ## Common Mistakes
 
 - **Wrong paper downloaded:** Similar VLA paper titles can collide. Always verify arXiv IDs before downloading.
-- **Mixing curriculum and incremental papers:** Curriculum papers from `vla.md` belong in `papers/curriculum/` and `notes/curriculum/`. Incremental pulls go in date-stamped subfolders.
+- **Mixing curriculum and incremental papers:** Curriculum papers from `vla.md` belong in track folders (`papers/architecture/`, `papers/reasoning/`, `papers/world-model/`). Incremental pulls go in date-stamped subfolders.
 - **Overwriting user notes:** Do not overwrite existing notes with user annotations unless explicitly requested; append new sections instead.
 - **Adding off-topic papers:** Papers about generic VLMs or non-robotic benchmarks should be filtered out unless they explicitly improve physical action.
 - **Ignoring memory hints:** The script learns from your behavior. If it suggests `--deep` or `--backfill`, those flags have been useful in past sessions.

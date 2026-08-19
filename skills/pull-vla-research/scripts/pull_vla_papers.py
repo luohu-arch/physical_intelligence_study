@@ -6,7 +6,7 @@ Outputs (incremental pulls go in date-stamped folders):
   notes/<YYYY-MM-DD>/<slug>.md
   tables/vla_research_watchlist.csv
 
-Curriculum papers from vla.md live separately in papers/curriculum/ and notes/curriculum/.
+Papers are organized into track folders (architecture, reasoning, world-model, etc.).
 """
 
 from __future__ import annotations
