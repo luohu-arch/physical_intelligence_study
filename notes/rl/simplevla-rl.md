@@ -1,5 +1,7 @@
 # SimpleVLA-RL: Scaling VLA Training via Reinforcement Learning
 
+- 本地 PDF：`papers/rl/SimpleVLA-RL_2509.09674.pdf`
+
 - Local PDF: `papers/rl/SimpleVLA-RL_2509.09674.pdf`
 - arXiv: https://arxiv.org/abs/2509.09674
 - Project: https://github.com/PRIME-RL/SimpleVLA-RL

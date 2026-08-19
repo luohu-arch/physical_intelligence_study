@@ -1,6 +1,6 @@
 # PAIWorld: A 3D-Consistent World Foundation Model for Robotic Manipulation
 
-- 本地 PDF：`papers/vla-architecture/PAIWorld_2606.18375.pdf`
+- 本地 PDF：`papers/architecture/PAIWorld_2606.18375.pdf`
 - arXiv：https://arxiv.org/abs/2606.18375
 - 年份：2026（6 月）
 - 团队：中科院工业 AI 研究所

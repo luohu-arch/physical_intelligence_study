@@ -1,6 +1,6 @@
 # WEAVER: Better, Faster, Longer — An Effective World Model for Robotic Manipulation
 
-- 本地 PDF：`papers/vla-architecture/WEAVER_2606.13672.pdf`
+- 本地 PDF：`papers/architecture/WEAVER_2606.13672.pdf`
 - arXiv：https://arxiv.org/abs/2606.13672
 - 年份：2026（6 月）
 - 团队：CMU + Mila (Arnav Jain, Yilin Wu, Jesse Farebrother 等)

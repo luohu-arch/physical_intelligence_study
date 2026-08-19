@@ -1,6 +1,6 @@
 # SimDist: Simulation Distillation — Pretraining World Models in Simulation for Rapid Real-World Adaptation
 
-- 本地 PDF：`papers/vla-architecture/SimDist_2603.15759.pdf`
+- 本地 PDF：`papers/architecture/SimDist_2603.15759.pdf`
 - arXiv：https://arxiv.org/abs/2603.15759
 - 代码：https://github.com/CLeARoboticsLab/simdist
 - 年份：2026 (RSS 2026)

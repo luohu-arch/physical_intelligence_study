@@ -6,20 +6,22 @@ Local study library for Vision-Language-Action (VLA), robot foundation model, an
 
 ```
 papers/
-  vla-architecture/ — VLA core architecture + action generation (RT-1, RT-2, π0, G0.5, etc.)
-  vla-reasoning/    — Reasoning-action fusion + visual foresight (PaLM-E, GR00T N1, F1-VLA, etc.)
-  world-model/      — World models, JEPA, video prediction (Dreamer, TD-MPC2, UniPi, etc.)
-  data-infra/       — Datasets, teleoperation, self-improvement (Open X-Embodiment, ACT, etc.)
-  perception/       — SLAM, odometry, sensor perception (FAST-LIO2, etc.)
+  architecture/     — VLA core architecture + action generation (RT-1, RT-2, π0, G0.5, etc.)
+  reasoning/        — Reasoning-action fusion + visual foresight (PaLM-E, GR00T N1, F1-VLA, etc.)
+  world-model/      — World models, JEPA, WAM, video prediction (Dreamer, TD-MPC2, LingBot-VA, etc.)
+  rl/               — RL methods, world model RL, sim-to-real (FlashSAC, RL-100, RISE, etc.)
   memory/           — Robot memory, TTT, world model memory (RoboTTT, MemoryWAM, etc.)
-  rl/               — RL for manipulation, world model RL, sim-to-real (RL-100, FlashSAC, RISE, etc.)
+  data/             — Datasets, teleoperation, self-improvement (Open X-Embodiment, ACT, etc.)
+  perception/       — SLAM, odometry, sensor perception (FAST-LIO2, etc.)
 notes/
-  vla-architecture/ — Reading notes for VLA architecture papers
-  vla-reasoning/    — Reading notes for reasoning-action papers
+  architecture/     — Reading notes for VLA architecture papers
+  reasoning/        — Reading notes for reasoning-action papers
   world-model/      — Reading notes for world model papers
-  data-infra/       — Reading notes for data + infrastructure papers
-  industry/         — Commercial briefs without public papers (GEN-1, GENE-26.5, etc.)
+  rl/               — Reading notes for RL methods and world model RL
+  memory/           — Reading notes for robot memory papers
+  data/             — Reading notes for data + infrastructure papers
   perception/       — Reading notes for SLAM and perception papers
+  industry/         — Commercial briefs without public papers (GEN-1, GENE-26.5, etc.)
 tables/            — CSV watchlists, paper matrices, taxonomy, master curriculum (vla.md), and tech evolution
 plans/             — Reading plans and curricula
 labs/              — Lab and advisor research analysis for PhD applications
@@ -72,7 +74,7 @@ python3 skills/pull-vla-research/scripts/pull_vla_papers.py \
 
 ## Key Conventions
 
-- Curriculum papers from `vla.md` live in `papers/vla-architecture/`, `papers/vla-reasoning/`, and `papers/data-infra/` with matching notes directories
+- Curriculum papers from `vla.md` live in `papers/architecture/`, `papers/reasoning/`, and `papers/data/` with matching notes directories
 - World model papers (Dreamer, JEPA, video prediction, etc.) live in `papers/world-model/` and `notes/world-model/`
 - Incrementally pulled papers go in date-stamped subfolders (`papers/YYYY-MM-DD/`, `notes/YYYY-MM-DD/`)
 - Never mix curriculum and incremental papers in the same directory

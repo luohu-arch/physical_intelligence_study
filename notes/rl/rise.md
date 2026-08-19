@@ -1,6 +1,6 @@
 # RISE: Self-Improving Robot Policy with Compositional World Model
 
-- 本地 PDF：`papers/vla-architecture/RISE_2602.11075.pdf`
+- 本地 PDF：`papers/architecture/RISE_2602.11075.pdf`
 - arXiv：https://arxiv.org/abs/2602.11075
 - 代码：https://github.com/OpenDriveLab/RISE
 - 年份：2026 (RSS 2026)

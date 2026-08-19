@@ -1,6 +1,6 @@
 # Dreamer v3: Mastering Diverse Domains through World Models
 
-- 本地 PDF：`papers/curriculum/2301.04104.pdf`
+- 本地 PDF：`papers/rl/Dreamer_v3_2301.04104.pdf`
 - arXiv：https://arxiv.org/abs/2301.04104
 - 年份：2023 (v2: Apr 2024)
 - 团队：Google DeepMind & U of Toronto (Danijar Hafner 等)
