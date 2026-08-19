@@ -1,6 +1,6 @@
 # WCM: World-Conditioned Manipulation（世界批判模型条件化策略）
 
-- 本地 PDF：`papers/rl/WCM_2602.10984.pdf`（**注意：该 PDF 内容不匹配本论文**，实为其他论文，属下载错配；待确认：正确 PDF 需从 arXiv 2607.29613 重新获取）
+- 本地 PDF：`papers/world-model/WCM_2602.10984.pdf`（**注意：该 PDF 内容不匹配本论文**，实为其他论文，属下载错配；待确认：正确 PDF 需从 arXiv 2607.29613 重新获取）
 - arXiv：https://arxiv.org/abs/2607.29613
 - 年份：2026
 - 团队：待确认（仅从摘要获取，需读取全文确认机构）

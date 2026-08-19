@@ -1,6 +1,6 @@
 # DayDreamer: World Models for Physical Robot Learning
 
-- 本地 PDF：`papers/rl/DayDreamer_2206.14176.pdf`
+- 本地 PDF：`papers/world-model/DayDreamer_2206.14176.pdf`
 - arXiv：https://arxiv.org/abs/2206.14176
 - 年份：2022 (CoRL 2022 / PMLR 2023)
 - 团队：UC Berkeley (Philipp Wu, Alejandro Escontrela, Danijar Hafner, Ken Goldberg, Pieter Abbeel)

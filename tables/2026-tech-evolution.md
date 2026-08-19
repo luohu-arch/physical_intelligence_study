@@ -191,3 +191,40 @@ VLA ───────────┼── 推理增强路线 ─── PALM
 2. **RL for VLA 是新蓝海**：FlashSAC (RSS Best) + RL Token + ROVE + SimpleVLA-RL。VLA 从模仿走向 RL 自改进是确定趋势，竞争者还不多
 3. **频域动作表示是差异点**：FAST + MINT 都用 DCT——刚起步，切入空间大
 4. **3D 不可避免**：FP3 + PAIWorld + View-Invariant 同时证明 2D 天花板已到
+
+---
+
+## 2026 年 7-8 月最新进展（补充）
+
+### WAM（World Action Model）三立场对决
+
+| 立场 | 工作 | 关键数据 |
+|------|------|---------|
+| 预训练 backbone | **DreamZero** (NVIDIA, 14B) | 零样本泛化 2× over VLA，38× 优化到 7Hz 实时 |
+| 辅助目标 | **WorldVLA** (Alibaba) | LIBERO 81.8%，action mask 恢复 4-23% |
+| 独立规划器 | **V-JEPA 2** (Meta) | 62h 数据零样本 MPC，16 秒/步 vs Cosmos 4 分钟 |
+
+### JEPA 路线进化（LeCun 团队）
+
+- **LeWorldModel** (2603.19312)：首个端到端稳定 JEPA，仅 2 loss（SIGReg 防坍塌），15M 参数
+- **SD-JEPA** (2605.31111)：进度/内容子空间解耦，涌现 1-D 进度坐标，Push-T +1.3pp
+- **No Gaussian Required** (2608.17542)：对比逆动力学替代高斯先验
+- **V-JEPA 2** (2506.09985)：1B+ 旗舰，100 万小时视频 + 62h 机器人数据 → 零样本规划
+
+### 世界模型 + 触觉/空间记忆
+
+- **TacWAM** (2607.28391)：WAM + 力学感知触觉预测，填补接触建模空白
+- **EgoGenesis** (2607.28243)：egocentric WAM + 投影记忆 + Action-3D RoPE
+- **MemoryWAM**：三层混合记忆（gist 压缩反超全注意力）
+
+### 评估标准迁移
+
+- **WorldArena** (2602.08971)：16 指标 × 6 维度功能评估——"视觉真实 vs 具身效用"的 gap
+- 评估从像素精度 → 控制相关标准（rank consistency, value fidelity, action executability）
+
+### 关键结论
+
+1. **WAM vs VLA 是共存非替代**——NVIDIA 内部同时推 WAM（DreamZero）、VLA、混合
+2. **JEPA 的极简化**——从 V-JEPA 2 的复杂配方到 LeWM 的 2 loss，训练稳定性不再是障碍
+3. **触觉是 WAM 的下一个缺口**——TacWAM 直接回应"接触建模"开放挑战
+4. **评估决定发展方向**——WorldArena 式功能评估使世界模型从"像不像"转向"有没有用"

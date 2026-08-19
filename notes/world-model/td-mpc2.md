@@ -1,6 +1,6 @@
 # TD-MPC2: Scalable, Robust World Models for Continuous Control
 
-- 本地 PDF：`papers/rl/TD-MPC2_2310.16828.pdf`
+- 本地 PDF：`papers/world-model/TD-MPC2_2310.16828.pdf`
 - arXiv：https://arxiv.org/abs/2310.16828
 - 年份：2023 (ICLR 2024)
 - 团队：UC San Diego (Nicklas Hansen, Hao Su, Xiaolong Wang)
