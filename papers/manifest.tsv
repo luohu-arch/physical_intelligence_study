@@ -42,7 +42,7 @@ architecture/SymSkill_2510.01661.pdf	SymSkill: Symbol and Skill Co-Invention for
 architecture/LingBot-VA_2601.21998.pdf	LingBot-VA: Causal World Modeling for Robot Control	https://arxiv.org/pdf/2601.21998	pdf
 architecture/FP3_2503.08950.pdf	FP3: A 3D Foundation Policy for Robotic Manipulation	https://arxiv.org/pdf/2503.08950	pdf
 architecture/LingBot-VLA2_2607.06403.pdf	LingBot-VLA 2.0: From Foundation to Application	https://arxiv.org/pdf/2607.06403	pdf
-architecture/RISE_2602.11075.pdf	RISE: Self-Improving Robot Policy with Compositional World Model	https://arxiv.org/pdf/2602.11075	pdf
+world-model/RISE_2602.11075.pdf	RISE: Self-Improving Robot Policy with Compositional World Model	https://arxiv.org/pdf/2602.11075	pdf
 architecture/Fabrica_2506.05168.pdf	Fabrica: Dual-Arm Assembly via Integrated Planning and Learning	https://arxiv.org/pdf/2506.05168	pdf
 architecture/ViewInvariant_2510.02268.pdf	View-Invariant Policy Learning with Camera Conditioning	https://arxiv.org/pdf/2510.02268	pdf
 architecture/SimDist_2603.15759.pdf	SimDist: Pretraining World Models in Simulation for Rapid Real-World Adaptation	https://arxiv.org/pdf/2603.15759	pdf
@@ -56,7 +56,6 @@ architecture/MINT_2602.08602.pdf	MINT: Mimic Intent, Not Just Trajectories	https
 architecture/PAIWorld_2606.18375.pdf	PAIWorld: 3D-Consistent World Foundation Model	https://arxiv.org/pdf/2606.18375	pdf
 architecture/WEAVER_2606.13672.pdf	WEAVER: Better Faster Longer World Model for Manipulation	https://arxiv.org/pdf/2606.13672	pdf
 architecture/IMR-LLM_2603.02669.pdf	IMR-LLM: Industrial Multi-Robot Planning with LLMs	https://arxiv.org/pdf/2603.02669	pdf
-architecture/TransformerTransformer.pdf	Transformer Transformer: Motion-Conditioned Robot Co-design	https://transformer-transformer.github.io/static/paper.pdf	pdf
 rl/DIAYN_1802.06070.pdf	DIAYN: Diversity Is All You Need	https://arxiv.org/pdf/1802.06070	pdf
 architecture/DiversityAllYouNeed_2507.06219.pdf	Is Diversity All You Need for Scalable Robotic Manipulation?	https://arxiv.org/pdf/2507.06219	pdf
 world-model/LeWorldModel_2603.19312.pdf	LeWorldModel: Stable End-to-End JEPA from Pixels	https://arxiv.org/pdf/2603.19312	pdf
@@ -72,10 +71,6 @@ world-model/DreamZero_2602.15922.pdf	DreamZero: World Action Models are Zero-sho
 world-model/WorldArena_2602.08971.pdf	WorldArena: Functional Evaluation of World Models	https://arxiv.org/pdf/2602.08971	pdf
 world-model/TacWAM_2607.28391.pdf	TacWAM: Anchor-Guided WAM with Tactile Prediction	https://arxiv.org/pdf/2607.28391	pdf
 world-model/EgoGenesis_2607.28243.pdf	EgoGenesis: Egocentric WAM with Projective Memory	https://arxiv.org/pdf/2607.28243	pdf
-rl/StaticInDynOut_2607.27890.pdf	Static In Dynamic Out: Counterfactual Action Augmentation	https://arxiv.org/pdf/2607.27890	pdf
-architecture/FA-RDP_2607.28596.pdf	FA-RDP: Frequency-Adaptive Reactive Diffusion Policy	https://arxiv.org/pdf/2607.28596	pdf
-architecture/FM-Uncertainty_2607.27933.pdf	Geometric Nature and Free Proxy for Flow-Matching Uncertainty	https://arxiv.org/pdf/2607.27933	pdf
-architecture/LingBot-VLA2_2607.06403.pdf	LingBot-VLA 2.0: From Foundation to Application	https://arxiv.org/pdf/2607.06403	pdf
-architecture/WholeBodyVLA_2509.22642.pdf	WholeBodyVLA: Unified Latent VLA for Loco-manipulation	https://arxiv.org/pdf/2509.22642	pdf
-architecture/BridgeVLA_2505.21372.pdf	BridgeVLA: 3 Trajectories per Task, 96.8% Success	https://arxiv.org/pdf/2505.21372	pdf
-architecture/InstructVLA_2601.03947.pdf	InstructVLA: VLA Instruction Tuning	https://arxiv.org/pdf/2601.03947	pdf
+architecture/WholeBodyVLA_2512.11047.pdf	WholeBodyVLA: Towards Unified Latent VLA for Whole-Body Loco-Manipulation Control	https://arxiv.org/pdf/2512.11047	pdf
+architecture/BridgeVLA_2506.07961.pdf	BridgeVLA: Input-Output Alignment for Efficient 3D Manipulation Learning with VLMs	https://arxiv.org/pdf/2506.07961	pdf
+architecture/InstructVLA_2507.17520.pdf	InstructVLA: Vision-Language-Action Instruction Tuning from Understanding to Manipulation	https://arxiv.org/pdf/2507.17520	pdf

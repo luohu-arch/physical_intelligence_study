@@ -7,16 +7,14 @@
 ## Architecture（VLA 架构 + 动作生成）— notes/architecture/
 
 **VLA 基础模型**：rt-1, rt-2, openvla, pi0, pi05, pi07, g05, instructvla
-**动作生成（扩散/Flow）**：diffusion-policy, flow-matching, fast-tokenizer, mint, fa-rdp
+**动作生成（扩散/Flow）**：diffusion-policy, flow-matching, fast-tokenizer, mint
 **开源工业 VLA**：xr-1, lingbot-vla2, green-vla, octo, flower, bridgevla
 **高效 VLA**：llada-vla, univla, univla-latent-actions, mos-vla, wholebodyvla
 **3D VLA**：fp3, view-invariant-policy
 **VLA 后训练 + RL**：simplevla-rl, rl-token, rove
 **数据多样性**：diversity-is-all-you-need
-**协同设计**：transformer-transformer
-**理论**：fm-uncertainty
 
-32 篇
+29 篇
 
 ---
 
@@ -55,9 +53,7 @@
 **灵巧操作 RL**：dexora, torl-vla, hapticvla, grits
 **分层/规划 RL**：omniretarget, dlo-routing
 **技能发现**：diayn
-**数据增强**：static-in-dynamic-out
-
-16 篇
+15 篇
 
 ---
 

@@ -126,7 +126,7 @@ def _check_questions(text: str) -> tuple[int, list[str]]:
     flags = []
 
     # Count numbered questions
-    questions = re.findall(r'\d+\.\s+\*\*[^*]+\*\*|\d+\.\s+[^?]+\?', section)
+    questions = re.findall(r'\d+\.\s+\*\*[^*]+\*\*|\d+\.\s+[^?？]+[?？]', section)
     n = len(questions)
 
     if n >= 5:
