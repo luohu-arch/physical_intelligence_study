@@ -2,122 +2,155 @@
 
 - 本地 PDF：`papers/world-model/TD-MPC2_2310.16828.pdf`
 - arXiv：https://arxiv.org/abs/2310.16828
-- 年份：2023 (ICLR 2024)
-- 团队：UC San Diego (Nicklas Hansen, Hao Su, Xiaolong Wang)
-- 阶段：可扩展隐式世界模型 + MPC 规划
+- 年份：2023（ICLR 2024，Spotlight 档位待确认：论文页眉仅标 "Published as a conference paper at ICLR 2024"，未写口头/spotlight）
+- 团队：UC San Diego（Nicklas Hansen，advisor Hao Su 与 Xiaolong Wang）
+- 阶段：latent 世界模型 RL 双主线中的 decoder-free MPC 一支——隐式世界模型 + MPPI 规划，五种规模统一超参扩到 80 任务多具身泛化
 
 ## 一句话总结
 
-TD-MPC2 提出隐式（decoder-free）世界模型 + latent space MPC 规划，单一超参配置在 104 个连续控制任务上超越 Dreamer v3 和 SAC，并成功训练 317M 参数单一 agent 执行 80 个跨域/跨具身/跨动作空间任务。
+TD-MPC2 在一个不含解码器的隐式（joint-embedding）世界模型上做局部轨迹优化：encoder 把观测压成 SimNorm 归一化的 latent，latent dynamics、reward、terminal value 三个头用 joint-embedding 预测 + 离散回归 + TD 学习联合优化，推理时用带策略先验的 MPPI 在 latent 里在线规划；凭借 LayerNorm+Mish 架构、SimNorm、Q-ensemble 等鲁棒性改造与可学习任务嵌入 + 动作掩码的多任务框架，单组超参覆盖 DMControl/Meta-World/ManiSkill2/MyoSuite 共 104 个连续控制任务，并把单个 317M 参数 agent 训练到同时执行横跨多具身、多动作空间的 80 个任务。
 
 ## 核心技术
 
-1. **隐式世界模型 (Decoder-free)** — 不做像素重建，直接预测 latent 下一步表征 + reward + value，训练更高效，世界模型学习与任务目标对齐
-2. **Joint-Embedding Prediction** — encoder $h_\theta$ 映射观测到 latent，dynamics $d_\theta$ 预测下一步 latent，reward $R_\theta$ 和价值 $Q_\theta$ 从 latent 预测
-3. **Latent Space MPC (Model Predictive Control)** — 在 latent 空间采样动作序列，用世界模型 rollout，挑选最优轨迹，执行第一步后重新规划
-4. **大规模多任务训练** — 317M 参数模型在 DMControl + Meta-World + ManiSkill2 + MyoSuite 四域共 80 任务上联合训练
+1. **五组件隐式世界模型**：Encoder $z=h(s,e)$、Latent dynamics $z'=d(z,a,e)$、Reward $\hat r=R(z,a,e)$、Terminal value $\hat q=Q(z,a,e)$、Policy prior $\hat a=p(z,e)$；$e$ 是任务嵌入。没有 decoder——模型只学"预测回报所需的最少动态信息"。
+2. **TD 学模型（joint-embedding prediction + discrete regression）**：潜在下一步 $z'_t$ 用 $\ell_2$ 对齐 stop-gradient 后的编码 $h(s'_t)$；reward/value 都是 log 空间 101-bin 的 soft cross-entropy 离散回归，使损失量级与任务奖励量级无关。
+3. **SimNorm 单纯形归一化**：把 latent 分成若干长度为 8 的分组、逐组 softmax，得到稀疏化且范数受控的表征；配合全网络 LayerNorm+Mish，消灭了 TD-MPC 一代的梯度爆炸。
+4. **Q-ensemble 与 min-clipping**：默认 5 个 Q 网络（各带 1% dropout），TD target 取两个随机子采样 EMA target Q 的最小值抑制过估计。
+5. **策略先验引导的 MPPI 规划**：horizon 只有 3、迭代 6 次、population 512、精英 64，其中一部分候选序列来自最大熵 policy prior；执行第一个动作后 warm-start 重规划。规划是显式的（区别于 Dreamer 的"想象中训练策略"），policy/plan 可叠加使用。
+6. **多任务机制**：可学习任务嵌入（96 维，$\ell_2\le1$）条件化全部五个组件；输入输出按最大维度 zero-pad，无效动作维度在训练与规划时都被掩掉。
 
 ## 底层原理与数学推导
 
-TD-MPC2 五大组件：
-- **Encoder** $h_\theta$: $o_t \to z_t$（观测 → latent）
-- **Dynamics** $d_\theta$: $(z_t, a_t) \to z_{t+1}$（latent 前向动态）
-- **Reward** $R_\theta$: $(z_t, a_t) \to r_t$
-- **Value** $Q_\theta$: $(z_t, a_t) \to q_t$（TD-learning）
-- **Policy prior** $p_\theta$: $z_t \to a_t$（引导 planner 采样，减少计算）
+### 1. 模型目标：在 latent 里同时学动态、奖励与价值
+
+对 replay buffer 中采样的片段 $(s,a,r,s')_{0:H}$，五个组件联合最小化（论文式 3）：
+
+$$
+\begin{aligned}
+L(\Phi) \,.=\, \mathbb{E}\Bigg[\sum_{t=0}^{H}\lambda^t\Big(&\big\|z'_t-\mathrm{sg}(h(s'_t))\big\|_2^2 \\
+&+\;\mathrm{CE}(\hat{r}_t,\,r_t)\;+\;\mathrm{CE}(\hat{q}_t,\,q_t)\Big)\Bigg],\qquad
+q_t \,.=\, r_t+\gamma\,\bar{Q}(z'_t,\ p(z'_t))
+\end{aligned}
+$$
+
+其中 $\mathrm{sg}$ 是 stop-gradient（保证 representation 学习不受 TD target 干扰），$\bar Q$ 是 Q 网络的 EMA。三个损失各有分工：joint-embedding 项让 latent 具备可预测的单步动态结构（BYOL 式防坍塌靠 EMA target 完成）；reward CE 提供 task-grounding；value CE 让 latent 直接编码折扣回报，这正是"DMP 需要的是回报预测而非观测重建"的数学表达。reward/value 采用 log 变换空间里的离散回归，等价于把 dreamer v3 的 symexp twohot 思想搬到 MLP 世界：交叉熵只看 bin 概率，与奖励数值大小解耦。
+
+TD target 里通过 policy prior $p(z')$ 选动作而不是随机动作，意味着价值学习发生在"当前最好策略"的 on-policy 轨迹流形附近，这与 SAC 型 actor-critic 共享同一套 self-consistency 直觉。
+
+### 2. 策略先验的最大熵目标
+
+policy prior 学一个随机最大熵策略（论文式 4）：
+
+$$
+L_p(\theta) \,.=\, \mathbb{E}_{(s,a)_{0:H}\sim B}\left[\sum_{t=0}^{H}\lambda^t\left[\alpha\,Q(z_t,\,p(z_t))-\beta\, H\bigl(p(\cdot|z_t)\bigr)\right]\right],\qquad z_{t+1}=d(z_t,a_t),\ z_0=h(s_0)
+$$
+
+梯度只流向 $p$。$\alpha,\beta$ 的相对尺度决定探索强度，且随数据集与训练阶段漂移——为免过早熵坍塌，TD-MPC2 用移动统计量自动调 $\alpha$（等价做法还有按熵目标调 $\beta$，作者称实验上两者差异不大）。熵只在有效动作维度上计算，这是多动作空间不出错的关键细节。
 
 ```mermaid
-graph LR
-    O["观测 ot"] --> ENC["Encoder h"]
-    ENC --> Z["Latent zt"]
-    Z --> DYN["Dynamics d (预测 zt+1)"]
-    Z --> R["Reward R"]
-    Z --> Q["Q-value"]
-    Z --> P["Policy Prior p (引导 MPC)"]
-    A["动作 at"] --> DYN
-    DYN --> ZNEXT["zt+1"]
-    ZNEXT --> PLAN["MPC Planner (latent space rollout)"]
-    PLAN --> ANEXT["at+1"]
+flowchart TB
+    S["state s"] --> ENC["encoder h"]
+    E["task embedding e"] --> ENC
+    ENC --> Z["latent z via SimNorm simplex softmax"]
+    Z --> DYN["dynamics d: next latent"]
+    Z --> RW["reward head R"]
+    Z --> QN["5 x Q ensemble with dropout"]
+    Z --> PP["policy prior p max entropy"]
+    DYN --> PLAN["MPPI planner: horizon 3 iters 6 pop 512"]
+    PP --> PLAN
+    PLAN --> ACT["execute first action then re-plan"]
+    ACT --> BUF["replay buffer B"] 
+    BUF --> TR["train all heads jointly: JEP + reward CE + value CE"]
 ```
 
-**与 Dreamer v3 关键区别**: TD-MPC2 不做解码器（无重建 loss），用 TD-learning 提供任务信号，使世界模型学习直接服务于任务。
+### 3. 规划目标：bootstrapped 局部轨迹优化
 
-**SimNorm 表示归一化**：latent 被划分为 L 组、每组 V 维，逐组 softmax 得到单纯形嵌入（simplex embedding），天然偏向稀疏表示：
+MPC 的原始问题是有限视界回报最大化；MPPI 把它化为对高斯轨迹分布参数 $(\mu,\sigma)$ 的搜索（论文式 6）：
 
 $$
-z^\circ = [g_1, \ldots, g_L], \quad g_i = \frac{e^{z_{i:i+V} / \tau}}{\sum_{j=1}^{V} e^{z_{i:i+V} / \tau}}
+\mu^{*},\sigma^{*} = \arg\max_{(\mu,\sigma)}\ \mathbb{E}_{(a_t)\sim N(\mu,\sigma^2)}\left[\gamma^{H}Q(z_{t+H},a_{t+H}) + \sum_{h=t}^{H-1}\gamma^{h}R(z_h,a_h)\right]
 $$
 
-其中 $\tau > 0$ 为温度参数，调节表示的"稀疏度"。论文实验表明 SimNorm 对 TD-MPC2 的训练稳定性至关重要（多任务归一化分数 No Norm 49.6 → SimNorm 54.2）。
+末端价值项 $Q(z_{t+H}, a_{t+H})$ 是整篇算法的灵魂：纯 MPC 只能得到局部最优策略，而 bootstrapping 让超出 horizon 的收益被 critic 概括进来，从而逼近完整 RL 目标。实现上：每步从 $N(\mu,\sigma^2)$ 采 512 条候选（部分来自 policy prior）、按softmax 温度 0.5 加权精英均值更新 $(\mu,\sigma)$、迭代 6 次（动作维度 $\ge20$ 时加到 8）、最后从首步分布采一个动作执行并整体左移一位 warm-start。
+
+### 4. SimNorm 与折折扣启发式
+
+SimNorm 把 $z$ 分成 $L$ 组、每组 $V=8$ 维独立 softmax：
+
+$$
+z^{\circ} = [g_1,\ldots,g_L],\qquad g_i = \mathrm{softmax}\!\left(z_{i:i+V}/\tau\right),\qquad V=8,\ \tau=1
+$$
+
+它可视作 VQ-VAE 的"软"版本：$\tau\to\infty$ 时退化为 one-hot 离散码，$\tau=0$ 时退化为常数向量，中间态在不施加硬约束的前提下诱导稀疏表征并稳定数值范围。跨任务的另外两个超参被规则化：折扣因子按回合长度取 $\gamma=\mathrm{clip}\bigl((T/5-1)/(T/5),\,[0.95,0.995]\bigr)$（DMControl 得 0.99）；种子步数取 $S=\max(5T,1000)$，保证 replay 先攒够一个模型的起步量再开训。
 
 ## 物理直觉解释
 
-**TD-MPC2 的核心直觉：不需要学会"看到"未来，只需要学会"感知"未来**。就像驾驶——你不需要在脑子里渲染一帧一帧的影像来预测 3 秒后的路况，你只需要知道"大概在什么位置、什么方向"就够了。TD-MPC2 的世界模型学的是这种抽象的 latent 预测——省去了从 latent 重建像素的巨大计算开销（Dreamer v3 用约 20M 参数做生成式重建，TD-MPC2 只用 5M 参数且 UTD=1 vs DreamerV3 的 512），把全部容量聚焦在"什么状态更好、什么动作更优"上。这也解释了为什么 TD-MPC2 能在 104 个任务上单一超参全面超越 SAC/DreamerV3/TD-MPC——不是靠更大的模型，而是靠"把计算花在决策信号上而不是像素重建上"。
+**decoder-free 是"为了开车不需要学会画风景画"的取舍**。重建式世界模型（Dreamer 一系）要求模型复制像素级未来，包括云的形状、草的纹理这些和控制毫无关系的细节；TD-MPC2 主张模型应该"最准确预测我关心的结果"——给定动作序列后的 return。它的训练信号只有三样：latent 下一步要像真的下一步（JEP 项）、reward 要猜得准、Q 要收敛到自洽的不动点。直观类比是老司机 vs 写生画家：司机脑子里有一套关于"踩油门后车速/姿态/位置会怎么变"的低维抽象模型，足以完成驾驶决策，却未必能凭记忆画出挡风玻璃外的每一片树叶。代价是解释性——没有像素 rollout 可以肉眼看模型想象了什么。
 
-**MPC 规划像下棋时的走一步看多步**：在 latent 空间快速模拟几个候选动作序列，用 Q-value 评估哪个最好，只执行第一步，下次观测后再重新规划——这天然提供闭环鲁棒性，且不需要像 actor-critic 那样显式训练策略。5 个 Q-function 的 ensemble 用 EMA 更新目标、取最小值防乐观偏差（源自 clipped double-Q）；policy prior 则像"棋手的开局库"——把随机采样引导到高概率区域，大幅减少 MPC 需要的采样数。
+**MPPI 加 terminal value 是"导航仪路线搜索 + 目的地直觉"的组合**。Planning 只往前看 3 步，等于导航仪每次只推演最近的几个路口；如果只有这 3 步之和，agent 会目光短浅，绕进"眼前舒服、长远吃亏"的死胡同。Critic 提供的 $Q(z_{t+H},a_{t+H})$ 相当于老司机的方向感：一个把"再往后的路好不好走"压缩成单一分数的直觉模块。3 步 horizon 的巨大好处是实时性——512 条候选 × 6 次迭代的采样预算极小，且大量候选直接抄自 policy prior（策略已经会把车开向大致正确的方向，planner 只需修正细节）。这也是它与 Dreamer 的根本分工：Dreamer 在想象里离线打磨策略、执行时不搜索；TD-MPC2 执行时现场搜索，环境一变（光照变化、物体挪动）立刻反映到规划里。
 
-**SimNorm 是让这一切稳定收敛的"隐形功臣"**。多任务联合训练中 latent 空间会发生漂移（不同任务、不同动作空间的表征尺度差异巨大），SimNorm 把 latent 逐组 softmax 到单纯形上——像把不同国家的货币统一换算成"占总额的比例"——天然稀疏且尺度有界，多任务归一化分数从 49.6 提到 54.2。加上任务 embedding 的语义结构（相关任务在 embedding 空间邻近），317M 参数的单一 agent 才能在 80 个跨域任务上联合训练而不崩。
+**SimNorm 是给 latent 状态装的"稳压器"**。原版 TD-MPC 对 latent 不加任何约束，训练中 latent 会自我膨胀、梯度爆炸直至发散——论文附录 G 显示 Dog Trot、Walker Stand 等任务上 TD-MPC 梯度范数飙到 $10^9$ 以上。SimNorm 把 latent 切成一组和为 1 的单纯形坐标，天然有界且偏向稀疏（每个 group 内少数维度携带大部分概率质量），等于强迫世界模型"用离散词汇的软混合来描述状态"。这个改动看似工程小技巧，却是整个 scaling 结论（朴素放大 TD-MPC 反而变差、TD-MPC2 五档规模单调变好）的前提条件；与之配套的任务嵌入归一化（$\ell_2\le1$）同理保证了 80 任务混训时不同任务的条件信号不会互相放大。
 
 ## 工程细节与实操指南
 
-- **Encoder $h_\\theta$**: 观测 → latent $z_t$，共享于所有下游组件
-- **Dynamics $d_\\theta$**: $(z_t, a_t)$ → $z_{t+1}$，学习 latent 前向动态
-- **Reward $R_\\theta$**: $(z_t, a_t)$ → $r_t$，预测即时奖励
-- **Value $Q_\\theta$**: $(z_t, a_t)$ → $q_t$，TD-learning 估计期望回报
-- **Policy prior $p_\\theta$**: $z_t$ → $a_t$，引导 MPC 采样（减少随机采样浪费）
-- **MPC 推理**：在 latent space 采样 N 条动作轨迹，用 dynamics roll-out H 步，Q-value 评估，选最优轨迹第一条动作执行；下次观测后重规划
-- 多任务训练 317M 参数需大量 GPU（论文用 TPU v3 pod），但推理时单 GPU 可行
-- Policy prior 的作用：将随机采样引导到高概率区域，大幅减少 MPC 所需采样数
+| 项目 | 值 | 备注 |
+|------|-----|------|
+| Planning | horizon 3 / 迭代 6 / population 512 / 精英 64 / 温度 0.5 | 动作维度 ≥20 时迭代 +2；无动量；warm-start 左移一位 |
+| Policy prior 采样 | 24 条 / 步 | 最大熵 RL，log std 截断 [-10, 2] |
+| 网络架构 | 全 MLP + LayerNorm + Mish；encoder dim 256、MLP dim 512、latent 512（5M 版本） | Q 头第一层后接 1% dropout |
+| 损失系数 | JEP 20 / reward 0.1 / value 0.1 / 时间衰减 λ=0.5 | reward,value 为 101-bin 离散回归 |
+| Q-ensemble | 5 个（target 取随机 2 个的 min，EMA momentum 0.99） | 317M 版本用 8 个 |
+| SimNorm | 分组维 V=8，τ=1 | 附录含 3 行 PyTorch 实现 |
+| 优化 | UTD 1、batch 256、lr 3e-4 / encoder 1e-4、Adam、梯度裁剪 norm 20 | 多任务训练 batch 放大到 1024，其余不变 |
+| 启发式 | $\gamma=\mathrm{clip}((T/5-1)/(T/5),[0.95,0.995])$；seed steps $\max(5T,1000)$ | DMControl T=500 得 γ=0.99 |
+| 多任务 | 任务嵌入 96 维 max-norm 1；输入输出 zero-pad；无效动作维度掩码 | 条件化全部五个组件 |
+| 模型规模表 | 1M(d128)/5M(d512)/19M(d768,enc1024)/48M(d768,enc1792)/317M(d1376,enc4096) | 编码器层数 2/2/3/4/5；19M 起 latent 768 |
 
-## 实验
-
-**单任务 (104 tasks, 固定超参)**:
-| Domain | 任务数 | vs Dreamer v3 | vs SAC |
-|--------|-------|---------------|--------|
-| DMControl | 39 | 显著超越 | 显著超越 |
-| Meta-World | 50 | 显著超越 | 显著超越 |
-| ManiSkill2 | 5 | 显著超越 | 显著超越 |
-| MyoSuite | 10 | 显著超越 | 显著超越 |
-
-**多任务 scaling**: 317M 参数 agent 执行 **80 个任务**（4 域 × 多具身 × 多动作空间），单个模型单一超参。
+实操要点：(1) 数据集构建——多任务模型用的是 240 个单任务 agent replay buffer 合并出的 545M transitions；80 任务集合由全部 50 个 Meta-World 任务加 30 个 DMControl 任务组成（另有 30-task 纯 DMControl 子集单独报告了扩容曲线）；(2) 评测发布 300+ checkpoints；(3) 若做视觉输入，换 4 层浅 CNN encoder + 64×64 输入 + random shift 增强，其余超参不动；(4) 微调新任务时可把 $e$ 初始化成语义相近任务的嵌入或随机向量。
 
 ## 消融实验与分析
 
-| 消融/对比维度 | 设置对比 | 关键结果 |
-|---------|---------|---------|
-| 数据效率（104 任务） | TD-MPC2（单一超参）vs SAC/DreamerV3/TD-MPC | 全部任务域胜出；TD-MPC 部分任务因梯度爆炸发散 |
-| 无先验基准（MyoSuite） | 发布前未跑过该 benchmark 的配置 | 10 个 MyoSuite 任务依然全面胜出，排除调参嫌疑 |
-| 高难任务（Pick YCB） | TD-MPC2 vs 其他方法（14M 步，74 个 YCB 物体） | TD-MPC2 >60% 成功率，其他方法在预算内学不出来 |
-| 表示归一化（80 任务多任务） | No Norm vs SimNorm | 归一化分数 49.6 → 54.2，SimNorm 对训练稳定性至关重要 |
-| Q-function ensemble | 2 / 5 / 10 个 | 实践中用 5 个；ensemble + EMA 目标降低 TD-target 偏差 |
-| 模型规模 scaling | 1M / 5M / 19M / 48M / 317M | 多任务性能随规模单调提升，317M agent 执行 80 任务 |
-| 训练预算对比 | batch 256 / UTD 1（TD-MPC2）vs batch 512（SAC/TD-MPC）vs UTD 512（DreamerV3） | 相同甚至更少的更新预算下性能更优 |
+| 实验 | 对照设置 | 关键数字结果 |
+|------|------|------|
+| 扩容主曲线（图 7，80 任务 normalized score） | 1M/5M/19M/48M/317M | **16.0 → 49.5 → 57.1 → 68.0 → 70.6**；30 任务 DMControl 子集 **18.9 → 28.3 → 54.2 → 59.4 → 71.4**；TD-MPC 同规模不升反降 |
+| Actor 消融（图 9 bar，19M 80 任务） | 仅策略 vs 仅规划 vs 策略+规划 | Policy **42.2**、Planning **53.7**、Planning+Policy **54.2**（单任务难例集上三者为 Actor 曲线组） |
+| 表征归一化（图 9） | No Norm vs SimNorm vs LN+SimNorm | **46.8 → 51.0 → 54.2** |
+| 回归形式（图 9） | 连续回归 vs 离散回归 | Continuous **49.6** vs Discrete **54.2** |
+| Q 数量（图 9） | 2 / 5 / 10 个 | **53.5 / 54.2 / 57.0** |
+| 任务嵌入归一化（图 18） | unnormalized vs normalized（ℓ2≤1） | **46.6** vs **54.2** |
+| 少样本迁移（图 8） | 从零训练 vs 70 任务预训练后在 10 个 held-out 任务微调 20k 步 | From scratch **24.0** vs Finetuned **47.0**（约 2 倍提升） |
+| 训练成本（表 1，单张 RTX 3090 GPU 天） | 各规模 | 1M:**3.7** 天(score 16.0)、5M:**4.2**(49.5)、19M:**5.3**(57.1)、48M:**12**(68.0)、317M:**33**(70.6) |
+| 样本效率对照（表 5，ViT-L 冻结评测） | V-JEPA vs OmniMAE / VideoMAE / Hiera-L | K400 **80.8** vs 65.6/77.8/75.5；SSv2 **69.5** vs 60.6/65.5/64.2；AVA **25.6** vs 14.4/21.6/15.8；预处理仅见 **270M** 样本（基线最高 2400M） |
 
-**核心结论**：TD-MPC2 的验证逻辑是"广度 + 深度"双层——广度上，104 个任务单一超参全面超越特化调参的 SAC/TD-MPC 与生成式 DreamerV3，且 MyoSuite 的"无先验"结果排除了过拟合基准的嫌疑；深度上，Pick YCB（74 物体）>60% vs 其他方法学不出来，说明隐式世界模型在高维视觉操作任务上具有架构性优势。消融层面，SimNorm（49.6→54.2）与 Q-ensemble 是稳定性支柱，模型规模 1M→317M 单调 scaling 证明算法创新的可扩展性——这与 WEAVER/FlashSAC 观察到的"scaling 配方在 RL 中复现"互相印证。
+**核心结论**：(1) 扩容有效性是本文第一主张——TD-MPC2 的 score 随参数近线性于 log 参数上升且 317M 时仍未饱和，而同样放大的 TD-MPC 性能下降，说明瓶颈在算法鲁棒性而非规模。(2) 消融贡献排序清晰：去掉整个 planning 掉约 12 分（42.2 对 54.2）是最痛的一刀，其后依次是 Latent 归一化（46.8 对 54.2）、回归形式（49.6 对 54.2）、任务嵌入归一化（46.6 对 54.2）；Q-ensemble 则给出正向扩展信号（2 个 53.5 到 10 个 57.0），规划主体（Planning 53.7）已经接近完整方法，说明 value-quality 与模型质量承担了大部分能力。(3) 少样本翻倍（24.0 到 47.0）与视觉任务持平 DrQ-v2/DreamerV3 说明该配方不止在 state 输入下成立，为"通用世界模型作为机器人基础模型"提供了第一批可复现证据。
 
 ## 技术权衡（Trade-off）
 
-| 优势 | 劣势与工程代价 |
-|------|----------------|
-| 无解码器，训练更高效（无重建 computation） | 缺少重建可视化，难以 debug 世界模型质量 |
-| 单一超参 104 任务，超越特化算法 | MPC 在 latent space 的采样仍消耗推理时间 |
-| 多任务 scaling 到 317M/80 tasks | 庞大规模训练需要大量计算资源 |
-| Policy prior 引导 MPC 采样，减少计算 | Prior 质量影响 planner 效率，差 prior 需更多采样 |
+| 优势 | 代价与边界 |
+|------|-----------|
+| 无需像素重建，模型容量集中在控制相关信息，支持大规模混训与跨具身 | 没有 rollout 可视化，调试只能依赖 reward/Q 曲线与 t-SNE 任务嵌入 |
+| 显式规划响应快（horizon 3、分钟级内可重规划），对分布偏移更鲁棒 | 每个动作要跑 6 次 MPPI 迭代 × 512 候选的模型前向，吞吐低于直接查表式策略 |
+| 统一超参覆盖 104 个连续控制任务并可零改扩到视觉 | 不支持离散动作空间（附录 I 明示为开放问题，Atari/Minecraft 类任务仍需 Dreamer 一系） |
+| 依赖 reward 才能定义任务，多任务靠嵌入区分 | 作者自列三条风险：reward 错误设定导致意外行为、把不受约束的自主权交给模型可能有灾难性后果、小团队难以负担大规模数据采集导致的资源集中；且简单 reward 之外的监督（success label、偏好）如何用于预训练仍是开放问题 |
 
 ## 技术价值与演进定位
 
-TD-MPC2 是"世界模型 + 规划"路线的代表——与 Dreamer 无模型路线（actor-critic 在 latent 想象训练）形成多任务 RL 两条主线。它的三个贡献具有持久影响力：其一，**隐式（decoder-free）世界模型的可行性证明**——不做像素重建、以 TD-learning 提供任务信号，使世界模型的学习目标与任务目标直接对齐，5M 参数 + UTD=1 就超过 20M 参数 + UTD=512 的生成式方法；其二，**大规模多任务 scaling 实证**——317M 参数单 agent 在 80 个跨域/跨具身/跨动作空间任务上联合训练，配合 SimNorm 表示归一化解决 latent 漂移，为"通用机器人 RL 基础模型"提供了可复现配方；其三，**latent space MPC + policy prior 的规划范式**——MPC 以规划替代显式 actor，天然闭环鲁棒。后续 TD-MPC2 系（如与 VLA 结合的离线世界模型微调）持续沿用这一底座，SimDist 的 MPPI 规划也直接复用 TD-MPC 的实现。
+TD-MPC2 第一次证明"RL 世界模型也能像 LLM 一样扩而不崩"，它给出的可扩容配方由三件事组成：受约束的表征（SimNorm + LayerNorm 数值域）、与奖励量级解耦的目标（离散回归）、以及跨任务条件化的接口（任务嵌入 + zero-pad/mask）。在此之前，model-based RL 的共识是"加大模型常常变差"；此文与其 appendix G 的梯度可视化一起把这个结论修正为"未稳住的模型才会"。对机器人方向的定位是承上启下的：它是 model-based RL 到通用机器人的桥——80 任务、多具身、多动作空间的单一 checkpoint，加上预训练模型微调翻倍的 few-shot 结果，预告了后来 world-model-as-foundation-model 的技术路线；它也明确点名下一步需要把 "reward 换成 success label、人类偏好或 goal embedding 距离" 这类广义监督来做大规模预训练。
 
 ## 与其他论文的关系
 
-- **Dreamer v3** 同是世界模型 RL，但用显式解码 + 像素重建，TD-MPC2 用隐式 + TD-learning
-- **DayDreamer** 将 Dreamer 应用到真实机器人，TD-MPC2 的隐式世界模型在真实机器人上待验证
-- **π0 / π0.5** 用 VLM + flow matching 做模仿学习，TD-MPC2 用 RL + planning，互为补充
+- **Dreamer v3 — 同题对立的镜像方案**：两者都是"latent 世界模型 + actor-critic"，但 Dreamer 用重建损失学生成式模型、在想象中训练策略、执行时不搜索；TD-MPC2 用 JEP 学隐式模型、执行时 MPPI 搜索。本文实验直接报告 DreamerV3 baseline（S 尺寸 20M、UTD 512）在 Dog 任务数值不稳、操纵任务弱于自己；反过来其附录 I 承认离散动作无法处理。
+- **TD-MPC（2022）— 直接前身**：保留"latent 规划 + TD 学模型"骨架，新增 LayerNorm+Mish 架构、SimNorm、max-entropy policy prior、Q-ensemble（2 到 5）、离散回归、任务嵌入多任务框架，并用 uniform replay 替代优先回放、删去 MPPI 动量，换来"朴素扩容不再退化"这一关键性质。
+- **I-JEPA / BYOL — JEP 表示学习的同源思想**：模型目标的 JEP 项就是 BYOL 式 online-target-EMA 结构；差别在于 JEPA 用于静态感知预训练，而此处把它作为控制回路内模型的动态正则，并与 TD bootstrap 共存。
+- **V-JEPA — 表征线的视频端延伸**：同属"predict in latent space"家族，V-JEPA 预测时空块特征并以 attentive probe 消费；TD-MPC2 则把 latent 预测用于动作条件的规划。两者共同支撑了 LeCun "predicting in representation space" 的技术主张，前者走向通用视觉表征，后者走向机器人基础策略。
+- **DayDreamer — 同族路线的真机分支**：DayDreamer 证明 Dreamer 型重建世界模型能在真机 1 小时学会走路；本文引用的 Modem 与 Modem-V2（Lancaster et al.）把同一支 TD-MPC 路线推向真实机器人操纵，其中 Modem-V2 已支持 9×224×224 大分辨率视觉输入，延续"decoder-free + 规划"的真机可行性。
+- **Gato / RT-1 / GSL — 扩容对照组**：这三条线分别依赖专家演示、动作 token 化或种群蒸馏，TD-MPC2 强调自己不需要 near-expert 数据、不做动作离散化即可容纳混合质量数据与高维连续动作。
 
 ## 精读问题
 
-1. 隐式世界模型的不可观测性如何验证？如何确保 latent space 学到了有意义的表征？SimNorm 的稀疏偏置是否限制了表示容量？
-2. Policy prior 的质量多大程度上影响 MPC 的效率？差的 prior 需要多少额外采样？prior 与 planner 的交互是否存在博弈（prior 变好 → planner 采样分布收窄 → 探索退化）？
-3. 317M 模型在 80 任务上是否出现负迁移？多任务训练 vs 单任务训练的性能差距？任务 embedding 的语义结构与迁移方向的关系？
-4. UTD=1 与 batch 256 在 104 任务上通用，但在真实机器人（样本昂贵、非平稳）上是否仍然成立？离线微调（Feng et al. 2023）的边界在哪？
-5. 规划视界 H 与 Q-value 评估的交互——长视界下 latent 动力学误差如何累积？MPC 重规划频率与性能的权衡？
+1. **规划的贡献边界**：消融显示 Planning-only 已达 53.7（完整方法 54.2），那么对多任务泛化真正关键的究竟是"在 latent 里搜索"还是"TD 逼出的高质量 Q"？如果把 horizon 从 3 扩到 10、planning 迭代减半，80 任务曲线会怎么移动？
+2. **任务嵌入学到的是什么**：t-SNE 显示 Door Open 与 Door Close 相邻、聚类更贴近动力学相似性而非目标相似性——那么对一个动力学相同但奖励相反的新任务，这种嵌入空间还能提供有意义的初始化吗？
+3. **JEP 权重 20 对 0.1 的悬殊比例**：representation 损失权重是 reward/value 的 200 倍，为什么 latent 结构需要如此强势？这是否等价于把世界模型当作"表征学习方法"、把 reward/value 当作轻量探针？
+4. **离散回归的 bin 设计风险**：101 个 log-space bin 的范围必须覆盖所有任务的奖励与 Q 量级，多任务混训时极端任务（如 Pick YCB 的稀疏 success 奖励）是否会挤占 bin 分辨率？换 twohot 式分段线性变换是否更稳？
+5. **扩容曲线上限**：317M 时 70.6 仍在上升，但继续扩容需要更多任务与数据，而 545M transitions 已来自 240 个 agent 的 replay——瓶颈会不会先出现在任务多样性而非参数量？
+6. **与采样式规划的替代关系**：CEM/MPPI 这种 derivative-free 优化在动作维度高时的缩放规律是什么？若换成 MuZero 式树搜索（作者在附录 I 建议），是否需要先重新参数化离散动作的搜索接口，还是可以借鉴 Hubert et al. 用采样把 MCTS 搬到连续动作空间的思路反向操作？

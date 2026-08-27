@@ -1,245 +1,197 @@
 # Diffusion Policy: Visuomotor Policy Learning via Action Diffusion
 
 - 本地 PDF：`papers/architecture/Diffusion_Policy_2303.04137.pdf`
-- arXiv：https://arxiv.org/abs/2303.04137
-- 年份：2023
-- 阶段：连续动作生成范式——扩散模型引入机器人策略学习
+- arXiv：https://arxiv.org/abs/2303.04137 （v5, 2024-03；会议版为 RSS 2023）
+- 年份：2023 (RSS 2023)
+- 团队：Columbia University（Shuran Song 组）+ Toyota Research Institute + MIT CSAIL
+- 阶段：行为克隆策略表示的分水岭工作——把 visuomotor policy 的输出从"一次回归"改成"条件去噪扩散"，此后 VLA 的 action expert 基本都沿用这一表示
 
 ## 一句话总结
 
-Diffusion Policy 将扩散模型（DDPM）引入机器人视觉运动策略学习，将动作生成建模为条件去噪扩散过程，通过预测动作序列的梯度场而非直接回归，完美解决了多模态动作分布问题和训练不稳定性，在 15 个任务上平均提升 46.9%。
+把机器人策略写成条件 DDPM：以视觉观测 $O_t$ 为条件，从高斯噪声出发迭代去噪出一段长度为 $T_p$ 的动作序列，配合 receding horizon control 只执行前 $T_a$ 步；在 4 个 benchmark 的 15 个任务上平均超过此前 SOTA 46.9%，并且用 score 而非 energy 绕开了 EBM 策略的负采样不稳定问题。
 
 ## 核心技术
 
-1. **条件去噪扩散概率模型（Conditional DDPM）** — 将机器人动作生成建模为以观测为条件的去噪扩散过程，从高斯噪声逐步细化为动作序列
-2. **闭环动作序列预测 + 滚动时域控制** — 一次性预测 $T_a$ 步未来动作，执行前 $T_p$ 步后重新规划，兼顾长程一致性与实时响应
-3. **时间序列扩散 Transformer（Time-series Diffusion Transformer）** — 基于 minGPT 架构的新型扩散网络，解决 CNN 低频偏置导致的过度平滑问题
+1. **条件扩散作为策略表示**：不直接回归动作，而是学噪声预测网络 $\epsilon_\theta(O_t, A_t^k, k)$，推理时执行 Langevin 式迭代去噪。可表达任意可归一化的分布，包括多模态动作分布。
+2. **Closed-loop action sequence + receding horizon control**：每次推理预测 $T_p$ 步动作、只执行 $T_a$ 步再重新观测重规划（典型配置 $T_p=16$, $T_a=8$, $T_o=2$），兼顾时序一致性与闭环响应。
+3. **视觉条件化而非联合建模**：与 Diffusion Planning 对 $(O, A)$ 联合建模不同，本文只对 $p(A_t|O_t)$ 条件建模——视觉特征只编码一次，所有去噪步共享，使实时控制可行并让 vision encoder 可以端到端训练。
+4. **两种 backbone**：
+   - CNN-based（1D temporal conv + FiLM 注入观测与迭代步）：稳定、几乎免调参，默认首选；
+   - Time-series diffusion transformer（minGPT decoder，cross-attention 注入观测 embedding，causal mask）：缓解 temporal conv 偏好低频信号的 over-smoothing，在高频动作变化/速度控制的任务上占优。
+5. **DDIM 加速**：训练 100 步去噪、推理降到 10~16 步，RTX 3080 上 0.1s 推理延迟，10Hz 出指令再插值到 125Hz 执行。
+6. **位置控制优先**：发现 position-control action space 一致优于 velocity-control，与传统 BC 文献结论相反。
 
 ## 底层原理与数学推导
 
-Diffusion Policy 的核心洞察是：传统回归方法（MSE Loss）在处理机器人多模态动作分布时，倾向于预测无效的"平均动作"；而显式的概率建模方法（如 Mixture of Gaussians 或 Energy-Based Models）要么难以表达复杂分布，要么训练不稳定。扩散模型通过学习**动作分布的梯度（Score Function）**，绕过了归一化常数的计算，实现了稳定训练与复杂多模态分布表达的统一。
+### 1. 去噪即"在能量面上做带噪梯度下降"
 
-### 1. DDPM 数学推导
+DDPM 的单步反向更新写作：
 
-#### 前向扩散过程（加噪）
+$$
+x^{k-1} = \alpha\left(x^k - \gamma\,\epsilon_\theta(x^k, k) + N(0, \sigma^2 I)\right)
+$$
 
-给定干净数据样本 $x_0 \sim q(x_0)$（即真实动作），前向过程逐步添加高斯噪声，经过 $K$ 步将其破坏为纯噪声：
+把它和一步 noisy gradient descent 对照：
 
-$$q(x^k | x^{k-1}) = \mathcal{N}(x^k; \sqrt{1-\beta_k} x^{k-1}, \beta_k I)$$
+$$
+x' = x - \gamma \nabla E(x)
+$$
 
-其中 $\beta_k$ 为预先定义的噪声方差调度（noise schedule），满足 $0 < \beta_1 < \beta_2 < ... < \beta_K < 1$。通过重参数化技巧，可以直接从 $x_0$ 一步采样任意 $x^k$：
+可知 $\epsilon_\theta$ 实际上是在拟合能量函数的梯度场 $\nabla E(x)$，而 $\alpha, \gamma, \sigma$ 随迭代步 $k$ 的调度等价于学习率调度（$\alpha$ 取略小于 1 有助稳定）。这就是为什么扩散策略既保住了 implicit policy 的分布表达力，又不需要显式算 $E$ 本身。
 
-$$x^k = \sqrt{\bar{\alpha}_k} x_0 + \sqrt{1 - \bar{\alpha}_k} \epsilon, \quad \epsilon \sim \mathcal{N}(0, I)$$
+### 2. 训练目标（条件化后的 MSE 去噪损失）
 
-其中 $\alpha_k = 1 - \beta_k$，$\bar{\alpha}_k = \prod_{i=1}^{k} \alpha_i$。当 $K$ 足够大时，$\bar{\alpha}_K \to 0$，$x^K \to \mathcal{N}(0, I)$，完全丢失原始数据信息。
+对策略形态只需要两个改动：把 $x$ 换成动作序列 $A_t$，并把去噪过程条件化到观测上。
 
-#### 重参数化技巧
+$$
+A_t^{k-1} = \alpha\left(A_t^k - \gamma\,\epsilon_\theta(O_t, A_t^k, k) + N(0, \sigma^2 I)\right)
+$$
 
-重参数化技巧是 DDPM 能够高效训练的关键。它将采样过程 $x^k \sim \mathcal{N}(\sqrt{\bar{\alpha}_k} x_0, (1-\bar{\alpha}_k)I)$ 重写为确定性变换加噪声：
+$$
+L = \text{MSE}\left(\epsilon_k,\ \epsilon_\theta(O_t,\ A_0^t + \epsilon_k,\ k)\right)
+$$
 
-$$x^k = \sqrt{\bar{\alpha}_k} x_0 + \sqrt{1 - \bar{\alpha}_k} \epsilon, \quad \epsilon \sim \mathcal{N}(0, I)$$
+按 Ho et al. 的结果，最小化该 MSE 同时最小化了数据分布 $p(x^0)$ 与 DDPM 采样分布之间 KL 散度的 variational lower bound——也就是标准的 DDPM evidence bound 简化形式。噪声调度采用 iDDPM 的 squared cosine schedule。
 
-这样做的意义：
-- 梯度可以自由传播通过采样操作（因为随机性被隔离到 $\epsilon$ 中）
-- 训练时无需逐步执行 $K$ 步加噪，一步即可从 $x_0$ 跳到任意 $x^k$
-- 损失函数可以直接在 $\epsilon$ 空间定义，即预测添加的噪声
+### 3. 为什么比 EBM implicit policy 稳定：score 与配分函数无关
 
-#### 逆向去噪过程（生成）
+Implicit policy（IBC）用 EBM 表示动作分布：
 
-逆向过程学习从一个步骤预测噪声并去除：
+$$
+p_\theta(a|o) = \frac{e^{-E_\theta(o,a)}}{Z(o,\theta)}
+$$
 
-$$p_\theta(x^{k-1} | x^k) = \mathcal{N}(x^{k-1}; \mu_\theta(x^k, k), \Sigma_\theta(x^k, k))$$
+其 InfoNCE 损失需要用负样本估计不可积的 $Z(o,\theta)$：
 
-训练时，噪声预测网络 $\epsilon_\theta$ 学习预测添加到 $x_0$ 上的噪声 $\epsilon$：
+$$
+L_{infoNCE} = -\log\left(\frac{e^{-E_\theta(o,a)}}{e^{-E_\theta(o,a)} + \sum_{j=1}^{N_{neg}} e^{-E_\theta(o, e a_j)}}\right)
+$$
 
-$$L = \text{MSE}(\epsilon, \epsilon_\theta(x_0 + \epsilon_k, k))$$
+而扩散策略改为建模同一分布的 score function，配分函数项被梯度消掉：
 
-其中 $x_0 + \epsilon_k$ 即重参数化后的 $x^k$。Ho et al. (2020) 证明了最小化此损失等价于最小化数据分布 $p(x_0)$ 与 DDPM 生成分布 $q(x_0)$ 之间的 KL 散度的变分下界。
+$$
+\nabla_a \log p(a|o) = -\nabla_a E_\theta(a,o) - \underbrace{\nabla_a \log Z(o,\theta)}_{=\,0} \approx -\epsilon_\theta(a,o)
+$$
 
-推理时，从纯高斯噪声 $x^K \sim \mathcal{N}(0, I)$ 开始，通过 $K$ 步迭代去噪：
+训练和推理都不出现 $Z(o,\theta)$，因此没有负采样偏差带来的 loss 尖峰——这是 Fig. 6 中 IBC 训练曲线震荡、success rate 来回摆动，而 Diffusion Policy 平滑收敛的根因。
 
-$$x^{k-1} = \frac{1}{\sqrt{\alpha_k}} \left( x^k - \frac{\beta_k}{\sqrt{1-\bar{\alpha}_k}} \epsilon_\theta(x^k, k) \right) + \sigma_k z, \quad z \sim \mathcal{N}(0, I)$$
+### 4. Receding horizon 控制
 
-#### 噪声调度（Noise Schedule）
+每个控制周期：输入最近 $T_o$ 步观测 $O_t$，去噪出 $T_p$ 步动作，仅执行前 $T_a$ 步，然后丢弃剩余部分重新观测重规划。这与 MPC 中的 receding horizon control 同构；论文还提到可以用上一次预测的动作序列 warm-start 下一次推理的去噪起点来进一步提升平滑度。选择 $T_a$ 是在两个失败模式之间取中点：$T_a$ 太小退化成单步策略（jitter、无法跨模态承诺），太大则反应迟钝。
 
-Diffusion Policy 在实践中采用 DDIM（Denoising Diffusion Implicit Models）以在推理时减少去噪步数。DDIM 将去噪过程改为确定性过程：
+### 5. 控制论极限情形（Tp=1 的线性系统）
 
-$$x^{k-1} = \sqrt{\bar{\alpha}_{k-1}} \left( \frac{x^k - \sqrt{1-\bar{\alpha}_k} \epsilon_\theta(x^k, k)}{\sqrt{\bar{\alpha}_k}} \right) + \sqrt{1-\bar{\alpha}_{k-1}} \epsilon_\theta(x^k, k)$$
+对线性系统 $s_{t+1} = A s_t + B a_t + w_t$，若示范来自线性反馈策略 $a_t = -K s_t$（如 LQR 解），则当 $T_p = 1$ 时最优 denoiser 为：
 
-这使得训练时可以使用全部 $K=100$ 步，但推理时仅需 $K'=16$ 步子采样，大幅加速推理。在 Diffusion Policy 的实验中，训练时设 100 步去噪迭代，推理时可降至 16 步（如表 7、表 8 的 `D-Iters Eval` 列所示）。
+$$
+\epsilon_\theta(s, a, k) = \frac{1}{\sigma_k}\,[a + K s]
+$$
 
-### 2. 为什么扩散模型解决了多模态动作分布问题
+DDIM 采样会收敛到全局极小 $a = -Ks$。而当 $T_p > 1$ 时，最优 denoiser 给出 $a_{t+t'} = -K(A-BK)^{t'} s_t$，说明要完美克隆一个依赖状态的轨迹式行为，学习者必须隐式学到任务相关的 dynamics model。
 
-**传统方法的困境：**
-- **显式策略（Explicit Policy）**：如 Mixture of Gaussians，需要预先指定模态数量 $K$，在多模态分布中 $K$ 未知时难以拟合
-- **隐式策略（Implicit Policy）**：如 Energy-Based Models (IBC)，学习能量函数 $E_\theta(o, a)$，但训练需要负采样来估计归一化常数 $Z(o, \theta)$，导致训练不稳定
-
-**扩散模型的优势：**
-扩散模型实际上是学习**动作分布的 Score Function**（分数函数/梯度场）：
-
-$$\nabla_a \log p(a|o) = -\nabla_a E_\theta(a, o) - \underbrace{\nabla_a \log Z(o, \theta)}_{=0} \approx -\epsilon_\theta(a, o)$$
-
-噪声预测网络 $\epsilon_\theta(a, o)$ 近似等于负的分数函数 $-\nabla_a \log p(a|o)$，而分数函数**天然独立于归一化常数** $Z(o, \theta)$。因此：
-- 训练时无需负采样，避免了 IBC 的不稳定性（见图 6：IBC 的 Loss 虽平滑下降但验证成功率剧烈震荡）
-- 推理时通过 Langevin 动力学逐步优化，可以从多个模式中选择一个合理动作，而非"平均"多个模式
-
-### 3. 与 Energy-Based Model 的等价性分析
-
-Diffusion Policy 与 IBC 共享隐式策略的本质，区别在于训练方式。IBC 直接建模能量函数 $E_\theta(o, a)$，训练使用 InfoNCE 损失：
-
-$$L_{\text{infoNCE}} = -\log\left( \frac{e^{-E_\theta(o, a)}}{e^{-E_\theta(o, a)} + \sum_{j=1}^{N_{\text{neg}}} e^{-E_\theta(o, \tilde{a}_j)}} \right)$$
-
-负样本质量直接影响训练稳定性。扩散模型建模的是能量函数的梯度 $\nabla_a E_\theta$，避免了归一化常数的估计，从根本上保证了训练稳定性。
-
-### 4. 与控制理论的联系（线性情形退化为 LQR）
-
-当任务足够简单（线性动态系统 + 线性反馈策略）时，Diffusion Policy 存在解析解。考虑线性系统：
-
-$$s_{t+1} = A s_t + B a_t + w_t, \quad w_t \sim \mathcal{N}(0, \Sigma_w)$$
-
-演示数据来自线性反馈策略 $a_t = -K s_t$。当预测步长 $T_p = 1$ 时，最优去噪器为：
-
-$$\epsilon_\theta(s, a, k) = \frac{1}{\sigma_k} [a + K s]$$
-
-推理时 DDIM 采样收敛到全局最优 $a = -K s$。当 $T_p > 1$ 时，预测未来动作等价于隐式学习一个任务相关的动力学模型。
+### 多模态来源与推理流程
 
 ```mermaid
-graph LR
-    DATA[真实动作] --> FORWARD[前向扩散<br/>逐步加噪 K 步]
-    FORWARD --> NOISE[纯噪声]
-    NOISE --> REVERSE[逆向去噪<br/>噪声预测网络逐步还原]
-    REVERSE --> PRED[预测动作序列]
-    PRED --> ROBOT[机器人执行]
-    OBS[当前观测] --> MODEL[噪声预测网络]
-    MODEL --> REVERSE
+flowchart TD
+    A["sample A_t^K from N(0, I)"] --> B["loop k = K down to 0"]
+    B --> C["encode O_t once (vision encoder)"]
+    C --> D["predict eps_theta(O_t, A_t^k, k)"]
+    D --> E["denoise step (alpha * (A - gamma*eps) + noise)"]
+    E --> F{"k == 0 ?"}
+    F -- "no" --> D
+    F -- "yes" --> G["A_t^0 : T_p actions"]
+    G --> H["execute first T_a steps"]
+    H --> I["new observation, re-plan"]
+    I --> A
 ```
+
+多模态的两个来源：(1) 初始噪声 $A_t^K$ 的随机性决定落入哪个吸引盆；(2) 迭代过程中的随机扰动允许样本在盆间移动或最终收敛，因此同一次 rollout 内部会"承诺"一个模式，不会像 BET 那样来回跳模态。
 
 ## 物理直觉解释
 
-Diffusion Policy 就像一个经验丰富的工匠在雕刻——他不是一次性决定所有的刀法，而是一步一步地精修，每次修正一点，最终从一块粗糙的石头（噪声）中雕刻出精美的雕塑（动作序列）。
+**像雕塑而不是画直线。** 显式策略是从观测到动作的一条"直线"：看到一个观测就吐一个数，数据里如果有两条合理路径它只能学出两者的平均——把左手绕和右手绕平均成撞向中间。Diffusion Policy 更像一个雕塑家对着一块粗糙的石料（纯噪声）反复雕琢，每刀都问"这里哪个方向更像合法动作"。因为每一刀（去噪步）都是局部修正，最终可以停在任何一块合理的"形状"上，而不是所有形状的平均。
 
-- **传统回归**：就像试图用一支笔画完美的直线，如果动作是多模态的，笔就会画在两条可能路径的中间，结果是一条歪歪扭扭的"平均线"
-- **混合高斯模型（GMM）**：就像预先决定用几根线条来拟合，但如果真实动作的"路径数"不确定，就无法准确表达
-- **能量模型（IBC）**：就像在动作空间中画一张"地形图"，山谷对应好的动作。但训练时需要在所有可能的动作中采负数样本，就像在没有地图的荒野中找路，极其不稳定
-- **扩散模型**：就像一块粗糙的石头（噪声）在被不断地雕琢（去噪），每一步都去除一点点不确定性，最终呈现出清晰的形状
+**Receding horizon 像 MPC 开车看远灯。** 只执行 $T_a=8$ 步就重新规划，相当于司机按远光灯预判前方 $T_p=16$ 步的路，但手上方向盘每隔一小段就微调一次。只看一步开车会抖（每帧独立决策、模态乱跳），一口气开 16 步不看路又会撞——action chunking 把"计划的长"和"反馈的快"拆成两个旋钮分开调。此外因为预测的是未来一段绝对位姿，指令本身就带了对处理延迟的容忍：即使晚 4 步才收到第一条动作，那仍是序列里正确的一步，这解释了 latency robustness 到 4 步的现象。
 
-**为什么扩散模型更适合机器人动作生成？**
-- 机器人动作天然是多模态的：同一任务可以用左手或右手抓，可以从上方或侧方接近
-- 动作序列必须保持时序一致性：如果每一步都独立采样，动作会在不同模态之间抖动
-- 扩散模型通过预测整个动作序列的梯度场，同时解决了多模态表达和时序一致性问题
+**Score 比 Energy 好 学，像学坡度而不是学海拔图。** Implicit policy 要画出整张海拔图（energy landscape），但归一化常数 $Z$ 相当于"海平面的绝对高度"永远测不准，只能靠抽负样本猜，猜错整张图就扭曲、训练崩。Diffusion Policy 只需要知道"站在任何一点该往哪边下坡"，绝对高度完全不用管（$\nabla \log Z = 0$）。学一个方向场当然比重建一整个标量场容易且稳得多。
+
+**CNN 与 Transformer 的差别是低通滤波器 vs 可编程滤波器。** 时间卷积天然偏好低频信号，遇到需要急停急转的速度控制序列就会把尖峰抹圆；transformer 的 attention mask 则是逐 token 决定看谁，能保留高频突变。代价是 transformer 对 attention dropout、weight decay 这类超参敏感得多。
 
 ## 工程细节与实操指南
 
-### 架构设计
-
-**CNN 版 Diffusion Policy：**
-- 采用 1D 卷积的 U-Net 结构，观测特征通过 FiLM（Feature-wise Linear Modulation）逐通道调制卷积层
-- 从高斯噪声 $A_t^K$ 开始，经 $K$ 次噪声预测与减法迭代，得到去噪动作序列 $A_t^0$
-- 优点：超参数鲁棒性强，开箱即用效果好
-- 缺点：CNN 的时域卷积归纳偏置偏向低频信号，对高频动作变化的拟合能力不足
-
-**Transformer 版 Diffusion Policy（Time-series Diffusion Transformer）：**
-- 基于 minGPT 架构，每个动作 embedding 仅关注自身及之前的动作 embedding（因果注意力掩码）
-- 观测 $O_t$ 经共享 MLP 编码为观测 embedding 序列，通过交叉注意力输入 Transformer Decoder
-- 去噪迭代 $k$ 的正弦位置编码作为首个 Token 输入
-- 优点：高频动作变化拟合能力强
-- 缺点：超参数敏感，注意力的 dropout rate 和 weight decay 需针对不同任务精细调优
-
-### 归一化处理
-
-动作数据的归一化对 Diffusion Policy 的性能至关重要：
-- 将每个动作维度独立缩放到 $[-1, 1]$ 范围，适配 DDPM 的 $[-1, 1]$ 裁剪操作
-- 当数据方差较小时（如接近常数值），先平移至零均值但不缩放，避免数值问题
-- 旋转表示（如四元数）保持不变
-
-### 视觉编码器
-
-- 标准 ResNet-18（无预训练），但做以下修改：
-  1. 全局平均池化替换为 spatial softmax pooling，保留空间信息
-  2. BatchNorm 替换为 GroupNorm，配合 Exponential Moving Average 实现稳定训练
-- 不同视角使用独立编码器，每帧图像独立编码后拼接形成 $O_t$
-- 视觉表示仅提取一次，独立于去噪迭代次数，大幅降低推理计算量
-- 消融实验显示：端到端训练的 ResNet-18 优于固定特征的 R3M 和 ImageNet 预训练模型
-
-### 闭环动作序列预测（核心创新）
-
-- 时间步 $t$ 取最近 $T_o$ 步观测 $O_t$ 作为输入，预测 $T_a$ 步动作
-- 仅执行前 $T_p$ 步动作（$T_p < T_a$），然后重新规划剩余步骤
-- 默认配置（Push-T 任务）：$T_o=2$, $T_a=8$, $T_p=16$，训练 100 去噪步，推理 16 步（DDIM）
-
-### 核心超参数
-
-| 超参数 | CNN 版 | Transformer 版 |
-|--------|--------|----------------|
-| 观测历史 $T_o$ | 2 | 2 |
-| 动作步长 $T_a$ | 8 | 8 |
-| 预测步长 $T_p$ | 16 | 16 |
-| 扩散网络参数量 | 6.7M | 9M |
-| 视觉编码器参数量 | 22M | 22M |
-| 学习率 | 1e-4 | 1e-4 |
-| 训练去噪迭代步数 | 100 | 100 |
-| 推理去噪迭代步数(DDIM) | 16 | 16 |
-
-### 落地实操标准步骤
-
-1. **动作空间选择**：优先使用位置控制（Position Control），避免速度控制（Velocity Control）。扩散模型在位置控制下性能提升显著（+32%~213%），而基线方法更适合速度控制
-2. **数据归一化**：各维度独立缩放到 $[-1, 1]$
-3. **观测编码**：端到端训练 ResNet-18（spatial softmax + GroupNorm）
-4. **滚动时域控制**：$T_o=2$, $T_a=8$, $T_p=16$ 作为默认起点
-5. **DDIM 加速**：训练 100 步，推理 16 步，平衡质量与速度
+- **Action normalization 至关重要**：逐维 min-max 缩放到 $[-1, 1]$。DDPM 每次迭代会把预测 clip 在 $[-1,1]$，所以常用的 zero-mean unit-variance 归一化会让部分动作空间永远到达不了。方差极小的维度只做零均值平移、不缩放；旋转相关维度保持不变。
+- **旋转表示**：velocity control 沿用 axis-angle（指令接近 0 时奇异性无害）；position control 用 6D rotation representation（Zhou et al. 2019）。
+- **Vision encoder**：ResNet-18 不加载预训练权重，global average pooling 换 spatial softmax（保留空间信息）、BatchNorm 换 GroupNorm（与 DDPM 常用的 EMA 配合更稳）。每个相机视角独立 encoder，各时间步独立编码后拼接成 $O_t$，端到端与扩散网络一起训。
+- **噪声调度**：squared cosine schedule（iDDPM）。
+- **关键超参数（Table 7，CNN 版）**：位置控制；$T_o=2$，$T_a=8$，$T_p=16$；lr $1e{-4}$，weight decay $1e{-6}$；训练 100 步去噪迭代；仿真 eval 也 100 步（iDDPM），真机用 DDIM 降到 16 步；state 任务 batch 256、image 任务 batch 64；cosine lr schedule，CNN warmup 500 step、Transformer 1000 step。模型规模约 256M（diffusion net）+ 22M（vision encoder），Transport 双相机 45M；真机版本 67M。Kitchen 里 transformer 版用到 80M/768 emb dim。
+- **实操选型顺序**：新任务先用 CNN-based；性能上不去（任务复杂或高频动作变化）再换 transformer，接受额外调参成本（attention dropout 从 0.01 到 0.3 视任务而定，Kitchen 需要 layer 数加倍）。
+- **BlockPush 是例外**：示范来自 Markovian scripted oracle，最优 horizon 完全不同（$T_p=12$、$T_a=1$ 或 3）；human teleop 数据则统一用 8/16。
+- **Push-T 上 DiffusionPolicy-C 报告的数字用的是 inpainting-style conditioning 而非 FiLM**——换掉 FiLM 后效果好一档，属于论文自己披露的实现细节。
+- **训练时长参考**：real Push-T 每个方法固定训 12 小时取最后一个 checkpoint（IBC 除外，取训练集 MSE 最小的 checkpoint）。
+- **数据效率**：在 40 / 60 / 90 / 130 / 200 条示范的每个规模上 Diffusion Policy 都高于 LSTM-GMM（Fig. 15）。
 
 ## 消融实验与分析
 
-| 消融因子 | 变化 | 结论 |
-|---------|------|------|
-| 扩散推理步数 | 100 vs 16 vs 4 | 16 步推理在精度和速度间最优 |
-| 动作预测 horizon | 16 vs 8 vs 4 步 | 更长 horizon 提升时序一致性 |
-| 观测 horizon | 2 vs 1 帧 | 2 帧历史显著优于单帧 |
-| 扩散架构 | CNN vs Transformer (DiT) | DiT 在大规模数据上表现更好 |
+**视觉 encoder 与训练策略（robomimic Square PH，CNN backbone，500 epochs，成功率）**
 
-**核心结论**：动作 horizon 和推理步数是 Diffusion Policy 的两个关键权衡——长 horizon 改善时序一致性，少步数降低延迟。
+| 架构 & 预训练 | from scratch | frozen pretrained | finetuning |
+|---|---|---|---|
+| ResNet-18 (in21k) | 0.94 | 0.58 | 0.92 |
+| ResNet-34 (in21k) | 0.92 | 0.40 | 0.94 |
+| ViT-B/16 (CLIP) | 0.22 | 0.70 | 0.98 |
+
+**核心结论**：frozen 预训练特征全面变差（最好也只有 0.70，ResNet-34 甚至掉到 0.40），说明扩散策略需要与通用预训练不同的视觉表征；finetune 小学习率（相对策略网络 10 倍小）最划算——CLIP ViT-B/16 finetune 只训 50 epochs 就到 98% 成功率；ViT from scratch 只有 22%，数据量不足时无法白手起家。
+
+**多阶段长视野任务（状态观测，成功率）**
+
+| 方法 | BlockPush p1 | BlockPush p2 | Kitchen p1 | Kitchen p4 |
+|---|---|---|---|---|
+| BET | 0.96 | 0.71 | 0.99 | 0.44 |
+| DiffusionPolicy-C | 0.36 | 0.11 | 1.00 | 0.99 |
+| DiffusionPolicy-T | 0.99 | 0.94 | 1.00 | 0.96 |
+
+**核心结论**：长视野多模态上优势最大——BlockPush p2 提升 32%、Kitchen p4 提升 213%；但 CNN 版在 BlockPush 上反而崩（p1 仅 0.36），只有 transformer 版拿下 0.99，说明 backbone 选择在这类 scripted-oracle 数据上是决定性的。
+
+**仿真整体汇总（Table 1/2/4 平均）**：对每列取 baseline 最优与 Diffusion Policy 两个变体的最优之差算相对提升，$\frac{1}{N}\sum_i improvement_i = 0.46858 \approx 46.9\%$，且每个任务都为正。
+
+**真机 Push-T（136 条示范，IoU / 成功率）**：Human 0.84 / 100%；DiffusionPolicy(E2E, Transformer) 0.80 / 95%（时长 22.9s vs 人类 20.3s）；R3M 版 80% 但抖动且易卡住；ImageNet 版 15%~25%；LSTM-GMM 最好 20%（8/20 卡在 T 块附近）；IBC 最好 0%（6/20 提前离开 T 块）。
+
+**其他单点数字**：action horizon 消融中最优 $T_a=8$；模拟 latency 到 4 步内 success rate 保持峰值；Mug Flip 90%/20 trials；Sauce Pour coverage 0.74 vs 人 0.79，Spread coverage 0.77 vs 人 0.79 且 Pour 成功率 79% / Spread 100%；双臂 Egg Beater 55%（210 demos）、Mat Unrolling 75%（162 demos）、Shirt Folding 75%（284 demos）。
 
 ## 技术权衡（Trade-off）
 
-| 优势 | 劣势与工程代价 |
-|------|----------------|
-| 天然支持多模态动作分布，无需预设模态数量，表达能力远超 GMM | 100 步迭代去噪推理延迟较高，需借助 DDIM 降至 16 步才能实时运行 |
-| 训练稳定性远超 IBC（能量模型），无需负采样，Loss 平滑下降 | 动作数据归一化要求严格 —— 缩放范围 $[-1,1]$，不适应不同幅度的动作变化时需精细处理 |
-| 高维动作空间扩展性好，可联合预测长动作序列（8-16 步），保证时序一致性 | Transformer 变体超参数敏感，dropout 率和 weight decay 在不同任务间差异大，需逐任务调优 |
-| 支持 CNN 和 Transformer 双架构，CNN 开箱即用，Transformer 提供高频拟合上限 | 3D 旋转表示（轴角/6D 表示）需要特殊处理，且对旋转精度敏感 |
-| 在 15 个任务上平均提升 46.9%，显著跨任务泛化 | 图像观测的视角数量有限制，过多视角会导致观测拼接后维度爆炸 |
+1. **$T_a$ 的大小**：大 → 时序一致、抗 idle action、抗延迟；小 → 反应快。实验上 8 是多数任务的甜点，脚本数据（BlockPush）退到 1。
+2. **CNN vs Transformer**：CNN 稳定免调参、参数可无限加大仍受益；Transformer 高频任务强但对 dropout/wd/layer 数极其敏感（加大有时反而变差）。工程上应默认 CNN。
+3. **FiLM vs inpainting condition**：FiLM 全任务优，唯 Push-T 例外（报的就是 inpainting 结果）。
+4. **表达力 vs 推理成本**：扩散天生要跑 K 步，即便 DDIM 压到 10~16 步仍是 0.1s 级延迟；作者明说对高频率控制任务可能不够，指望 consistency models、更好的 solver 进一步压缩。
+5. **端到端视觉 vs 预训练特征**：端到端最强但吃数据；frozen 特征省算力但明显拖后腿；finetune（小 lr）是折中最优。
+6. **BC 范式本身的限制继承下来**：数据次优/覆盖不足时照样次优；作者指出可接 RL 微调利用负样本。
 
 ## 技术价值与演进定位
 
-Diffusion Policy 是连续动作生成范式的里程碑。它首次证明了扩散模型在机器人策略学习中的巨大潜力，彻底改变了 VLA 领域的动作表示范式：
+这篇工作的贡献不是提出 DDPM，而是证明"策略的结构本身是 BC 的瓶颈"：同样数据，仅换成扩散表示就在全部 15 个任务上超越之前所有方法（平均 46.9%），并且给出了使其能在真机实时跑起来的三件套（receding horizon、视觉条件化、time-series transformer）。它是后续整个 action-diffusion 家族的共同底座：
 
-- 超越了 RT-1 等离散 Token 化方法的精度瓶颈，实现了连续、平滑的动作生成
-- 解决了 IBC 等隐式策略训练不稳定的核心缺陷
-- 其"预测高维动作序列 + 滚动时域控制"的设计被后续 Octo、Diffusion Transformer 等工作继承
-- 为 Flow Matching（Pi-Zero 等）进一步优化生成质量和推理速度奠定了理论和实践基础
+- π0 / π0.5 等 flow-matching VLA 的 action expert，本质是把这里的 DDPM 换成了更少步数的流匹配；
+- 3D Diffusion Policy 把深度点云接进同一个框架；
+- ACT 的 action chunking 思想与此处的 chunk + receding horizon 相互印证；
+- 大量后续 RL-from-demo 工作（DPPO 等）以 diffusion policy 作为可微调的策略类。
 
-基准对比（视觉策略，最高分）：
-
-| 任务 | LSTM-GMM | IBC | BET | DiffusionPolicy-C | DiffusionPolicy-T |
-|------|----------|-----|-----|-------------------|-------------------|
-| Lift | 1.00 | 0.94 | 1.00 | 1.00 | 1.00 |
-| Can | 1.00 | 0.39 | 1.00 | 1.00 | 1.00 |
-| Square | 1.00 | 0.08 | 1.00 | 1.00 | 1.00 |
-| Transport | 0.98 | 0.00 | 1.00 | 1.00 | 1.00 |
-| ToolHang | 0.82 | 0.03 | 0.76 | 0.98 | 1.00 |
-| Push-T | 0.69 | 0.75 | 0.79 | 0.91 | 0.78 |
+一句话定位：**确立了"动作序列的条件生成模型"作为操纵策略的默认表示**，类似于 ResNet 之于分类 backbone。
 
 ## 与其他论文的关系
 
-- RT-1 采用离散动作 Token，精度受限；Diffusion Policy 采用连续扩散生成，精度大幅提升
-- Octo 继承 Diffusion Policy 的连续生成范式，并扩展到多机器人多任务的大规模训练
-- Pi-Zero / Flow Matching 进一步用流匹配替代扩散模型，将推理步数从 16 步降至 10 步，并引入 RK4 积分提升精度
-- DiT（Diffusion Transformer）将 U-Net 骨干替换为纯 Transformer，与 Diffusion Policy 中的 Time-series Diffusion Transformer 思路一致
+- **IBC (Florence et al. 2021)** — 同样追求多模态表达的 implicit policy，靠 InfoNCE + 负样本训练，本文用 Table 6 与 Fig. 6 展示其在真机上 0% 成功率和训练震荡，正是扩散改用 score 后绕开的痛点。
+- **BET (Shafiullah et al. 2022)** — 把回归离散化为 k-means 分桶 + offset 回归来抓多模态；在 Kitchen/BlockPush 上被 transformer 版大幅超过（p4: 0.44 vs 0.99/0.96），且因逐帧独立预测缺乏时序一致性而无法承诺单一模态。
+- **LSTM-GMM / BC-RNN (Robomimic)** — 单步 GMM 显式策略的代表；在 idle action 和阶段切换处失败（真机 Push-T 20 次里 8 次卡住，pour 任务 15/20 无法抬起勺子）。
+- **Planning with Diffusion (Janner et al. 2022)** — 对 $(O,A)$ 联合建模做 trajectory planning；本文反其道只建 $p(A|O)$，避免推断未来状态的开销，换来实时性。
+- **Decision Diffuser / DiffuserBC（Pearce, Reuss, Hansen-Estruch 等同期工作）** — 并行地在仿真里研究扩散策略的采样策略与 goal-conditioning；本文侧重真机上的 action space、horizon 与延迟设计。
+- **ACT (Aloha)** — 另一条得到 action chunking 的路线（CVAE + transformer 回归），与本文的 chunk + 重规划在设计上殊途同归，可作为对照阅读。
+- **Robomimic (Mandlekar et al. 2021)** — 本文最主要的评测基准与 baseline 来源；其对多任务人类示范数据的研究直接支撑了"多模态是主要难点"的动机。
 
 ## 精读问题
 
-1. 扩散模型在动作空间中的 Score Function 学习与图像生成中的 Score Matching 有何本质差异？
-2. 为什么位置控制（Position Control）比速度控制（Velocity Control）更适合 Diffusion Policy？
-3. DDIM 降步从 100 降至 16，性能损失来自哪里？能否进一步降至 4 步？
-4. CNN 版本的 FiLM 条件注入与 Transformer 版本的交叉注意力，各自的优劣根因是什么？
-5. 扩散模型"从多模态中选择一个模式"的机制是什么？是随机种子决定的，还是观测决定的？
+1. **Score 与 energy 的边界在哪里**：论文论证了 $\epsilon_\theta$ 拟合的 score 与 $Z(o,\theta)$ 无关所以稳定，但在什么任务设定下，显式估计 energy（例如为了做 composition 或 constraint reasoning）仍然值得付负采样的代价？
+2. **46.9% 这个数怎么读**：附录 B.2 显示这是"每个任务列的 baseline 最大值 vs 我方两变体最大值"的相对提升均值，checkpoint 还用 max 口径报告过（同时给出 last-10 average）——这种口径会比严格 protocol 抬高多少？换 last-10 口径后优势还剩多少？
+3. **Position control 为什么赢**：论文给出两条推测（位置空间的多模态更弱、累积误差更小），如何在没有 reward 的 BC 设定下设计实验区分这两个机制？
+4. **隐式 dynamics model 的证据**：Sec 4.5 说明 $T_p>1$ 时最优 denoiser 必须隐式学到 $(A-BK)^{t'}$，能否在非线性真实任务上设计探针实验验证网络确实学了某种 task-relevant dynamics？
+5. **backbone 失效模式的成因**：CNN 版在 BlockPush(scripted oracle) 上崩到 0.36 而 transformer 版 0.99，这是卷积低频偏置、Markovian 数据的分布特性，还是超参未调到位？如何用一组受控实验隔离？

@@ -113,8 +113,8 @@ def validate_notes(workspace: Path, notes_dir: str | None = None) -> tuple[int, 
             pdf_detail = "PDF path present" if has_local_pdf else "Local PDF missing or empty"
         checks.append(("pdf-path", has_local_pdf, pdf_detail))
 
-        # 7. Metadata
-        has_arxiv = "arxiv.org" in text.lower()
+        # 7. Metadata (tech reports like G0.5 have no arXiv — accept explicit marker)
+        has_arxiv = "arxiv.org" in text.lower() or "技术报告" in text or "tech report" in text.lower()
         has_year = bool(re.search(r"(Year|年份|Published).*\d{4}", text))
         if is_overview or is_no_paper:
             has_arxiv = True

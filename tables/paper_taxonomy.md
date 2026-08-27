@@ -37,11 +37,11 @@
 **视频即策略**：unipi, susie
 **2D 世界模型+策略**：gr-mg
 **3D 世界模型**：paiworld, weaver
-**World Action Model**：lingbot-va, worldvla, dreamzero, egogenesis, tacwam, simdist, rise, wcm
+**World Action Model**：lingbot-va, worldvla, dreamzero, egogenesis, tacwam, simdist, rise, wcm, wow
 **评估**：worldarena
-**综述**：wam-survey, wmrm-survey, wrl-survey, wm-comprehensive
+**综述**：wam-survey-brief, wmrm-survey-brief, wrl-survey-brief, wm-comprehensive-brief
 
-26 篇
+27 篇
 
 ---
 
