@@ -1,6 +1,6 @@
 # Paper Taxonomy — VLA & World Model Research
 
-全部 100 篇论文，按 8 个赛道分类。
+全部 98 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类。
 
 ---
 
@@ -39,9 +39,8 @@
 **3D 世界模型**：paiworld, weaver
 **World Action Model**：lingbot-va, worldvla, dreamzero, egogenesis, tacwam, simdist, rise, wcm, wow
 **评估**：worldarena
-**综述**：wam-survey-brief, wmrm-survey-brief, wrl-survey-brief, wm-comprehensive-brief
 
-27 篇
+23 篇
 
 ---
 
@@ -88,11 +87,14 @@
 
 ---
 
-## Industry（产业简报）— notes/industry/
+## Briefs（综述与行业大纲卡）— notes/briefs/
 
-**商业闭源模型**：gen-1, gene-26-5, 2026-vla-research-brief
+**世界模型综述卡**：wam-survey-brief, wmrm-survey-brief, wrl-survey-brief, wm-comprehensive-brief
+**行业简报**：gen-1, gene-26-5, 2026-vla-research-brief
 
-3 篇
+（大纲卡按 *-brief.md 命名，门禁自动豁免深度检查）
+
+7 篇
 
 ---
 
@@ -100,13 +102,13 @@
 
 | 赛道 | 篇数 | 核心问题 |
 |------|------|---------|
-| Architecture | 32 | 动作怎么表示和生成 |
+| Architecture | 29 | 动作怎么表示和生成 |
 | Reasoning | 13 | 长程任务中的时序推理 |
-| World Model | 26 | 如何建模环境动力学 |
-| RL | 16 | 如何超越模仿学习上限 |
+| World Model | 23 | 如何建模环境动力学 |
+| RL | 15 | 如何超越模仿学习上限 |
 | Memory | 7 | 如何让机器人不忘记 |
 | Data | 3 | 数据从哪里来 |
 | Perception | 1 | 如何定位和建图 |
-| Industry | 3 | 商业落地现状 |
+| Briefs | 7 | 综述索引与商业落地简报 |
 
 **演进方向**：动作表示升级（频域/VQ/联合编码）→ 世界模型从被动预测变主动训练环境（WAM）→ RL 从 demo 走向自我改进 → 记忆从外挂变成架构核心 → 3D 几何回归

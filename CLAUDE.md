@@ -21,7 +21,7 @@ notes/
   memory/           — Reading notes for robot memory papers
   data/             — Reading notes for data + infrastructure papers
   perception/       — Reading notes for SLAM and perception papers
-  industry/         — Commercial briefs without public papers (GEN-1, GENE-26.5, etc.)
+  briefs/           — Survey outline cards + industry briefs (world-model surveys, GEN-1, etc.)
 tables/            — CSV watchlists, paper matrices, taxonomy, master curriculum (vla.md), and tech evolution
 plans/             — Reading plans and curricula
 labs/              — Lab and advisor research analysis for PhD applications

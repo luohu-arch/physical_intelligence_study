@@ -1,6 +1,6 @@
 # World Model for Robot Learning: A Comprehensive Survey（综述大纲卡）
 
-- 本地 PDF：`papers/world-model/WRL-Survey_2605.00080.pdf`
+- 本地 PDF：`papers/briefs/WRL-Survey_2605.00080.pdf`
 - arXiv：https://arxiv.org/abs/2605.00080
 - 年份：2026（5 月）
 - 团队：NTU 领衔，联合 UC Berkeley / Stanford / 东京大学 / Oxford / Microsoft / ETH Zurich / Princeton / Harvard

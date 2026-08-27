@@ -1,6 +1,6 @@
 # World Action Models: The Next Frontier in Embodied AI（综述大纲卡）
 
-- 本地 PDF：`papers/world-model/WAM-Survey_2605.12090.pdf`
+- 本地 PDF：`papers/briefs/WAM-Survey_2605.12090.pdf`
 - arXiv：https://arxiv.org/abs/2605.12090
 - 年份：2026（5 月）
 - 团队：复旦大学（Fudan University）/ Shanghai Innovation Institute / National University of Singapore

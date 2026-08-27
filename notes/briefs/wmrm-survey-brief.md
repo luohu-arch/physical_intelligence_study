@@ -1,6 +1,6 @@
 # World Models for Robotic Manipulation: A Survey（综述大纲卡）
 
-- 本地 PDF：`papers/world-model/WMRM-Survey_2606.00113.pdf`
+- 本地 PDF：`papers/briefs/WMRM-Survey_2606.00113.pdf`
 - arXiv：https://arxiv.org/abs/2606.00113
 - 年份：2026（6 月）
 - 团队：香港理工大学机械工程系牵头，联合 HIT（深圳）/ Great Bay University / CityU HK / 港大 / NTU / KTH 等

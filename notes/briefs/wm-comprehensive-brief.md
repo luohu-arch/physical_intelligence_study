@@ -1,6 +1,6 @@
 # World Models: A Comprehensive Survey（综述大纲卡）
 
-- 本地 PDF：`papers/world-model/WM-Comprehensive_2606.00133.pdf`
+- 本地 PDF：`papers/briefs/WM-Comprehensive_2606.00133.pdf`
 - arXiv：https://arxiv.org/abs/2606.00133
 - 年份：2026（6 月）
 - 团队：Augusta University / University of Georgia 牵头，26 位作者多机构联合
