@@ -97,7 +97,8 @@ python3 skills/pull-vla-research/scripts/pull_vla_papers.py \
 ## Gotchas
 
 - **Watchlist template vs output table are different files.** The input template (`skills/pull-vla-research/references/watchlist.csv`) has no `local_pdf`/`local_note` columns. The output table (`tables/vla_research_watchlist.csv`) is auto-generated with paths. Add new papers to the template, not the output table.
-- **arXiv title collisions are common.** Multiple papers can have near-identical titles ("Unified VLA...", "VLA: A..."). Always verify via arxiv_id before downloading — never match by title alone.
+- **arXiv title collisions are common.** Multiple papers can have near-identical titles ("Unified VLA...", "VLA: A..."). Always verify via arxiv_id before downloading — never match by title alone. Even registered IDs can be wrong: verify the downloaded PDF's first-page title matches the intended paper (three PDFs in this library had silently wrong papers behind plausible IDs).
+- **PDFs can corrupt mid-file with intact headers.** EOF checks and first-page reads pass while later pages are blank (G0.5 lost pages 12-30 this way). When ingesting, sample text from a middle page too, not just page 1.
 - **Mermaid blocks cannot contain Unicode math symbols.** Characters like `√`, `ᾱ`, `α`, `β`, `σ`, subscripts (₀, ₁) cause parse errors in VS Code. Use ASCII equivalents or descriptive text instead.
 - **LaTeX `\\` requires double backslash.** In Markdown code blocks, `\\` is rendered as-is, but inside `$$` math blocks, `\` is an escape character — use `\\\\` for line breaks in aligned environments.
 - **`write_note` overwrites the entire file.** If a user has manually edited a note, re-running `--notes` will destroy those edits. Use `--force` only when you intend to regenerate from scratch. Incremental skip protects against accidental overwrites in normal runs.
