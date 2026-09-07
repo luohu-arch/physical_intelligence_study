@@ -1,6 +1,6 @@
 # Paper Taxonomy — VLA & World Model Research
 
-全部 98 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类。
+全部 107 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类。
 
 ---
 
@@ -13,8 +13,9 @@
 **3D VLA**：fp3, view-invariant-policy
 **VLA 后训练 + RL**：simplevla-rl, rl-token, rove
 **数据多样性**：diversity-is-all-you-need
+**Agentic VLA / 执行中心 VLM**：art-vla-agent, capek05
 
-29 篇
+31 篇
 
 ---
 
@@ -52,7 +53,9 @@
 **灵巧操作 RL**：dexora, torl-vla, hapticvla, grits
 **分层/规划 RL**：omniretarget, dlo-routing
 **技能发现**：diayn
-15 篇
+**Agentic RL 与 harness 自动化**：harbor, enpire, agentic-robotics-loop, playful-agentic, humanvid-selfimprove, lego-rl, coskill
+
+22 篇
 
 ---
 
@@ -102,13 +105,13 @@
 
 | 赛道 | 篇数 | 核心问题 |
 |------|------|---------|
-| Architecture | 29 | 动作怎么表示和生成 |
+| Architecture | 31 | 动作怎么表示和生成 |
 | Reasoning | 13 | 长程任务中的时序推理 |
 | World Model | 23 | 如何建模环境动力学 |
-| RL | 15 | 如何超越模仿学习上限 |
+| RL | 22 | 如何超越模仿学习上限 |
 | Memory | 7 | 如何让机器人不忘记 |
 | Data | 3 | 数据从哪里来 |
 | Perception | 1 | 如何定位和建图 |
 | Briefs | 7 | 综述索引与商业落地简报 |
 
-**演进方向**：动作表示升级（频域/VQ/联合编码）→ 世界模型从被动预测变主动训练环境（WAM）→ RL 从 demo 走向自我改进 → 记忆从外挂变成架构核心 → 3D 几何回归
+**演进方向**：动作表示升级（频域/VQ/联合编码）→ 世界模型从被动预测变主动训练环境（WAM）→ RL 从 demo 走向自我改进 → 自我改进再升级为 agentic 闭环（coding agent 驱动 harness 自动化，HARBOR/ENPIRE 线）→ 记忆从外挂变成架构核心 → 3D 几何回归
