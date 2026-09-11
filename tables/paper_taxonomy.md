@@ -1,6 +1,6 @@
 # Paper Taxonomy — VLA & World Model Research
 
-全部 107 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类。
+全部 118 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类（RL 赛道内细分 10 条子线，其中 4 条为 agentic 线）。
 
 ---
 
@@ -53,9 +53,12 @@
 **灵巧操作 RL**：dexora, torl-vla, hapticvla, grits
 **分层/规划 RL**：omniretarget, dlo-routing
 **技能发现**：diayn
-**Agentic RL 与 harness 自动化**：harbor, enpire, agentic-robotics-loop, playful-agentic, humanvid-selfimprove, lego-rl, coskill
+**Agentic 机器人闭环**：harbor, enpire, agentic-robotics-loop, playful-agentic, humanvid-selfimprove
+**Agentic RL 训练系统（LLM 侧）**：lego-rl, polar, lite-researcher, arlarena, harness-1
+**Agentic RL 算法与稳定性**：ragen-2, g2po, reasoning-to-agentic, dataprm, coskill
+**Agentic RL 应用**：tool-r0, openclaw-rl, tongyi-deepresearch
 
-22 篇
+33 篇
 
 ---
 
@@ -108,7 +111,7 @@
 | Architecture | 31 | 动作怎么表示和生成 |
 | Reasoning | 13 | 长程任务中的时序推理 |
 | World Model | 23 | 如何建模环境动力学 |
-| RL | 22 | 如何超越模仿学习上限 |
+| RL | 33 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
 | Memory | 7 | 如何让机器人不忘记 |
 | Data | 3 | 数据从哪里来 |
 | Perception | 1 | 如何定位和建图 |
