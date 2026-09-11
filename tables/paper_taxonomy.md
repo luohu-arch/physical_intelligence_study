@@ -1,6 +1,6 @@
 # Paper Taxonomy — VLA & World Model Research
 
-全部 118 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类（RL 赛道内细分 10 条子线，其中 4 条为 agentic 线）。
+全部 118 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类（RL 赛道 34 篇分 9 个物理子目录：core/vla/sim2real/dexterous/planning + 4 条 agentic 线）。
 
 ---
 
@@ -45,20 +45,19 @@
 
 ---
 
-## RL（RL 方法）— notes/rl/
+## RL（RL 方法）— notes/rl/（物理子目录按子线组织）
 
-**核心 RL 算法**：flashsac, rl-100
-**VLA + RL**：rl-token, simplevla-rl, rove, z-1, vlac
-**Sim2Real**：viserdex, phys2real
-**灵巧操作 RL**：dexora, torl-vla, hapticvla, grits
-**分层/规划 RL**：omniretarget, dlo-routing
-**技能发现**：diayn
-**Agentic 机器人闭环**：harbor, enpire, agentic-robotics-loop, playful-agentic, humanvid-selfimprove
-**Agentic RL 训练系统（LLM 侧）**：lego-rl, polar, lite-researcher, arlarena, harness-1
-**Agentic RL 算法与稳定性**：ragen-2, g2po, reasoning-to-agentic, dataprm, coskill
-**Agentic RL 应用**：tool-r0, openclaw-rl, tongyi-deepresearch
+**core/（核心算法与技能发现，3 篇）**：flashsac, rl-100, diayn
+**vla/（VLA + RL，5 篇）**：rl-token, simplevla-rl, rove, z-1, vlac
+**sim2real/（2 篇）**：viserdex, phys2real
+**dexterous/（灵巧操作 RL，4 篇）**：dexora, torl-vla, hapticvla, grits
+**planning/（分层/规划 RL，2 篇）**：omniretarget, dlo-routing
+**agentic-robot/（机器人侧 agentic 闭环，5 篇）**：harbor, enpire, agentic-robotics-loop, playful-agentic, humanvid-selfimprove
+**agentic-training/（LLM 侧训练系统，5 篇）**：lego-rl, polar, lite-researcher, arlarena, harness-1
+**agentic-algo/（算法与稳定性，5 篇）**：ragen-2, g2po, reasoning-to-agentic, dataprm, coskill
+**agentic-app/（应用，3 篇）**：tool-r0, openclaw-rl, tongyi-deepresearch
 
-33 篇
+34 篇（rove 从 architecture/ 归位到 rl/vla/）
 
 ---
 
@@ -108,10 +107,10 @@
 
 | 赛道 | 篇数 | 核心问题 |
 |------|------|---------|
-| Architecture | 31 | 动作怎么表示和生成 |
+| Architecture | 30 | 动作怎么表示和生成 |
 | Reasoning | 13 | 长程任务中的时序推理 |
 | World Model | 23 | 如何建模环境动力学 |
-| RL | 33 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
+| RL | 34 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
 | Memory | 7 | 如何让机器人不忘记 |
 | Data | 3 | 数据从哪里来 |
 | Perception | 1 | 如何定位和建图 |

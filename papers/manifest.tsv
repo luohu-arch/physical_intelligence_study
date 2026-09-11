@@ -15,7 +15,7 @@ architecture/LLaDA-VLA_2509.06932.pdf	LLaDA-VLA: Vision-Language Diffusion Actio
 architecture/UniVLA_2506.19850.pdf	UniVLA: Unified Vision-Language-Action Model	https://arxiv.org/pdf/2506.19850	pdf
 architecture/UniVLA-ODL_2505.06111.pdf	UniVLA: Learning to Act Anywhere with Task-centric Latent Actions	https://arxiv.org/pdf/2505.06111	pdf
 architecture/MoS-VLA_2510.16617.pdf	MoS-VLA: A VLA Model with One-Shot Skill Adaptation	https://arxiv.org/pdf/2510.16617	pdf
-architecture/SimpleVLA-RL_2509.09674.pdf	SimpleVLA-RL: Scaling VLA Training via Reinforcement Learning	https://arxiv.org/pdf/2509.09674	pdf
+rl/vla/SimpleVLA-RL_2509.09674.pdf	SimpleVLA-RL: Scaling VLA Training via Reinforcement Learning	https://arxiv.org/pdf/2509.09674	pdf
 reasoning/PaLM-E_Embodied_Multimodal_Language_Model_2303.03378.pdf	PaLM-E: An Embodied Multimodal Language Model	https://arxiv.org/pdf/2303.03378	pdf
 reasoning/RT-Trajectory_Robotic_Task_Generalization_2311.01977.pdf	RT-Trajectory: Robotic Task Generalization via Hindsight Trajectory Sketches	https://arxiv.org/pdf/2311.01977	pdf
 reasoning/VoxPoser_Composable_3D_Value_Maps_2307.05973.pdf	VoxPoser: Composable 3D Value Maps for Robotic Manipulation	https://arxiv.org/pdf/2307.05973	pdf
@@ -36,7 +36,7 @@ world-model/V-JEPA_2404.08471.pdf	V-JEPA: Revisiting Feature Prediction for Vide
 world-model/UniPi_2302.00111.pdf	UniPi: Learning Universal Policies via Text-Guided Video Generation	https://arxiv.org/pdf/2302.00111	pdf
 world-model/SuSIE_2310.10639.pdf	SuSIE: Zero-Shot Robotic Manipulation with Image-Editing Diffusion Models	https://arxiv.org/pdf/2310.10639	pdf
 world-model/GR-MG_2408.14368.pdf	GR-MG: Multi-Modal Goal Conditioned Policy	https://arxiv.org/pdf/2408.14368	pdf
-architecture/RL_Token_2604.23073.pdf	RL Token: Bootstrapping Online RL with Vision-Language-Action Models	https://arxiv.org/pdf/2604.23073	pdf
+rl/vla/RL_Token_2604.23073.pdf	RL Token: Bootstrapping Online RL with Vision-Language-Action Models	https://arxiv.org/pdf/2604.23073	pdf
 perception/FAST-LIO2_2107.06829.pdf	FAST-LIO2: Fast Direct LiDAR-Inertial Odometry	https://arxiv.org/pdf/2107.06829	pdf
 reasoning/SymSkill_2510.01661.pdf	SymSkill: Symbol and Skill Co-Invention for Long-Horizon Manipulation	https://arxiv.org/pdf/2510.01661	pdf
 architecture/LingBot-VA_2601.21998.pdf	LingBot-VA: Causal World Modeling for Robot Control	https://arxiv.org/pdf/2601.21998	pdf
@@ -49,14 +49,14 @@ architecture/SimDist_2603.15759.pdf	SimDist: Pretraining World Models in Simulat
 architecture/UniFP_2505.20829.pdf	UniFP: Unified Policy for Position and Force Control in Legged Loco-Manipulation	https://arxiv.org/pdf/2505.20829	pdf
 architecture/XR-1_2511.02776.pdf	XR-1: Unified Vision-Motion Codes for General-Purpose VLA	https://arxiv.org/pdf/2511.02776	pdf
 architecture/Green-VLA_2602.00919.pdf	Green-VLA: Staged VLA Model for Generalist Robots	https://arxiv.org/pdf/2602.00919	pdf
-architecture/ROVE_2606.17011.pdf	ROVE: Human Interventions for Humanoid Manipulation via RL	https://arxiv.org/pdf/2606.17011	pdf
+rl/vla/ROVE_2606.17011.pdf	ROVE: Human Interventions for Humanoid Manipulation via RL	https://arxiv.org/pdf/2606.17011	pdf
 architecture/Human-as-Humanoid_2606.32009.pdf	Human-as-Humanoid: Zero-Shot Learning from Ego-Exo Videos	https://arxiv.org/pdf/2606.32009	pdf
-architecture/FlashSAC_2604.04539.pdf	FlashSAC: Fast and Stable Off-Policy RL for Robot Control	https://arxiv.org/pdf/2604.04539	pdf
+rl/core/FlashSAC_2604.04539.pdf	FlashSAC: Fast and Stable Off-Policy RL for Robot Control	https://arxiv.org/pdf/2604.04539	pdf
 architecture/MINT_2602.08602.pdf	MINT: Mimic Intent, Not Just Trajectories	https://arxiv.org/pdf/2602.08602	pdf
 architecture/PAIWorld_2606.18375.pdf	PAIWorld: 3D-Consistent World Foundation Model	https://arxiv.org/pdf/2606.18375	pdf
 architecture/WEAVER_2606.13672.pdf	WEAVER: Better Faster Longer World Model for Manipulation	https://arxiv.org/pdf/2606.13672	pdf
 architecture/IMR-LLM_2603.02669.pdf	IMR-LLM: Industrial Multi-Robot Planning with LLMs	https://arxiv.org/pdf/2603.02669	pdf
-rl/DIAYN_1802.06070.pdf	DIAYN: Diversity Is All You Need	https://arxiv.org/pdf/1802.06070	pdf
+rl/core/DIAYN_1802.06070.pdf	DIAYN: Diversity Is All You Need	https://arxiv.org/pdf/1802.06070	pdf
 architecture/DiversityAllYouNeed_2507.06219.pdf	Is Diversity All You Need for Scalable Robotic Manipulation?	https://arxiv.org/pdf/2507.06219	pdf
 world-model/LeWorldModel_2603.19312.pdf	LeWorldModel: Stable End-to-End JEPA from Pixels	https://arxiv.org/pdf/2603.19312	pdf
 world-model/NoGaussianRequired_2608.17542.pdf	No Gaussian Required: Contrastive Inverse Dynamics for JEPA	https://arxiv.org/pdf/2608.17542	pdf
@@ -75,23 +75,23 @@ architecture/WholeBodyVLA_2512.11047.pdf	WholeBodyVLA: Towards Unified Latent VL
 architecture/BridgeVLA_2506.07961.pdf	BridgeVLA: Input-Output Alignment for Efficient 3D Manipulation Learning with VLMs	https://arxiv.org/pdf/2506.07961	pdf
 architecture/InstructVLA_2507.17520.pdf	InstructVLA: Vision-Language-Action Instruction Tuning from Understanding to Manipulation	https://arxiv.org/pdf/2507.17520	pdf
 world-model/WoW_2509.22642.pdf	WoW: Towards a World-Omniscient World-model Through Embodied Interaction	https://arxiv.org/pdf/2509.22642	pdf
-rl/HARBOR_2606.08610.pdf	HARBOR: A Harness Framework for Agentic Robot Reinforcement Learning	https://arxiv.org/pdf/2606.08610	pdf
-rl/ENPIRE_2606.19980.pdf	ENPIRE: Agentic Robot Policy Self-Improvement in the Real World	https://arxiv.org/pdf/2606.19980	pdf
-rl/AgenticRoboticsLoop_2608.07555.pdf	You Don't Need To Stay in The Loop: An Agentic Robotics Loop for Robot-Policy Improvement	https://arxiv.org/pdf/2608.07555	pdf
-rl/PlayfulAgentic_2606.19419.pdf	Playful Agentic Robot Learning	https://arxiv.org/pdf/2606.19419	pdf
-rl/LEGO-RL_2608.17393.pdf	LEGO-RL: Harness-Native Reinforcement Learning for Coding Agents	https://arxiv.org/pdf/2608.17393	pdf
-rl/CoSkill_2609.04865.pdf	CoSkill: Joint Reinforcement Learning of Reasoning and Meta-Skill Agents for Hierarchical Skill Evolution	https://arxiv.org/pdf/2609.04865	pdf
-rl/HumanVid-SelfImprove_2606.21406.pdf	Robot Self-Improvement via Human-Video Dynamics Models	https://arxiv.org/pdf/2606.21406	pdf
+rl/agentic-robot/HARBOR_2606.08610.pdf	HARBOR: A Harness Framework for Agentic Robot Reinforcement Learning	https://arxiv.org/pdf/2606.08610	pdf
+rl/agentic-robot/ENPIRE_2606.19980.pdf	ENPIRE: Agentic Robot Policy Self-Improvement in the Real World	https://arxiv.org/pdf/2606.19980	pdf
+rl/agentic-robot/AgenticRoboticsLoop_2608.07555.pdf	You Don't Need To Stay in The Loop: An Agentic Robotics Loop for Robot-Policy Improvement	https://arxiv.org/pdf/2608.07555	pdf
+rl/agentic-robot/PlayfulAgentic_2606.19419.pdf	Playful Agentic Robot Learning	https://arxiv.org/pdf/2606.19419	pdf
+rl/agentic-training/LEGO-RL_2608.17393.pdf	LEGO-RL: Harness-Native Reinforcement Learning for Coding Agents	https://arxiv.org/pdf/2608.17393	pdf
+rl/agentic-algo/CoSkill_2609.04865.pdf	CoSkill: Joint Reinforcement Learning of Reasoning and Meta-Skill Agents for Hierarchical Skill Evolution	https://arxiv.org/pdf/2609.04865	pdf
+rl/agentic-robot/HumanVid-SelfImprove_2606.21406.pdf	Robot Self-Improvement via Human-Video Dynamics Models	https://arxiv.org/pdf/2606.21406	pdf
 architecture/ART_2608.14047.pdf	Evolve Vision-Language-Action Model into an Agent with On-the-fly Tool-use	https://arxiv.org/pdf/2608.14047	pdf
 architecture/Capek05_2608.06756.pdf	Capek 0.5: An Execution-Centric Vision-Language Model for Embodied Intelligence	https://arxiv.org/pdf/2608.06756	pdf
-rl/ToolR0_2602.21320.pdf	Tool-R0: Self-Evolving LLM Agents for Tool-Learning from Zero Data	https://arxiv.org/pdf/2602.21320	pdf
-rl/RAGEN2_2604.06268.pdf	RAGEN-2: Reasoning Collapse in Agentic RL	https://arxiv.org/pdf/2604.06268	pdf
-rl/Polar_2605.24220.pdf	Polar: Agentic RL on Any Harness at Scale	https://arxiv.org/pdf/2605.24220	pdf
-rl/ARLArena_2602.21534.pdf	ARLArena: A Unified Framework for Stable Agentic Reinforcement Learning	https://arxiv.org/pdf/2602.21534	pdf
-rl/LiteResearcher_2604.17931.pdf	LiteResearcher: A Scalable Agentic RL Training Framework for Deep Research Agent	https://arxiv.org/pdf/2604.17931	pdf
-rl/TongyiDeepResearch_2510.24701.pdf	Tongyi DeepResearch Technical Report	https://arxiv.org/pdf/2510.24701	pdf
-rl/ReasoningToAgentic_2604.09459.pdf	From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models	https://arxiv.org/pdf/2604.09459	pdf
-rl/G2PO_2606.22995.pdf	Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning	https://arxiv.org/pdf/2606.22995	pdf
-rl/DataPRM_2604.24198.pdf	Rewarding the Scientific Process: Process-Level Reward Modeling for Agentic Data Analysis	https://arxiv.org/pdf/2604.24198	pdf
-rl/Harness-1_2606.02373.pdf	Harness-1: Reinforcement Learning for Search Agents with State-Externalizing Harnesses	https://arxiv.org/pdf/2606.02373	pdf
-rl/OpenClawRL_2603.10165.pdf	OpenClaw-RL: Train Any Agent Simply by Talking	https://arxiv.org/pdf/2603.10165	pdf
+rl/agentic-app/ToolR0_2602.21320.pdf	Tool-R0: Self-Evolving LLM Agents for Tool-Learning from Zero Data	https://arxiv.org/pdf/2602.21320	pdf
+rl/agentic-algo/RAGEN2_2604.06268.pdf	RAGEN-2: Reasoning Collapse in Agentic RL	https://arxiv.org/pdf/2604.06268	pdf
+rl/agentic-training/Polar_2605.24220.pdf	Polar: Agentic RL on Any Harness at Scale	https://arxiv.org/pdf/2605.24220	pdf
+rl/agentic-training/ARLArena_2602.21534.pdf	ARLArena: A Unified Framework for Stable Agentic Reinforcement Learning	https://arxiv.org/pdf/2602.21534	pdf
+rl/agentic-training/LiteResearcher_2604.17931.pdf	LiteResearcher: A Scalable Agentic RL Training Framework for Deep Research Agent	https://arxiv.org/pdf/2604.17931	pdf
+rl/agentic-app/TongyiDeepResearch_2510.24701.pdf	Tongyi DeepResearch Technical Report	https://arxiv.org/pdf/2510.24701	pdf
+rl/agentic-algo/ReasoningToAgentic_2604.09459.pdf	From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models	https://arxiv.org/pdf/2604.09459	pdf
+rl/agentic-algo/G2PO_2606.22995.pdf	Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning	https://arxiv.org/pdf/2606.22995	pdf
+rl/agentic-algo/DataPRM_2604.24198.pdf	Rewarding the Scientific Process: Process-Level Reward Modeling for Agentic Data Analysis	https://arxiv.org/pdf/2604.24198	pdf
+rl/agentic-training/Harness-1_2606.02373.pdf	Harness-1: Reinforcement Learning for Search Agents with State-Externalizing Harnesses	https://arxiv.org/pdf/2606.02373	pdf
+rl/agentic-app/OpenClawRL_2603.10165.pdf	OpenClaw-RL: Train Any Agent Simply by Talking	https://arxiv.org/pdf/2603.10165	pdf
