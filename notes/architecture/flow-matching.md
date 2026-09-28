@@ -11,8 +11,8 @@ Flow Matching 提出了一种无需模拟（simulation-free）的连续归一化
 
 ## 核心技术
 
-![flow-matching 架构图](figures/flow-matching/fig1.png)
-*论文 Figure 1（p1）：Figure 1: Unconditional ImageNet-128 sam- ples of a CNF trained using Flow Matching with O*
+![flow-matching 架构图](figures/flow-matching/fig2.png)
+*论文 Figure 2（p6）：Figure 2: Compared to the diffusion path’s conditional score function, the OT path’s conditional vec*
 
 1. **流匹配（Flow Matching, FM）** — 直接回归目标速度场的 CNF 训练目标，无需昂贵的 ODE 模拟
 2. **条件流匹配（Conditional Flow Matching, CFM）** — 通过条件概率路径分解不可解的边缘速度场，转化为可解的单样本回归问题

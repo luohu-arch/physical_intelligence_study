@@ -17,8 +17,8 @@ UniVLA 在 DINOv2 特征空间中学习与具体机器人无关的任务中心�
 
 ## 核心技术
 
-![univla-latent-actions 架构图](figures/univla-latent-actions/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: We introduce UniVLA, a unified vision-language-action (VLA) framework that enables*
+![univla-latent-actions 架构图](figures/univla-latent-actions/fig2.png)
+*论文 Figure 2（p4）：Fig. 2: Task-centric latent action learning. We propose a two-stage training framework aim*
 
 1. **双阶段潜在动作 VQ-VAE** — 第一阶段学习任务无关潜在动作（编码场景中非语义的环境变化如光照、视角），第二阶段冻结第一阶段的 codebook 后学习任务中心潜在动作（编码物体操作等语义变化），实现两种动态的自然分离
 

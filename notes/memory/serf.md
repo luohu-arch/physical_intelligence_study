@@ -12,8 +12,8 @@
 
 ## 核心技术
 
-![serf 架构图](figures/serf/fig1.png)
-*论文 Figure 1（p1）：Figure 1: Top: A mobile manipulator performs a long-horizon task consisting of multiple su*
+![serf 架构图](figures/serf/fig4.png)
+*论文 Figure 4（p6）：Figure 4: Overview of map-conditioned VLA policy. A map tokenizer produces map tokens acro*
 
 1. **Neural point 表示（Sec 3）**：地图 $\mathcal{P}_\tau=\{(p_{i,\tau}, f_i, c_i)\}_{i=1}^N$，每个点携带世界系坐标、64 维 latent 特征与实例标签；查询任意位置 $x$ 时做 ball query 取 K=6 近邻、softmax 加权插值特征，再经共享 decoder 映射回 DINOv3 patch embedding。**点的存在形式本身就是它的杀手锏：坐标是显式的，刚体一动就整体平移旋转，不需要重训练任何东西。**
 2. **环境-机器人共享隐空间**：环境点由 RGB-D 观测提升到 3D 后按 voxel 注册进 spatial hash table；机器人点从 URDF link mesh 表面采样、存于各 link 局部坐标系。两组特征用同一个 decoder 联合优化 + 类别间对比损失（把机器人当作一个附加类别），保证 DINOv3 语义落在同一坐标系里——这是后面"距离即可达性"推断的前提。

@@ -12,8 +12,8 @@ VoxPoser 让 GPT-4 以 Python 代码调用开放词汇检测（OWL-ViT）、分�
 
 ## 核心技术
 
-![voxposer 架构图](figures/voxposer/fig1.png)
-*论文 Figure 1（p1）：Figure 1: VOXPOSER extracts language-conditioned affordances and constraints from LLMs and*
+![voxposer 架构图](figures/voxposer/fig2.png)
+*论文 Figure 2（p4）：Figure 2: Overview of VOXPOSER. Given the RGB-D observation of the environment and a langu*
 
 1. **代码接口生成 value map**：指令以注释形式写进 prompt，LLM 输出 Python 代码，其中调用感知 API 获得"实体"的空间几何（中心位置、occupancy grid、平均法向量），再用 NumPy 操作 3D 数组在相关位置赋值（把手区域设高值吸引、花瓶周围设低值排斥）。这一观察的前提是论文的核心论断：LLM 不适合直接输出文本形式的控制动作，但擅长推断语言条件化的 affordance 与 constraint
 2. **entity of interest 抽象**：value map $V \in \mathbb{R}^{w \times h \times d}$ 引导的对象不一定是末端执行器，也可以是物体或物体部件（推垃圾入簸箕时被引导的是垃圾本身）；任务代价按该实体穿越体素的取值累加计算

@@ -12,8 +12,8 @@ WEAVER 是多视角 world model，同时优化预测保真度（ρ=0.870）、�
 
 ## 核心技术
 
-![weaver 架构图](figures/weaver/fig1.png)
-*论文 Figure 1（p2）：Figure 1: We present WEAVER, a WM that satisfies three desiderata: (i) high fidelity, (ii)*
+![weaver 架构图](figures/weaver/fig2.png)
+*论文 Figure 2（p3）：Figure 2: WEAVER Architecture. Left: The world model encodes memory, history, and action s*
 
 1. Multi-View Flow Matching 联合预测未来 latent + reward
 2. 融合 JEPA (latent prediction) + Diffusion Forcing + Ctrl-World (multi-view memory)

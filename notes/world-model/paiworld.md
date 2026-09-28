@@ -12,8 +12,8 @@ PAIWorld 解决世界模型的多视角 3D 不一致问题——Geo-RoPE 几何�
 
 ## 核心技术
 
-![paiworld 架构图](figures/paiworld/fig1.png)
-*论文 Figure 1（p2）：Figure 1 PAIWorld is a 3D-consistent multi-view world foundation model for robotic manipul*
+![paiworld 架构图](figures/paiworld/fig2.png)
+*论文 Figure 2（p5）：Figure 2 Overview of the PAIWorld framework. Built on a DiT-based flow matching backbone, PAIWorld r*
 
 1. **Geo-RoPE** — 相机射线方向+位姿编码到 RoPE，几何引导的跨视角 token 匹配
 2. **Latent 3D-REPA** — 从 Depth Anything 3 蒸馏 3D 特征，pairwise cosine similarity 对齐

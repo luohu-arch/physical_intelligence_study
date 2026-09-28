@@ -46,8 +46,8 @@ $$
 
 ## 核心技术
 
-![unifp 架构图](figures/unifp/fig1.png)
-*论文 Figure 1（p1）：Figure 1: We present a unified force-position policy for legged robots that enables divers*
+![unifp 架构图](figures/unifp/fig2.png)
+*论文 Figure 2（p4）：Figure 2: Method Overview. (a) Architecture of the unified position-force policy trained v*
 
 1. **统一力位控制策略** — 单一策略在位置控制和力控制之间无缝切换，无需模态切换逻辑
 2. **无传感器力估计** — 不依赖力/力矩传感器，从本体感知（关节力矩、IMU）隐式推断接触力

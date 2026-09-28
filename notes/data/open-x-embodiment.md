@@ -12,8 +12,8 @@ OXE 把全球 21 个机构的 60 个数据集统一成 RLDS 格式，拼出 100 
 
 ## 核心技术
 
-![open-x-embodiment 架构图](figures/open-x-embodiment/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: We propose an open, large-scale dataset for robot learning curated from 21 institu*
+![open-x-embodiment 架构图](figures/open-x-embodiment/fig2.png)
+*论文 Figure 2（p3）：Fig. 2: The Open X-Embodiment Dataset. (a): the dataset consists of 60 individual datasets*
 
 1. **粗对齐（coarse alignment）而非精细投影**：每个数据集取一个 canonical 相机视角、缩放到统一分辨率；动作统一转成 7 维末端执行器向量（$x,y,z,\text{roll},\text{pitch},\text{yaw}$ 加 gripper 开度或对应速率），逐数据集归一化后再离散化为 256 bins x 8 维（第 8 维为终止位）。刻意不做的两件事：不跨数据集对齐坐标系，保留原始控制方案（绝对/相对位姿或速度照原样）
 2. **RLDS 标准化数据容器**：序列化 tfrecord 格式，兼容不同数量 RGB 相机、深度相机与点云，支持主流框架的并行加载——这是让 60 个异构数据集能被一个 dataloader 吃下的关键

@@ -12,8 +12,8 @@
 
 ## 核心技术
 
-![leworldmodel 架构图](figures/leworldmodel/fig1.png)
-*论文 Figure 1（p1）：Figure 1: LeWorldModel Training Pipeline. Given frame observations o1:T and actions a1:T ,*
+![leworldmodel 架构图](figures/leworldmodel/fig2.png)
+*论文 Figure 2（p2）：Figure 2: Characteristics of latent world model approaches. Methods are grouped by trainin*
 
 **架构（encoder-predictor 双件套，~5M + ~10M 参数）。**
 - Encoder：ViT-tiny（patch size 14, 12 层, 3 heads, hidden 192），取末层 [CLS] token 过一层 MLP+BatchNorm 投影得 $z_t$。这里的 BN 投影是刻意为之的：ViT 最后一层的 LayerNorm 会把各维方差强制归一，从而破坏以方差作为信号的 SIGReg 目标，所以必须在其后接一个可学的线性重标定。

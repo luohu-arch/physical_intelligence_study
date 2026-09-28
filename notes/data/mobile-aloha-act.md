@@ -11,8 +11,8 @@ Mobile ALOHA 与 ACT 提供了低成本全身遥操作硬件方案与动作分�
 
 ## 核心技术
 
-![mobile-aloha-act 架构图](figures/mobile-aloha-act/fig1.png)
-*论文 Figure 1（p1）：Figure 1: Mobile ALOHA . We introduce a low-cost mobile manipulation system that is bimanu*
+![mobile-aloha-act 架构图](figures/mobile-aloha-act/fig2.png)
+*论文 Figure 2（p3）：Figure 2: Hardware Details. Left: Mobile ALOHA has two wrist cameras and one top camera, with onboar*
 
 1. **条件变分自编码器（CVAE）** — 对人类示教的多模态动作分布进行概率建模，通过潜在变量编码不同操作风格，输出未来 K 步的连续动作序列
 2. **动作分块（Action Chunking）** — 一次性预测未来 K 步动作组成的"块"，从根本上抑制单步自回归预测的复合误差累积

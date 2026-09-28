@@ -12,8 +12,8 @@ I-JEPA 用一张图的少量上下文 patch 去预测同图中若干大块目标
 
 ## 核心技术
 
-![ijepa 架构图](figures/ijepa/fig1.png)
-*论文 Figure 1（p1）：Figure 1. ImageNet Linear Evaluation. The I-JEPA method learns semantic image representati*
+![ijepa 架构图](figures/ijepa/fig2.png)
+*论文 Figure 2（p2）：Figure 2. Common architectures for self-supervised learning, in which the system learns to*
 
 1. **架构三件套**：context encoder $f_\theta$（看得到的上下文 patch）、target encoder $f_{\bar\theta}$（全图编码后按目标块取 patch 表征，权重是 context encoder 的指数滑动平均）、narrow predictor $g_\phi$（固定 embedding 维度 384 的浅层 ViT，输入上下文表征加可学习 mask token）。
 2. **多块掩码策略（本质贡献）**：每图随机采 4 个可能重叠的目标块（scale 0.15 到 0.2，宽高比 0.75 到 1.5）+ 1 个接近全图的大上下文块（scale 0.85 到 1.0，单位宽高比），并把上下文与目标重叠的区域删掉；目标块的掩码作用在 **target-encoder 输出**上而不是输入上。

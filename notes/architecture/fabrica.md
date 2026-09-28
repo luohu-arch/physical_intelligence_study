@@ -13,8 +13,8 @@ Fabrica 是一个端到端双臂装配系统：从 CAD 模型出发，通过层�
 
 ## 核心技术
 
-![fabrica 架构图](figures/fabrica/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: Our proposed dual-arm robotic system demonstrates adaptive manipulation and assemb*
+![fabrica 架构图](figures/fabrica/fig2.png)
+*论文 Figure 2（p3）：Figure 2: System overview. Fabrica takes part meshes and hardware configurations as inputs. It plans*
 
 1. **层级规划栈** — 优先级图→装配序列→抓取规划→运动规划 + 自动夹具生成，全自动从 CAD 到执行
 2. **SE(3) 等变 RL 策略** — 轻量 RL 策略处理高精度插接步，SE(3) 等变网络结构保证零样本 sim-to-real 迁移

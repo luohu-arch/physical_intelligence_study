@@ -12,9 +12,6 @@ OmniRetarget 提出交互网格（Interaction Mesh）数据生成引擎：把一
 
 ## 核心技术
 
-![omniretarget 架构图](figures/omniretarget/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: OMNIRETARGET enables reinforcement learning policies to learn complex, long-horizo*
-
 1. **Interaction Mesh** — 将人-物-环境交互编码为 mesh graph：节点 = 人体关键点 ∪ 物体关键点 ∪ 地形锚点，边 = 保持相对几何关系的拓扑连接；重定向 = 在保持 mesh 拓扑（相对位姿语义）的前提下求解新本体的运动
 2. **5 个共享奖励项** — 覆盖所有操作场景的通用 reward 设计，避免逐任务手写
 3. **一次 human demo → 多本体增强数据** — 同一示范自动适配不同机器人/地形/物体组合，数据生成成本被摊薄到不同下游任务上

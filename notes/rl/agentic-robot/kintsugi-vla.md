@@ -16,8 +16,8 @@
 
 ## 核心技术
 
-![kintsugi-vla 架构图](figures/kintsugi-vla/fig1.png)
-*论文 Figure 1（p1）：Fig. 1. Failed rollouts as recovery-data sources. Kintsugi-VLA restores saved simulator st*
+![kintsugi-vla 架构图](figures/kintsugi-vla/fig2.png)
+*论文 Figure 2（p3）：Fig. 2. Kintsugi-VLA method overview. Saved simulator states are restored and branched und*
 
 1. **专家相对可恢复性**：$p^{E}_{rec}(s_{e,i};c,H,R,\nu)$ = 把仿真器恢复到状态 $s_{e,i}$ 后、固定专家 $\pi^E$ 在预算 $H$ 与协议 $R$ 下完成原任务的概率。刻意强调这是**专家相对**量而非状态的物理内禀属性——教师审计显示三个同水平教师的逐状态排序 Spearman $\rho$ 低至 0.103。
 2. **自适应 restore-and-branch 估计（Algorithm 1）**：预算阶梯 5→15→30；Wilson 区间 $[L_i,U_i]$ 相对阈值 $\tau$ 三分（低于/高于/未定），只对含未定失败槽的批次加种子细化；30 次全败时 $U_i\simeq0.1135$，因此该阶梯无法证明 $U_i<0.1$（$\tau=0.1$ 时 frontier 数为 0 是分辨率下限所致，不是真没有）。

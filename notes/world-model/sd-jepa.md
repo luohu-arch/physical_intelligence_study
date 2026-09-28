@@ -12,9 +12,6 @@
 
 ## 核心技术
 
-![sd-jepa 关键发现图](figures/sd-jepa/fig4.png)
-*论文 Figure 4（p15）：Figure 4: Latent geometry of the trained Push-T A2 (a, b; kprog=2, seed 3072, epoch 10, se*
-
 **子空间分解（式 4）。** 用两个固定正交注入矩阵：
 $$
 z_t = P\, z^{\text{prog}}_t + Q\, z^{\text{cont}}_t,\quad

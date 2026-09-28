@@ -12,8 +12,8 @@ Phys2Real 提出 Real-to-Sim-to-Real 三阶段管道：3D Gaussian Splatting 重
 
 ## 核心技术
 
-![phys2real 架构图](figures/phys2real/fig1.png)
-*论文 Figure 1（p2）：Figure 1. Differences between existing text-based CoT compression methods and XMCC. (a) sh*
+![phys2real 架构图](figures/phys2real/fig2.png)
+*论文 Figure 2（p4）：Figure 2. Overview of XMCC. (a) The framework consists of three stages: (I) synthesizing d*
 
 1. **VLM 物理参数先验** — GPT-5 对每个视角每张图查询 M 次，聚合均值作为 $\theta_{vlm}$，模型自报不确定度的均值作为 $\sigma_{vlm}$（经验上自报不确定度比估计值标准差更可靠，因为 VLM 可能"自信地错"）
 2. **以可解释物理参数为条件的 RL 策略** — 与标准 RMA 学 latent 向量不同，策略直接条件化在 CoM 等物理参数上（PPO + asymmetric actor-critic + IsaacLab），三阶段训练：Phase 1 用 GT 参数、Phase 1.5 用带噪参数微调（高斯噪声 σ=1.5cm）增强鲁棒性、Phase 2 冻结策略训练 10 个 adaptation model 的 ensemble

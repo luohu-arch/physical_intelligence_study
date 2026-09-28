@@ -14,9 +14,6 @@ ICML 2026 的 agentic RL 稳定性系统研究：先把多回合 ARL 训练拆�
 
 ## 核心技术
 
-![arlarena 架构图](figures/arlarena/fig1.png)
-*论文 Figure 1（p2）：Figure 1. Training curves on ALFWorld (left) and Sokoban (right). Our proposed SAMPO achie*
-
 1. **标准化测试床（四层递进）**：行为克隆冷启动（Qwen3 自举高分轨迹做 SFT）→ 格式惩罚（强制 `<think>`/`<action>` 标签，违者扣分）→ k3 估计器的辅助 KL 正则 → 每个算法专属超参网格搜索（以最后 20% 训练步的成功率方差低于阈值为"稳定"判据）。
 2. **策略梯度四维分解**：把 agentic 策略梯度（式 3）拆成 Loss Aggregation / IS Clipping / Trajectory Filtering / Advantage Design 四个正交轴，把 GRPO、GSPO、CISPO、SAPO、GIGPO、EMPG、DAPO 七个方法放进统一坐标系（Table 1 全公式对照）。
 3. **崩溃根因诊断**：token 级（越界比率分解为上下界）+ 序列级（按优势符号 × IS 比率 × 熵分八组，画每组对 KL 的贡献）双层分析，锁定**负优势 + 低 IS 比率序列的累积**是崩溃驱动源。
