@@ -22,12 +22,12 @@ COLORS = 128
 TMP = "/tmp/_fig_embed.png"
 
 
-def optimize(src, dst):
+def optimize(src, dst, max_w=MAX_W):
     im = Image.open(src)
     if im.mode not in ("RGB", "L"):
         im = im.convert("RGB")
-    if im.width > MAX_W:
-        im = im.resize((MAX_W, int(im.height * MAX_W / im.width)), Image.LANCZOS)
+    if im.width > max_w:
+        im = im.resize((max_w, int(im.height * max_w / im.width)), Image.LANCZOS)
     try:
         im = im.quantize(colors=COLORS, method=Image.MEDIANCUT)
     except Exception:
