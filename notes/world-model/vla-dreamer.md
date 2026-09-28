@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![vla-dreamer 架构图](figures/vla-dreamer/fig1.png)
+*论文 Figure 1（p3）：Fig. 1. We fine-tune our pre-trained VLA model on our NICOL robot’s imitation learning dat*
+
 1. **单一编码器三用**：冻结 VLA 视觉编码器的嵌入同时充当（a）策略输入、（b）世界模型的预测目标、（c）目标距离奖励的比较空间——策略输入、预测目标、奖励三共享一个表征，避免像 V-JEPA 2-AC + MPC 那样为规划单独维护一条嵌入通路。
 2. **嵌入空间世界模型**：输入为当前动作 $a_t$、机器人本体感觉 $p_t$ 和最近若干帧观测嵌入历史，预测下一帧观测嵌入（π0-FAST 版还预测下一本体感觉状态；OpenVLA 版把本体感觉仅作为辅助损失，因为 OpenVLA 训练配方不消费本体感觉）。损失在嵌入空间而非像素空间，论文明确将其类比 joint-embedding predictive architecture。
 3. **探测式嵌入评估（Embedding Assessment）**：在视觉编码器上挂 3 个探针——语义分割探针（指标 mIoU）、深度估计探针（指标 RMSE 与 threshold accuracy）、图像解码探针（仅用于可视化"模型在做梦什么"的有损画面）——用探针精度作为"嵌入是否编码了动作相关信息"的证据；同一组探针再作用于世界模型预测的嵌入，探针精度随想象视界的衰减成为世界模型保真度与漂移的直接度量。

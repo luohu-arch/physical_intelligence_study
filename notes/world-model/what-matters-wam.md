@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![what-matters-wam 架构图](figures/what-matters-wam/fig1.png)
+*论文 Figure 1（p2）：Fig. 1: This work systematically investigates three fundamental aspects in building WAMs:*
+
 1. **三轴解耦的受控协议**：不提单一新架构，而是在每个设计轴内固定基座只动一个变量——因果结构轴全部在 Fast-WAM 框架（arXiv:2603.16666）内实例化，潜表征轴与训练目标轴在 LDA-1B 框架（arXiv:2602.12215）内实例化；所有策略变体独立从零训练、不做检查点续训初始化，排除训练历史的混淆。
 2. **六种视频-动作因果结构**：Disentangled/Unconditional、Video-to-Action、Action-to-Video、Bidirectional、Joint、Causally Interleaved（单一 group-causal 流的抽象，保留 LingBot-VA 系的时间交错依赖但保证架构一致）。分类按"规范策略路径的视频-动作依赖"：DreamZero 被归为 Joint（chunk 内联合去噪两模态）、LingBot-VA 系被归为 Causally Interleaved。
 3. **8 种潜表征 × 4 个家族**：语义（DINOv3、Qwen3-VL、SAM3）、几何（VGGT-Ω、Depth Anything 3）、重构（Image-VAE/SDXL 系、Wan Video-VAE）、预测（V-JEPA 2.1）；按"是否编码跨帧时间关系"二次分组——帧间组（DA3、VGGT-Ω、V-JEPA、Qwen3-VL 视频模式、Video-VAE）vs 帧级组（DINOv3、SAM3、Image-VAE），时间整合发生在编码器内还是策略主干内是关键变量。

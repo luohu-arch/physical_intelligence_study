@@ -14,6 +14,9 @@ ThinkWVLA 的核心洞察是把世界模型的两种资产拆开：**关于物�
 
 ## 核心技术
 
+![thinkwvla 架构图](figures/thinkwvla/fig2.png)
+*论文 Figure 2（p4）：Fig. 2. Overview of the method. Left: the frozen teacher world model feature extraction pi*
+
 1. **零推理成本的世界模型蒸馏配方**：在普通 VLA 训练损失上加一项特征对齐——冻结世界模型对训练帧跑一遍、逐相机视图 mean-pool 后写入 memory-mapped 缓存（键为 trajectory id + base index），训练时只读缓存；学生侧同样对图像 token span 做逐视图 mean-pool，经两层 MLP 投影器对齐教师方向。训练全程不加载教师权重、训练结束丢弃投影器，部署网络与未蒸馏基线逐位相同（含 flow 步数）。
 2. **方向对齐而非数值复现**：损失是余弦距离而非 L2——学生只需与教师特征**同方向**，可以保留动作目标所需的额外结构；因此师生不必共享特征空间或维度，投影器可自适应任意 $(D_s, D_t)$ 组合，一份缓存可服务多个学生。
 3. **学生**：QwenGR00T（StarVLA 代码库）——Qwen3.5-VL 家族视觉-语言骨干 + GR00T 式 flow-matching 动作专家，观测为多相机视图 + 语言指令 + 本体感觉；推理为一次骨干 prefill + 4 个 flow 步。
@@ -45,7 +48,11 @@ $$\mathcal{L}_{\text{act}}=\mathbb{E}_{o_t,\tau,\epsilon}\big\lVert v_\theta\big
 
 其中 $h(o_t)\in\mathbb{R}^{L\times D_s}$ 是骨干最终层隐状态，$L$ 为前缀 token 数（各视图图像 token + 指令 token + 状态 token）。动作监督始终来自真值演示，教师动作目标一律不用。
 
-**对齐目标**（式 2、3）：对每个相机视图 $c\in\mathcal{C}$，对 $h(o_t)$ 的该视图图像 token span $\mathcal{I}_c$ 做平均池化得 $f^S_c(o_t)=\frac{1}{|\mathcal{I}_c|}\sum_{i\in\mathcal{I}_c}h_i(o_t)\in\mathbb{R}^{D_s}$（各视图 span 不相交、只覆盖图像部分），投影后与缓存中的教师特征 $f^T_c\in\mathbb{R}^{D_t}$ 做余弦对齐：
+**对齐目标**（式 2、3）：对每个相机视图 $c\in\mathcal{C}$，对 $h(o_t)$ 的该视图图像 token span $\mathcal{I}_c$ 做平均池化（各视图 span 不相交、只覆盖图像部分）：
+
+$$f^S_c(o_t)=\frac{1}{|\mathcal{I}_c|}\sum_{i\in\mathcal{I}_c}h_i(o_t)\in\mathbb{R}^{D_s},$$
+
+投影后与缓存中的教师特征 $f^T_c\in\mathbb{R}^{D_t}$ 做余弦对齐：
 
 $$\mathcal{L}_{\text{align}}=1-\cos\!\Big(p_\phi\big(f^S_c(o_t)\big),\;\mathrm{sg}\big[f^T_c(o_t)\big]\Big),\qquad \cos(u,v)=\frac{u^\top v}{\lVert u\rVert\,\lVert v\rVert},$$
 

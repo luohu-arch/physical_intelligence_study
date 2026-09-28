@@ -14,6 +14,9 @@ D-JEPA 抓住了 JEPA 潜空间世界模型一个被忽视的失效模式——*
 
 ## 核心技术
 
+![d-jepa 架构图](figures/d-jepa/fig1.png)
+*论文 Figure 1（p1）：Figure 1: From predictive proximity to decision-aligned control. A candidate closer to the*
+
 1. **决策局部预测鸿沟诊断**（第 3 节 + 附录 C.1）：96-start PushT 审计发现，全集层面预测相关性很好（LeWM 0.90 / TD-JEPA 0.80），但 top-4 shortlist 内相关性崩塌（0.11 / 0.13）；两个模型各有 8/96 个 start 把更低预测距离给了失败候选。命题 1 进一步证明：候选平均预测误差趋零、全局 Spearman 趋 1 时，执行 regret 仍可为任意 $\Delta$——全局预测精度与决策正确性在数学上可分离。
 2. **有界关系对齐算子**（式 1）：对完整候选集 $\{a_i\}_{i=1}^{K}$（$K=63$），双模型 token 为 $v_i=[d^L_i; d^T_i; r^L_i; r^T_i]\in\mathbb{R}^{386}$（192 维 LeWM 差分 + 192 维 TD-JEPA 差分 + 2 个序数坐标），经共享编码器（386 到 64）和两层置换等变 Transformer（4 头、FFN 128、零 dropout、无位置编码）后，由零初始化的 rank-8 修正头给出 $\delta_i=\epsilon\tanh(W_{\text{up}}\tanh(W_{\text{down}}h_i))$，$\epsilon=0.2$。
 3. **决策监督损失**（式 2、6、7）：成功质量项 $-\log\sum_{i:y_i=1}p_i$（softmax 温度 $T=0.05$）奖励任一成功候选；边界排序项对当前低分子集（16 个候选）内的成功/失败对施加 softplus margin（margin 0.02）；修正正则 $\frac{\lambda_{\text{trust}}}{K}\sum_i\delta_i^2$（权重 0.1）抑制不必要的全局重排。
