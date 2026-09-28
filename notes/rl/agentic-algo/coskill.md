@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![coskill 架构图](figures/coskill/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Sample and training efficiency. CoSkill achieves higher sample efficiency on (a)*
+
 **对三个既有范式的诊断（论文的切入点）。** (a) 外部编排式（SkillRL、D2Skill、ReSkill、Trace2Skill）：技能生成/修订/维护交给外部 LLM 或手写规则，技能演化在策略学习目标之外，库会随策略演化变得陈旧、冗余、失配。(b) RL 优化的库管理式（SAGE、ARISE、Skill1）：用下游回报优化技能的生命周期决策，但粒度是原子的——RL 只决定"这个技能留不留/用不用"，技能内部步骤不被优化，"有用但有缺陷"的技能被低估或删除而不是被修好。(c) 元技能驱动式（SkillOpt、EvoSkill、SkillEvolver、MetaSkill-Evolve）：用执行反馈修单个技能的内容，但更新器是预定义工作流且推理器通常冻结，固定更新规则无法与演化中的策略共同适应。CoSkill 的答案：把元技能本身变成 RL 可学的 agent。
 
 **层级技能库与两级检索。** 库 $\mathcal B = \{B_k\}_{k=1}^K$ 由 $K$ 个任务索引的技能束组成，$B_k = (s^{task}_k, S^{step}_k)$：任务技能给回合级全局指导，其子集 $S^{step}_k$ 存放面向中间观测的局部流程。检索先全局选任务束、再只在被选束内部选步骤技能——任务技能锁定候选子树，保证全局指导稳定、局部决策自适应。初始化由离线管线完成（外部 LLM 采集轨迹 → 反思生成 1 个任务技能 + 1 到 8 个有出处的步骤技能，每个步骤技能必须指向源轨迹与源轮次、以该轮次的精确观测为检索键），ALFWorld 库 300 个任务技能 + 1625 个步骤技能，WebShop 300 + 1406。

@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![dlo-routing 架构图](figures/dlo-routing/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: Hierarchical DLO routing framework. Our framework combines high-level planning via*
+
 1. **VLM 高层规划** — GPT-5 + CoT prompting，接收全场景俯视图与当前 clip 的 zoom-in 视图，做任务进度推理 + 技能选择 + 目标 clip 选择 + 完成判定；通过 in-context examples 提供 Insert/Pull/Flatten 的技能定义与反例（何时不应调用）。
 2. **SAC RL 低层执行** — Insert 技能是参数化运动原语（7 参数：2 个 via point 的 2D 位置+1D 旋转、1 个抓取点索引），由 SAC 在 IsaacSim/GarmentLab 中训练，观测为粒子化 DLO 状态 + clip 位姿 + rope_in 指示；Pull/Flatten 用预定义运动原语。
 3. **自动故障恢复** — 维护连续插入失败计数器并喂给 planner，配合 step limit 约束；VLM 检测 repeated insertion failure → 推理原因 → 触发 Flatten 技能 → 重新 attempt，全程无人工干预。

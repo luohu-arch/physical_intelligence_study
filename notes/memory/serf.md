@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![serf 架构图](figures/serf/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Top: A mobile manipulator performs a long-horizon task consisting of multiple su*
+
 1. **Neural point 表示（Sec 3）**：地图 $\mathcal{P}_\tau=\{(p_{i,\tau}, f_i, c_i)\}_{i=1}^N$，每个点携带世界系坐标、64 维 latent 特征与实例标签；查询任意位置 $x$ 时做 ball query 取 K=6 近邻、softmax 加权插值特征，再经共享 decoder 映射回 DINOv3 patch embedding。**点的存在形式本身就是它的杀手锏：坐标是显式的，刚体一动就整体平移旋转，不需要重训练任何东西。**
 2. **环境-机器人共享隐空间**：环境点由 RGB-D 观测提升到 3D 后按 voxel 注册进 spatial hash table；机器人点从 URDF link mesh 表面采样、存于各 link 局部坐标系。两组特征用同一个 decoder 联合优化 + 类别间对比损失（把机器人当作一个附加类别），保证 DINOv3 语义落在同一坐标系里——这是后面"距离即可达性"推断的前提。
 3. **在线更新 = 只动坐标（Sec 3 Map Updates）**：执行期 latent feature、实例标签、decoder 全部冻结；环境点按物体实例分组，组内以 Shi-Tomasi 角点 + CoTracker3 的 2D 关键点轨迹提升到 3D，FGR 初始化 + ICP 精化估计 instance 级 SE(3)，然后整组搬移；质心位移 < 0.015 m 判为静止跳过配准。机器人点则直接 FK 到当前世界位姿。训练与在线用的是同一条更新规则，只是来源一个是录制数据、一个是实时估计。

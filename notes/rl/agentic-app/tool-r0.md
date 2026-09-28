@@ -14,6 +14,9 @@ Tool-R0 用 zero-data self-play RL 把同一个 instruction-tuned 基座初始�
 
 ## 核心技术
 
+![tool-r0 架构图](figures/tool-r0/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Tool-R0 self-evolution loop*
+
 **双角色迭代结构**。训练跑 $K=3$ 个 self-play iteration，每轮三段：(1) 冻结 Solver，用 GRPO 训 Generator 50 步（2,000 个自生成样本）；(2) 冻结 Generator，采样 10,000 个候选任务，经去重、Solver cross-verification、难度分桶后筛到 2,000 条；(3) Solver 在这批课程数据上训 50 步，进入下一轮。Solver 的成功率统计反过来决定 Generator 的难度奖励，闭环由此咬合。
 
 ```mermaid

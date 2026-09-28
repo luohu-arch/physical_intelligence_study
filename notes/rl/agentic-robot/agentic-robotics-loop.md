@@ -14,6 +14,9 @@ AgenticRobotics 把 Claude Code/Codex 式的"主 agent 管环 + 子 agent 执行
 
 ## 核心技术
 
+![agentic-robotics-loop 架构图](figures/agentic-robotics-loop/fig1.png)
+*论文 Figure 1（p2）：Figure 1. The AgenticRobotics pipeline. An immutable objective binds an LLM controller (th*
+
 1. **五条设计承诺**：(i) 主 agent 管循环、子 agent 分析与执行——控制器的有限上下文只花在决策上；(ii) 任何在世界里执行的东西都是工具而非知识——训好的策略、训练流水线、planner、数据采集台都打包在工具边界后面，控制器从不触碰机器人物理；(iii) 打包工作流给每个 artifact 一个统一的 input-to-tool-to-output 调用面（MCP 之上）并注册，另一个独立验证工作流测量它实际能做什么；(iv) 每次调用都留记录，运营可靠性从记录推导而得，从不靠声明；(v) 技能是有知识的可编辑工作流。
 2. **agent-to-skill-to-tool 分解**：agent 决定做什么，skill 决定怎么做，tool 是后端真正能做的事。技能是 Agent Skills 格式的可编辑 Markdown（审计快照时有 29 个 loop skills + 1 个 vendored authoring tool，其中 4 个是构建/打包/验证/改进工具的工具生命周期技能）；调用契约写在 tool descriptor 而非技能文字里，所以技能可以重参数化、重排、fork 出候选变体而不碰执行代码。
 3. **能力注册表与质量五态梯**：每个工具有 unvalidated / effective / ineffective / stale / deprecated 五态，且只能由控制器解析过的测量设定（worker 给出的数字只是 provenance，工具保持 unvalidated）；质量按 benchmark 分 key，避免并发 run 互相覆盖；staleness 是推导出来的——每次测量记录产生它的 artifact，一旦工具当前 artifact 引用变化（重训练正是如此），工具自动变 stale 并报告"重训练后未再验证，此前成功率 X"；候选按 Wilson 下界排序，使 2/2 的侥幸排不过 46/100 的充分测量。unvalidated 或 stale 的工具不能进入无人值守的动作集合。作者声明这个"测量质量绑定到 artifact 版本、重训练即作废"的约定没有先例。

@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![no-gaussian-required 架构图](figures/no-gaussian-required/fig1.png)
+*论文 Figure 1（p2）：Figure 1: Training and inference paths for AC-MTM. During training, the observed action is*
+
 **与 LeWM 的对照结构。** 前向任务照旧：
 $$
 \hat z_{t+1} = \mathrm{fwd}_\phi(z_t, a_t),\qquad

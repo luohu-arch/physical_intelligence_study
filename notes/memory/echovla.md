@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![echovla 架构图](figures/echovla/fig1.png)
+*论文 Figure 1（p2）：Fig. 1: Comparison of memory designs for mobile manipulation control. (a) BSC- Nav [38] us*
+
 1. **双记忆库（Sec 3.3）**
    - Scene Memory：voxel 化 3D 特征图 $\mathbf{V}^{3D}$，新环境中初始化为空网格，随 episode 反复交互逐步累积深度观测（经 PointAttn 编码）；**discrepancy-driven 更新规则**——当前 voxel 特征先与"由既有记忆重建出的版本"比对，重建误差超过阈值 τ 的区域才写入新特征，其余区域保留旧值；推理期同一规则继续生效，因此环境被重新布置时可在线自适应。
    - Episodic Memory：固定容量 FIFO 缓冲，存最近 $k$ 个时刻的**原始统一 token 序列**（不做摘要压缩），每条带时间戳索引；保留抽屉开没开、物体抓没抓、end-effector 最近姿态这类细粒度时序线索。

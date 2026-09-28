@@ -13,6 +13,9 @@ Dexora 是首个开源的双臂灵巧 VLA：2× AIRBOT (6-DoF) + 2× XHAND (12-D
 
 ## 核心技术
 
+![dexora 架构图](figures/dexora/fig1.png)
+*论文 Figure 1（p1）：Fig. 1. Dexora overview. (a) Motivation: Three illustrative contrasts highlight the need f*
+
 1. **混合遥操作** — 外骨骼背包（臂部低延迟无漂移）+ Apple Vision Pro（手指 markerless tracking），物理机器人 + MuJoCo 数字孪生同步驱动；手部 24-DoF 的动作来自 vision pro 手指追踪，无手套/无标记
 2. **Discriminator-Guided Quality-Aware Training** — 12 层 Transformer discriminator，PU-learning（正-未标注学习）objective 评分每条 demo，低质量数据自动降权：只标注少量高质量子集为正样本，其余按未标注处理，避免人工给全部 12.2K 条数据打分
 3. **High-DoF→Low-DoF 迁移** — 36-DoF 策略通过 action-dim padding + camera masking 直接迁移到单臂夹爪/双臂夹爪/单臂低 DoF 手，一个模型覆盖多种本体配置

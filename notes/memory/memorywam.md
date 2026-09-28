@@ -13,6 +13,9 @@ MemoryWAM 提出三层混合记忆：4 帧滑动窗口（短期高保真, N_rece
 
 ## 核心技术
 
+![memorywam 架构图](figures/memorywam/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Overview. Prior WAMs typically face a memory-efficiency trade-off: sliding-windo*
+
 1. **三层分层混合记忆** — 短期窗口（4 帧高保真 closed-loop control）、锚帧（2 帧任务初始，instruction grounding）、Gist token（8 个/帧 learnable parameter，共享 3D RoPE 但固定在 marker 位置，120 tokens→8 tokens 压缩）。各层通过专用 attention mask 独立访问
 2. **MoT 双专家不对称架构** — Video DiT（Wan2.2-TI2V-5B, hidden 3072, FFN 14336, 30 blocks, ~5B）处理观测+维护记忆缓存，Action DiT（hidden 1024, FFN 4096, 30 blocks, ~1B）从缓存解码动作。总 ~6B。视频预测仅训练时监督，推理不生成视频——clean latent 仅做一次 video DiT forward
 3. **3D RoPE 位置对齐** — Video/Action 共享 3D RoPE basis，Gist token pin 在对应帧的 (h,w) marker。Action query 和 cached video key 在同一位置空间，无需跨专家对齐

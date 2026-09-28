@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![sd-jepa 架构图](figures/sd-jepa/fig1.png)
+*论文 Figure 1（p2）：Figure 1: Planning success rate (%) across the four LEWM benchmark environments. Baselines*
+
 **子空间分解（式 4）。** 用两个固定正交注入矩阵：
 $$
 z_t = P\, z^{\text{prog}}_t + Q\, z^{\text{cont}}_t,\quad

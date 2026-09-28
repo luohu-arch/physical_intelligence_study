@@ -13,6 +13,9 @@ BridgeVLA 主张 3D VLA 的瓶颈不在「要不要 3D 信息」，而在「输�
 
 ## 核心技术
 
+![bridgevla 架构图](figures/bridgevla/fig1.png)
+*论文 Figure 1（p2）：Figure 1 Overview. BridgeVLA is a novel 3D VLA model that aligns the input and output with*
+
 1. **输入对齐（3D 转 2D）** — 场景点云按 top/front/right 三个方向做正交投影（沿袭 RVT/RVT-2 的做法），得到的三张 2D 图直接替换 VLM 原本吃的 RGB 图；整个 VLM 前向过程中不注入任何额外模态（没有机器人状态、没有逐像素 3D 坐标），最大限度避免预训练与微调的特征分布漂移
 2. **输出对齐（动作转热图）** — 平移动作不 regress 成向量，而是由与输入同分辨率的 2D heatmap 表示：三个视角的热图分别反投到工作区均匀采样的 3D 点网格上取均分最高者作为下一关键帧末端位置；旋转/夹爪/碰撞旗标则由全局与局部特征拼接过 MLP 预测（Euler 角每轴离散成 72 个 bin）
 3. **可扩展的热图预训练** — PaliGemma 本来只会输出 token 序列、天生不会画热图，于是先用检测框构造高斯热图监督（cross-entropy），用 convex upsampling（借自 RAFT 的可学习逐像素插值上采样）把 patch token 网格还原到原图分辨率；该配方可平移到 keypoint 检测与语义分割等任何能表达成热图的任务

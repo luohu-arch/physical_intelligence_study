@@ -12,6 +12,9 @@ OXE 把全球 21 个机构的 60 个数据集统一成 RLDS 格式，拼出 100 
 
 ## 核心技术
 
+![open-x-embodiment 架构图](figures/open-x-embodiment/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: We propose an open, large-scale dataset for robot learning curated from 21 institu*
+
 1. **粗对齐（coarse alignment）而非精细投影**：每个数据集取一个 canonical 相机视角、缩放到统一分辨率；动作统一转成 7 维末端执行器向量（$x,y,z,\text{roll},\text{pitch},\text{yaw}$ 加 gripper 开度或对应速率），逐数据集归一化后再离散化为 256 bins x 8 维（第 8 维为终止位）。刻意不做的两件事：不跨数据集对齐坐标系，保留原始控制方案（绝对/相对位姿或速度照原样）
 2. **RLDS 标准化数据容器**：序列化 tfrecord 格式，兼容不同数量 RGB 相机、深度相机与点云，支持主流框架的并行加载——这是让 60 个异构数据集能被一个 dataloader 吃下的关键
 3. **RT-X 两个模型族做实证载体**：RT-1-X 是 35M 参数的机器人专用 Transformer（FiLM EfficientNet + USE 句嵌入，15 帧图像历史），RT-2-X 基于 RT-2-PaLI-X（VLM 底座 + 动作写成文本 token），两者都用 categorical cross-entropy；实验混合 9 种操纵臂的数据（RT-1、QT-Opt、Bridge、TARP、Jaco Play、Cable Routing、RoboTurk、NYU VINN、Austin VIOLA、Berkeley Autolab UR5、TOTO、Language Table）

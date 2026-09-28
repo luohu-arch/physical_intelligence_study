@@ -13,6 +13,9 @@ EgoGenesis 把 Wan2.2-5B-Control 改造成块级自回归的第一人称操控�
 
 ## 核心技术
 
+![egogenesis 架构图](figures/egogenesis/fig1.png)
+*论文 Figure 1（p1）：Figure 1. EGOGENESIS expands scarce real demonstrations with controllable egocentric video*
+
 论文的诊断出发点是两类互补失败模式（Figure 2）：通用视频先验 Wan2.1-14B 不给相机与夹爪轨迹任何显式几何条件，相机运动和 gripper 轨迹不受控；action-conditioned 的 RynnWorld-TeleOp 虽然条件化了动作，但场景和被操作物体随时间漂移——作者归因于首帧锚定不足以及 end-effector 形态在训练分布上过拟合（把人手生成成 gripper 形态）。EgoGenesis 的回答是把两条条件通路分别做"几何化"：
 
 1. **三路条件流输入块级 DiT**：(i) 噪声视频 latent 块 $Z_{t,b}$（首帧在生成中被 pinned）；(ii) 场景记忆——带米制坐标和置信度的紧凑 3D patch tokens；(iii) 动作控制 $S_b$——统一 keypoint 格式的 dense skeleton/EEF latent，兼容 MANO 人手骨架、灵巧手骨架和平行夹爪/机械臂末端轨迹。

@@ -13,6 +13,9 @@ IMR-LLM 用 LLM 做"翻译器"——LLM 将自然语言任务转为析取图(dis
 
 ## 核心技术
 
+![imr-llm 架构图](figures/imr-llm/fig1.png)
+*论文 Figure 1（p1）：Fig. 1. A multi-robot industrial production line. Our method transforms manufacturing task*
+
 1. LLM 翻译 + OR 求解：LLM 分解任务→析取图→确定求解器保证全局最优
 2. Process Tree 代码生成：LLM 导航选路径替代从零生成代码
 3. IMR-Bench: 23 场景, 50 任务, 最多 7 机器人 24 工序

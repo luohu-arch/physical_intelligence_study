@@ -15,6 +15,9 @@ G2PO（微软 + 北大）把多轮 agent RL 的线性轨迹重构为全局状态
 
 ## 核心技术
 
+![g2po 架构图](figures/g2po/fig1.png)
+*论文 Figure 1（p2）：Figure 1: (a) compares the training sample units between trajectory-level and step-level t*
+
 1. **State group graph construction（图构建）** — 对任务 $x$ 采 $N$ 条完整轨迹，收集全部中间 observation 集合 $\mathcal{O}$，按"完全相同的 observation"聚类划入互斥状态组：状态组为节点、动作 $(G_s, a, G_t)$ 为边，得到状态转移图。物理含义：多轨迹探索中的同一网页/同一房间配置天然汇成同一节点，被线性视角割裂的探索在图上重新连通。AppWorld 实验证明即使 observation 是 API 返回文本（需推断底层 app 状态），聚类建图依然可行。
 2. **Group-aggregation state-value estimation（组聚合价值）** — 先按折扣回报给每条轨迹内的步赋值，再对同一状态组内所有步取平均作为节点价值。动机有二：方差削减（同一状态在不同轨迹中可能通向不同结局，单轨迹结局是掷硬币）；更好的时序信用分配（好动作可能因后续失误而失败、平庸动作可能靠运气成功，跨轨迹平均抹掉未来步噪声）。附录 B.1 证明方差降为 $\sigma^2/|G_k|$。
 3. **Edge-centric advantage estimation（边中心优势）** — 动作重定义为状态节点间的转移边，其质量由源组与目标组的价值增量（稀疏终端奖励 + $\gamma=1$ 时结构上对应 1-step TD error）刻画；关键是不做局部归一化，而是把全图所有转移的 TD error 作为全局参照集做标准化——把"在平凡状态里的小改进"与"推动任务全局进展的关键突破"放进同一把尺子。附录 B.2 证明其方差不超过轨迹级优势。

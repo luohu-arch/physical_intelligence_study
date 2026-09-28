@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![rl-token 架构图](figures/rl-token/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: Our method introduces an “RL token” into the VLA by training an encoder and decode*
+
 1. **RL Token 读出模块（Sec IV-A）**：给预训练 VLA 外挂一个小 encoder-decoder transformer。把学到的 `<rl>` 占位 embedding 追加到 VLA 最终层 token 序列末尾，encoder 输出在占位位置的向量即 RL Token $\mathbf{z}_{rl}$；decoder 只凭这个 bottleneck 向量自回归重建原始 embedding，重建目标全部施加 stop-gradient——因此压缩是有损但信息保真的：能被还原的特征才是策略真正需要的特征。
 2. **VLA 三重角色**：冻结后同时充当 (a) 感知表征来源（token 从它里面蒸出来）、(b) 行为先验（每步采样参考动作块 ã）、(c) 探索锚点（正则把 actor 拴在参考附近）。
 3. **chunk 对齐的 TD3 式 actor-critic（Sec III/IV-B）**：VLA 出 $H=50$ 步（1 秒）的块、执行期只开环执行前约 20 步；RL actor 直接输出 $C=10$ 步的更短块（50 Hz 下 14 维单步 → 140 维块），$C<H$ 让策略更 reactive。critic 是 TD3 式双 Q 取 min 的集成，TD 备份按 C 步块级展开；off-policy 更新使 VLA warmup 数据、RL rollout、人工接管数据可以共用一个 replay buffer。

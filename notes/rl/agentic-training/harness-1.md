@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![harness-1 架构图](figures/harness-1/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Averaged performance across eight challenging search benchmarks. Each method rep*
+
 1. **Stateful cognitive offloading（核心原则）**：搜索 episode 所需的状态分两类——语义决策（policy 负责）与可恢复记账（harness 负责）。传统 formulation 把两者都压进不断增长的 transcript，RL 被迫同时优化"搜什么"和"从 append-only 观测流里重建状态"，导致难查询 rollout 奖励几乎全为空集、工具词表塌缩成重复 search、跨文档结构散落在上下文里无法可靠调用。
 2. **WORKINGMEMORY 两层记忆 + 7 个状态槽位**：prompt 面层渲染紧凑状态 $s_t = (P_t, C_t, I_t, G_t, V_t, H_t, B_t)$（候选池 / curated set / 重要性图 / 证据图 / 验证缓存 / 搜索历史 / 预算标记），外层 $D_t$ 保存所有取回 chunk 的全文，通过 `review_docs`/`read_document` 回看而不占 prompt。每次动作施加转移 $(s_t, a_t) \mapsto (s_{t+1}, o_{t+1})$——工具输出不只是拼进 prompt 的文本，而是更新持久检索状态。
 3. **动作即状态编辑**：8 个工具分五类——检索（`fan_out_search` 最多 5 路并行混合检索 + RRF + rerank、`search_corpus` 单路 BM25+dense、`grep_corpus` 正则精确匹配）、记忆检查（`read_document` 全文、`review_docs` 重渲染已见文档）、curation（`curate` 增加/删除/打四级重要性标签）、验证（`verify` 对 policy 写的 claim 做逐文档 LLM 蕴含判断并写入 $V_t$）、终止（`end_search` 提交按重要性排序的 curated set）。

@@ -14,6 +14,9 @@ UC Berkeley + Impossible Research 的 RATS（Robotics Agent Teams）把「游戏
 
 ## 核心技术
 
+![playful-agentic 架构图](figures/playful-agentic/fig1.png)
+*论文 Figure 1（p1）：Figure 1: RATS enables Playful Agentic Robot Learning. Prior to receiving extrinsic reward*
+
 1. **Play-time 形式化（Sec 3.1）**：标准 Code-as-Policy 中 agent 由 $(c, f, l)$（环境上下文、原语函数、语言指令）合成程序 $\pi$；RATS 把外部指令 $l$ 整个拿掉，让 agent 在 play 环境 $E_{play}$ 里自提自练任务 $\tau_t$。技能库 $\mathcal{L} = \mathcal{L}_0 \cup \mathcal{L}_{learned}$（$\mathcal{L}_0$ 为初始原语），另有失败记忆 $\mathcal{M}$ 存压缩教训。优化目标是：$N$ 轮 play 之后，冻结的 $\mathcal{L}$ 在未见测试任务上优于只用 $\mathcal{L}_0$。
 2. **Task Proposer 团队（两段式）**：LLM 以场景上下文 $c_t$、技能库摘要（只给名字/描述/可靠度/成功率元数据，不给源码）与近 10 条任务历史为条件，被显式要求「exploratory」（prompt 里的人设是 3-4 岁小孩：看见一个物体、做一件简单的事），生成候选池 $T_t$；再用 Goldilocks 打分选出 $\tau_t$（见数学节）。之后 Environment Creator 把提案编译成可执行任务实例（LIBERO 里生成 BDDL 规范并做语法/语义校验 + 一次有界修复），Environment Verifier 在两个 reset seed 上做确定性检查（实例化、渲染、目标谓词可求值、无严重初始穿透），不合格任务退回提案阶段、不消耗执行预算。
 3. **Execution 团队（Write-Execute-Verify-Diagnose 循环）**：Planner 产出带技能标注的分步计划并预测失败点 → Planner Verifier 检查计划的物理落地性 → Policy Writer 写 Python 控制代码（retry 时只做局部修改，保留已工作的代码段）→ Quality Checker 静态筛查（语法错误、不可用 API、无界循环、危险模式），避免把机器人交互预算浪费在源码层面就能发现的错误 → 执行后 Goal Verifier（有结构化谓词用环境状态判，否则视觉判；**策略 crash 一律算失败**，哪怕最终视觉状态看起来对）与 Per-Step Verifier（逐步 pass/fail，能区分「抓取失败」和「抓成功但放错」）给出定位证据 → Failure Diagnoser 输出失败类别、首个失败步骤、具体修复建议与路由标志（代码级错误回 Policy Writer、计划级错误触发重规划、持续性局部物理瓶颈派 SubAgent 单独练该子动作——SubAgent 的成果只注入当前 retry 上下文，不自动进持久库，防止过拟合的局部补丁污染库）。

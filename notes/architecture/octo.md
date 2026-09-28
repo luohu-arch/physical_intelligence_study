@@ -11,6 +11,9 @@ Octo 是开源社区最成熟的扩散策略 VLA 模型，在 Open X-Embodiment 
 
 ## 核心技术
 
+![octo 架构图](figures/octo/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: We introduce Octo, an open-source, generalist policy for robotic manipulation. Oct*
+
 1. **扩散输出头（Diffusion Head）** — 采用降噪扩散概率模型（DDPM）生成连续动作，仅需 10 步去噪即可输出高质量动作序列，彻底摆脱离散分箱的范式限制
 2. **高度灵活的 Transformer 骨干网络** — 处理多模态输入（图像、语言指令、机器人状态），支持灵活的观测与动作空间定义
 3. **多视角相机输入自适应处理** — 通过特殊 Tokenizer 设计，将不同视角的相机图像编码为独立 Token 序列，推理时可随意增删相机视角无需重新微调

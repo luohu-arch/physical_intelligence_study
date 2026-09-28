@@ -12,6 +12,9 @@ StateLinFormer 证明序列模型的"健忘"不一定是架构问题，而是训
 
 ## 核心技术
 
+![statelinformation 架构图](figures/statelinformation/fig1.png)
+*论文 Figure 1（p5）：Fig. 1. The framework of StateLinFormer. Top: Conventional stateless training with memory*
+
 1. **Stateful Training** — 训练时 batch k 的初始记忆状态 = batch k-1 的终止状态（而非清零），梯度仍按 batch 截断。模型参数在"自己长期演化产生的记忆状态分布"上被优化，而非在退化的零初始化分布上
 2. **Linear Attention** — 记忆状态 $M_t \in \mathbb{R}^{d \times d}$ 增量更新，每步 $O(1)$ 计算成本，支持跨 batch 传状态而不爆炸
 3. **涌现 In-Context Learning** — 训练从未显式教"如何利用积累信息"，但部署时同一环境 context 越长成功率越高（stateless 对照在长上下文反而退化）——论文将其归因于 stateful 训练提高了训练信号的 burstiness（参考 Chan et al. 2022 的 ICL 数据分布性质结论）

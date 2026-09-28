@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![daydreamer 架构图](figures/daydreamer/fig1.png)
+*论文 Figure 1（p1）：Figure 1: To study the applicability of Dreamer for sample-efﬁcient robot learning, we app*
+
 1. **完全复用的 Dreamer 世界模型（RSSM + 离散码）**：encoder 融合本体感受与相机输入 $x_t$ 得到随机表征 $z_t$，dynamics 用递归状态 $h_t$ 预测表征序列，decoder 重建全部模态（既提供表示学习信号也允许人工检视模型预测），reward head 学任务奖励。
 2. **Latent 想象中的 actor-critic**：批量想象 rollout 典型 batch size 达 **16K**（单 GPU），与 Isaac Gym 这类专业并行仿真器同量级——这是"在脑子里模拟比在物理世界里试错便宜"的量化证据。
 3. **解耦的异步训练架构**：learner 线程持续更新网络，actor 线程并行计算动作；这解决了两件事——高控制频率机器人（A1 是 20Hz）等不起同步训练，以及慢速环境（XArm 约 0.5Hz）也不必让 GPU 干等数据。相比 Hafner et al. 2020，删除了"训练频率"超参。

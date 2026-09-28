@@ -15,6 +15,9 @@ OneTwoVLA 将 System 1（快速动作执行）和 System 2（显式推理）融�
 
 ## 核心技术
 
+![onetwovla 架构图](figures/onetwovla/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Overview. OneTwoVLA is a single unified vision-language-action model capable of*
+
 1. **单模型双模式架构** — 基于 π₀ VLA 构建，同一组权重通过 Decision Token 在 Reasoning Mode（生成文本推理）和 Acting Mode（生成动作 chunk）间切换，消除双系统分离架构的通信瓶颈和延迟
 
 2. **Decision Token 自适应切换机制** — 引入 `[BOR]`（Begin of Reasoning）和 `[BOA]`（Begin of Action）两个特殊决策 token，模型在推理间隔输出 `[BOR]` 触发显式推理，在动作间隔输出 `[BOA]` 直接生成动作，无需外部门控网络

@@ -12,6 +12,9 @@ V-JEPA 把 I-JEPA 的 "EMA target 表征回归" 目标搬到时空 token 上（�
 
 ## 核心技术
 
+![vjepa 架构图](figures/vjepa/fig1.png)
+*论文 Figure 1（p1）：Figure 1 V-JEPA models pretrained on video learn versatile visual representations. It perf*
+
 1. **三网络结构沿用 I-JEPA 骨架**：x-encoder $E_\theta$ 只处理可见 token；y-encoder $E_{\bar\theta}$ 编码完整 clip 并在其输出端施加掩码挑选目标块（contextualized targets 思路来自 data2vec）；narrow predictor $P_\phi$ 为 12 层、embedding 固定 384 的浅层 ViT，输入可见表征加带位置嵌入的可学习 mask token。
 2. **L1 回归替代 I-JEPA 的 L2**：损失为预测块表征与目标表征的平均 L1 距离。论文明确说这是相对 Assran et al. 2023 的修改，理由是 L1 "more stable"；并给出理论解释（见下节）：最优 L1 predictor 是条件中位数，此时编码器梯度变为最小化条件中位绝对偏差 MAD。
 3. **多块多尺度掩码（multi-block）**：short-range 掩码取 8 个随机空间块、每帧覆盖 15%；long-range 取 2 个大块、每帧覆盖 70%；块宽高比采样自 $(0.75, 1.5)$，且空间块沿整段时间轴重复——平均掩码率约 $90\%$，同时杜绝时间冗余造成的信息泄漏。

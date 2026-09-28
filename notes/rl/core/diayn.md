@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![diayn 架构图](figures/diayn/fig1.png)
+*论文 Figure 1（p3）：Figure 1: DIAYN Algorithm: We update the discriminator to better predict the skill, and up*
+
 1. **判别性目标（discriminability objective）**：每个技能 $z$ 走过的状态必须能让一个判别器认出来；技能之间因此被互相"推开"，覆盖不同状态区域。
 2. **状态判别而非动作判别**：用状态而不是动作区分技能——不影响环境的动作对外部观察者不可见（机械臂抓杯子时施加多大的力，杯子不动就无从判断），故显式最小化 $I(A;Z|S)$。
 3. **最大熵技能**：单个技能内动作尽可能随机（SAC 的熵正则，系数 $\alpha = 0.1$），高熵且仍可判别的技能必须远离其他技能的领地，从而顺带完成探索。

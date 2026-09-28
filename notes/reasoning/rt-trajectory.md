@@ -13,6 +13,9 @@ RT-Trajectory 提出将粗粒度 2D 轨迹草图画到 RGB 图像上作为策略
 
 ## 核心技术
 
+![rt-trajectory 架构图](figures/rt-trajectory/fig1.png)
+*论文 Figure 1（p2）：Figure 1: We propose RT-Trajectory, a framework for utilizing coarse trajectory sketches f*
+
 1. **2D 轨迹草图覆盖（Trajectory Sketch Overlay）** — 将机械臂末端执行器的 2D 轨迹绘制在相机 RGB 图像上作为策略输入，提供中间粒度的任务描述
 2. **事后轨迹标注（Hindsight Trajectory Labeling）** — 利用已有示教数据集中的机器人位置信息自动标注轨迹草图，无需额外人工标注
 3. **条件融合架构** — 将轨迹草图与 RGB 图像在通道维度拼接（concatenate），直接送入预训练 EfficientNet-B3 图像编码器

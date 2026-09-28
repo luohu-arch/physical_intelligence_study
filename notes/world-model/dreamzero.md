@@ -13,6 +13,9 @@ DreamZero 把一个 14B 的预训练 image-to-video 扩散模型（Wan2.1-I2V-14
 
 ## 核心技术
 
+![dreamzero 架构图](figures/dreamzero/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Overview. By jointly predicting video and action, World Action Models (WAMs) inh*
+
 1. **联合视频-动作去噪（单模型端到端）** — 一个 DiT 同时输出未来帧与动作 chunk，显式建模 $\pi_0(o_{l:l+H}, a_{l:l+H})$ 而非"视频生成器 + 反求动力学"两个独立模块；论文认为分离式设计会导致视觉未来与运动指令错位。
 2. **自回归 video（仅视频维度）+ teacher forcing 分块训练** — 每个 chunk 含固定 $K$ 个 latent 帧，训练时当前 noisy chunk 以历史 **clean** chunk 为条件；推理时闭环反馈把已执行后的**真实观测写回 KV cache** 替换掉预测帧，消除自回归视频生成的误差累积。
 3. **DreamZero-Flash 解耦噪声调度** — 训练时给视频分支采样偏高噪声的时间步、动作分支保持均匀分布，使模型学会"从噪声视频上下文里读出干净动作"，从而支持 1 步去噪推理而不崩性能。

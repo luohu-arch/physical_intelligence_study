@@ -12,6 +12,9 @@ TacWAM 回答了一个此前 WAM 工作都回避的问题：**触觉未来该不
 
 ## 核心技术
 
+![tacwam 架构图](figures/tacwam/fig1.png)
+*论文 Figure 1（p3）：Figure 1: Overview of TacWAM. (a) TacWAM jointly predicts visual futures, future tactile s*
+
 1. **SAF（Spatially Aligned Fusion）Tactile Encoder** — 每侧夹爪传感器的三个空间配准信号 $o_t^{tac}=(I_t^{rect}, F_t, M_t^{flow})$：校正后的触觉图像、致密局部力场、网格变形流。每侧各自过对应分支编码后做 bilateral fusion + pooling 融合成单帧 latent $z_t^{tac}$。
 2. **力学结构保持的全局监督** — 重建头 $R_{tac}(z_t^{tac})=(\hat{F}_t, \hat{r}_t^{wrench}, \hat{M}_t^{flow})$ 要求 latent 能解出双侧各 3 维力 + 3 维力矩的合力/合矩；wrench 不作为第四个空间输入而是全局约束项，保证 latent 不丢失接触的整体力学含义。
 3. **触觉历史调制（Tactile History-Modulated Prediction）** — $c_{t_0}^{tac}=E_{hist}(z_{t_0-T_{hist}+1:t_0}^{tac})$ 压缩 chunk 前的触觉轨迹；**不插入额外 memory token，而是通过 adaptive normalization 调制触觉 expert**，让预测区分同值不同相的接触状态（稳态接触 / 压力增长 / 打滑恢复 / 即将压碎）。

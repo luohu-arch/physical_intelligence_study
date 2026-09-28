@@ -12,6 +12,9 @@ TORL-VLA 提出触觉引导在线 RL 框架：VLA 同时预测参考动作和未
 
 ## 核心技术
 
+![torl-vla 架构图](figures/torl-vla/fig1.png)
+*论文 Figure 1（p2）：Figure 1: Overview of the TORL-VLA framework. Stage I: Tactile-derived wrench sequences ar*
+
 1. **Wrench-aware VLA** — VLA 同时预测 action chunk 和 future wrench 序列，提供语义+物理双重先验：语义先验（动作该怎么做）来自预训练，物理先验（接触会受多大力）来自 wrench 预测头
 2. **轻量在线 RL 精调** — 部署时用实时 wrench 反馈在线更新轻量 actor-critic，参考动作被当作先验约束、实时 wrench 偏差作为修正信号
 3. **Intervention-censored critic** — 人类在失败后干预→成功后，critic 不会把成功归功于策略生成的失败动作；干预前的策略动作被 mask 掉，避免"错误动作被奖励"污染价值估计

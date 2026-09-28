@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![diffusion-policy 架构图](figures/diffusion-policy/fig1.png)
+*论文 Figure 1（p1）：Figure 1. Policy Representations. a) Explicit policy with different types of action repres*
+
 1. **条件扩散作为策略表示**：不直接回归动作，而是学噪声预测网络 $\epsilon_\theta(O_t, A_t^k, k)$，推理时执行 Langevin 式迭代去噪。可表达任意可归一化的分布，包括多模态动作分布。
 2. **Closed-loop action sequence + receding horizon control**：每次推理预测 $T_p$ 步动作、只执行 $T_a$ 步再重新观测重规划（典型配置 $T_p=16$, $T_a=8$, $T_o=2$），兼顾时序一致性与闭环响应。
 3. **视觉条件化而非联合建模**：与 Diffusion Planning 对 $(O, A)$ 联合建模不同，本文只对 $p(A_t|O_t)$ 条件建模——视觉特征只编码一次，所有去噪步共享，使实时控制可行并让 vision encoder 可以端到端训练。

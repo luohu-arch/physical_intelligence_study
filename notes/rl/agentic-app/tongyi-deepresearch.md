@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![tongyi-deepresearch 架构图](figures/tongyi-deepresearch/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Benchmark performance of Tongyi DeepResearch*
+
 1. **三条设计原则**：(a) 把 agent 训练拆成 mid-training + post-training——通用基座模型缺乏 agentic inductive bias，若在 post-training 阶段同时学 agentic 能力与对齐会互相冲突，mid-training 用大规模 agentic 数据先注入"行为先验"；(b) 合成数据中心化扩展——research 级问题天然稀缺、人工标注昂贵，而合成数据易扩展、易验证、可定向针对元能力（planning、信息综合、memory 管理），且形成数据飞轮（训练后的模型回头生成更强的合成数据）；(c) 环境被主动设计而非被动接受——按稳定性/保真度/成本三角分为 prior world（无真实反馈、零成本、无限扩展）、simulated（本地可控副本）、real-world（真实分布、昂贵且非平稳）三级，mid-training 主要用前两级，post-training 先在 simulated 验证再上 real。
 2. **rollout 形式化：ReAct + Context Management 双模式**。架构刻意选了 vanilla ReAct（引用 The Bitter Lesson，拒绝复杂 hand-engineered 框架）；针对长 horizon 上下文溢出，加入 Markovian 状态重建的 context management：agent 每步不看全历史，只看"问题 $q$ + 不断更新的报告摘要 $S_t$（压缩记忆）+ 最近一轮交互 $(a_t, o_t)$"。工具集固定 5 个：Search（Google 搜索，每 query 返回 top-10）、Visit（Jina 解析网页 + 按目标摘要）、Python Interpreter、Google Scholar、File Parser（PDF/DOCX/MP4 等）。
 3. **Agentic mid-training（两阶段 CPT）**：标准 next-token prediction 损失；Stage 1 用 32K 上下文，Stage 2 扩到 128K 并引入 64K–128K 长序列 agentic 行为数据；两阶段都穿插少量通用预训练数据防遗忘。合成数据覆盖 agent 工作流全生命周期四类动作：Question Synthesis（基于实体锚定的开放世界记忆库，按行为模式生成多跳推理/数值计算题）、Planning Action（开源模型分解问题并预测首步动作，用构题时的实体知识做 rejection sampling）、Reasoning Action（两阶段生成推理链，按长度 + 答案一致性双重过滤）、Decision-Making Action（显式枚举每步可行动作空间，把原轨迹重构成多步决策序列）；另通过"环境即读写数据库"的框架自动扩展 function-calling 数据。

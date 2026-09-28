@@ -12,6 +12,9 @@ WorldArena 的核心主张是：**视觉保真度不等于具身可用性**。�
 
 ## 核心技术
 
+![worldarena 架构图](figures/worldarena/fig1.png)
+*论文 Figure 1（p2）：Figure 1. EWMScore results (a) and performance comparisons across different evaluation dim*
+
 1. **16 指标 x 6 维度的感知评测面** — 视觉质量 3 项（MUSIQ 图像质量、LAION aesthetic、V-JEPA 特征 MMD 相似度）、运动质量 3 项（RAFT 光流 top-5% 活跃像素的 Dynamic Degree、Flow Score、插值模型的 Motion Smoothness）、内容一致性 3 项（DINO Subject Consistency / CLIP Background Consistency / 光流端点误差 Photometric Consistency）、物理符合性 2 项、3D 精度 2 项、可控性 3 项。
 2. **VLM-as-judge 与防作弊设计** — Interaction Quality 用 Qwen3-VL 按 1-5 Likert 打分；Photometric Consistency 引入 Dynamic Degree 加权惩罚静态画面（防止"不动所以像素几乎不变"刷高分）；Trajectory Accuracy 用 SAM 3 提取机械臂框后计算 NDTW 对齐真值轨迹。
 3. **三种功能角色的可操作化协议** — 数据引擎：世界模型 + VPP 式 IDM diffusion 头产出视频-动作对，用每任务仅 **25 条合成轨迹**训练 pi0.5 并在真实仿真里测增益；策略评估器：5 个不同能力档位的 pi0.5 与动作可控世界模型 rollout，rollout 长度上限为真值的 120%，VLM 判成功后与 RoboTwin 真实成功率算 Pearson 相关；规划器：世界模型 + IDM 直接闭环执行于 RoboTwin。

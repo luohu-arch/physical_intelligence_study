@@ -12,6 +12,9 @@ RT-2 不设计任何新架构、不加任何动作专用层，只把机器人动
 
 ## 核心技术
 
+![rt-2 架构图](figures/rt-2/fig1.png)
+*论文 Figure 1（p2）：Figure 1 | RT-2 overview: we represent robot actions as another language, which can be cas*
+
 1. **动作即文本 token（零新增参数）**：沿用 RT-1 的动作离散化，动作空间为末端执行器 6 自由度位移与旋转增量 + 夹爪开度 + 一个终止命令的离散维，连续维均匀切 256 bin，整条动作用 8 个 token 表示成字符串 `"terminate dx dy dz droll dpitch dyaw gripper"`（如 `"1 128 91 241 5 101 127"`），以标准 VQA 格式 `Q: what action should the robot take to [instruction]? A:` 直接作为语言建模目标
 2. **两种 VLM 的 token 复用方案**：PaLI-X 对 1000 以内的整数都有专属 token，直接把 bin 序号映射到对应整数 token；PaLM-E 没有数字友好型 tokenizer，就覆写词表中 256 个使用频率最低的 token 作为动作词表（本质是 symbol tuning）
 3. **Co-Fine-Tuning 训练配方**：机器人数据不是单独微调，而是与原 VLM 的 web 数据（WebLI 约 10B 图文对过滤后 1B）混采——PaLI-X 版把机器人数据加权到约占训练混合的 50%，PaLM-E 版约 66%；保留原始数据防止微调期遗忘 web 概念

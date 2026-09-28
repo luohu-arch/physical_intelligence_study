@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![view-invariant-policy 架构图](figures/view-invariant-policy/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: Visualization of camera poses in the real-robot experiment. Training cameras are v*
+
 1. **Plücker Ray 编码** — 每个像素不再只是 RGB，而是 (R, G, B, d_x, d_y, d_z, m_x, m_y, m_z)——6D 射线表示（方向+动量），显式编码该像素在 3D 空间中的位置
 2. **Camera Conditioning** — 策略以 Plücker map 为附加输入：(1) 非预训练 encoder：channel-wise concat 到 RGB 图像；(2) 预训练 encoder：late fusion 小 CNN
 3. **联合随机裁剪** — 图像和 Plücker map 联合随机裁剪，去除背景姿态 shortcut

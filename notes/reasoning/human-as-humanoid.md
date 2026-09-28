@@ -12,6 +12,9 @@ Human-as-Humanoid 提出硬件-软件联合设计：设计 PrimeU 人形使其�
 
 ## 核心技术
 
+![human-as-humanoid 架构图](figures/human-as-humanoid/fig1.png)
+*论文 Figure 1（p2）：Figure 1 summarizes this shift from robot-side teleoperation to ego-exo human video conver*
+
 1. **PrimeU 硬件** — 肩宽比 0.97, 臂长比 1.02, 手长比 1.00 人类对齐人形
 2. **Ego-Exo Pipeline** — ~20 FPS: 外视角跟踪→mesh 重建→分阶段 IK 重映射→60-DoF action
 3. **DS-HKC Loss** — FK-aware dual-space 监督（关节空间 + 任务空间）

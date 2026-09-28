@@ -14,6 +14,9 @@ HARBOR 把机器人 RL 的"周边工程"（装依赖、建任务、写奖励、�
 
 ## 核心技术
 
+![harbor 架构图](figures/harbor/fig1.png)
+*论文 Figure 1（p2）：Figure 1: Overview of HARBOR. (1) HARBOR supports arbitrary simulator × task × algorithm c*
+
 1. **Harness 五元组抽象** $H_{RL} = (H_A, C, M, G, K)$ — agents（上下文隔离的子进程，各管一个有界阶段）、commands（从 `rl-sweep` 原语到 `tune-reward` 组合环的可复现操作）、mutable artifacts（持久可检查文件，作为 agent 间通信基底）、verifiable gates（硬接口检查 + 软语义检查，如 import、rollout、渲染）、reusable knowledge（模板、参考、脚本、人类启发式、历史经验）。
 2. **六阶段 artifact-centric 工作流**：Dependency setup → Task generation → Reward generation → RL integration → Domain randomization → RL tuning，每阶段由"agent + 命令对"实现、以 artifact 记录、由 gate 验证（论文 Table 1）。用户可只指定 simulator/task/算法/预算/调参目标的任意子集，缺省项由框架经验与代码库模板推断。
 3. **Gate-checked execution protocol**：主 agent 取回相关知识与 artifact → 生成有界上下文的阶段 agent → agent 通过标准命令改产物 → gate 评估输出。gate 通过则提交 artifact，并把日志、指标、视频、决策与失败摘要写回可复用知识；gate 失败则把失败摘要（失败检查项、错误信息、观测值）回传给阶段 agent 修复；重试预算耗尽后阶段标记 unresolved 并请人工介入。关键定位：HARBOR 不保证最终策略的语义正确性，而是把常见 RL 工程失败转化为下游传播前的可观测 gate 失败。

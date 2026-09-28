@@ -12,6 +12,9 @@ ROVE 解决人形机器人 VLA 部署后的核心痛点：人类遥操作干预�
 
 ## 核心技术
 
+![rove 架构图](figures/rove/fig1.png)
+*论文 Figure 1（p1）：Figure 1: ROVE learns from imperfect humanoid interventions. (Left) Our method recovers ta*
+
 1. **人在环数据采集流水线** — 针对人形灵巧手遥操作的完整 pipeline：收集部署中的数据 + 人类干预片段 + 适应延迟/犹豫/重映射噪声
 2. **乐观价值估计 (Optimistic Value Estimation, OVE)** — 使用 TD bootstrapping + expectile regression 从混合质量轨迹中筛选高价值行为，不对所有数据无差别模仿
 3. **跨具身人类视频监督** — Critic 同时从人类执行同类任务的视频中学习，为长尾失败和恢复模式提供监督信号（无需机器人对齐的动作）

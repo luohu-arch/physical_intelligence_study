@@ -14,6 +14,9 @@ LingBot-VA 提出首个开源自回归视频-动作世界模型：用 Mixture-of
 
 ## 核心技术
 
+![lingbot-va 架构图](figures/lingbot-va/fig1.png)
+*论文 Figure 1（p2）：Figure 1. LingBot-VA : An Autoregressive World Model for Robotic Manipulation. (1) Pretrai*
+
 1. **因果视频-动作序列建模** — 视频 token 和动作 token 交替排列在单个自回归序列中，因果 attention mask 确保动作仅能 attend 到过去的视频观测（不能"偷看未来"）
 2. **Mixture-of-Transformers (MoT)** — 双流非对称架构：高容量视频 expert（视频生成预训练初始化）预测未来视觉状态 + 轻量动作 expert 解码动作
 3. **闭环 rollout + KV cache** — 推理时持续注入真实观测（通过 KV cache 累积），将策略锚定在真实交互历史中，减少长程累积误差

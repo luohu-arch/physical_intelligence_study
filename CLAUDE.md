@@ -66,6 +66,13 @@ python3 skills/pull-vla-research/scripts/pull_vla_papers.py --quality
 python3 skills/pull-vla-research/scripts/pull_vla_papers.py --quality --quality-min B
 ```
 
+**Embed paper figures into notes (architecture diagram into 核心技术 section):**
+```bash
+python3 skills/pull-vla-research/scripts/embed_figures.py          # idempotent batch
+python3 skills/pull-vla-research/scripts/extract_figures.py --pdf <pdf> --out <png> --fig 2  # single/other figure
+```
+Extracts Figure 1 (caption-anchored graphics-union crop, 220 DPI render, 128-color quantized PNG ≤1100px wide) to `notes/<track>/figures/<note-id>/fig1.png` and inserts the reference after `## 核心技术`. Run this after writing each new note batch. For a different figure use `--fig N`.
+
 **Regenerate everything (ignore incremental skip):**
 ```bash
 python3 skills/pull-vla-research/scripts/pull_vla_papers.py \

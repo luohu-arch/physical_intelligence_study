@@ -12,6 +12,9 @@ UniPi 将序列决策重定义为文本条件视频生成问题：扩散模型�
 
 ## 核心技术
 
+![unipi 架构图](figures/unipi/fig1.png)
+*论文 Figure 1（p2）：Figure 1: Text-Conditional Video Generation as Universal Policies. Text-conditional video*
+
 1. **Policy-as-Video 范式** — 策略 = 视频规划器 + 动作提取器，视频是 observation 和 action 的统一接口
 2. **文本条件视频扩散** — 用大规模预训练视频扩散模型作为规划器，以当前帧 + 文本目标生成未来帧序列
 3. **逆动力学提取** — 从生成的 video plan 中回归底层动作

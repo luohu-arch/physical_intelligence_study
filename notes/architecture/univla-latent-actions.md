@@ -17,6 +17,9 @@ UniVLA 在 DINOv2 特征空间中学习与具体机器人无关的任务中心�
 
 ## 核心技术
 
+![univla-latent-actions 架构图](figures/univla-latent-actions/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: We introduce UniVLA, a unified vision-language-action (VLA) framework that enables*
+
 1. **双阶段潜在动作 VQ-VAE** — 第一阶段学习任务无关潜在动作（编码场景中非语义的环境变化如光照、视角），第二阶段冻结第一阶段的 codebook 后学习任务中心潜在动作（编码物体操作等语义变化），实现两种动态的自然分离
 
 2. **DINOv2 特征空间自监督重建** — 以 DINOv2 的 patch-level 空间特征替代像素空间作为重建目标，避免像素级噪声（纹理、光照），利用 DINOv2 的物体中心化和空间感知特性提供语义丰富的学习信号

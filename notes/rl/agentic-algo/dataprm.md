@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![dataprm 架构图](figures/dataprm/fig1.png)
+*论文 Figure 1（p2）：Figure 1: The Collaborative Pipeline Between Data Analysis Agent and Process Reward Model*
+
 1. **先导实证研究（动机）**：以 Qwen3-235B-A22B-Instruct 为 policy、DABStep 子集为场地，两个发现——(a) 三个 SOTA 数学 PRM（Qwen2.5-Math-PRM-72B、GenPRM、ThinkPRM）的 BoN 引导虽高于单路生成（ThinkPRM 32.67%→40.00%@N=16），却全都打不过免费的 Majority Voting；(b) 失败集中在两类：**silent error**（代码执行成功、逻辑错误产错结果，静态 PRM 只读代码文本无法验证执行语义）与 **grounding error**（模型先验与真实数据冲突的可恢复试错，现有 PRM 给这些"最终答对"轨迹中的步骤打低分，搜索算法随之剪掉本可自我修正的路径）。
 2. **Environment-aware 生成式验证架构**：DataPRM 采用与数据分析 agent 相同的 ReAct 范式做验证——输入完整 policy 轨迹 $h_t$ 与当前步 $\tau_t$，内部进行多轮"思考-写代码-看执行结果"循环，主动运行探查代码去核对中间执行状态，最后一步产出 (分数, 依据) 而非代码；上一时刻的验证反馈元组 $(r_{t'}, c_{t'})$ 显式拼入下一步验证的输入，保证跨步评估的一致性。
 3. **工具增强的感知解耦**：把验证器能力拆成内在推理（训练获得）与外在感知（工具获得），内置 `query_document`（向专家模型询问手册/规则文档）与 `query_image`（询问图像内容）两个函数调用——覆盖数据文件、说明文档、可视化图三类验证对象，弥补 4B 模型自身的多模态与长上下文短板。

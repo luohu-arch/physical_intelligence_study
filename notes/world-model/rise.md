@@ -13,6 +13,9 @@ RISE 用一个「组合世界模型」替换真实环境来做 on-policy RL：�
 
 ## 核心技术
 
+![rise 架构图](figures/rise/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: We present RISE, a framework for Reinforcement learning via Imagination for SElf-i*
+
 1. **组合世界模型（Compositional World Model）** — 把"世界模型"因子化为两个目标各异的模块：(i) 可控动态模型 $\mathcal{D}$：基于 GE-Base 视频扩散架构，加一个轻量 action encoder 输入动作块，预测多视角未来帧；(ii) 价值模型 $V$：用预训练 VLA $\pi_{0.5}$ 初始化，输出任务进度标量。状态预测与价值评估使用各自最合适的架构与损失，不再共享一个潜空间。
 2. **Imagination 中做 on-policy RL** — Rollout 阶段：给 rollout 策略提示"最优优势 = 1"采动作，动态模型想象接下来 $H$ 帧，价值模型给出真实优势并离散化到 10 个 bin，想象出的下一帧还能作为下一次 rollout 的输入（每个离线初始状态最多连续推演两次，规避生成式视频模型的误差累积）；Training 阶段：行为策略以被评估的优势为条件回归该动作块，按 flow matching 目标更新。
 3. **Task-Centric Batching** — 动态模型在大规模异构机器人数据（Agibot World + Galaxea）上预训练时，每个 batch 只取少数几个任务、但覆盖同一场景下不同动作的更多样本：优先"同场景的动作多样性"而非"跨场景多样性"，直接提升动作跟随性（EPE 从 1.05 降到 0.54）。

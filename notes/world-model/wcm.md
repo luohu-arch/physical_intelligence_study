@@ -12,6 +12,9 @@ WCM 把世界模型从"旁观评估器"升级为"策略的条件信号源"：LeJ
 
 ## 核心技术
 
+![wcm 架构图](figures/wcm/fig1.png)
+*论文 Figure 1（p1）：Figure 1: RL-based GMO typically starts from a pretrained generative model that unconditio*
+
 1. **LeJEPA 世界批判模型** — 在 JEPA 式抽象 latent 空间做预测（而非像素空间），value head 估计当前状态离任务成功有多远，dynamics head 预测状态随动作的演化；两个 head 的输出都作为策略条件
 2. **即插即用条件化** — 不修改 VLA backbone 架构，只把世界模型预测结果拼入策略输入；π0、π0.5、OpenVLA-OFT 均可直接挂载
 3. **仿真训练、真实部署** — 世界模型完全用仿真数据训练，真实场景零微调；OOD 场景（新物体组合/新光照）下的增益尤为显著

@@ -12,6 +12,9 @@ HapticVLA 提出触觉蒸馏 (Tactile Distillation)：两阶段训练——(1) S
 
 ## 核心技术
 
+![hapticvla 架构图](figures/hapticvla/fig1.png)
+*论文 Figure 1（p1）：Fig. 1. HapticVLA is the first VLA model to enable tactile-aware manipulation without requ*
+
 1. **SA-RWFM (Safety-Aware Reward-Weighted Flow Matching)** — 离线 RL fine-tune action expert：flow matching 的每条训练样本按触觉安全评估（抓取力、压力峰值、滑移等）加权，高安全样本权重更高，学到"既要成功、又要安全"的 teacher
 2. **Tactile Distillation (TD)** — Student VLA 从视觉+本体感知预测 tactile token，目标来自 teacher 的触觉内部表征；部署时 student 不需要触觉硬件，用"预测出的手感"替代"测出的手感"
 3. **Blended action targets** — 训练时插值 GT demo 和 teacher 预测：$\tilde{a} = (1-\alpha) a^{GT} + \alpha \hat{a}^T$, $\alpha=0.5$，平滑地从"模仿示范"过渡到"跟随 teacher"

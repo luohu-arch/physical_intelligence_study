@@ -13,6 +13,9 @@ UniVLA 将视觉、语言、动作信号全部统一为离散 token 序列，用
 
 ## 核心技术
 
+![unified-vla 架构图](figures/unified-vla/fig1.png)
+*论文 Figure 1（p1）：Figure 1: We present UniVLA, a unified vision-language-action model. Unlike prior VLA appr*
+
 1. **统一 token 化（Unified Tokenization）** — 视觉、语言、动作三种模态的信号全部离散化为统一格式的 token 序列，在同一语义空间中处理
 2. **自回归多模态 Transformer** — 单一 Transformer 对所有模态 token 进行自回归建模，没有任何模态特定分支
 3. **世界模型后训练（World Modeling Post-Training）** — 在预训练后引入因果动态学习，让模型从视频中学会「如果我做动作 X，世界会变成什么样」

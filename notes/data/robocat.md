@@ -12,6 +12,9 @@ RoboCat 是一个基于 Gato 架构的视觉目标条件决策 Transformer，首
 
 ## 核心技术
 
+![robocat 架构图](figures/robocat/fig1.png)
+*论文 Figure 1（p3）：Figure 1: The self-improvement process. RoboCat is a multi-task, multi-embodiment visual g*
+
 1. **自改进数据生成循环** — 由通用模型微调至新任务 -> 部署自主收集大量轨迹 -> 将新数据加入训练集重训练下一版通用模型
 2. **跨本体架构** — 通过 Transformer 的可变长度序列输入输出能力原生支持不同机器人不同的观测维度、动作空间和控制频率
 3. **多任务预训练 + Few-Shot 微调** — 在 240 个训练任务上预训练，仅用 100-1000 条示教即可微调适应全新任务/本体

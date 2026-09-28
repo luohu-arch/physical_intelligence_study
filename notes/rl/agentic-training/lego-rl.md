@@ -14,6 +14,9 @@ LEGO-RL（LegoX 技术报告，华为 + 港中文，**无同行评审**）解决
 
 ## 核心技术
 
+![lego-rl 架构图](figures/lego-rl/fig1.png)
+*论文 Figure 1（p2）：Figure 1: Overview of the LEGO-RL training infrastructure*
+
 1. **Harness-native 的定位**：把原生 harness $H$ 当作环境的一部分，只优化它调用的策略 $\pi_\theta$，不改其内部控制流。接入新 harness 只需一个轻量 adapter（启动 agent、接推理服务、回收交互数据），其余训练管线跨 agent 共享。论文 Table 1 对照 verl / slime / MOLT / SkyRL-Agent / AReaL / Agent Lightning / Polar / rLLM / OpenForgeRL / ALE(ROLL/ROCK) 八项能力，LEGO-RL 全部打勾；它的差异点是"harness-native + 策略梯度 + 沙箱执行 + 可执行验证 + 训练可观测"凑在一套里。
 2. **进程内代理（faithful optimization）**：与 rollout 引擎同置，同时支持 OpenAI 兼容与 Anthropic API，在 serving 会话里直接记下 token ID、log-prob、response mask、生成元数据与 MoE 路由决策——而不是从最终 transcript 重构。历史重写下的对齐在消息粒度做：system/user/tool-result 必须完全匹配，tool call 通过稳定标识符与函数名关联（因此参数被重新序列化也不影响捕获的 policy token）；被重写或 harness 自己生成的内容只作为条件上下文，不进 $M(\tau)$；对不上的一律剔除而不是硬重构。子 agent 的调用被隔离到独立会话，避免其 token 混进父轨迹。
 3. **R3（rollout routing replay）**：稀疏 MoE 策略下，复现同一 token 序列还不够——rollout 与训练必须选同一批专家。代理额外记录 rollout 时的路由决策，训练时重放，使训练侧概率计算走与行为策略相同的专家路由。

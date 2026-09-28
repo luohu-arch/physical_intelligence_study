@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![openclaw-rl 架构图](figures/openclaw-rl/fig1.png)
+*论文 Figure 1（p1）：Figure 1 | OpenClaw-RL infrastructure overview. Interaction streams come from two agent ty*
+
 1. **Server-Client 架构**：RL server 把策略挂在一个无状态 completion API 后面；用户终端（个人设备或云环境）通过 HTTP 查询并把交互数据流回。任何能发 API 请求的 agent 框架都是数据源，框架可以随时换、工具可以随时变，server 无需重配。
 2. **主线/侧线分流（main-line vs side turn）**：每个 API 请求被分类为主线回合（可训练样本：主响应 + 工具执行结果）或侧线回合（记忆整理、辅助查询，只转发不训练）；session id 支持多用户并发流的解复用。
 3. **四组件完全解耦异步**：policy serving、environment hosting、PRM judging、policy training 四个环各自独立跑——PRM 可以用更强的模型、可以多次投票，都不影响用户侧延迟；权重在明确的同步边界推给 serving 引擎，**零服务中断**。

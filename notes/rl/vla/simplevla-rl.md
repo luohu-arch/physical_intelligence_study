@@ -14,6 +14,9 @@ SimpleVLA-RL 构建了基于 veRL 的强化学习框架用于 VLA 模型后训�
 
 ## 核心技术
 
+![simplevla-rl 架构图](figures/simplevla-rl/fig1.png)
+*论文 Figure 1（p1）：Figure 1 | Overview of SimpleVLA-RL. SimpleVLA-RL is an efficient RL framework for VLA tha*
+
 1. **veRL 框架适配 VLA** — 将大规模语言模型的强化学习框架 veRL 移植到 VLA 领域，实现高效的策略优化
 2. **VLA 专用轨迹采样** — 针对机器人操作任务的长时间序列特性，定制样本效率更高的轨迹采样策略
 3. **可扩展并行化** — 支持多仿真环境并行，大幅提升 RL 训练吞吐量

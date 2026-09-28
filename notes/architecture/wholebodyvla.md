@@ -13,6 +13,9 @@ WholeBodyVLA 在 AgiBot X2 人形上实现首个大空间端到端 loco-manipula
 
 ## 核心技术
 
+![wholebodyvla 架构图](figures/wholebodyvla/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Introducing WholeBodyVLA, a humanoid system that operates on Agibot X2 robot and*
+
 1. **分离式统一潜在学习** — 分别训练 manipulation LAM 与 locomotion LAM：混合训练单一 LAM 会因「操作视频相机基本静止 vs 行走视频相机持续运动」产生冲突的注意力目标与歧义 latent 编码（同一个臂-环境相对位置变化，一个来源归因手、另一个来源归因相机）；两个 LAM 的离散 codebook 作为伪动作标签共同监督 VLA 训练
 2. **低成本 egocentric 数据管线** — 单个操作员戴头挂相机（RealSense D435i RGB-D 或 GoPro），执行前进/侧移/转身/下蹲等八类 canonical 运动原语并向潜在操作目标靠近，无需 MoCap 与遥操作；共采约 300 小时
 3. **LMO RL：离散指令接口替代速度跟踪** — 下身控制建模为 goal-conditioned regulation：指令只有前/横/转三元 flag 加目标站姿高度，配 tanh 软门控参考整形、两阶段课程（先基础步态后精度稳定）、以 AgiBot World 手臂运动片段回放做结构化扰动

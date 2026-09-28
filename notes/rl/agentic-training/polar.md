@@ -14,6 +14,9 @@ NVIDIA 的 Polar（重写自其前作 ProRL Agent Server，已注册为 NeMo Gym
 
 ## 核心技术
 
+![polar 架构图](figures/polar/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Polar architecture overview. Polar runs an existing agent harness inside an isol*
+
 1. **代理即 rollout 边界（proxy-based rollout）**：中心问题是 "Can we train agents with RL without opening the box?"。关键观察：agent 内部实现千差万别（Python 脚本、CLI 程序、闭源二进制），但都必须调用模型 API。Polar 让 harness 通过正常的环境变量/配置文件把 model base URL 指向 gateway，代理对每个请求做四步：(a) 检测 provider API（按路径与 header 区分 Anthropic Messages、OpenAI Chat Completions、OpenAI Responses、Google generateContent 四种风格）；(b) 归一化请求（provider transformer 把角色、content parts、tool 定义、stop 控制等转成本地推理服务器消费的 OpenAI Chat 形状，并附加 `logprobs=true`）；(c) 捕获 token 级数据（completion record：request/response messages、prompt token IDs、sampled response token IDs、finish reason、logprobs）；(d) 把响应转回 harness 期望的 provider schema。流式请求的实现是取上游非流式响应再合成 provider-shaped 流，既保住 SSE 兼容又简化忠实捕获。
 2. **双组件架构**：rollout server 接收 TaskRequest，按 `num_samples` 展开成若干 session（调度单元，含 session ID、task ID、timeout budget、runtime/agent spec、trajectory builder、evaluator、callback URL），持久化紧凑终态并提供轮询；gateway node 拥有每个 session 的完整生命周期（启动 runtime → 备好 harness → 执行 → 建轨迹 → 评测 → 清理），并同置托管 harness 调用的 proxy 端点——同置让完成捕获直接挂 session registry，省掉独立 trace 收集服务。训练框架与 Polar 服务器完全解耦（示例集成是 Slime：后台 worker 提交任务、收回调、把 trace 转成 Sample 对象再做 trajectory-aware reward 后处理）。
 3. **阶段隔离的异步 staging**：长时程 harness rollout 混合了多种成本（runtime 启动、依赖安装、执行、评测器准备、跑测试、打 patch、清理）。每个 gateway 内用隔离 worker 池 INIT/RUNNING/POSTRUN 加有界 READY 缓冲：CPU 重的 runtime 准备在后台推进，不阻塞 GPU-bound 的 harness 执行；evaluator prewarm 在 agent 运行期间就开始准备干净评测 runtime；每个 session 一个共享 deadline，超时后只要已有模型调用被捕获仍进 POSTRUN，恢复部分轨迹并标记 terminal timeout 状态。

@@ -11,6 +11,9 @@ FAST Tokenizer 通过离散余弦变换（DCT）将机器人动作轨迹从时�
 
 ## 核心技术
 
+![fast-tokenizer 架构图](figures/fast-tokenizer/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: We propose FAST, a simple yet effective approach for tokenization of robot action*
+
 1. **离散余弦变换（Discrete Cosine Transform, DCT）** — 将时域动作序列变换到频域，能量高度集中在前 10% 的低频系数
 2. **字节对编码（Byte-Pair Encoding, BPE）** — 对截断后的低频系数进行量化建库，转化为离散 Token
 3. **时域-频域信号压缩** — 利用机器人高频动作信号的冗余度，在几乎不损失信息的前提下大幅缩短序列长度

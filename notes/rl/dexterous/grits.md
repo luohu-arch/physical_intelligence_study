@@ -12,6 +12,9 @@ GRITS 提出溅洒感知的引导扩散策略：先训练 spillage predictor（4
 
 ## 核心技术
 
+![grits 架构图](figures/grits/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: Spillage-aware trajectory generation with GRITS. Robotic food scooping demands exa*
+
 1. **Spillage Predictor** — 在 Isaac Lab 中用 4K 轨迹训练（球/立方/锥/圆柱 4 种 primitive shapes、随机物理参数），从点云预测溅洒概率 $p_{spill}$；训练数据全部仿真生成，与策略的真机 demo 数据解耦
 2. **Guided Diffusion** — predictor 输出可微分 guidance 信号，在 denoising 后期（30 步之后）引导轨迹远离溅洒区域；guidance 强度 ρ=2.5
 3. **Segmented Point Cloud Input** — food（深度图 + SAM2 分割）+ spoon（CAD）+ bowl（CAD），DP3-style PointNet++ 编码，输入模态是点云而非像素

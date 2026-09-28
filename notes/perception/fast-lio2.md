@@ -13,6 +13,9 @@ FAST-LIO2 提出了一种快速、鲁棒的 LiDAR-inertial 里程计框架。相
 
 ## 核心技术
 
+![fast-lio2 架构图](figures/fast-lio2/fig1.png)
+*论文 Figure 1（p4）：Fig. 1. System overview of FAST-LIO2*
+
 1. **直接原始点配准 (Direct Raw Point Registration)** — 不提取边缘/平面特征点，直接将每个 LiDAR 点注册到地图中的局部平面。避免了手工特征提取模块的参数调优，天然适配不同扫描模式（旋转式、固态式）
 2. **紧耦合迭代卡尔曼滤波 (Tightly-Coupled Iterated Kalman Filter)** — 继承 FAST-LIO 的滤波框架：IMU 前向传播补偿运动畸变（back-propagation）+ 流形上迭代更新状态 + 等价 Kalman 增益公式将计算复杂度从测量维度降至状态维度
 3. **ikd-Tree (Incremental k-d Tree)** — 全新的增量 k-d 树数据结构：支持高效点插入、树上降采样、框式删除、动态重平衡，并行重建避免主线程延迟

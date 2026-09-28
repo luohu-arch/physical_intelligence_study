@@ -12,6 +12,9 @@ RT-1 把语言指令、图像和连续机器人动作全部编码为紧凑 token
 
 ## 核心技术
 
+![rt-1 架构图](figures/rt-1/fig1.png)
+*论文 Figure 1（p2）：Figure 1: A high-level overview of RT-1’s architecture, dataset, and evaluation*
+
 1. **每维 256 bin 均匀离散化动作表示**：11 个动作维度（7 维机械臂 $x,y,z,\text{roll},\text{pitch},\text{yaw}$ + 夹爪开度，3 维底盘 $x,y,\text{yaw}$，1 维终止/模式切换离散变量）各自均匀切成 256 个 bin，用 categorical cross-entropy + causal masking 训练，非自回归地一次输出整组动作 token
 2. **FiLM-EfficientNet-B3 早融合语言条件**：6 张 300x300 历史图像过 ImageNet 预训练 EfficientNet-B3（16M 参数，26 层 MBConv），指令经 Universal Sentence Encoder 嵌入后通过 identity-initialized FiLM 层注入卷积特征，输出 9x9x512 特征图展平为 81 个视觉-语言 token；早融合让图像 token 只保留与当前指令相关的特征
 3. **TokenLearner 压缩 + Token 复用的实时推理**：TokenLearner 把 81 个视觉 token 软选择压缩到 8 个，6 帧历史拼接为 48 个 token 送入 8 层 decoder-only Transformer（19M 参数）；配合「每帧只算一次视觉 token 并跨重叠滑窗复用」，两招分别带来 2.4 倍与 1.7 倍加速，把推理压到 15 ms，满足 3 Hz（<100 ms 预算）的真机控制需求

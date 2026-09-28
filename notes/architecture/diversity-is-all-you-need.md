@@ -13,6 +13,9 @@
 
 ## 核心技术
 
+![diversity-is-all-you-need 架构图](figures/diversity-is-all-you-need/fig1.png)
+*论文 Figure 1（p1）：Maniskill Robotwin Piper AgiBot G1 Fig. 1: We investigate critical aspects of data diversi*
+
 1. **三维度受控分解**：task（做什么）/ embodiment（哪台机器人）/ expert（谁演示），每次只动一维、其他条件对齐（同数据量、同模型、同评测协议），并同时在 GO-1 与 RDT 两个架构上复验（附录 Fig. 16/17，结论跨架构一致）。
 2. **三种采样策略解耦任务多样性**：scenario-based（只采 10% 场景 → 场景多样性低）、task-based（挑与目标任务最相关的 10% 任务 → 技能多样性低但场景覆盖广）、episode-based（每任务随机采 10% episodes → 技能与场景多样性都保留）。关键对照点：episode 集里属于目标任务原子技能的 episodes 占比反而更低（59.2% vs 71.1%）。
 3. **单本体预训练 vs 多本体预训练（RDT-OXE vs RDT-AWB）**：OXE 训练集里包含评测本体（Franka、双臂），存在"本体对齐先验"优势，作者明确说明这一对比对 OXE 不公平、而 AWB 仍能在数据量大时反超。

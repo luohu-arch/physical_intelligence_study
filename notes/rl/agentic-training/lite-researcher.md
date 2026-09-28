@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![lite-researcher 架构图](figures/lite-researcher/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Performance of LiteResearcher. Left: Accuracy comparison on the Xbench DeepSearc*
+
 1. **原子搜索能力分解**：论文把复杂 deep research 轨迹分解为五种原子能力——Direct Information（直接查到）、Aggregation（多属性定位交集）、Enumeration（枚举计数并集）、Cross-verification（跨源三角验证）、Statistics（数值计算提取指标）——作为数据合成的覆盖目标（Table 1 逐项给了合成样例与 golden path）。
 2. **数据与语料共进化管线**：不是先造数据再造环境，而是两者一起长大。从 Seed Corpus（Wikipedia + BBC News，约 1,000 万页）出发，LLM 从网页抽取事实性 QA 对作为种子任务；**Information Source Masking**——把 QA 原始出处页从本地语料中删掉，逼 agent 只能在扩张后的语料里走非平凡搜索路径（自然逼出上述五种原子能力）；每个 QA 过 7 项 LLM 评分规则（独立性、答案具体可验证、无歧义、可回答、非开放题、非过于简单、时间具体性）全过硬才保留；再以每个合格 QA 的 question 为 query 去真实互联网抓相关网页入语料，两轮迭代后语料达约 3,200 万页、100 万+ 域名，只花约 220K 次 Serper API 调用（约 $220，一次性）。
 3. **稳定本地工具环境**：页级索引（每页一个向量：标题+摘要）而非 RAG 式 chunk 索引，索引体积缩小约 10 倍，才支撑得起数百并发 rollout。本地搜索引擎用 BGE-M3 单次前向产出 dense（1024 维）+ learned sparse 双信号，Milvus v2.6.0 查询时 RRF 融合，DiskANN + mmap 全磁盘存储，约 0.15 s/query（比在线搜索引擎快约 10 倍）；本地浏览工具把全页 Markdown 存 PostgreSQL（按 URL 键，1,000 并发连接），约 0.17 s/page（比 Jina Reader 快约 46 倍）。

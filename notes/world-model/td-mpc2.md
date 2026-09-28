@@ -12,6 +12,9 @@ TD-MPC2 在一个不含解码器的隐式（joint-embedding）世界模型上做
 
 ## 核心技术
 
+![td-mpc2 架构图](figures/td-mpc2/fig1.png)
+*论文 Figure 1（p1）：Figure 1. Overview. TD-MPC2 compares favorably to existing model-free and model-based RL m*
+
 1. **五组件隐式世界模型**：Encoder $z=h(s,e)$、Latent dynamics $z'=d(z,a,e)$、Reward $\hat r=R(z,a,e)$、Terminal value $\hat q=Q(z,a,e)$、Policy prior $\hat a=p(z,e)$；$e$ 是任务嵌入。没有 decoder——模型只学"预测回报所需的最少动态信息"。
 2. **TD 学模型（joint-embedding prediction + discrete regression）**：潜在下一步 $z'_t$ 用 $\ell_2$ 对齐 stop-gradient 后的编码 $h(s'_t)$；reward/value 都是 log 空间 101-bin 的 soft cross-entropy 离散回归，使损失量级与任务奖励量级无关。
 3. **SimNorm 单纯形归一化**：把 latent 分成若干长度为 8 的分组、逐组 softmax，得到稀疏化且范数受控的表征；配合全网络 LayerNorm+Mish，消灭了 TD-MPC 一代的梯度爆炸。

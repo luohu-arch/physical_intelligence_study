@@ -13,6 +13,9 @@ InstructVLA 回答「VLA 微调是否必然摧毁 VLM 的多模态推理」这�
 
 ## 核心技术
 
+![instructvla 架构图](figures/instructvla/fig1.png)
+*论文 Figure 1（p2）：Figure 1: Method overview. InstructVLA integrates vision-language understanding with preci*
+
 1. **Latent action query 接口** — $N$ 个可学习查询 attend 到 VLM 隐状态抽取任务相关 latent $\mathcal{C}\in\mathbb{R}^{N\times D}$，动作专家从 latent 生成动作而非直接从 VLM 词表生成；低层控制学习被隔离在 VLM 语义空间之外，这是防灾难遗忘的第一道墙；扫描实验显示 64 个 token 最优（16 太少限制行为多样性、128 训练效率下降）
 2. **MoE 适配双路输出** — 冻结主干上挂两个 LoRA adapter（action adapter 与 language adapter）+ 一个 scalar head（4 层 MLP 按 token 隐状态分类出 gate 系数 $\lambda_i$），同一模型在文本回答与 latent 规划间自适应切换；激活可视化显示系统提示主要走语言支路、latent 生成时动作支路强激活且更关注名词/动词
 3. **两阶段配方** — Stage 1 在异构操作数据上以 $\mathcal{L}=\mathcal{L}_{LM}+\mathcal{L}_{FM}$ 预训练动作专家与 latent embedding（含 language motion 文本监督）；Stage 2 以 1:7 的多模态-操作交错配比做指令微调（对比 ECoT/ChatVLA 的 1:3），额外混入通用多模态语料巩固理解

@@ -13,6 +13,9 @@ MINT 提出模仿学习应模仿"行为意图"而非"轨迹细节"。用 DCT 将
 
 ## 核心技术
 
+![mint 架构图](figures/mint/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: Left: We propose Spectrally Disentangled Action Tokenizer, which encodes action ch*
+
 1. DCT 频域分解：低频系数 → Intent Token, 高频系数 → Execution Tokens
 2. 多尺度 VQ-VAE + 渐进重建，强制频谱分离
 3. Intent-to-Execution 自回归推理

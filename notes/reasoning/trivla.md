@@ -16,6 +16,9 @@ TriVLA 受认知神经科学的「情景记忆」理论启发，提出首个 VLA
 
 ## 核心技术
 
+![trivla 架构图](figures/trivla/fig1.png)
+*论文 Figure 1（p1）：Figure 1: TriVLA is a unified Vision-Language-Action framework that adopts a triple-system*
+
 1. **三元系统架构（Triple-System Architecture）** — 受 GR00T N1 双系统启发，新增视频扩散模型作为 System 3（时序动态感知），与 VLM System 2（语义接地）共同构成情景世界模型，流匹配 + DiT 作为 System 1（动作生成），总参数量 3.39B，控制频率 ~36Hz
 2. **情景世界模型（Episodic World Model）** — 首次在 VLA 中形式化定义情景记忆：模型不仅理解当前观测，还能通过回忆过去经验和预测未来动态来生成动作，实现长程规划与开放意图理解
 3. **视频扩散模型单步推理（Single Forward Pass）** — System 3 不从噪声完整去噪，而是对当前帧加噪后仅执行第一步前向推理，从各上采样层聚合多尺度特征作为预测性视觉表示，将推理延迟控制在 85.9ms 以内

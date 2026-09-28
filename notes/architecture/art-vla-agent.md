@@ -14,6 +14,9 @@ ART（Agentic Robot with Tool-use）是一个 tool-injection 微调框架：把�
 
 ## 核心技术
 
+![art-vla-agent 架构图](figures/art-vla-agent/fig1.png)
+*论文 Figure 1（p2）：Figure 1. Comparison of VLA Paradigms, including (a) standard end-to-end VLA [4, 6, 28], (*
+
 ### 问题设定：把动作空间从连续流形换成"连续动作 + 离散工具"
 
 论文的出发点是对两条主流路线各取一半：

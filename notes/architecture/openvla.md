@@ -11,6 +11,9 @@ OpenVLA 是首个完全开源、可商用、性能比肩闭源 RT-2 的 7B 级�
 
 ## 核心技术
 
+![openvla 架构图](figures/openvla/fig1.png)
+*论文 Figure 1（p1）：Figure 1: We present OpenVLA, a 7B-parameter open-source vision-language-action model (VLA*
+
 1. **双视觉编码器（DINOv2 + SigLIP）** — SigLIP 提取语义特征以支撑常识推理，DINOv2 提取空间几何特征以支撑精细操作，二者融合实现语义与空间的双重精准感知
 2. **LoRA 高效微调** — 冻结预训练主干权重，仅在 Transformer 注意力层插入低秩矩阵，实现单张 24G 显存 GPU 上完成 7B 模型的全流程微调
 3. **大规模 VLM 预训练权重复用** — 基于 Llama 2 7B 语言模型骨干，完美继承大模型的语义常识推理与开放世界理解能力

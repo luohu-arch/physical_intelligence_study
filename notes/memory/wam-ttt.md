@@ -12,6 +12,9 @@ WAM-TTT 是面向具身世界模型的测试时训练框架：机器人部署后
 
 ## 核心技术
 
+![wam-ttt 架构图](figures/wam-ttt/fig1.png)
+*论文 Figure 1（p1）：Figure 1: Overview of WAM-TTT. Given unlabeled human demonstrations from diverse environ-*
+
 1. **部署时世界模型更新** — 机器人运行中观察人类操作，将观测到的 state transition 用于微调 world model dynamics $f_\theta(s_{t+1}|s_t, a_t)$——实际机制是把人类视频作为 Key/Value 写进 video expert 的 TTT 残差分支
 2. **不中断部署** — 不需要停机器人、导数据、离线重训——部署时只跑 inner SGD 更新 fast weights，WAM 参数、slow projections、action expert 全部冻结
 3. **人机配对元训练** — 2286 条配对人类-机器人 episode，按归一化相位 $\phi = t/T_r$ 对齐后训练 Q/K/V 接口；人类侧只用视频预测损失 $L_{vg}$ 和 KV 记忆重建损失 $L_{KVM}$，不依赖动作、手部姿态或 retargeting

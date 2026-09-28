@@ -12,6 +12,9 @@
 
 ## 核心技术
 
+![v-jepa2 架构图](figures/v-jepa2/fig1.png)
+*论文 Figure 1（p2）：Figure 1 V-JEPA 2 Overview. Leveraging 1M hours of internet-scale video and 1M images, we*
+
 **第一阶段：V-JEPA 视频/图像预训练（action-free）。**
 - 目标是 representation-space mask denoising：对视频做 multiblock masking 掉部分 patch，编码器只看可见 token，预测器拼接 learnable mask token $\Delta y$ 后预测被掩部分的 EMA-target 表征，用 L1 损失回归。
 - 架构：encoder 从 ViT-L(300M) 扩到 ViT-g(1B)，predictor 类似 ViT-small；输入按 tubelet 2x16x16 patchify；用 3D-RoPE（将特征维切成时间/高/宽三段分别做一维旋转）替代绝对 sincos 位置编码，作者指出这一改动稳定了最大模型的训练。

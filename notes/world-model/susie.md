@@ -13,6 +13,9 @@ SuSIE 把预训练的 InstructPix2Pix 图像编辑扩散模型在「当前帧 + 
 
 ## 核心技术
 
+![susie 架构图](figures/susie/fig1.png)
+*论文 Figure 1（p2）：Figure 1: (SuSIE) Our method leverages a pretrained image-editing model to generate future*
+
 1. **图像编辑即规划** — 完成任务等价于在约束（语言指令）下"编辑"工作台照片。于是不从头训视频预测器，直接微调 InstructPix2Pix 使其输出"若任务顺利推进若干步后的画面"，把网络规模级的视觉常识原样搬进控制回路。
 2. **两阶段完全解耦** — Phase (I) 子目标生成器只在带语言的视频/机器人片段上训练（可用无动作标签的人类视频）；Phase (II) 目标条件策略只在机器人数据上做 GCBC（可用无语言标签的动作数据）。两类部分标注数据因此被同时利用，且大模型与小策略可各自独立更换。
 3. **短视界子目标而非全视频** — 只生成一个未来中间帧，落在 $[k_{min}, k_{max})$ 步窗口内：足够近以便低层可达，足够远以产生实质进展。与 UniPi 的根本差异在于不要求生成模型维持整条轨迹的物理一致性。

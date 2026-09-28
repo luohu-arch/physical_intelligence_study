@@ -13,6 +13,9 @@ RoboMemory 提出脑启发四模块并行记忆架构：空间记忆（动态 KG
 
 ## 核心技术
 
+![robomemory 架构图](figures/robomemory/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: RoboMemory adopts a brain-inspired architecture that maps neural components to age*
+
 1. **四模块并行架构** — 空间/时间/情景/语义四个记忆独立并行更新检索。串行设计每步多次调用 VLM → 延迟累积；并行让多模块记忆的更新延迟与单模块相当
 2. **检索式增量 KG 更新** — 不是全量重建 knowledge graph：先检索相关子图（top N=3 顶点 + K=2 hop traversal）→ 局部冲突检测（VLM resolver 判定 add/delete/modify）→ selective merge + 剪枝孤立顶点。每步更新顶点数 O(DK)（n 顶点、最大度 D、检索跳数 K），解决动态环境下 KG 一致性维护的 scalability 问题
 3. **Critic-Planner 闭环** — Planner 生成动作计划 → Critic 根据视觉反馈和记忆状态评估 → 不通过则重规划。第一步豁免 Critic 检查——原版 Planner-Critic 机制会被"还没开始做就被要求重来"卡成无限循环

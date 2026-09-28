@@ -12,6 +12,9 @@ WoW 是一个 14B 参数的视频扩散世界模型，用 203 万条真机交互
 
 ## 核心技术
 
+![wow 架构图](figures/wow/fig1.png)
+*论文 Figure 1（p1）：Figure 1: WoW is a world model that integrates perception, prediction, Judgement, reflecti*
+
 1. **数据引擎（Section 4.1.1）** — 四阶段流水线 Collection（Agibot、DROID、RoboMIND + 大量自有数据）→ Filtering（仅保留 RGB、最短 90 帧、限 head/wrist/third-person 视角）→ Caption Refinement（预训练 VLM 把稀疏标注扩成稠密描述，稀疏 : 稠密 约 1:4 混合，并手工加入机器人型号标识）→ Rebalancing（上调低频任务采样概率）。最终 640×480 原生分辨率上采样到 720×1024。
 2. **DiT 视频条件生成器（Section 4.1.2）** — 文本走 InternVL3-78B 改写成含环境/相机位姿/embodiment/动作的叙述再用 T5 编码注入；视觉走时空 VAE + **3D Haar 小波分解**（低频承载场景结构、高频保留碰撞与形变细节）；骨干 DiT 用 adaLN 做时间步调制，同时使用绝对 3D 位置编码（保全局轨迹一致性）与相对 3D RoPE（保局部接触因果性）；**DINOv2 特征注入中间层**做自监督表征对齐（论文声称是首次把强自监督视觉特征嵌入扩散世界模型主干，见图 6(b) 的 token relation distillation 训练路径）。
 3. **SOPHIA Solver-Critic 闭环（Section 4.2）** — DiT 的一次采样被视为 System 1 提案；Critic VLM 在真实 + 生成视频混合的 QA 数据上微调，沿五个维度评审（task completion、action success、物理合理性如稳定/形变、kinematic smoothness、整体质量），输出 1-5 分加自然语言解释；Refiner Agent 把结构化批评转成下一版提示词。关键声明：整个迭代**不改 DiT 权重**，物理真实性通过搜索离散提示词空间逼近，论文称之为把 Prover-Verifier 范式第一次搬进高维连续随机域。

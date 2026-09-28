@@ -15,6 +15,9 @@ DreamVLA 不直接预测未来图像（计算量大、冗余信息多），而�
 
 ## 核心技术
 
+![dreamvla 架构图](figures/dreamvla/fig1.png)
+*论文 Figure 1（p2）：Figure 1: (a) Vanilla VLA directly maps visual observations and language instructions to a*
+
 1. **三模态紧凑世界知识预测** — 同时预测动态运动区域（CoTracker 二值掩码）、空间深度（单目深度估计）和高层语义（SAM 特征），取代计算密集且含大量冗余信息的像素级未来图像预测
 2. **块状结构化注意力掩码（Block-wise Structured Attention）** — 动态/深度/语义三种查询子 token 之间互相屏蔽注意力，仅共享视觉、语言和状态编码，防止不同类型知识的信息泄漏与梯度干扰
 3. **基于扩散 Transformer（DiT）的动作解码** — 利用扩散模型对多模态动作条件分布的强大建模能力，从 LLM 输出的解耦隐含特征中生成连续动作序列

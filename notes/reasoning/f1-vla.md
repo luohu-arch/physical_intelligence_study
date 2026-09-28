@@ -14,6 +14,9 @@ F1-VLA 在 VLA 决策流程中引入显式视觉前瞻（visual foresight）生�
 
 ## 核心技术
 
+![f1-vla 架构图](figures/f1-vla/fig1.png)
+*论文 Figure 1（p2）：Figure 1: The comparison of varied paradigms for manipulation policies. The earliest end-t*
+
 1. **Mixture-of-Transformer 三模块架构** — 感知模块、前瞻生成模块、控制模块各司其职，构成"理解→生成→行动"的完整链路
 2. **下一尺度预测（Next-Scale Prediction）** — 合成目标导向的未来视觉状态，作为显式的规划中间目标
 3. **前瞻引导的逆动力学（Foresight-Guided Inverse Dynamics）** — 将动作生成重新定义为：在给定当前观测与目标前瞻的条件下，反推动作序列

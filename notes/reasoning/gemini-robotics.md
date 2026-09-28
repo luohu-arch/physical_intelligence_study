@@ -17,6 +17,9 @@ Gemini Robotics 是 Google DeepMind 基于 Gemini 2.0 构建的双模型 VLA 家
 
 ## 核心技术
 
+![gemini-robotics 架构图](figures/gemini-robotics/fig1.png)
+*论文 Figure 1（p2）：Figure 1 | Overview of the Gemini Robotics family of embodied AI models. Gemini 2.0 alread*
+
 1. **双模型架构（Gemini Robotics + Gemini Robotics-ER）** — 将「具身推理」和「动作控制」解耦为两个互补模型。ER 模型提供空间理解、物体检测、轨迹预测等认知能力；动作模型在此基础上加入低层连续控制，通过本地 decoder 将推理结果转化为 50Hz 的机器人动作
 2. **Gemini 2.0 驱动的 VLA** — 直接基于 Gemini 2.0 Flash/Pro 多模态大模型，保留其世界知识和语义推理能力，通过精调适配机器人控制
 3. **~100 示范快速微调** — 对于短时程任务，仅需 100 个示教（约 15 分钟至 1 小时数据采集）即可微调达到 70% 以上成功率

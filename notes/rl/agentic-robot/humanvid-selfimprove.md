@@ -14,6 +14,9 @@
 
 ## 核心技术
 
+![humanvid-selfimprove 架构图](figures/humanvid-selfimprove/fig1.png)
+*论文 Figure 1（p1）：Robot Real Env. Autonomous Adaptation Figure 1: We learn transferable models from human vi*
+
 **三个具身无关表征（transferable representations）。** 论文的立论是：要在人类视频上预训练出"能预测、能评估、能纠错"的模型，动作与状态空间必须先剥离本体特异细节。
 
 - **动作** $a_t = [\xi_t, c_t]$：$\xi_t \in SE(3)$ 是绝对 6-DoF 腕部位姿，$c_t \in [0,1]$ 是从人类手指构型估计的标量手部闭合量。人类视频里的双手 20 维格式（2 × (3 平移 + 6 旋转 + 1 闭合)，旋转用连续 6D 表示）在单臂机器人上复制到空置手位作为占位。

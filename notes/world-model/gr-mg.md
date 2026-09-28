@@ -13,6 +13,9 @@ GR-MG 由两个模块构成：一个把任务进度注入 InstructPix2Pix 式图
 
 ## 核心技术
 
+![gr-mg 架构图](figures/gr-mg/fig1.png)
+*论文 Figure 1（p2）：Fig. 1. Overview. GR-MG consists of two modules: a progress-guided goal image generation m*
+
 1. **多模态目标条件策略（核心创新点）** — 训练时从轨迹采帧当目标图，与文本一起做条件；推理时只有文本，就先用生成模型造一张子目标图再把两者都喂给策略。与 SuSIE 只依赖生成图的本质区别是：语言条件始终在线，生成的子图错了还有语义通道兜底。
 2. **Progress-guided 目标图生成** — 把策略预测的任务进度（离散成 0-100% 共 10 个 bin）以句子后缀形式注入文本编码："pick up the red block. And {p}% of the instruction has been finished."；这解决了两个病：静态修图视角下观测歧义（来回移动的物体画面完全相同），以及生成模型不知道该画哪一步的状态。
 3. **面向部分标注数据的分工设计** — 生成器只需要带文字的视频（人类活动视频可训），策略额外接受纯图像目标条件（无文字标签的机器人 play 数据可训）；[PROG] token 使推理时自产进度值形成闭环。

@@ -13,6 +13,9 @@ LingBot-VLA 2.0 沿三个功能域推进前代：重构数据管线并整理约 
 
 ## 核心技术
 
+![lingbot-vla2 架构图](figures/lingbot-vla2/fig1.png)
+*论文 Figure 1（p2）：Figure 1. Overview of LingBot-VLA 2.0. We revamp the data processing pipeline and curate 6*
+
 1. **Sigmoid 路由的退化防线**：**大规模异构数据引擎** — 20 个构型的单臂/双臂/半人形/人形平台（含 Franka、AgileX、Astribot S1、Unitree G1、Fourier GR-2 等），总自由度跨度 8~32 DoF；三段式清洗：动作/状态的 jerk 三阶差分与速度/加速度 Z-score 过滤（阈值按构型单独设定）、静止信号占比 >95% 剔除、URDF 投影重放由人工核对视频-状态错位；egocentric 侧用 VLM 预筛选 + SLAM + MANO 手姿重建出世界系手部轨迹
 2. **Dual-Query 两个查询的分工**：**55 维统一动作表示** — 14 臂关节 + 14 末端位姿（每臂 XYZ+四元数共 7 维）+ 2 夹爪 + 12 灵巧手关节 + 4 腰部 + 2 头部 + 3 移动信号，剩余 4 维预留；低维构型对应字段补零填充；以策略频率 30 Hz 为主（Galaxea R1Pro/R1Lite 为 15 Hz）
 3. **相对目标在双臂任务上的失效**：**Token-level 无辅助损失稀疏 MoE** — MoE 层替换动作专家全部 transformer block 的 FFN；采用 fine-grained expert segmentation + shared expert isolation（1 个共享专家保留通用先验，多个路由专家提供特化容量）；Sigmoid 亲和度替代 Softmax 路由（沿用 DeepSeek-V3），修正偏置只参与 Top-K 选择、不进入混合权重，实现动作学习主目标之外的免辅助损失负载均衡

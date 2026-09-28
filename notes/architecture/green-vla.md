@@ -13,6 +13,9 @@ Green-VLA 提出五阶段训练范式（L0 VLM 预训练→L1 多模态 groundin
 
 ## 核心技术
 
+![green-vla 架构图](figures/green-vla/fig1.png)
+*论文 Figure 1（p2）：Figure 1: Green-VLA architecture. A multimodal vision–language model encodes instructions,*
+
 1. 五阶段渐进训练，每阶段有明确目标和数据配比
 2. 64D 统一动作空间 + 具身 mask，单模型控制异构机器人
 3. DataQA 过滤流水线，清洗 3000h 数据

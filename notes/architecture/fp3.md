@@ -12,6 +12,9 @@ FP3 用 Uni3D ViT-L 编码点云（每视角 4000 点、带颜色）、CLIP 编�
 
 ## 核心技术
 
+![fp3 架构图](figures/fp3/fig1.png)
+*论文 Figure 1（p1）：Fig. 1: Overview of 3D Foundation Policy (FP3), a 1.3B 3D point cloud-based language-visuo*
+
 1. **3D 点云作为主观测模态**：RGB-D 反重建点云后统一到世界坐标系，裁掉 1 m box 外的点，FPS 降到 4000 点并保留颜色；第三人称与腕部视角各用一个独立 Uni3D ViT-L encoder（300M 参数，预训练对齐图文特征），微调而非冻结。
 2. **Encoder-Decoder DiT**：encoder 把多模态 embedding 融合为 latent token 序列；decoder 以噪声动作为输入、时间因果掩码约束动作 token 只关注自身及之前的动作 token，通过 adaLN 注入条件——作者明确说相比 RDT 的 cross-attention 选 adaLN 是为了稳定训练。
 3. **语言条件最简化**：CLIP text encoder 冻结使用，刻意不接 VLM，把复杂语义留给未来工作（Limitations 里明确承认这是短板）。
