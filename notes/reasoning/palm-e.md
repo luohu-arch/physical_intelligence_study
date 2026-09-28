@@ -13,6 +13,7 @@ PaLM-E 用「多模态句子」把图像、状态估计、神经 3D 场景表征
 ## 核心技术
 
 ![palm-e 架构图](figures/palm-e/fig1.png)
+
 *论文 Figure 1（p1）：Figure 1: PaLM-E is a single general-purpose multimodal language model for embodied reasoning tasks,*
 
 1. **多模态句子（multimodal sentences）**：跳过离散 token 层，用编码器 $\phi: \mathcal{O} \to X^q$ 把连续观测映射为 $q$ 个语言嵌入空间的向量，动态地插进 prompt 的任意位置（而非固定位置），复用 LLM 原有的位置编码；词表大小 $|W| = 256{,}000$
@@ -112,6 +113,10 @@ graph TD
 - 长程规划：逐步生成 + 重规划；这两个 VQA 化的评测子任务后来成为 embodied reasoning 的标准探针
 
 ## 消融实验与分析
+
+![palm-e 主结果表](figures/palm-e/tab8.png)
+
+*论文 Table 8（p17）：Table 8: Full language evaluation task results on both NLU and NLG tasks, for both the original PaLM*
 
 ### TAMP 少样本环境：输入表示对比（Table 1，仅 1% 数据 = 每个规划任务 320 条示教）
 

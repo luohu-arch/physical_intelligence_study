@@ -1,12 +1,12 @@
 # What Matters in Designing World Action Models: An Empirical Study（WAM 设计要素受控实证研究）
 
-- arXiv: https://arxiv.org/abs/2609.24048
-- Source: https://arxiv.org/abs/2609.24048
-- Project:
-- Local PDF: `/Users/luogu/physical_intelligence/papers/world-model/WhatMattersWAM_2609.24048.pdf`
-- Year: 2026
-- Category: world-model
-- Priority: high
+- arXiv：https://arxiv.org/abs/2609.24048
+- 来源：https://arxiv.org/abs/2609.24048
+- 项目主页：
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/world-model/WhatMattersWAM_2609.24048.pdf`
+- 年份：2026
+- 分类：world-model
+- 优先级：high
 
 ## 一句话总结
 
@@ -15,7 +15,8 @@
 ## 核心技术
 
 ![what-matters-wam 架构图](figures/what-matters-wam/fig1.png)
-*论文 Figure 1（p2）：Fig. 1: This work systematically investigates three fundamental aspects in building WAMs:*
+
+*论文 Figure 1（p2）：Fig. 1: This work systematically investigates three fundamental aspects in building WAMs: (1) video-*
 
 1. **三轴解耦的受控协议**：不提单一新架构，而是在每个设计轴内固定基座只动一个变量——因果结构轴全部在 Fast-WAM 框架（arXiv:2603.16666）内实例化，潜表征轴与训练目标轴在 LDA-1B 框架（arXiv:2602.12215）内实例化；所有策略变体独立从零训练、不做检查点续训初始化，排除训练历史的混淆。
 2. **六种视频-动作因果结构**：Disentangled/Unconditional、Video-to-Action、Action-to-Video、Bidirectional、Joint、Causally Interleaved（单一 group-causal 流的抽象，保留 LingBot-VA 系的时间交错依赖但保证架构一致）。分类按"规范策略路径的视频-动作依赖"：DreamZero 被归为 Joint（chunk 内联合去噪两模态）、LingBot-VA 系被归为 Causally Interleaved。

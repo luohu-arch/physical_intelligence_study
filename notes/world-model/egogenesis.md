@@ -14,7 +14,8 @@ EgoGenesis 把 Wan2.2-5B-Control 改造成块级自回归的第一人称操控�
 ## 核心技术
 
 ![egogenesis 架构图](figures/egogenesis/fig1.png)
-*论文 Figure 1（p1）：Figure 1. EGOGENESIS expands scarce real demonstrations with controllable egocentric video*
+
+*论文 Figure 1（p1）：Figure 1. EGOGENESIS expands scarce real demonstrations with controllable egocentric videos that imp*
 
 论文的诊断出发点是两类互补失败模式（Figure 2）：通用视频先验 Wan2.1-14B 不给相机与夹爪轨迹任何显式几何条件，相机运动和 gripper 轨迹不受控；action-conditioned 的 RynnWorld-TeleOp 虽然条件化了动作，但场景和被操作物体随时间漂移——作者归因于首帧锚定不足以及 end-effector 形态在训练分布上过拟合（把人手生成成 gripper 形态）。EgoGenesis 的回答是把两条条件通路分别做"几何化"：
 
@@ -142,6 +143,10 @@ graph TD
 - **待确认项**：$s_r$ 数值未公开；adapter 层选择规则未公开；式 (21) 的切片记号 `[14:20, 28, 21:27, 29]` 若按 Python 半开区间只有 14 维，与正文"七关节 + 夹爪 x2 共 16 维"矛盾，疑为闭区间排版记法，以附录 Table 7 原文为准。
 
 ## 消融实验与分析
+
+![egogenesis 主结果表](figures/egogenesis/tab3.png)
+
+*论文 Table 3（p7）：Table 3. Real-robot task success rates (%). SR denotes Success*
 
 核心组件消融（附录 Table 4，固定 Wan2.2-5B-Control backbone 与互补组件，逐项切换）：
 

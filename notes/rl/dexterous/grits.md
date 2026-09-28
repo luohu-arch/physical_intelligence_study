@@ -13,7 +13,8 @@ GRITS 提出溅洒感知的引导扩散策略：先训练 spillage predictor（4
 ## 核心技术
 
 ![grits 架构图](figures/grits/fig2.png)
-*论文 Figure 2（p3）：Fig. 2: The architecture of GRITS. GRITS is a guided diffusion policy designed for robotic*
+
+*论文 Figure 2（p3）：Fig. 2: The architecture of GRITS. GRITS is a guided diffusion policy designed for robotic food scoo*
 
 1. **Spillage Predictor** — 在 Isaac Lab 中用 4K 轨迹训练（球/立方/锥/圆柱 4 种 primitive shapes、随机物理参数），从点云预测溅洒概率 $p_{spill}$；训练数据全部仿真生成，与策略的真机 demo 数据解耦
 2. **Guided Diffusion** — predictor 输出可微分 guidance 信号，在 denoising 后期（30 步之后）引导轨迹远离溅洒区域；guidance 强度 ρ=2.5

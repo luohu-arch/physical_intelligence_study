@@ -3,7 +3,7 @@
 - arXiv: https://arxiv.org/abs/2605.24220
 - Source: https://arxiv.org/abs/2605.24220
 - Project: https://github.com/NVIDIA-NeMo/ProRL-Agent-Server
-- Local PDF: `papers/rl/agentic-training/Polar_2605.24220.pdf`
+- 本地 PDF：`papers/rl/agentic-training/Polar_2605.24220.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@ NVIDIA 的 Polar（重写自其前作 ProRL Agent Server，已注册为 NeMo Gym
 ## 核心技术
 
 ![polar 架构图](figures/polar/fig1.png)
-*论文 Figure 1（p1）：Figure 1: Polar architecture overview. Polar runs an existing agent harness inside an isol*
+
+*论文 Figure 1（p1）：Figure 1: Polar architecture overview. Polar runs an existing agent harness inside an isolated runti*
 
 1. **代理即 rollout 边界（proxy-based rollout）**：中心问题是 "Can we train agents with RL without opening the box?"。关键观察：agent 内部实现千差万别（Python 脚本、CLI 程序、闭源二进制），但都必须调用模型 API。Polar 让 harness 通过正常的环境变量/配置文件把 model base URL 指向 gateway，代理对每个请求做四步：(a) 检测 provider API（按路径与 header 区分 Anthropic Messages、OpenAI Chat Completions、OpenAI Responses、Google generateContent 四种风格）；(b) 归一化请求（provider transformer 把角色、content parts、tool 定义、stop 控制等转成本地推理服务器消费的 OpenAI Chat 形状，并附加 `logprobs=true`）；(c) 捕获 token 级数据（completion record：request/response messages、prompt token IDs、sampled response token IDs、finish reason、logprobs）；(d) 把响应转回 harness 期望的 provider schema。流式请求的实现是取上游非流式响应再合成 provider-shaped 流，既保住 SSE 兼容又简化忠实捕获。
 2. **双组件架构**：rollout server 接收 TaskRequest，按 `num_samples` 展开成若干 session（调度单元，含 session ID、task ID、timeout budget、runtime/agent spec、trajectory builder、evaluator、callback URL），持久化紧凑终态并提供轮询；gateway node 拥有每个 session 的完整生命周期（启动 runtime → 备好 harness → 执行 → 建轨迹 → 评测 → 清理），并同置托管 harness 调用的 proxy 端点——同置让完成捕获直接挂 session registry，省掉独立 trace 收集服务。训练框架与 Polar 服务器完全解耦（示例集成是 Slime：后台 worker 提交任务、收回调、把 trace 转成 Sample 对象再做 trajectory-aware reward 后处理）。
@@ -87,6 +88,10 @@ $$z^{(j)} = p_1 \,\|\, a_1 \,\|\, u_1 \,\|\, a_2 \,\|\, u_2 \,\|\, \cdots \,\|\,
 - **合成流的一个未讨论点**：代理把流式请求实现为"上游非流式响应 + 合成 provider-shaped 流"，保住了 SSE 兼容与忠实捕获，但 harness 感知的流式时序不再等于真实 upstream 时序（待确认：论文未讨论该差异对依赖流式节奏做决策的 harness 是否有影响）。
 
 ## 消融实验与分析
+
+![polar 主结果表](figures/polar/tab1.png)
+
+*论文 Table 1（p10）：Table 1: SWE-Bench Verified evaluation. All rows start from the same Qwen3.5-4B base model and are t*
 
 **主实验：同一 Qwen3.5-4B 基座，四个 harness 上的 SWE-Bench Verified pass@1**（Table 1）：
 

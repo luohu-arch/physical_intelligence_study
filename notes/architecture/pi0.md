@@ -12,10 +12,12 @@
 
 ## 核心技术
 
-![pi0 架构图](figures/pi0/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: Our generalist robot policy uses a pre-trained vision-language model (VLM) backbon*
-
 1. **Flow Matching 动作生成** — 用连续归一化流替代扩散模型，将动作去噪建模为 ODE 求解，10 步推理生成 SE(3) 连续动作
+
+![pi0 架构图](figures/pi0/fig1.png)
+
+*论文 Figure 1（p1）：Fig. 1: Our generalist robot policy uses a pre-trained vision-language model (VLM) backbone, as well*
+
 2. **VLM 骨干 + Action Expert** — PaliGemma 作为视觉语言骨干，额外 300M action expert 通过 flow matching 输出连续动作
 3. **跨具身多任务预训练** — 7 种机器人配置（单臂、双臂、移动操作），68 个灵巧操作任务
 4. **直接 Prompt + 微调双模式** — 预训练后可通过语言指令直接执行，或 finetune 到特定长序复杂任务

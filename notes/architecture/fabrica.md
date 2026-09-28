@@ -13,10 +13,12 @@ Fabrica 是一个端到端双臂装配系统：从 CAD 模型出发，通过层�
 
 ## 核心技术
 
+1. **层级规划栈** — 优先级图→装配序列→抓取规划→运动规划 + 自动夹具生成，全自动从 CAD 到执行
+
 ![fabrica 架构图](figures/fabrica/fig2.png)
+
 *论文 Figure 2（p3）：Figure 2: System overview. Fabrica takes part meshes and hardware configurations as inputs. It plans*
 
-1. **层级规划栈** — 优先级图→装配序列→抓取规划→运动规划 + 自动夹具生成，全自动从 CAD 到执行
 2. **SE(3) 等变 RL 策略** — 轻量 RL 策略处理高精度插接步，SE(3) 等变网络结构保证零样本 sim-to-real 迁移
 3. **自动夹具生成** — 从零件几何自动设计夹具和固定装置，无需人工设计
 4. **零人类演示** — 不需要遥操作数据，仿真是唯一的训练数据源
@@ -74,6 +76,10 @@ $$
 - **Benchmark**：7 种装配体（凳子、管道、游戏手柄、冷却歧管等），4-7 零件/个
 
 ## 消融实验与分析
+
+![fabrica 主结果表](figures/fabrica/tab3.png)
+
+*论文 Table 3（p7）：Table 3: % of successful steps without intervention in simulation evaluations*
 
 真实世界无干预步骤成功率（7 种装配体 Overall）：
 

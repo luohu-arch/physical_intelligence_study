@@ -13,7 +13,8 @@ WEAVER 是多视角 world model，同时优化预测保真度（ρ=0.870）、�
 ## 核心技术
 
 ![weaver 架构图](figures/weaver/fig2.png)
-*论文 Figure 2（p3）：Figure 2: WEAVER Architecture. Left: The world model encodes memory, history, and action s*
+
+*论文 Figure 2（p3）：Figure 2: WEAVER Architecture. Left: The world model encodes memory, history, and action sequences t*
 
 1. Multi-View Flow Matching 联合预测未来 latent + reward
 2. 融合 JEPA (latent prediction) + Diffusion Forcing + Ctrl-World (multi-view memory)
@@ -61,6 +62,10 @@ $$
 
 ## 消融实验与分析
 
+![weaver 主结果表](figures/weaver/tab3.png)
+
+*论文 Table 3（p20）：Table 3: Comparison of WEAVER and Ctrl-World at LPIPS, FID and FVD metrics. WEAVER generates*
+
 论文的系统对比以 FID/FVD 保真度、推理时间与三大下游应用为核心：
 
 | 对比维度 | 设置对比 | 关键指标 |
@@ -76,7 +81,7 @@ $$
 
 **核心结论**：WEAVER 的验证逻辑是"保真度指标 + 下游应用"双层——FID/FVD 层面，WEAVER 在 DROID(val) 与 OOD 任务数据上全面帕累托支配 Ctrl-World（外视角 FID 10.20 vs 26.09，推理 4.78s vs 14.65s），证明 latent 空间 flow matching + 预训练 SD3 VAE 编码器的组合在保真度与效率上同时胜出；设计决策层面，多视角预测、本体状态显式预测（接触-rich 任务关键）、稀疏记忆 + 短程历史（长程一致性关键）三者缺一不可；下游应用层面，ρ=0.870 的评估相关性、+38% 的离线改进与 +14% 的测试时规划构成完整证据链——世界模型从"视频预测玩具"真正变成了"零真机交互的策略改进工具"。
 
-## 技术权衡
+## 技术权衡（Trade-off）
 
 | 优势 | 劣势 |
 |------|------|

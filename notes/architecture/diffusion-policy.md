@@ -12,10 +12,12 @@
 
 ## 核心技术
 
+1. **条件扩散作为策略表示**：不直接回归动作，而是学噪声预测网络 $\epsilon_\theta(O_t, A_t^k, k)$，推理时执行 Langevin 式迭代去噪。可表达任意可归一化的分布，包括多模态动作分布。
+
 ![diffusion-policy 架构图](figures/diffusion-policy/fig2.png)
+
 *论文 Figure 2（p3）：Figure 2. Diffusion Policy Overview a) General formulation. At time step t, the policy takes the lat*
 
-1. **条件扩散作为策略表示**：不直接回归动作，而是学噪声预测网络 $\epsilon_\theta(O_t, A_t^k, k)$，推理时执行 Langevin 式迭代去噪。可表达任意可归一化的分布，包括多模态动作分布。
 2. **Closed-loop action sequence + receding horizon control**：每次推理预测 $T_p$ 步动作、只执行 $T_a$ 步再重新观测重规划（典型配置 $T_p=16$, $T_a=8$, $T_o=2$），兼顾时序一致性与闭环响应。
 3. **视觉条件化而非联合建模**：与 Diffusion Planning 对 $(O, A)$ 联合建模不同，本文只对 $p(A_t|O_t)$ 条件建模——视觉特征只编码一次，所有去噪步共享，使实时控制可行并让 vision encoder 可以端到端训练。
 4. **两种 backbone**：
@@ -134,6 +136,10 @@ flowchart TD
 - **数据效率**：在 40 / 60 / 90 / 130 / 200 条示范的每个规模上 Diffusion Policy 都高于 LSTM-GMM（Fig. 15）。
 
 ## 消融实验与分析
+
+![diffusion-policy 主结果表](figures/diffusion-policy/tab1.png)
+
+*论文 Table 1（p7）：Table 1. Behavior Cloning Benchmark (State Policy) We present success rates with different checkpoin*
 
 **视觉 encoder 与训练策略（robomimic Square PH，CNN backbone，500 epochs，成功率）**
 

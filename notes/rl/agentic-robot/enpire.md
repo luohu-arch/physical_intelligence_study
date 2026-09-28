@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2606.19980
 - Source: https://arxiv.org/abs/2606.19980
-- Project: 
-- Local PDF: `papers/rl/agentic-robot/ENPIRE_2606.19980.pdf`
+- Project:
+- 本地 PDF：`papers/rl/agentic-robot/ENPIRE_2606.19980.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@ NVIDIA + CMU + UC Berkeley 把「reset → execute → verify → refine」做�
 ## 核心技术
 
 ![enpire 架构图](figures/enpire/fig2.png)
-*论文 Figure 2（p2）：Figure 2: Overview of physical autoresearch framework ENPIRE. To solve a dexterous task in*
+
+*论文 Figure 2（p2）：Figure 2: Overview of physical autoresearch framework ENPIRE. To solve a dexterous task in the real*
 
 1. **两阶段问题分解（Sec 2）**：把真机灵巧技能获取拆成 (a) **EN**——人引导的 autoresearch，一次性搭好环境接口，离线验证后固化为不可变 API；(b) **PIRE**——之后完全无人的 autoresearch，agent 只凭自动验证信号改策略。人的工作量是一次性成本，被后续所有机器人、所有实现摊薄。
 2. **EN 三件套**：

@@ -1,8 +1,6 @@
 # SimpleVLA-RL: Scaling VLA Training via Reinforcement Learning
 
 - 本地 PDF：`papers/rl/vla/SimpleVLA-RL_2509.09674.pdf`
-
-- Local PDF: `papers/rl/vla/SimpleVLA-RL_2509.09674.pdf`
 - arXiv: https://arxiv.org/abs/2509.09674
 - Project: https://github.com/PRIME-RL/SimpleVLA-RL
 - 年份：2025
@@ -15,6 +13,7 @@ SimpleVLA-RL 构建了基于 veRL 的强化学习框架用于 VLA 模型后训�
 ## 核心技术
 
 ![simplevla-rl 架构图](figures/simplevla-rl/fig2.png)
+
 *论文 Figure 2（p6）：Figure 2 | Overview of SimpleVLA-RL*
 
 1. **veRL 框架适配 VLA** — 将大规模语言模型的强化学习框架 veRL 移植到 VLA 领域，实现高效的策略优化
@@ -141,6 +140,10 @@ SimpleVLA-RL 相当于**给 VLA 模型安排了一个「实战训练营」**，�
 - **奖励设计**：稀疏奖励（仅任务完成时 +1）最简单但学习慢；密集辅助奖励加速收敛但需精心设计
 
 ## 消融实验与分析
+
+![simplevla-rl 主结果表](figures/simplevla-rl/tab6.png)
+
+*论文 Table 6（p15）：The sim2real results in Table 6 demonstrate that SimpleVLA-RL significantly improves the real-world*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

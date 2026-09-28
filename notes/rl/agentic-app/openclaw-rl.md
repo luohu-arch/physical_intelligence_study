@@ -3,7 +3,7 @@
 - arXiv: https://arxiv.org/abs/2603.10165
 - Source: https://arxiv.org/abs/2603.10165
 - Project: https://github.com/Gen-Verse/OpenClaw-RL
-- Local PDF: `papers/rl/agentic-app/OpenClawRL_2603.10165.pdf`
+- 本地 PDF：`papers/rl/agentic-app/OpenClawRL_2603.10165.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@
 ## 核心技术
 
 ![openclaw-rl 架构图](figures/openclaw-rl/fig3.png)
-*论文 Figure 3（p7）：Figure 3 | Method Overview. For personal agents, we support both binary-reward optimizatio*
+
+*论文 Figure 3（p7）：Figure 3 | Method Overview. For personal agents, we support both binary-reward optimization and on-p*
 
 1. **Server-Client 架构**：RL server 把策略挂在一个无状态 completion API 后面；用户终端（个人设备或云环境）通过 HTTP 查询并把交互数据流回。任何能发 API 请求的 agent 框架都是数据源，框架可以随时换、工具可以随时变，server 无需重配。
 2. **主线/侧线分流（main-line vs side turn）**：每个 API 请求被分类为主线回合（可训练样本：主响应 + 工具执行结果）或侧线回合（记忆整理、辅助查询，只转发不训练）；session id 支持多用户并发流的解复用。
@@ -84,6 +85,10 @@ $\rho_v = \exp(\ell_{cur}(v) - \ell_{old}(v))$ 是逐步重要性比率。直觉
 - **评测协议**：三个模拟用户（student/TA/teacher，Qwen3-32B 扮演，GSM8K 任务，session 上限 72）；判定"已对齐"= 首条硬编码消息（不含偏好信息）的响应连续 3 个会话满足偏好。
 
 ## 消融实验与分析
+
+![openclaw-rl 主结果表](figures/openclaw-rl/tab2.png)
+
+*论文 Table 2（p7）：Table 2 | Complementary properties of the evaluative and directive signals, and the hybrid objective*
 
 **表 A｜个人 agent 优化效率（达到对齐所需最少会话数，5 次试验均值，越低越好）**
 

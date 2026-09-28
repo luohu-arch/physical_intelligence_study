@@ -3,7 +3,7 @@
 - arXiv: https://arxiv.org/abs/2609.01596
 - Source: https://arxiv.org/abs/2609.01596
 - Project: https://pine-lab-ntu.github.io/facet-0/
-- Local PDF: `/Users/luogu/physical_intelligence/papers/rl/dexterous/Facet-0_2609.01596.pdf`
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/rl/dexterous/Facet-0_2609.01596.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@ PaliGemma 视觉-语言骨干 + flow-matching 动作专家联合生成 50 步 Ca
 ## 核心技术
 
 ![facet0 架构图](figures/facet0/fig1.png)
-*论文 Figure 1（p2）：Figure 1. Qualitative overview of Facet-0 in precision computer assembly. The center shows*
+
+*论文 Figure 1（p2）：Figure 1. Qualitative overview of Facet-0 in precision computer assembly. The center shows the robot*
 
 1. **语义-接触表征（joint action-wrench flow matching）**：观测 = 三路 RGB + 指令 + 13 维状态（末端位姿 $x_t\in\mathbb{R}^6$、夹爪开度 $g_t\in\mathbb{R}$、wrench $w_t\in\mathbb{R}^6$），$K=10$ 帧因果 wrench 历史与视觉-语言语义、运动学状态融合为 $h^c_t$；解码目标是动作与"下一步测得 wrench"按行配对的联合块（第 $k$ 行把 $a_{t+k}$ 与 $\hat w_{t+k+1}$ 配对，一步错位是刻意的因果约定）。结构化注意力让 action-wrench 路径与因果 VQA 路径共享视觉-语言前缀、互不可见对方目标 token，防泄漏。
 2. **Action-Wrench Critic（分布式）**：$Z_\psi(h^c_t,Y_t)$ 对"动作+其预期 wrench"的联合提案打分，能区分几何进度相同但接触结局不同的两条运动（干净插入 vs 卡死）；四个辅助头（近未来 wrench、接触强度、接触内进度、成功排序）专门拉开"进度一致但接触状态不一致"的观测。
@@ -88,6 +89,10 @@ $$\mathcal{L}_{actor}(\eta)=-\mathbb{E}\big[Q_{\xi_1}(e_t,a_t)\big]+\lambda_{BC}
 - **分布式 critic 参数化**：论文自述"具体分布式参数化与回归距离是实现相关的"，方法只要求均值为 $Q_\psi$（待确认：复现需自选 QR-DQN/QR-C51 类实现）。
 
 ## 消融实验与分析
+
+![facet0 主结果表](figures/facet0/tab2.png)
+
+*论文 Table 2（p11）：Table 2. Task-level success rate (%) on the assembly suite, 20 trials per cell. Left: all eight meth*
 
 主表：五任务平均成功率（20 试次/格），受控变体剥离三个组件的贡献：
 

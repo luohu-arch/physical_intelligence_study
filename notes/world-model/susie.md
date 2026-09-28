@@ -14,7 +14,8 @@ SuSIE 把预训练的 InstructPix2Pix 图像编辑扩散模型在「当前帧 + 
 ## 核心技术
 
 ![susie 架构图](figures/susie/fig1.png)
-*论文 Figure 1（p2）：Figure 1: (SuSIE) Our method leverages a pretrained image-editing model to generate future*
+
+*论文 Figure 1（p2）：Figure 1: (SuSIE) Our method leverages a pretrained image-editing model to generate future subgoals*
 
 1. **图像编辑即规划** — 完成任务等价于在约束（语言指令）下"编辑"工作台照片。于是不从头训视频预测器，直接微调 InstructPix2Pix 使其输出"若任务顺利推进若干步后的画面"，把网络规模级的视觉常识原样搬进控制回路。
 2. **两阶段完全解耦** — Phase (I) 子目标生成器只在带语言的视频/机器人片段上训练（可用无动作标签的人类视频）；Phase (II) 目标条件策略只在机器人数据上做 GCBC（可用无语言标签的动作数据）。两类部分标注数据因此被同时利用，且大模型与小策略可各自独立更换。
@@ -93,6 +94,10 @@ graph TD
 - **失败诊断入口**：真机多数失败仍是抓取滑落/过早松开（牙膏最典型），说明瓶颈已转移到低层灵巧度而非语义理解——这是作者给后续工作的明确信号。
 
 ## 消融实验与分析
+
+![susie 主结果表](figures/susie/tab1.png)
+
+*论文 Table 1（p8）：Table 1: (CALVIN benchmark performance) SuSIE is able to chain together more instructions with a hig*
 
 CALVIN ABC→D 零样本链式成功率（Table 1）：
 

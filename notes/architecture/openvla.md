@@ -11,10 +11,12 @@ OpenVLA 是首个完全开源、可商用、性能比肩闭源 RT-2 的 7B 级�
 
 ## 核心技术
 
-![openvla 架构图](figures/openvla/fig1.png)
-*论文 Figure 1（p1）：Figure 1: We present OpenVLA, a 7B-parameter open-source vision-language-action model (VLA*
-
 1. **双视觉编码器（DINOv2 + SigLIP）** — SigLIP 提取语义特征以支撑常识推理，DINOv2 提取空间几何特征以支撑精细操作，二者融合实现语义与空间的双重精准感知
+
+![openvla 架构图](figures/openvla/fig1.png)
+
+*论文 Figure 1（p1）：Figure 1: We present OpenVLA, a 7B-parameter open-source vision-language-action model (VLA), trained*
+
 2. **LoRA 高效微调** — 冻结预训练主干权重，仅在 Transformer 注意力层插入低秩矩阵，实现单张 24G 显存 GPU 上完成 7B 模型的全流程微调
 3. **大规模 VLM 预训练权重复用** — 基于 Llama 2 7B 语言模型骨干，完美继承大模型的语义常识推理与开放世界理解能力
 
@@ -70,6 +72,12 @@ graph TD
 
 **动作离散化的"选档"逻辑**：7B LLM 不能直接输出连续浮点数，OpenVLA 把每个动作维度均匀分成 256 档（像收音机的调频刻度），LLM 自回归"报档位"。离散化的代价是精度受档位宽度限制（不如扩散模型连续），但换来的是完全复用 LLM 的自回归生成机制——这是它 10Hz 实时推理与 RT-2 同源架构的根源。
 
+## 物理直觉解释
+
+OpenVLA 像一个"会看图的通用翻译官"——看一张操作场景的图片，听一句"把杯子放到盘子上"，直接输出"机械臂往右前方移动 15cm，夹爪闭合"。之前的 RT-2 也做这件事，但 RT-2 是闭源的 55B 巨无霸，OpenVLA 用 7B 开源模型 + LoRA 微调就做到了同等水平。
+
+双视觉编码器（DINOv2 + SigLIP）是关键——DINOv2 擅长理解空间结构（"杯子在盘子的左上方"），SigLIP 擅长理解语义（"这是杯子、这是盘子"）。两者互补，缺一不可。就像一个人需要"空间感"和"常识"两种能力才能操作物体。
+
 ## 工程细节与实操指南
 
 **1. LoRA 微调超参工业最佳实践**
@@ -82,6 +90,10 @@ graph TD
 **3. 核心性能**：零样本场景下，在 WidowX、UR5、RT-1 机器人上的表现比肩 550 亿参数的闭源 RT-2-X 模型，平均成功率超越 Octo 与 RT-1-X。
 
 ## 消融实验与分析
+
+![openvla 主结果表](figures/openvla/tab10.png)
+
+*论文 Table 10（p35）：Table 10: Fine-tuned vs. frozen vision encoder experiment results. We evaluate the performance of fi*
 
 BridgeData V2 8 任务平均成功率（表 9）：
 
@@ -96,13 +108,6 @@ BridgeData V2 8 任务平均成功率（表 9）：
 | 量化精度（原始速度混合评估） | bfloat16 / int8 / int4 | 71.3% / 58.1% / 71.9% |
 
 **核心结论**：OpenX 大规模预训练是最大增益来源——仅用 Bridge 单数据集微调使成功率从 76.3% 跌至 45.6%（-30.7 绝对），且降幅集中在物理泛化与语义泛化类别，语言 grounding 不受影响，说明数据多样性解锁的是泛化而非指令跟随；双编码器中 DINOv2 再贡献 5.0 个点（45.6→40.6）；量化消融则表明 int4 在阻断速度混淆后性能与 bf16 持平（68.8% vs 70.0%），int8 反而最高（74.4%），为部署精度选择提供了依据。
-
-
-## 物理直觉解释
-
-OpenVLA 像一个"会看图的通用翻译官"——看一张操作场景的图片，听一句"把杯子放到盘子上"，直接输出"机械臂往右前方移动 15cm，夹爪闭合"。之前的 RT-2 也做这件事，但 RT-2 是闭源的 55B 巨无霸，OpenVLA 用 7B 开源模型 + LoRA 微调就做到了同等水平。
-
-双视觉编码器（DINOv2 + SigLIP）是关键——DINOv2 擅长理解空间结构（"杯子在盘子的左上方"），SigLIP 擅长理解语义（"这是杯子、这是盘子"）。两者互补，缺一不可。就像一个人需要"空间感"和"常识"两种能力才能操作物体。
 
 ## 技术权衡（Trade-off）
 

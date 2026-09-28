@@ -1,10 +1,8 @@
 # FLOWER: Democratizing Generalist Robot Policies with Efficient VLA Flow Policies
 
 - 本地 PDF：`papers/architecture/FLOWER_2509.04996.pdf`
-
-- Local PDF: `papers/architecture/FLOWER_2509.04996.pdf`
-- arXiv: https://arxiv.org/abs/2509.04996
-- Project: https://intuitive-robots.github.io/flower_vla/
+- arXiv：https://arxiv.org/abs/2509.04996
+- Project：https://intuitive-robots.github.io/flower_vla/
 - 年份：2025
 - 阶段：高效 VLA
 
@@ -14,10 +12,12 @@ FLOWER 是一个仅 950M 参数的视觉-语言-动作 flow policy，通过中�
 
 ## 核心技术
 
-![flower 架构图](figures/flower/fig1.png)
-*论文 Figure 1（p2）：Figure 1: Intermediate fusion for efficient VLA policies. Our fusion strategy (top-right)*
-
 1. **中间模态融合（Intermediate-Modality Fusion）** — 裁剪预训练 VLM（Florence-2）最后 30%-50% 的 Transformer 层，将压缩节省的模型容量重新分配给扩散动作头
+
+![flower 架构图](figures/flower/fig1.png)
+
+*论文 Figure 1（p2）：Figure 1: Intermediate fusion for efficient VLA policies. Our fusion strategy (top-right) strategi-*
+
 2. **动作特定全局自适应层归一化（Action-Specific Global-AdaLN）** — 在所有层之间共享扩散调制信号，同时为不同动作维度设置特定的归一化层，削减 20% 扩散头参数
 3. **交叉动作空间流匹配（Cross-Action Space Flow Matching）** — 用共享 Transformer 主干配合动作特定的编解码模块处理异质动作空间
 4. **极致训练效率** — 预训练 200 H100 GPU 小时，微调在 4 张 GPU 上仅需 4 小时
@@ -142,6 +142,10 @@ FLOWER 的核心思想是**「好钢用在刀刃上」**——把每一分参数
 - **LoRA rank**：推荐 16-32，rank 过高时过拟合风险增大
 
 ## 消融实验与分析
+
+![flower 主结果表](figures/flower/tab9.png)
+
+*论文 Table 9（p17）：Table 9: Normalized performance improvement of FLOWER compared to its second-best baseline*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

@@ -13,7 +13,8 @@ ROVE 解决人形机器人 VLA 部署后的核心痛点：人类遥操作干预�
 ## 核心技术
 
 ![rove 架构图](figures/rove/fig1.png)
-*论文 Figure 1（p1）：Figure 1: ROVE learns from imperfect humanoid interventions. (Left) Our method recovers ta*
+
+*论文 Figure 1（p1）：Figure 1: ROVE learns from imperfect humanoid interventions. (Left) Our method recovers task progres*
 
 1. **人在环数据采集流水线** — 针对人形灵巧手遥操作的完整 pipeline：收集部署中的数据 + 人类干预片段 + 适应延迟/犹豫/重映射噪声
 2. **乐观价值估计 (Optimistic Value Estimation, OVE)** — 使用 TD bootstrapping + expectile regression 从混合质量轨迹中筛选高价值行为，不对所有数据无差别模仿
@@ -58,6 +59,13 @@ $$
 
 **跨具身人类视频监督解决"长尾失败没见过"的问题**：自主 rollout 里机器人很少恰好停在"擦了一半的板书"这种中间状态，价值函数没见过就没法估计。人类执行同类任务的视频提供了这些稀有的"半成品状态"及恢复方式——虽然动作空间不匹配（人没有机械关节），但**状态进度与恢复模式是跨具身共享的**。实测无人类视频的 critic 会高估部分擦除状态，而有人类视频的 critic 价值曲线贴合真实任务进度。
 
+## 工程细节与实操指南
+
+- **平台**：小鹏人形机器人，灵巧手遥操作，人在环数据采集
+- **数据**：自主执行 + 人类干预 + 跨具身人类视频，混合质量
+- **OVE 关键参数**：expectile τ > 0.5（倾向乐观过滤）
+- **多轮迭代**：rollout→干预→OVE 过滤→RL 更新→rollout
+
 ## 消融实验与分析
 
 | 消融因子 | 设置对比 | Erase whiteboard | Toaster |
@@ -84,12 +92,12 @@ ROVE 是极少数聚焦 **VLA 后训练迭代** 的工程化论文——填补�
 
 对你个人来说：这是小鹏的论文，你在小鹏工作，直接可以找作者聊。
 
-## 工程细节与实操指南
+## 与其他论文的关系
 
-- **平台**：小鹏人形机器人，灵巧手遥操作，人在环数据采集
-- **数据**：自主执行 + 人类干预 + 跨具身人类视频，混合质量
-- **OVE 关键参数**：expectile τ > 0.5（倾向乐观过滤）
-- **多轮迭代**：rollout→干预→OVE 过滤→RL 更新→rollout
+- **RL Token (PI, 2026)** — online RL 精调 VLA：RL Token 用稀疏"token 级"奖励信号做在线 RL，ROVE 聚焦人在环干预数据的价值过滤，两者可组合（ROVE 的 OVE critic 可作为 RL Token 的价值函数）
+- **SimpleVLA-RL (2025)** — 全模型 offline RL 后训练：SimpleVLA-RL 依赖离线数据集质量，ROVE 处理的是"自主 rollout + 噪声干预"混合数据这一更贴近部署的现实
+- **FlashSAC (RSS 2026 Best Paper)** — RL 底层算法：FlashSAC 解决低 UTD 高吞吐训练，ROVE 的 critic/actor 更新可直接采用该策略梯度框架
+- **Human-as-Humanoid (2026)** — 人类视频 → 机器人动作的跨具身迁移：ROVE 反向使用人类视频，不生成动作而只提供 critic 监督信号，对对齐精度要求更低
 
 ## 精读问题
 
@@ -100,10 +108,3 @@ ROVE 是极少数聚焦 **VLA 后训练迭代** 的工程化论文——填补�
 5. 人类视频的 critic 监督如何避免 embodiment gap 引入偏差（人类的"恢复"在机器人上可能不可行）？是否需要动作可行性过滤？
 6. 价值头与动作头在冻结 VLM backbone 上训练——若放开 backbone 微调，OVE 的增益是否会被 SFT 追平？
 7. OVE 的乐观偏差是否会导致策略偏好"高风险高回报"行为？安全约束如何注入价值估计？
-
-## 与其他论文的关系
-
-- **RL Token (PI, 2026)** — online RL 精调 VLA：RL Token 用稀疏"token 级"奖励信号做在线 RL，ROVE 聚焦人在环干预数据的价值过滤，两者可组合（ROVE 的 OVE critic 可作为 RL Token 的价值函数）
-- **SimpleVLA-RL (2025)** — 全模型 offline RL 后训练：SimpleVLA-RL 依赖离线数据集质量，ROVE 处理的是"自主 rollout + 噪声干预"混合数据这一更贴近部署的现实
-- **FlashSAC (RSS 2026 Best Paper)** — RL 底层算法：FlashSAC 解决低 UTD 高吞吐训练，ROVE 的 critic/actor 更新可直接采用该策略梯度框架
-- **Human-as-Humanoid (2026)** — 人类视频 → 机器人动作的跨具身迁移：ROVE 反向使用人类视频，不生成动作而只提供 critic 监督信号，对对齐精度要求更低

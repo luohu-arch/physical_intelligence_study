@@ -13,10 +13,12 @@ BridgeVLA 主张 3D VLA 的瓶颈不在「要不要 3D 信息」，而在「输�
 
 ## 核心技术
 
-![bridgevla 架构图](figures/bridgevla/fig1.png)
-*论文 Figure 1（p2）：Figure 1 Overview. BridgeVLA is a novel 3D VLA model that aligns the input and output with*
-
 1. **输入对齐（3D 转 2D）** — 场景点云按 top/front/right 三个方向做正交投影（沿袭 RVT/RVT-2 的做法），得到的三张 2D 图直接替换 VLM 原本吃的 RGB 图；整个 VLM 前向过程中不注入任何额外模态（没有机器人状态、没有逐像素 3D 坐标），最大限度避免预训练与微调的特征分布漂移
+
+![bridgevla 架构图](figures/bridgevla/fig1.png)
+
+*论文 Figure 1（p2）：Figure 1 Overview. BridgeVLA is a novel 3D VLA model that aligns the input and output within a unifi*
+
 2. **输出对齐（动作转热图）** — 平移动作不 regress 成向量，而是由与输入同分辨率的 2D heatmap 表示：三个视角的热图分别反投到工作区均匀采样的 3D 点网格上取均分最高者作为下一关键帧末端位置；旋转/夹爪/碰撞旗标则由全局与局部特征拼接过 MLP 预测（Euler 角每轴离散成 72 个 bin）
 3. **可扩展的热图预训练** — PaliGemma 本来只会输出 token 序列、天生不会画热图，于是先用检测框构造高斯热图监督（cross-entropy），用 convex upsampling（借自 RAFT 的可学习逐像素插值上采样）把 patch token 网格还原到原图分辨率；该配方可平移到 keypoint 检测与语义分割等任何能表达成热图的任务
 4. **Coarse-to-fine 双次前向** — 第一次在完整点云上预测粗位置，然后以该位置为中心裁剪放大一块长方体点云，第二次前向给出最终动作（继承 RVT-2 的精化策略）
@@ -93,6 +95,10 @@ $\mathcal{L}_{trans}$ 是热图的交叉熵，$\mathcal{L}_{rot}$ 是 bin 分类
 
 ## 消融实验与分析
 
+![bridgevla 主结果表](figures/bridgevla/tab1.png)
+
+*论文 Table 1（p7）：Table 1. BridgeVLA outperforms all the comparing baseline methods, achieving an average success rate*
+
 架构消融（RLBench，Table 1；18 任务、25 trials、5 次评测）：
 
 | 配置 | Avg. SR (%) | Insert Peg | Place Cups | Sort Shape |
@@ -118,7 +124,7 @@ $\mathcal{L}_{trans}$ 是热图的交叉熵，$\mathcal{L}_{rot}$ 是 bin 分类
 
 **核心结论**：两张表指向同一个结论——数据效率不是「3D 信息」的恩赐而是「输入输出同处一个空间」的红利：同样是 3D 方法、甚至同样用正交投影，SpatialVLA 把 3D 编码塞进 2D VLM 却只有 3.1%~28.5%，RVT-2 靠投影与 coarse-to-fine 拿到 90%，BridgeVLA 再加上「VLM 先画热图再出动作」的对齐便逼近满分；架构侧的两个消融进一步给出了机制的分解——去掉热图输出损失 56.8 个百分点（监督密度与结构先验双杀），而去掉输入纯度只损失 32 个百分点且伤害集中在需要精细形状匹配的任务（Insert Peg 26.7%、Place Cups 14.7%）；3 与 10 条轨迹之间只差 1.5 个点的平台效应则说明，在这个接口设计下每任务少量演示已触及当前泛化上限，继续加数据主要补齐个别易混淆物体（如 wolf/zebra 上下抽屉）。
 
-## 技术权衡
+## 技术权衡（Trade-off）
 
 | 选择 | 收益 | 代价 |
 |------|------|------|

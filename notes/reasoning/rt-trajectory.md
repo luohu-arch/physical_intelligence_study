@@ -14,7 +14,8 @@ RT-Trajectory 提出将粗粒度 2D 轨迹草图画到 RGB 图像上作为策略
 ## 核心技术
 
 ![rt-trajectory 架构图](figures/rt-trajectory/fig1.png)
-*论文 Figure 1（p2）：Figure 1: We propose RT-Trajectory, a framework for utilizing coarse trajectory sketches f*
+
+*论文 Figure 1（p2）：Figure 1: We propose RT-Trajectory, a framework for utilizing coarse trajectory sketches for policy*
 
 1. **2D 轨迹草图覆盖（Trajectory Sketch Overlay）** — 将机械臂末端执行器的 2D 轨迹绘制在相机 RGB 图像上作为策略输入，提供中间粒度的任务描述
 2. **事后轨迹标注（Hindsight Trajectory Labeling）** — 利用已有示教数据集中的机器人位置信息自动标注轨迹草图，无需额外人工标注
@@ -171,9 +172,9 @@ RT-Trajectory 的核心思想是「画一条线告诉机器人怎么动」。语
 4. 路径点通过相机矩阵投影为 2D 轨迹
 5. 添加交互标记，生成轨迹草图
 
-## 实验结果精华
+### 实验结果精华
 
-### 未见任务泛化（核心对比）
+#### 未见任务泛化（核心对比）
 
 | 方法 | Place Fruit | Upright and Move | Move within Drawer | Restock Drawer | Pick from Chair | Fold Towel | Swivel Chair | **总体** |
 |------|-------------|-------------------|--------------------|---------------|-----------------|------------|-------------|---------|
@@ -188,19 +189,23 @@ RT-Trajectory 的核心思想是「画一条线告诉机器人怎么动」。语
 - 语言条件下 RT-1 和 RT-2 泛化到新任务时几乎完全失效
 - 2.5D 高度编码对需要精确高度感知的任务（Swivel Chair, Pick from Chair）至关重要
 
-### 不同轨迹生成方式的比较
+#### 不同轨迹生成方式的比较
 
 **人类示范视频**：RT-Trajectory 在 Pick 任务上 94-100%（vs IK Planner 42%），Fold Towel 上 75%（vs IK Planner 25%）。轨迹草图虽比训练数据更抖动，但策略仍能适应。
 
 **LLM Code as Policies**：Pick 任务 89%（vs IK Planner 83%），Open Drawer 60%（vs IK Planner 71%）。LLM 生成的轨迹更精确线性，但 RT-Trajectory 的视觉适应能力使其在需要自适应调整的任务上优于纯 IK 规划。
 
-### 涌现能力
+#### 涌现能力
 
 1. **视觉提示工程**：同一起始场景下，改变轨迹草图即可改变策略行为模式。类似于大语言模型的 prompt engineering，失败时无需重新训练，只需修改轨迹提示。
 2. **失败重试行为**：在打开抽屉任务中，首次抓取把手失败后，策略会自动切换到抓取抽屉边缘并再次尝试——这种重试行为并未被显式编程。
 3. **真实场景鲁棒性**：在两个新建筑的真实厨房、卧室、浴室场景中，面对全新背景、光照、物体、家具几何，RT-Trajectory 仍能成功完成任务。
 
 ## 消融实验与分析
+
+![rt-trajectory 主结果表](figures/rt-trajectory/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Success rate of different trajectory generation approaches across tasks*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|
@@ -210,7 +215,7 @@ RT-Trajectory 的核心思想是「画一条线告诉机器人怎么动」。语
 
 **核心结论**：轨迹草图条件是新任务泛化的关键——RT-2 仅靠语言达 11%，加入轨迹草图跃升至 67%。
 
-## 技术权衡
+## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |
 |------|---------------|
@@ -243,6 +248,7 @@ RT-Trajectory 贡献了一种全新的任务表征范式——轨迹草图。它
 4. **多种轨迹生成方式**验证了该方法作为通用接口的灵活性
 
 ## 与其他论文的关系
+
 - **RT-1**：直接继承其架构和数据集，但用轨迹草图替代语言条件+FiLM层
 - **RT-2**：对比基线（11% vs 67%），说明单纯增大模型和知识规模无法解决运动泛化
 - **Code as Policies / PaLM-E**：作为轨迹草图的生成器出现，形成互补关系

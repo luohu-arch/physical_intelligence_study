@@ -13,6 +13,7 @@ WAM-TTT 是面向具身世界模型的测试时训练框架：机器人部署后
 ## 核心技术
 
 ![wam-ttt 架构图](figures/wam-ttt/fig1.png)
+
 *论文 Figure 1（p1）：Figure 1: Overview of WAM-TTT. Given unlabeled human demonstrations from diverse environ-*
 
 1. **部署时世界模型更新** — 机器人运行中观察人类操作，将观测到的 state transition 用于微调 world model dynamics $f_\theta(s_{t+1}|s_t, a_t)$——实际机制是把人类视频作为 Key/Value 写进 video expert 的 TTT 残差分支
@@ -62,6 +63,10 @@ $$W_{i+1}^{(\ell)} = W_i^{(\ell)} - \eta \nabla_{W_i^{(\ell)}} \mathcal{L}_{adap
 
 ## 消融实验与分析
 
+![wam-ttt 主结果表](figures/wam-ttt/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Main results. Progress (%) on 9 manipulation tasks evaluated in previously unseen home*
+
 **协议消融（Table 2，New 设置，每格 10 trials）**：
 
 | 消融变体 | Table Bussing (%) | Swap Place (%) | 相对完整版 |
@@ -104,14 +109,6 @@ $$W_{i+1}^{(\ell)} = W_i^{(\ell)} - \eta \nabla_{W_i^{(\ell)}} \mathcal{L}_{adap
 
 WAM-TTT 把"测试时训练"从策略层（RoboTTT）推进到世界模型层，补上了机器人持续学习技术栈中"环境动力学适应"这一环。2026 年前机器人的范式是"预训练→部署→离线收集数据→重训→再部署"；WAM-TTT 标志着范式转变——部署本身成为训练，且训练信号来自最便宜的数据源（未标注人类视频）。论文还验证了一个反直觉结论：给人类视频加伪动作（MANO retargeting + forward-dynamics 损失）会全面有害（4 任务平均 72.3 → 28.9），在单目手部追踪成熟之前，"动作自由的视频预测"是更正确的适应接口——这对所有 human-video 类方法都有方法论意义。
 
-## 精读问题
-
-1. **New 设置下 9 个任务中 WAM-TTT 唯一输给 LDA 的是 Stamp Paper（8.3 vs 33.3），归因是几何紧配合被 household 扰动破坏——这是 TTT 视频预测信号的固有盲区，还是人类演示配比不足？**
-2. **数据配比消融显示 (100,100) 与 (200,0) 持平但 (10,190) 大跌（51.4）——人类数据替代机器人数据存在下限比例，这个比例随任务难度和具身类型如何变化？**
-3. **w/o Meta Training 让 Swap Place 从 88.9 归零——若部署时能获得少量配对 human-robot 片段，能否跳过元训练、在部署现场完成 Q/K/V 对齐？**
-4. **VG + FD 伪动作消融全面有害（72.3 → 28.9）——这个负收益来自单目 MANO 估计噪声，还是 DINOv3 特征空间的 FD 损失本身不适合作为 human-side 监督？**
-5. **fast weights 的表达能力受 slow projections 限制（论文 limitation 2）——通过加深 TTT 分支或部分解冻 slow projections，能否定量刻画并扩展"适应边界"？**
-
 ## 与其他论文的关系
 
 - **LDA（论文基座 WAM）** — New 设置 46.2% vs 32.5%（+13.7 pts），是 TTT 在冻结基座上的净增益
@@ -120,3 +117,11 @@ WAM-TTT 把"测试时训练"从策略层（RoboTTT）推进到世界模型层，
 - **π0.5 / EGOSCALE** — 无部署期人类视频的开放世界 VLA 基线（14.8% / 15.0%），量化了"测试时适应"本身的贡献（约 +31 pts）
 - **RoboTTT (NVIDIA, RSS 2026)** — 策略层 TTT（秒-分钟）vs WAM-TTT 世界模型层（分钟-小时），时间尺度互补
 - **SimDist (RSS 2026)** — 仿真蒸馏提前训练 vs 部署时 TTT，两条不同的 sim-to-real 路径
+
+## 精读问题
+
+1. **New 设置下 9 个任务中 WAM-TTT 唯一输给 LDA 的是 Stamp Paper（8.3 vs 33.3），归因是几何紧配合被 household 扰动破坏——这是 TTT 视频预测信号的固有盲区，还是人类演示配比不足？**
+2. **数据配比消融显示 (100,100) 与 (200,0) 持平但 (10,190) 大跌（51.4）——人类数据替代机器人数据存在下限比例，这个比例随任务难度和具身类型如何变化？**
+3. **w/o Meta Training 让 Swap Place 从 88.9 归零——若部署时能获得少量配对 human-robot 片段，能否跳过元训练、在部署现场完成 Q/K/V 对齐？**
+4. **VG + FD 伪动作消融全面有害（72.3 → 28.9）——这个负收益来自单目 MANO 估计噪声，还是 DINOv3 特征空间的 FD 损失本身不适合作为 human-side 监督？**
+5. **fast weights 的表达能力受 slow projections 限制（论文 limitation 2）——通过加深 TTT 分支或部分解冻 slow projections，能否定量刻画并扩展"适应边界"？**

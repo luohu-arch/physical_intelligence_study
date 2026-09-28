@@ -13,7 +13,8 @@ I-JEPA 用一张图的少量上下文 patch 去预测同图中若干大块目标
 ## 核心技术
 
 ![ijepa 架构图](figures/ijepa/fig2.png)
-*论文 Figure 2（p2）：Figure 2. Common architectures for self-supervised learning, in which the system learns to*
+
+*论文 Figure 2（p2）：Figure 2. Common architectures for self-supervised learning, in which the system learns to capture t*
 
 1. **架构三件套**：context encoder $f_\theta$（看得到的上下文 patch）、target encoder $f_{\bar\theta}$（全图编码后按目标块取 patch 表征，权重是 context encoder 的指数滑动平均）、narrow predictor $g_\phi$（固定 embedding 维度 384 的浅层 ViT，输入上下文表征加可学习 mask token）。
 2. **多块掩码策略（本质贡献）**：每图随机采 4 个可能重叠的目标块（scale 0.15 到 0.2，宽高比 0.75 到 1.5）+ 1 个接近全图的大上下文块（scale 0.85 到 1.0，单位宽高比），并把上下文与目标重叠的区域删掉；目标块的掩码作用在 **target-encoder 输出**上而不是输入上。
@@ -86,6 +87,10 @@ flowchart TB
 实操要点：(1) mask sampler 写在 data loader 的 collate 函数里，只传 patch index 给 GPU，实现轻；(2) 迁移到其他模态时不需要改损失，只需要重新设计掩码分布——这也是作者强调的"简单模型 + 弱归纳偏置"的卖点；(3) 若追求线性探测指标优先选 weight decay 渐增策略（77.8 对 76.4），若做低样本微调可选固定小 weight decay（70.7 对 69.4）；(4) 想 visual inspection 可以照搬 RCDM 扩散解码器做法，把 predictor/target 表征投回像素验证模型到底记住了什么。
 
 ## 消融实验与分析
+
+![ijepa 主结果表](figures/ijepa/tab8.png)
+
+*论文 Table 8（p14）：Table 8. Ablation of the target block size for multi-block masking. Linear evaluation on 1% ImageNet*
 
 | 实验（出处表号） | 对照设置 | 关键数字结果 |
 |------|------|------|

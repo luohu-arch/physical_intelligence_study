@@ -14,7 +14,8 @@ RoboMemory 提出脑启发四模块并行记忆架构：空间记忆（动态 KG
 ## 核心技术
 
 ![robomemory 架构图](figures/robomemory/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: RoboMemory adopts a brain-inspired architecture that maps neural components to age*
+
+*论文 Figure 1（p1）：Fig. 1: RoboMemory adopts a brain-inspired architecture that maps neural components to agent modules*
 
 1. **四模块并行架构** — 空间/时间/情景/语义四个记忆独立并行更新检索。串行设计每步多次调用 VLM → 延迟累积；并行让多模块记忆的更新延迟与单模块相当
 2. **检索式增量 KG 更新** — 不是全量重建 knowledge graph：先检索相关子图（top N=3 顶点 + K=2 hop traversal）→ 局部冲突检测（VLM resolver 判定 add/delete/modify）→ selective merge + 剪枝孤立顶点。每步更新顶点数 O(DK)（n 顶点、最大度 D、检索跳数 K），解决动态环境下 KG 一致性维护的 scalability 问题
@@ -31,12 +32,12 @@ graph TD
         THALAMUS --> TEMP["Temporal Memory<br/>FIFO + VLM Summary"]
         THALAMUS --> EPIS["Episodic Memory<br/>RAG Task Interactions"]
         THALAMUS --> SEM["Semantic Memory<br/>RAG Experience Summary"]
-        
+
         KG -->|"parallel retrieval"| PLANNER["Critic-Planner Loop<br/>(Prefrontal Cortex)"]
         TEMP --> PLANNER
         EPIS --> PLANNER
         SEM --> PLANNER
-        
+
         PLANNER --> EXEC["Low-Level Executor<br/>LoRA-VLA + SLAM<br/>(Cerebellum)"]
     end
 ```
@@ -114,14 +115,6 @@ RoboMemory 的核心洞察是**机器人记忆的瓶颈不在"存多少"而在"�
 
 RoboMemory 代表了记忆研究的"模块化高层路线"——与 MemoryWAM/EchoVLA 的"端到端路线"形成对比。核心价值在于证明：即使只用现有 VLM + RAG + KG 这些非专用组件，只要组织得当（四模块并行 + Critic 闭环 + 检索式 KG 增量更新），就能在终身学习上取得可验证、量化的效果——EmbodiedBench 平均 SR 62.0% 超过闭源 SOTA Claude-3.5-Sonnet（58.0%）与全部 agent 框架基线（最高 Cradle 30.0%），真机 Run2 比 Run1 提升 20 个百分点。对后续研究的启示：显式记忆系统的工程组织方式（并行化、局部更新、闭环评估）可能比记忆容量本身更决定成败；同时它暴露了 VLM 规划器的上限——规划错误是最主要失败类型，这为世界模型验证器、更强推理器等接口留下了空间。
 
-## 精读问题
-
-1. **消融显示空间记忆贡献最大（−20 pts）——增益来自 KG 的结构化查询，还是仅仅来自"物体位置"这类可被 RAG 替代的语义信息？**
-2. **真机 Run2 比 Run1 高 20 pts（26.67% → 46.67%）——终身学习增益在任务序列继续拉长时是单调累积，还是会出现记忆冲突导致的回退？**
-3. **语义与情景记忆共用 vector DB 机制但消融贡献不同（−9 vs −5）——行动级与任务级层次摘要的结构差异是否是差距来源？**
-4. **KG 检索比率从 76% 降到 28% 且每步只处理约 10 条边——场景规模继续增大时 O(DK) 保证是否仍然成立，冲突检测的 VLM 调用是否会成为新瓶颈？**
-5. **规划错误是最主要失败类型而感知（hallucination）错误次之——换成更强推理模型、或引入世界模型做动作验证，能否消除"记忆正确但规划错误"的案例？**
-
 ## 与其他论文的关系
 
 - **MemoryWAM / EchoVLA** — 端到端隐式记忆（attention 检索）vs RoboMemory 显式符号化记忆（query + index）——两种根本不同的设计哲学
@@ -129,3 +122,11 @@ RoboMemory 代表了记忆研究的"模块化高层路线"——与 MemoryWAM/Ec
 - **Voyager / Reflexion / Cradle** — 技能库/反思/情景过程记忆框架，EmbodiedBench 平均 SR 22.0 / 15.0 / 30.0，远低于 RoboMemory 的 62.0
 - **Claude-3.5-Sonnet / GPT-4o 等单 VLM Agent** — 无记忆系统强基线（平均 SR 58.0 / 64.0、GC 63.3 / 72.2），RoboMemory 平均 GC 74.0 超过全部单 VLM 基线
 - **SayCan / Code as Policies** — VLM 作为机器人规划器的早期范式，RoboMemory 在其之上加四模块记忆 + Critic 闭环
+
+## 精读问题
+
+1. **消融显示空间记忆贡献最大（−20 pts）——增益来自 KG 的结构化查询，还是仅仅来自"物体位置"这类可被 RAG 替代的语义信息？**
+2. **真机 Run2 比 Run1 高 20 pts（26.67% → 46.67%）——终身学习增益在任务序列继续拉长时是单调累积，还是会出现记忆冲突导致的回退？**
+3. **语义与情景记忆共用 vector DB 机制但消融贡献不同（−9 vs −5）——行动级与任务级层次摘要的结构差异是否是差距来源？**
+4. **KG 检索比率从 76% 降到 28% 且每步只处理约 10 条边——场景规模继续增大时 O(DK) 保证是否仍然成立，冲突检测的 VLM 调用是否会成为新瓶颈？**
+5. **规划错误是最主要失败类型而感知（hallucination）错误次之——换成更强推理模型、或引入世界模型做动作验证，能否消除"记忆正确但规划错误"的案例？**

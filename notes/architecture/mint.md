@@ -13,10 +13,12 @@ MINT 提出模仿学习应模仿"行为意图"而非"轨迹细节"。用 DCT 将
 
 ## 核心技术
 
-![mint 架构图](figures/mint/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: Left: We propose Spectrally Disentangled Action Tokenizer, which encodes action ch*
-
 1. DCT 频域分解：低频系数 → Intent Token, 高频系数 → Execution Tokens
+
+![mint 架构图](figures/mint/fig1.png)
+
+*论文 Figure 1（p1）：Fig. 1: Left: We propose Spectrally Disentangled Action Tokenizer, which encodes action chunks into*
+
 2. 多尺度 VQ-VAE + 渐进重建，强制频谱分离
 3. Intent-to-Execution 自回归推理
 4. One-Shot 迁移：提取单次演示的 Intent token 驱动新任务执行
@@ -59,6 +61,15 @@ $$
 - **训练**: LIBERO, Calvin, MetaWorld, Raven, BridgeData v2
 - **真机**: Franka, ~20 demos/task
 
+## 工程细节与实操指南
+
+- **Tokenizer**: 多尺度 VQ-VAE, 3-4 scale levels, DCT 频谱分解
+- **Policy**: Next-scale autoregression from Intent (S1) to Execution (S2-Sk), LeRobot 兼容
+- **Training**: LIBERO, Calvin, MetaWorld, Raven, BridgeData v2 联合训练
+- **Real robot**: Franka, ~20 demos/task, one-shot transfer via Intent token injection
+- **Inference**: 43% lower latency than standard VLA (Intent token enables early planning)
+- **Disturbance robustness**: Success rate drop only 5.1% under perturbations (baseline 22.7%)
+
 ## 消融实验与分析
 
 | 消融因子 | 设置对比 | CALVIN 平均链长 | LIBERO-Long 成功率 |
@@ -74,17 +85,7 @@ $$
 
 **核心结论**：频谱解耦目标与意图集成的贡献可独立验证——Scale-Wise 频域重建相比时域重建把 LIBERO-Long 从 82.8% 拉到 93.4%（CALVIN 链长 4.06→4.54），证明强制频谱层级分离是"意图与执行解耦"的必要条件；Intent-based ensemble 又在此基础上把无集成基线的 85.8% 提升到 93.2%，说明意图 token 不仅用于迁移，还能在重叠 chunk 聚合时充当"语义一致性"的仲裁信号，两者叠加共同构成 MINT 的增益。
 
-
-## 工程细节与实操指南
-
-- **Tokenizer**: 多尺度 VQ-VAE, 3-4 scale levels, DCT 频谱分解
-- **Policy**: Next-scale autoregression from Intent (S1) to Execution (S2-Sk), LeRobot 兼容
-- **Training**: LIBERO, Calvin, MetaWorld, Raven, BridgeData v2 联合训练
-- **Real robot**: Franka, ~20 demos/task, one-shot transfer via Intent token injection
-- **Inference**: 43% lower latency than standard VLA (Intent token enables early planning)
-- **Disturbance robustness**: Success rate drop only 5.1% under perturbations (baseline 22.7%)
-
-## 技术权衡
+## 技术权衡（Trade-off）
 
 | 优势 | 劣势 |
 |------|------|

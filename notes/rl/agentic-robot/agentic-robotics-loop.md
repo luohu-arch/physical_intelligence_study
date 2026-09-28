@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2608.07555
 - Source: https://arxiv.org/abs/2608.07555
-- Project: 
-- Local PDF: `papers/rl/agentic-robot/AgenticRoboticsLoop_2608.07555.pdf`
+- Project:
+- 本地 PDF：`papers/rl/agentic-robot/AgenticRoboticsLoop_2608.07555.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@ AgenticRobotics 把 Claude Code/Codex 式的"主 agent 管环 + 子 agent 执行
 ## 核心技术
 
 ![agentic-robotics-loop 架构图](figures/agentic-robotics-loop/fig1.png)
-*论文 Figure 1（p2）：Figure 1. The AgenticRobotics pipeline. An immutable objective binds an LLM controller (th*
+
+*论文 Figure 1（p2）：Figure 1. The AgenticRobotics pipeline. An immutable objective binds an LLM controller (the control*
 
 1. **五条设计承诺**：(i) 主 agent 管循环、子 agent 分析与执行——控制器的有限上下文只花在决策上；(ii) 任何在世界里执行的东西都是工具而非知识——训好的策略、训练流水线、planner、数据采集台都打包在工具边界后面，控制器从不触碰机器人物理；(iii) 打包工作流给每个 artifact 一个统一的 input-to-tool-to-output 调用面（MCP 之上）并注册，另一个独立验证工作流测量它实际能做什么；(iv) 每次调用都留记录，运营可靠性从记录推导而得，从不靠声明；(v) 技能是有知识的可编辑工作流。
 2. **agent-to-skill-to-tool 分解**：agent 决定做什么，skill 决定怎么做，tool 是后端真正能做的事。技能是 Agent Skills 格式的可编辑 Markdown（审计快照时有 29 个 loop skills + 1 个 vendored authoring tool，其中 4 个是构建/打包/验证/改进工具的工具生命周期技能）；调用契约写在 tool descriptor 而非技能文字里，所以技能可以重参数化、重排、fork 出候选变体而不碰执行代码。
@@ -85,6 +86,10 @@ anytime-valid 升级路径的理论来源是 Ville 不等式：对非负鞅（e-
 **可复用性边界**：复现基 revision af89f02d8f88；外部 LeRobot checkout 为 e40b58a8dfa9，但历史日志未 pin 它。一个已知未修缺陷：缺少可选依赖 hypothesis 时 `tests/test_replay_properties.py` 在 collection 阶段失败，尽管文档声称自动跳过；objective schema 是承重的——删掉该文件会重新引入 9 个测试失败。待确认：论文以"working-tree addition over base revision af89f02d8f88"描述复现范围并列出仓库内路径（`tools/`、`agentic_robot/tools.py`、`agentic_robot/invocation.py`、`agentic_robot/mcp.py`、`NOTEBOOK.md`），但全文未给出对外代码仓库地址，无法核实这些 artifact 是否公开可取。
 
 ## 消融实验与分析
+
+![agentic-robotics-loop 主结果表](figures/agentic-robotics-loop/tab3.png)
+
+*论文 Table 3（p7）：Table 3. Decision quality on the measured surface (budget 1,600*
 
 **门规则在 optional stopping 下的表现**（Table 2：$2 \times 10^5$ 次 Monte-Carlo，LIBERO 噪声——同一 champion 十二次重复读取 56.5%、SD 3.6 点；null $p = 0.565$，每次看 $n = 100$，最多决策到 1,200 episodes）：
 

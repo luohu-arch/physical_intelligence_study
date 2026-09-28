@@ -1,13 +1,11 @@
 # DreamVLA: A Vision-Language-Action Model Dreamed with Comprehensive World Knowledge
 
 - 本地 PDF：`papers/reasoning/DreamVLA_2507.04447.pdf`
-
-- Local PDF: `/Users/luogu/physical_intelligence/papers/reasoning/DreamVLA_2507.04447.pdf`
-- arXiv: https://arxiv.org/abs/2507.04447
-- Source: https://arxiv.org/abs/2507.04447
-- Published: 2025-07
-- Category: world knowledge / foresight
-- Priority: medium
+- arXiv：https://arxiv.org/abs/2507.04447
+- Source：https://arxiv.org/abs/2507.04447
+- Published：2025-07
+- Category：world knowledge / foresight
+- Priority：medium
 
 ## 一句话总结
 
@@ -16,7 +14,8 @@ DreamVLA 不直接预测未来图像（计算量大、冗余信息多），而�
 ## 核心技术
 
 ![dreamvla 架构图](figures/dreamvla/fig2.png)
-*论文 Figure 2（p4）：Figure 2: Framework Overview. Given the current robot state st, observation ot, and langua*
+
+*论文 Figure 2（p4）：Figure 2: Framework Overview. Given the current robot state st, observation ot, and language instruc*
 
 1. **三模态紧凑世界知识预测** — 同时预测动态运动区域（CoTracker 二值掩码）、空间深度（单目深度估计）和高层语义（SAM 特征），取代计算密集且含大量冗余信息的像素级未来图像预测
 2. **块状结构化注意力掩码（Block-wise Structured Attention）** — 动态/深度/语义三种查询子 token 之间互相屏蔽注意力，仅共享视觉、语言和状态编码，防止不同类型知识的信息泄漏与梯度干扰
@@ -114,6 +113,10 @@ DreamVLA 的逻辑可以类比人类操作陌生物品时的思维过程：「�
 **动态区域生成细节：** 使用 CoTracker 提取光流轨迹，识别「随机械臂末端执行器或可移动物体运动的像素」，生成二值掩码而非完整光流场。
 
 ## 消融实验与分析
+
+![dreamvla 主结果表](figures/dreamvla/tab4.png)
+
+*论文 Table 4（p9）：Table 4: Performance comparison between predicting the optical flow and dynamic region. Notably,*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

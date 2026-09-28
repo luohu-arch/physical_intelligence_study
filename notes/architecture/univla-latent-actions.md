@@ -1,15 +1,13 @@
 # UniVLA: Learning to Act Anywhere with Task-centric Latent Actions
 
 - 本地 PDF：`papers/architecture/UniVLA-ODL_2505.06111.pdf`
-
-- Local PDF: `/Users/luogu/physical_intelligence/papers/architecture/UniVLA-ODL_2505.06111.pdf`
-- arXiv: https://arxiv.org/abs/2505.06111
-- Source: https://arxiv.org/abs/2505.06111
-- Project: https://github.com/OpenDriveLab/UniVLA
-- Authors: OpenDriveLab (RSS 2025 accepted)
-- Published: 2025
-- Category: latent action / cross-embodiment
-- Priority: high
+- arXiv：https://arxiv.org/abs/2505.06111
+- Source：https://arxiv.org/abs/2505.06111
+- Project：https://github.com/OpenDriveLab/UniVLA
+- Authors：OpenDriveLab (RSS 2025 accepted)
+- Published：2025
+- Category：latent action / cross-embodiment
+- Priority：high
 
 ## 一句话总结
 
@@ -17,10 +15,11 @@ UniVLA 在 DINOv2 特征空间中学习与具体机器人无关的任务中心�
 
 ## 核心技术
 
-![univla-latent-actions 架构图](figures/univla-latent-actions/fig2.png)
-*论文 Figure 2（p4）：Fig. 2: Task-centric latent action learning. We propose a two-stage training framework aim*
-
 1. **双阶段潜在动作 VQ-VAE** — 第一阶段学习任务无关潜在动作（编码场景中非语义的环境变化如光照、视角），第二阶段冻结第一阶段的 codebook 后学习任务中心潜在动作（编码物体操作等语义变化），实现两种动态的自然分离
+
+![univla-latent-actions 架构图](figures/univla-latent-actions/fig2.png)
+
+*论文 Figure 2（p4）：Fig. 2: Task-centric latent action learning. We propose a two-stage training framework aimed at dise*
 
 2. **DINOv2 特征空间自监督重建** — 以 DINOv2 的 patch-level 空间特征替代像素空间作为重建目标，避免像素级噪声（纹理、光照），利用 DINOv2 的物体中心化和空间感知特性提供语义丰富的学习信号
 

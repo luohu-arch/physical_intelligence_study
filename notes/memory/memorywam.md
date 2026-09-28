@@ -14,7 +14,8 @@ MemoryWAM 提出三层混合记忆：4 帧滑动窗口（短期高保真, N_rece
 ## 核心技术
 
 ![memorywam 架构图](figures/memorywam/fig2.png)
-*论文 Figure 2（p4）：Figure 2: MemoryWAM adopts an MoT architecture with a video DiT and an action DiT. Video p*
+
+*论文 Figure 2（p4）：Figure 2: MemoryWAM adopts an MoT architecture with a video DiT and an action DiT. Video prediction*
 
 1. **三层分层混合记忆** — 短期窗口（4 帧高保真 closed-loop control）、锚帧（2 帧任务初始，instruction grounding）、Gist token（8 个/帧 learnable parameter，共享 3D RoPE 但固定在 marker 位置，120 tokens→8 tokens 压缩）。各层通过专用 attention mask 独立访问
 2. **MoT 双专家不对称架构** — Video DiT（Wan2.2-TI2V-5B, hidden 3072, FFN 14336, 30 blocks, ~5B）处理观测+维护记忆缓存，Action DiT（hidden 1024, FFN 4096, 30 blocks, ~1B）从缓存解码动作。总 ~6B。视频预测仅训练时监督，推理不生成视频——clean latent 仅做一次 video DiT forward
@@ -34,13 +35,13 @@ graph TD
         RECENT["Recent Frames (N_recent=4)<br/>sliding window<br/>高保真 closed-loop control"]
         GIST["Gist Tokens (M_v=8/frame)<br/>learnable params<br/>15x compression of long history"]
     end
-    
+
     subgraph "Current Frame"
         CLEAN["Clean latent z_t<br/>(current observation)"]
         NOISY["Noisy latent (training only)<br/>(video prediction target)"]
         ACTION["Action tokens Ã_t<br/>(denoising target)"]
     end
-    
+
     ANCHOR -->|"attend"| ANCHOR_SELF["Anchor self-attn"]
     RECENT -->|"attend"| RECENT_CTX["Recent → self + anchors"]
     GIST -->|"attend"| GIST_CTX["Gist → self + anchors + recent"]
@@ -107,6 +108,10 @@ $$\mathcal{L}_{\text{action}} = \mathbb{E}_{t,\epsilon}\left[\|v_\psi(A_t^{\text
 - **Inference**：clean latent single video DiT forward → update KV cache；action denoising with hybrid memory mask；no video generation needed
 
 ## 消融实验与分析
+
+![memorywam 主结果表](figures/memorywam/tab3.png)
+
+*论文 Table 3（p9）：Table 3: Ablation study of the hybrid memory. We report the success rates of two representative*
 
 | 消融 | RMBench Press Button | Observe & Pick Up | 结论 |
 |------|---------------------|-------------------|------|

@@ -14,10 +14,12 @@ LingBot-VA 提出首个开源自回归视频-动作世界模型：用 Mixture-of
 
 ## 核心技术
 
-![lingbot-va 架构图](figures/lingbot-va/fig1.png)
-*论文 Figure 1（p2）：Figure 1. LingBot-VA : An Autoregressive World Model for Robotic Manipulation. (1) Pretrai*
-
 1. **因果视频-动作序列建模** — 视频 token 和动作 token 交替排列在单个自回归序列中，因果 attention mask 确保动作仅能 attend 到过去的视频观测（不能"偷看未来"）
+
+![lingbot-va 架构图](figures/lingbot-va/fig1.png)
+
+*论文 Figure 1（p2）：Figure 1. LingBot-VA : An Autoregressive World Model for Robotic Manipulation. (1) Pretraining: Ling*
+
 2. **Mixture-of-Transformers (MoT)** — 双流非对称架构：高容量视频 expert（视频生成预训练初始化）预测未来视觉状态 + 轻量动作 expert 解码动作
 3. **闭环 rollout + KV cache** — 推理时持续注入真实观测（通过 KV cache 累积），将策略锚定在真实交互历史中，减少长程累积误差
 4. **部分去噪 + 异步推理** — 从部分去噪的视频 latent 直接解码动作（无需等视频完全生成完毕），异步并行化动作预测和电机执行
@@ -80,6 +82,10 @@ LingBot-VA 在做一个很朴素的事：**先想象，再行动**。就像你�
 - **后训练**：目标任务仅需 50 条示教（最低 10 条可行）
 
 ## 消融实验与分析
+
+![lingbot-va 主结果表](figures/lingbot-va/tab1.png)
+
+*论文 Table 1（p13）：Table 1. Evaluation on RoboTwin 2.0 Simulation (Easy vs Hard, 50 tasks). RoboTwin 2.0 is a challengi*
 
 | 消融因子 | 成功率 | 结论 |
 |---------|--------|------|

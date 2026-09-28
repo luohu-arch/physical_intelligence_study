@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2510.24701
 - Source: https://arxiv.org/abs/2510.24701
-- Project: 
-- Local PDF: `papers/rl/agentic-app/TongyiDeepResearch_2510.24701.pdf`
+- Project:
+- 本地 PDF：`papers/rl/agentic-app/TongyiDeepResearch_2510.24701.pdf`
 - Year: 2025
 - Category: rl
 - Priority: medium
@@ -15,6 +15,7 @@
 ## 核心技术
 
 ![tongyi-deepresearch 架构图](figures/tongyi-deepresearch/fig2.png)
+
 *论文 Figure 2（p6）：Figure 2: Training pipeline of Tongyi DeepResearch*
 
 1. **三条设计原则**：(a) 把 agent 训练拆成 mid-training + post-training——通用基座模型缺乏 agentic inductive bias，若在 post-training 阶段同时学 agentic 能力与对齐会互相冲突，mid-training 用大规模 agentic 数据先注入"行为先验"；(b) 合成数据中心化扩展——research 级问题天然稀缺、人工标注昂贵，而合成数据易扩展、易验证、可定向针对元能力（planning、信息综合、memory 管理），且形成数据飞轮（训练后的模型回头生成更强的合成数据）；(c) 环境被主动设计而非被动接受——按稳定性/保真度/成本三角分为 prior world（无真实反馈、零成本、无限扩展）、simulated（本地可控副本）、real-world（真实分布、昂贵且非平稳）三级，mid-training 主要用前两级，post-training 先在 simulated 验证再上 real。
@@ -105,6 +106,10 @@ $$(S^u_T, \text{answer}_u) = \text{Agent}_u(q), \quad u \in [1, n]; \qquad \text
 **未披露项**：Heavy Mode 的并行 agent 数 $n$ 与 synthesis 模型身份未给出；各阶段数据量（token 数/轨迹条数）与训练 compute（GPU-hours）未披露；模型合并的变体数量与权重 $\alpha_k$ 取值未披露；mid-training 的通用/agentic 数据配比只说"small proportion"，无数字。以上均计 4 条待确认。
 
 ## 消融实验与分析
+
+![tongyi-deepresearch 主结果表](figures/tongyi-deepresearch/tab1.png)
+
+*论文 Table 1（p12）：Table 1: Performance comparison on various benchmarks*
 
 主结果（Table 1，Avg@3；Tongyi 评测于 2025-09-16）：
 

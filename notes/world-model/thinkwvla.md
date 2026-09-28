@@ -1,12 +1,12 @@
 # ThinkWVLA: Think Like a World Model, Act Like a VLA（把世界模型表征蒸馏进紧凑 VLA）
 
-- arXiv: https://arxiv.org/abs/2609.24682
-- Source: https://arxiv.org/abs/2609.24682
-- Project: https://thaw-vla.trung-dt.com/
-- Local PDF: `/Users/luogu/physical_intelligence/papers/world-model/ThinkWVLA_2609.24682.pdf`
-- Year: 2026
-- Category: world-model
-- Priority: high
+- arXiv：https://arxiv.org/abs/2609.24682
+- 来源：https://arxiv.org/abs/2609.24682
+- 项目主页：https://thaw-vla.trung-dt.com/
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/world-model/ThinkWVLA_2609.24682.pdf`
+- 年份：2026
+- 分类：world-model
+- 优先级：high
 
 ## 一句话总结
 
@@ -15,7 +15,8 @@ ThinkWVLA 的核心洞察是把世界模型的两种资产拆开：**关于物�
 ## 核心技术
 
 ![thinkwvla 架构图](figures/thinkwvla/fig2.png)
-*论文 Figure 2（p4）：Fig. 2. Overview of the method. Left: the frozen teacher world model feature extraction pi*
+
+*论文 Figure 2（p4）：Fig. 2. Overview of the method. Left: the frozen teacher world model feature extraction pipeline. Ri*
 
 1. **零推理成本的世界模型蒸馏配方**：在普通 VLA 训练损失上加一项特征对齐——冻结世界模型对训练帧跑一遍、逐相机视图 mean-pool 后写入 memory-mapped 缓存（键为 trajectory id + base index），训练时只读缓存；学生侧同样对图像 token span 做逐视图 mean-pool，经两层 MLP 投影器对齐教师方向。训练全程不加载教师权重、训练结束丢弃投影器，部署网络与未蒸馏基线逐位相同（含 flow 步数）。
 2. **方向对齐而非数值复现**：损失是余弦距离而非 L2——学生只需与教师特征**同方向**，可以保留动作目标所需的额外结构；因此师生不必共享特征空间或维度，投影器可自适应任意 $(D_s, D_t)$ 组合，一份缓存可服务多个学生。

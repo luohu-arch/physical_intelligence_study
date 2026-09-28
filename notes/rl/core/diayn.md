@@ -13,6 +13,7 @@
 ## 核心技术
 
 ![diayn 架构图](figures/diayn/fig1.png)
+
 *论文 Figure 1（p3）：Figure 1: DIAYN Algorithm: We update the discriminator to better predict the skill, and update the s*
 
 1. **判别性目标（discriminability objective）**：每个技能 $z$ 走过的状态必须能让一个判别器认出来；技能之间因此被互相"推开"，覆盖不同状态区域。

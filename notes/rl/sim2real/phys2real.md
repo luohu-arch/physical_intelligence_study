@@ -13,7 +13,8 @@ Phys2Real 提出 Real-to-Sim-to-Real 三阶段管道：3D Gaussian Splatting 重
 ## 核心技术
 
 ![phys2real 架构图](figures/phys2real/fig2.png)
-*论文 Figure 2（p4）：Figure 2. Overview of XMCC. (a) The framework consists of three stages: (I) synthesizing d*
+
+*论文 Figure 2（p4）：Figure 2. Overview of XMCC. (a) The framework consists of three stages: (I) synthesizing diverse lon*
 
 1. **VLM 物理参数先验** — GPT-5 对每个视角每张图查询 M 次，聚合均值作为 $\theta_{vlm}$，模型自报不确定度的均值作为 $\sigma_{vlm}$（经验上自报不确定度比估计值标准差更可靠，因为 VLM 可能"自信地错"）
 2. **以可解释物理参数为条件的 RL 策略** — 与标准 RMA 学 latent 向量不同，策略直接条件化在 CoM 等物理参数上（PPO + asymmetric actor-critic + IsaacLab），三阶段训练：Phase 1 用 GT 参数、Phase 1.5 用带噪参数微调（高斯噪声 σ=1.5cm）增强鲁棒性、Phase 2 冻结策略训练 10 个 adaptation model 的 ensemble
@@ -56,6 +57,10 @@ $$\hat{\theta} = \frac{\theta_{vlm}/\sigma_{vlm}^2 + \theta_{rma}/\sigma_{rma}^2
 - 锤子推动任务：两者成功率均 100%，但 Phys2Real 完成时间 77.79s vs DR 90.65s（快 14.2%）
 
 ## 消融实验与分析
+
+![phys2real 主结果表](figures/phys2real/tab1.png)
+
+*论文 Table 1（p7）：Table 1. Performance comparison on four multimodal reasoning benchmarks. Accuracy (Acc. ↑) measures*
 
 T-block 推动任务成功率（top-weighted 挑战配置 vs bottom-weighted 简单配置）：
 

@@ -14,10 +14,12 @@ XR-1 提出 Unified Vision-Motion Codes (UVMC)：用双分支 VQ-VAE 将视觉�
 
 ## 核心技术
 
-![xr-1 架构图](figures/xr-1/fig1.png)
-*论文 Figure 1（p1）：Figure 1. We introduce X Robotic Model 1 (XR-1), a versatile and scalable vision-language-*
-
 1. **UVMC (Unified Vision-Motion Codes)** — 双分支 VQ-VAE：视觉分支编码场景动态，运动分支编码机器人动作，共享离散 codebook。KL 对齐损失强制视觉编码向运动编码靠拢，使人类视频（无动作标注）也能参与训练
+
+![xr-1 架构图](figures/xr-1/fig1.png)
+
+*论文 Figure 1（p1）：Figure 1. We introduce X Robotic Model 1 (XR-1), a versatile and scalable vision-language-action fra*
+
 2. **三阶段训练** — Stage 1: 自监督 UVMC 学习（Ego4D + RoboMIND + OXE）→ Stage 2: UVMC 引导的 VLA 预训练（UVMC tokens 作为辅助监督注入 VLM backbone）→ Stage 3: 任务特定 post-training（20 demos 足矣）
 3. **跨具身 codebook** — UVMC 的离散 codebook 天然具身无关，同一 code 可以表示"抓取"这一动作无论是在 UR5 还是人形机器人上
 4. **全栈开源** — 模型权重 + RoboMIND 数据集 + 训练代码全部开源，首个通过国家标准测试的 VLA
@@ -61,6 +63,12 @@ $$
 
 **数据规模呈现单调 scaling law**：Stage-1 预训练数据从 1% 增至 100%，平均成功率从 29.2% 单调爬升到 65.0%（1%→10%→50%→100% 对应 29.2→38.3→53.3→65.0）；而 100% 预训练 + 下游微调（81.6%）显著超越纯下游训练（66.7%），说明任务无关的 UVMC 预训练本身就在注入强归纳偏置——先学会"通用动作语言"，再学具体任务就事半功倍。
 
+## 物理直觉解释
+
+XR-1 要解决的核心问题：**"看到别人做"和"自己会做"之间缺一个翻译层**。人类视频告诉你"杯子被拿起来了"，但没有告诉你机械臂该转多少度。UVMC 在两个世界之间架了一座桥——把"看到杯子移动"和"机械臂运动模式"映射到同一个离散 codebook 里, VLM 学会说这种"通用动作语言"就能把视觉翻译成动作。
+
+KL 对齐损失是这座桥的"桥墩"——视觉分支编码的场景动态被强制向运动分支靠拢, 于是没有动作标签的人类视频也能参与训练。就像学外语时先建立"语义概念"与"发音"的词典, 再多的无声电影也能扩充词汇量。
+
 ## 工程细节与实操指南
 
 - **Stage 1 数据**：Ego4D 人类视频 + RoboMIND + Open X-Embodiment 机器人数据，异构联合训练
@@ -71,6 +79,10 @@ $$
 - **评估**：14,000+ 真实 world rollouts
 
 ## 消融实验与分析
+
+![xr-1 主结果表](figures/xr-1/tab4.png)
+
+*论文 Table 4（p8）：Table 4. Generalization results of XR-1 on unseen scenarios*
 
 Table 3 消融（DUR-Clean/Find/Move/Stack/Sweep/Trans 六任务平均成功率；DT = 直接在下游任务数据上训练）：
 
@@ -87,13 +99,6 @@ Table 3 消融（DUR-Clean/Find/Move/Stack/Sweep/Trans 六任务平均成功率�
 | Ego4D 人类视频 | 10% 数据下 w/o Ego4D vs w/ Ego4D | 32.5% vs 38.3%（+5.8） |
 
 **核心结论**：消融揭示了 XR-1 各阶段贡献的清晰层级——预训练本身价值最大（跳过 Stage1/2 从 66.7% 暴跌至 28.3%）；KL 对齐损失（-18.4）与双分支完整性（vision-only -16.7、motion-only -31.7）证明"视觉+运动统一编码"是 UVMC 的核心机制；数据规模呈现严格单调 scaling law（29.2→65.0），且 Ego4D 人类视频在数据稀缺时提供 +5.8 的可观增益。100% 预训练 + XR-D 达到 81.6%，说明"统一表示预训练 + 任务微调"的组合远超任何单一路线。
-
-
-## 物理直觉解释
-
-XR-1 要解决的核心问题：**"看到别人做"和"自己会做"之间缺一个翻译层**。人类视频告诉你"杯子被拿起来了"，但没有告诉你机械臂该转多少度。UVMC 在两个世界之间架了一座桥——把"看到杯子移动"和"机械臂运动模式"映射到同一个离散 codebook 里, VLM 学会说这种"通用动作语言"就能把视觉翻译成动作。
-
-KL 对齐损失是这座桥的"桥墩"——视觉分支编码的场景动态被强制向运动分支靠拢, 于是没有动作标签的人类视频也能参与训练。就像学外语时先建立"语义概念"与"发音"的词典, 再多的无声电影也能扩充词汇量。
 
 ## 技术权衡（Trade-off）
 

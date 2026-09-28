@@ -13,7 +13,8 @@ ViserDex 实现仅用单目 RGB（无深度、无物体 pose 真值）的灵巧�
 ## 核心技术
 
 ![viserdex 架构图](figures/viserdex/fig2.png)
-*论文 Figure 2（p3）：Fig. 2: Overview of our sim-to-real in-hand reorientation pipeline. We first train a teach*
+
+*论文 Figure 2（p3）：Fig. 2: Overview of our sim-to-real in-hand reorientation pipeline. We first train a teacher policy*
 
 1. **3DGS Pre-Rasterization Augmentation** — 在渲染前直接扰动 3D Gaussian 的 SH coefficient（空间/颜色/全局 cluster），生成物理一致的光照变化——比 2D post-processing 更真实，且零额外渲染成本
 2. **Recurrent Belief Encoder** — 时序滤波的 pose estimator，拒掉灾难性失败（如 180° 翻转），对遮挡鲁棒；pose 估计精度 65.4%（常规光照）/ 56.3%（对抗光照），远超 Domain Randomization 的 55.6%/47.2%

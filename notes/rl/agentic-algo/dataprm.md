@@ -3,7 +3,7 @@
 - arXiv: https://arxiv.org/abs/2604.24198
 - Source: https://arxiv.org/abs/2604.24198
 - Project: https://github.com/zjunlp/DataMind
-- Local PDF: `papers/rl/agentic-algo/DataPRM_2604.24198.pdf`
+- 本地 PDF：`papers/rl/agentic-algo/DataPRM_2604.24198.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@
 ## 核心技术
 
 ![dataprm 架构图](figures/dataprm/fig1.png)
-*论文 Figure 1（p2）：Figure 1: The Collaborative Pipeline Between Data Analysis Agent and Process Reward Model*
+
+*论文 Figure 1（p2）：Figure 1: The Collaborative Pipeline Between Data Analysis Agent and Process Reward Model (PRM). The*
 
 1. **先导实证研究（动机）**：以 Qwen3-235B-A22B-Instruct 为 policy、DABStep 子集为场地，两个发现——(a) 三个 SOTA 数学 PRM（Qwen2.5-Math-PRM-72B、GenPRM、ThinkPRM）的 BoN 引导虽高于单路生成（ThinkPRM 32.67%→40.00%@N=16），却全都打不过免费的 Majority Voting；(b) 失败集中在两类：**silent error**（代码执行成功、逻辑错误产错结果，静态 PRM 只读代码文本无法验证执行语义）与 **grounding error**（模型先验与真实数据冲突的可恢复试错，现有 PRM 给这些"最终答对"轨迹中的步骤打低分，搜索算法随之剪掉本可自我修正的路径）。
 2. **Environment-aware 生成式验证架构**：DataPRM 采用与数据分析 agent 相同的 ReAct 范式做验证——输入完整 policy 轨迹 $h_t$ 与当前步 $\tau_t$，内部进行多轮"思考-写代码-看执行结果"循环，主动运行探查代码去核对中间执行状态，最后一步产出 (分数, 依据) 而非代码；上一时刻的验证反馈元组 $(r_{t'}, c_{t'})$ 显式拼入下一步验证的输入，保证跨步评估的一致性。
@@ -103,6 +104,10 @@ $\beta = 0.5$、$G = 4$。另加终步一致性覆写：若 $r_{prm}(\tau_T) \ne
 3. 待确认：Figure 2b/2c、图 4、图 5 的柱状数值取自 PDF 文本层，柱与图例的逐一对应存在乱序风险；正文显式给出的数字（ThinkPRM 32.67%→40.00%、beam 35.33%→38.00%→38.89%、RL 78.73%/64.84%、熵 0.12/0.18）已单独核对无误；图 5a 中 pass@3 各组归属按与正文一致的读法标注。
 
 ## 消融实验与分析
+
+![dataprm 主结果表](figures/dataprm/tab2.png)
+
+*论文 Table 2（p6）：Table 2: Main results on ScienceAgentBench and DABStep. We compare DataPRM against various step veri*
 
 组件消融（Table 3，DABStep，DataPRM 依次拆掉环境代码执行 Env、多轮交互 Multi、三元奖励 Refl；数值为准确率 %）：
 

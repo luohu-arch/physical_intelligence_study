@@ -3,7 +3,7 @@
 - arXiv: https://arxiv.org/abs/2604.06268
 - Source: https://arxiv.org/abs/2604.06268
 - Project: https://ragen-ai.github.io/v2/
-- Local PDF: `papers/rl/agentic-algo/RAGEN2_2604.06268.pdf`
+- 本地 PDF：`papers/rl/agentic-algo/RAGEN2_2604.06268.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@ RAGEN-2 发现多轮 agent RL 存在一类对熵完全不可见的失败模式�
 ## 核心技术
 
 ![ragen-2 架构图](figures/ragen-2/fig1.png)
-*论文 Figure 1（p3）：Figure 1 | Left: input-driven reasoning adapts to the current state; templated reasoning p*
+
+*论文 Figure 1（p3）：Figure 1 | Left: input-driven reasoning adapts to the current state; templated reasoning produces ne*
 
 1. **Template collapse 定义与四象限分类** — 以 $H(Z|X)$（within-input diversity）与 $I(X;Z)$（input dependence）为两轴划分四种推理状态：Diverse Reasoning（双高，理想 regime）、Template Collapse（高 $H(Z|X)$、低 $I(X;Z)$，现有稳定性指标的系统性盲区）、Compressed Reasoning（低 $H(Z|X)$、高 $I(X;Z)$，input-faithful 但过度确定）、Low-Entropy Collapse（双低，完全退化）。熵类指标只覆盖第一轴：塌缩发生时条件熵可以全程保持高位（图 5c），监控完全失明。
 2. **MI proxy 家族（在线诊断）** — 对 batch 内 $P$ 个 prompt、每个 $G$ 条推理，teacher-forcing 计算 scoring matrix $L_{i,k,j}=\log p_\theta(Z_{i,k}\mid X_j)$，抽取 matched（真 prompt 下 per-token log-prob）与 marginal（均匀 prompt 混合下的 log-prob）两个基础量，派生六种代理：Retrieval-Acc（离散、可解释，塌缩时趋于 chance level $1/P$，$P=64$ 时为 1.56%）、Recall@$k$（$k\in\{2,4,8\}$）、MI-Est、MI-Seq-Est、MI-ZScore、MI-ZScore-EMA（连续、鲁棒，z-score + EMA 平滑，$\epsilon=10^{-3}$、$\alpha=0.9$）。全部复用训练 rollout 已有的 $(X_i, Z_{i,k})$ 对，不需要额外模型或推理 pass；first-turn 变体只用第一轮，trajectory 变体跨轮均匀采样。
@@ -89,6 +90,10 @@ $$k^* = \min\left\{k:\sum_{j=1}^{k}\widehat{\mathrm{Var}}(R\mid X=x_{\sigma(j)})
 - 计算开销：RV 计算 <0.1% 迭代时间；过滤后梯度计算组数减少，步时间下降 26-41%（表 5）；$G\ge 4$ 且过滤的配置即可匹配或超过 128×1 基线
 
 ## 消融实验与分析
+
+![ragen-2 主结果表](figures/ragen-2/tab4.png)
+
+*论文 Table 4（p11）：Table 4 | SNR-Aware Filtering results (%) across algorithms, model scales, types, and modalities. Ea*
 
 主结果矩阵（论文 Table 4，基线峰值 + 过滤增益；%）：
 

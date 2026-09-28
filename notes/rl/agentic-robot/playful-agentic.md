@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2606.19419
 - Source: https://arxiv.org/abs/2606.19419
-- Project: 
-- Local PDF: `papers/rl/agentic-robot/PlayfulAgentic_2606.19419.pdf`
+- Project:
+- 本地 PDF：`papers/rl/agentic-robot/PlayfulAgentic_2606.19419.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@ UC Berkeley + Impossible Research 的 RATS（Robotics Agent Teams）把「游戏
 ## 核心技术
 
 ![playful-agentic 架构图](figures/playful-agentic/fig1.png)
-*论文 Figure 1（p1）：Figure 1: RATS enables Playful Agentic Robot Learning. Prior to receiving extrinsic reward*
+
+*论文 Figure 1（p1）：Figure 1: RATS enables Playful Agentic Robot Learning. Prior to receiving extrinsic reward sig- nals*
 
 1. **Play-time 形式化（Sec 3.1）**：标准 Code-as-Policy 中 agent 由 $(c, f, l)$（环境上下文、原语函数、语言指令）合成程序 $\pi$；RATS 把外部指令 $l$ 整个拿掉，让 agent 在 play 环境 $E_{play}$ 里自提自练任务 $\tau_t$。技能库 $\mathcal{L} = \mathcal{L}_0 \cup \mathcal{L}_{learned}$（$\mathcal{L}_0$ 为初始原语），另有失败记忆 $\mathcal{M}$ 存压缩教训。优化目标是：$N$ 轮 play 之后，冻结的 $\mathcal{L}$ 在未见测试任务上优于只用 $\mathcal{L}_0$。
 2. **Task Proposer 团队（两段式）**：LLM 以场景上下文 $c_t$、技能库摘要（只给名字/描述/可靠度/成功率元数据，不给源码）与近 10 条任务历史为条件，被显式要求「exploratory」（prompt 里的人设是 3-4 岁小孩：看见一个物体、做一件简单的事），生成候选池 $T_t$；再用 Goldilocks 打分选出 $\tau_t$（见数学节）。之后 Environment Creator 把提案编译成可执行任务实例（LIBERO 里生成 BDDL 规范并做语法/语义校验 + 一次有界修复），Environment Verifier 在两个 reset seed 上做确定性检查（实例化、渲染、目标谓词可求值、无严重初始穿透），不合格任务退回提案阶段、不消耗执行预算。
@@ -79,7 +80,7 @@ flowchart TB
         TIER["reliability tiers: 3+ uses and rate 0.5+ to verified; 10+ uses and rate 0.2 or less to deprecated"]
     end
     MEM --> LIB["frozen skill library L at test time"]
-    LIB --> PLUG["plug into CaP-Agent0 context"] 
+    LIB --> PLUG["plug into CaP-Agent0 context"]
     LIB --> FULL["RATS Exec: planner retrieves verified skills"]
 ```
 
@@ -104,6 +105,10 @@ flowchart TB
 - **技能注入方式**：执行期由 runtime 把选中技能的定义与依赖注入 policy 命名空间（保留依赖兜底）；大库时可用轻量 selector 先取任务相关子集再拼 prompt。附录 E.3/E.4 给了 MolmoSpaces（27 个中选 3）与 LIBERO（47 个中选 3）的完整技能源码。
 
 ## 消融实验与分析
+
+![playful-agentic 主结果表](figures/playful-agentic/tab1.png)
+
+*论文 Table 1（p6）：Table 1: LIBERO-PRO in-domain evaluation. “Pos.” corresponds to the initial-position swap split, and*
 
 **(1) LIBERO-PRO 上「玩策略 × 测试系统」双因子消融（Table 4，全部 play 变体 50 轮；RATS Exec 行为每任务 5 trials）**：
 

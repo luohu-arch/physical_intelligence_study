@@ -1,15 +1,13 @@
 # Gemini Robotics: Bringing AI into the Physical World
 
 - 本地 PDF：`papers/reasoning/Gemini_Robotics_2503.20020.pdf`
-
-- Local PDF: `/Users/luogu/physical_intelligence/papers/reasoning/Gemini_Robotics_2503.20020.pdf`
-- arXiv: https://arxiv.org/abs/2503.20020
-- Source: https://arxiv.org/abs/2503.20020
-- Project: https://deepmind.google/models/gemini-robotics/
-- Authors: Gemini Robotics Team, Google DeepMind (117+ authors)
-- Published: 2025-03-25
-- Category: closed/frontier VLA
-- Priority: high
+- arXiv：https://arxiv.org/abs/2503.20020
+- Source：https://arxiv.org/abs/2503.20020
+- Project：https://deepmind.google/models/gemini-robotics/
+- Authors：Gemini Robotics Team, Google DeepMind (117+ authors)
+- Published：2025-03-25
+- Category：closed/frontier VLA
+- Priority：high
 
 ## 一句话总结
 
@@ -130,6 +128,10 @@ graph TD
 - 云-端协同补偿骨干网络延迟
 
 ## 消融实验与分析
+
+![gemini-robotics 主结果表](figures/gemini-robotics/tab5.png)
+
+*论文 Table 5（p12）：Table 5 | Success rates on the ALOHA 2 Sim Task suite. Reported numbers are the average success rate*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

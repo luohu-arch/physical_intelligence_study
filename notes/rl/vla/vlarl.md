@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2609.30868
 - Source: https://arxiv.org/abs/2609.30868
-- Project: 
-- Local PDF: `/Users/luogu/physical_intelligence/papers/rl/vla/VLaRL_2609.30868.pdf`
+- Project:
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/rl/vla/VLaRL_2609.30868.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -17,7 +17,8 @@
 ## 核心技术
 
 ![vlarl 架构图](figures/vlarl/fig1.png)
-*论文 Figure 1（p1）：Fig. 1. Concept of VLaRL. A simulation-trained residual policy locally corrects the nomina*
+
+*论文 Figure 1（p1）：Fig. 1*
 
 1. **VLM latent 作为残差接口**：把冻结 VLA 拆成视觉-语言模块 $E_{VLM}$（输出 token 矩阵 $Z_t\in\mathbb{R}^{S\times D}$）与动作头 $\pi_{act}$；残差策略吃 mean-pool 后的 $z_t\in\mathbb{R}^D$ 加名义动作 $a^{VLA}_t$、本体状态 $s_t$、腕部 Cartesian 力 $f_t$，输出修正项，执行 $a_t=a^{VLA}_t+\alpha a^{RL}_t$。latent 暴露"动作从哪个视觉-指令语境生成"的信息，而名义动作本身不携带——同一场景下不同指令目标需要不同修正时（红杯进白杯 vs 白杯进红杯），latent 可分辨、动作不可分辨。
 2. **OT-based latent mapper**：数字孪生只给"近似对应"而非帧级对齐，所以用分布对齐而非逐样本回归——mapper $M_\theta$ 作用在 pool 前的 token 矩阵上，传输代价加轨迹进度正则（$\lambda_\tau=0.5$），熵正则 OT 用 Sinkhorn 迭代（$\varepsilon=0.05$、50 次迭代）求解；可学习残差连接缩放零初始化，mapper 从恒等出发。

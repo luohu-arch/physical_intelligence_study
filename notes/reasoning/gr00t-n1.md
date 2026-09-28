@@ -1,15 +1,13 @@
 # GR00T N1: An Open Foundation Model for Generalist Humanoid Robots
 
 - 本地 PDF：`papers/reasoning/GR00T-N1_2503.14734.pdf`
-
-- Local PDF: `/Users/luogu/physical_intelligence/papers/reasoning/GR00T-N1_2503.14734.pdf`
-- arXiv: https://arxiv.org/abs/2503.14734
-- Source: https://arxiv.org/abs/2503.14734
-- Project: https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots
-- Authors: NVIDIA（Johan Bjorck, Fernando Castañeda, Linxi "Jim" Fan 等 40+ 作者）
-- Published: 2025-03-18
-- Category: humanoid foundation model
-- Priority: high
+- arXiv：https://arxiv.org/abs/2503.14734
+- Source：https://arxiv.org/abs/2503.14734
+- Project：https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots
+- Authors：NVIDIA（Johan Bjorck, Fernando Castañeda, Linxi "Jim" Fan 等 40+ 作者）
+- Published：2025-03-18
+- Category：humanoid foundation model
+- Priority：high
 
 ## 一句话总结
 
@@ -18,7 +16,8 @@ GR00T N1 是首个开源（CC BY 4.0）2.2B 参数人形机器人基础模型，
 ## 核心技术
 
 ![gr00t-n1 架构图](figures/gr00t-n1/fig1.png)
-*论文 Figure 1（p2）：Figure 1: Data Pyramid for Robot Foundation Model Training. GR00T N1’s heterogeneous train*
+
+*论文 Figure 1（p2）：Figure 1: Data Pyramid for Robot Foundation Model Training. GR00T N1’s heterogeneous training corpor*
 
 1. **双系统架构** — System 2（Eagle-2 VLM, SmolLM2 + SigLIP-2, 使用第 12 层中间 embedding）+ System 1（DiT + Flow Matching, 120Hz 实时动作生成, K=4 去噪步, H=16 action chunk）
 2. **Flow Matching 动作生成** — 连续动作空间上的概率流匹配，比传统扩散策略更快的推理速度（4 步 vs 100 步），训练时注入线性插值噪声，推理时通过欧拉积分求解 ODE
@@ -172,6 +171,10 @@ graph TD
 4. **推理部署**：System 2 以 10Hz 异步运行（每 100ms 更新 VLM embedding $\phi_t$），System 1 以 120Hz 运行（每 ~8ms 一次 4 步去噪，输出 16 步 action chunk），两系统通过交叉注意力连接
 
 ## 消融实验与分析
+
+![gr00t-n1 主结果表](figures/gr00t-n1/tab5.png)
+
+*论文 Table 5（p27）：Table 5: Success rate on real-world tasks with the GR-1 humanoid robot*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

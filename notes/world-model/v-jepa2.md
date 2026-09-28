@@ -13,7 +13,8 @@
 ## 核心技术
 
 ![v-jepa2 架构图](figures/v-jepa2/fig1.png)
-*论文 Figure 1（p2）：Figure 1 V-JEPA 2 Overview. Leveraging 1M hours of internet-scale video and 1M images, we*
+
+*论文 Figure 1（p2）：Figure 1 V-JEPA 2 Overview. Leveraging 1M hours of internet-scale video and 1M images, we pretrain t*
 
 **第一阶段：V-JEPA 视频/图像预训练（action-free）。**
 - 目标是 representation-space mask denoising：对视频做 multiblock masking 掉部分 patch，编码器只看可见 token，预测器拼接 learnable mask token $\Delta y$ 后预测被掩部分的 EMA-target 表征，用 L1 损失回归。
@@ -99,6 +100,10 @@ flowchart LR
 - **复现入口**：代码 `https://github.com/facebookresearch/vjepa2`，博客 `https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks`。
 
 ## 消融实验与分析
+
+![v-jepa2 主结果表](figures/v-jepa2/tab4.png)
+
+*论文 Table 4（p16）：Table 4 Action and Object Classification. We report the classification performance of V-JEPA 2 model*
 
 ### A. scaling 要素逐步叠加（Figure 3，ViT-L/16 基线，6 任务平均精度）
 

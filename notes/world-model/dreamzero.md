@@ -14,7 +14,8 @@ DreamZero 把一个 14B 的预训练 image-to-video 扩散模型（Wan2.1-I2V-14
 ## 核心技术
 
 ![dreamzero 架构图](figures/dreamzero/fig1.png)
-*论文 Figure 1（p1）：Figure 1: Overview. By jointly predicting video and action, World Action Models (WAMs) inh*
+
+*论文 Figure 1（p1）：Figure 1: Overview. By jointly predicting video and action, World Action Models (WAMs) inherit world*
 
 1. **联合视频-动作去噪（单模型端到端）** — 一个 DiT 同时输出未来帧与动作 chunk，显式建模 $\pi_0(o_{l:l+H}, a_{l:l+H})$ 而非"视频生成器 + 反求动力学"两个独立模块；论文认为分离式设计会导致视觉未来与运动指令错位。
 2. **自回归 video（仅视频维度）+ teacher forcing 分块训练** — 每个 chunk 含固定 $K$ 个 latent 帧，训练时当前 noisy chunk 以历史 **clean** chunk 为条件；推理时闭环反馈把已执行后的**真实观测写回 KV cache** 替换掉预测帧，消除自回归视频生成的误差累积。
@@ -82,6 +83,10 @@ $$\mathcal{L}(\theta) = \mathbb{E}_{z,a,\{t_k\}}\left[\frac{1}{K}\sum_{k=1}^{K} 
 - **开源范围**：模型权重、推理代码、RoboArena/PolaRiS/Genie Sim 3.0 评测运行脚本。
 
 ## 消融实验与分析
+
+![dreamzero 主结果表](figures/dreamzero/tab3.png)
+
+*论文 Table 3（p17）：Table 3: DreamZero-Flash Evaluation. Task progress on table bussing with varying denoising steps (±*
 
 以下数字取自论文正文 Table 4（模型/数据消融）、Table 3（Flash 少步消融）与 Table 2（跨具身迁移）。注意 Table 4 消融统一用 50K steps、batch 32、PnP Easy 任务评测（弱于主实验 100K steps/batch 128 配置），所以绝对值不能与主结果 62.2% 直接比较，只能比较行间相对关系。
 

@@ -12,6 +12,7 @@ Mobile ALOHA 与 ACT 提供了低成本全身遥操作硬件方案与动作分�
 ## 核心技术
 
 ![mobile-aloha-act 架构图](figures/mobile-aloha-act/fig2.png)
+
 *论文 Figure 2（p3）：Figure 2: Hardware Details. Left: Mobile ALOHA has two wrist cameras and one top camera, with onboar*
 
 1. **条件变分自编码器（CVAE）** — 对人类示教的多模态动作分布进行概率建模，通过潜在变量编码不同操作风格，输出未来 K 步的连续动作序列
@@ -71,6 +72,10 @@ graph TD
 - **落地场景**：炒虾、开双门柜存锅、乘电梯、开水龙头冲锅等 7 个长视界全身操作任务
 
 ## 消融实验与分析
+
+![mobile-aloha-act 主结果表](figures/mobile-aloha-act/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Co-training improves ACT performance. Across 7 challenging mobile manipulation tasks, co-tr*
 
 **Table 1: 协同训练（co-training）对 ACT 的提升（成功率 %）**
 

@@ -13,7 +13,8 @@ TacWAM 回答了一个此前 WAM 工作都回避的问题：**触觉未来该不
 ## 核心技术
 
 ![tacwam 架构图](figures/tacwam/fig1.png)
-*论文 Figure 1（p3）：Figure 1: Overview of TacWAM. (a) TacWAM jointly predicts visual futures, future tactile s*
+
+*论文 Figure 1（p3）：Figure 1: Overview of TacWAM. (a) TacWAM jointly predicts visual futures, future tactile states, and*
 
 1. **SAF（Spatially Aligned Fusion）Tactile Encoder** — 每侧夹爪传感器的三个空间配准信号 $o_t^{tac}=(I_t^{rect}, F_t, M_t^{flow})$：校正后的触觉图像、致密局部力场、网格变形流。每侧各自过对应分支编码后做 bilateral fusion + pooling 融合成单帧 latent $z_t^{tac}$。
 2. **力学结构保持的全局监督** — 重建头 $R_{tac}(z_t^{tac})=(\hat{F}_t, \hat{r}_t^{wrench}, \hat{M}_t^{flow})$ 要求 latent 能解出双侧各 3 维力 + 3 维力矩的合力/合矩；wrench 不作为第四个空间输入而是全局约束项，保证 latent 不丢失接触的整体力学含义。
@@ -81,6 +82,10 @@ $$\mathcal{L}_{SAF} = \lambda_F\mathcal{L}_F + \lambda_R\mathcal{L}_{wrench} + \
 - **重要声明**：论文自我定位为"触觉预测如何放进 WAM 训练"的方法论研究，明确否认"Tactile prediction 本身是主要创新"；引用的相关工作 DreamTacVLA、N0-VTLA、TacForeSight 都做过预测式触觉学习，差异点集中在 SAF 表示设计 + AGT 信息隔离这两处。
 
 ## 消融实验与分析
+
+![tacwam 主结果表](figures/tacwam/tab3.png)
+
+*论文 Table 3（p7）：Table 3: Ablation results on selected contact-rich tasks. En-*
 
 主结果 Table 2 与嵌套消融 Table 3 的数字逐字摘自 PDF（每次真实试验 20 次）。嵌套顺序为"去掉历史 → 放宽动作侧触觉可见性（Attn-AT）→ 再放宽视觉-触觉未来互通（Attn-VT）"，仅报告两个代表性任务（Chip 薯片 / Wiping 白板）：
 

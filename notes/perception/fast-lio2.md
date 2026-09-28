@@ -14,6 +14,7 @@ FAST-LIO2 提出了一种快速、鲁棒的 LiDAR-inertial 里程计框架。相
 ## 核心技术
 
 ![fast-lio2 架构图](figures/fast-lio2/fig1.png)
+
 *论文 Figure 1（p4）：Fig. 1. System overview of FAST-LIO2*
 
 1. **直接原始点配准 (Direct Raw Point Registration)** — 不提取边缘/平面特征点，直接将每个 LiDAR 点注册到地图中的局部平面。避免了手工特征提取模块的参数调优，天然适配不同扫描模式（旋转式、固态式）

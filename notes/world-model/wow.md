@@ -13,7 +13,8 @@ WoW 是一个 14B 参数的视频扩散世界模型，用 203 万条真机交互
 ## 核心技术
 
 ![wow 架构图](figures/wow/fig4.png)
-*论文 Figure 4（p10）：Figure 4: The architecture of an embodied agent with a world model. An intelligent agent p*
+
+*论文 Figure 4（p10）：Figure 4: The architecture of an embodied agent with a world model. An intelligent agent perceives t*
 
 1. **数据引擎（Section 4.1.1）** — 四阶段流水线 Collection（Agibot、DROID、RoboMIND + 大量自有数据）→ Filtering（仅保留 RGB、最短 90 帧、限 head/wrist/third-person 视角）→ Caption Refinement（预训练 VLM 把稀疏标注扩成稠密描述，稀疏 : 稠密 约 1:4 混合，并手工加入机器人型号标识）→ Rebalancing（上调低频任务采样概率）。最终 640×480 原生分辨率上采样到 720×1024。
 2. **DiT 视频条件生成器（Section 4.1.2）** — 文本走 InternVL3-78B 改写成含环境/相机位姿/embodiment/动作的叙述再用 T5 编码注入；视觉走时空 VAE + **3D Haar 小波分解**（低频承载场景结构、高频保留碰撞与形变细节）；骨干 DiT 用 adaLN 做时间步调制，同时使用绝对 3D 位置编码（保全局轨迹一致性）与相对 3D RoPE（保局部接触因果性）；**DINOv2 特征注入中间层**做自监督表征对齐（论文声称是首次把强自监督视觉特征嵌入扩散世界模型主干，见图 6(b) 的 token relation distillation 训练路径）。
@@ -112,6 +113,10 @@ graph TD
 - **交互沙盒用法**（Section 8.5）：VLM 提子目标 → 世界模型仿真出未来帧 → VLM critic 评估进度 → 回写计划（借鉴 MindJourney）。两轮交互后 Qwen-2.5-VL-7B-Instruct 规划成功率从 1/3 升至 8/9，任务成功率 0 → 4/9（表 6）。
 
 ## 消融实验与分析
+
+![wow 主结果表](figures/wow/tab1.png)
+
+*论文 Table 1（p22）：Table 1: Comparative analysis of foundational video generation models. We benchmark our*
 
 本文是系统报告，没有传统的"去掉某模块"单一表格消融；最接近消融的是**同配方换底座**的正文 Table 1（图 10 散点为其可视化）——七个配置共享同一训练方案，唯独底座与来源不同，可以横向读出"我们的数据 + DINOv2 注入"的贡献。以下数字逐字摘自 PDF Table 1（Human Evaluation 四个子分与 Overall 均为 1-5 分制的求和口径，Autonomous Evaluation 为 0-100 归一分）：
 

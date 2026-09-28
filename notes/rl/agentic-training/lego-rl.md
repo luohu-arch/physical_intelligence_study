@@ -3,7 +3,7 @@
 - arXiv: https://arxiv.org/abs/2608.17393
 - Source: https://arxiv.org/abs/2608.17393
 - Project: https://github.com/LegoX/Lego-RL
-- Local PDF: `papers/rl/agentic-training/LEGO-RL_2608.17393.pdf`
+- 本地 PDF：`papers/rl/agentic-training/LEGO-RL_2608.17393.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,6 +15,7 @@ LEGO-RL（LegoX 技术报告，华为 + 港中文，**无同行评审**）解决
 ## 核心技术
 
 ![lego-rl 架构图](figures/lego-rl/fig1.png)
+
 *论文 Figure 1（p2）：Figure 1: Overview of the LEGO-RL training infrastructure*
 
 1. **Harness-native 的定位**：把原生 harness $H$ 当作环境的一部分，只优化它调用的策略 $\pi_\theta$，不改其内部控制流。接入新 harness 只需一个轻量 adapter（启动 agent、接推理服务、回收交互数据），其余训练管线跨 agent 共享。论文 Table 1 对照 verl / slime / MOLT / SkyRL-Agent / AReaL / Agent Lightning / Polar / rLLM / OpenForgeRL / ALE(ROLL/ROCK) 八项能力，LEGO-RL 全部打勾；它的差异点是"harness-native + 策略梯度 + 沙箱执行 + 可执行验证 + 训练可观测"凑在一套里。
@@ -97,6 +98,10 @@ $$\ell^{\text{train}}_{i,(t,j)}(\theta_{k'}) \approx \ell^{\text{roll}}_{i,(t,j)
 
 ## 消融实验与分析
 
+![lego-rl 主结果表](figures/lego-rl/tab1.png)
+
+*论文 Table 1（p3）：Table 1: Comparison of representative agentic RL frameworks. ✓: supported; △: partial/conditional su*
+
 **沙箱优化消融**（Table 5，配对比较）：
 
 | 优化项 | 阶段 | 有优化中位延迟 | 无优化中位延迟 | 中位配对比 | p10-p90 | n |
@@ -108,7 +113,7 @@ $$\ell^{\text{train}}_{i,(t,j)}(\theta_{k'}) \approx \ell^{\text{roll}}_{i,(t,j)
 
 **路由重放三配置对比**（Table 7，同一单机负载）：
 
-| 路由重放配置 | Pearson r | 平均 |Δp| | 专家重合度 | top-1 一致率 |
+| 路由重放配置 | Pearson r | 平均 \|Δp\| | 专家重合度 | top-1 一致率 |
 |------------|-----------|-----------|-----------|------------|
 | 关闭 | 0.9946 | 0.0062 | — | — |
 | 开启但错位（负对照） | 0.7503 | 0.0954 | 0.083 | 0.026 |

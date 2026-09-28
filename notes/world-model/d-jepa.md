@@ -1,12 +1,12 @@
 # D-JEPA: A Decision-Aligned Latent World Model（决策对齐的 JEPA 潜空间世界模型）
 
-- arXiv: https://arxiv.org/abs/2609.24749
-- Source: https://arxiv.org/abs/2609.24749
-- Project: https://nebulis-lab.com/D-JEPA
-- Local PDF: `/Users/luogu/physical_intelligence/papers/world-model/D-JEPA_2609.24749.pdf`
-- Year: 2026
-- Category: world-model
-- Priority: high
+- arXiv：https://arxiv.org/abs/2609.24749
+- 来源：https://arxiv.org/abs/2609.24749
+- 项目主页：https://nebulis-lab.com/D-JEPA
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/world-model/D-JEPA_2609.24749.pdf`
+- 年份：2026
+- 分类：world-model
+- 优先级：high
 
 ## 一句话总结
 
@@ -15,7 +15,8 @@ D-JEPA 抓住了 JEPA 潜空间世界模型一个被忽视的失效模式——*
 ## 核心技术
 
 ![d-jepa 架构图](figures/d-jepa/fig1.png)
-*论文 Figure 1（p1）：Figure 1: From predictive proximity to decision-aligned control. A candidate closer to the*
+
+*论文 Figure 1（p1）：Figure 1: From predictive proximity to decision-aligned control. A candidate closer to the goal in p*
 
 1. **决策局部预测鸿沟诊断**（第 3 节 + 附录 C.1）：96-start PushT 审计发现，全集层面预测相关性很好（LeWM 0.90 / TD-JEPA 0.80），但 top-4 shortlist 内相关性崩塌（0.11 / 0.13）；两个模型各有 8/96 个 start 把更低预测距离给了失败候选。命题 1 进一步证明：候选平均预测误差趋零、全局 Spearman 趋 1 时，执行 regret 仍可为任意 $\Delta$——全局预测精度与决策正确性在数学上可分离。
 2. **有界关系对齐算子**（式 1）：对完整候选集 $\{a_i\}_{i=1}^{K}$（$K=63$），双模型 token 为 $v_i=[d^L_i; d^T_i; r^L_i; r^T_i]\in\mathbb{R}^{386}$（192 维 LeWM 差分 + 192 维 TD-JEPA 差分 + 2 个序数坐标），经共享编码器（386 到 64）和两层置换等变 Transformer（4 头、FFN 128、零 dropout、无位置编码）后，由零初始化的 rank-8 修正头给出 $\delta_i=\epsilon\tanh(W_{\text{up}}\tanh(W_{\text{down}}h_i))$，$\epsilon=0.2$。
@@ -93,6 +94,10 @@ $$\tilde{z}^T_{i,H}=z^T_g+\frac{\pi_i}{K+1}u_i,\qquad \tilde{z}^T_{i,t}=\hat{z}^
 - **数据规模**：PushObj 形状实验 512 拟合 + 256 校准 start（形状 T/L/Z/+），形状确认每几何 100 start；外观实验 126 拟合 + 63 校准 start、7 种外观条件各 50 个新 start 评估；RoboTwin 观测为 4 路 240x320 RGB + 14 维关节 + 20 维末端状态，转成 16 维双臂命令。
 
 ## 消融实验与分析
+
+![d-jepa 主结果表](figures/d-jepa/tab8.png)
+
+*论文 Table 8（p16）：Table 8: Paired success differences on the core formal populations. A gain is D-JEPA success with ba*
 
 机制消融（表 5/9，共享 256-start PushT 确认群体）逐级叠加三个机制：
 

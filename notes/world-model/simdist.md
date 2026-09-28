@@ -56,6 +56,14 @@ $$
 
 **"重构损失反而有害"是 SimDist 最反直觉的发现**。给训练目标加上像素重构损失（很多 MBRL 的标配）后，四足任务略升（23.34 vs 22.78）但操作任务暴跌（Peg Insertion 0.32 vs 0.90）——因为像素重构会逼迫 latent 编码与任务无关的细节（光照、纹理），稀释掉"评估候选动作"所需的结构信息。这说明世界模型的 latent 表示应当"为规划而生"而非"为重建而生"，与 WEAVER/JEPA 一系的表示设计哲学一致。
 
+## 工程细节与实操指南
+
+- **仿真预训练**：多样化仿真环境（不同摩擦力、质量、几何），训练 encoder + dynamics + reward + value；专家策略 + 次优 rollout + 动作扰动生成数据
+- **真实适应**：仅 15-30 分钟真实数据，监督学习微调 dynamics model（每 20 个真实 episode 更新一次）；编码器、reward、value 全部冻结
+- **在线规划**：MPPI (Model Predictive Path Integral，TD-MPC 实现) 在世界模型中做 counterfactual reasoning
+- **任务**：Peg Insertion (Wide/Hard)、Table Leg 插装 + Slippery Slope（3.0°/5.7° PTFE 面板，1.82m）、Foam（5cm 记忆海绵，3.00m，仿真未建模的柔顺动力学）
+- **Baseline**：RLPD、IQL、SGFT-SAC（均给 20 条示教）、Diffusion Policy、π0.5（100 条示教）
+
 ## 消融实验与分析
 
 仿真消融（TABLE I）报告操作任务成功率（SR）与四足任务每 episode 平均奖励：
@@ -81,22 +89,6 @@ $$
 
 **核心结论**：消融链条给出三个明确信号——(1) **数据量是"从头学"的生死线**：50% 数据 Peg Insertion 已跌至 0.72，10% 数据崩到 0.06，而 SimDist 只靠"校准动力学"就在 15-30 分钟真实数据下稳定提升；(2) **轨迹级结构不可替代**：MLP reward+value（逐步模型）比完整 SimDist 低 0.08-0.25，因为规划需要评估整条候选轨迹而非单步；(3) **重构损失是负资产**：像素重构使操作任务 SR 从 0.90 暴跌至 0.32（四足仅微升），证明 latent 表示应服务规划而非重建。三者共同解释了"为什么模块化世界模型 + 仿真蒸馏"能同时获得样本效率与稳定性。
 
-## 工程细节与实操指南
-
-- **仿真预训练**：多样化仿真环境（不同摩擦力、质量、几何），训练 encoder + dynamics + reward + value；专家策略 + 次优 rollout + 动作扰动生成数据
-- **真实适应**：仅 15-30 分钟真实数据，监督学习微调 dynamics model（每 20 个真实 episode 更新一次）；编码器、reward、value 全部冻结
-- **在线规划**：MPPI (Model Predictive Path Integral，TD-MPC 实现) 在世界模型中做 counterfactual reasoning
-- **任务**：Peg Insertion (Wide/Hard)、Table Leg 插装 + Slippery Slope（3.0°/5.7° PTFE 面板，1.82m）、Foam（5cm 记忆海绵，3.00m，仿真未建模的柔顺动力学）
-- **Baseline**：RLPD、IQL、SGFT-SAC（均给 20 条示教）、Diffusion Policy、π0.5（100 条示教）
-
-## 精读问题
-
-1. 仿真和真实之间的 dynamics gap 在哪些维度最大（摩擦、刚度、延迟）？只微调动力学能否覆盖所有维度，还是某些维度需要重训 encoder？
-2. Reward model 如果和真实任务目标不一致怎么办？论文承认冻结 reward/value 会在价值函数饱和时封顶性能——何时该解冻、如何检测？
-3. 15-30 分钟数据量是否对所有任务类型都足够？Foam 这类仿真完全未建模的柔顺动力学是否逼近了"仅微调动力学"的边界？
-4. MPPI 的采样数与规划视界如何与模型误差权衡？世界模型误差在长视界规划中如何累积？
-5. 重构损失对四足有益（23.34 vs 22.78）却对操作有害（0.32 vs 0.90）——这个任务依赖的反差机制是什么？是否存在"部分重构"的折中方案？
-
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |
@@ -117,3 +109,10 @@ SimDist 代表了 "world model + sim-to-real" 路线的最佳实践——证明�
 - **RLPD / IQL** — offline-to-online RL baseline，SimDist 在数据效率维度上显著超越（基线在线微调崩溃或无实质进展）
 - **SGFT-SAC** — 仅迁移仿真价值函数的模型无关基线，验证"完整世界模型适应 > 纯价值迁移"
 - **TD-MPC** — SimDist 直接复用其 MPPI 实现做在线规划，属基础设施层依赖
+## 精读问题
+
+1. 仿真和真实之间的 dynamics gap 在哪些维度最大（摩擦、刚度、延迟）？只微调动力学能否覆盖所有维度，还是某些维度需要重训 encoder？
+2. Reward model 如果和真实任务目标不一致怎么办？论文承认冻结 reward/value 会在价值函数饱和时封顶性能——何时该解冻、如何检测？
+3. 15-30 分钟数据量是否对所有任务类型都足够？Foam 这类仿真完全未建模的柔顺动力学是否逼近了"仅微调动力学"的边界？
+4. MPPI 的采样数与规划视界如何与模型误差权衡？世界模型误差在长视界规划中如何累积？
+5. 重构损失对四足有益（23.34 vs 22.78）却对操作有害（0.32 vs 0.90）——这个任务依赖的反差机制是什么？是否存在"部分重构"的折中方案？

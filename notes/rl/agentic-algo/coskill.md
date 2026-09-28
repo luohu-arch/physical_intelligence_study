@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2609.04865
 - Source: https://arxiv.org/abs/2609.04865
-- Project: 
-- Local PDF: `papers/rl/agentic-algo/CoSkill_2609.04865.pdf`
+- Project:
+- 本地 PDF：`papers/rl/agentic-algo/CoSkill_2609.04865.pdf`
 - Year: 2026
 - Category: rl
 - Priority: medium
@@ -15,7 +15,8 @@
 ## 核心技术
 
 ![coskill 架构图](figures/coskill/fig3.png)
-*论文 Figure 3（p3）：Figure 3: Overview of CoSkill. A task-indexed hierarchical skill library conditions the Re*
+
+*论文 Figure 3（p3）：Figure 3: Overview of CoSkill. A task-indexed hierarchical skill library conditions the Reasoning Ag*
 
 **对三个既有范式的诊断（论文的切入点）。** (a) 外部编排式（SkillRL、D2Skill、ReSkill、Trace2Skill）：技能生成/修订/维护交给外部 LLM 或手写规则，技能演化在策略学习目标之外，库会随策略演化变得陈旧、冗余、失配。(b) RL 优化的库管理式（SAGE、ARISE、Skill1）：用下游回报优化技能的生命周期决策，但粒度是原子的——RL 只决定"这个技能留不留/用不用"，技能内部步骤不被优化，"有用但有缺陷"的技能被低估或删除而不是被修好。(c) 元技能驱动式（SkillOpt、EvoSkill、SkillEvolver、MetaSkill-Evolve）：用执行反馈修单个技能的内容，但更新器是预定义工作流且推理器通常冻结，固定更新规则无法与演化中的策略共同适应。CoSkill 的答案：把元技能本身变成 RL 可学的 agent。
 
@@ -107,6 +108,10 @@ $$A^\rho_{i,t} = A^\rho_{E,i} + \omega^\rho A^\rho_{S,i,t}, \qquad \mathcal L(\t
 - **诊断手段（值得照抄）**：编辑动作分布随训练步的堆叠图（检验编辑器是否收敛到定向修正）；累计晋升束数曲线（检验库是否收敛增长）；步骤技能检索命中率；空步骤束率（结构性损坏指标）；以及按训练步与任务指令精确配对、只用序列化证据的案例研究协议——论文附录 H 的三条案例（延迟约束保持、负证据触发继续搜索、重复子目标的技能保留）每一都给出"有 RL / 无 RL"的编辑文本对照，是分析技能库演化的模板。
 
 ## 消融实验与分析
+
+![coskill 主结果表](figures/coskill/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Main results on ALFWorld and WebShop. ALFWorld reports success rate (%) for*
 
 ### A. 主结果：四类基线全面对照（论文 Table 1，ALFWorld 六类任务宏平均成功率）
 

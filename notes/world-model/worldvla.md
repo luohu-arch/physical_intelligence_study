@@ -14,7 +14,8 @@ WorldVLA 把 VLA 动作模型与视频世界模型塞进同一个 Chameleon 式�
 ## 核心技术
 
 ![worldvla 架构图](figures/worldvla/fig1.png)
-*论文 Figure 1（p2）：Figure 1 (a) Action model generates actions based on image understanding; (b) World model*
+
+*论文 Figure 1（p2）：Figure 1 (a) Action model generates actions based on image understanding; (b) World model generates*
 
 1. **三 tokenizer 统一词表** — 图像走 VQ-GAN（压缩比 16，codebook 8192；256x256 出 256 个 token / 512x512 出 1024 个），文本走 BPE（词表 65536，其中预留 8192 图像码 + 256 动作码），动作每维量化到 256 bins；三种模态在同一段 token 序列里以 [BOI]/[EOI]/[BOA]/[EOA] 分段。
 2. **双向数据流混训** — 动作模型数据格式 `[BOS]{text}[BOI]{image}xM[EOS][BOA]{action}xK[EOS]` 只对 $L_{action}$ 算 loss；世界模型数据 `[BOS]{text}[BOI]{image}[EOI][BOA]{action}[EOA][EOS][BOI]{image}xN[EOS]` 只对 $L_{world}$ 算 loss，总 loss 为 $\mathcal{L}=\mathcal{L}_{action}+\alpha \mathcal{L}_{world}$，$\alpha=0.04$ 平衡 token 数差异（256-1024 图像 token vs 7 动作 token）。

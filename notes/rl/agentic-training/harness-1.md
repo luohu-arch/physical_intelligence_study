@@ -3,7 +3,7 @@
 - arXiv: https://arxiv.org/abs/2606.02373
 - Source: https://arxiv.org/abs/2606.02373
 - Project: https://github.com/pat-jj/harness-1
-- Local PDF: `papers/rl/agentic-training/Harness-1_2606.02373.pdf`
+- 本地 PDF：`papers/rl/agentic-training/Harness-1_2606.02373.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@
 ## 核心技术
 
 ![harness-1 架构图](figures/harness-1/fig2.png)
-*论文 Figure 2（p3）：Figure 2: Overview of Harness-1. The policy makes semantic decisions over search, inspecti*
+
+*论文 Figure 2（p3）：Figure 2: Overview of Harness-1. The policy makes semantic decisions over search, inspection, curati*
 
 1. **Stateful cognitive offloading（核心原则）**：搜索 episode 所需的状态分两类——语义决策（policy 负责）与可恢复记账（harness 负责）。传统 formulation 把两者都压进不断增长的 transcript，RL 被迫同时优化"搜什么"和"从 append-only 观测流里重建状态"，导致难查询 rollout 奖励几乎全为空集、工具词表塌缩成重复 search、跨文档结构散落在上下文里无法可靠调用。
 2. **WORKINGMEMORY 两层记忆 + 7 个状态槽位**：prompt 面层渲染紧凑状态 $s_t = (P_t, C_t, I_t, G_t, V_t, H_t, B_t)$（候选池 / curated set / 重要性图 / 证据图 / 验证缓存 / 搜索历史 / 预算标记），外层 $D_t$ 保存所有取回 chunk 的全文，通过 `review_docs`/`read_document` 回看而不占 prompt。每次动作施加转移 $(s_t, a_t) \mapsto (s_{t+1}, o_{t+1})$——工具输出不只是拼进 prompt 的文本，而是更新持久检索状态。
@@ -102,6 +103,10 @@ $$\text{Recall}(q) = \frac{|\mathcal{C}_q \cap \mathcal{R}_q|}{|\mathcal{R}_q|},
 **复现入口**：代码在 `github.com/pat-jj/harness-1`，论文声明将放出权重、harness 代码、数据生成管线与 RL recipe。
 
 ## 消融实验与分析
+
+![harness-1 主结果表](figures/harness-1/tab2.png)
+
+*论文 Table 2（p6）：Table 2: Search quality across benchmarks. We report curated-set Recall, Final-Answer Recall,*
 
 推理期组件消融（Table 3：同一训练好的 checkpoint，100 条成对 BC+ 测试查询，逐机制关闭、不重训；$\Delta$ 为相对 full 的百分比变化）：
 

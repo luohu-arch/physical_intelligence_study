@@ -13,6 +13,7 @@ Dreamer v3 用一组固定超参数（归一化、KL 平衡 + free bits、symlog
 ## 核心技术
 
 ![dreamer-v3 架构图](figures/dreamer-v3/fig3.png)
+
 *论文 Figure 3（p3）：Figure 3: Training process of Dreamer. The world model encodes sensory inputs into discrete represen*
 
 1. **RSSM 世界模型（序列模型 + 离散随机表征）**：递归状态 $h_t$ 由 GRU 演化，编码器把观测 $x_t$ 变成向量 softmax 分布采样的离散表征 $z_t$，straight-through 梯度穿过采样；$h_t$ 与 $z_t$ 拼成模型状态 $s_t = \{h_t, z_t\}$，从 $s_t$ 同时预测奖励、continue flag 并重建观测。
@@ -57,7 +58,7 @@ flowchart TB
     A["action a_t-1"] --> SM["sequence model f_phi: h_t"]
     Z_prev["z_t-1"] --> SM
     SM --> DP["dynamics predictor p_phi"]
-    SM --> RP["reward head r_t"] 
+    SM --> RP["reward head r_t"]
     SM --> CP["continue head c_t"]
     SM --> DEC["decoder reconstructs x_hat_t"]
     Z --> KLQ["KL balance: dyn 1.0 vs rep 0.1, free bits 1 nat"]
@@ -130,6 +131,10 @@ critic 对每个模型状态学一个 categorical 回报分布，$\lambda$-retur
 实操要点：(1) Minecraft 用 MineRL v0.4.4 改造出 flat categorical 动作空间，修复了打破钻石矿提前终止、跳跃键需按住 200ms 的问题，episode 到死亡或 36000 步结束；(2) 每个里程碑（log 到 diamond 共 12 个）一次性 +1，另有每颗心血 $\pm0.01$；(3) 各基准的资源开销——Minecraft 8.9 GPU 天、Atari 7.7、ProcGen 16.1、DMLab 2.9、Atari100k 只要 0.1；(4) 建议复现时先跑 12M 版本验证管线，再上 200M 默认档。
 
 ## 消融实验与分析
+
+![dreamer-v3 主结果表](figures/dreamer-v3/tab6.png)
+
+*论文 Table 6（p26）：Table 6: Atari scores*
 
 | 实验（出处） | 对照设置 | 关键数字结果 |
 |------|------|------|

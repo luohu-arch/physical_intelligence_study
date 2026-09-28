@@ -1,12 +1,12 @@
 # MemBodied: Recurrent Associative Memory for Vision-Language-Action Models
 
-- arXiv: https://arxiv.org/abs/2609.28256
-- Source: https://arxiv.org/abs/2609.28256
-- Project: https://declare-lab.github.io/MemBodied
-- Local PDF: `/Users/luogu/physical_intelligence/papers/memory/MemBodied_2609.28256.pdf`
-- Year: 2026
-- Category: memory
-- Priority: high
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/memory/MemBodied_2609.28256.pdf`
+- arXiv：https://arxiv.org/abs/2609.28256
+- Source：https://arxiv.org/abs/2609.28256
+- Project：https://declare-lab.github.io/MemBodied
+- Year：2026
+- Category：memory
+- Priority：high
 
 ## 一句话总结
 
@@ -15,7 +15,8 @@ MemBodied（NTU declare-lab + Griffin Labs + École Centrale de Lyon，2026-09-2
 ## 核心技术
 
 ![membodied 架构图](figures/membodied/fig1.png)
-*论文 Figure 1（p3）：Figure 1: MEMBODIED architecture. An associative state records interactions, while the epi*
+
+*论文 Figure 1（p3）：Figure 1: MEMBODIED architecture. An associative state records interactions, while the episode ancho*
 
 1. **逐层关联矩阵状态（recurrent associative state）** — 动作专家 L 层各持一个矩阵 $S^{(l)}_t \in \mathbb{R}^{B\times r\times r}$（$r=128$），episode 开始重置为可学习初始态，之后原地更新而非追加历史 token——记忆占用与访问成本和 episode 长度无关
 2. **写值构造（transition-conditioned write）** — 写入的不是孤立观测而是交互事件：投影机器人状态 $s_{t+1}$ 作 query 对执行后观测 $I_{t+1}$ 的各相机 patch tokens 做交叉注意力（state-query pooling），逐相机池化后取平均得视觉后果编码，与动作 chunk 汇总拼接 $y_t$；patch tokens 上 stop-gradient，冻结视觉通路不被记忆目标污染
@@ -95,6 +96,10 @@ $$c_t = z_t + W^A_o\,\mathrm{softmax}\!\left(\frac{(W^A_q z_t)(W^A_k \mathcal{A}
 - **代码**：https://github.com/declare-lab/MemBodied
 
 ## 消融实验与分析
+
+![membodied 主结果表](figures/membodied/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Success rates (%) on the five evaluated RMBench tasks. Published policy values are taken*
 
 **主表消融（Table 1，RMBench 五任务成功率 %，共享 π0 backbone 训练配方）**：
 

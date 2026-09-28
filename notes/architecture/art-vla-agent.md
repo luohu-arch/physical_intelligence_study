@@ -1,12 +1,11 @@
 # Evolve Vision-Language-Action Model into an Agent with On-the-fly Tool-use
 
-- arXiv: https://arxiv.org/abs/2608.14047
-- Source: https://arxiv.org/abs/2608.14047
-- Project: 
-- Local PDF: `/Users/luogu/physical_intelligence/papers/architecture/ART_2608.14047.pdf`
-- Year: 2026
-- Category: architecture
-- Priority: high
+- arXiv：https://arxiv.org/abs/2608.14047
+- Source：https://arxiv.org/abs/2608.14047
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/architecture/ART_2608.14047.pdf`
+- Year：2026
+- Category：architecture
+- Priority：high
 
 ## 一句话总结
 
@@ -14,12 +13,13 @@ ART（Agentic Robot with Tool-use）是一个 tool-injection 微调框架：把�
 
 ## 核心技术
 
-![art-vla-agent 架构图](figures/art-vla-agent/fig1.png)
-*论文 Figure 1（p2）：Figure 1. Comparison of VLA Paradigms, including (a) standard end-to-end VLA [4, 6, 28], (*
-
 ### 问题设定：把动作空间从连续流形换成"连续动作 + 离散工具"
 
 论文的出发点是对两条主流路线各取一半：
+
+![art-vla-agent 架构图](figures/art-vla-agent/fig1.png)
+
+*论文 Figure 1（p2）：Figure 1. Comparison of VLA Paradigms, including (a) standard end-to-end VLA [4, 6, 28], (b) VLA enh*
 
 - **模块化路线**（RoboTool、RoboScript、RoboCodeX、CaP）：模型只负责调用固定 API，能力彻底解耦，但语言到动作被压缩成手工函数，复杂语言理解和灵巧动作做不了。
 - **端到端路线**（OpenVLA、ECoT、π0 / π0.5）：单模型直接产出高精度动作，但遇到新场景/新任务要昂贵的 post-training，且能力耦合在一起，继续微调容易灾难性遗忘。
@@ -150,6 +150,10 @@ $\theta$ 是不带 LoRA 的 backbone 参数，$f_{t-1}$ 是上一时刻被激活
 - **待确认：用于改写指令与生成轨迹的 GPT 具体型号未说明**。
 
 ## 消融实验与分析
+
+![art-vla-agent 主结果表](figures/art-vla-agent/tab1.png)
+
+*论文 Table 1（p7）：Table 1. Performance improvement by on-the-fly tool use. We compare the success rate of generalized*
 
 ### 主结果：扰动任务上的工具注入收益（论文 Table 1）
 

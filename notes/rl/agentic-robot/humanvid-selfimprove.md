@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2606.21406
 - Source: https://arxiv.org/abs/2606.21406
-- Project: 
-- Local PDF: `papers/rl/agentic-robot/HumanVid-SelfImprove_2606.21406.pdf`
+- Project:
+- 本地 PDF：`papers/rl/agentic-robot/HumanVid-SelfImprove_2606.21406.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@
 ## 核心技术
 
 ![humanvid-selfimprove 架构图](figures/humanvid-selfimprove/fig1.png)
-*论文 Figure 1（p1）：Robot Real Env. Autonomous Adaptation Figure 1: We learn transferable models from human vi*
+
+*论文 Figure 1（p1）：Figure 1:*
 
 **三个具身无关表征（transferable representations）。** 论文的立论是：要在人类视频上预训练出"能预测、能评估、能纠错"的模型，动作与状态空间必须先剥离本体特异细节。
 
@@ -129,6 +130,10 @@ $$a^\star_{t:t+H-1} = \arg\max_{n} V_\psi\left(f_\phi(o_{t-H'+1:t}, a^{(n)}_{t:t
 - **失败判定目前是人工的**：每条 rollout 的成败由人标注（作者列为未来工作，拟换成 foundation model 自动反馈）。做实验时要预算这部分标注人力。
 
 ## 消融实验与分析
+
+![humanvid-selfimprove 主结果表](figures/humanvid-selfimprove/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Benchmark evaluated on success rate (%). T1: Socks, T2: Kitchen, T3: Microwave, T4: Table,*
 
 ### A. DGAC 的生成与排序缺一不可（论文 Table 2，Stretch 3，5 任务平均成功率）
 

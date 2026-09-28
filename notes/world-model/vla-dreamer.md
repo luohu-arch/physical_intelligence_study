@@ -1,12 +1,12 @@
 # VLA-Dreamer: Refining VLA Behavior Using World Models（用世界模型在 VLA 嵌入空间内做梦精修行为）
 
-- arXiv: https://arxiv.org/abs/2609.31313
-- Source: https://arxiv.org/abs/2609.31313
-- Project:
-- Local PDF: `/Users/luogu/physical_intelligence/papers/world-model/VLA-Dreamer_2609.31313.pdf`
-- Year: 2026
-- Category: world-model
-- Priority: high
+- arXiv：https://arxiv.org/abs/2609.31313
+- 来源：https://arxiv.org/abs/2609.31313
+- 项目主页：
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/world-model/VLA-Dreamer_2609.31313.pdf`
+- 年份：2026
+- 分类：world-model
+- 优先级：high
 
 ## 一句话总结
 
@@ -15,7 +15,8 @@
 ## 核心技术
 
 ![vla-dreamer 架构图](figures/vla-dreamer/fig1.png)
-*论文 Figure 1（p3）：Fig. 1. We fine-tune our pre-trained VLA model on our NICOL robot’s imitation learning dat*
+
+*论文 Figure 1（p3）：Fig. 1. We fine-tune our pre-trained VLA model on our NICOL robot’s imitation*
 
 1. **单一编码器三用**：冻结 VLA 视觉编码器的嵌入同时充当（a）策略输入、（b）世界模型的预测目标、（c）目标距离奖励的比较空间——策略输入、预测目标、奖励三共享一个表征，避免像 V-JEPA 2-AC + MPC 那样为规划单独维护一条嵌入通路。
 2. **嵌入空间世界模型**：输入为当前动作 $a_t$、机器人本体感觉 $p_t$ 和最近若干帧观测嵌入历史，预测下一帧观测嵌入（π0-FAST 版还预测下一本体感觉状态；OpenVLA 版把本体感觉仅作为辅助损失，因为 OpenVLA 训练配方不消费本体感觉）。损失在嵌入空间而非像素空间，论文明确将其类比 joint-embedding predictive architecture。

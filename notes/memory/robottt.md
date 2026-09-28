@@ -14,7 +14,8 @@ RoboTTT 将 Test-Time Training 引入 VLA 基础模型：在 GR00T N1.7 的 DiT 
 ## 核心技术
 
 ![robottt 架构图](figures/robottt/fig2.png)
-*论文 Figure 2（p4）：Figure 2: RoboTTT model architecture, training, and inference. TTT layers are added after*
+
+*论文 Figure 2（p4）：Figure 2: RoboTTT model architecture, training, and inference. TTT layers are added after the attent*
 
 1. **TTT 快速权重记忆** — 将 TTT 层插入 DiT 动作头，每层含一个 2-layer MLP 作为 fast model $f_W$，每步做 MSE loss 梯度下降更新 $W$：$W_t = W_{t-1} - \eta \nabla_W \|f_{W_{t-1}}(K_t) - V_t\|^2$，输出 $O_t = f_{W_t}(Q_t)$。记忆存储在参数空间，而非 KV cache
 2. **双向时间建模** — Attention 层处理单步内的 token 交互（空间）；TTT 层处理跨时间步的信息传播（时序）。二者串联，各司其职
@@ -57,7 +58,7 @@ graph TD
         REG["Register tokens R_t (N=16)"] --> ATTN
         ATTN --> O_ATTN["O_attn (per-step output)"]
     end
-    
+
     subgraph "Cross-Time (TTT Layers)"
         O_ATTN --> FLATTEN["Flatten over time: X = [R_1,q_1,Ã_1, ..., R_T,q_T,Ã_T]"]
         FLATTEN --> TTT1["TTT Layer 1: W←W−η∇L_FW"]
@@ -65,7 +66,7 @@ graph TD
         TTT2 --> TTT16["... TTT Layer 16"]
         TTT16 --> O_TTT["O_ttt (cross-time output)"]
     end
-    
+
     subgraph "Gating & Output"
         O_TTT --> GATE["tanh(alpha-) ⊙ O_ttt"]
         O_ATTN --> GATE

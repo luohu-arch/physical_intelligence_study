@@ -13,7 +13,8 @@
 ## 核心技术
 
 ![echovla 架构图](figures/echovla/fig1.png)
-*论文 Figure 1（p2）：Fig. 1: Comparison of memory designs for mobile manipulation control. (a) BSC- Nav [38] us*
+
+*论文 Figure 1（p2）：Fig. 1: Comparison of memory designs for mobile manipulation control. (a) BSC- Nav [38] uses a memor*
 
 1. **双记忆库（Sec 3.3）**
    - Scene Memory：voxel 化 3D 特征图 $\mathbf{V}^{3D}$，新环境中初始化为空网格，随 episode 反复交互逐步累积深度观测（经 PointAttn 编码）；**discrepancy-driven 更新规则**——当前 voxel 特征先与"由既有记忆重建出的版本"比对，重建误差超过阈值 τ 的区域才写入新特征，其余区域保留旧值；推理期同一规则继续生效，因此环境被重新布置时可在线自适应。
@@ -93,6 +94,10 @@ flowchart TB
 - **待确认**：论文未公开 voxel 分辨率、网格尺寸 $X\times Y\times Z$ 与通道数 $C$ 的具体取值，也未给出 episodic top-k 中 $k$ 的数值与 DiT 块数、去噪步数等架构规模参数；正文仅有公开的 L/τ 两组敏感性数值可用。
 
 ## 消融实验与分析
+
+![echovla 主结果表](figures/echovla/tab2.png)
+
+*论文 Table 2（p12）：Table 2: Success Rate (SR) comparison on Manipulation, Navigation, and Mobile Ma-*
 
 **主消融：观测模态 × 记忆模块（Table 3，两列分别是 PnPC2S 的 Mobile 变体 M 与静态桌面变体 S，SR@50 episodes）**
 

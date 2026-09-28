@@ -14,10 +14,12 @@
 
 ## 核心技术
 
-![view-invariant-policy 架构图](figures/view-invariant-policy/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: Visualization of camera poses in the real-robot experiment. Training cameras are v*
-
 1. **Plücker Ray 编码** — 每个像素不再只是 RGB，而是 (R, G, B, d_x, d_y, d_z, m_x, m_y, m_z)——6D 射线表示（方向+动量），显式编码该像素在 3D 空间中的位置
+
+![view-invariant-policy 架构图](figures/view-invariant-policy/fig1.png)
+
+*论文 Figure 1（p1）：Fig. 1: Visualization of camera poses in the real-robot*
+
 2. **Camera Conditioning** — 策略以 Plücker map 为附加输入：(1) 非预训练 encoder：channel-wise concat 到 RGB 图像；(2) 预训练 encoder：late fusion 小 CNN
 3. **联合随机裁剪** — 图像和 Plücker map 联合随机裁剪，去除背景姿态 shortcut
 4. **6 个新 benchmark 任务** — RoboSuite + ManiSkill，配对固定视角/随机视角变体
@@ -59,6 +61,16 @@ $$
 
 **联合随机裁剪的妙处**：裁剪同时作用于图像和 Plücker map，保持像素一一对应——相当于"戴上眼镜再转动头部"的虚拟相机增强，一个 batch 内生成大量不同内参/视角的虚拟视图，策略被迫学会不依赖任何特定相机参数的表征，泛化能力因此更强。
 
+## 工程细节与实操指南
+
+- **Plücker Ray 计算**: direction = R @ K^{-1} @ [u,v,1]^T, moment = t × direction
+- **输入格式**: RGB [H,W,3] + Plücker map [H,W,6] → channel-wise concat [H,W,9]
+- **预训练 encoder 适配**: late fusion via small CNN for Plücker → merge with frozen encoder features
+- **联合随机裁剪**: 图像和 Plücker map 做相同的 spatial crop, 防止背景泄露相机位姿
+- **Hardware**: UR5 + 3 movable third-person cameras
+- **Tasks**: Pick Place, Plate Insertion, Hang Mug 等 6 个新 benchmark (RoboSuite + ManiSkill)
+- **Code**: github.com/ripl/CamPoseOpensource
+
 ## 消融实验与分析
 
 | 模型 | 任务 | 无 conditioning（%） | 有 conditioning（%） | 增益 |
@@ -82,26 +94,6 @@ $$
 - **硬件**：UR5 机械臂 + 3 个可移动第三视角相机
 - **任务**：Pick Place, Plate Insertion, Hang Mug 等 6 个新 benchmark
 
-## 精读问题
-
-1. Plücker ray 编码对相机内参变化的鲁棒性？不同焦距/畸变参数是否需要重新编码？
-2. Late fusion 对预训练 encoder 的特征是否会产生分布偏移？
-3. 动态相机（手持或机械臂上安装）的场景是否适用？
-4. Plücker 表示在相机平移远大于旋转时是否退化？矩 $m = t \times d$ 在大基线场景下如何保持数值稳定性？
-5. 外参标定误差（平移/旋转噪声）对 conditioning 增益的敏感性如何？能否用自监督方式在推理时在线估计 $(R,t)$？
-6. 联合随机裁剪的裁剪比例与位置分布是超参还是可自适应？裁剪是否等效于"虚拟相机内参增强"从而可以替代真实内参随机化？
-
-
-## 工程细节与实操指南
-
-- **Plücker Ray 计算**: direction = R @ K^{-1} @ [u,v,1]^T, moment = t × direction
-- **输入格式**: RGB [H,W,3] + Plücker map [H,W,6] → channel-wise concat [H,W,9]
-- **预训练 encoder 适配**: late fusion via small CNN for Plücker → merge with frozen encoder features
-- **联合随机裁剪**: 图像和 Plücker map 做相同的 spatial crop, 防止背景泄露相机位姿
-- **Hardware**: UR5 + 3 movable third-person cameras
-- **Tasks**: Pick Place, Plate Insertion, Hang Mug 等 6 个新 benchmark (RoboSuite + ManiSkill)
-- **Code**: github.com/ripl/CamPoseOpensource
-
 ## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |
@@ -120,3 +112,12 @@ $$
 - **3D Foresight** — 3D 辅助任务增强策略：Foresight 从输出/预测层面注入 3D，camera conditioning 从输入层面解决视角问题，两者可叠加
 - **ACT / Diffusion Policy / SmolVLA** — 被增强的 baseline 策略架构：论文证明三种代表性动作生成范式（CVAE chunking / 扩散 / 预训练 VLA）均受益于 conditioning
 - **手眼标定 / visual-SLAM / SfM 系工作** — 外参 $(R,t)$ 可从数据集元数据获得，或用经典手眼标定、visual-SLAM、structure-from-motion 方法估计；本工作把"知道相机在哪"作为前提，与位姿估计管线正交衔接
+
+## 精读问题
+
+1. Plücker ray 编码对相机内参变化的鲁棒性？不同焦距/畸变参数是否需要重新编码？
+2. Late fusion 对预训练 encoder 的特征是否会产生分布偏移？
+3. 动态相机（手持或机械臂上安装）的场景是否适用？
+4. Plücker 表示在相机平移远大于旋转时是否退化？矩 $m = t \times d$ 在大基线场景下如何保持数值稳定性？
+5. 外参标定误差（平移/旋转噪声）对 conditioning 增益的敏感性如何？能否用自监督方式在推理时在线估计 $(R,t)$？
+6. 联合随机裁剪的裁剪比例与位置分布是超参还是可自适应？裁剪是否等效于"虚拟相机内参增强"从而可以替代真实内参随机化？

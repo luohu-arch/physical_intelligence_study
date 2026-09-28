@@ -13,7 +13,8 @@ FlashSAC 将 scaling law 引入 off-policy RL：用更大模型（2.5M）配合�
 ## 核心技术
 
 ![flashsac 架构图](figures/flashsac/fig2.png)
-*论文 Figure 2（p5）：Figure 2 FlashSAC Architecture. The architecture consists of stacked inverted residual blo*
+
+*论文 Figure 2（p5）：Figure 2 FlashSAC Architecture. The architecture consists of stacked inverted residual blocks with p*
 
 1. **Low UTD Ratio** — 每 1024 步仅做 2 次梯度更新（vs REDQ 的 20 次），大幅降低 overfitting 风险
 2. **Large Model Scaling** — 2.5M 参数、6 层网络（vs 通常 SAC 0.2-0.5M、2-3 层），更大的模型容量配合更少的更新步
@@ -61,7 +62,21 @@ $$
 
 **Noise Repetition 像"连贯笔触"而不是"像素点抖动"**。高维动作空间里，每步独立采样的噪声让机器人像在抖动中画点——动作前后矛盾、探索轨迹支离破碎。FlashSAC 让一个噪声向量连用 k 步（Zeta 分布偶尔抽到长重复），动作轨迹变成连贯的笔触，探索效率大增，且几乎零开销——不需要像 OU 噪声那样为 1024 个并行环境各维护一个相关噪声过程。这套配方的总效果在 sim-to-real 上体现得最直观：29-DoF Unitree G1 平地行走训练约 20 分钟（PPO 需约 3 小时）、15cm 台阶楼梯约 4 小时（PPO 需近 20 小时），整体把 sim-to-real 训练时间压低了近一个数量级。
 
+## 工程细节与实操指南
+
+- **网络**：2.5M 参数、6 层 actor 与 critic，倒置残差块（inverted residual）+ ReLU，RMSNorm + 预激活 BN
+- **Critic**：Distributional categorical（101 bins，支撑区间 [-5,5]）+ 自适应 reward scaling（按运行方差 σ² 与最大量级 G_max 归一化）
+- **Replay Buffer**：10M transitions（常规配置 1M 的 10 倍），batch 2048，UTD 2/1024
+- **超参数（GPU 仿真）**：1024 并行环境，n-step 1，actor 2 blocks hidden 128（update delay 2），critic 2 blocks hidden 256，target momentum 0.01，2 critics，Adam lr 3e-4 → 1.5e-4 cosine decay
+- **探索**：Noise Repetition（Zeta 分布 s=2，最长重复 16 步）+ 统一熵目标 σ_tgt=0.15
+- **工程优化**：PyTorch JIT 编译 + 全流程混合精度（省 5-10% wall-clock）
+- **硬件**：sim-to-real 在 4096 并行环境中约 4h 完成训练（单张 A100），策略直接部署、无微调；50 Hz 输出目标关节位置，低层 PD 控制器 200 Hz
+
 ## 消融实验与分析
+
+![flashsac 主结果表](figures/flashsac/tab3.png)
+
+*论文 Table 3（p22）：Table 3 ManiSkill Environments. We evaluate 6 ManiSkill gripper-based manipulation environments. Nor*
 
 消融与分析均在四个 IsaacLab 环境上进行（Allegro/Shadow Hand 方块重定向 + G1 平地/崎岖地形行走）：
 
@@ -91,16 +106,6 @@ $$
 ## 技术价值与演进定位
 
 FlashSAC 获得 RSS 2026 Best Paper 的原因：它不是修修补补的改进，而是**对 off-policy RL 训练范式的重新思考**——把 LLM 时代的 scaling law 直觉（大模型 + 大批量 + 低更新率）首次系统性地引入机器人 RL：2.5M 参数模型配 2/1024 的更新率，并用"约束权重/特征/梯度范数"解决了大模型在 bootstrapping 下的发散问题。对机器人领域而言，它的意义在于把 off-policy RL 从"样本高效但缓慢不稳定"的定位里解放出来——60+ 任务、10 个仿真器、单套超参数全面超越 PPO/SAC/TD3/REDQ，且把 sim-to-real 人形训练的墙钟时间从小时级压到分钟级（约 20 分钟平地行走 vs PPO 约 3 小时），这是 off-policy RL 首次在 sim-to-real 高维系统上反超 on-policy 主流范式。它直接影响了 VLA 的 RL 后训练路线（RL Token、ROVE 等）：当仿真吞吐不再是瓶颈、稳定化技术可复用，RL 在高维机器人控制上就真正达到了实用级别，为"先大规模预训练、后 RL 微调"的通用智能体路线提供了可靠的底层算法。
-
-## 工程细节与实操指南
-
-- **网络**：2.5M 参数、6 层 actor 与 critic，倒置残差块（inverted residual）+ ReLU，RMSNorm + 预激活 BN
-- **Critic**：Distributional categorical（101 bins，支撑区间 [-5,5]）+ 自适应 reward scaling（按运行方差 σ² 与最大量级 G_max 归一化）
-- **Replay Buffer**：10M transitions（常规配置 1M 的 10 倍），batch 2048，UTD 2/1024
-- **超参数（GPU 仿真）**：1024 并行环境，n-step 1，actor 2 blocks hidden 128（update delay 2），critic 2 blocks hidden 256，target momentum 0.01，2 critics，Adam lr 3e-4 → 1.5e-4 cosine decay
-- **探索**：Noise Repetition（Zeta 分布 s=2，最长重复 16 步）+ 统一熵目标 σ_tgt=0.15
-- **工程优化**：PyTorch JIT 编译 + 全流程混合精度（省 5-10% wall-clock）
-- **硬件**：sim-to-real 在 4096 并行环境中约 4h 完成训练（单张 A100），策略直接部署、无微调；50 Hz 输出目标关节位置，低层 PD 控制器 200 Hz
 
 ## 与其他论文的关系
 

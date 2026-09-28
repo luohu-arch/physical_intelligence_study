@@ -13,7 +13,8 @@ StateLinFormer 证明序列模型的"健忘"不一定是架构问题，而是训
 ## 核心技术
 
 ![statelinformation 架构图](figures/statelinformation/fig1.png)
-*论文 Figure 1（p5）：Fig. 1. The framework of StateLinFormer. Top: Conventional stateless training with memory*
+
+*论文 Figure 1（p5）：Fig. 1. The framework of StateLinFormer. Top: Conventional stateless training with memory reset each*
 
 1. **Stateful Training** — 训练时 batch k 的初始记忆状态 = batch k-1 的终止状态（而非清零），梯度仍按 batch 截断。模型参数在"自己长期演化产生的记忆状态分布"上被优化，而非在退化的零初始化分布上
 2. **Linear Attention** — 记忆状态 $M_t \in \mathbb{R}^{d \times d}$ 增量更新，每步 $O(1)$ 计算成本，支持跨 batch 传状态而不爆炸
@@ -97,14 +98,6 @@ $$\mathcal{L} = \sum_{t=1}^{T} \ell(\pi(a_t | h_t), a_t), \quad M_{t} = f_\theta
 
 StateLinFormer 是记忆研究中最被低估的一篇：没有发明新架构，而是揭示了一个训练协议缺陷。当前几乎所有 VLA（π0、OpenVLA、GR00T、G0.5）和序列策略都用 stateless 训练——它们的"记忆潜力"可能远未被挖掘，同样的架构只改训练方式就可能获得可观提升。它把"记忆对齐"问题拆成了两层：RoboTTT / WAM-TTT 解决"参数级"的部署期适应（部署时改权重），StateLinFormer 解决"状态级"的训练-部署一致性（训练时别清零）。对 linear attention / state space model 类架构（Gated DeltaNet、Mamba、TTT）而言，stateful 协议是可即插即用的免费增益，属于"低垂的果实"式改进方向。
 
-## 精读问题
-
-1. **Fig. 2 显示 stateless 模型在长上下文下成功率退化——这是零初始化导致的分布失配，还是线性注意力在长序列上的数值漂移？**
-2. **stateful 训练把记忆 RSD 压低、逼近平稳分布 $d_\theta$——$d_\theta$ 的混合时间与 episode 长度、环境复杂度、batch 长度是什么关系？**
-3. **10M 帧反超 SPOC-Pretrained（40M 帧）——若给 stateful 模型同样 40M 帧，增益继续扩大还是已经饱和？**
-4. **CON 任务目标重复出现且只在前一目标完成后给出下一目标——涌现的 ICL 是否依赖这种"无预告"指令分布，换成随机目标序列是否消失？**
-5. **操作任务中状态转移更多依赖动作而非纯观察——stateful 协议能否直接迁移到 VLA 操作策略，还是需要动作条件化的状态传递变体？**
-
 ## 与其他论文的关系
 
 - **SPOC** — 架构参照系（Transformer decoder 导航模型）；SPOC-10M 同数据重训被全面超越（ProcTHOR 0.580 vs 0.479），证明 linear attention + stateful 协议的组合优势
@@ -112,3 +105,11 @@ StateLinFormer 是记忆研究中最被低估的一篇：没有发明新架构�
 - **ReLIC / Memo** — 显式记忆机制（可学习 KV 向量 / 摘要 token）扩展有效上下文，但记忆机制本身仍在 stateless 协议下训练——stateful 协议可叠加
 - **RoboTTT / WAM-TTT** — 部署期快速权重 TTT 是"参数级"在线适应，stateful training 是"记忆状态级"的训练-部署对齐——不同层级的记忆问题
 - **Gated DeltaNet / Mamba** — linear attention 的替代状态空间架构，stateful 训练协议理论上可直接迁移，值得验证
+
+## 精读问题
+
+1. **Fig. 2 显示 stateless 模型在长上下文下成功率退化——这是零初始化导致的分布失配，还是线性注意力在长序列上的数值漂移？**
+2. **stateful 训练把记忆 RSD 压低、逼近平稳分布 $d_\theta$——$d_\theta$ 的混合时间与 episode 长度、环境复杂度、batch 长度是什么关系？**
+3. **10M 帧反超 SPOC-Pretrained（40M 帧）——若给 stateful 模型同样 40M 帧，增益继续扩大还是已经饱和？**
+4. **CON 任务目标重复出现且只在前一目标完成后给出下一目标——涌现的 ICL 是否依赖这种"无预告"指令分布，换成随机目标序列是否消失？**
+5. **操作任务中状态转移更多依赖动作而非纯观察——stateful 协议能否直接迁移到 VLA 操作策略，还是需要动作条件化的状态传递变体？**

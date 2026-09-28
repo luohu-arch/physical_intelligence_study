@@ -3,7 +3,7 @@
 - arXiv: https://arxiv.org/abs/2602.21320
 - Source: https://arxiv.org/abs/2602.21320
 - Project:
-- Local PDF: `papers/rl/agentic-app/ToolR0_2602.21320.pdf`
+- 本地 PDF：`papers/rl/agentic-app/ToolR0_2602.21320.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,6 +15,7 @@ Tool-R0 用 zero-data self-play RL 把同一个 instruction-tuned 基座初始�
 ## 核心技术
 
 ![tool-r0 架构图](figures/tool-r0/fig1.png)
+
 *论文 Figure 1（p1）：Figure 1: Tool-R0 self-evolution loop*
 
 **双角色迭代结构**。训练跑 $K=3$ 个 self-play iteration，每轮三段：(1) 冻结 Solver，用 GRPO 训 Generator 50 步（2,000 个自生成样本）；(2) 冻结 Generator，采样 10,000 个候选任务，经去重、Solver cross-verification、难度分桶后筛到 2,000 条；(3) Solver 在这批课程数据上训 50 步，进入下一轮。Solver 的成功率统计反过来决定 Generator 的难度奖励，闭环由此咬合。
@@ -116,6 +117,10 @@ $$
 - **失败模式的迁移**（Fig. 8）：基座以 structural errors（选错工具、调用数错、多/漏参数）为主，Tool-R0 把这类近乎砍半；semantic errors 同步下降但成为剩余主要瓶颈；format errors 基线本就少、训练后近乎清零。待确认：Fig. 8 仅以图形式给出三类失败的数量，正文与表格均无精确数值，"近乎砍半"只能按图读取。
 
 ## 消融实验与分析
+
+![tool-r0 主结果表](figures/tool-r0/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Main results of Tool-R0. We evaluate Tool-R0 on five different tool-calling bench-*
 
 | 变体 | 平均准确率 | 绝对降幅 | 相对降幅 |
 |---|---|---|---|

@@ -1,9 +1,7 @@
 # UniVLA: Unified Vision-Language-Action Model
 
 - 本地 PDF：`papers/architecture/UniVLA_2506.19850.pdf`
-
-- Local PDF: `papers/architecture/UniVLA_2506.19850.pdf`
-- arXiv: https://arxiv.org/abs/2506.19850
+- arXiv：https://arxiv.org/abs/2506.19850
 - 年份：2025
 - 阶段：统一 token 化 VLA
 
@@ -13,10 +11,12 @@ UniVLA 将视觉、语言、动作信号全部统一为离散 token 序列，用
 
 ## 核心技术
 
-![unified-vla 架构图](figures/unified-vla/fig1.png)
-*论文 Figure 1（p1）：Figure 1: We present UniVLA, a unified vision-language-action model. Unlike prior VLA appr*
-
 1. **统一 token 化（Unified Tokenization）** — 视觉、语言、动作三种模态的信号全部离散化为统一格式的 token 序列，在同一语义空间中处理
+
+![unified-vla 架构图](figures/unified-vla/fig1.png)
+
+*论文 Figure 1（p1）：Figure 1: We present UniVLA, a unified vision-language-action model. Unlike prior VLA approaches tha*
+
 2. **自回归多模态 Transformer** — 单一 Transformer 对所有模态 token 进行自回归建模，没有任何模态特定分支
 3. **世界模型后训练（World Modeling Post-Training）** — 在预训练后引入因果动态学习，让模型从视频中学会「如果我做动作 X，世界会变成什么样」
 4. **因果动态捕获** — 显式建模视觉观测中蕴含的时序结构和因果关系，克服传统 VLA 忽略时序信息的缺陷
@@ -156,6 +156,10 @@ UniVLA 想实现的是**「用同一种语言说三件事」**——让视觉、
 - **离散动作分箱数**：256 为标准配置，与 RT-1 兼容。动作精度要求高的任务可考虑 512 箱
 
 ## 消融实验与分析
+
+![unified-vla 主结果表](figures/unified-vla/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Long-horizon robotic manipulation evaluation on the CALVIN benchmark*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

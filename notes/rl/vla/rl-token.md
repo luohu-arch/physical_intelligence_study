@@ -13,7 +13,8 @@
 ## 核心技术
 
 ![rl-token 架构图](figures/rl-token/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: Our method introduces an “RL token” into the VLA by training an encoder and decode*
+
+*论文 Figure 1（p1）：Fig. 1: Our method introduces an “RL token” into the VLA by training an encoder and decoder to produ*
 
 1. **RL Token 读出模块（Sec IV-A）**：给预训练 VLA 外挂一个小 encoder-decoder transformer。把学到的 `<rl>` 占位 embedding 追加到 VLA 最终层 token 序列末尾，encoder 输出在占位位置的向量即 RL Token $\mathbf{z}_{rl}$；decoder 只凭这个 bottleneck 向量自回归重建原始 embedding，重建目标全部施加 stop-gradient——因此压缩是有损但信息保真的：能被还原的特征才是策略真正需要的特征。
 2. **VLA 三重角色**：冻结后同时充当 (a) 感知表征来源（token 从它里面蒸出来）、(b) 行为先验（每步采样参考动作块 ã）、(c) 探索锚点（正则把 actor 拴在参考附近）。

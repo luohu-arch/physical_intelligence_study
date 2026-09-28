@@ -14,7 +14,8 @@ SymSkill 把模仿学习与经典 TAMP 各取一半拼起来：离线阶段只�
 ## 核心技术
 
 ![symskill 架构图](figures/symskill/fig1.png)
-*论文 Figure 1（p1）：Fig. 1: Illustration of the SymSkill predicate and skill co- invention process on a DoorOp*
+
+*论文 Figure 1（p1）：Fig. 1:*
 
 1. **符号与技能共同发明（co-invention）** — 谓词、操作符、低层策略全部从无标签、无分段的数据里长出来，无需人工设计抽象层，也绕开了既有方法 propose-then-down-select 搜索的耗时与语义漂移。
 2. **物体中心相对坐标 + 双类片段分解** — 每个技能周期天然分成 premotion（只有末端动）与 motion（末端+一个物体同动）；premotion 以运动目标物 $o_{int}$ 为参考系，motion 由离线查询一次 Gemini-2.5-Pro 选出静止参考物 $o_{ref}$ 后在其坐标系下表达。同一类型物体共享轨迹结构假设，是少样本可学的根基。

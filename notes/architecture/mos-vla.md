@@ -1,14 +1,12 @@
 # MoS-VLA: A Vision-Language-Action Model with One-Shot Skill Adaptation
 
 - 本地 PDF：`papers/architecture/MoS-VLA_2510.16617.pdf`
-
-- Local PDF: `/Users/luogu/physical_intelligence/papers/architecture/MoS-VLA_2510.16617.pdf`
-- arXiv: https://arxiv.org/abs/2510.16617
-- Source: https://arxiv.org/abs/2510.16617
-- Project: https://mos-vla.github.io/
-- Published: 2025-10
-- Category: one-shot adaptation
-- Priority: medium
+- arXiv：https://arxiv.org/abs/2510.16617
+- Source：https://arxiv.org/abs/2510.16617
+- Project：https://mos-vla.github.io/
+- Published：2025-10
+- Category：one-shot adaptation
+- Priority：medium
 
 ## 一句话总结
 
@@ -16,10 +14,12 @@ MoS-VLA 将机器人操作策略表示为一组可学习基函数的线性组合
 
 ## 核心技术
 
-![mos-vla 架构图](figures/mos-vla/fig1.png)
-*论文 Figure 1（p2）：Figure 1: In-context adaptation with function encoders. (Left) A human expert collects one*
-
 1. **函数编码器框架（Function Encoder with L1 Banach Space）** — 将策略函数表示为 $k=16$ 个可学习基函数的线性组合，训练时用 Gram 矩阵正交正则化保持基函数多样性，适配时只需基函数权重
+
+![mos-vla 架构图](figures/mos-vla/fig1.png)
+
+*论文 Figure 1（p2）：Figure 1: In-context adaptation with function encoders. (Left) A human expert collects one trajector*
+
 2. **凸优化实现单样本梯度无关适配** — 给定一次专家演示后，求解一个 L1 线性规划（min L1 动作误差）得到基函数权重，数秒内完成适配，无需任何梯度回传或反向传播
 3. **跨数据集技能空间的联合预训练** — 在 Open X-Embodiment Magic Soup Plus 的 27 个数据集上联合训练基函数，使用校准缓冲区（calibration buffer，每数据集 512 样本）每 16 步重新计算一次基函数系数，避免每步求解线性规划
 

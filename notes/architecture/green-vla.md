@@ -13,10 +13,12 @@ Green-VLA 提出五阶段训练范式（L0 VLM 预训练→L1 多模态 groundin
 
 ## 核心技术
 
-![green-vla 架构图](figures/green-vla/fig1.png)
-*论文 Figure 1（p2）：Figure 1: Green-VLA architecture. A multimodal vision–language model encodes instructions,*
-
 1. 五阶段渐进训练，每阶段有明确目标和数据配比
+
+![green-vla 架构图](figures/green-vla/fig1.png)
+
+*论文 Figure 1（p2）：Figure 1: Green-VLA architecture. A multimodal vision–language model encodes instructions, camera vi*
+
 2. 64D 统一动作空间 + 具身 mask，单模型控制异构机器人
 3. DataQA 过滤流水线，清洗 3000h 数据
 4. R2 RL 对齐超越行为克隆上限
@@ -73,6 +75,10 @@ $$
 
 ## 消融实验与分析
 
+![green-vla 主结果表](figures/green-vla/tab4.png)
+
+*论文 Table 4（p16）：Table 4: SimplerEnv evaluation across different policies on WidowX Robot tasks. We report the result*
+
 | 消融因子 | 设置对比 | 指标 | 数值 |
 |---------|---------|------|------|
 | R2 RL 对齐 vs 仅 R1 BC | Simpler WidowX 平均成功率 | R1 55.2/72.9 → R2 79.1/80.5（PaliGemma/Qwen3） | +24% 绝对成功率 |
@@ -83,7 +89,7 @@ $$
 
 **核心结论**：各阶段增益正交——R0 跨具身预训练带来零微调跨本体迁移（ALOHA 69.5% vs π0 35.6%），R2 RL 对齐在 BC 饱和后继续拉升 +24% 绝对成功率并改善长程链长（ACL 4.18→4.57），JPM 引导在越困难的识别 regime 下增益越大（OOD 场景 10.2→72.8），说明数据质量（DataQA）、统一动作空间与 RL 对齐分别解决数据、架构与策略层面的失败模式，缺一不可。
 
-## 技术权衡
+## 技术权衡（Trade-off）
 
 | 优势 | 劣势 |
 |------|------|

@@ -1,14 +1,12 @@
 # TriVLA: A Triple-System-Based Unified Vision-Language-Action Model for General Robot Control
 
 - 本地 PDF：`papers/reasoning/TriVLA_2507.01424.pdf`
-
-- Local PDF: `/Users/luogu/physical_intelligence/papers/reasoning/TriVLA_2507.01424.pdf`
-- arXiv: https://arxiv.org/abs/2507.01424
-- Source: https://arxiv.org/abs/2507.01424
-- Project: https://zhenyangliu.github.io/TriVLA/
-- Published: 2025-07
-- Category: episodic world model
-- Priority: medium
+- arXiv：https://arxiv.org/abs/2507.01424
+- Source：https://arxiv.org/abs/2507.01424
+- Project：https://zhenyangliu.github.io/TriVLA/
+- Published：2025-07
+- Category：episodic world model
+- Priority：medium
 
 ## 一句话总结
 
@@ -17,7 +15,8 @@ TriVLA 受认知神经科学的「情景记忆」理论启发，提出首个 VLA
 ## 核心技术
 
 ![trivla 架构图](figures/trivla/fig1.png)
-*论文 Figure 1（p1）：Figure 1: TriVLA is a unified Vision-Language-Action framework that adopts a triple-system*
+
+*论文 Figure 1（p1）：Figure 1: TriVLA is a unified Vision-Language-Action framework that adopts a triple-system ar- chite*
 
 1. **三元系统架构（Triple-System Architecture）** — 受 GR00T N1 双系统启发，新增视频扩散模型作为 System 3（时序动态感知），与 VLM System 2（语义接地）共同构成情景世界模型，流匹配 + DiT 作为 System 1（动作生成），总参数量 3.39B，控制频率 ~36Hz
 2. **情景世界模型（Episodic World Model）** — 首次在 VLA 中形式化定义情景记忆：模型不仅理解当前观测，还能通过回忆过去经验和预测未来动态来生成动作，实现长程规划与开放意图理解
@@ -121,6 +120,10 @@ TriVLA 的三元系统可以类比人类驾驶：
 - System 2 贡献最大（+0.38），System 3 在此基础上进一步提升（+0.31）
 
 ## 消融实验与分析
+
+![trivla 主结果表](figures/trivla/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Zero-shot long-horizon evaluation on the Calvin ABC→D benchmark (Avg. Len)*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

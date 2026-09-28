@@ -123,6 +123,10 @@ flowchart TD
 
 ## 消融实验与分析
 
+![sd-jepa 主结果表](figures/sd-jepa/tab2.png)
+
+*论文 Table 2（p6）：Table 2: Subspace-ablation falsifier on Push-T (single seed 3072). A2_full = A0 isolates the split a*
+
 ### A. 主结果 Table 1（success rate %，matched 10-epoch compute）
 
 | Method | Two-Room | Reacher | Push-T | OGB-Cube | best k |

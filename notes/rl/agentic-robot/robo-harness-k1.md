@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2609.29389
 - Source: https://arxiv.org/abs/2609.29389
-- Project: 
-- Local PDF: `/Users/luogu/physical_intelligence/papers/rl/agentic-robot/RoboHarnessK1_2609.29389.pdf`
+- Project:
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/rl/agentic-robot/RoboHarnessK1_2609.29389.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -17,7 +17,8 @@
 ## 核心技术
 
 ![robo-harness-k1 架构图](figures/robo-harness-k1/fig2.png)
-*论文 Figure 2（p3）：Figure 2 Robo-Harness K1: perception-augmented Robot-Use Agents. (A) Agent harness loop. T*
+
+*论文 Figure 2（p3）：Figure 2 Robo-Harness K1: perception-augmented Robot-Use Agents. (A) Agent harness loop. The VLM rec*
 
 1. **感知即工具（perception as tools）四族**：(i) 区域接地 `find_regions`（文本查询 SAM 3，返回带持久标识符 S1/S2 的候选掩码）+ `inspect_region`（框提示精化）+ `check_region_view`（把测得的表面点投影进另一相机做深度一致性核验）；(ii) 深度与几何 `measure_depth`（像素经标定反投影到世界坐标 + TCP 相对位移）、`fit_geometry`（区域平面/主方向拟合）、`region_relation`；(iii) 锚点跟踪 `track_features/read_track`（TAPNext++ 图像点对应 + 深度提升到世界坐标，区分腕相机表观运动与真实表面位移，丢失时仅吊销实时测量、保留历史参考）；(iv) `grasp_candidates`（GraspGen 从区域点云提案平行爪位姿，最多呈现 3 个候选 + 示意投影）。深度与标定永远躲在工具接口后面——agent 收到的是回执文本与叠加了参考线的 RGB，不是深度数组或点云。
 2. **MDP 形式化**：$\langle S, U, H, g\rangle$ 中动作空间分裂为 $U_{reason}$（推理步：查询感知证据，$s_{t+1}=s_t$，回执进上下文 $c\leftarrow M(c,r)$）与 $U_{act}$（动作步：提交物理命令，推进环境并返回新观测），只有动作步推进决策下标。

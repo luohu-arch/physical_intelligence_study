@@ -1,9 +1,9 @@
 # GEN-1: Scaling Embodied Foundation Models to Mastery
 
-- Source: https://generalistai.com/blog/apr-02-2026-GEN-1
-- Project: https://generalistai.com/
-- Category: commercial physical AI / no open paper
-- Priority: high
+- Source：https://generalistai.com/blog/apr-02-2026-GEN-1
+- Project：https://generalistai.com/
+- Category：commercial physical AI / no open paper
+- Priority：high
 
 ## 一句话总结
 

@@ -1,13 +1,11 @@
 # OneTwoVLA: A Unified Vision-Language-Action Model with Adaptive Reasoning
 
 - 本地 PDF：`papers/reasoning/OneTwoVLA_2505.11917.pdf`
-
-- Local PDF: `/Users/luogu/physical_intelligence/papers/reasoning/OneTwoVLA_2505.11917.pdf`
-- arXiv: https://arxiv.org/abs/2505.11917
-- Authors: (CC BY 4.0)
-- Published: 2025
-- Category: reasoning-action integration
-- Priority: high
+- arXiv：https://arxiv.org/abs/2505.11917
+- Authors：(CC BY 4.0)
+- Published：2025
+- Category：reasoning-action integration
+- Priority：high
 
 ## 一句话总结
 
@@ -16,7 +14,8 @@ OneTwoVLA 将 System 1（快速动作执行）和 System 2（显式推理）融�
 ## 核心技术
 
 ![onetwovla 架构图](figures/onetwovla/fig1.png)
-*论文 Figure 1（p1）：Figure 1: Overview. OneTwoVLA is a single unified vision-language-action model capable of*
+
+*论文 Figure 1（p1）：Figure 1: Overview. OneTwoVLA is a single unified vision-language-action model capable of both reaso*
 
 1. **单模型双模式架构** — 基于 π₀ VLA 构建，同一组权重通过 Decision Token 在 Reasoning Mode（生成文本推理）和 Acting Mode（生成动作 chunk）间切换，消除双系统分离架构的通信瓶颈和延迟
 
@@ -139,6 +138,10 @@ OneTwoVLA 的核心直觉是 **「机器人做事时并不需要每时每刻都�
 - 开放世界部署需确保合成数据覆盖分布外的物体和场景
 
 ## 消融实验与分析
+
+![onetwovla 主结果表](figures/onetwovla/tab4.png)
+
+*论文 Table 4（p19）：Table 4: Experimental results for the visual grounding tasks. Results are broken down by the four in*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

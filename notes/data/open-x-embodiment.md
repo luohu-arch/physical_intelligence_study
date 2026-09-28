@@ -13,7 +13,8 @@ OXE 把全球 21 个机构的 60 个数据集统一成 RLDS 格式，拼出 100 
 ## 核心技术
 
 ![open-x-embodiment 架构图](figures/open-x-embodiment/fig2.png)
-*论文 Figure 2（p3）：Fig. 2: The Open X-Embodiment Dataset. (a): the dataset consists of 60 individual datasets*
+
+*论文 Figure 2（p3）：Fig. 2: The Open X-Embodiment Dataset. (a): the dataset consists of 60 individual datasets across 22*
 
 1. **粗对齐（coarse alignment）而非精细投影**：每个数据集取一个 canonical 相机视角、缩放到统一分辨率；动作统一转成 7 维末端执行器向量（$x,y,z,\text{roll},\text{pitch},\text{yaw}$ 加 gripper 开度或对应速率），逐数据集归一化后再离散化为 256 bins x 8 维（第 8 维为终止位）。刻意不做的两件事：不跨数据集对齐坐标系，保留原始控制方案（绝对/相对位姿或速度照原样）
 2. **RLDS 标准化数据容器**：序列化 tfrecord 格式，兼容不同数量 RGB 相机、深度相机与点云，支持主流框架的并行加载——这是让 60 个异构数据集能被一个 dataloader 吃下的关键
@@ -108,6 +109,7 @@ graph TD
 | RT-2-X | 5B | 2 帧 | 混合 | No | Web-pretrained | 48.7% | 47% |
 
 **核心结论**：(1) emergent skills 的来源被干净地隔离——同样的 55B 模型，仅因混入他机数据就从 27.3% 升至 75.8%，且移除 Bridge 后跌去一半以上，证明跨机型技能迁移真实存在；(2) 两帧图像历史的贡献异常巨大（14.5% 到 44.4%，泛化 30% 到 52%），说明动态信息是动作预测的前置条件；(3) web 预训练仍是底线（from scratch 只有 0%/1%）；(4) 与 RT-2 论文的结论不同，此处 fine-tune（web 权重起点但不共训 web 数据，48.7%/47%）与 co-fine-tune（44.4%/52%）打平，作者归因于 RT-2-X 的机器人数据本身就足够多样——**当机器人数据够大时，防遗忘的需求变弱**。
+
 （补充：小数据域 Fig. 4 显示 RT-1-X 在 5 个域中的 4 个胜过 Original Method，平均成功率比 Original Method 或 RT-1 高约 50%；与 Table I 合起来构成「小域受益、大域看容量」的完整图景。）
 
 ### 小数据域汇总（Fig. 4 标题所述）

@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2604.09459
 - Source: https://arxiv.org/abs/2604.09459
-- Project: 
-- Local PDF: `papers/rl/agentic-algo/ReasoningToAgentic_2604.09459.pdf`
+- Project:
+- 本地 PDF：`papers/rl/agentic-algo/ReasoningToAgentic_2604.09459.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@
 ## 核心技术
 
 ![reasoning-to-agentic 架构图](figures/reasoning-to-agentic/fig1.png)
-*论文 Figure 1（p5）：Figure 1: Evolution of RL for LLMs and the corresponding credit assignment challenges. Eac*
+
+*论文 Figure 1（p5）：Figure 1: Evolution of RL for LLMs and the corresponding credit assignment challenges. Each phase in*
 
 1. **可审计的语料工程**：筛选台账（92 条，23 条排除但保留排除理由）、69 篇统一清单、42 篇固定全文子集。两名算法研究者冻结评分细则后独立盲编 6 个诊断 + 1 个排他主家族，共 252 个二元诊断格，一致 223 格（88.5%），各诊断 Cohen's $\kappa$ 介于 .543–.909，主家族判定 42/42 全一致（$\kappa = 1.000$）；29 处诊断分歧分布在 18 篇论文，保留原样不做事后调和。
 2. **四阶段叙事主线**：RLHF（2022–23，稠密 RM 奖励，单轮 ~500 token，CA 隐式由 PPO critic 承担）→ Reasoning RL（2023–25，0/1 结果奖励，单次生成 0.5K–30K token，CA 显式化为 token/step 级，催生 PRM）→ Agentic RL（2024–，稀疏终端奖励，10–100+ 轮、10^5–10^6 token，CA 转向 turn 级与 hindsight）→ Multi-Agent（2026+，团队奖励、100+ 轮、跨智能体 credit）。半年度分布 3/6/10/18/31/1 篇（2024H1 至 2026H2-partial），增速可见。

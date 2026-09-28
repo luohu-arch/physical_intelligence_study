@@ -3,8 +3,8 @@
 - arXiv: https://arxiv.org/abs/2606.22995
 - Source: https://arxiv.org/abs/2606.22995
 - 代码：https://github.com/Nala-YN/G2PO
-- Project: 
-- Local PDF: `papers/rl/agentic-algo/G2PO_2606.22995.pdf`
+- Project:
+- 本地 PDF：`papers/rl/agentic-algo/G2PO_2606.22995.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -16,7 +16,8 @@ G2PO（微软 + 北大）把多轮 agent RL 的线性轨迹重构为全局状态
 ## 核心技术
 
 ![g2po 架构图](figures/g2po/fig1.png)
-*论文 Figure 1（p2）：Figure 1: (a) compares the training sample units between trajectory-level and step-level t*
+
+*论文 Figure 1（p2）：Figure 1: (a) compares the training sample units between trajectory-level and step-level training. (*
 
 1. **State group graph construction（图构建）** — 对任务 $x$ 采 $N$ 条完整轨迹，收集全部中间 observation 集合 $\mathcal{O}$，按"完全相同的 observation"聚类划入互斥状态组：状态组为节点、动作 $(G_s, a, G_t)$ 为边，得到状态转移图。物理含义：多轨迹探索中的同一网页/同一房间配置天然汇成同一节点，被线性视角割裂的探索在图上重新连通。AppWorld 实验证明即使 observation 是 API 返回文本（需推断底层 app 状态），聚类建图依然可行。
 2. **Group-aggregation state-value estimation（组聚合价值）** — 先按折扣回报给每条轨迹内的步赋值，再对同一状态组内所有步取平均作为节点价值。动机有二：方差削减（同一状态在不同轨迹中可能通向不同结局，单轨迹结局是掷硬币）；更好的时序信用分配（好动作可能因后续失误而失败、平庸动作可能靠运气成功，跨轨迹平均抹掉未来步噪声）。附录 B.1 证明方差降为 $\sigma^2/|G_k|$。
@@ -102,6 +103,10 @@ $$\mathrm{Var}(\delta_j^i) = \mathrm{Var}(V(G_{k'})) + \mathrm{Var}(V(G_k)) - 2\
 - 推理效率副产品：G2PO 训出的模型完成任务的交互步数少于 GRPO（两基准均如此）、多数情况少于 GiGPO（图 4c；柱状图数值与方法的一一对应待确认：文本抽取无法完全确定分组归属，WebShop 1.5B 一组读数为 GRPO 9 / GiGPO 7.3 / G2PO 5.4 步）——更少交互步直接降低推理与 API 调用成本
 
 ## 消融实验与分析
+
+![g2po 主结果表](figures/g2po/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Results on WebShop and ALFWorld. We report the success rate (%) for each sub-task and*
 
 主结果（论文 Table 1，成功率 %，3 seeds 平均）：
 

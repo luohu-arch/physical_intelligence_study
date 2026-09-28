@@ -2,8 +2,8 @@
 
 - arXiv: https://arxiv.org/abs/2606.08610
 - Source: https://arxiv.org/abs/2606.08610
-- Project: 
-- Local PDF: `papers/rl/agentic-robot/HARBOR_2606.08610.pdf`
+- Project:
+- 本地 PDF：`papers/rl/agentic-robot/HARBOR_2606.08610.pdf`
 - Year: 2026
 - Category: rl
 - Priority: high
@@ -15,7 +15,8 @@ HARBOR 把机器人 RL 的"周边工程"（装依赖、建任务、写奖励、�
 ## 核心技术
 
 ![harbor 架构图](figures/harbor/fig1.png)
-*论文 Figure 1（p2）：Figure 1: Overview of HARBOR. (1) HARBOR supports arbitrary simulator × task × algorithm c*
+
+*论文 Figure 1（p2）：Figure 1: Overview of HARBOR. (1) HARBOR supports arbitrary simulator × task × algorithm combination*
 
 1. **Harness 五元组抽象** $H_{RL} = (H_A, C, M, G, K)$ — agents（上下文隔离的子进程，各管一个有界阶段）、commands（从 `rl-sweep` 原语到 `tune-reward` 组合环的可复现操作）、mutable artifacts（持久可检查文件，作为 agent 间通信基底）、verifiable gates（硬接口检查 + 软语义检查，如 import、rollout、渲染）、reusable knowledge（模板、参考、脚本、人类启发式、历史经验）。
 2. **六阶段 artifact-centric 工作流**：Dependency setup → Task generation → Reward generation → RL integration → Domain randomization → RL tuning，每阶段由"agent + 命令对"实现、以 artifact 记录、由 gate 验证（论文 Table 1）。用户可只指定 simulator/task/算法/预算/调参目标的任意子集，缺省项由框架经验与代码库模板推断。
@@ -116,6 +117,10 @@ $\eta$ 为缩放因子，用于抑制 sim-to-real 执行中的高频动作噪声
 **复现入口**：论文说 HARBOR 以"documented and accessible LLM-agent plugin"实现，命令以 `/harbor:` 前缀暴露，但正文与附录均未给出代码仓库链接。待确认：plugin 的开源地址与安装方式，论文未披露（本文 DOI 页与附录 C 均只列命令规范）。
 
 ## 消融实验与分析
+
+![harbor 主结果表](figures/harbor/tab3.png)
+
+*论文 Table 3（p8）：Table 3: Ablations on the ManiSkill Push-Cube pipeline. † marks a stage that reported success but*
 
 论文 Table 3（ManiSkill Push-Cube 流水线，5 阶段 × 每配置 10 次重复，Opus 4.7，$N=4$；S.R. 为 10 次成功数，Time 单位分钟）：
 

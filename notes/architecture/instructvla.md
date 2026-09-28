@@ -13,10 +13,12 @@ InstructVLA 回答「VLA 微调是否必然摧毁 VLM 的多模态推理」这�
 
 ## 核心技术
 
-![instructvla 架构图](figures/instructvla/fig1.png)
-*论文 Figure 1（p2）：Figure 1: Method overview. InstructVLA integrates vision-language understanding with preci*
-
 1. **Latent action query 接口** — $N$ 个可学习查询 attend 到 VLM 隐状态抽取任务相关 latent $\mathcal{C}\in\mathbb{R}^{N\times D}$，动作专家从 latent 生成动作而非直接从 VLM 词表生成；低层控制学习被隔离在 VLM 语义空间之外，这是防灾难遗忘的第一道墙；扫描实验显示 64 个 token 最优（16 太少限制行为多样性、128 训练效率下降）
+
+![instructvla 架构图](figures/instructvla/fig1.png)
+
+*论文 Figure 1（p2）：Figure 1: Method overview. InstructVLA integrates vision-language understanding with precise*
+
 2. **MoE 适配双路输出** — 冻结主干上挂两个 LoRA adapter（action adapter 与 language adapter）+ 一个 scalar head（4 层 MLP 按 token 隐状态分类出 gate 系数 $\lambda_i$），同一模型在文本回答与 latent 规划间自适应切换；激活可视化显示系统提示主要走语言支路、latent 生成时动作支路强激活且更关注名词/动词
 3. **两阶段配方** — Stage 1 在异构操作数据上以 $\mathcal{L}=\mathcal{L}_{LM}+\mathcal{L}_{FM}$ 预训练动作专家与 latent embedding（含 language motion 文本监督）；Stage 2 以 1:7 的多模态-操作交错配比做指令微调（对比 ECoT/ChatVLA 的 1:3），额外混入通用多模态语料巩固理解
 4. **Language motion 监督** — 把末状态窗口位移量化为 $v\in\{-1,0,1\}^6$ 离散运动码，经固定词表映射为「move forward / tilt up / close gripper」等自然语言口令，使 VLM 的词向量空间与末端运动原语对齐
@@ -93,6 +95,10 @@ $$\mathcal{L}_{FM} = \mathbb{E}\big[\| V_\theta(A_\tau, q_t) - (\epsilon - A) \|
 
 ## 消融实验与分析
 
+![instructvla 主结果表](figures/instructvla/tab10.png)
+
+*论文 Table 10（p26）：Table 10: LIBERO benchmark results. We present the success rate and standard error for each*
+
 架构与监督消融（Table 3，WidowX Bot / Google Bot / Ave 成功率）：
 
 | 动作专家配置 | WidowX Bot | Google Bot | Ave |
@@ -118,7 +124,7 @@ $$\mathcal{L}_{FM} = \mathbb{E}\big[\| V_\theta(A_\tau, q_t) - (\epsilon - A) \|
 
 **核心结论**：两组表共同支撑一个明确的因果链——动作性能的门槛在感知通路（去 DINOv2 使 Ave 从 52.9 跌到 23.0，加 FiLM 再捞回 7.0），而推理能力的保留必须在参数层面设闸：同样喂 VLA-IT 语料，靠全量微调的 OpenVLA 在 Situated Reasoning 上纹丝不动（19.5 → 17.4 甚至倒退）、Task Aggregation 也只到 30.5，而带着 MoE 闸门的 InstructVLA 达到 46.0，两者差距就是「训练范式」而非「数据」本身的贡献；外部挂一个 GPT-4o 也只能救到 35.6，因为 GPT-4o 自己都难以正确改写具身指令。另一条重要副线是指令覆盖面的作用：Situated Reasoning 对数据组成极敏感（Expert 10.4 → 加 Bridge 24.9，+139.4%），而 Task Aggregation 几乎不动（20.8 → 18.4），说明「语言多样性」与「情境接地能力」吃的是两种不同的营养。
 
-## 技术权衡
+## 技术权衡（Trade-off）
 
 | 选择 | 收益 | 代价 |
 |------|------|------|

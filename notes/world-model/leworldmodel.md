@@ -13,7 +13,8 @@
 ## 核心技术
 
 ![leworldmodel 架构图](figures/leworldmodel/fig2.png)
-*论文 Figure 2（p2）：Figure 2: Characteristics of latent world model approaches. Methods are grouped by trainin*
+
+*论文 Figure 2（p2）：Figure 2: Characteristics of latent world model approaches. Methods are grouped by training paradigm*
 
 **架构（encoder-predictor 双件套，~5M + ~10M 参数）。**
 - Encoder：ViT-tiny（patch size 14, 12 层, 3 heads, hidden 192），取末层 [CLS] token 过一层 MLP+BatchNorm 投影得 $z_t$。这里的 BN 投影是刻意为之的：ViT 最后一层的 LayerNorm 会把各维方差强制归一，从而破坏以方差作为信号的 SIGReg 目标，所以必须在其后接一个可学的线性重标定。
@@ -110,6 +111,10 @@ flowchart TD
 - **VoE 实验具体设计（可直接借鉴）**：每 env 设计两类扰动——visual perturbation（物体颜色突变）与 physical perturbation（物体瞬移到随机位置）；paired t-test 显示 teleport 引起的 surprise 提升显著 ($p<0.01$) 而 color change 不显著，说明模型确实学到物理意义上的动力学而不只是视觉模式匹配。
 
 ## 消融实验与分析
+
+![leworldmodel 主结果表](figures/leworldmodel/tab10.png)
+
+*论文 Table 10（p26）：Table 10: Planning Solver Performance. We report the success rate (SR) on the Push-T planning task*
 
 ### A. 三方法在 Push-T 的稳定性对照（Table 5，3 seeds，同 50 条目标轨迹）
 

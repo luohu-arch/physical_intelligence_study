@@ -14,7 +14,8 @@ VLAC 提出统一 actor-critic 自回归架构：基于 InternVL 多模态模型
 ## 核心技术
 
 ![vlac 架构图](figures/vlac/fig1.png)
-*论文 Figure 1（p2）：Figure 1. Overview. Pretrained on multi-source data, VLAC provides dense progress rewards*
+
+*论文 Figure 1（p2）：Figure 1. Overview. Pretrained on multi-source data, VLAC provides dense progress rewards for real-w*
 
 1. **Pair-wise Progress Understanding** — 输入当前帧+历史帧 pair → 输出连续 progress delta 信号（正=前进，负=倒退），替代稀疏 handcrafted reward；critic 在成功轨迹上的 VOC-F1 达 0.89，失败轨迹上仅 0.44——说明 critic 学到的是"进展"而非"模式匹配"
 2. **统一架构** — 同一 InternVL 模型，prompt 切换 actor/critic 模式：critic 输出 reward token，actor 输出 semantic delta EE pose；2B 参数做 actor、8B 参数做 critic（尺寸不对称：评估比执行更需要容量）
@@ -62,6 +63,10 @@ $$L^{PPO} = \mathbb{E}\left[\min\left(\frac{\pi_\theta(a|s)}{\pi_{\theta_{old}}(
 - 人类干预（HGE）辅助: 最终成功率 98% vs 无干预 88%
 
 ## 消融实验与分析
+
+![vlac 主结果表](figures/vlac/tab3.png)
+
+*论文 Table 3（p15）：Table 3. Illustration of the final success rate on the real-world tasks. The success rate is evaluat*
 
 | 配置 | 指标 | 数值 |
 |------|------|------|

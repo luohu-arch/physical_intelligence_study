@@ -13,6 +13,7 @@ V-JEPA 把 I-JEPA 的 "EMA target 表征回归" 目标搬到时空 token 上（�
 ## 核心技术
 
 ![vjepa 架构图](figures/vjepa/fig3.png)
+
 *论文 Figure 3（p4）：Figure 3 V-JEPA. Training operates on a video clip of T frames with spatial resolution H × W, flatte*
 
 1. **三网络结构沿用 I-JEPA 骨架**：x-encoder $E_\theta$ 只处理可见 token；y-encoder $E_{\bar\theta}$ 编码完整 clip 并在其输出端施加掩码挑选目标块（contextualized targets 思路来自 data2vec）；narrow predictor $P_\phi$ 为 12 层、embedding 固定 384 的浅层 ViT，输入可见表征加带位置嵌入的可学习 mask token。
@@ -107,6 +108,10 @@ $$
 实操要点：(1) 若要迁移此配方到机器人第一视角数据，掩码的时间轴贯通性质应该保留，因为它是消融里得分最高的成分；具体块数与尺寸的细粒度扫描见论文附录 E.4。(2) 复现效率关键在 multi-mask 摊销——两次 predictor 前向配一次 y-encoder 前向。(3) 冻结评测务必写明用 mean 还是 attentive pooling，两者相差可达 17 个点。(4) 论文未提供任何 few-label 微调之外的适配管线，模仿其协议需自行准备 attentive probe 训练代码（官方仓库 github.com/facebookresearch/jepa）。
 
 ## 消融实验与分析
+
+![vjepa 主结果表](figures/vjepa/tab5.png)
+
+*论文 Table 5（p7）：Table 5 Comparison with Pixel Prediction Methods. We compare V-JEPA with OmniMAE (Girdhar et al., 20*
 
 | 实验（出处） | 对照设置 | 关键数字结果 |
 |------|------|------|

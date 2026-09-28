@@ -1,9 +1,9 @@
 # GENE-26.5: Genesis AI Robotic Brain for Human-Level Manipulation
 
-- Source: https://www.genesis.ai/press/press-release-gene-265
-- Project: https://www.genesis.ai/
-- Category: dexterous manipulation / no open paper
-- Priority: medium
+- Source：https://www.genesis.ai/press/press-release-gene-265
+- Project：https://www.genesis.ai/
+- Category：dexterous manipulation / no open paper
+- Priority：medium
 
 ## 一句话总结
 

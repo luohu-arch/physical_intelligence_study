@@ -14,7 +14,8 @@ IMR-LLM 用 LLM 做"翻译器"——LLM 将自然语言任务转为析取图(dis
 ## 核心技术
 
 ![imr-llm 架构图](figures/imr-llm/fig1.png)
-*论文 Figure 1（p1）：Fig. 1. A multi-robot industrial production line. Our method transforms manufacturing task*
+
+*论文 Figure 1（p1）：Fig. 1. A multi-robot industrial production line. Our method transforms*
 
 1. LLM 翻译 + OR 求解：LLM 分解任务→析取图→确定求解器保证全局最优
 2. Process Tree 代码生成：LLM 导航选路径替代从零生成代码
@@ -57,22 +58,6 @@ $$
 - 场景: 造船和重型装备制造
 - 实际部署: 3 机器人产线，含视觉定位、抓取、协作运输
 
-## 消融实验与分析
-
-IMR-Bench 上按任务类别分组的 SR（成功完成全部工序且全局约束满足）：
-
-| 消融 | Single Robot SR | Simple Multi-Robot SR | Complex Multi-Robot SR |
-|------|----------------|----------------------|----------------------|
-| Ours（完整，GPT-4o） | 0.90 | 0.87 | 0.68 |
-| Ours（Qwen3-32B） | 1.00 | 0.87 | 0.60 |
-| w/order（LLM 直接排执行顺序，无 OR 求解器） | 0.90 | 0.47 | 0.00 |
-| w/dependency（无依赖约束建模） | 0.90 | 0.60 | 0.36 |
-| w/o T（无 Process Tree 程序生成） | 0.80 | 0.64 | 0.44 |
-| 基线 LiP-O / LaMMA-O / SMART-LLM | 0.90 / 0.80 / 0.50 | 0.73 / 0.46 / 0.20 | 0.24 / 0.20 / 0.00 |
-
-**核心结论**：消融清晰显示 IMR-LLM 的优势随任务复杂度单调扩大——单机器人任务各方法几乎打平（SR 0.80-1.00），复杂多机器人任务上完整方法 0.68 而"LLM 直接排程"归零（0.00）、无依赖建模仅 0.36、无 Process Tree 0.44，说明析取图求解器与依赖约束建模是多机器人协同的核心保障；与基线对比（LiP-O 0.24、LaMMA-O 0.20、SMART-LLM 0.00）进一步印证纯 LLM 或简化形式化方法都无法应对工业级多机器人调度。
-
-
 ## 工程细节与实操指南
 
 - **Input**: 自然语言任务描述 + 产线配置（机器人数量/类型/工作空间）
@@ -83,7 +68,22 @@ IMR-Bench 上按任务类别分组的 SR（成功完成全部工序且全局约�
 - **Real deployment**: 3-robot production line with visual positioning, grasping, collaborative transport
 - **Speedup**: Manual programming hours → minutes
 
-## 技术权衡
+## 消融实验与分析
+
+IMR-Bench 上按任务类别分组的 SR（成功完成全部工序且全局约束满足）：
+
+| 消融 | Single Robot SR | Simple Multi-Robot SR | Complex Multi-Robot SR |
+|------|-----------------|----------------------|----------------------|
+| Ours（完整，GPT-4o） | 0.90 | 0.87 | 0.68 |
+| Ours（Qwen3-32B） | 1.00 | 0.87 | 0.60 |
+| w/order（LLM 直接排执行顺序，无 OR 求解器） | 0.90 | 0.47 | 0.00 |
+| w/dependency（无依赖约束建模） | 0.90 | 0.60 | 0.36 |
+| w/o T（无 Process Tree 程序生成） | 0.80 | 0.64 | 0.44 |
+| 基线 LiP-O / LaMMA-O / SMART-LLM | 0.90 / 0.80 / 0.50 | 0.73 / 0.46 / 0.20 | 0.24 / 0.20 / 0.00 |
+
+**核心结论**：消融清晰显示 IMR-LLM 的优势随任务复杂度单调扩大——单机器人任务各方法几乎打平（SR 0.80-1.00），复杂多机器人任务上完整方法 0.68 而"LLM 直接排程"归零（0.00）、无依赖建模仅 0.36、无 Process Tree 0.44，说明析取图求解器与依赖约束建模是多机器人协同的核心保障；与基线对比（LiP-O 0.24、LaMMA-O 0.20、SMART-LLM 0.00）进一步印证纯 LLM 或简化形式化方法都无法应对工业级多机器人调度。
+
+## 技术权衡（Trade-off）
 
 | 优势 | 劣势 |
 |------|------|

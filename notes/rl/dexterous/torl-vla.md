@@ -13,7 +13,8 @@ TORL-VLA 提出触觉引导在线 RL 框架：VLA 同时预测参考动作和未
 ## 核心技术
 
 ![torl-vla 架构图](figures/torl-vla/fig1.png)
-*论文 Figure 1（p2）：Figure 1: Overview of the TORL-VLA framework. Stage I: Tactile-derived wrench sequences ar*
+
+*论文 Figure 1（p2）：Figure 1: Overview of the TORL-VLA framework. Stage I: Tactile-derived wrench sequences are fused af*
 
 1. **Wrench-aware VLA** — VLA 同时预测 action chunk 和 future wrench 序列，提供语义+物理双重先验：语义先验（动作该怎么做）来自预训练，物理先验（接触会受多大力）来自 wrench 预测头
 2. **轻量在线 RL 精调** — 部署时用实时 wrench 反馈在线更新轻量 actor-critic，参考动作被当作先验约束、实时 wrench 偏差作为修正信号
@@ -59,6 +60,10 @@ $$Q^\pi(s_t, a_t) = \begin{cases} 0 & \text{if } t \le \tau_{int} \text{（干�
 - 时间效率: 平均完成 165.5s（vs π0.5 199.7s, -17%）
 
 ## 消融实验与分析
+
+![torl-vla 主结果表](figures/torl-vla/tab1.png)
+
+*论文 Table 1（p7）：Table 1: Real-robot performance. Success rates are reported for three contact-centric subtasks and t*
 
 3 个真实机器人接触任务（每任务 30 trials，论文 Table）：
 

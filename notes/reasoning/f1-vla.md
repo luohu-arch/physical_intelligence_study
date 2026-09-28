@@ -1,10 +1,8 @@
 # F1-VLA: A Vision-Language-Action Model Bridging Understanding and Generation to Actions
 
 - 本地 PDF：`papers/reasoning/F1-VLA_2509.06951.pdf`
-
-- Local PDF: `papers/reasoning/F1-VLA_2509.06951.pdf`
-- arXiv: https://arxiv.org/abs/2509.06951
-- Project: https://aopolin-lv.github.io/F1-VLA/
+- arXiv：https://arxiv.org/abs/2509.06951
+- Project：https://aopolin-lv.github.io/F1-VLA/
 - 年份：2025
 - 阶段：视觉前瞻引导的 VLA
 
@@ -15,7 +13,8 @@ F1-VLA 在 VLA 决策流程中引入显式视觉前瞻（visual foresight）生�
 ## 核心技术
 
 ![f1-vla 架构图](figures/f1-vla/fig1.png)
-*论文 Figure 1（p2）：Figure 1: The comparison of varied paradigms for manipulation policies. The earliest end-t*
+
+*论文 Figure 1（p2）：Figure 1: The comparison of varied paradigms for manipulation policies. The earliest end-to- end man*
 
 1. **Mixture-of-Transformer 三模块架构** — 感知模块、前瞻生成模块、控制模块各司其职，构成"理解→生成→行动"的完整链路
 2. **下一尺度预测（Next-Scale Prediction）** — 合成目标导向的未来视觉状态，作为显式的规划中间目标
@@ -131,6 +130,10 @@ F1-VLA 的核心直觉是：**优秀的操作者在动手前会先「想象」�
 - **联合训练权重 $\alpha$**：在动态场景中增大 $\alpha$（0.1→0.3），让前瞻质量更优
 
 ## 消融实验与分析
+
+![f1-vla 主结果表](figures/f1-vla/tab3.png)
+
+*论文 Table 3（p8）：Table 3: Results on SimplerEnv Bridge Benchmark. For each task, we report both Grasp Success*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

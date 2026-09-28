@@ -13,7 +13,8 @@ TD-MPC2 在一个不含解码器的隐式（joint-embedding）世界模型上做
 ## 核心技术
 
 ![td-mpc2 架构图](figures/td-mpc2/fig3.png)
-*论文 Figure 3（p3）：Figure 3. The TD-MPC2 architecture. Observations s are encoded into their (normalized) lat*
+
+*论文 Figure 3（p3）：Figure 3. The TD-MPC2 architecture*
 
 1. **五组件隐式世界模型**：Encoder $z=h(s,e)$、Latent dynamics $z'=d(z,a,e)$、Reward $\hat r=R(z,a,e)$、Terminal value $\hat q=Q(z,a,e)$、Policy prior $\hat a=p(z,e)$；$e$ 是任务嵌入。没有 decoder——模型只学"预测回报所需的最少动态信息"。
 2. **TD 学模型（joint-embedding prediction + discrete regression）**：潜在下一步 $z'_t$ 用 $\ell_2$ 对齐 stop-gradient 后的编码 $h(s'_t)$；reward/value 都是 log 空间 101-bin 的 soft cross-entropy 离散回归，使损失量级与任务奖励量级无关。
@@ -62,7 +63,7 @@ flowchart TB
     DYN --> PLAN["MPPI planner: horizon 3 iters 6 pop 512"]
     PP --> PLAN
     PLAN --> ACT["execute first action then re-plan"]
-    ACT --> BUF["replay buffer B"] 
+    ACT --> BUF["replay buffer B"]
     BUF --> TR["train all heads jointly: JEP + reward CE + value CE"]
 ```
 
@@ -112,6 +113,10 @@ $$
 实操要点：(1) 数据集构建——多任务模型用的是 240 个单任务 agent replay buffer 合并出的 545M transitions；80 任务集合由全部 50 个 Meta-World 任务加 30 个 DMControl 任务组成（另有 30-task 纯 DMControl 子集单独报告了扩容曲线）；(2) 评测发布 300+ checkpoints；(3) 若做视觉输入，换 4 层浅 CNN encoder + 64×64 输入 + random shift 增强，其余超参不动；(4) 微调新任务时可把 $e$ 初始化成语义相近任务的嵌入或随机向量。
 
 ## 消融实验与分析
+
+![td-mpc2 主结果表](figures/td-mpc2/tab10.png)
+
+*论文 Table 10（p30）：Table 10. Test-time regularization. Normalized score of a 19M parameter TD-MPC2 agent trained*
 
 | 实验 | 对照设置 | 关键数字结果 |
 |------|------|------|

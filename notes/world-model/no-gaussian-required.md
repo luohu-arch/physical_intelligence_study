@@ -13,7 +13,8 @@
 ## 核心技术
 
 ![no-gaussian-required 架构图](figures/no-gaussian-required/fig1.png)
-*论文 Figure 1（p2）：Figure 1: Training and inference paths for AC-MTM. During training, the observed action is*
+
+*论文 Figure 1（p2）：Figure 1: Training and inference paths for AC-MTM. During training, the observed action is an input*
 
 **与 LeWM 的对照结构。** 前向任务照旧：
 $$
@@ -112,6 +113,10 @@ flowchart LR
 - **诚实的 scope 说明（Appendix B audit）**：OGBench Visual Scene 论文数字使用的是 trajectory-goal MPC 协议而非 OGBench 官方 750-step fixed-goal protocol；在官方 protocol 下两种方法在这个 model scale 都解不了任务。所以 80.0% 应当读作 matched stress test 数字，不是公开 leaderboard 成绩。
 
 ## 消融实验与分析
+
+![no-gaussian-required 主结果表](figures/no-gaussian-required/tab2.png)
+
+*论文 Table 2（p6）：Table 2: TwoRoom anti-collapse ablation with 200 evaluation episodes per seed. Values are mean*
 
 ### A. TwoRoom 抗坍塌 sanity check（Table 2，200 eval episodes per seed，3 seeds）
 

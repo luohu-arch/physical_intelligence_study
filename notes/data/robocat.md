@@ -13,6 +13,7 @@ RoboCat 是一个基于 Gato 架构的视觉目标条件决策 Transformer，首
 ## 核心技术
 
 ![robocat 架构图](figures/robocat/fig1.png)
+
 *论文 Figure 1（p3）：Figure 1: The self-improvement process. RoboCat is a multi-task, multi-embodiment visual goal-condit*
 
 1. **自改进数据生成循环** — 由通用模型微调至新任务 -> 部署自主收集大量轨迹 -> 将新数据加入训练集重训练下一版通用模型
@@ -149,14 +150,15 @@ RoboCat 的核心逻辑是「用一个大脑控制多个不同的身体」。传
 - **自主重置**：策略池机制，利用任务间互补关系实现自动环境重置
 - **评估**：每个任务变体平均 100 次评估，每次使用不同目标图像和随机初始状态
 
-## 实验结果精华
+### 实验结果精华
 
-### 训练任务性能
+#### 训练任务性能
+
 - RoboCat 在绝大多数训练任务上超越单任务 VFM 基线（NFNet-f6 438M, Swin-L 197M）
 - 在真实世界任务上差距尤为显著（VFM 因数据量少无法利用多任务迁移）
 - RGB Stacking Benchmark：RoboCat 平均 80%，与 Gato（78%）和 BC-IMP（79%）持平
 
-### 微调泛化能力
+#### 微调泛化能力
 
 | 泛化轴 | RoboCat（500 示教）| VFM 基线（1000 示教）|
 |--------|-------------------|---------------------|
@@ -165,13 +167,17 @@ RoboCat 的核心逻辑是「用一个大脑控制多个不同的身体」。传
 | KUKA 14-DoF 齿轮举起 | 56% | ~0% |
 | 形状匹配插入 | 6% | ~0% |
 
-### 自改进效果
+#### 自改进效果
 
 - 使用 364M 小模型验证自改进：自改进版本在 4 个任务上全面超越直接使用示教训练的版本
 - 完全体 RoboCat（1.18B）在自改进任务上的表现达到或超越了数据生成代理的水平
 - 多任务训练带来正向迁移：训练任务越多，各任务上的性能越好
 
 ## 消融实验与分析
+
+![robocat 主结果表](figures/robocat/tab1.png)
+
+*论文 Table 1（p10）：Table 1: Final RoboCat performance on evaluation tasks. This table lists the tasks used for training*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|
@@ -181,7 +187,7 @@ RoboCat 的核心逻辑是「用一个大脑控制多个不同的身体」。传
 
 **核心结论**：Self-improvement loop 是 RoboCat 最大的创新——从实践中生成数据再训练，形成持续改进的闭环。
 
-## 技术权衡
+## 技术权衡（Trade-off）
 
 | 优势 | 劣势与工程代价 |
 |------|---------------|

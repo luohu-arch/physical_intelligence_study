@@ -1,12 +1,12 @@
 # DexTacWAM: A Visuo-Tactile World-Action Model for Dexterous Manipulation（灵巧操作的视触觉世界-动作模型）
 
-- arXiv: https://arxiv.org/abs/2609.24976
-- Source: https://arxiv.org/abs/2609.24976
-- Project: https://dextacwam.github.io/
-- Local PDF: `/Users/luogu/physical_intelligence/papers/world-model/DexTacWAM_2609.24976.pdf`
-- Year: 2026
-- Category: world-model
-- Priority: high
+- arXiv：https://arxiv.org/abs/2609.24976
+- 来源：https://arxiv.org/abs/2609.24976
+- 项目主页：https://dextacwam.github.io/
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/world-model/DexTacWAM_2609.24976.pdf`
+- 年份：2026
+- 分类：world-model
+- 优先级：high
 
 ## 一句话总结
 
@@ -15,7 +15,8 @@ DexTacWAM 把 TacWAM 一系的视触觉世界建模从平行夹爪推进到 22-D
 ## 核心技术
 
 ![dextacwam 架构图](figures/dextacwam/fig2.png)
-*论文 Figure 2（p4）：Figure 2: Overall architecture of DexTacWAM. A two-block transformer design. Left: the Wor*
+
+*论文 Figure 2（p4）：Figure 2: Overall architecture of DexTacWAM. A two-block transformer design. Left: the World-Model T*
 
 1. **触觉即世界状态**：与"触觉当策略输入/辅助感知"的惯例不同，压缩后的左右手触觉 latent 与视觉 latent 一起构成联合世界状态 $s_t$，世界模型在 $s_t$ 上学动力学；消融证明这一选择（而非触觉信息本身）贡献了主要增益——把触觉预测拿掉、让动作专家直接条件化编码触觉特征，四任务均值 74.7 掉到 26.6。
 2. **冻结视觉 VAE 当触觉编码器**：指尖触觉图（单通道致密 marker 网格变形）经初始化为"灰度复制三通道"的 1×1 卷积适配器后送入冻结 LTX 视觉 VAE——致密触觉图的空间局部结构（接触区域、变形模式、边缘、压敏纹理变化）与图像式 latent 编码兼容，直接继承视频模型的空间先验，免去从零训触觉 VAE。
@@ -90,6 +91,10 @@ $$\tilde{z}_{t,h,w}=\sum_{i=1}^{5}\mathrm{softmax}(\ell)_i\,z^\tau_{t,i,h,w}+\al
 - **评估注意**：四项二值任务（Cube Place、Tongs、Bowl、Bottle Cap）合并 80 试验/方法做统计；Handover（三段各 0.33）与 Wipe（五段各 0.2）为加和评分——引用单任务分数时需注明评分制不同。
 
 ## 消融实验与分析
+
+![dextacwam 主结果表](figures/dextacwam/tab2.png)
+
+*论文 Table 2（p7）：Table 2: Policy-level ablations. Best task score (%) in bold*
 
 主结果（每方法每任务 20 次真机试验）与关键消融：
 

@@ -13,10 +13,12 @@ LingBot-VLA 2.0 沿三个功能域推进前代：重构数据管线并整理约 
 
 ## 核心技术
 
-![lingbot-vla2 架构图](figures/lingbot-vla2/fig1.png)
-*论文 Figure 1（p2）：Figure 1. Overview of LingBot-VLA 2.0. We revamp the data processing pipeline and curate 6*
-
 1. **Sigmoid 路由的退化防线**：**大规模异构数据引擎** — 20 个构型的单臂/双臂/半人形/人形平台（含 Franka、AgileX、Astribot S1、Unitree G1、Fourier GR-2 等），总自由度跨度 8~32 DoF；三段式清洗：动作/状态的 jerk 三阶差分与速度/加速度 Z-score 过滤（阈值按构型单独设定）、静止信号占比 >95% 剔除、URDF 投影重放由人工核对视频-状态错位；egocentric 侧用 VLM 预筛选 + SLAM + MANO 手姿重建出世界系手部轨迹
+
+![lingbot-vla2 架构图](figures/lingbot-vla2/fig1.png)
+
+*论文 Figure 1（p2）：Figure 1. Overview of LingBot-VLA 2.0. We revamp the data processing pipeline and curate 60,000 hour*
+
 2. **Dual-Query 两个查询的分工**：**55 维统一动作表示** — 14 臂关节 + 14 末端位姿（每臂 XYZ+四元数共 7 维）+ 2 夹爪 + 12 灵巧手关节 + 4 腰部 + 2 头部 + 3 移动信号，剩余 4 维预留；低维构型对应字段补零填充；以策略频率 30 Hz 为主（Galaxea R1Pro/R1Lite 为 15 Hz）
 3. **相对目标在双臂任务上的失效**：**Token-level 无辅助损失稀疏 MoE** — MoE 层替换动作专家全部 transformer block 的 FFN；采用 fine-grained expert segmentation + shared expert isolation（1 个共享专家保留通用先验，多个路由专家提供特化容量）；Sigmoid 亲和度替代 Softmax 路由（沿用 DeepSeek-V3），修正偏置只参与 Top-K 选择、不进入混合权重，实现动作学习主目标之外的免辅助损失负载均衡
 4. **单任务回退被均值掩盖**：**Dual-Query 蒸馏的预测动力学** — 在视觉与文本 token 之外追加两个 query：$Q_t$ 指向当前观测、$Q_{t+T}$ 指向前瞻 T 步（即 action chunk 大小）；深度教师 LingBot-Depth 以 L1 监督几何，因果视频教师 DINO-Video（DINOv3 初始化 + 块状因果时序注意力 + 3D-RoPE，5M 视频 clip 训练）以 Frobenius 范数监督运动感知表征
@@ -107,6 +109,10 @@ DINO-Video 老师是本文的系统级投入之一：块状因果时序注意力
 - **VLM 骨干**：正文只说 v2.0 换用了 grounding 能力更强的 VLM 骨干，未点名具体型号，待确认
 
 ## 消融实验与分析
+
+![lingbot-vla2 主结果表](figures/lingbot-vla2/tab6.png)
+
+*论文 Table 6（p13）：Table 6. Long-horizon mobile manipulation benchmark results, reported as progress score / success ra*
 
 四项设计选择在 GM-100 的 4 个真实双臂任务上消融（Barcode Scan / Scoop Rice / Squeeze Ketchup / Take Bowl from Microwave），成功率为 %，默认配置为加粗行：
 

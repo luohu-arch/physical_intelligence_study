@@ -3,7 +3,7 @@
 - arXiv: https://arxiv.org/abs/2602.21534
 - Source: https://arxiv.org/abs/2602.21534
 - Project: https://github.com/WillDreamer/ARL-Arena.git
-- Local PDF: `papers/rl/agentic-training/ARLArena_2602.21534.pdf`
+- 本地 PDF：`papers/rl/agentic-training/ARLArena_2602.21534.pdf`
 - Year: 2026（ICML 2026, PMLR 306）
 - Category: rl
 - Priority: high
@@ -83,6 +83,10 @@ $$
 - 注意：论文图注称 SAMPO 平均分 59.55，而 Table 3 表体为 60.21——**内部数字不一致（待确认）**，本笔记引用以表体 60.21 为准；GRPO 的 46.16 为全任务平均，48.08 为前三任务平均。
 
 ## 消融实验与分析
+
+![arlarena 主结果表](figures/arlarena/tab8.png)
+
+*论文 Table 8（p20）：Table 8. Unified comparison across ALFWorld (six task types + overall) and WebShop (score and succes*
 
 **表 A｜四维主结果（Qwen3-4B-SFT，Avg 为论文 Table 3 平均分）**
 

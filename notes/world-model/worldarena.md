@@ -13,7 +13,8 @@ WorldArena 的核心主张是：**视觉保真度不等于具身可用性**。�
 ## 核心技术
 
 ![worldarena 架构图](figures/worldarena/fig3.png)
-*论文 Figure 3（p6）：Figure 3. Overview of the embodied task evaluation systems, including the assessment of wo*
+
+*论文 Figure 3（p6）：Figure 3. Overview of the embodied task evaluation systems, including the assessment of world models*
 
 1. **16 指标 x 6 维度的感知评测面** — 视觉质量 3 项（MUSIQ 图像质量、LAION aesthetic、V-JEPA 特征 MMD 相似度）、运动质量 3 项（RAFT 光流 top-5% 活跃像素的 Dynamic Degree、Flow Score、插值模型的 Motion Smoothness）、内容一致性 3 项（DINO Subject Consistency / CLIP Background Consistency / 光流端点误差 Photometric Consistency）、物理符合性 2 项、3D 精度 2 项、可控性 3 项。
 2. **VLM-as-judge 与防作弊设计** — Interaction Quality 用 Qwen3-VL 按 1-5 Likert 打分；Photometric Consistency 引入 Dynamic Degree 加权惩罚静态画面（防止"不动所以像素几乎不变"刷高分）；Trajectory Accuracy 用 SAM 3 提取机械臂框后计算 NDTW 对齐真值轨迹。
@@ -75,6 +76,10 @@ $$S_{traj}^{raw} = \frac{1}{\mathrm{NDTW}(GT, P)}$$
 - **资源入口**：world-arena.ai 提供公开 leaderboard，可持续提交新模型。
 
 ## 消融实验与分析
+
+![worldarena 主结果表](figures/worldarena/tab4.png)
+
+*论文 Table 4（p7）：Table 4. Task success rate of downstream policy models trained*
 
 本文是基准工作，没有传统意义的消融表，以下改为摘录其**主结果表的功能部分**（正文 Table 4 为数据引擎任务成功率、Table 5 为动作规划成功率，均为 RoboTwin 真实仿真测评，20 次以上执行取平均），并补充相关性分析（Fig. 4/Fig. 5）。这两个表共用同一批任务（Task 1 = adjust bottle，Task 2 = click bell），恰好构成纵向可比的两条线。
 

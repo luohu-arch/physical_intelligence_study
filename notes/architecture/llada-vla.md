@@ -1,14 +1,12 @@
 # LLaDA-VLA: Vision Language Diffusion Action Models
 
 - 本地 PDF：`papers/architecture/LLaDA-VLA_2509.06932.pdf`
-
-- Local PDF: `/Users/luogu/physical_intelligence/papers/architecture/LLaDA-VLA_2509.06932.pdf`
-- arXiv: https://arxiv.org/abs/2509.06932
-- Source: https://arxiv.org/abs/2509.06932
-- Authors: Yuqing Wen, Hebei Li, Kefan Gu, Yucheng Zhao, Tiancai Wang, Xiaoyan Sun
-- Published: 2025-09
-- Category: diffusion VLM to action
-- Priority: medium
+- arXiv：https://arxiv.org/abs/2509.06932
+- Source：https://arxiv.org/abs/2509.06932
+- Authors：Yuqing Wen, Hebei Li, Kefan Gu, Yucheng Zhao, Tiancai Wang, Xiaoyan Sun
+- Published：2025-09
+- Category：diffusion VLM to action
+- Priority：medium
 
 ## 一句话总结
 
@@ -16,10 +14,12 @@ LLaDA-VLA 是首个基于预训练扩散 VLM（扩散 VLM）而非自回归 VLM 
 
 ## 核心技术
 
+1. **扩散 VLM 骨干（扩散 VLM Backbone）** — 使用 LLaDA（掩码扩散大语言模型）替代自回归 Transformer 作为语言骨干，配合 SigLIP-2 视觉编码器，利用非自回归的并行生成能力进行动作解码
+
 ![llada-vla 架构图](figures/llada-vla/fig1.png)
+
 *论文 Figure 1（p1）：Figure 1. Comparison between Autoregressive-based VLA Model and LLaDA-VLA*
 
-1. **扩散 VLM 骨干（扩散 VLM Backbone）** — 使用 LLaDA（掩码扩散大语言模型）替代自回归 Transformer 作为语言骨干，配合 SigLIP-2 视觉编码器，利用非自回归的并行生成能力进行动作解码
 2. **局部特殊 token 分类（Localized Special-token Classification, LSC）** — 将连续动作空间量化为 32 个离散 bin，添加 32 个特殊 token 到词表。训练和推理时仅对这 32 个动作 token 计算分类损失，避免在全词表（LLaDA 约 32k）上做分类，大幅降低语言到动作的适配难度
 3. **层次化动作结构化解码（Hierarchical Action-Structured Decoding, HAD）** — 在掩码扩散的迭代去噪过程中，先按动作级别的置信度排序（各 token 置信度之和），保留最高置信度动作的部分 token，掩码其余动作；再在选中的动作内按 token 级置信度排序，逐步提高动作序列的生成质量
 
@@ -123,6 +123,10 @@ LSC 提升 0.79，HAD 在此基础上提升 0.58，两者互为补充。
 **推理配置：** 10 步扩散 + 2 次 HAD 迭代。在 10 步扩散过程中，前几步先做粗粒度的动作结构确定，后几步做细粒度的 token 级精炼。
 
 ## 消融实验与分析
+
+![llada-vla 主结果表](figures/llada-vla/tab3.png)
+
+*论文 Table 3（p6）：Table 3. Comparison with previous methods on real robot. We compare the success rates (%) across fou*
 
 | 消融因子 | 变化 | 结论 |
 |---------|------|------|

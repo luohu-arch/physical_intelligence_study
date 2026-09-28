@@ -1,12 +1,11 @@
 # Capek 0.5: An Execution-Centric Vision-Language Model for Embodied Intelligence
 
-- arXiv: https://arxiv.org/abs/2608.06756
-- Source: https://arxiv.org/abs/2608.06756
-- Project: 
-- Local PDF: `/Users/luogu/physical_intelligence/papers/architecture/Capek05_2608.06756.pdf`
-- Year: 2026
-- Category: architecture
-- Priority: medium
+- arXiv：https://arxiv.org/abs/2608.06756
+- Source：https://arxiv.org/abs/2608.06756
+- 本地 PDF：`/Users/luogu/physical_intelligence/papers/architecture/Capek05_2608.06756.pdf`
+- Year：2026
+- Category：architecture
+- Priority：medium
 
 > 来源性质：XPENG ROBOTICS 技术报告（37 页，arXiv v1，2026-08-07），**无同行评审**。下文所有性能数字均来自厂商自报；报告声称全部评测行（含外部基线）由其内部 DeepInsight 评测设施统一重跑、未抄官方数字，但外部无法独立复核。
 
@@ -16,12 +15,13 @@ Capek 0.5 是一个以"执行"为组织原则的具身 VLM：把机器人在执�
 
 ## 核心技术
 
-![capek05 方法图](figures/capek05/fig6.png)
-*论文 Figure 6（p9）：Figure 6: Capability specialization and consolidation. Four specialists acquire complement*
-
 ### Execution-centric 能力分类学
 
 不按数据集或任务组织训练，而按"执行周期中反复出现的信息需求"分四族：
+
+![capek05 方法流程图](figures/capek05/fig6.png)
+
+*论文 Figure 6（p9）：Figure 6: Capability specialization and consolidation. Four specialists acquire complementary execut*
 
 - **Spatial Reasoning**：场景几何与实体间关系（方向、深度/距离/尺寸、跨视角对应、放置可行性）。
 - **Temporal Understanding**：事件顺序、发生时刻、随时间的变化（视频因果 QA、时间区间定位、长视频理解）。
@@ -134,6 +134,10 @@ $$ \hat{A}^{MOPD}_{t} = \text{clip}\!\left( \text{sg}\!\left[ \log \frac{q_r(y_t
 - **待确认：报告未提供真机闭环实验**，EmbodiedBench 与 VIGIL 均为仿真（AI2-THOR / ProcTHOR / ALFRED / Habitat 系），因此"执行中心能力能否迁移到物理机器人"没有直接证据。
 
 ## 消融实验与分析
+
+![capek05 主结果表](figures/capek05/tab6.png)
+
+*论文 Table 6（p19）：Table 6: VIGIL agentic evaluation. Overall columns report primary score (Score), world completion (W*
 
 ### 专业化与合并的受控消融（论文 Table 4，35B-A3B，同一 Qwen3.6 初始化）
 

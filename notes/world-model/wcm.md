@@ -13,7 +13,8 @@ WCM 把世界模型从"旁观评估器"升级为"策略的条件信号源"：LeJ
 ## 核心技术
 
 ![wcm 架构图](figures/wcm/fig1.png)
-*论文 Figure 1（p1）：Figure 1: RL-based GMO typically starts from a pretrained generative model that unconditio*
+
+*论文 Figure 1（p1）：Figure 1: RL-based GMO typically starts from a pretrained generative model that unconditionally samp*
 
 1. **LeJEPA 世界批判模型** — 在 JEPA 式抽象 latent 空间做预测（而非像素空间），value head 估计当前状态离任务成功有多远，dynamics head 预测状态随动作的演化；两个 head 的输出都作为策略条件
 2. **即插即用条件化** — 不修改 VLA backbone 架构，只把世界模型预测结果拼入策略输入；π0、π0.5、OpenVLA-OFT 均可直接挂载
@@ -62,6 +63,10 @@ $$\pi(a_t \mid o_t, V(z_t), \hat{z}_{t+1})$$
 - 评价指标：in-distribution（IND）与 out-of-distribution（OOD）分开报告，OOD 指训练分布外的场景组合
 
 ## 消融实验与分析
+
+![wcm 主结果表](figures/wcm/tab3.png)
+
+*论文 Table 3（p7）：Table 3: Ablations for molecular optimization performance on docking score optimization in the offli*
 
 4 个 benchmark、149 个任务的聚合成功率（IND / OOD 分列，数据来自 arXiv 摘要与实验图表，待确认：各 benchmark 的细粒度拆分需读全文）：
 
