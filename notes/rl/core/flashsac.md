@@ -12,8 +12,8 @@ FlashSAC 将 scaling law 引入 off-policy RL：用更大模型（2.5M）配合�
 
 ## 核心技术
 
-![flashsac 架构图](figures/flashsac/fig1.png)
-*论文 Figure 1（p1）：Figure 1 Results Overview. Tasks grouped by state–action dimensionality, with representati*
+![flashsac 架构图](figures/flashsac/fig2.png)
+*论文 Figure 2（p5）：Figure 2 FlashSAC Architecture. The architecture consists of stacked inverted residual blo*
 
 1. **Low UTD Ratio** — 每 1024 步仅做 2 次梯度更新（vs REDQ 的 20 次），大幅降低 overfitting 风险
 2. **Large Model Scaling** — 2.5M 参数、6 层网络（vs 通常 SAC 0.2-0.5M、2-3 层），更大的模型容量配合更少的更新步

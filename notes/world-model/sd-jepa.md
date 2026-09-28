@@ -12,8 +12,8 @@
 
 ## 核心技术
 
-![sd-jepa 架构图](figures/sd-jepa/fig1.png)
-*论文 Figure 1（p2）：Figure 1: Planning success rate (%) across the four LEWM benchmark environments. Baselines*
+![sd-jepa 关键发现图](figures/sd-jepa/fig4.png)
+*论文 Figure 4（p15）：Figure 4: Latent geometry of the trained Push-T A2 (a, b; kprog=2, seed 3072, epoch 10, se*
 
 **子空间分解（式 4）。** 用两个固定正交注入矩阵：
 $$

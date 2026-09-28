@@ -14,6 +14,9 @@ PaliGemma 视觉-语言骨干 + flow-matching 动作专家联合生成 50 步 Ca
 
 ## 核心技术
 
+![facet0 架构图](figures/facet0/fig1.png)
+*论文 Figure 1（p2）：Figure 1. Qualitative overview of Facet-0 in precision computer assembly. The center shows*
+
 1. **语义-接触表征（joint action-wrench flow matching）**：观测 = 三路 RGB + 指令 + 13 维状态（末端位姿 $x_t\in\mathbb{R}^6$、夹爪开度 $g_t\in\mathbb{R}$、wrench $w_t\in\mathbb{R}^6$），$K=10$ 帧因果 wrench 历史与视觉-语言语义、运动学状态融合为 $h^c_t$；解码目标是动作与"下一步测得 wrench"按行配对的联合块（第 $k$ 行把 $a_{t+k}$ 与 $\hat w_{t+k+1}$ 配对，一步错位是刻意的因果约定）。结构化注意力让 action-wrench 路径与因果 VQA 路径共享视觉-语言前缀、互不可见对方目标 token，防泄漏。
 2. **Action-Wrench Critic（分布式）**：$Z_\psi(h^c_t,Y_t)$ 对"动作+其预期 wrench"的联合提案打分，能区分几何进度相同但接触结局不同的两条运动（干净插入 vs 卡死）；四个辅助头（近未来 wrench、接触强度、接触内进度、成功排序）专门拉开"进度一致但接触状态不一致"的观测。
 3. **Contact-selective credit**：用无折扣短视野 credit $\delta^{(N)}_t$（$N<H$）而非全局回报排序帧，按接触 regime（contact/free）分桶取 top 分位做正标签，以 $(1+\lambda c_t)$ 加权 flow-matching 损失精调生成策略；正标签以短 tag 追加到指令尾部，推理时 classifier-free-guidance 式组合，$s=0$ 精确退化为无条件策略。

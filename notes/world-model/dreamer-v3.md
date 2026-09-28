@@ -12,8 +12,8 @@ Dreamer v3 用一组固定超参数（归一化、KL 平衡 + free bits、symlog
 
 ## 核心技术
 
-![dreamer-v3 架构图](figures/dreamer-v3/fig1.png)
-*论文 Figure 1（p1）：Figure 1: Benchmark summary. a, Using fixed hyperparameters across all domains, Dreamer ou*
+![dreamer-v3 架构图](figures/dreamer-v3/fig3.png)
+*论文 Figure 3（p3）：Figure 3: Training process of Dreamer. The world model encodes sensory inputs into discret*
 
 1. **RSSM 世界模型（序列模型 + 离散随机表征）**：递归状态 $h_t$ 由 GRU 演化，编码器把观测 $x_t$ 变成向量 softmax 分布采样的离散表征 $z_t$，straight-through 梯度穿过采样；$h_t$ 与 $z_t$ 拼成模型状态 $s_t = \{h_t, z_t\}$，从 $s_t$ 同时预测奖励、continue flag 并重建观测。
 2. **不对称 KL 平衡 + free bits**：dynamics 损失（训练序列模型预测下一表征）权重为 1，representation 损失（把后验拉向先验）权重仅 0.1；两个 KL 都在 1 nat 处做 $\max(1,\cdot)$ 截断，既保住最小信息容量又避免一方压倒另一方。

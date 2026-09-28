@@ -16,8 +16,8 @@ Capek 0.5 是一个以"执行"为组织原则的具身 VLM：把机器人在执�
 
 ## 核心技术
 
-![capek05 架构图](figures/capek05/fig1.png)
-*论文 Figure 1（p1）：Figure 1: Average performance across capability domain. Results from Table 2 are averaged*
+![capek05 方法图](figures/capek05/fig6.png)
+*论文 Figure 6（p9）：Figure 6: Capability specialization and consolidation. Four specialists acquire complement*
 
 ### Execution-centric 能力分类学
 

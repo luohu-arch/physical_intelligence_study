@@ -44,7 +44,7 @@ def main():
         if "brief" in os.path.basename(note):
             continue
         nid = os.path.basename(note)[:-3]
-        track = note.split("/")[1]
+        track = os.path.dirname(note)[len("notes/"):]  # 支持 rl/<sub> 多级赛道
         text = open(note, encoding="utf-8").read()
         if not a.force and f"figures/{nid}/" in text:
             skip += 1
