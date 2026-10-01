@@ -10,6 +10,25 @@
 
 VoxPoser 让 GPT-4 以 Python 代码调用开放词汇检测（OWL-ViT）、分割（Segment Anything）与追踪（XMem），再把指令蕴含的 affordance 和 constraint 直接写进机器人观测空间的 100x100x100 体素价值图——运动规划器取归一化 affordance 图乘 2 加 avoidance 图乘 1 的负值作 cost，greedy search 合成 6-DoF 末端航点并以 5 Hz 重规划闭环执行；全程没有任何训练，真实世界 5 个日常操作任务平均成功率 88%（扰动下仍 70%），与 Code as Policies 变体的 24%（扰动下 0%）形成量级差距。
 
+## 九问速览
+
+1. **Problem**：零样本执行开放集语言指令——不存在带环境状态与指令标注的机器人数据来学任务代价
+2. **Bottleneck**：LLM 直接输出动作不可靠；监督学 costmap 分布外归零（U-Net unseen 0%）；primitive 链接无空间组合
+3. **Insight**：LLM 擅长推断 affordance/constraint 而非动作——知识落点应是观测空间的体素价值图（代码可写、规划器可吃）
+4. **Method**：GPT-4 写代码调 OWL-ViT/SAM/XMem 得实体几何，赋值 100³ 体素图，greedy search 合成 6-DoF 轨迹，5Hz 重规划
+5. **Evidence**：真机 5 任务平均 88%（扰动 70%）vs Code as Policies 24%（扰动 0%）；unseen 指令+属性 76.7%
+6. **Ablation**：成分替换显示「学 costmap→LLM 推理」与「primitive→体素图联合优化」两处收益均巨大且正交
+7. **Assumption**：外部感知管线（detect-SAM-track）可靠；任务约束可写成体素位置函数；有 OSC 底层控制器
+8. **Failure**：感知是最脆一环（部件检测/初始位姿敏感）；接触密集任务零样本失败（Door 6.7%）；约束无法表达力
+9. **Opportunity**：多模态主干并入视觉 grounding、力/关节空间约束表达、零样本轨迹作 RL 探索先验的推广
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 2 台 Azure Kinect RGB-D（20Hz 回传）+ 开放词汇检测/分割/追踪管线；仿真 4 台 RGB-D |
+| Closed-loop | 闭环：5Hz 重规划，每执行一个 waypoint 即以新观测重算 value map 与轨迹 |
+| Correction | 重规划天然纠偏（物体被挪/外力/进度撤销均可见）；在线经验扩展可几分钟学会铰链任务 |
+| Deployment | 零训练零机器人数据直接部署 Franka Panda；依赖 GPT-4 API 与感知管线在场 |
+
 ## 核心技术
 
 ![voxposer 架构图](figures/voxposer/fig2.png)
@@ -100,6 +119,34 @@ graph TD
 **仿真环境的属性划分**（A.5）：13 个模板任务合计 2766 条唯一指令；seen 属性如 $[dist] \in \{3, 5, 7, 9, 11\}$ cm、seen 物体为 blue/green/yellow/pink/brown block，unseen 属性把对应集合换为 4/6/8/10 cm 与 red/orange/purple/cyan/gray 等；seen 属性允许出现在 prompt 或监督基线的训练数据里，unseen 则不允许。
 
 **论文自报的四项涌现能力**（A.2）：行为常识（"I am left-handed" 会把叉子从碗右侧移到左侧）、细粒度语言修正（盖壶盖偏了时可说 "you're off by 1cm" 触发调整）、多步视觉程序（"open the drawer precisely by half" 因缺少物体模型而无先验信息，模型自创流程——先全开并记录把手位移，再关回中点）、物体物理性质估计（借斜坡做对照实验判断哪块积木更重——有趣的是它选了滑得更远的那块，这在无摩擦理想世界里其实分不出轻重，LLM 继承了与人类相似的推理偏差）。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 真机：双 Azure Kinect RGB-D 20Hz；仿真：SAPIEN 4 台 RGB-D；经 OWL-ViT→SAM→XMem 管线得实体点云 | 附录 A.4/A.5 |
+| 动作空间 | 6-DoF 末端 waypoint（位姿+速度+夹爪），OSC（Deoxys 阻抗）执行 | 附录 A.4 |
+| 控制频率 | 5Hz 重规划；感知 20Hz；体素图 100³ | §3.3、附录 A.4 |
+| 重规划频率 | 每 waypoint（5Hz）；子任务内 LLM 代码缓存复用 | §3.3 |
+| 动作 horizon | 每次规划完整位置序列但只执行第一个 waypoint | §3.3 |
+| 数据 | 零训练、零机器人示教；LLM 为 GPT-4 API（prompt 含 5-20 示例）；在线学习扩展仅需数分钟交互 | §4、附录 A.3 |
+| 奖励 | 无 RL 主线（在线扩展为轨迹打分 + dynamics model L2 拟合）；规划 cost = -(2·aff + 1·avo) | §3.3 |
+| Reset | 仿真自动；真机每任务人工布置静态/预排扰动序列 | 附录 A.4 |
+| 成功定义 | 任务二值成功（人工判定）；仿真另有 seen/unseen 指令与属性四象限 | Table 1/2 |
+| 评估次数 | 真机：5 任务 × 静态/扰动 × 10 次；仿真：13 任务 × 20 episodes；在线学习：3 seeds（12h 时限） | §4、Table 1-3 |
+| 随机种子 | 在线学习 3 seeds；主实验未报告 | Table 3 |
+| 扰动测试 | 有：随机外力、挪动任务/干扰物体、撤销任务进度（人为拉回抽屉）三档 | 附录 A.4 |
+| 真机 | Franka Panda：5 个日常任务（Move&Avoid/摆桌/关抽屉/开瓶/扫垃圾） | Table 1 |
+| 算力 | 未报告（无训练；LLM 为 API 调用，感知模块消费级 GPU 可跑） | — |
+| 特权信息 | 无训练数据；错误归因实验中仿真持有 GT 感知/动力学（仅用于分析） | §4.4 |
+
+**附录陷阱自查**：
+- privileged 信息：无（零训练）；错误分解实验用仿真 GT 但只作归因分析
+- reward shaping：不适用（规划 cost 手工固定权重 2:1，非学习）
+- reset 难度：真机扰动序列为预先编排，非在线自适应对抗
+- eval budget：真机每格 10 次，偏小但含扰动维度
+- 底层控制栈：强依赖——OSC 阻抗控制器 + greedy search 运动规划器兜底执行，学习成分仅 LLM 代码
+- 数据优势：反向——零数据是卖点；但 baseline（CaP 变体）刻意只给 5 个 primitive，基线强度可议
 
 ## 消融实验与分析
 

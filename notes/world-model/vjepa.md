@@ -10,6 +10,25 @@
 
 V-JEPA 把 I-JEPA 的 "EMA target 表征回归" 目标搬到时空 token 上（损失换成更稳的 L1），配合覆盖约 90% token 的 short-range + long-range 多块掩码，仅用约 200 万条公开视频预训练三个模型：最大的 ViT-H/16@384 在 Kinetics-400 达 **81.9%**、Something-Something v2 达 **72.2%**、ImageNet-1K 冻结评测达 **77.4%**（双层 attentive probe 升至 77.9%）；相比像素重建方法在所有下游视频任务上以更少样本（270M 对 410M-2400M）、约 2 倍墙钟速度取得一致优势。
 
+## 九问速览
+
+1. **Problem**：视频表征学习依赖像素重建或手工增强，效率与抽象不足
+2. **Bottleneck**：像素目标把容量浪费在无关细节；增强法引入手工偏置
+3. **Insight**：特征空间 L1+时空多块掩码（约 90% token）即可学运动理解
+4. **Method**：EMA target 表征回归，short-range+long-range 多块掩码预训练
+5. **Evidence**：ViT-H/16@384 达 K400 81.9、SSv2 72.2、IN1K 77.4
+6. **Ablation**：特征 vs 像素目标 K400 73.7 vs 68.6；multi-block 掩码全面最优
+7. **Assumption**：视频时空语义冗余足以驱动表征抽象
+8. **Failure**：mean pool 大掉点（K400 56.7 vs attentive probe 73.7）；密集任务非强项
+9. **Opportunity**：动作条件扩展（即 V-JEPA 2 方向）
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 视频片段 16 帧@2fps 采样、224（ViT-H@384）分辨率 |
+| Closed-loop | 不适用（纯表征，无预测-控制回路） |
+| Correction | 不适用（纯表征） |
+| Deployment | 无部署落差（预训练-探针评测范式，协议跨模型统一） |
+
 ## 核心技术
 
 ![vjepa 架构图](figures/vjepa/fig3.png)
@@ -106,6 +125,34 @@ $$
 | 评测 | attentive probe：learnable query cross-attention + 残差 + 两层 MLP（单 GeLU）+ LayerNorm + 线性头；对比实验用多视角（K400 为 $16\times8\times3$） | 低样本设定取 5%/10%/50% 标签、3 个随机划分共 9 组 |
 
 实操要点：(1) 若要迁移此配方到机器人第一视角数据，掩码的时间轴贯通性质应该保留，因为它是消融里得分最高的成分；具体块数与尺寸的细粒度扫描见论文附录 E.4。(2) 复现效率关键在 multi-mask 摊销——两次 predictor 前向配一次 y-encoder 前向。(3) 冻结评测务必写明用 mean 还是 attentive pooling，两者相差可达 17 个点。(4) 论文未提供任何 few-label 微调之外的适配管线，模仿其协议需自行准备 attentive probe 训练代码（官方仓库 github.com/facebookresearch/jepa）。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 视频 16 帧、224 分辨率（ViT-H/16 用 384） | 第 2.3 节 |
+| 动作空间 | 不适用（纯表征） | — |
+| 控制频率 | 不适用（纯表征） | — |
+| 重规划频率 | 不适用（纯表征） | — |
+| 动作 horizon | 不适用（纯表征） | — |
+| 数据 | VideoMix2M 约 200 万公开视频（K710+SSv2+HT 组合） | 表 2 |
+| 奖励 | 无（自监督特征回归） | 第 2 节 |
+| Reset | 不适用 | — |
+| 成功定义 | frozen attentive probe/linear probe top-1（K400/SSv2/IN1K/AVA） | 表 1/3/5 |
+| 评估次数 | 标准基准协议（同 lr/wd sweep 对比） | 第 3 节 |
+| 随机种子 | 未报告（K400 5% 低样本报 std） | PDF 未披露 |
+| 扰动测试 | 无 | — |
+| 真机 | 无 | — |
+| 算力 | 90K iters、batch 3072（约 270M samples；未报 GPU 总数，墙钟约 2x 优于像素法） | 表 2/5 注 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无
+- reset 难度：不适用
+- eval budget：标准基准
+- 底层控制栈：无
+- 数据优势：对比像素法样本更少（270M vs 410M-2400M），是效率卖点
 
 ## 消融实验与分析
 

@@ -1,20 +1,40 @@
-# WCM: World-Conditioned Manipulation（世界批判模型条件化策略）
+# OpenMOSS WCM: A World Critic Model for Vision-Language-Action Reinforcement Learning（世界批判模型）
 
-- 本地 PDF：`papers/world-model/WCM_2602.10984.pdf`（**注意：该 PDF 内容不匹配本论文**，实为其他论文，属下载错配；待确认：正确 PDF 需从 arXiv 2607.29613 重新获取）
+- 本地 PDF：`papers/world-model/WCM_2607.29613.pdf`（2026-10-02 已重新下载并逐节核对，内容匹配）
 - arXiv：https://arxiv.org/abs/2607.29613
 - 年份：2026
-- 团队：待确认（仅从摘要获取，需读取全文确认机构）
-- 阶段：世界模型即条件 — LeJEPA 世界批判模型（World Critic Model）预测未来状态与价值，作为 VLA 策略的额外条件输入
+- 团队：同济大学 + Shanghai Innovation Institute（OpenMOSS，Xipeng Qiu 组）
+- 阶段：世界模型即条件 — LeJEPA 世界批判模型（World Critic Model）预测未来状态与价值，作为 VLA 策略的训练期引导信号（RECAP 范式，部署零开销）
 
 ## 一句话总结
 
 WCM 把世界模型从"旁观评估器"升级为"策略的条件信号源"：LeJEPA 世界批判模型同时挂 value head（预测任务成功概率）与 dynamics head（预测未来状态），两者的预测结果直接拼入 π0/π0.5/OpenVLA-OFT 等 VLA 的输入，即插即用、不改 backbone。149 个任务、4 个 benchmark 上，+WCM 达到 in-distribution 84.4±1.2%、out-of-distribution 51.5±1.5% 成功率，把 SFT 基线（38.4%/18.1%）直接翻倍以上；7 个真实操作任务验证了纯仿真训练的世界模型可以零微调服务真实机器人。
 
+## 九问速览
+
+1. **Problem**：VLA-RL 中 critic 只给标量价值信号，高维观测下监督稀疏，指导效率低
+2. **Bottleneck**：标量回归丢失状态细节；单帧 critic 无历史信息，无法判断"当前碰撞是否有益"这类时序问题
+3. **Insight**：让 critic 同时做世界预测（dynamics head + value head 共享 LeJEPA 表征），dense 的预测误差把 critic 训得更懂环境
+4. **Method**：轻量 LeJEPA 双头世界批判模型，训练期以预测的未来表征引导 RECAP 式策略更新，即插 π0/π0.5/OpenVLA-OFT
+5. **Evidence**：149 任务/4 benchmark，IND 84.4±1.2%、OOD 51.5±1.5%（SFT 基线 38.4%/18.1%）；真机 7 任务+WidowX 实机 RL
+6. **Ablation**：critic 架构与观测历史长度消融（Figure 5），WCM 双头+多帧达最高成功率；单帧 critic 致真机撞桌/电机堵转
+7. **Assumption**：仿真数据可训出可迁移的世界批判；真机 RL 需 human-in-the-loop 纠错轨迹回灌
+8. **Failure**：单帧 critic 在可变形物/寿司传送带任务上因时序盲区失败；OOD 仍掉 33 点
+9. **Opportunity**：critic 从"打分器"到"想象器"的统一；跨本体共享世界批判；减轻真机人工纠错依赖
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB 第三人称+腕部双相机 + 本体（绝对 EE 位姿+夹爪开度）；critic 额外融合历史多帧 |
+| Closed-loop | 真机每控制步（0.5s）接收新观测重新条件化，10Hz chunk=5 |
+| Correction | 训练期失败轨迹人工纠错后回灌（大负奖励标注失败点）；策略本身靠 critic 值曲线规避碰撞 |
+| Deployment | 世界批判纯仿真训练；真机 WidowX-250S 7 任务零微调条件化，推理 RTX5090 本地工作站 |
+
+
 ## 核心技术
 
 ![wcm 架构图](figures/wcm/fig1.png)
 
-*论文 Figure 1（p1）：Figure 1: RL-based GMO typically starts from a pretrained generative model that unconditionally samp*
+*论文 Figure 1（p2）：Figure 1 Overview of the World Critic Model (WCM). Prior critic models are hindered by partial obser*
 
 1. **LeJEPA 世界批判模型** — 在 JEPA 式抽象 latent 空间做预测（而非像素空间），value head 估计当前状态离任务成功有多远，dynamics head 预测状态随动作的演化；两个 head 的输出都作为策略条件
 2. **即插即用条件化** — 不修改 VLA backbone 架构，只把世界模型预测结果拼入策略输入；π0、π0.5、OpenVLA-OFT 均可直接挂载
@@ -62,11 +82,41 @@ $$\pi(a_t \mid o_t, V(z_t), \hat{z}_{t+1})$$
 - 评测：149 个任务、4 个 benchmark；真实机器人 7 个操作任务，世界模型零微调直接条件化
 - 评价指标：in-distribution（IND）与 out-of-distribution（OOD）分开报告，OOD 指训练分布外的场景组合
 
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB 第三人称+腕部双相机；本体=绝对 EE 位姿+夹爪开度；WCM critic 额外融合历史多帧观测（时间维度为其核心卖点） | 附录 D.2 |
+| 动作空间 | delta EE 位姿 + 夹爪；action chunk=5；策略为 π0.5（WCM 作即插式 critic，不动 VLA backbone） | 附录 D.2、§5 |
+| 控制频率 | 真机 10 Hz（每 chunk 0.5s） | 附录 D.2 |
+| 重规划频率 | 每控制步接收新观测重新条件化（0.5s 粒度） | 附录 D.2 |
+| 动作 horizon | chunk=5（0.5 秒） | 附录 D.2 |
+| 数据 | 真机初始每任务 100 条主从遥操作轨迹（ROS2）；WCM 训练共 ~250k transitions；RL 每轮每任务 50 条（含失败轨迹人工纠错后回灌）；仿真用 ManiSkill/CALVIN/LIBERO-Plus | 附录 D.2 |
+| 奖励 | 仿真 sparse 0/1；真机 human-in-the-loop：失败点大负奖励、成功点 0（C_fail=300） | §5、附录 D.2 |
+| Reset | 未报告 | — |
+| 成功定义 | 任务成功率%；吞吐=每小时成功 rollout 数 | §5、附录 D.3 |
+| 评估次数 | 真机每数据点=8 轮 RL 更新后测；吞吐实验 4 次评估取均值±std | 附录 D.2/D.3 |
+| 随机种子 | 未明确报告（图表带 ±std） | — |
+| 扰动测试 | OOD 设置（新物体组合/新光照），IND/OOD 双报告 | §5 |
+| 真机 | WidowX-250S，7 任务（3 pick-and-place 共享一 SFT 策略 + 2 可变形物 + 2 独立） | 附录 D.2 |
+| 算力 | 训练 8×H100；推理本地 RTX5090 工作站 | 附录 D.2 |
+| 特权信息 | critic 仅用于训练期引导（RECAP 范式），部署时 policy 零额外输入；无 oracle state | §3 |
+
+**附录陷阱自查**：
+- privileged 信息：无 oracle state；但真机奖励标注依赖人工纠错轨迹（human-in-the-loop，人工成本即隐性监督）
+- reward shaping：仿真侧干净（sparse 0/1）；真机侧失败点大负奖励+人工把失败轨迹改成成功轨迹再回灌，等价密集人工监督
+- reset 难度：未报告
+- eval budget：真机吞吐 4 runs、成功率每点 8 轮 RL，规模中等偏小
+- 底层控制栈：delta EE 由 WidowX 底层控制器执行，无额外 planner 兜底
+- 数据优势：AWR/RECAP 基线采用同范式同数据协议（SigLip 400M+Gemma 270M critic），对照公平
+
+（2026-10-02 修正：原本地 PDF 为错配文档，已从 arXiv 2607.29613 重新下载并按正确论文复核全部条目）
+
 ## 消融实验与分析
 
 ![wcm 主结果表](figures/wcm/tab3.png)
 
-*论文 Table 3（p7）：Table 3: Ablations for molecular optimization performance on docking score optimization in the offli*
+*论文 Table 3（p9）：Table 3 Detailed real-world experiment results. “+WCM” denotes using WCM as critic model. Δ denotes*
 
 4 个 benchmark、149 个任务的聚合成功率（IND / OOD 分列，数据来自 arXiv 摘要与实验图表，待确认：各 benchmark 的细粒度拆分需读全文）：
 

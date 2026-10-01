@@ -9,6 +9,25 @@
 
 Flow Matching 提出了一种无需模拟（simulation-free）的连续归一化流（CNF）训练框架，通过直接回归条件概率路径的速度场，避免了传统 CNF 的昂贵 ODE 数值模拟，同时以最优传输（OT）路径替代扩散路径，实现了更直的训练轨迹、更快的采样速度和更好的泛化性能。
 
+## 九问速览
+
+1. **Problem**：CNF 训练需模拟 ODE、极其昂贵；扩散模型路径弯曲、采样慢
+2. **Bottleneck**：CNF 损失依赖不可解的边缘速度场；扩散路径非最优传输，需专门采样器与上百 NFE
+3. **Insight**：边缘速度场=条件速度场的加权期望，回归条件速度场与回归边缘场梯度等价，且免模拟
+4. **Method**：CFM 损失回归 $x_1-(1-\sigma_{min})x_0$；OT 线性插值路径；统一任意高斯路径（含扩散路径）
+5. **Evidence**：ImageNet-32 上 FM-OT FID 5.02/NFE 122，优于 DDPM 的 FID 6.99/NFE 262 与 SM 的 5.68/178
+6. **Ablation**：OT vs VP/VE 路径同预算 FID 更低；达到同数值误差仅需扩散路径约 60% 的 NFE
+7. **Assumption**：条件概率路径限于高斯族；采样走 ODE（非 SDE）；架构沿用 DDPM++ 未针对任务优化
+8. **Failure**：条件 OT 的直线性不保证边缘路径最优传输；CIFAR-10 上 FID 偏高（作者归因架构未调优）
+9. **Opportunity**：更优 solver 与更少步数；非高斯路径扩展；机器人动作生成落地（π0 的 action expert）
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 不适用（无条件图像生成；条件信号仅为高斯噪声起点） |
+| Closed-loop | 不适用——采样是单次确定性 ODE 前向积分，非闭环控制 |
+| Correction | 不适用 |
+| Deployment | 图像生成任务：32/64/128px；likelihood 用 dopri5@tol 1e-5 评测，低 NFE 固定步长 solver 可用 |
+
 ## 核心技术
 
 1. **流匹配（Flow Matching, FM）** — 直接回归目标速度场的 CNF 训练目标，无需昂贵的 ODE 模拟
@@ -207,6 +226,34 @@ Flow Matching 像给机器人的动作规划了一条"平滑的高速公路"，�
 2. **CFM 训练**：采样 $t \sim U[0,1]$，采样 $x_1 \sim q(x_1)$（训练数据），采样 $x_0 \sim \mathcal{N}(0, I)$，计算 $x_t = t x_1 + (1-t) x_0$，最小化 $\|v_\theta(x_t, t) - (x_1 - x_0)\|^2$
 3. **推理采样**：从 $x_0 \sim \mathcal{N}(0, I)$ 开始，使用 RK4 或 Midpoint 积分求解 ODE，推荐 10-20 步
 4. **后处理**（机器人场景）：串接低通滤波器消除散粒噪声
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 不适用（非机器人论文；生成条件仅为噪声） | — |
+| 动作空间 | 不适用——生成对象为 32/64/128px 图像 | — |
+| 控制频率 | 不适用 | — |
+| 重规划频率 | 不适用 | — |
+| 动作 horizon | 不适用（采样=一条 ODE 轨迹） | — |
+| 数据 | CIFAR-10、ImageNet 32/64/128、AFHQ(celeba-hq 类) | p7、附录D |
+| 奖励 | 不适用：CFM 回归损失即训练目标（无 RL） | p3 |
+| Reset | 不适用 | — |
+| 成功定义 | BPD（似然）+ FID（样本质量）+ NFE（采样成本） | Table 1(p8) |
+| 评估次数 | FID 按标准协议（样本数未报）；低 NFE 数值误差对比用 256 个噪声种子 | p9 |
+| 随机种子 | 256 个随机噪声种子（低 NFE 误差实验） | p9 |
+| 扰动测试 | 不适用 | — |
+| 真机 | 无 | — |
+| 算力 | GPU 数 2/4/16/32（CIFAR-10/IN32/64/128），型号未报；CIFAR/IN32 用 32bit 精度、IN64/128 用 16bit 混合精度；Adam wd=0 | Table 3(p20)、附录E.2 |
+| 特权信息 | 不适用 | — |
+
+**附录陷阱自查**：
+- privileged 信息：不适用
+- reward shaping：不适用（无 RL）
+- reset 难度：不适用
+- eval budget：NLL 用 importance-weighted K=1/20/50 估计并全部报告（附录 Table 4），口径透明
+- 底层控制栈：不适用
+- 数据优势：无——所有自训基线（DDPM/Score Matching）用同架构、同 epochs、同预算对比
 
 ## 消融实验与分析
 

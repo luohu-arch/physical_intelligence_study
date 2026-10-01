@@ -11,6 +11,25 @@
 
 DreamVLA 不直接预测未来图像（计算量大、冗余信息多），而是通过块状结构化注意力分离地预测三类紧凑世界知识（动态区域、深度、语义），再用扩散 Transformer 将解耦的隐含特征解码为动作序列，在真机任务达 76.7% 成功率、CALVIN ABC-D 平均任务长度 4.44。
 
+## 九问速览
+
+1. **Problem**：VLA 直接从观测映射动作缺乏对未来的理解，泛化与推理能力不足
+2. **Bottleneck**：像素级未来预测计算密集、冗余信息多；多类型知识联合预测互相干扰
+3. **Insight**：动作生成只需三类紧凑世界知识——动态区域、深度、语义，无需预测整帧像素
+4. **Method**：块状结构化注意力解耦预测三类知识（防信息泄漏），DiT 从解耦隐特征扩散解码动作
+5. **Evidence**：真机 3 任务 76.7% 成功率；CALVIN ABC-D 平均长度 4.44，超 Seer 4.28、VPP 4.29
+6. **Ablation**：块状注意力贡献最大（3.75→4.44）；二值动态掩码优于全光流（4.44 vs 4.23）；深度/语义单独用反而降性能
+7. **Assumption**：依赖离线特征提取器（CoTracker/Depth-Anything/SAM/DINOv2）提供监督信号；限定并行夹爪 + RGB 场景
+8. **Failure**：高速运动时二值掩码可能不足；horizon 仅 3 帧，长时序任务难以覆盖；知识类型定义需按场景调整
+9. **Opportunity**：灵巧手、点云、触觉的知识类型重新设计；任务自适应的知识粒度选择
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 2 路 RGB（第三人称 + 腕载 RealSense D415，224×224）+ 末端位姿/夹爪本体状态；无触觉、无深度输入 |
+| Closed-loop | 闭环：感知-预测-动作循环，每 3 帧 chunk 重新观测并预测世界知识后出动作 |
+| Correction | 无显式重规划/retry 模块；真机协议每 trial 允许最多 20 次连续尝试 |
+| Deployment | DROID（约 76k 轨迹）预训练 + 每任务 100 条真机 demo 微调后部署同域 Franka，差距小；推理 11 Hz |
+
 ## 核心技术
 
 ![dreamvla 架构图](figures/dreamvla/fig2.png)
@@ -111,6 +130,34 @@ DreamVLA 的逻辑可以类比人类操作陌生物品时的思维过程：「�
 **推理优化：** 推理时跳过所有解码器头——模型直接输出世界嵌入 $\hat{p}_{t+n}$，无需像素级重建，保留精度增益的同时维持低延迟。
 
 **动态区域生成细节：** 使用 CoTracker 提取光流轨迹，识别「随机械臂末端执行器或可移动物体运动的像素」，生成二值掩码而非完整光流场。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 双相机 RGB（第三人称 + 腕载，224×224）+ EE 位姿/夹爪状态；真机 history length 7 | 附录 B.1/B.4（p24, p27） |
+| 动作空间 | EE pose 7 维连续（6 位移 + 夹爪开合）；DiT-B 扩散头 | 附录 B.1、Table 11 |
+| 控制频率 | 推理端到端 91 ms ≈ 11 Hz（RTX 4090，测 5 次取均值） | 附录 B.5、Table 13 |
+| 重规划频率 | 每 3-frame chunk 重新前向（无异步执行报告） | Table 11 |
+| 动作 horizon | K=2 未来步（3 帧预测窗），past context 0；真机联合预测 3 未来步 | Table 11、附录 B.4 |
+| 数据 | 预训练：CALVIN 无语言 split + DROID 全量（约 2.4M 交互步 / 约 76k 轨迹）；真机每任务 100 条 demo（SoFar 采集）；LIBERO 每任务 50 条人类遥操作 demo | §4.1、§4.3、附录 B |
+| 奖励 | 无 RL：扩散去噪 L2（BC）+ λdyn=0.1 / λdepth=0.001 / λsem=0.1 辅助预测损失 | §4.1、式(10) |
+| Reset | 未报告（沿用 CALVIN 标准协议自动 reset） | — |
+| 成功定义 | CALVIN：连续 5 任务链平均长度；真机：抓取/放置均完成、抽屉位移 >10 cm、每 trial 最多 20 次尝试 | §4.3、附录 B.1 |
+| 评估次数 | CALVIN 34 任务标准协议；真机每 trial ≤20 attempts（每任务 episodes 数未报告） | 附录 B.1、§4.3 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 物体/抽屉随机摆位（位置随机化），无外力扰动 | §4.3 |
+| 真机 | Franka Panda，pick/place/抽屉等任务，平均成功率 76.7% | Table 3 |
+| 算力 | 8×NVIDIA A800（80GB），20 epochs，有效 batch 64，AdamW lr 1e-3 | §4.1、Table 12 |
+| 特权信息 | 测试无特权信息（CALVIN 协议）；训练用 CoTracker 掩码、Depth-Anything v2 伪深度、SAM/DINOv2 特征监督（离线预计算） | 附录 A.2、B.1 |
+
+**附录陷阱自查**：
+- privileged 信息：测试无；训练监督依赖离线基础模型特征（CoTracker/SAM/DINOv2/Depth-Anything v2）
+- reward shaping：无（RL-free，纯 BC + 辅助预测损失）
+- reset 难度：未报告，沿用 CALVIN 标准自动 reset
+- eval budget：真机每 trial ≤20 次尝试，episodes 总数未报告
+- 底层控制栈：EE 空间位移指令直接下发，无额外 planner 兜底
+- 数据优势：与 baseline（Diffusion Policy/Octo/OpenVLA）用同样的每任务 100 demo 微调，公平；但 DROID 预训练规模占优
 
 ## 消融实验与分析
 

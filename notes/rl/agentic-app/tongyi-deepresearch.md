@@ -12,6 +12,25 @@
 
 技术报告，无同行评审，数字为自报。阿里通义实验室（Tongyi Lab）开源 deep research agent：30.5B 总参数、每 token 仅激活 3.3B 的 MoE（基于 Qwen3-30B-A3B-Base），通过"agentic mid-training（两阶段 Agentic CPT，32K→128K 上下文）+ agentic post-training（SFT 冷启动 + 严格 on-policy 的 GRPO 变体强化学习）"端到端管线训练，全程使用无人工标注的自动合成数据，并按训练阶段定制三类环境（prior world / simulated / real-world）。7 个 deep research benchmark 中 5 个标准模式第一（HLE 32.9、GAIA 70.9、xbench-DeepSearch 75.0、WebWalkerQA 72.2、FRAMES 90.6），BrowseComp 43.4/BrowseComp-ZH 46.7 落后于 OpenAI DeepResearch 51.5 与 o3 58.1，靠 Heavy Mode（并行探索 + 报告综合的 test-time scaling）反超到 58.3/58.1；评测全部于 2025-09-16 完成（xbench-2510 为 10-28）。
 
+## 九问速览
+
+1. **Problem**：通用基座缺 agentic 行为先验；research 级数据稀缺、真实 web 训练又贵且非平稳。
+2. **Bottleneck**：post-training 同时学 agentic 能力与对齐互相冲突；真实环境噪声污染奖励曲线。
+3. **Insight**：环境是被设计的系统——prior world/模拟/真实三级按稳定性-保真度-成本三角分配。
+4. **Method**：agentic CPT（32K→128K）+ SFT 冷启动 + 严格 on-policy GRPO 变体（0/1 奖励、无格式项）。
+5. **Evidence**：7 基准 5 项第一（HLE 32.9 / GAIA 70.9）；Heavy Mode 把 BrowseComp 43.4 拉到 58.3。
+6. **Ablation**：32k 上下文被 64k 课程逼出更短解；reward 约 500 步持续上升不崩溃。
+7. **Assumption**：合成 QA 可集合论验证；sandbox 限速能隔离外部随机性；3.3B 激活参数够用。
+8. **Failure**：BrowseComp 标准模式落后 OpenAI DR 8.1pp；128K 上下文与窄动作空间是硬边界。
+9. **Opportunity**：超长未答负样本从不付代价、难度-容量-上下文三因素分离、Heavy Mode 参数未披露。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | agent 只看 query + 滚动报告摘要 S_t + 最近一轮交互（Markovian 状态重建，防上下文膨胀） |
+| Closed-loop | 每步 5 工具即时返回反馈；RL 用 0/1 最终答案正确性驱动 |
+| Correction | 无显式 retry；超长未产出答案的负样本被整体剔除（环境约束不归因策略缺陷） |
+| Deployment | 三级环境训练（离线 wiki 风洞 → 真实 web 终训）；评测全部真实 web API |
+
 ## 核心技术
 
 ![tongyi-deepresearch 架构图](figures/tongyi-deepresearch/fig2.png)
@@ -104,6 +123,34 @@ $$(S^u_T, \text{answer}_u) = \text{Agent}_u(q), \quad u \in [1, n]; \qquad \text
 **开源资产**：模型权重（HuggingFace/ModelScope 的 Alibaba-NLP/Tongyi-DeepResearch-30B-A3B）、框架与完整方案（github.com/Alibaba-NLP/DeepResearch）、官方复现脚本含全部工具实现与 prompt 配置、各 benchmark 评测 prompt；项目页 tongyi-agent.github.io/blog。
 
 **未披露项**：Heavy Mode 的并行 agent 数 $n$ 与 synthesis 模型身份未给出；各阶段数据量（token 数/轨迹条数）与训练 compute（GPU-hours）未披露；模型合并的变体数量与权重 $\alpha_k$ 取值未披露；mid-training 的通用/agentic 数据配比只说"small proportion"，无数字。以上均计 4 条待确认。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | q + 滚动摘要 S_t + 最近一轮 (a_t, o_t)；上下文 128K（CM 模式），SFT 数据 >20% 超 32k token | 第 3-4 节 |
+| 动作空间 | 5 工具：Search（top-10）/Visit/Python Interpreter/Google Scholar/File Parser + 最终报告 | 第 3 节 |
+| 控制频率 | 不适用（回合制）；每任务最多 128 次工具调用 | 第 5 节 |
+| 重规划频率 | 每步重建 S_t（Context Management 持续综合排序） | 第 3 节 |
+| 动作 horizon | ≤128 工具调用/任务；SFT 样本均值 12.4K token、轮数均值 8.7 | 第 4 节 |
+| 数据 | 全自动合成（图构造 + 不确定性注入 + PhD 级问题引擎），无人工标注 | 第 4 节 |
+| 奖励 | 纯 0/1 答案正确性；无格式奖励（SFT 已固化格式）；超长未答负样本从损失剔除 | 第 4 节 |
+| Reset | 统一 sandbox：QPS 限速、结果缓存、超时重试、优雅降级、备份源故障转移 | 第 4 节 |
+| 成功定义 | 各 benchmark 官方协议；Avg@3（3 次独立运行取均值） | 第 5 节 |
+| 评估次数 | 每 benchmark 独立跑 3 次；GAIA 166 例 / BrowseComp 1,266 例全量 | 第 5 节 |
+| 随机种子 | 采样 temperature 0.85 / repetition penalty 1.1 / top-p 0.95；seed 数未报告 | 第 5 节 |
+| 扰动测试 | 无显式扰动；以 Pass@1（3 次最佳）与 Avg@3 一致性验证评测环境动态下稳健 | 第 5 节 |
+| 真机 | 不适用（deep research agent） | — |
+| 算力 | 未披露：GPU-hours、各阶段数据量、合并权重、Heavy Mode 并行数 n 均无数字 | 未报告 |
+| 特权信息 | judge 按 benchmark 指定（Qwen2.5-72B / Gemini-2.0-Flash / GPT-4o 对 gold 判分）；AIME25/HMMT25 人工评 | 第 5 节 |
+
+**附录陷阱自查**：
+- privileged 信息：judge 为多模型 LLM 判卷（对 gold 答案），非单一口径——跨 benchmark 分数可比性受 judge 差异影响；AIME/HMMT 人工评仅 30 例。
+- reward shaping：无（刻意 0/1 纯净）；负样本过滤是对目标的隐性修改——模型从不为预算管理失败付代价。
+- reset 难度：sandbox 把工具调用做成确定性接口（缓存 + 备份源），训练分布被刻意稳态化。
+- eval budget：每 benchmark 3 次独立运行（Avg@3）；BrowseComp 全量 1,266 例。
+- 底层控制栈：rLLM 异步 rollout + 统一 sandbox + 5 工具；开源替代实现已验证可复现。
+- 数据优势：30.5B MoE 基座 + 全合成数据管线对开源对手是优势；对闭源对比为各家自报数（评测时点各异）。
 
 ## 消融实验与分析
 

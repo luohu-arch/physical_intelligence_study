@@ -10,6 +10,25 @@
 
 RT-1 把语言指令、图像和连续机器人动作全部编码为紧凑 token，用一个 35M 参数的 Transformer 在 130k 条真机示教（13 台机器人、17 个月、700+ 指令）上做行为克隆，在 200+ 训练指令上做到 97% 成功率、以 3 Hz 闭环控制真机，首次证明「高容量 Transformer + 大规模多样数据」在真实机器人上同时可行。
 
+## 九问速览
+
+1. **Problem**：一个模型能否吃下大规模真机示教、以 3Hz 实时闭环控制真机并跨任务泛化
+2. **Bottleneck**：此前方法数据规模小（几千 demo）、缺语言条件，且大模型无法同时满足容量与 <100ms 延迟
+3. **Insight**：语言/图像/动作全部 token 化后，35M Transformer 可在 15ms 内并行输出整组离散动作 token
+4. **Method**：FiLM-EfficientNet 早融合 + TokenLearner 压缩 + 8 层 Transformer；11 维×256 bin 分类；130k episode BC
+5. **Evidence**：700+ 指令 seen 97%、unseen 76%、distractors 83%；3000+ 真机 trial；支撑 SayCan 50 步长程
+6. **Ablation**：连续动作头伤害最大（distractors 83→37）；删 25% 任务种类 ≈ 删 49% 样本量的泛化损失
+7. **Assumption**：13 台机器人 17 个月的人示教数据；任务限于已见 skill×object 的重组；单视角 RGB 足够
+8. **Failure**：背景变化弱项（59%）；纯 BC 上限被示教者锁死；全新 motion 类技能学不会
+9. **Opportunity**：离散动作精度不足与语义知识缺失——分别由 Diffusion/Flow 系与 RT-2 系接手
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 6 帧 300×300 第三方 RGB 历史 + 语言（USE 嵌入）；无本体感知输入、无深度/触觉 |
+| Closed-loop | 闭环 3Hz：每步重观测输出 1 组动作；terminate token 或步数上限结束 |
+| Correction | 无显式重规划/retry；靠 mode/terminate token 结束 episode，干扰下依赖策略鲁棒性 |
+| Deployment | 真机「教室」采集训练、2 个真实厨房评测泛化；15ms 推理+280ms 固定时序保证无抖动 |
+
 ## 核心技术
 
 1. **每维 256 bin 均匀离散化动作表示**：11 个动作维度（7 维机械臂 $x,y,z,\text{roll},\text{pitch},\text{yaw}$ + 夹爪开度，3 维底盘 $x,y,\text{yaw}$，1 维终止/模式切换离散变量）各自均匀切成 256 个 bin，用 categorical cross-entropy + causal masking 训练，非自回归地一次输出整组动作 token
@@ -98,6 +117,34 @@ RT-1 解决的第一个问题是**让一个大网络「吃得下」17 个月的�
 - 若换底座视觉编码器，保留 identity-initialized FiLM（零初始化 $\gamma,\beta$ 生成层）以免破坏预训练表征
 - 需要 ≤3 Hz 控制频率时先做 token 削减（TokenLearner 或池化），其次才是砍层数
 - Kuka 等异构数据混合时的动作空间对齐方案可直接照抄 Appendix D.2：roll/pitch 置零、二值夹爪转连续开度、无文本标注的 RL 数据统一重标为 "pick anything"，混合比例 EDR:Kuka = 2:1
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 6 帧 300×300 第三方 RGB 历史 + USE 语言嵌入；无本体感知 | Sec.3(p3-4) |
+| 动作空间 | 11 维（7 臂 EE+3 底盘+1 终止/模式）×256 bin 离散，并行非自回归解码 | Sec.3 |
+| 控制频率 | 3Hz 闭环（网络推理 15ms，系统 280ms 固定等待消抖） | Fig.1(p2)、附录C(p20) |
+| 重规划频率 | 每步（3Hz）重规划，无动作 chunk | Sec.4 |
+| 动作 horizon | H=1（单步动作）；图像历史 6 帧 | Sec.3 |
+| 数据 | 130k 真机示教（13 台机器人×17 个月、744 指令，2 个 VR 手柄遥操作） | Sec.5.2(p7)、附录C.2(p20) |
+| 奖励 | 无(RL-free)：BC 分类交叉熵 | Sec.3 |
+| Reset | 未报告 | 附录未披露 |
+| 成功定义 | 每任务人工判定的二元成功率（抓取/放置到位等） | Sec.5.3 |
+| 评估次数 | 总计 3000+ 真机 trial（当时最大规模）；bin-picking 72 抓取 trial；逐任务次数未全披露 | Fig.1(p2)、p8、p13 |
+| 随机种子 | 未报告 | 附录未披露 |
+| 扰动测试 | 有：unseen instructions / distractors / backgrounds 三轴泛化评测 | Table 2(p10) |
+| 真机 | 全真机：教室训练场 + 2 真实厨房；SayCan 15 条长程指令（最长 50 步） | p7-9 |
+| 算力 | 训练硬件与时长未报告 | 附录未披露 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯 BC）
+- reset 难度：未报告；教室场景由软件模块自动随机化背景配置
+- eval budget：充足——3000+ 真机 trial，多任务×多泛化轴
+- 底层控制栈：无 planner 兜底；EE 位移+底盘速度命令由底层跟踪，遥操作映射与策略动作空间一致
+- 数据优势：基线 Gato/BC-Z 在同一数据上重训（公平）；Kuka/仿真混合实验有单独评测域
 
 ## 消融实验与分析
 

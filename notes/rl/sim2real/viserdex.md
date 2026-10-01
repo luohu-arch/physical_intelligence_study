@@ -10,6 +10,25 @@
 
 ViserDex 实现仅用单目 RGB（无深度、无物体 pose 真值）的灵巧手在操作零样本 Sim2Real。核心创新：3DGS 渲染替代昂贵光线追踪，在 Gaussian 空间做物理一致的 pre-rasterization augmentation（扰动 SH 系数模拟光照变化）——比 2D post-processing 更真实。16-DoF Allegro 手、5 种物体，平均 25+ 连续成功 reorientation（Cube 上 35.4 次，vs 最强视觉基线 DeXtreme 27.8）。渲染 1.6× faster、仅 12GB VRAM（vs Isaac Lab 34GB）。旗舰发现：**Sim2Real 的瓶颈不在控制（RL 已能解决），在感知**。
 
+## 九问速览
+
+1. **Problem**：灵巧手 in-hand reorientation 的零样本 sim-to-real——仅单目 RGB，无深度、无物体 pose 真值。
+2. **Bottleneck**：控制已被 RL 解决，感知是瓶颈——2D post-processing 随机化物理上不真实，纯 3DGS 渲染缺多样性。
+3. **Insight**：在 Gaussian 参数空间（SH 系数）做 pre-rasterization augmentation = 物理一致的光照变化，保真与多样性兼得。
+4. **Method**：3DGS 渲染+SH 扰动；privileged teacher（全状态）→ recurrent student（RGB）蒸馏；性能驱动三组件课程。
+5. **Evidence**：Cube 35.4 次连续成功 vs DeXtreme 27.8；pose 精度 65.4%（DR 55.6%）；渲染 1.6× 快、12GB 显存。
+6. **Ablation**：naive 3DGS 仅 36.5%；去全局光照扰动掉到 23.6%；换 4 Hz FoundationPose 连续成功崩到 0.4。
+7. **Assumption**：per-object onboarding（Polycam 扫描+SAM2 微调）；摩擦等接触物理已在仿真中建模。
+8. **Failure**：透明/镜面物体 3DGS 重建不完整；软/粘性物体因摩擦未建模性能退化。
+9. **Opportunity**：非刚体动态 Gaussian、摩擦参数随机化、免扫描的物体接入流程。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 部署仅单目 RGB（腕部 RealSense D435i，无深度）；student 用 recurrent belief encoder 估 pose |
+| Closed-loop | 闭环：策略 30 Hz 推理+300 Hz 关节 PD |
+| Correction | recurrent 时序滤波拒掉灾难性 pose 错误（如 180° 翻转），对遮挡鲁棒 |
+| Deployment | 仿真（3DGS 渲染管线）→ 16-DoF Allegro 真机零样本部署；无 domain adaptation |
+
 ## 核心技术
 
 ![viserdex 架构图](figures/viserdex/fig2.png)
@@ -59,6 +78,34 @@ $$L_{student} = \mathbb{E}\left[ \| \pi_{student}(o_{1:t}) - \pi_{teacher}(s_t) 
 - 物体数字化：Polycam 手机扫描 + SAM2 fine-tune 分割
 - 部署：零样本 sim-to-real，无深度、无 pose 真值、无 domain adaptation
 - 评价：reorientation 连续成功次数（Cube 35.4 vs DeXtreme 27.8）；部署平均 25+ 连续成功，最高配置 37.6
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | teacher：本体+特权（物体速度、指尖接触力、随机化物理属性）；student：单目 RGB+本体+recurrent belief | Sec IV-A/IV-B |
+| 动作空间 | 16 维连续关节位置目标（R^16） | Sec IV-A |
+| 控制频率 | 策略推理 30 Hz / 底层关节 PD 300 Hz | Sec V（实机） |
+| 重规划频率 | 每步（30 Hz 在线推理） | Sec V |
+| 动作 horizon | 连续 reorientation 目标序列，达成后采样新目标；掉落/超时终止 | Sec IV-A |
+| 数据 | 无真机 demo；仿真 24,576 并行 env 自生成（teacher）；student 蒸馏 4,096 env | 附录（训练细节） |
+| 奖励 | dense 物体-目标对齐+稀疏成功奖金+动作平滑惩罚；课程渐增惩罚/动作延迟/时间窗三项 | Sec IV-A |
+| Reset | 仿真自动（掉落或超时终止） | Sec IV-A |
+| 成功定义 | 到位姿目标；严格指标 <10 mm 且 <10° | 附录（评测图注） |
+| 评估次数 | pose 精度按 5 seeds 平均；部署按连续成功次数统计 | 图 4/表注 |
+| 随机种子 | 5 training seeds（学习曲线与精度均按 5 seeds） | 附录 |
+| 扰动测试 | 对抗光照下的 pose 精度（56.3% vs 常规 65.4%）；物理参数随机化 | Sec IV |
+| 真机 | 5 种物体 Allegro Hand 零样本部署（平均 25+ 连续成功，最高 37.6） | Sec V |
+| 算力 | teacher：24,576 env 单 RTX 4090 26 h（24GB）；复杂物体双 GPU 30GB 约 90 h；student 蒸馏 16 h/4,096 env；对比 DeXtreme 系 8×A40 60 h | 附录 |
+| 特权信息 | 有：teacher-student——teacher 吃 GT 状态（物体速度、指尖接触力、随机化物理参数），student 仅 RGB | Sec IV-A/IV-B |
+
+**附录陷阱自查**：
+- privileged 信息：有（teacher-student 蒸馏：teacher 吃物体速度/接触力/物理属性真值）
+- reward shaping：dense 对齐+成功奖金+平滑惩罚，惩罚权重随课程渐增（自我调节代替手调）
+- reset 难度：正常（掉落自动终止）
+- eval budget：充足（5 seeds+多物体连续成功统计）
+- 底层控制栈：有：300 Hz 关节 PD
+- 数据优势：与 DeXtreme 对比渲染管线而非数据量；单卡算力反而占优（12GB vs 34GB）
 
 ## 消融实验与分析
 

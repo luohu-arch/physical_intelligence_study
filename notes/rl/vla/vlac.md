@@ -11,6 +11,25 @@
 
 VLAC 提出统一 actor-critic 自回归架构：基于 InternVL 多模态模型，通过 pair-wise progress understanding 输入两张观测图+语言指令，同时输出动作 (actor) 和 dense progress delta (critic)。40M 训练样本。真实世界 RL 中从 ~30% 提升到 ~90%（200 episodes），one-shot in-context 迁移到 unseen 任务。8 台 AGILE PiPER 机器人异步 RL（PPO），每台仅需 64 episodes 到 80% 成功率。核心洞察：**真实世界 RL 的瓶颈是 reward——不是算法。**
 
+## 九问速览
+
+1. **Problem**：真实世界 RL 的瓶颈是 reward 而非算法——稀疏 0/1 信号让样本效率低到不可用。
+2. **Bottleneck**：手工 dense reward 需逐任务设计；通用 VLA 初始成功率低（π0 对照 27%）探索启动不了。
+3. **Insight**：预训练多模态模型能判断"任务进度"——两帧对比输出的连续 progress delta 就是 dense reward。
+4. **Method**：InternVL 统一 actor(2B)/critic(8B) 双模式；pair-wise 输入出 delta 奖励+done 信号；PPO+8 机器人异步。
+5. **Evidence**：~30%→~90%（200 episodes）；8 机异步每台 64 episodes 到 80%；VOC-F1 成功轨迹 0.89 vs 失败 0.44。
+6. **Ablation**：HGE 人类引导探索 +10pp（98% vs 88%）；无人类视频 critic 高估部分擦除状态；MC 估计区分度差。
+7. **Assumption**：40M 样本预训练 critic；任务进度可由视觉判断（无触觉）；存在可视的进度结构。
+8. **Failure**：长程无子任务边界任务的 delta 语义存疑；接触力控任务视觉进展滞后于物理进展。
+9. **Opportunity**： 力/触觉融合 critic、one-shot ICL 迁移失效边界、2B/8B 参数不对称比例的最优性。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 指令+1 路前视 RGB+EE 位姿；critic 额外吃两帧 pair 对比；无触觉/深度 |
+| Closed-loop | 闭环：EE delta pose 逐步控制，PPO 持续更新 |
+| Correction | 人类引导探索（HGE）辅助困难任务；无显式 retry 机制 |
+| Deployment | 全真机：8×AGILE PiPER 异步采样（ZeroMQ+Ray），critic 在 GPU 服务器侧 |
+
 ## 核心技术
 
 ![vlac 架构图](figures/vlac/fig1.png)
@@ -61,6 +80,34 @@ $$L^{PPO} = \mathbb{E}\left[\min\left(\frac{\pi_\theta(a|s)}{\pi_{\theta_{old}}(
 - 推理: VLA 推理 <0.1s，满足真实机器人控制频率
 - 真实 RL: ~30% → ~90% (200 episodes)；每台机器人 64 episodes 到 80% 成功率
 - 人类干预（HGE）辅助: 最终成功率 98% vs 无干预 88%
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 指令+前相机图像+末端位姿（所有任务统一）；VLA 推理 <0.1 s | Sec 4.1 |
+| 动作空间 | 连续 7-DoF 末端 delta pose | Sec 4.1 |
+| 控制频率 | 未报告具体 Hz（仅称推理 <0.1 s 满足实时） | Sec 4.1 |
+| 重规划频率 | 每步（delta pose 逐 step 输出） | Sec 4.1 |
+| 动作 horizon | 未报告 episode 长度上限 | |
+| 数据 | 预训练：bridge/droid/roboset/fmb/AgiBot World（约 40M 样本，排除 RT1 等）；策略底座：约 100 条遥操轨迹 | Sec 4.1 / 4.4 |
+| 奖励 | critic 输出的连续 progress delta（学习型 dense 奖励）+done 信号；无手工 shaping | Sec 3 |
+| Reset | 未报告（真机复位方式未披露） | |
+| 成功定义 | 任务完成率按 10 trials/评估点统计；critic 另输出 done 信号 | Sec 4.3 |
+| 评估次数 | 成功率按 10 trials 评估；进度理解按 VOC-F1 等指标 | Sec 4.3 |
+| 随机种子 | 未报告 | |
+| 扰动测试 | 跨数据集泛化（unseen RT1/Dobb-E/RH20T/EgoDex/RoboFAC 等 6 个）VOC 评测 | Sec 4.2 |
+| 真机 | 4 任务真机 RL（200 episodes 曲线）+8 机器人异步（64 episodes/台到 80%） | Abstract / Sec 4.1 |
+| 算力 | actor 占 2 GPU、critic 占 1 GPU（异步推理）；预训练 batch 3200、max lr 8e-4 | Sec 4.1 |
+| 特权信息 | 无 oracle state；critic 预训练用了大规模人类/机器人演示视频（跨任务进度监督） | Sec 3.2 |
+
+**附录陷阱自查**：
+- privileged 信息：无 oracle；但 critic 的进度理解来自 40M 样本预训练（含人类演示）——纯 PPO baseline 没有这一资产
+- reward shaping：全 dense 学习型奖励（progress delta）——由模型生成，本质是把 shaping 成本转移到预训练
+- reset 难度：未报告
+- eval budget：偏小（10 trials/评估点）
+- 底层控制栈：7-DoF delta EE pose，未见 PD
+- 数据优势：8 台机器人并行+100 条遥操预热的底座策略（π0 对照仅 27% 起点，起点差即数据差）
 
 ## 消融实验与分析
 

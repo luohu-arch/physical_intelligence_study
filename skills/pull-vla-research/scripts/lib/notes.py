@@ -104,6 +104,25 @@ def _deep_note_body(row: dict, title: str, pdf_path: str | None) -> str:
 
 待补充。
 
+## 九问速览
+
+1. **Problem**：待补充。
+2. **Bottleneck**：待补充。
+3. **Insight**：待补充。
+4. **Method**：待补充。
+5. **Evidence**：待补充（带关键数字）。
+6. **Ablation**：待补充。
+7. **Assumption**：待补充。
+8. **Failure**：待补充。
+9. **Opportunity**：待补充。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 待补充 |
+| Closed-loop | 待补充 |
+| Correction | 待补充 |
+| Deployment | 待补充 |
+
 ## 核心技术
 
 待补充。
@@ -117,6 +136,40 @@ def _deep_note_body(row: dict, title: str, pdf_path: str | None) -> str:
 待补充。
 
 ## 工程细节与实操指南
+
+待补充。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 待补充 | |
+| 动作空间 | 待补充 | |
+| 控制频率 | 待补充 | |
+| 重规划频率 | 待补充 | |
+| 动作 horizon | 待补充 | |
+| 数据 | 待补充 | |
+| 奖励 | 待补充 | |
+| Reset | 待补充 | |
+| 成功定义 | 待补充 | |
+| 评估次数 | 待补充 | |
+| 随机种子 | 待补充 | |
+| 扰动测试 | 待补充 | |
+| 真机 | 待补充 | |
+| 算力 | 待补充 | |
+| 特权信息 | 待补充 | |
+
+**附录陷阱自查**：
+- privileged 信息：待补充
+- reward shaping：待补充
+- reset 难度：待补充
+- eval budget：待补充
+- 底层控制栈：待补充
+- 数据优势：待补充
+
+（事实优先从 PDF 附录提取；查不到写「未报告」，严禁编造）
+
+## 消融实验与分析
 
 待补充。
 

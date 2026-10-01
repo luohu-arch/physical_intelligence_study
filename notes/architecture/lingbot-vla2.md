@@ -11,6 +11,25 @@
 
 LingBot-VLA 2.0 沿三个功能域推进前代：重构数据管线并整理约 60,000 小时预训练语料（约 90K 小时原始真机数据清洗出 50K 小时、覆盖 20 个机器人构型；约 20K 小时 egocentric 视频池过滤出 10K 小时）；把动作空间从标准双臂扩展为含头部 2 维、腰部 4 维、底盘 3 维、灵巧手 12 维的 55 维统一向量；以 LingBot-Depth（几何）与自研 DINO-Video（因果时序）为双教师，对当前/未来两个可学习 query 做预测蒸馏。GM-100 九任务 generalist 混合训练设定下，Agilex Cobot Magic 上 progress/success 达 66.2/34.4，高于 π0.5 的 59.1/32.2、GR00T N1.7 的 36.3/17.8 和前代 LingBot-VLA 1.0 的 58.2/30.0；并在 Astribot S1 与 Cobot Magic-ARX X5 两个移动平台上完成长时程移动操作验证。
 
+## 九问速览
+
+1. **Problem**：把 VLA 从实验室基础模型推向实用——覆盖全身自由度、20 种构型与长时程移动操作
+2. **Bottleneck**：前代动作空间止步标准双臂；90K 小时原始数据噪声大；动作专家容量与负载均衡互相牵制
+3. **Insight**：数据清洗、55 维统一全身动作、预测式表征蒸馏分别治数据质量/构型覆盖/时序理解三个实际短板
+4. **Method**：60K 小时清洗语料；55 维统一动作向量；token 级 Sigmoid 路由无辅助损失 MoE；Q_t/Q_t+T 双 query 由深度+视频双教师蒸馏
+5. **Evidence**：GM-100 generalist 设定 Agilex 上 progress/success 66.2/34.4，高于 π0.5（59.1/32.2）与 GR00T N1.7（36.3/17.8）
+6. **Ablation**：相对关节目标把四任务平均成功率 33.7→55.0（+21.3 点）；同激活参数 MoE 在训练损失与 GM-100 验证动作误差上均优于 Dense
+7. **Assumption**：低维构型填零即可跨构型共享动作专家；Qwen3.6-27B 自动标注质量足够；15-30Hz 控制频率满足任务
+8. **Failure**：Galaxea R1 Pro 仅 34.6/15.6，进度分与成功率差距大（常卡在最终精确放置/释放步）；构型相关因素仍难
+9. **Opportunity**：MoE 超参（专家数/K/γ）与 chunk 长度 T 未披露；推理延迟无论文级验证；VLM 骨干未点名
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 多视角 RGB（移动平台 2 腕+1 头/鱼眼相机）；无深度/触觉输入——几何由 LingBot-Depth 蒸馏进表征 |
+| Closed-loop | 闭环逐 chunk 重观测；策略频率 30 Hz（Galaxea R1 系 15 Hz）；chunk 大小 T 未披露 |
+| Correction | 无显式重规划；依赖 Q_t+T 未来 query 形成对动作后果的预期表征（隐式前瞻） |
+| Deployment | 20 构型 50K 小时真机+10K 小时 egocentric 预训练 → Astribot S1 与 Cobot Magic-ARX X5 长时程移动操作（含 OOD 场景） |
+
 ## 核心技术
 
 1. **Sigmoid 路由的退化防线**：**大规模异构数据引擎** — 20 个构型的单臂/双臂/半人形/人形平台（含 Franka、AgileX、Astribot S1、Unitree G1、Fourier GR-2 等），总自由度跨度 8~32 DoF；三段式清洗：动作/状态的 jerk 三阶差分与速度/加速度 Z-score 过滤（阈值按构型单独设定）、静止信号占比 >95% 剔除、URDF 投影重放由人工核对视频-状态错位；egocentric 侧用 VLM 预筛选 + SLAM + MANO 手姿重建出世界系手部轨迹
@@ -107,6 +126,34 @@ DINO-Video 老师是本文的系统级投入之一：块状因果时序注意力
 - **动作空间消融基线配置**：相对关节目标 + joint 动作空间 + MeanStd 归一化 + L2 损失（四任务平均成功率 55.0）
 - **开源情况**：代码、checkpoint 在 GitHub/HuggingFace 公开；论文未报告推理延迟与部署硬件占用，外部流传的「RTX 4090 <130ms」说法在本 PDF 正文与表格中均无对应实验，商业声明待确认：仅见于项目主页/社区口径，无论文级验证
 - **VLM 骨干**：正文只说 v2.0 换用了 grounding 能力更强的 VLM 骨干，未点名具体型号，待确认
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 多视角 RGB：GM-100 各构型平台自带相机；移动平台为 2 腕+1 头（Astribot S1）/2 腕+1 鱼眼（ARX X5）；无深度/触觉 | Fig.9、Sec.5 |
+| 动作空间 | 55 维统一向量（14 臂关节+14 末端位姿+2 夹爪+12 灵巧手+4 腰+2 头+3 底盘+4 预留）；相对关节目标（消融验证）+MeanStd 归一化 | Sec.3.2、6.1 |
+| 控制频率 | 30 Hz 为主（Galaxea R1Pro/R1Lite 为 15 Hz） | Sec.3.2 |
+| 重规划频率 | 逐 action chunk 重观测；chunk 长度 T 未披露 | Sec.3.4 |
+| 动作 horizon | chunk 大小 T（数值未报告，Q_t+T 前瞻步长即 T） | Sec.3.4 |
+| 数据 | 预训练 60K 小时：90K 小时原始真机清洗出 50K 小时×20 构型 + 20K 小时 egocentric 池过滤出 10K 小时；Qwen3.6-27B 自动标注（18 类封闭动作词表） | Sec.2、Fig.2-3 |
+| 奖励 | 无(RL-free)：动作回归 L2 + 双教师蒸馏损失（深度 L1 + 视频 Frobenius） | Sec.3 |
+| Reset | 未报告 | — |
+| 成功定义 | GM-100：步骤级 progress score（部分得分）+ 二元 success rate；移动操作：子任务完成分 | Table 4、Sec.5.1 |
+| 评估次数 | GM-100：9 任务 generalist 设定（每任务 trials 数未在正文披露）；长时程移动操作：15 trials × ID/OOD | Sec.5.2-5.3、Fig.8 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：长时程移动操作含 OOD 设置（15 trials） | Fig.8 |
+| 真机 | 有：Agilex Cobot Magic 与 Galaxea R1 Pro（GM-100 九任务）+ Astribot S1、Cobot Magic-ARX X5 两移动平台 | Sec.5.2-5.3 |
+| 算力 | 未报告（GPU 型号/数量/时长均未披露）；社区流传 RTX 4090 <130ms 无论文级验证 | — |
+| 特权信息 | 无（egocentric 手部轨迹经 SLAM+MANO 重建，非真值；评测无特权输入） | Sec.2.2 |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯回归+蒸馏）
+- reset 难度：未报告
+- eval budget：移动操作每设置 15 trials 偏小；GM-100 每任务次数未披露
+- 底层控制栈：无强 controller 兜底；55 维动作直接下发全身
+- 数据优势：明显——50K 小时自采语料远超 π0.5 等公开基线可比口径，且为厂商自训自测对比
 
 ## 消融实验与分析
 

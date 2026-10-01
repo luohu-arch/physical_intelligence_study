@@ -9,6 +9,25 @@
 
 FAST Tokenizer 通过离散余弦变换（DCT）将机器人动作轨迹从时域压缩到频域，保留前 10% 的低频系数即可覆盖 95% 以上能量，将序列长度缩短 80%，从根本上解决了 Transformer 处理长时序任务时的注意力计算复杂度平方级增长问题。
 
+## 九问速览
+
+1. **Problem**：均匀分箱 token 化在高频动作数据上失效——动作 chunk 相邻 token 高度相关，自回归模型学会「复读」
+2. **Bottleneck**：高频控制下预测下一 token 的损失被「复制上一动作」主导（Fig.3 合成实验），模型在高频任务上无法训练
+3. **Insight**：机器人动作能量集中在低频——DCT 频域截断 + BPE 无损压缩可把动作 chunk 压成少量高信息 token
+4. **Method**：归一化 chunk→DCT→量化→BPE（词表 1024）压成密集 token；FAST+ 用 1M 真机轨迹训练通用 tokenizer
+5. **Evidence**：π0-FAST 匹敌扩散 π0（含洗衣折叠）且训练 GPU 时少 5 倍；naive token 在 20-50Hz 任务上完全无法进展
+6. **Ablation**：去 BPE 掉点（仍胜 naive，重复 0-token 稀释学习信号）；FSQ 对照更优更简单；FAST+≈数据集专用 tokenizer
+7. **Assumption**：自回归 next-token 骨干；动作信号低频主导；能接受自回归推理比扩散慢
+8. **Failure**：推理慢——每 chunk 约 750ms（30-60 token 走 2B 骨干）vs 扩散 π0 的 100ms@4090；高频突变动作压缩失真
+9. **Opportunity**：speculative decoding/量化加速推理；自回归 VLA 语言跟随更好的机理（论文留作 future work）
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 沿用 π0/OpenVLA 的多路 RGB+语言输入；FAST 只替换动作输出侧 token 化 |
+| Closed-loop | 闭环：预测 1 秒动作 chunk 执行后再重观测（与 π0 执行协议相同） |
+| Correction | 无显式 retry；DROID 零样本中失败 trial 仍显示合理行为（如接近把手） |
+| Deployment | DROID 训练的策略零样本跨 3 所大学校区评测；可扩展到 10k 小时数据训练 |
+
 ## 核心技术
 
 1. **离散余弦变换（Discrete Cosine Transform, DCT）** — 将时域动作序列变换到频域，能量高度集中在前 10% 的低频系数
@@ -103,6 +122,34 @@ FAST Tokenizer 就像给机器人的动作轨迹做了"无损压缩"。机器人
 **系统集成：**
 - 完美兼容现有所有 VLA 模型架构，仅需替换 Tokenizer 即可实现，无需修改模型主干
 - 输入侧串接 DCT 模块，输出侧串接逆 DCT 模块，对 Transformer 主体完全透明
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 沿用 π0 式多路 RGB + 语言指令（FAST 仅替换动作 token 化） | p2、p9 |
+| 动作空间 | 动作 chunk→DCT 系数→BPE token（词表 1024）；覆盖单臂/双臂/移动等 13+ 类数据集 | p4-5、Fig.8 |
+| 控制频率 | 评测任务覆盖 15-50Hz（Table Bussing 20Hz、T-Shirt Folding 50Hz、DROID 15Hz） | Fig.6(p8) |
+| 重规划频率 | 每执行完 1 秒动作 chunk 重规划（同 π0 协议） | p9 |
+| 动作 horizon | 1 秒动作 chunk（解码 30-60 个 token） | p9 |
+| 数据 | 单任务：各真机数据集 + DROID（75k 成功 episode/21M 样本，过滤 idle 步）；通用：π0 混合 10k 小时；FAST+ 预训练 1M 轨迹 | p8-10、附录(p18) |
+| 奖励 | 无(RL-free)：next-token 交叉熵 | p2 |
+| Reset | 未报告 | 附录未披露 |
+| 成功定义 | 任务进度 % / 成功率 %（按任务）；DROID 零样本部分任务不计成功率 | Fig.6/9 |
+| 评估次数 | DROID：16 任务共 44 trial/策略；其余未逐一报告（报 mean+95% CI） | 附录(p18) |
+| 随机种子 | 未报告 | 附录未披露 |
+| 扰动测试 | DROID 零样本跨 3 校新环境（未见场景/相机位姿即 OOD 测试） | Fig.7(p8) |
+| 真机 | Table Bussing、T-Shirt Folding、Grocery Bagging、洗衣折叠等 π0 任务 + DROID 3 校零样本 | p8-10 |
+| 算力 | π0-FAST 训练 GPU 时比扩散 π0 少 5 倍（compute-matched 对照见附录 Fig.15）；推理 750ms/chunk vs 扩散 100ms@4090 | p9-10、附录 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（next-token BC）
+- reset 难度：未报告
+- eval budget：DROID 仅 44 trial/策略且部分任务不计成功率——定性成分偏高；π0 任务报 mean+95% CI
+- 底层控制栈：同 π0（PD 跟踪，无额外 planner）
+- 数据优势：无——与扩散 π0 同数据同骨干；附录另做 compute-matched 对照
 
 ## 消融实验与分析
 

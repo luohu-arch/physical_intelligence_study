@@ -11,6 +11,25 @@
 
 MemoryWAM 提出三层混合记忆：4 帧滑动窗口（短期高保真, N_recent=4）、2 帧任务起始锚帧（事件边界, N_init=2）、8 个可学习 Gist token/帧（长期压缩, M_v=8, 120:8=15×）。反直觉的核心发现：Gist 压缩反超全注意力——RMBench 上 MemoryWAM 83.0% 平均成功率（vs LingBot-VA 全注意力 78.2%），同时推理延迟和 GPU 显存近乎恒定。真实 ARX 双臂验证：Shell Game 18/20（物体被遮盖后追踪位置）、Look and Press 15/20（数数并按对应按钮）。全注意力 FastWAM（仅滑动窗）在 memory-dependent 任务上仅 5.9% 成功率——没有长期记忆在需要"回想之前看到什么"的任务上完全失败。
 
+## 九问速览
+
+1. **Problem**：WAM 长时程记忆要么全注意力（延迟/显存随帧数暴涨）要么滑动窗（记忆任务上 5.9% 全败）
+2. **Bottleneck**：机器人数据帧间冗余极端——全注意力把「大海捞针」淹没在无关信息海啸里；RNN/TTT 过度压缩丢细节
+3. **Insight**：按认知科学的分层记忆组织（工作记忆/闪光灯记忆/gist 摘要），压缩记忆可以反超全注意力
+4. **Method**：4 帧滑动窗 + 2 帧锚帧 + 8 gist token/帧（15× 压缩）三层 attention mask，MoT 双 DiT，共享 3D RoPE
+5. **Evidence**：RMBench 平均 83.0% vs 全注意力 LingBot-VA 78.2%；Press Button 87% 持平全注意力但效率远超；真机 Shell Game 18/20
+6. **Ablation**：去 Gist（长期压缩）掉最多；FastWAM 无长期记忆在 memory-dependent 任务 0%；去锚帧/滑窗中等下降
+7. **Assumption**：锚帧=任务起始（硬编码）；M_v=8 手工设定；视频 DiT 大骨干（Wan2.2 5B）可负担
+8. **Failure**：中途关键转折帧非锚点会被遗漏；gist 压缩比对高动态任务可能不足；Observe & Pick Up 仅 27%
+9. **Opportunity**：可学习锚点选择、动态压缩比（遗忘曲线）、与 TTT 梯度写入融合
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 3 路 RGB（head 256×320 + 双腕 128×160 拼 mosaic）+ 双臂 14 维状态；无深度/触觉 |
+| Closed-loop | 闭环：每 policy call 单次 video DiT forward 更新记忆缓存，action DiT 去噪出 16 步 chunk |
+| Correction | 无显式 retry；记忆支撑非马尔可夫决策（数数/追踪被遮物体） |
+| Deployment | RMBench 仿真（50 demo/任务）训练 + ARX 双臂真机验证（每任务 20 trials） |
+
 ## 核心技术
 
 ![memorywam 架构图](figures/memorywam/fig2.png)
@@ -106,6 +125,34 @@ $$\mathcal{L}_{\text{action}} = \mathbb{E}_{t,\epsilon}\left[\|v_\psi(A_t^{\text
 - **Optimization**：AdamW, lr=2e-4, wd=0.01, β=(0.9,0.95), 8 GPU batch=1/GPU
 - **Noise augmentation**：clean latent mixed with Gaussian noise, ratio ∈ [0,1], p=1.0, video side only
 - **Inference**：clean latent single video DiT forward → update KV cache；action denoising with hybrid memory mask；no video generation needed
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 3 路 RGB mosaic 384×320（head 256×320 + 双腕 128×160）→ VAE → 120 tokens/帧 + 双臂 14 维状态 | §实现 |
+| 动作空间 | 连续动作 chunk h=16（双臂 14 维关节），flow-matching（shift=1.0） | §实现 |
+| 控制频率 | 未以 Hz 报告；单层延迟/显存随帧数的 scaling 曲线见 Fig.4 | Fig.4 |
+| 重规划频率 | 每 16 步 chunk | §实现 |
+| 动作 horizon | h=16，frame stride 4 × VAE temporal stride 4 | §实现 |
+| 数据 | RMBench 9 个双臂任务，每任务 50 条专家示教（benchmark 协议）；真机 ARX 记忆任务 | §4.3 |
+| 奖励 | 无 RL：video flow-matching（仅训练）+ action flow-matching，λ=1:1 | §3 |
+| Reset | 未报告 | — |
+| 成功定义 | 任务二值成功率（Shell Game 追踪正确、Look and Press 按对按钮数） | §4 |
+| 评估次数 | RMBench：每任务 100 rollouts；真机：每任务 20 trials（18/20、15/20） | Table 1、Fig.5 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 记忆任务内在含遮蔽/移动物体（Shell Game 盖杯换位） | §4.4 |
+| 真机 | ARX 双臂 + RealSense：Shell Game 18/20、Look and Press 15/20 | §4.4 |
+| 算力 | 8 GPU、每卡 batch 1（型号未报告），AdamW lr 2e-4；Video DiT ~5B + Action DiT ~1B | §实现 |
+| 特权信息 | 无；RMBench 协议对所有方法统一 50 demo 训练 | §4.3 |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（RL-free，双 flow-matching 损失）
+- reset 难度：未报告
+- eval budget：每任务 100 rollouts（仿真）/20 trials（真机），充足
+- 底层控制栈：ARX 底层关节控制器执行；视频生成不进推理路径（只一次 forward）
+- 数据优势：RMBench 协议统一 50 demo/任务——所有方法同数据，公平；但 MemoryWAM 基座（6B MoT）比 π0.5 等大，算力不对等
 
 ## 消融实验与分析
 

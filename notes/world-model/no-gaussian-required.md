@@ -10,6 +10,25 @@
 
 保留 LeWM 的前向 latent 预测目标 $\mathcal L_{fwd}=\|\hat z_{t+1}-z_{t+1}\|^2_2$，在训练期额外挂一个 MLP 逆动力学头，用 InfoNCE 式的 Action-NCE 让每条 latent 转移在 batch 内其他动作中辨认出真正驱动它的那个动作；由于常数 encoder 下所有 query 相同、分类只能停在 chance level（损失下界 $\log N$），坍塌从"最优解"变成"必然失败的判别题"。AC-MTM 在 5 个像素控制任务上三 seed 对照匹配 SIGReg 平均水平，而在最难的多物体 OGBench Visual Scene 上以 80.0±2.0% 大幅超过 SIGReg 的 58.0±2.0%（三个训练 seed 分别 +24/+20/+22 点），且无需 target network、stop-gradient、预训练 encoder 或重建分支。
 
+## 九问速览
+
+1. **Problem**：SIGReg 依赖高斯假设，多物体场景失效（OGBench Scene 58.0%）
+2. **Bottleneck**：常数 encoder 使判别损失退化到 chance（下界 log N），坍塌成"最优解"
+3. **Insight**：Action-NCE 让坍塌变成"必然失败的判别题"——每条转移须辨出真动作
+4. **Method**：前向 latent 预测+训练期 MLP 逆动力学头做 InfoNCE 动作判别
+5. **Evidence**：OGBench Scene 80.0±2.0 vs SIGReg 58.0±2.0（3 seeds，+24/+20/+22）
+6. **Ablation**：NoReg 28.0%（TwoRoom 崩）；AC-MTM 无坍塌 seed；长视野-3.8 分换稳定
+7. **Assumption**：batch 内负样本有区分度；动作-转移因果可辨识
+8. **Failure**：长视野压力测试比纯 MSE 少 3.8 分（判别目标牺牲外推）
+9. **Opportunity**：更大 batch 负样本、与其他正则叠加未做
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 像素观测（沿用 LeWM 224x224 协议） |
+| Closed-loop | 闭环：共享自回归 planner 的 MPC（与 LeWM 同协议） |
+| Correction | 每 planning cycle 重规划即校正；无显式偏差校正 |
+| Deployment | 纯仿真五任务；无真机 |
+
 ## 核心技术
 
 ![no-gaussian-required 架构图](figures/no-gaussian-required/fig1.png)
@@ -111,6 +130,34 @@ flowchart LR
 - **negatives 不必外采**：in-batch $N\times N$ 距离矩阵就够，而且成本增加可忽略。如果想进一步扩充 pool，需要警惕控制动作重复带来的 false negatives——重复的"负样本"实际上是在惩罚正确预测。
 - **诊断套件可直接借用**：(i) frozen-latent linear probes 对 privileged simulator-state 坐标做 ridge regression ($n=4000$, α=1)，用来判断哪个物理量被丢掉了；(ii) latent surprise ratio——corrupted（物理无效）transition 上的一步预测误差除以正常误差，1× 表示模型对无效转移不惊讶，越高越好；本论文实测 40–1246×；(iii) paired wins/losses 与 episode-level McNemar descriptive tests 处理统计显著性。
 - **诚实的 scope 说明（Appendix B audit）**：OGBench Visual Scene 论文数字使用的是 trajectory-goal MPC 协议而非 OGBench 官方 750-step fixed-goal protocol；在官方 protocol 下两种方法在这个 model scale 都解不了任务。所以 80.0% 应当读作 matched stress test 数字，不是公开 leaderboard 成绩。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 像素观测，沿用 LeWM 协议（224x224、frame-skip 5） | 第 5 节 |
+| 动作空间 | 环境动作（CEM 300 样本/30 精英/30 迭代规划） | 附录 |
+| 控制频率 | 不适用（离线规划） | — |
+| 重规划频率 | 同 LeWM MPC 协议 | 附录 |
+| 动作 horizon | 交互预算 50、goal offset 25 | 第 5 节协议 |
+| 数据 | 与 LeWM 相同环境数据集（TwoRoom/Reacher/PushT/Cube）+OGBench Visual Scene | 第 5 节 |
+| 奖励 | 无（自监督+目标条件 MPC） | 第 3 节 |
+| Reset | 仿真自动 | 附录 |
+| 成功定义 | 轨迹-目标规划成功率% | 表 3-4 |
+| 评估次数 | 200 eval episodes/seed（Scene 50/seed） | 表 3 注 |
+| 随机种子 | 3 训练 seeds {3072,1,2}；eval seed 42 | 第 5 节 |
+| 扰动测试 | 有：长视野压力测试（200 episodes，3 seeds） | 表 6 |
+| 真机 | 无 | — |
+| 算力 | 未报告（LeWM 级单 GPU 即可） | PDF 未披露 |
+| 特权信息 | 逆动力学头仅训练期；线性探针用仿真 state 仅做诊断 | 附录 |
+
+**附录陷阱自查**：
+- privileged 信息：诊断性探针用 privileged simulator state（仅分析，不进策略）
+- reward shaping：无
+- reset 难度：附录自曝——协议让不少 episode 在 reset 时即近解（random policy 也拿 52%）
+- eval budget：200 episodes/seed，充足
+- 底层控制栈：CEM 规划器，无外部兜底
+- 数据优势：与 SIGReg/MTM-MSE 同数据同协议受控对比
 
 ## 消融实验与分析
 

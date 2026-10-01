@@ -11,6 +11,25 @@
 
 Dexora 是首个开源的双臂灵巧 VLA：2× AIRBOT (6-DoF) + 2× XHAND (12-DoF) = 36-DoF，混合遥操作（外骨骼背包 + Apple Vision Pro + MuJoCo 数字孪生）采集 12.2K 真实 episode（347 物体、17 类别）+ 100K 仿真数据，decoder-only Transformer (28 layers) + DiT action head。基础 12 任务 89.6%（vs GR00T N1 82.1%、π0 50.4%、DP 34.2%），灵巧 6 任务 66.7%（vs GR00T 51.7%、π0 26.7%、DP 6.7%）。discriminator-guided quality-aware 训练用 PU-learning 自动降权低质量遥操作数据。ICRA 2026 Best Manipulation Paper。
 
+## 九问速览
+
+1. **Problem**：双臂灵巧（36-DoF）缺开源 VLA——数据采集难、遥操作质量参差、跨本体迁移未验证。
+2. **Bottleneck**：遥操作数据混入操作员疲劳期的低质轨迹，一视同仁训练被污染；人工逐条筛选上万条不现实。
+3. **Insight**："好示范易定义、坏示范难定义"——PU-learning 只标少量正样本即可给全部数据打质量分。
+4. **Method**：外骨骼+Vision Pro 混合遥操采数；DiT 动作头；12 层 discriminator 质量加权的三阶段训练。
+5. **Evidence**：Basic 89.6%/Dexterous 66.7%（GR00T 82.1%/51.7%、π0 50.4%/26.7%、DP 34.2%/6.7%）。
+6. **Ablation**：质量加权 Basic 85→95、Dexterous 55→80；真实数据比例 35% 处成功率跳升。
+7. **Assumption**：100K sim+10K real episodes 的采集预算（外骨骼+VP 栈）；无触觉反馈。
+8. **Failure**：twist-cap 等依赖力感的任务失败；灵巧任务 66.7% 远未饱和、最弱任务低。
+9. **Opportunity**：触觉/力传感接入、PU 先验 π_P 的鲁棒性、12.2K→50K 数据的边际收益曲线。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | SigLIP 多视角 RGB+T5 语言+36-DoF 本体；无触觉 |
+| Closed-loop | 闭环：DiT chunk 滚动推理执行 |
+| Correction | 无执行层恢复机制 |
+| Deployment | sim 预训练（DexMimicGen 100K）→ 真实数据质量加权微调 → 真机 zero-shot 评测；开源全栈 |
+
 ## 核心技术
 
 ![dexora 架构图](figures/dexora/fig1.png)
@@ -62,6 +81,34 @@ $$L_{PU} = \mathbb{E}_{x \in P}\left[\log D_\phi(x)\right] + \mathbb{E}_{x \in U
 - Data：100K sim（DexMimicGen 增强）+ 12.2K real episodes（347 objects, 17 categories）
 - 训练：三阶段——sim pretrain → discriminator（12L Transformer, PU-learning）→ quality-weighted fine-tune
 - 迁移：action-dim padding + camera masking 支持单臂夹爪/双臂夹爪/单臂低 DoF 手
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 多视角 RGB（SigLIP）+语言（T5）+36-DoF 关节状态（遥操期 20 Hz 记录） | Sec III / IV-A |
+| 动作空间 | 36 维连续关节命令（4 个物理组分解）；chunk 长度 L=32 | Sec IV-A |
+| 控制频率 | 各方法统一控制频率（具体 Hz 未报告） | Sec IV-A |
+| 重规划频率 | 每 chunk L=32 步 | Sec IV-A |
+| 动作 horizon | chunk L=32 | Sec IV-A |
+| 数据 | 100K 仿真轨迹（361 h，297 物体/30 类）+10K 真机 episodes（177.5 h，347 物体/17 类）——笔记正文记 12.2K，与 PDF v1 的 10K 有出入 | Sec III-B |
+| 奖励 | 无 RL 奖励（IL 为主）；PU-learning discriminator 给出质量权重 w_i 加权 DiT 损失 | Sec III-D |
+| Reset | 遥操作采集人工复位；评测期 reset 未报告 | |
+| 成功定义 | 任务完成判定（表格报 20 rollouts 成功率） | Sec IV-A |
+| 评估次数 | 20 rollouts/任务（基础 12+灵巧 6） | Sec IV-A / Table I |
+| 随机种子 | 未报告 | |
+| 扰动测试 | zero-shot 评测含未见组合；无系统性扰动报告 | |
+| 真机 | 2×AIRBOT+2×XHAND 36-DoF 平台，18 个任务（12 基础+6 灵巧） | Sec IV |
+| 算力 | 预训练 100K 步：8×A100、batch 64；discriminator 10K 步；baseline 微调 50K 步：4×L20 LoRA；推理单卡 RTX 4090 | Sec IV-A |
+| 特权信息 | 无（IL 训练无 oracle；MuJoCo 数字孪生仅采集期同步使用） | |
+
+**附录陷阱自查**：
+- privileged 信息：无 teacher-student/oracle
+- reward shaping：无 RL 奖励；PU 质量加权相当于数据级 reweighting（正样本先验 π_P 决定筛选强度，笔记记保留约 18% episodes）
+- reset 难度：人工采集复位
+- eval budget：20 rollouts/任务，中等
+- 底层控制栈：36 维关节命令，PD 细节未报告
+- 数据优势：基座独占 100K sim+10K real 预训练（baseline 只给 100 demos/任务+50K 步微调）——预训练数据差是主要比较口径差
 
 ## 消融实验与分析
 

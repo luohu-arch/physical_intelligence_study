@@ -12,6 +12,25 @@
 
 NVIDIA + CMU + UC Berkeley 把「reset → execute → verify → refine」做成 coding agent 可直接调用的真机闭环 harness：Stage 1 由人少量介入、agent 用程序化 tool call 搭好硬安全约束 / 自动重置 / 自动验证（EN 模块），Stage 2 让 agent 完全自主地改训练代码，在 8 台双臂 YAM 真机站上通过 Git 去中心化协作 hill-climb 策略成功率（PIRE 模块）——在 Push-T、4mm 针插入、GPU 插入、扎带剪断四个接触丰富的灵巧任务上自主做出 99% 真机成功率的策略，pin insertion 收敛到 100% 的速度快于 frontier human-in-the-loop RL 方法，并提出 MRU / MTU 两个度量「物理 autoresearch 资源利用率」的新指标。
 
+## 九问速览
+
+1. **Problem**：真机灵巧技能自改进中奖励、重置、安全都依赖人，无法无人值守跑闭环。
+2. **Bottleneck**：此前 LLM 自改进闭环关在仿真里；真机每集要人摆场景、判成败，成本压不下来。
+3. **Insight**：先花一次性人引导把 reset/verify/safety 做成不可变 Gym API，之后 agent 可全自主。
+4. **Method**：EN 搭环境（程序化二值奖励 + modular reset）→ PIRE 由 Git 协作 fleet 在 8 站真机 hill-climb。
+5. **Evidence**：四任务 99% 真机成功率；pin insertion 收敛快于 human-in-the-loop 基线；8 站把 >1.5h 压到约 40min。
+6. **Ablation**：BC 正则单项 +10.8pp 最大；VLM 工具视觉反而最慢（99.18min vs 无视觉 72.32min）。
+7. **Assumption**：EN 阶段需少量人演示与接口固化；站间同构硬件；任务可程序化二值验证。
+8. **Failure**：token 超线性（1→4 agent 80M→209M）；MTU 两处口径不一致；验证器精度未量化。
+9. **Opportunity**：验证器漂移检测、一次成功/重试成功分解、经验摘要的版本化与消融均未解决。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | agent 读训练代码、日志、rollout 视频与感知工具反馈（SAM3 检测、力矩、深度） |
+| Closed-loop | 每次 rollout 由 agent 合成的二值验证器即时判成败，失败信号直接驱动 hill-climb |
+| Correction | Git 分支 cherry-pick 他人正增益配方；重试制 SR（8 次重试内完成计成功） |
+| Deployment | 直接真机（8 站双臂 YAM），无 sim-to-real gap；仿真仅 RoboCasa 对照评测 |
+
 ## 核心技术
 
 ![enpire 架构图](figures/enpire/fig2.png)
@@ -92,6 +111,34 @@ flowchart TB
 - **奖励合成的工程手法（Sec A.2）**：zip-tie 验证 = SAM3 API prompt 搜索 + 裁剪/深度阈值调参抑背景噪声 + 转 ONNX 编译计算图做多目标并发前向以挤进 150 ms 延迟预算 + 双视角几何测试防假阳性；pin insertion 用混合奖励——视觉对齐（针尖 vs 孔心）+ 本体感知插入深度 + 末端力估计三信号合取。
 - **重置管线（Sec A.1）**：SAM3 开放词表检测 + BundleSDF 连续 6-DoF 跟踪 + cuRobo 无碰轨迹优化，GPU insertion 示例串起「SAM3 定位主板与槽 → 力矩校验抓取拔出 GPU → cuRobo 无碰 handover 到 parking pose」；爪力矩信号充当触觉替代，用于打滑检测与握力控制。
 - **RoboCasa365 仿真评测协议（Sec D）**：40 个 episode 用 generator seed 42 一次性生成的固定 `(seed, layout_id, style_id)` 三元组列表，所有方法共享；与 GR00T 对比时任务名、种子、初始状态、相机配置、成功谓词全对齐，且屏蔽 `get_task_info` / `reset_env` / oracle target 等特权 API。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 文本日志 + 视觉（默认 3×RealSense D405，GPU 插入加侧装 D435i）+ 力/本体感知；可纯日志无视觉 | Sec B.1/C.3 |
+| 动作空间 | 程序化 tool call：改训练代码、调超参、写奖励；策略侧 30Hz 动作目标 | Sec 2 |
+| 控制频率 | 策略 30Hz、低层关节控制 100Hz；agent 侧为异步研究循环 | Sec B.2 |
+| 重规划频率 | 每个想法一轮 hill-climb（idea tree 持续迭代，失败留 Git 历史） | Sec 2.2 |
+| 动作 horizon | 单任务 autoresearch 数小时（pin insertion 单 agent >1.5h、8 站约 40min） | Fig 7 |
+| 数据 | 真机 rollout（轨迹+视频+奖励+逐动作来源标签）全自生成；RoboCasa 评测 40 固定 episodes | Sec D |
+| 奖励 | agent 合成二值验证器（SAM3+本体感知+力，延迟 ≤150ms，双视角防假阳性） | Sec 2.1/A.2 |
+| Reset | modular skills 复位到最难阶段起点（SAM3 定位 + BundleSDF 跟踪 + cuRobo 无碰轨迹） | Sec A.1 |
+| 成功定义 | 8 次重试内完成 rollout 的概率（含 in-context recovery，比 i.i.d. best-of-N 宽松） | Sec 2.1 |
+| 评估次数 | 每 rollout 8 次重试；RoboCasa 40 episodes 固定三元组与 GR00T 全对齐 | Sec D |
+| 随机种子 | RoboCasa 用 generator seed 42 固定 40 个 (seed, layout, style)；真机训练 seed 未报告 | App D |
+| 扰动测试 | 无受控扰动实验（真机接触非确定性天然存在；fleet 多站并行采样物理扰动） | — |
+| 真机 | 8 站双臂 YAM 真机站，每站 RTX 5090 32GB 工作站、无跨站共享算力 | Sec B.1 |
+| 算力 | 每站 1×RTX 5090 + Ultra 9 285K/128GB；token 80M→209M（1→4 agent，cached input 为主） | Sec B.1/Fig 13 |
+| 特权信息 | 无：RoboCasa 对照屏蔽 get_task_info/reset_env/oracle target 等特权 API；验证器只看真实传感器 | Sec D |
+
+**附录陷阱自查**：
+- privileged 信息：无 judge/参考答案；对照评测显式屏蔽特权 API；验证器用双视角几何测试防单视角假阳性。
+- reward shaping：二值程序化验证器（非 process reward），沙盒 held-out 集上先校准精度再使用。
+- reset 难度：modular reset 直接复位到最难阶段起点——课程式偏置，比随机初始化更集中（口径需注意）。
+- eval budget：真机时间昂贵但未报告上限；重试 8 次的成功率口径跨论文不可直接对齐。
+- 底层控制栈：PLD-RL pipeline + SERL 异步三层 + FastAPI 控制端点（/start、/restart、/home）。
+- 数据优势：8 站 fleet 并行；与 PLD human-in-the-loop 基线的对比条件未完全对齐（自认）。
 
 ## 消融实验与分析
 

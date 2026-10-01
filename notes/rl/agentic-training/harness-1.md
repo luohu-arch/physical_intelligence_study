@@ -12,6 +12,25 @@
 
 把多轮搜索 agent 里"可恢复的记账"从策略上下文搬进环境侧：Harness-1 是基于 gpt-oss-20b 的 20B 检索 subagent（UIUC + UC Berkeley + Chroma），在一个 stateful 状态机 harness 里维护候选池、重要性标注 curated set（容量 30、四级标签）、证据图、验证缓存、全文库、BM25 句级压缩与两级去重、预算感知渲染；策略只保留语义决策——搜什么、留什么、验证什么、何时停。训练上用 GPT-5.4 教师在同一 harness 内跑出 899 条轨迹（约 26K turn 级样本）做 SFT 教接口操作，再用 on-policy CISPO 只在 SEC 单域 3,453 条查询上做 80 步 RL：8 个检索基准平均 curated recall 0.730，超最强开源 subagent（Tongyi DeepResearch 30B，0.616）+11.4 分，frontier 模型中仅 Opus-4.6（0.764）平均分在其之上；在 4 个 SFT/RL 均未涉及的迁移基准上增益（均值 +17.0 分）反而比源域（+7.9 分）大 2.2 倍；推理期逐机制消融显示全部 harness 关闭后 recall 从 0.584 掉到 0.513（-12.2%）。
 
+## 九问速览
+
+1. **Problem**：搜索 agent RL 要同时学「搜什么」和「从 append-only 流重建状态」，难查询奖励全空。
+2. **Bottleneck**：薄 harness 下工具词表塌缩成重复 search；RL 优化界面不稳、跨文档结构无法调用。
+3. **Insight**：可恢复记账归环境、语义决策归策略（stateful cognitive offloading）。
+4. **Method**：WORKINGMEMORY 七槽位 + 8 工具即状态编辑；GPT-5.4 教师 899 轨迹 SFT + CISPO 单域 RL 80 步。
+5. **Evidence**：8 基准平均 curated recall 0.730，超最强开源 subagent（Tongyi 30B，0.616）11.4 分。
+6. **Ablation**：全 harness 关闭 recall 0.584→0.513（-12.2%）；去多样性奖励后工具多样性 6→3.5 塌缩。
+7. **Assumption**：语料可本地化（约 3,200 万页）；40 turn/30 文档预算；recall 型指标可代理目标。
+8. **Failure**：不覆盖开放报告生成、弃答与对抗性 web；verify 是 LLM 蕴含代理会误判。
+9. **Opportunity**：nudge 与状态机制的贡献分解、跨语料域证据图信噪比、经验库规模化未验证。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 策略见渲染的紧凑状态（候选池/curated 集/重要性/证据图/验证缓存/预算标记）+ 最近 5 个动作结果 |
+| Closed-loop | 每个动作即时更新持久状态并渲染回执；[WARN]/[TIP]/[ACTION REQUIRED] nudge 提示异常 |
+| Correction | verify 通过才升格；教师引导回溯与提前终止进 SFT；无执行期 retry 机制 |
+| Deployment | 本地 Chroma 语料训练，评测混 web 后端（Serper+Jina）——held-out 迁移即环境切换检验 |
+
 ## 核心技术
 
 ![harness-1 架构图](figures/harness-1/fig2.png)
@@ -101,6 +120,34 @@ $$\text{Recall}(q) = \frac{|\mathcal{C}_q \cap \mathcal{R}_q|}{|\mathcal{R}_q|},
 **评测协议要点**：所有方法共用同一检索原语、web 后端（Chroma 语料 + Serper+Jina）、Qwen3-Reranker-8B、终局 30 文档预算（跟随 Context-1）；Harness-1 温度 1.0、40 turn，Context-1 与 frontier LLM 在 Context-1 harness 下 64 turn。Search-R1 与 Tongyi DeepResearch 用各自 released harness，因其不天然产出 30 文档 curated set，统一对轨迹池 rerank 取 top-30。三个 recall 指标 3 次运行取平均。附录 P 的 harness 混淆对照：同一 GPT-5.4 依次放进 naive search-add / Context-1 harness / Harness-1 harness，curated recall 0.511 → 0.807 → 0.849（FA 0.612 → 0.821 → 0.876）——不训练、只换 harness 白拿 +4.2 分 recall。
 
 **复现入口**：代码在 `github.com/pat-jj/harness-1`，论文声明将放出权重、harness 代码、数据生成管线与 RL recipe。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | WORKINGMEMORY 渲染（curated 30 + 池 50 + 历史 12 + 证据图）；prompt 预算 30,720 token | 附录 F/G |
+| 动作空间 | 8 个结构化工具：搜索 3 / 记忆检查 2 / curate / verify / end_search | Table 4 |
+| 控制频率 | 不适用（回合制）；40 turn 上限 | 第 5 节 |
+| 重规划频率 | 每 turn 一次动作；上下文 75% 即要求收尾、90% 必须 end_search | 附录 F |
+| 动作 horizon | RL 40 turn/episode；评测 Harness-1 40 turn、Context-1 64 turn | 第 5 节 |
+| 数据 | 教师 GPT-5.4 live 轨迹 899 条（recall≥0.10 过滤后，约 26K turn 样本）+ SEC 3,453 查询 | 附录 J |
+| 奖励 | 终局组合奖励：F2 + 轨迹/答案 recall + 多样性 - 漏答罚 - turn 罚；无 KL | 第 4 节 |
+| Reset | 本地语料检索无环境 reset；web 基准后端非确定 | 第 5 节 |
+| 成功定义 | curated recall / FA recall / Traj recall（三指标 3 次运行取平均） | 第 5 节 |
+| 评估次数 | 8 基准全量测试集；逐机制消融用 100 条成对 BC+ 测试查询 | 第 5 节 |
+| 随机种子 | 采样温度 1.0；recall 指标 3 次运行平均；训练 seed 数未报告 | 第 5 节 |
+| 扰动测试 | 无显式扰动；harness 混淆对照（同 GPT-5.4 换 harness：0.511→0.807→0.849） | 附录 P |
+| 真机 | 不适用（纯软件检索 agent） | — |
+| 算力 | SFT 于 Tinker 托管平台（worker 型号未披露）；RL 阶段硬件未报告 | 附录 J |
+| 特权信息 | 评测用 gold 相关文档集计算 recall（标准 IR 协议）；策略与训练无 oracle | 第 5 节 |
+
+**附录陷阱自查**：
+- privileged 信息：评测以 gold qrels 算 recall（非 LLM judge 看答案）；训练奖励不依赖 gold 文档身份之外的特权。
+- reward shaping：有——终局奖励由多项过程性信号组成（trajectory recall、工具多样性 w_div=0.15），防塌缩依赖度较高。
+- reset 难度：本地语料确定性（刻意设计）；web 基准非确定但只用于评测。
+- eval budget：全系统未做重复运行（作者披露算力原因）；消融 100 条成对查询。
+- 底层控制栈：BM25+dense 混合检索 + Qwen3-Reranker-8B + 程序化 nudge（nudge 计入消融，透明）。
+- 数据优势：反而劣势——4,352 训练项 vs Context-1 17.2K、Search-R1 221K；held-out 增益 +17.0 大于源域 +7.9。
 
 ## 消融实验与分析
 

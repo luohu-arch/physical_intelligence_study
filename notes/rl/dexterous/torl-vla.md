@@ -10,6 +10,25 @@
 
 TORL-VLA 提出触觉引导在线 RL 框架：VLA 同时预测参考动作和未来 wrench（力+力矩）序列，轻量在线 RL 模块用实时 wrench 反馈精调动作，intervention-censored critic 防止误将人类干预后的成功归功于策略。真实机器人 3 个接触丰富任务：coffee cup 30/30、latch 29/30、egg 30/30、全任务 28/30（vs π0.5 12/30），平均完成时间 165.5s（vs π0.5 199.7s，快 17%）。wrench 预测 + MoE 融合 + physical bypass 三管齐下。
 
+## 九问速览
+
+1. **Problem**：接触丰富任务（紧插接/锁扣/易碎抓取）部署时静态 VLA"差一点"却无法在线修正。
+2. **Bottleneck**：纯视觉看不见接触状态；人工干预后的成功会被 critic 误归功于之前的失败动作。
+3. **Insight**：wrench 预测是"事前"信号——预测与实测 wrench 的差值可驱动轻量在线精调。
+4. **Method**：VLA 同时出动作 chunk+wrench 序列；wrench 条件化 actor-critic 在线修正；intervention-censored critic。
+5. **Evidence**：coffee 30/30、latch 29/30、egg 30/30（π0.5 对照 12/30）；平均完成 165.5 s（快 17%）。
+6. **Ablation**：去在线 RL 掉到 21/30；去 MoE 融合 18/17/19；去 censoring 27/26/28——三件套缺一即退。
+7. **Assumption**：双指尖触觉 SDK 可输出 6-DoF wrench；冻结 VLA 参考质量够；有人值守干预。
+8. **Failure**：每任务 30 trials 统计量有限；VLA 在 OOD 场景出错时 RL 会放大错误；仅 3 任务。
+9. **Opportunity**：wrench 预测精度边界、censoring 误判代价、与触觉蒸馏（HapticVLA）结合。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 3 相机（全局+鱼眼+腕部）RGB+12 维 wrench（2 指尖×6-DoF SDK 估计，J=10 样本/2 s 历史） |
+| Closed-loop | 闭环：20 Hz 在线精调，每 K=10 步（0.5 s）重规划 |
+| Correction | intervention-censored critic 切分功劳归属+人工干预数据；stage estimator 路由执行 |
+| Deployment | 真机 latch-box 平台；冻结 VLA+轻量 actor-critic 部署期在线更新 |
+
 ## 核心技术
 
 ![torl-vla 架构图](figures/torl-vla/fig1.png)
@@ -58,6 +77,34 @@ $$Q^\pi(s_t, a_t) = \begin{cases} 0 & \text{if } t \le \tau_{int} \text{（干�
 - MoE 融合: 参考动作 / wrench 预测 / RL 修正按专家门控加权（待确认：门控细节）
 - 任务: coffee cup 30/30, latch 29/30, egg 30/30, 全任务平均 28/30
 - 时间效率: 平均完成 165.5s（vs π0.5 199.7s, -17%）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 全局+鱼眼+腕部 3 相机；触觉 2×(6×8) 阵列→SDK 6-DoF 指尖 wrench，左右拼成 12 维；J=10 历史样本（最近 2 s，以当前 wrench 为中心作差） | 附录 A.2.2 |
+| 动作空间 | 50 步动作 chunk×7 维，执行前 K=10 步；在线 RL 学修正量 δ（参考动作加法） | Sec III / 附录 A.3 |
+| 控制频率 | 20 Hz（重规划间隔 0.5 s） | 附录 A.3 |
+| 重规划频率 | 每 K=10 步重规划一次 | 附录 A.3 |
+| 动作 horizon | chunk 50 步（预测）/10 步（执行） | 附录 A.3 |
+| 数据 | 演示+wrench 数据（数量未报告）；各在线变体同预算各自采集在线数据 | 附录 A.3.1 |
+| 奖励 | 人工判定二值成功（稀疏，同时用于训练在线 RL 模块）；无 shaping | Sec 4.1 |
+| Reset | 子任务评估允许常规流程；全任务评估单 rollout 禁止干预/reset/安全停 | Sec 4.1 |
+| 成功定义 | 子任务/全任务人工判定；另报 60 min 吞吐量（成功完成次数） | Sec 4.1 |
+| 评估次数 | 30 autonomous trials/任务 | Sec 4.1 |
+| 随机种子 | 未报告 | |
+| 扰动测试 | 全任务单 rollout 无干预的可靠性协议；无环境扰动测试 | Sec 4.1 |
+| 真机 | 真机 latch-box 平台 3 个接触子任务+全任务（coffee/latch/egg） | Sec 4.1 |
+| 算力 | 未报告（在线推理/训练硬件未披露） | |
+| 特权信息 | 无 oracle；intervention censoring 修正的是标签归属（防"失败动作被奖励"），非特权输入 | Sec III |
+
+**附录陷阱自查**：
+- privileged 信息：无 oracle critic；wrench 信号部署期同样可得（非特权）
+- reward shaping：无——人工二值稀疏+吞吐指标
+- reset 难度：全任务评估禁用 reset（部署式协议，偏严）
+- eval budget：偏小（30 trials/任务）
+- 底层控制栈：未报告 PD；20 Hz 执行
+- 数据优势：baseline（TA-VLA/ForceVLA）重新实现在同 π0.5 骨干+同 wrench 接口+同演示，对比公平
 
 ## 消融实验与分析
 

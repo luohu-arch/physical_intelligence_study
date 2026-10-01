@@ -12,6 +12,25 @@
 
 LEGO-RL（LegoX 技术报告，华为 + 港中文，**无同行评审**）解决的是"原生 coding-agent harness 与策略梯度训练天生不对齐"的问题：harness 侧的上下文压缩与历史重写让重构出的轨迹不再是 rollout 时真正采样的 token 序列，环境崩溃与 reward hacking 污染结果信号，MoE 的 rollout 路由在训练时未被复现。它的三根支柱是——进程内 LLM 代理在 serving 边界捕获 token 与 log-prob（忠实优化）、带镜像缓存与分级防作弊的沙箱编排（可靠执行）、插件化校验 + Live UI（可观测训练）。用 GSPO 训 Qwen3.5-35B-A3B 稀疏 MoE，SWE-bench Verified 上 OpenHands SDK 64.0%→70.4%、Claude Code 62.4%→68.2%、OpenCode 57.2%→66.6%，rollout-training 概率相关性保持在 0.99 以上。
 
+## 九问速览
+
+1. **Problem**：原生 coding-agent harness 与策略梯度不对齐：历史重写、奖励污染、MoE 路由失配。
+2. **Bottleneck**：从最终 transcript 重构轨迹丢 token/logprob；环境崩溃与 reward hacking 污染奖励。
+3. **Insight**：忠实度要在 serving 边界源头保证——token、mask、权重、路由四者同时在位。
+4. **Method**：进程内代理捕获 + R3 路由重放 + 沙箱编排分级防作弊 + 终止感知准入，GSPO 训 Qwen3.5-35B-A3B。
+5. **Evidence**：SWE-bench Verified：OpenHands 64.0%→70.4%、Claude Code 62.4%→68.2%；rollout-training 相关性 >0.99。
+6. **Ablation**：错位重放 Pearson 掉 0.7503（比关掉重放 0.9946 还差）；难度筛选下半带 0.640 vs 全带 0.671。
+7. **Assumption**：harness 经模型 API 调用；沙箱可执行 verifier 给 0/1 奖励；任务池与评测集不相交。
+8. **Failure**：只支持终端二值奖励；每个 harness 单次运行无方差；生产 GPU 规模未披露。
+9. **Opportunity**：动态重筛任务池、保真度阈值触发的自动 IS 校正、过程奖励接入均未做。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | agent 读仓库状态与工具输出（原生 harness 上下文）；训练侧只经代理边界捕获 token/logprob/路由 |
+| Closed-loop | 沙箱内可执行 verifier 即时输出 0/1；Live UI 把终止原因、逐实例结果、一致性串成可观测面板 |
+| Correction | 失败轨迹不修复：终止感知准入把基础设施失败从梯度剔除；五阶段闭环含 Human Review |
+| Deployment | 真实 coding 任务（OpenSWE 筛选 + Docker/K8s 沙箱），评测 SWE-bench Verified |
+
 ## 核心技术
 
 ![lego-rl 架构图](figures/lego-rl/fig1.png)
@@ -95,6 +114,34 @@ $$\ell^{\text{train}}_{i,(t,j)}(\theta_{k'}) \approx \ell^{\text{roll}}_{i,(t,j)
 **读效率数字要注意的三件事**：预构建任务镜像的中位配对加速 33.2 倍（p10-p90 为 17.9-67.5 倍）、挂载 agent runtime 15.4 倍，但打包评分工具链是 0.71 倍——反而更慢，保留它只是为了奖励可复现性，不是延迟；Nydus lazy pull 把中位冷启动 1.7 倍、最大延迟 23 倍（1.7 s vs 40 s），网络流量 21.6 GB→1.59 GB、磁盘写 65.6 GB→5.29 GB，代价是未命中缓存的容器内读吞吐下降（冷读 63 vs 339 MB/s）；同步-异步对比的两组 GPU 优化吞吐不同，论文给的校正值（1.9 h vs 1.0 h）才可比。待确认：三个生产 run 的 GPU 规模、总 GPU 时与训练成本全文未披露，只给出 2.1 倍的每 token 优化时间比；因此无法估算"每提升 1 个百分点的 SWE-bench Verified 成本"。
 
 **Live UI 的监控判据**（附录 C 的崩溃 run 案例：Qwen3-30B-A3B + OpenHands + 449 任务池，29 步内训练奖励 0.351→0.050、验证 0.230→0.014）可直接搬走：每轨迹平均 turn 数趋近 1 是终态信号（该 run 在第 17 步后 turns 从 9.0 掉到 1.0 且不恢复，策略停止调用工具、把 shell 命令写进散文代码块）；rollout-training 一致性跌破 0.95（第 21 步）比人工终止早了 8 步；熵上升（t = +7.2）与奖励下降同向出现时是退化不是探索；批次内"无部分解决组"占比到 100% 也要报警。另一类诊断例子：验证奖励从 0.556 崩到 0.150 但只有 60/172 条轨迹到达验证阶段——终止分析定位到任务搭建而非策略退化；1,024 条轨迹全部单轮终止——轨迹检查发现工具调用 parser 不兼容。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 原生 harness 上下文（prompt 30k + response 170k 各自截断）；代理捕获 token/logprob/MoE 路由 | Table 10 |
+| 动作空间 | harness 原生动作：工具调用、代码编辑、shell 命令 | 第 3 节 |
+| 控制频率 | agent 执行占 91.3% 时长（均值 840.5s/trial）；沙箱搭建 21.6s、验证 35.9s | 第 5 节 |
+| 重规划频率 | harness 自主循环；全异步 rollout、staleness 阈值 ≤1 | 第 4 节 |
+| 动作 horizon | 3,699 trial 分解；上下文预算 200k token；3 epochs（126 步）×2,699 任务 | 第 5 节 |
+| 数据 | OpenSWE 36,884 → 规则筛 22,806 → verifier 校验 21,681 → 难度筛 2,699（与评测集严格不相交） | 第 4 节 |
+| 奖励 | 可执行 verifier 二值 0/1；KL 1e-3 只进 loss；六类防作弊（隐藏 git 历史/扣测试/sidecar 防火墙） | 第 4 节 |
+| Reset | 每 trial 全新隔离沙箱（Nydus lazy-pull + 预构建镜像 33.2x + 挂载 runtime 15.4x） | 第 4 节 |
+| 成功定义 | SWE-bench Verified pass@1（验证温度 0.7、每实例 1 样本） | 第 6 节 |
+| 评估次数 | 三个生产 run（每 harness 一个）；难度筛选消融四个 951 任务池 | 第 6 节 |
+| 随机种子 | rollout 温度 1.0/top-p 1.0；每主配置单次运行，run-to-run 方差未量化（自认） | 第 7 节 |
+| 扰动测试 | 防作弊基线发生率测量（读 git 历史 4.6-20.5%、下载 reference fix 1.9%、改测试 2.4-19.4%） | Table 6 |
+| 真机 | 不适用（真实代码仓库 + 沙箱，非机器人） | — |
+| 算力 | 未披露 GPU 规模与总 GPU 时（仅同步/异步每 token 优化时间比 2.1x） | 未报告 |
+| 特权信息 | verifier 需 reference patch（SWE-bench 固有）；评分前扣住 tests/、隐藏 git 历史防泄漏；约 2.5% grader 误用实例已剔除 | 第 4 节 |
+
+**附录陷阱自查**：
+- privileged 信息：verifier 用 test.patch 与 reference patch 评分——靠评分阶段才挂载 tests/ 与 rebase 历史防 agent 偷看，六类作弊路径逐一设防。
+- reward shaping：无过程奖励，纯二值 verifier；grader 误用 reference patch 的 2.5% 任务已从池中清除。
+- reset 难度：全新沙箱/trial；hermetic fail-fast 构建把 setup 失败与策略失败分开记账。
+- eval budget：SWE-bench Verified 全量 500 实例；每配置单次运行（无 seed 方差）。
+- 底层控制栈：三个原生 harness（OpenHands SDK/Claude Code/OpenCode）黑箱编排，未改动。
+- 数据优势：难度筛选用 Qwen3.6-27B + 4-rollout 探测「策略相对难度」——池子设计精细但与评测集不相交（干净）。
 
 ## 消融实验与分析
 

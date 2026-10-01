@@ -11,6 +11,25 @@
 
 IMR-LLM 用 LLM 做"翻译器"——LLM 将自然语言任务转为析取图(disjunctive graph)，由确定性求解器产生无死锁调度；LLM 再从 process tree 选路径生成可执行代码。23 工业场景 50 任务，编程从小时级→分钟级。
 
+## 九问速览
+
+1. **Problem**：工业多机器人产线的调度与编程靠人工，耗时数小时到数天且易出逻辑错误
+2. **Bottleneck**：纯 LLM 直接排执行顺序会幻觉出死锁/资源冲突——复杂多机器人任务 SR 归零（0.00）
+3. **Insight**：LLM 只做「翻译器」（自然语言→析取图结构），正确性交给确定性 OR 求解器数学保证
+4. **Method**：LLM 任务分解→析取图→Johnson/遗传算法求无死锁最优调度→Process Tree 填空式代码生成
+5. **Evidence**：IMR-Bench 复杂多机器人任务 SR 0.68 vs 纯 LLM 排程 0.00、SMART-LLM 0.00、LiP-O 0.24
+6. **Ablation**：无析取图（w/order）复杂任务 SR 0.00；无依赖建模 0.36；无 Process Tree 0.44——OR 求解器贡献最大
+7. **Assumption**：产线配置与 Process Tree 路径库需预先手工构建；LLM 翻译约束基本正确
+8. **Failure**：极端复杂场景 LLM 分解/分派仍 hallucinate（如分派到不可达机器人），SR 降至 0.68
+9. **Opportunity**：翻译错误自动检测、Process Tree 自动维护、GNN 学习型调度替代
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 自然语言任务描述 + 产线配置文本；真机演示含相机视觉定位工件；非感知驱动策略 |
+| Closed-loop | 非闭环控制问题：开环生成调度 + 程序，执行由符号状态检查（工件位置+已执行工序）验证 |
+| Correction | Process Tree + 符号状态检查可验证程序正确性；无执行中重规划 |
+| Deployment | 仿真产线建模→真机 3 臂产线（视觉定位+协作转运）验证；LLM 仅需 API 调用 |
+
 ## 核心技术
 
 ![imr-llm 架构图](figures/imr-llm/fig1.png)
@@ -67,6 +86,34 @@ $$
 - **Benchmark**: IMR-Bench — 23 real industrial scenes, 50 tasks, up to 7 robots × 24 operations
 - **Real deployment**: 3-robot production line with visual positioning, grasping, collaborative transport
 - **Speedup**: Manual programming hours → minutes
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 自然语言任务描述 + 产线配置（机器人数/类型/工作空间）；真机含相机视觉定位 | §IV |
+| 动作空间 | 不适用（输出为调度方案 + 可执行 Python 程序，非低层动作） | — |
+| 控制频率 | 不适用 | — |
+| 重规划频率 | 不适用（一次性生成；无在线重规划） | — |
+| 动作 horizon | 任务级：最多 7 机器人 × 24 工序 | IMR-Bench 定义 |
+| 数据 | IMR-Bench：23 个真实工业场景、50 个任务（造船/重型装备） | §IV-A |
+| 奖励 | 不适用（无 RL）：评价指标 OC/SE/Exe/GCR，SR = SE∧GCR | §IV-B Metrics |
+| Reset | 不适用 | — |
+| 成功定义 | SR=1 当且仅当调度效率 SE 与目标条件召回 GCR 均为 1 | §IV-B |
+| 评估次数 | 每任务 1 次（50 任务全集）；未报告重复次数 | Tab. I/II |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 无 | — |
+| 真机 | 3 机器人臂产线（视觉定位、抓取、协作转运）定性验证 | §IV-C |
+| 算力 | 未报告（LLM 为 API 调用：GPT-4o / Qwen3-32B-thinking，无本地训练） | §IV |
+| 特权信息 | 产线配置与 Process Tree 路径库为人工预先构建的结构化先验 | §III |
+
+**附录陷阱自查**：
+- privileged 信息：场景描述、产线配置、Process Tree 均为手工构建——基线同样使用，公平
+- reward shaping：不适用（无 RL）
+- reset 难度：不适用
+- eval budget：50 任务各评 1 次，无多次采样
+- 底层控制栈：真机执行依赖产线既有控制器与视觉定位模块兜底
+- 数据优势：所有基线统一用 GPT-4o——LLM 公平；但基线方法本身较老（SMART-LLM 等）
 
 ## 消融实验与分析
 

@@ -11,6 +11,25 @@
 
 Green-VLA 提出五阶段训练范式（L0 VLM 预训练→L1 多模态 grounding→R0 跨具身预训练→R1 微调→R2 RL 对齐），64 维统一动作空间 + 具身特定 mask。CALVIN 4.62, ALOHA 清洗 69.5%, Green 人形 90%。24M web samples + 3000h 机器人数据。
 
+## 九问速览
+
+1. **Problem**：构建可跨人形/移动操作/固定臂部署的通用 VLA，并突破行为克隆在长程任务上的饱和上限
+2. **Bottleneck**：BC 随数据规模快速饱和且无法对齐任务级奖励；异构本体动作空间不统一阻碍数据共享训练
+3. **Insight**：训练应课程化为五阶段——语义先验/grounding/跨具身先验/具身适配/RL 对齐，各治一层失败模式且增益正交
+4. **Method**：64 维语义 slot 统一动作空间+embodiment mask；DataQA 四维过滤 3000h 数据；R2 用小 actor 引导 flow 噪声分布做保守 RL
+5. **Evidence**：ALOHA 零微调清理 69.5%（π0 35.6%、GR00T N1 33.2%）；R2 使 Simpler WidowX 55.2→79.1；人形平均 90%
+6. **Ablation**：R0 跨具身零样本、R2 +24 个百分点绝对成功率（55.2/72.9→79.1/80.5）、JPM 引导 OOD 10.2→72.8——正交增益
+7. **Assumption**：24M web 样本 + 3000h 机器人数据 + 64×H100 算力；统一 slot 与 retargeting 保真度足够；RL 探索被噪声分布约束
+8. **Failure**：依赖 retargeting 保真与残差数据偏差；灵巧技能覆盖不足；真机 RL 安全性靠保守探索限定
+9. **Opportunity**：多语言指令、快推理与实时控制的耦合、在线数据采集与安全 RL 均为 future work
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 多视角 RGB + 本体状态（各数据源 1-3 路：腕部/头部/第三人称相机）；无深度/触觉 |
+| Closed-loop | 闭环：VLA 循环逐 chunk 重观测；人形平台 policy 12 Hz、底层控制 50 Hz |
+| Correction | 有：高层 planner 逐 subtask 判定成败并 replan；episode-end 预测头 + OOD 检测（GMM）负责安全终止 |
+| Deployment | 3000h 异构数据（含自采 Green 人形遥操作 143h）预训练 → Green 人形真机零架构改动部署（含 OOD 场景） |
+
 ## 核心技术
 
 1. 五阶段渐进训练，每阶段有明确目标和数据配比
@@ -72,6 +91,34 @@ $$
 - 64D 动作空间: 语义 slot 布局，每 slot 对应特定身体部位
 - R0 数据: 184M samples, 3000h+ demos across humanoids/manipulators/arms
 - 推理增强: Episode-progress prediction + OOD detection (GMM) + JPM (flow-matching guidance for precise targeting)
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB + 本体状态；相机随数据源 1-3 路（ALOHA 胸+双腕、DROID 3 相机、Galaxea 头+双腕、自采 Vision Pro 遥操作 3 相机等） | Sec.4.1 数据集表 |
+| 动作空间 | 64 维统一语义 slot + embodiment mask；覆盖单臂 EEF / 双臂关节 / 人形关节；控制类型由文本 prompt 指定 | Fig.1、Sec.3 |
+| 控制频率 | 桌面/静态场景 10 Hz（Fig.1）；Green 人形 policy 12 Hz、底层控制 50 Hz | Fig.1、Fig.13 |
+| 重规划频率 | 高层 planner 逐 subtask 判定与 replan；VLA 逐 chunk 重观测（chunk 长度未报告） | Sec.3 |
+| 动作 horizon | 未报告（Simpler 评测用默认 80-200 步 episode；EEP 头提前终止） | Sec.5 |
+| 数据 | L1：24M web 多模态样本；R0：184M 机器人样本、3000h+（AgiBot 774h、DROID 512h、Galaxea 477h、自采 143h 等 8+ 源） | Sec.4 |
+| 奖励 | R0/R1：flow matching BC；R2：IQL Q 函数（sparse reward）+ actor 学习噪声分布的保守 RL | Sec.4 R2 |
+| Reset | 评测随机化物体位姿、干扰物与背景杂乱（非固定初始态） | Sec.5 各评测 |
+| 成功定义 | Simpler/CALVIN 官方 SR 与 ACL；货架：top-1 首抓正确+抓放成功；人形：指令精确跟随（指定手臂/物体/篮子/交接） | Sec.5 |
+| 评估次数 | 桌面任务每对象 10 episodes；Simpler 结果为 7 次评测聚合；货架各 regime 多次（具体次数未报告） | Sec.5 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：OOD SKU/包装（新口味/尺寸/换标）、随机位姿+干扰物、OOD 场景布局 | Sec.5、Fig.11-12 |
+| 真机 | 有：AgileX Cobot 桌面清理（vs π0/GR00T/GO-1）、Green 人形 6 类指令任务（平均 90%）、电商货架分拣 | Sec.5 |
+| 算力 | R0 预训练 64×H100 集群（优化步数单位在 PDF 排版中丢失，量级无法确认）；其余阶段算力未披露 | Sec.4.2 |
+| 特权信息 | 无（JPM 目标点由语言条件化预测+伪逆引导得出，非真值；IQL 在 R1 数据上训练） | Sec.3-4 |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：R2 用 sparse reward + IQL，非 dense shaping；保守探索（只改噪声分布）约束偏离数据分布的程度
+- reset 难度：正常（随机位姿/干扰物）
+- eval budget：多数任务 10 episodes 量级；货架与人形评测的统计次数披露不全
+- 底层控制栈：有辅助兜底——episode-end 预测头提前终止 + OOD 检测（GMM）+ JPM 引导；人形底层 50Hz 控制器执行
+- 数据优势：总量 3000h 少于 π0 的 10000h+，数据维度反而劣势；但 R0 各源混合的自家配比无法外部复核
 
 ## 消融实验与分析
 

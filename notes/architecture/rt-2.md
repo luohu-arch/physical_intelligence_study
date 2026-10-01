@@ -10,6 +10,25 @@
 
 RT-2 不设计任何新架构、不加任何动作专用层，只把机器人动作按 RT-1 方式切成整数 token、当作普通文本放进 VLM 的训练目标里 co-fine-tune（PaLI-X 5B/55B 与 PaLM-E 12B），就让互联网级语义知识直接进入闭环控制——在约 6000 次真机评测中，泛化成功率相对 RT-1 翻倍（平均 32% 到 62%），并在符号理解、推理、人物识别上拿到 60% vs 17% 的 3 倍以上优势。
 
+## 九问速览
+
+1. **Problem**：如何把 VLM 的互联网级语义知识迁移进真机闭环控制
+2. **Bottleneck**：VLM 只能输出高层文本规划、需外部低层策略执行；直接微调又会遗忘 web 知识（5B 纯微调 42% vs co-fine-tune 44%）
+3. **Insight**：动作可视为一门「外语」——离散化为文本 token 后 next-token 目标等价于 BC，零架构改动即可继承全部 web 知识
+4. **Method**：PaLI-X/PaLM-E 上把 8 token 动作串与 web 数据（机器人数据占 50%/66%）co-fine-tune；推理时 output constraint 限定采样
+5. **Evidence**：6k 真机评测：unseen 平均泛化 32%→62%；涌现能力 60% vs RT-1 的 17%（3 倍以上）
+6. **Ablation**：5B 从零训仅 9%；co-fine-tune>纯微调（55B 63 vs 52）；容量收益集中在泛化轴而非 seen 轴
+7. **Assumption**：动作技能已全部包含于 RT-1 数据；语义-动作可经共享隐状态对齐；1-3Hz 云端控制对任务够用
+8. **Failure**：全新 motion 学不会（擦桌子/工具使用/叠毛巾失败）；未见物体动力学（滚动的笔）控制不住
+9. **Opportunity**：单具身厨房数据语义覆盖窄（OXE 接手）；云端延迟瓶颈催生动作压缩与小模型路线
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 第三方 RGB + 语言指令（VQA 格式 prompt）；无本体感知/深度/触觉 |
+| Closed-loop | 闭环但频率低：55B 经云端 TPU 1-3Hz、5B 约 5Hz；每步自回归生成 8-token 动作串 |
+| Correction | 无显式重规划；chain-of-thought 变体（几百梯度步）可先输出 Plan 再输出 Action |
+| Deployment | 云端多 TPU 服务+机器人网络查询；与 RT-1 同平台同数据的真机厨房评测，无 sim2real |
+
 ## 核心技术
 
 1. **动作即文本 token（零新增参数）**：沿用 RT-1 的动作离散化，动作空间为末端执行器 6 自由度位移与旋转增量 + 夹爪开度 + 一个终止命令的离散维，连续维均匀切 256 bin，整条动作用 8 个 token 表示成字符串 `"terminate dx dy dz droll dpitch dyaw gripper"`（如 `"1 128 91 241 5 101 127"`），以标准 VQA 格式 `Q: what action should the robot take to [instruction]? A:` 直接作为语言建模目标
@@ -97,6 +116,34 @@ RT-2 的第一步是一个**「把动作当成一门外语来教」的翻译观*
 - 高精度灵巧操作（叠毛巾）
 - 多层间接推理
 - 未见过物体的推动动力学（笔滚落桌面、香蕉质心偏移）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 第三方 RGB + 语言指令（VQA 格式）；无本体感知 | p3-4 |
+| 动作空间 | 7 维 EE 增量+夹爪+终止符，每维 256 bin → 8 token 文本串，自回归生成 | p3 |
+| 控制频率 | 55B：1-3Hz（多 TPU 云端+网络查询）；5B：约 5Hz | p6 |
+| 重规划频率 | 每步（1-3Hz）重规划，无动作 chunk | p6 |
+| 动作 horizon | H=1（单步 8-token 动作） | p3 |
+| 数据 | RT-1 的 130k 真机示教 + WebLI 过滤后 1B 图文 co-fine-tune（机器人数据 PaLI-X 占 50%/PaLM-E 占 66%） | p5、附录E |
+| 奖励 | 无(RL-free)：next-token 交叉熵（等价 BC） | p4 |
+| Reset | 未报告 | 附录未披露 |
+| 成功定义 | 每指令人工判定二元成功；A/B 测试框架（四模型同条件先后轮换） | p8-9 |
+| 评估次数 | 总计约 6000 真机 trial；涌现评测每指令 5 次 | p1、附录 |
+| 随机种子 | 未报告（用 A/B 框架控方差） | 附录未披露 |
+| 扰动测试 | 有：unseen objects / backgrounds / environments，各分 easy/hard 两档 | 附录 Table 4 |
+| 真机 | Google 厨房移动操作臂（与 RT-1 同平台）；Language-Table 仿真交叉验证（3B 版） | p7-9 |
+| 算力 | 55B：lr 1e-3、batch 2048×80k 步；12B：batch 512×1M 步；云端多 TPU 部署，pod 数量未报告 | 附录E |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（next-token BC）
+- reset 难度：未报告；A/B 同条件轮换缓解环境漂移
+- eval budget：总量充足（6000 trial）；涌现评测每指令仅 5 次，统计强度弱（论文明说用 A/B 框架降方差）
+- 底层控制栈：无 planner；EE delta 命令直接执行
+- 数据优势：无——与 RT-1 完全同数据，增益只能来自 VLM 预训练（干净对照）
 
 ## 消融实验与分析
 

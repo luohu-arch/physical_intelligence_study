@@ -10,6 +10,25 @@
 
 TD-MPC2 在一个不含解码器的隐式（joint-embedding）世界模型上做局部轨迹优化：encoder 把观测压成 SimNorm 归一化的 latent，latent dynamics、reward、terminal value 三个头用 joint-embedding 预测 + 离散回归 + TD 学习联合优化，推理时用带策略先验的 MPPI 在 latent 里在线规划；凭借 LayerNorm+Mish 架构、SimNorm、Q-ensemble 等鲁棒性改造与可学习任务嵌入 + 动作掩码的多任务框架，单组超参覆盖 DMControl/Meta-World/ManiSkill2/MyoSuite 共 104 个连续控制任务，并把单个 317M 参数 agent 训练到同时执行横跨多具身、多动作空间的 80 个任务。
 
+## 九问速览
+
+1. **Problem**：世界模型类方法逐任务调参，无法一个 agent 跨域执行多任务
+2. **Bottleneck**：跨域数据动作/观测空间异构；隐式世界模型训练不稳定
+3. **Insight**：SimNorm+可学习任务嵌入+动作掩码可统一多域多具身训练
+4. **Method**：joint-embedding 世界模型+MPPI 在线规划，317M 单 agent 覆盖 80 任务
+5. **Evidence**：1M→317M 扩容 80 任务 normalized 16.0→70.6（TD-MPC 同规模反降）
+6. **Ablation**：SimNorm 46.8→51.0；离散回归 +4.6；Q-ensemble x10 至 57.0
+7. **Assumption**：latent 局部轨迹优化够用（无需解码器）；数据覆盖充分
+8. **Failure**：依赖大数据集覆盖；精细操作类任务仍难（对比 RL 专用法）
+9. **Opportunity**：真机数据复用、更大规模世界模型（论文开源种子数据）
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 状态或像素观测（含高维 A∈R^39 任务），SimNorm 归一化 latent |
+| Closed-loop | 闭环：每步 MPPI 在 latent 在线规划，执行首个动作后重规划 |
+| Correction | receding horizon 每步重规划即校正；策略先验收紧采样分布 |
+| Deployment | 纯仿真（DMControl/Meta-World/ManiSkill2/MyoSuite 104 任务）；无真机 |
+
 ## 核心技术
 
 ![td-mpc2 架构图](figures/td-mpc2/fig3.png)
@@ -111,6 +130,34 @@ $$
 | 模型规模表 | 1M(d128)/5M(d512)/19M(d768,enc1024)/48M(d768,enc1792)/317M(d1376,enc4096) | 编码器层数 2/2/3/4/5；19M 起 latent 768 |
 
 实操要点：(1) 数据集构建——多任务模型用的是 240 个单任务 agent replay buffer 合并出的 545M transitions；80 任务集合由全部 50 个 Meta-World 任务加 30 个 DMControl 任务组成（另有 30-task 纯 DMControl 子集单独报告了扩容曲线）；(2) 评测发布 300+ checkpoints；(3) 若做视觉输入，换 4 层浅 CNN encoder + 64×64 输入 + random shift 增强，其余超参不动；(4) 微调新任务时可把 $e$ 初始化成语义相近任务的嵌入或随机向量。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 状态或像素（多域混合，零填充对齐输入输出） | 第 3 节 |
+| 动作空间 | 连续（各域原生 joint/EE 等，动作掩码屏蔽无效维，最高 R^39） | 第 3.2 节 |
+| 控制频率 | 不适用（各基准标准 action repeat） | 附录 D |
+| 重规划频率 | 每步 MPPI 在线规划（latent） | 第 2 节 |
+| 动作 horizon | MPC 短视野（论文默认 3 步，附录超参表） | 附录 A |
+| 数据 | 多任务 545M transitions（240 个单任务 agent 的 replay buffers） | 第 4.2 节 |
+| 奖励 | 各任务原生奖励（RL 目标） | 第 2 节 |
+| Reset | 各基准自动 reset | 标准协议 |
+| 成功定义 | normalized score（80 任务聚合/95% CI） | 图 7 |
+| 评估次数 | 各基准训练曲线（80 任务数据集） | 第 4 节 |
+| 随机种子 | 3 seeds（报均值+95% CI） | 图注 |
+| 扰动测试 | 无 | — |
+| 真机 | 无 | — |
+| 算力 | 317M 模型 33 GPU-days（单张 RTX 3090）；1M 模型 3.7 天 | 表 1 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（原生奖励）
+- reset 难度：正常
+- eval budget：标准基准预算，充足
+- 底层控制栈：MPPI+策略先验（自带规划器，属方法本体）
+- 数据优势：545M transitions 大数据集是其扩容主张的核心资产（开源）
 
 ## 消融实验与分析
 

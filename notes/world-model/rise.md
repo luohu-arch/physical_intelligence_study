@@ -11,6 +11,25 @@
 
 RISE 用一个「组合世界模型」替换真实环境来做 on-policy RL：可控多视角视频扩散模型（由 Genie Envisioner GE-Base 改造）负责"这个动作会产生什么未来画面"，从 $\pi_{0.5}$ 初始化的进度价值模型（progress + TD 学习）负责"这个未来值多少分"，两者在想象空间中合成逐块优势信号，策略通过优势条件化（advantage conditioning）自我改进——整个闭环零真机交互。三个真实灵巧长程任务上相对此前最好方法绝对提升 +35%（Dynamic Brick Sorting：50%→85%）、+45%（Backpack Packing：40%→85%）、+35%（Box Closing：60%→95%）。
 
+## 九问速览
+
+1. **Problem**：真机 on-policy RL 成本高、需人工 reset、有硬件风险
+2. **Bottleneck**：PPO/DSRL 直接调真机崩盘（分拣 35→10%）；环境接口不可行
+3. **Insight**：可控多视角视频扩散世界模型可当"组合环境"承载想象 RL
+4. **Method**：GE-Base 改造的世界模型+进度价值模型，在想象中合成优势自我改进
+5. **Evidence**：三任务 85/85/95% vs 最强基线 RECAP 50/40/60（各 +35/+45/+35）
+6. **Ablation**：在线 RL 基线全崩；RISE 仅 9k 步从 50→85%（延长训练追不上）
+7. **Assumption**：视频世界模型的可控性足以承载策略梯度信号
+8. **Failure**：想象与真实动力学差距会带入策略偏差；细粒度接触精度受限
+9. **Opportunity**：世界模型在线更新、更精细的优势估计未做
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 3 视角 RGB；输入 4 帧、预测 25 帧（30/15Hz 采样） |
+| Closed-loop | 想象闭环：策略在世界模型 rollout 中 on-policy 改进；真机仅评测 |
+| Correction | 价值模型 TD 学习+在线 steering episodes（70 条）微调即校正 |
+| Deployment | 零真机交互训练；真机三灵巧任务直接评测 |
+
 ## 核心技术
 
 ![rise 架构图](figures/rise/fig1.png)
@@ -128,6 +147,34 @@ graph TD
 - **部署细节**：推理频率低但控制 30 Hz，用 Temporal Ensembling 线性加权融合新旧动作块，避免推理间隙运动冻结；$f'\in\mathbb{R}^{14}$ 由时变线性插值产生。
 - **评测协议**：每任务 20 次自主试验取平均；Stage-wise Score 满分 10（分拣任务按抓取/正确放置累计封顶 10；背包与关盒按四个里程碑各 2.5/5.0/7.5/10 分档）。
 - **效率对比基准**：合成 25 个多视角观测，Cosmos-Predict2.5 需超过 10 分钟，GE 少于 2 秒，约 300 倍加速——这是"视频世界模型能不能进 RL 循环"的分水岭指标。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 3 视角 RGB；输入 4 帧/预测 25 帧；采样 30Hz（预训练）/15Hz（微调） | 表 VIII |
+| 动作空间 | VLA 动作 chunk（pi0.5 系） | 第 3 节 |
+| 控制频率 | 机器人控制器 30 Hz（VLA 低频推理+频率桥接） | 附录 A |
+| 重规划频率 | 每 action chunk | 附录 A |
+| 动作 horizon | 未报告（chunk 级） | PDF 未详列 |
+| 数据 | 想象 rollout 生成（零真机交互）；70 online steering episodes 微调价值 | 附录 C |
+| 奖励 | 进度奖励（progress+TD 价值学习，想象空间合成） | 第 3 节 |
+| Reset | 零真机 reset（想象中进行） | 图 1 |
+| 成功定义 | 成功率%+stage-wise score（各结果 20 次自主试验均值） | 附录 A |
+| 评估次数 | 每设置 20 次真机试验 | 附录 A |
+| 随机种子 | 未报告 | PDF 未披露 |
+| 扰动测试 | 未报告 | PDF 未披露 |
+| 真机 | 三个真实灵巧长程任务（分拣/装包/封箱） | 表 I |
+| 算力 | 世界模型 16xH100 约 7 天（batch 512）；价值模型 8 GPU 约 1 天（batch 64） | 附录 B |
+| 特权信息 | 无（离线视频+想象训练） | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：有——progress 奖励+TD 价值（密集 shaping 是方法核心而非陷阱，但注意其来自任务阶段定义）
+- reset 难度：训练零 reset（世界模型想象）；真机评测需人工布置
+- eval budget：20 trials/设置，中等偏小
+- 底层控制栈：有频率桥接（低频 VLA+30Hz 控制器执行 joint 命令）
+- 数据优势：基线（DAgger/PPO/DSRL/RECAP）用真机交互，RISE 用想象——交互预算不同质
 
 ## 消融实验与分析
 

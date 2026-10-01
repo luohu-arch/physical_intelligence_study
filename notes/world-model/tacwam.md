@@ -10,6 +10,25 @@
 
 TacWAM 回答了一个此前 WAM 工作都回避的问题：**触觉未来该不该进 WAM、以什么方式进**。纯视觉 WAM 看得到场景怎么变，看不到力、变形、剪切与滑移——一张"看起来很稳"的画面可能正处在打滑边缘。TacWAM 的方案分三步：(1) SAF Tactile Encoder 把触觉外观图像 + 致密力场 + 网格变形流在传感器表面空间配准后融进一个共享 latent 预测空间，并用双边合力/合力矩重建做全局 wrench 监督；(2) 触觉历史编码器把最近接触演化压缩成上下文，解决单帧力的歧义；(3) AGT Attention 用掩码把"当前视觉锚点 / 当前触觉锚点 / 未来预测 token / 动作 token"四类信息隔开——动作分支只能读部署时可得的锚点，未来的触觉序列只做监督不进动作通路。四个真实接触丰富任务上平均成功率 75.0%，比最强基线 VT-WAM 高出 37.5 个百分点。
 
+## 九问速览
+
+1. **Problem**：纯视觉 WAM 看不到力/变形/滑移——"看起来稳"可能正处打滑边缘
+2. **Bottleneck**：触觉单帧力有歧义；未来触觉若进动作通路成部署特权泄漏
+3. **Insight**：触觉未来只做监督、不进动作分支；触觉历史编码消歧
+4. **Method**：SAF 触觉编码+历史编码器+AGT 掩码隔离锚点/未来/动作四类 token
+5. **Evidence**：四真机任务均值 75.0%，超最强基线 VT-WAM 37.5 个百分点
+6. **Ablation**：w/o History 掉到 55.0%；再放宽 Attn-VT 掉到 7.5%（掩码纪律关键）
+7. **Assumption**：30Hz 同步视触觉流；部署时可得的锚点信息充分
+8. **Failure**：触觉传感器缺失/失准、非同步流场景退化
+9. **Opportunity**：高频力闭环、多指扩展（即 DexTacWAM 后续）
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 顶+腕双相机 RGB+双 Xense G1-WS 触觉（外观/致密力场/变形流）+关节状态 |
+| Closed-loop | chunk 级闭环：每 chunk 后用新观测推理下一 chunk（receding horizon） |
+| Correction | 高频触觉反馈跨 chunk 修正动作；力 rollout 预测跟随真值趋势 |
+| Deployment | 同平台采集训练→同平台真机评测（预定义物体位姿/初始构型范围内） |
+
 ## 核心技术
 
 ![tacwam 架构图](figures/tacwam/fig1.png)
@@ -80,6 +99,34 @@ $$\mathcal{L}_{SAF} = \lambda_F\mathcal{L}_F + \lambda_R\mathcal{L}_{wrench} + \
 - **训练次序**：Phase 1 训 SAF 编码器与重建器到收敛后**完全冻结**；Phase 2 冻结触觉 tokenizer 训练 tri-modal WAM（Mixture-of-Transformers 三个 expert + masked mixed self-attention），$E_{hist}$ 与主干的其余部分在此阶段一起训练。
 - **推理形态**：chunk 级 receding-horizon 闭环，执行完一个 chunk 后重新观测再推下一 chunk；$R_{tac}$ 可以离线解码未来触觉用于分析力与变形的演化趋势，但论文明确没有把它用作在线修正信号。
 - **重要声明**：论文自我定位为"触觉预测如何放进 WAM 训练"的方法论研究，明确否认"Tactile prediction 本身是主要创新"；引用的相关工作 DreamTacVLA、N0-VTLA、TacForeSight 都做过预测式触觉学习，差异点集中在 SAF 表示设计 + AGT 信息隔离这两处。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 双相机（顶+腕）RGB+双指尖触觉三通道+关节位置；分辨率未报告 | 第 4.1 节 |
+| 动作空间 | 关节位置目标（每动作 token=下一控制步目标关节位） | 第 4.1 节 |
+| 控制频率 | 30 Hz（感知/控制流全同步） | 第 4.1 节 |
+| 重规划频率 | 每 action chunk 结束重推理 | 第 3.4 节 |
+| 动作 horizon | H 步 chunk（H 具体值未报告） | 第 3 节 |
+| 数据 | 每任务 300 episodes 演示（均约 500 帧/episode） | 第 4.1 节 |
+| 奖励 | 无（自监督预测+演示模仿） | 第 3 节 |
+| Reset | 人工（真机演示与试验） | 全文隐含 |
+| 成功定义 | 成功率%（每方法每任务 20 次真机试验） | 第 4.1 节 |
+| 评估次数 | 每方法每任务 20 trials | 第 4.1 节 |
+| 随机种子 | 未报告 | PDF 未披露 |
+| 扰动测试 | 预定义范围内物体位姿与初始构型变化 | 第 4.1 节 |
+| 真机 | Agilex Piper+双 Xense G1-WS，四接触任务 | 第 4.1 节 |
+| 算力 | 未报告（PDF 无 GPU 信息） | PDF 未披露 |
+| 特权信息 | 未来触觉序列仅做监督；动作分支只读部署时锚点（AGT 掩码） | 第 3.3 节 |
+
+**附录陷阱自查**：
+- privileged 信息：无泄漏——AGT 掩码显式隔离部署时可得 vs 训练期未来信息（论文核心设计）
+- reward shaping：无
+- reset 难度：正常（受控桌面任务）
+- eval budget：20 trials/任务，中等
+- 底层控制栈：无强 planner，chunk 直接执行
+- 数据优势：全部方法同演示同 epochs 训练（VT-WAM 为复现版）
 
 ## 消融实验与分析
 

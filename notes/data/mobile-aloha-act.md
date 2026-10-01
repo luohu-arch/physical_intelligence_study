@@ -9,6 +9,25 @@
 
 Mobile ALOHA 与 ACT 提供了低成本全身遥操作硬件方案与动作分块（Action Chunking）Transformer 架构，通过 CVAE 建模多模态示教分布并抑制复合误差累积，引爆了具身智能的规模化落地热潮。
 
+## 九问速览
+
+1. **Problem**：移动操作需全身双臂数据与平台，但采集成本高（PR2/TIAGo $200k+）、模仿学习复合误差大
+2. **Bottleneck**：单步自回归误差平方级累积 O(T²ε)；回归式 BC 对多模态示教取平均
+3. **Insight**：一次预测 K 步动作块可抑制复合误差；CVAE 潜变量可编码多模态操作风格
+4. **Method**：ACT = CVAE + action chunking（45 步）+ temporal ensemble；Mobile ALOHA = $32k 低成本全身遥操作平台
+5. **Evidence**：7 个移动任务仅 50 条示教/task；协同训练使按电梯按钮 0→95%、开水龙头 0→85%、Wipe Wine 5→100%
+6. **Ablation**：协同训练对静态数据已覆盖子任务无增益（Grasp Towel 100/100）、对精确操作瓶颈子任务增益最大；ACT/DP/VINN 三种范式均受益——增益来自数据
+7. **Assumption**：任务固定、桌面级光照；50 条示教 + 2.7K 静态数据协同；底座速度控制延迟可标定（d 步补偿）
+8. **Failure**：分布外场景无法自主纠正严重轨迹偏离；开环回放底座偏差 ~10cm（半径 1m 转弯）需策略在线纠正
+9. **Opportunity**：块长 K 理论上界、采样比例优化、动态延迟补偿、更强泛化
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 3 路 RGB 网络相机（双腕 + 前向，480×640@50Hz）；无深度/触觉 |
+| Closed-loop | 闭环：块间 temporal ensemble 融合新观测修正；无需 SLAM 即可纠正底座偏差 |
+| Correction | 无显式 retry；靠视觉伺服隐式纠偏（开环 ~10cm 误差可恢复） |
+| Deployment | 同平台遥操作采数→同平台部署；消费级笔记本（3070 Ti）即可推理，部署门槛极低 |
+
 ## 核心技术
 
 ![mobile-aloha-act 架构图](figures/mobile-aloha-act/fig2.png)
@@ -70,6 +89,34 @@ graph TD
 - **动作分块超参（本文实验）**：ACT chunk size 45、Diffusion Policy 64、VINN 100；块内延迟补偿——底座延迟 d 步时执行"前 k−d 个手臂动作 + 后 k−d 个底座动作"
 - **协同训练**：静态 ALOHA 数据与移动数据按 0.5/0.5 概率混合采样；ACT 超参 lr 2e-5、batch 16、encoder 4 层 / decoder 7 层、ResNet18 backbone、β=10
 - **落地场景**：炒虾、开双门柜存锅、乘电梯、开水龙头冲锅等 7 个长视界全身操作任务
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 3 路 RGB（双腕 + 前向 Logitech C922x，480×640@50Hz）；无深度 | §硬件 |
+| 动作空间 | 全身连续动作（双臂关节 + 夹爪 + 移动底座速度）；chunk：ACT 45 / DP 64 / VINN 100 步 | §实验 |
+| 控制频率 | 未以 Hz 报告（相机流 50Hz；底座速度控制存在 d 步延迟） | §硬件 |
+| 重规划频率 | 每 chunk 交接处（temporal ensemble 加权融合重叠预测） | ACT 原文机制 |
+| 动作 horizon | K=45（ACT 主实验） | §实验 |
+| 数据 | 每任务 50 条遥操作示教（Cook 仅 20）；静态 ALOHA 数据 825 episodes（任务不相交）按 0.5/0.5 混合协同训练 | §实验、附录 |
+| 奖励 | 无 RL：CVAE ELBO（重构 + β=10 KL）模仿损失 | §方法 |
+| Reset | 未报告 | — |
+| 成功定义 | 子任务二值成功；整任务成功率=所有子任务成功率之积 | §实验 |
+| 评估次数 | 每子任务 20 trials | §实验 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：Unseen Attire / Unseen Human（未见衣着/行人，0→95/85） | Table 1 |
+| 真机 | Mobile ALOHA 全身平台 7 个长程任务（炒虾/乘电梯/存锅等） | Table 1 |
+| 算力 | 训练未报告；推理：机载笔记本 RTX 3070 Ti 8GB + i7 | §硬件 |
+| 特权信息 | 无；底座开环误差 ~10cm 由策略自纠（无 SLAM） | §实验 |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（RL-free CVAE 模仿）
+- reset 难度：未报告（任务初始布置一致性不明）
+- eval budget：每子任务 20 trials，偏小
+- 底层控制栈：臂位置控制 + 底座速度控制（延迟 d 步由 chunk 内错位执行补偿——工程先验）
+- 数据优势：协同训练对比为自身内部消融（同 50 demo ± 静态数据），归因干净；三方法对比时各用自己最优超参
 
 ## 消融实验与分析
 

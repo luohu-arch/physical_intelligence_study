@@ -11,6 +11,25 @@
 
 OneTwoVLA 将 System 1（快速动作执行）和 System 2（显式推理）融合到单个 VLA 模型内，通过 Decision Token 机制自适应地在推理模式与动作模式间切换，在长程任务规划（87% vs 57%）、错误检测恢复（80% vs 57%）、人机交互（100% vs 65%）和视觉 grounding（88% vs 5%）四个维度全面超越纯动作 VLA 和双系统方案。
 
+## 九问速览
+
+1. **Problem**：纯动作 VLA 无推理能力，长程任务丢步骤、错误无法恢复；双系统方案延迟高且能力边界错配
+2. **Bottleneck**：分离式 System 2（LLM）不知 System 1 能力边界，且 Gemini 级推理延迟秒级拖慢执行
+3. **Insight**：是否推理可内化为模型自身的 token 预测（[BOR]/[BOA]），单模型权重共享天然对齐推理与动作
+4. **Method**：π₀ 基座 + Decision Token 切换推理/动作模式 + 16K 合成推理数据共训 + 四段式推理结构
+5. **Evidence**：长程规划 87% vs π₀ 57%；错误恢复 80% vs 57%；HRI 100% vs 65%；视觉 grounding 88% vs 5%
+6. **Ablation**：合成 VL 数据使开放世界 grounding 8%→73%；Decision Token 自适应切换是核心增益
+7. **Assumption**：依赖 Gemini 2.5 Pro 自动标注（间隔判断 81.5% 准确）；推理仅在关键节点触发
+8. **Failure**：推理触发需停顿 2-3 秒，高速任务受限；合成推理错误率约 20% 会误导动作
+9. **Opportunity**：Decision Token 用 RL 优化、推理延迟压缩、移动操作/灵巧手扩展
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 多视角 RGB（含腕载 GoPro 鱼眼）+ 参考图像 I_ref + 语言 + 本体状态（含 0.05/0.25s 前历史） |
+| Closed-loop | 闭环：动作模式每 0.2s 出重叠动作序列 + temporal ensemble；关键节点推理刷新参考 |
+| Correction | 有：错误检测与恢复为显式评测维度（80%），靠推理模式重新规划下一步 |
+| Deployment | UMI/Franka/双臂 ARX 采集训练、同平台真机部署；RTX 4090 单卡推理 |
+
 ## 核心技术
 
 ![onetwovla 架构图](figures/onetwovla/fig1.png)
@@ -136,6 +155,34 @@ OneTwoVLA 的核心直觉是 **「机器人做事时并不需要每时每刻都�
 - Acting Mode 使用动作 chunk 输出（π₀ 的流匹配策略），可自定义 chunk size
 - 推理内容的「新鲜度」由参考图像 $I_\textref$ 和推理缓存 $R$ 共同维护——推理更新后同步更新参考图像，避免旧图像误导后续动作
 - 开放世界部署需确保合成数据覆盖分布外的物体和场景
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 多视角 RGB（Franka+腕载 GoPro 鱼眼；双 ARX 3 相机）+ 参考图像 I_ref + 语言 + 本体状态（当前 + 0.05s/0.25s 前） | §工程细节、附录 F.2 |
+| 动作空间 | 连续动作 chunk（π₀ flow-matching 继承），chunk 尺寸可自定义 | §3.1 |
+| 控制频率 | 动作模式每 0.2s 生成一次（≈5Hz），RTX 4090 上计算 <0.2s；推理模式停顿 2-3s | 附录 F.3、Table 14 |
+| 重规划频率 | 每 0.2s 重出动作 + 指数加权 temporal ensemble 平滑 | 附录 F.3 |
+| 动作 horizon | 每 0.2s 出时序重叠动作序列（具体 chunk 长度未报告，沿用 π₀） | 附录 F.3 |
+| 数据 | Tomato-Egg 200 条、Hotpot 600 条（含 200 恢复）、Cocktail 300 条、Atomic Skills 2,000 条、UMI 采集 VG 200+933 条、合成 16,000 条 | §4、附录 E |
+| 奖励 | 无 RL：Decision Token 交叉熵 + 推理文本自回归 CE + flow matching 动作损失 | §3.2 |
+| Reset | 未报告 | — |
+| 成功定义 | 各任务二值成功率（任务完成）；HRI 含指令遵从判定 | §4.1-4.4 |
+| 评估次数 | 长程/泛化规划每任务 20 trials；单环境 VG 每方法 40 trials；HRI 10 trials | Fig.6、§4.4 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：错误恢复任务（故意扰动，如倒油时油瓶滑落）；HRI 中途打断改指令 | §4.2、附录 E |
+| 真机 | Franka 单臂（主）+ 双 ARX 双臂（泛化）：长程烹饪 3 任务 + 恢复 + HRI + VG | §4 |
+| 算力 | 每任务 30,000 步微调，8×H100 约 10 小时；推理 RTX 4090 | 附录 F.2 |
+| 特权信息 | 训练标注依赖 Gemini 2.5 Pro（离线）；合成数据由 FLUX 文生图生成；测试无特权 | §3.3 |
+
+**附录陷阱自查**：
+- privileged 信息：推理间隔与内容标注靠 Gemini 2.5 Pro 离线生成（81.5% 间隔正确率）——监督质量受 LLM 上限制约
+- reward shaping：无（RL-free）
+- reset 难度：未报告
+- eval budget：每任务 10-40 trials，中等偏充足
+- 底层控制栈：temporal ensemble 平滑兜底；π₀ 动作头直出连续控制
+- 数据优势：与 π₀ 基线相比，OneTwoVLA 额外用了 16K 合成 VL 数据与恢复示教——恢复能力对比含数据优势成分
 
 ## 消融实验与分析
 

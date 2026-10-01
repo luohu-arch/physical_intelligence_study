@@ -12,6 +12,25 @@
 
 HARBOR 把机器人 RL 的"周边工程"（装依赖、建任务、写奖励、配 DR、接算法、调超参）整体当作一个 harness engineering 问题：主 agent 把自然语言请求分解成有界阶段，专职 agent 通过标准化命令修改持久化 artifact，每个阶段必须通过可执行 gate 才能推进，失败模式在传播前被转成可观测的 gate 失败。在 6 个 benchmark、16 个任务上端到端跑通仿真 RL 并实机迁移；算法调参在 12 个任务-算法组合中的 11 个追平或超过默认配置；Push-Cube 消融里全 harness 以 48/50 的可靠性同时成为成本最低的配置（$70.90 vs Vanilla $182.15）。
 
+## 九问速览
+
+1. **Problem**：机器人 RL 的周边工程（装依赖、建任务、写奖励、配 DR、调参）耗时且错误静默传播。
+2. **Bottleneck**：各自动化工具只管一段仍需人工缝合；错误要到训练曲线不动才暴露，难定位。
+3. **Insight**：RL 的 MDP 天然暴露稳定接口 + 可执行反馈，正适合 gate 化的分阶段 harness 工作流。
+4. **Method**：五元组 harness（agents/commands/artifacts/gates/knowledge）六阶段流水线 + CCDE 并行调参。
+5. **Evidence**：Push-Cube 消融 48/50 可靠且成本最低（$70.90 vs Vanilla $182.15），Pareto 最优。
+6. **Ablation**：gate 拦截静默失败（w/o gate 41/50）；CCDE 提速 6.3 倍；去 experience 后 reward 阶段仅 2/10。
+7. **Assumption**：仿真器提供可执行反馈；用户给任务规格与真实轨迹；sim-to-real 侧仍人工。
+8. **Failure**：gate 只验接口不保语义正确；无先验新任务需大量 scaffold-repair；VLA 未纳入。
+9. **Opportunity**：跨阶段时序失败的 gate 覆盖、经验库检索规模化、跨集群成本外推均未做。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 阶段 agent 读持久化 artifact（任务 spec、reward 代码、学习曲线、rollout MP4、错误日志）与经验库要点 |
+| Closed-loop | 每阶段 gate 输出结构化失败摘要（失败检查项、错误信息、观测值），静默失败被前置暴露 |
+| Correction | gate 失败回传阶段 agent 修复直至重试预算耗尽转人工；可从最后通过 gate 的状态恢复 |
+| Deployment | 6 benchmark/16 任务仿真 RL 端到端 + Franka/xArm 真机迁移（系统辨识 + DR，人工反馈介入） |
+
 ## 核心技术
 
 ![harbor 架构图](figures/harbor/fig1.png)
@@ -115,6 +134,34 @@ $\eta$ 为缩放因子，用于抑制 sim-to-real 执行中的高频动作噪声
 **读成本数字的方式**：消融里的 Ctx 是"每轮重读的 cache-read token"，是"携带累积上下文代价"的代理；美元成本是单块 ManiSkill 切片、混合模型定价下的估计值，论文明确说应读作比率而非绝对值。w/o CCDE 和 Vanilla 因无子代理并行，reward/RL-tuning 两个阶段的时间与成本按 4 倍缩放计入。
 
 **复现入口**：论文说 HARBOR 以"documented and accessible LLM-agent plugin"实现，命令以 `/harbor:` 前缀暴露，但正文与附录均未给出代码仓库链接。待确认：plugin 的开源地址与安装方式，论文未披露（本文 DOI 页与附录 C 均只列命令规范）。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | artifact 文件：task spec、reward 代码、history.md、metrics.json、rollout MP4、install log | Table 1 |
+| 动作空间 | 标准化命令（probe-env/tune-reward/rl-sweep 等，/harbor: 前缀）+ artifact 编辑 | App C |
+| 控制频率 | 不适用（工作流层）；实机策略 20Hz、xArm 低层 120Hz | 第 7 节 |
+| 重规划频率 | 每阶段一次 gate 检查；调参阶段 4 个并行 trial 异步迭代 | 第 3-4 节 |
+| 动作 horizon | 端到端 6 阶段；消融每配置 10 次重复（5 阶段 × 5 配置） | Table 3 |
+| 数据 | 无外部轨迹数据；经验库从零累积（stack-cube 复用 4h→30min） | 第 6 节 |
+| 奖励 | 不训 agent 本体；gate = 可执行接口检查（import/reset/step/obs-act 形状/渲染/奖励聚合断言） | 第 5 节 |
+| Reset | 仿真环境标准 reset；并行 trial 各占隔离目录防互相覆盖 | 第 4 节 |
+| 成功定义 | 各阶段 10 次重复成功数（S.R. x/10）；调参看 AUC 提升与达标时间（12 组合、5 seeds） | Table 3/App D |
+| 评估次数 | 消融 5 阶段 × 10 重复 × 5 配置；调参 12 任务-算法组合 × 5 seeds、每 seed 4,096 rollouts | 第 7 节/App D |
+| 随机种子 | 仿真实验 5 个随机 seed，均值 + 标准误上报 | 第 7 节 |
+| 扰动测试 | 无显式扰动实验；w/o gate 的渲染路径缺陷（退出码 0、0 帧）为自然故障案例（† 标记） | Table 3 |
+| 真机 | 双 Franka（14-DoF+2 爪）与 xArm+Allegro 两平台实机迁移；ZED2+FoundationPose 感知 | 第 7 节 |
+| 算力 | 未报告 GPU 型号与时长；成本为混合模型 token 计价估算（单 ManiSkill 切片，读比率非绝对值） | 第 6 节 |
+| 特权信息 | 无 judge/参考答案；gate 只读 agent 自产 artifact；Eureka/REvolve 同 Opus 骨干同预算对比 | 第 6 节 |
+
+**附录陷阱自查**：
+- privileged 信息：无；w/o gate 阶段以退出码 0 静默失败但渲染 0 帧，作者以 † 如实披露。
+- reward shaping：不适用（agent 不做策略 RL；调参阶段奖励为原算法自带）。
+- reset 难度：仿真标准 reset，正常。
+- eval budget：每阶段 10 次重复，足以区分 29/50 与 48/50 级差距；N=4 并行度未再放大验证。
+- 底层控制栈：用户提供的仿真器代码库 + 任务规格是输入；实机依赖系统辨识与人类反馈（未自动化）。
+- 数据优势：无——与 Eureka/REvolve 同骨干、同 wall-clock、同任务实现；w/o CCDE 与 Vanilla 时间按 4 倍缩放计入（作者披露）。
 
 ## 消融实验与分析
 

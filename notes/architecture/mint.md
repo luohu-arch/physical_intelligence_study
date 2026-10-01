@@ -11,6 +11,25 @@
 
 MINT 提出模仿学习应模仿"行为意图"而非"轨迹细节"。用 DCT 将 action chunk 分解为低频 Intent Token 和高频 Execution Tokens，多尺度 VQ-VAE 强制频谱分离。one-shot 迁移比 baseline 高 60%。RSS 2026。
 
+## 九问速览
+
+1. **Problem**：模仿学习逐帧复制轨迹细节，换布局/换任务/延长视野即失效，技能无法复用
+2. **Bottleneck**：时域 token 化把宏观趋势与高频残差混在同一表示里，策略过拟合执行细节而非行为意图
+3. **Insight**：DCT 频谱天然分层——低频系数编码整段动作的意图，高频系数只是执行残差，可分而治之
+4. **Method**：多尺度 VQ-VAE 渐进重建强制频谱分离（S1 意图 token + 多级执行 token），next-scale 自回归 + 意图 ensemble
+5. **Evidence**：LIBERO 平均 98.7%、CALVIN ABCD→D 链长 4.57（π0.5 为 4.15）；one-shot 迁移 0.77 vs 微调 0.17
+6. **Ablation**：Scale-Wise 频域 loss 把 LIBERO-Long 82.8%→93.4%（时域反降）；Intent ensemble 85.8%→93.2%
+7. **Assumption**：意图可由动作低频成分承载；频谱切分点设定合理；意图跨任务/环境可复用
+8. **Failure**：DCT 切分点需手动设定且随任务/本体变化；意图多样性受训练集上限约束；长视野仍需组合
+9. **Opportunity**：语言条件化意图、意图级规划、切分点自适应搜索未探索
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB + 语言指令 + 本体状态（策略输入含 proprio）；真机双相机 RGB；无深度/触觉 |
+| Closed-loop | 闭环：重叠 chunk 滑窗 + 意图 token 仲裁的 ensemble 聚合；推理延迟比标准 VLA 低 43% |
+| Correction | 无显式重规划；靠意图一致性调制重叠 chunk 权重保持长程稳定 |
+| Deployment | BridgeDataV2 60k 轨迹预训练 tokenizer/动作头 → 真机每任务仅约 20 demos（2.4k 帧、10Hz）多任务微调 |
+
 ## 核心技术
 
 1. DCT 频域分解：低频系数 → Intent Token, 高频系数 → Execution Tokens
@@ -69,6 +88,34 @@ $$
 - **Real robot**: Franka, ~20 demos/task, one-shot transfer via Intent token injection
 - **Inference**: 43% lower latency than standard VLA (Intent token enables early planning)
 - **Disturbance robustness**: Success rate drop only 5.1% under perturbations (baseline 22.7%)
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB + 语言 + 本体状态；真机为 6-DOF Piper-X 双相机 RGB；仿真用 LIBERO/CALVIN/MetaWorld 官方观测 | Sec.5.D、附录 |
+| 动作空间 | 连续动作 chunk 的多尺度离散 token（VQ-VAE codebook 256-1024，码维 32-64）；MINT-4B 动作专家为 300M decoder-only Transformer | 附录 Table V/VI |
+| 控制频率 | 真机演示以 10 Hz 录制；执行频率未单独报告 | 附录 real-world 细节 |
+| 重规划频率 | 滑动窗口重叠 chunk，逐 chunk 重观测 + 意图 ensemble 聚合 | Sec.3 |
+| 动作 horizon | H=16（LIBERO/MetaWorld/BridgeV2）、32（CALVIN）；真机演示 horizon 90 帧 | 附录 Table V |
+| 数据 | 预训练：BridgeDataV2 60k+ 轨迹（24 环境 13 技能）；真机每任务 20 demos 共 2.4k 帧（5.4K 样本）；迁移评测基于 LIBERO-90 去除 LIVING ROOM 子集 | Sec.5.C/D |
+| 奖励 | 无(RL-free)：渐进重建（频域）+ next-scale 自回归交叉熵 | Sec.3 |
+| Reset | 未报告（沿用各基准协议） | — |
+| 成功定义 | LIBERO/MetaWorld 成功率；CALVIN 连续 5 任务链长（500 指令链）；真机 Bayesian 后验成功率（字母标记统计可区分性） | Sec.5 |
+| 评估次数 | CALVIN 500 指令链；真机每任务 20 trials；one-shot 迁移三设定（New Task/Layout/Extended Horizon） | Sec.5.B-D |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：LIBERO-PLUS 七类扰动（光照/视点/指令等），avg 80.1 vs OpenVLA-OFT 71.4、π0.5 65.0 | Table II |
+| 真机 | 有：Piper-X 4 任务（3 seen + 1 零样本 Stack Cups）×20 trials，超 π0/π0.5* 约 29% | Sec.5.D |
+| 算力 | 未报告 GPU 型号/数量/时长；推理延迟比标准 VLA 低 43% | 摘要、Sec.5 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（重建+自回归损失）
+- reset 难度：未报告（基准默认）
+- eval budget：真机 20 trials/任务并做 Bayesian 后验分析，统计规范
+- 底层控制栈：无强 controller 兜底
+- 数据优势：无——真机每任务 20 demos 与基线同源；π0.5* 用同一 VLM 骨干+同数据对照，控制变量充分
 
 ## 消融实验与分析
 

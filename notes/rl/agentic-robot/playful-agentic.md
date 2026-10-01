@@ -12,6 +12,25 @@
 
 UC Berkeley + Impossible Research 的 RATS（Robotics Agent Teams）把「游戏时间」变成一个显式的技能习得阶段：机器人团队在收到任何外部任务之前，自主提出「新颖但可学」的练习目标（Goldilocks 打分：object-skill 新颖度 × 竞争力边界），用 Code-as-Policy 团队以 Write-Execute-Verify-Diagnose 循环练习，把成功行为蒸馏进冻结的代码技能库、把失败蒸馏进错题本；测试时检索复用——LIBERO-PRO 上把 CaP-Agent0 从 23.2% 提到 43.8%（+20.6 pp），MolmoSpaces 从 21.0% 提到 38.0%（+17.0 pp），技能库可即插即用地跨环境迁移到 RoboSuite（+8.9 pp）和真机（+8.8 pp），且 compute-matched 对照证明增益来自「预先练习」而不是测试时多花推理预算。
 
+## 九问速览
+
+1. **Problem**：agentic 机器人系统全是 task-driven，技能只是解题副产品；任务到来前没人练技能。
+2. **Bottleneck**：内在动机老线需手工设计好奇心信号；无外部奖励时 agent 不知道该练什么。
+3. **Insight**：「跳一跳够得着」可解析打分（新颖度 × 4r̄(1-r̄)，Wilson 下界），成功与失败都能蒸馏入库。
+4. **Method**：RATS play 50 轮：提任务→Write-Execute-Verify-Diagnose 循环→成功抽 helper、失败蒸馏教训→冻结库检索。
+5. **Evidence**：LIBERO-PRO 上 CaP-Agent0 23.2%→43.8%（+20.6pp）；RoboSuite +8.9pp、真机 +8.8pp 零微调。
+6. **Ablation**：compute-matched 下 play 技能 +9.1pp，而给基线加 50% 推理预算仅 +2.8pp；随机玩无增益。
+7. **Assumption**：原语级控制 API 可用；仿真试错近乎免费；VLM 验证器判定可靠。
+8. **Failure**：错误技能复用反噬（two-arm handover 24.0%→20.0%）；VLM 验证偏差直接写进库。
+9. **Opportunity**：教训跨物体域检索失效、技能检索的任务匹配判断、可靠度阈值标定均未解决。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | agent 见场景上下文、技能库（metadata-only 或源码双视图）、执行回执与 VLM 验证判定 |
+| Closed-loop | Goal Verifier + Per-Step Verifier 逐步 pass/fail 定位失败步骤（区分「抓失败」与「抓对放错」） |
+| Correction | retry 只局部改代码；计划级错误触发重规划；持续瓶颈派 SubAgent 单练子动作 |
+| Deployment | LIBERO/MolmoSpaces/RoboSuite 仿真为主 + 小规模真机（2+2 组任务、每组 40 trials） |
+
 ## 核心技术
 
 ![playful-agentic 架构图](figures/playful-agentic/fig1.png)
@@ -103,6 +122,34 @@ flowchart TB
 - **Prompt 工程**：Task Proposer 的人设是 3-4 岁儿童（一次只做一件单步小事），输入含技能库摘要、任务历史（success 标志、retry 数、failure_reason 如 grasp_failure / collision / code_bug 及参数级修正建议）、已知环境限制清单（命中即浪费一整轮的必坑项）与 curriculum_hint；并被要求与前 10 次尝试变化、避免动宾完全重复、从成功做单变量扩展、失败后简化或换向。
 - **失败也要归档**：失败 trace 会产出实验性 helper——第 2 轮开抽屉失败产出「轴向拉方向估计 + 抓取选择」两个 helper；第 15 轮纸巾盒失败提议「抓点向质心调整」；后续平刀与烤箱抽屉失败分别提议 top-down 对齐抓取与接近轴过滤。鞋滑（slide）在第 25 轮练成后，第 30 轮复用同一 helper 一次成功滑走蓝牙音箱——「练一个、白拿一个」的正向循环。
 - **技能注入方式**：执行期由 runtime 把选中技能的定义与依赖注入 policy 命名空间（保留依赖兜底）；大库时可用轻量 selector 先取任务相关子集再拼 prompt。附录 E.3/E.4 给了 MolmoSpaces（27 个中选 3）与 LIBERO（47 个中选 3）的完整技能源码。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 文本场景上下文 + 技能库摘要/源码 + 近 10 条任务历史 + 已知环境限制清单 | Sec 3.2 |
+| 动作空间 | Code-as-Policy：Python 控制代码 + 原语函数调用 | Sec 3.1 |
+| 控制频率 | 不适用（代码策略直接驱动仿真执行） | — |
+| 重规划频率 | 每次迭代最多 5 次尝试（retry budget）；测试时 RATS Exec 每任务 5 trials | Sec 3.3/App E |
+| 动作 horizon | play 50 轮；LIBERO-PRO 60 held-out 任务 × 10 初态 = 600 rollouts | Sec 5 |
+| 数据 | 自生成 play 轨迹（50 轮产 27 个 helper + 121 条教训）；无外部数据集 | Sec 5/App D |
+| 奖励 | 无外部奖励；Goldilocks 解析分（novelty × competence frontier ± retry/失败罚） | Sec 3.2 |
+| Reset | 仿真标准 reset；环境合成先在 2 个 reset seed 上做确定性校验 | Sec 3.2 |
+| 成功定义 | LIBERO 谓词 / RoboSuite judge_success() / 真机人工判定 | Sec 5 |
+| 评估次数 | LIBERO-PRO 600 rollouts；MolmoSpaces 400；RoboSuite 每任务 50；真机每任务 40 trials | Sec 5 |
+| 随机种子 | 环境验证用 2 个 reset seeds；评测/采样 seed 数未报告 | Sec 3.2 |
+| 扰动测试 | LIBERO-PRO 本身即扰动版基准（Pos/Task 六 split）；无额外受控扰动 | Sec 5 |
+| 真机 | 2 组 LIBERO 库 + 2 组 Molmo 库任务、每任务 40 trials（小规模初步实验） | Sec 6 |
+| 算力 | play 约 30M token（gemini-3.1pro-preview）；诊断+写作+蒸馏占 play token 约 88.7% | App E |
+| 特权信息 | 有结构化谓词时 Goal Verifier 直接用环境状态判定（仿真特权）；无谓词退 VLM 视觉判 | Sec 3.3 |
+
+**附录陷阱自查**：
+- privileged 信息：仿真内可用环境状态谓词判成功；真机无谓词退 VLM 视觉判定，验证器自身错误率未报告（作者自认风险）。
+- reward shaping：无（play 阶段的 Goldilocks 分是解析课程信号，非训练奖励）。
+- reset 难度：仿真免费重试（Voyager 式）；合成环境经 2-seed 确定性校验防必坑任务。
+- eval budget：60 任务 × 10 初态；RATS Exec 行每任务仅 5 trials（口径不同已注明）。
+- 底层控制栈：原语 API + 技能注入 runtime 兜底；Quality Checker 静态筛查省执行预算。
+- 数据优势：Fig 1 混排基线为发表值（100 试次/列）而本地结果是 18 例子集——作者自己披露了比较范围限制。
 
 ## 消融实验与分析
 

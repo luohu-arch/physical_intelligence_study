@@ -12,6 +12,25 @@
 
 LingBot-VA 提出首个开源自回归视频-动作世界模型：用 Mixture-of-Transformers (MoT) 架构将视频帧预测和动作推理统一到一个因果序列中，先预测"世界会怎么变"再解码"应该做什么"。50 条示教超越 π0.5 超过 20 个百分点，消融去掉视频预测模块成功率从 93% 降至 48%。RSS 2026。
 
+## 九问速览
+
+1. **Problem**：chunk 式开环视频-动作生成存在反应性缺口且无持久记忆，长程操作中漂移累积
+2. **Bottleneck**：chunk 内双向 attention 违反物理因果、chunk 间不共享历史；视频扩散逐帧生成延迟高，难以实时闭环
+3. **Insight**：把视频预测与动作生成放进同一条因果自回归流——先想象世界会怎么变，再从（部分去噪的）未来解码动作
+4. **Method**：MoT 双流（约 7B 视频 expert + 约 300M 动作 expert）+ 因果 mask + KV cache 闭环注入真实观测 + 异步推理
+5. **Evidence**：RoboTwin 2.0 Easy 92.9%；真机 6 任务全面超 π0.5；50 demos 后训练即比 π0.5 高 20+ 个百分点
+6. **Ablation**：去掉视频预测模块成功率 93%→48%；双向 attention 替代因果降至 81.5%——世界模型与因果性都是支柱
+7. **Assumption**：1.4T tokens 视频+机器人联合预训练可用；约 2Hz 级有效控制频率满足任务（非高频灵巧场景）
+8. **Failure**：推理延迟限制高频控制；视频 VAE latent 压缩质量影响动作精度；异步推理增加系统工程复杂度
+9. **Opportunity**：推理加速、latent 保真度、把世界模型用于显式规划/反事实推演均未展开
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB 视频流（因果 VAE 压缩约 256 token/帧），每步注入最新真实观测形成持久时序记忆；无深度/触觉 |
+| Closed-loop | 闭环：KV cache 持续累积真实观测历史；执行期间用前向预测校准过期预测（异步 B-2 机制） |
+| Correction | 隐式纠错：新观测 recalibrate 预测的未来与动作；无显式失败检测/retry 模块 |
+| Deployment | 约 16K 小时机器人数据+互联网视频预训练（1.4T tokens）→ 真机每任务 50 demos、500 步微调（lr 1e-4） |
+
 ## 核心技术
 
 1. **因果视频-动作序列建模** — 视频 token 和动作 token 交替排列在单个自回归序列中，因果 attention mask 确保动作仅能 attend 到过去的视频观测（不能"偷看未来"）
@@ -80,6 +99,34 @@ LingBot-VA 在做一个很朴素的事：**先想象，再行动**。就像你�
 - **推理延迟**：单 RTX 5880 Ada，每一步约 0.5 秒（约 2Hz 有效控制频率）
 - **训练**：Teacher Forcing + Flow Matching，大规模互联网视频 + 机器人操作数据联合预训练
 - **后训练**：目标任务仅需 50 条示教（最低 10 条可行）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB 视频流（RoboTwin 原始 50Hz 视频降采样至 12.5Hz）；因果视频 VAE latent 约 256 token/帧；相机路数未详述 | 4.3.2、附录 |
+| 动作空间 | 连续动作 chunk（flow matching 生成，动作 expert 约 300M）；每步 16 帧视频 latent + 50 步动作 | Sec.3、附录 |
+| 控制频率 | RoboTwin 动作维持 50Hz；真机有效约 2Hz（单卡 RTX 5880 Ada 每步约 0.5s，项目页口径） | 4.3.2、项目页 |
+| 重规划频率 | 每 chunk 结束即以最新真实观测重新条件；chunk 大小 K∈[1,8] 训练时随机采样、部署可调 | Sec.3 变长 chunk 训练 |
+| 动作 horizon | 动作 chunk 50 步；视频 chunk K 帧（K∈[1,8]） | 附录 |
+| 数据 | 预训练 1.4T tokens：约 16K 小时机器人数据（RoboMind、UMI、自采等）+ 互联网视频；真机每任务仅 50 demos | 4.1-4.2 |
+| 奖励 | 无(RL-free)：flow matching 模仿损失 + 逆动力学损失（λ=1） | 4.2 |
+| Reset | 未报告 | — |
+| 成功定义 | SR + Progress Score（PS=各 trial 平均步骤分/满分，逐 primitive 打分） | 附录 S2-S4 |
+| 评估次数 | 仿真：每套件 3 seeds × 500 trials（共 1500）；真机：每任务 20 trials（与 π0.5 交替评测保公平） | 4.3.2、附录 |
+| 随机种子 | 仿真 3 个随机种子 | 4.3.2 |
+| 扰动测试 | 有：RoboTwin 2.0 randomized 设置（训练含 25000 条重随机场景演示） | 4.3.2 |
+| 真机 | 有：6 任务（长程 Make Breakfast/Pick Screws、精密 Insert Tubes/Unpack Delivery、可变形 Fold Clothes/Pants），各 20 trials | 4.3.1 |
+| 算力 | 预训练 GPU 型号/数量未披露（1.4T tokens）；推理单卡 RTX 5880 Ada | 4.2、项目页 |
+| 特权信息 | 无（LIBERO 微调按 OpenVLA 惯例过滤失败演示） | 4.3.2 |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯模仿+逆动力学）
+- reset 难度：未报告
+- eval budget：充足（仿真 1500 trials/套件、真机每任务 20 trials 且与基线交替）
+- 底层控制栈：无强 controller 兜底；2Hz 有效频率依赖异步推理与 chunk 执行
+- 数据优势：预训练语料大，但后训练对比公平——同 50 demos 下与 π0.5 对比
 
 ## 消融实验与分析
 

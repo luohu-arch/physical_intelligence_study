@@ -1,14 +1,34 @@
 # OmniRetarget: Interaction Mesh for Humanoid Whole-Body Motion Retargeting
 
-- 本地 PDF：`papers/rl/planning/OmniRetarget_2509.26633.pdf`（**注意：该 PDF 内容不匹配本论文**，实为其他论文，属下载错配；
+- 本地 PDF：`papers/rl/planning/OmniRetarget_2509.26633.pdf`（2026-10-02 全文核对确认无误：标题/作者/实验一致）
 - arXiv：https://arxiv.org/abs/2509.26633
 - 年份：2026 (ICRA 2026 Best Conference Paper + Best Manipulation Paper 双料)
-- 团队：Amazon FAR + MIT + UCB + Stanford + Cornell
+- 团队：Amazon FAR + MIT + UCB + Stanford + CMU（原记 Cornell 有误，已按 PDF 署名更正）
 - 阶段：人形全身运动重定向 — 一次示范 → 多本体增强数据生成
 
 ## 一句话总结
 
 OmniRetarget 提出交互网格（Interaction Mesh）数据生成引擎：把一次人类示范编码为"人-物-环境"三元交互的 mesh graph，再自动适配到不同本体（机器人型号）、地形与物体组合，一次示范生成 8+ 小时的可训练轨迹。RL 训练仅需 5 个共享奖励项加简单域随机化，无需逐任务设计 reward。人形全身 loco-manipulation（运动+操作一体）任务成功率 >82%，远超 naive retargeting 的 50-70%；训练出的策略可直接零样本迁移到 Unitree G1 真机。ICRA 2026 双料最佳论文（全场 + 操作方向）。
+
+## 九问速览
+
+1. **Problem**：人形全身 loco-manipulation 的示范重定向存在具身鸿沟——关节角映射产生穿模/滑步，且丢失人-物-环境交互
+2. **Bottleneck**：现有重定向只保人自身运动学、忽略与物体/地形的接触关系；下游 RL 需逐任务手写大量 reward 与随机化
+3. **Insight**：交互语义藏在"人-物-地形关键点的相对几何关系"里而非骨骼角度里——保持 mesh 拓扑即保语义、即跨本体
+4. **Method**：交互网格 + Laplacian 形变最小化 + 运动学硬约束，sequential SOCP 求解；一次示范增强到多本体/地形/物体组合
+5. **Evidence**：39 个难动作上 RL 成功率超 PHC/GMR/VideoMimic 基线逾 10% 且方差更低；真机 wall-flip 5/5、动态攀 0.9m 平台
+6. **Ablation**：增强数据训练评测 79.1% vs 仅 nominal 82.2%（覆盖扩大不掉点）；只靠域随机化策略难以偏离 nominal 参考
+7. **Assumption**：高质量参考动作足以让纯本体感知（无视觉）RL 学会复杂任务；5 个共享奖励权重可沿用 [33] 不调参
+8. **Failure**：约束线性化偶发轻微穿透（靠 RL 修复）；wall-flip 需放宽终止阈值至 0.5m 并去足部朝向跟踪；依赖 >15rad/s IMU
+9. **Opportunity**：柔软接触/滑动等非几何交互语义未建模；mesh 拓扑设计仍手工；与视觉策略结合未探索
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 纯本体感知：参考关节位置/速度 + 骨盆位置/朝向误差 + 骨盆线/角速度 + 关节状态 + 上一动作；刻意对场景与物体信息"失明" |
+| Closed-loop | 闭环 RL：逐时步跟踪参考动作；观测噪声与随机推力注入 |
+| Correction | 无显式重规划；跟踪偏差超阈值或物体偏离 >1.0m/45° 即终止（训练期终止条件即成功判据） |
+| Deployment | OMOMO/LAFAN1/自采 MoCap 重定向生成 8+ 小时数据仿真训练 → Unitree G1 零样本 sim-to-real（支持 H1/Booster T1 重定向） |
+
 
 ## 核心技术
 
@@ -54,6 +74,34 @@ $$J(\pi) = \mathbb{E}_{\tau \sim \pi}\left[\sum_{t} \gamma^t \left( \sum_{k=1}^{
 - 评测：全身 loco-manipulation 任务，成功率 >82%（vs naive retargeting 50-70%）
 - 动态能力指标：wall-flip 类高速动作达到 3.5 m/s 线速度、15 rad/s 角速度（待确认：具体任务设置需读全文）
 - 部署：训练策略零样本迁移到 Unitree G1 真机
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 最小纯本体感知空间：Reference Joint Position/Velocity + Reference Pelvis Position/Orientation Error + Pelvis Linear/Angular Velocity + Joint Position/Velocity + Previous Action；无视觉/场景/物体信息（敏捷动作下屏蔽骨盆线位置误差与速度） | Sec.IV Observations |
+| 动作空间 | 全身关节目标（人形 RL 常规）；重定向输出为运动学可行轨迹参考 | Sec.IV |
+| 控制频率 | 未报告 | — |
+| 重规划频率 | 不适用（无高层规划；RL 逐时步跟踪参考） | — |
+| 动作 horizon | 参考轨迹长度（如 30 秒 parkour 序列） | Fig.1 |
+| 数据 | 一次示范→交互网格重定向：OMOMO 2.78h 箱体搬运 + LAFAN1 4.6h + 自采 MoCap 1h（共 8+h 将开源）；增强维度：地形高度/深度、物体初始位姿、物体形状 | Sec.V-B、Fig.4 |
+| 奖励 | RL 5 项共享奖励：Body Tracking + Object Tracking（DeepMimic 式）+ Action Rate + Soft Joint Limit + Self-Collision（>1N 二元惩罚）；权重沿用 [33] 不调 | Sec.IV Rewards |
+| Reset | 训练终止条件：body tracking 大偏差即终止；物体偏离参考 >1.0m/45° 终止（wall-flip 放宽末端误差阈值至 0.5m、去足部朝向跟踪） | Sec.IV Termination |
+| 成功定义 | 下游 RL 基准：以训练终止标准衡量（非独立任务判定）；真机为演示性验证（wall-flip 5/5） | Sec.V-B、Fig.6 |
+| 评估次数 | 下游 RL：39 个挑战动作；真机 wall-flip 5 次（5/5）；未报告完整 episode 统计 | Sec.V-B |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：物体参数随机化（质量 0.1-2kg、CoM ±0.08m、惯量 50-150%、形状 ±10%）+ 机器人 4 项（躯干 COM、关节默认 ±0.01rad、随机推 0.3m/s & 0.78rad/s 持续 1-3s、观测噪声） | Sec.IV Randomization |
+| 真机 | 有：Unitree G1 零样本（30s parkour 搬椅攀爬跳滚、wall-flip 3.5m/s & 15rad/s、0.9m 平台、坡面爬行、搬箱） | Fig.1/5/6 |
+| 算力 | 未报告（GPU 型号/数量/RL 训练时长均未披露） | — |
+| 特权信息 | 训练用重定向参考轨迹（含物体参考位姿）作观测——这是任务设定而非泄漏；无视觉输入，仿真真值状态用于训练 | Sec.IV |
+
+**附录陷阱自查**：
+- privileged 信息：训练观测含仿真参考轨迹与真值状态（本体感知式 RL 常规做法）；部署无视觉，场景信息全部隐含在参考轨迹里
+- reward shaping：刻意极简（5 项共享、权重不调），是卖点而非陷阱；但 wall-flip 为学出动作放宽了终止阈值并删了一项跟踪——逐任务微调仍存在
+- reset 难度：正常；终止条件与成功定义同源（训练终止标准当成功率用，判据偏弱）
+- eval budget：真机多为演示级（wall-flip 5 次）；下游 RL 39 动作较充分但无 seed 报告
+- 底层控制栈：无外部 planner/controller 兜底；依赖 Unitree G1 IMU 量程（>15rad/s）
+- 数据优势：方法本身就是数据引擎——对比基线（PHC/GMR/VideoMimic）用各自重定向数据、同 RL 超参训练，对照公平
 
 ## 消融实验与分析
 

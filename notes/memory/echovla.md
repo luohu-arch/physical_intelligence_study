@@ -10,6 +10,25 @@
 
 把人脑陈述性记忆的双系统搬进 VLA：scene memory 维护跨 episode 持久演化的 voxel 3D 特征图提供缓慢变化的空间结构，episodic memory 用时间索引 FIFO token 缓冲记录近期任务进度，二者经 coarse/fine 两级 cross-attention 检索融合成条件 $H_t$，驱动 base/arm 分部扩散策略——在 RoboCasa 上平均 SR 从 π0.5 的 0.32 提到 0.52，移动操作从 0.20 提到 0.31（Abstract + Table 2）。
 
+## 九问速览
+
+1. **Problem**：移动操作跨房间、长时程——单帧观测是非马尔可夫的（柜门已开 vs 将开无法区分）
+2. **Bottleneck**：现有 VLA 记忆要么只做感知缓存（MemoryVLA）、要么记忆不在控制回路（BSC-Nav）；π0.5 无场景记忆
+3. **Insight**：陈述性记忆应按脑科学双系统拆分——慢变空间结构（PHC/场景）与快变事件痕迹（海马体）需分开存取
+4. **Method**：voxel 3D 场景记忆（discrepancy 门控更新）+ FIFO 情景 token 缓冲，coarse/fine 双 cross-attention 融合条件化 base/arm 扩散策略
+5. **Evidence**：RoboCasa 平均 SR 0.52 vs π0.5 0.32；移动操作 0.20→0.31；真机 6 任务 0.44 vs 0.33
+6. **Ablation**：Mobile 设定去 RGB 最伤（0.17→0.02），Static 设定去情景记忆最伤（0.21→0.13）——双记忆按任务时空跨度分工
+7. **Assumption**：高质深度与位姿流（里程计漂移直接错位）；环境近静态；L=8/τ=0.5 需网格搜索
+8. **Failure**：快速结构变化（开冰箱门）使显式 3D 记忆 ghosting 反成干扰（OR 任务 0.40 < π0.5 0.50）；长程 EnP 仅 0.10
+9. **Opportunity**：记忆间双向通信、物体级 SE(3) 跟踪混合 voxel、跨 episode 经验蒸馏、loop closure 纠漂
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 3 路固定 RGB（冻结 SigLIP）+ 深度点云（可训 PointAttn）+ 语言 + 本体状态；无触觉 |
+| Closed-loop | 闭环：每步以当前 token 与 voxel 图检索双记忆，条件化 base/arm 扩散去噪 |
+| Correction | 无显式 retry；靠 episodic 记忆避免重复动作（非马尔可夫消歧）与重规划式扩散滚动 |
+| Deployment | RoboCasa 仿真训练 + TidyBot++ 真机（30Hz 遥操作采数）；依赖深度/位姿质量，无 SLAM 兜底 |
+
 ## 核心技术
 
 ![echovla 架构图](figures/echovla/fig1.png)
@@ -92,6 +111,34 @@ flowchart TB
 - **MoMani 数据构成（Fig 4）**：仿真 7,889 条 episode，其中 nav-only 占 57.0%，PnPC2S 10.8%、PnPS2C 10.7%、TOS 10.7%、TOF 10.7%；真机 1,200 条，OR/CM/OD/PCIS 各 20.8%，EnP/RK 各 8.3%。质量闸门的硬指标：零碰撞、Δpos < 0.05 m、Δori < 5°、任务成功率 100%（Sec 4.1）。
 - **真机平台**：TidyBot++（holonomic 底盘 + Kinova Gen3 7-DoF 臂），前置 RGB-D + 顶部立体相机经 ROS 同步，web 遥操作 30 Hz 采数，轨迹切分为 motion primitives，成功轨迹经 replay 校验、失败轨迹丢弃（Sec 4.2）；评测在 7 m × 7 m 场地，每任务 20 次独立 trial，底盘初始位置随机化（Sec 5.4）。
 - **待确认**：论文未公开 voxel 分辨率、网格尺寸 $X\times Y\times Z$ 与通道数 $C$ 的具体取值，也未给出 episodic top-k 中 $k$ 的数值与 DiT 块数、去噪步数等架构规模参数；正文仅有公开的 L/τ 两组敏感性数值可用。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 3 路 RGB（冻结 SigLIP）+ 深度点云（PointAttn）+ 语言（SigLIP 文本塔）+ 本体 MLP | §3.2 |
+| 动作空间 | base/arm 分部扩散动作 chunk（继承 π0.5 per-part 去噪器）；chunk 长度/去噪步数未报告 | §3.4 |
+| 控制频率 | 未报告（数据采集 30Hz 遥操作） | §4.2 |
+| 重规划频率 | 未报告（逐步滚动扩散） | — |
+| 动作 horizon | 未报告；最长任务 EnP 362 帧 | §5.4 |
+| 数据 | MoMani：仿真 7,889 episodes（nav-only 57%）+ 真机 1,200 条（TidyBot++ web 遥操作 30Hz）；质量闸门：零碰撞、Δpos<0.05m、Δori<5°、任务 100% 成功 | §4.1-4.2 |
+| 奖励 | 无 RL：标准扩散去噪损失（base/arm 各一） | Eq.8 |
+| Reset | 真机：7m×7m 场地、底盘初始位置随机化；仿真未报告 | §5.4 |
+| 成功定义 | 任务二值成功率 SR | Table 2-3 |
+| 评估次数 | 仿真：3 随机种子 × 每任务 50 episodes；真机：每任务 20 独立 trials | §5.1/5.2/5.4 |
+| 随机种子 | 仿真 3 seeds | §5.1 |
+| 扰动测试 | 初始位置随机化；未见环境/重新布置场景（scene memory 在线适应） | §5.4、§3.3 |
+| 真机 | TidyBot++（holonomic 底盘 + Kinova Gen3）：6 任务，平均 SR 0.44，RK 50% | §5.4 |
+| 算力 | 8×NVIDIA A100（训练时长未报告） | §5.1 |
+| 特权信息 | MoMani 生成用仿真规划器 + MLLM 审计（离线造数据）；策略部署仅 RGB-D + 本体 | §4.1 |
+
+**附录陷阱自查**：
+- privileged 信息：训练数据由仿真专家管线生成并 100% 成功闸门过滤（专家级轨迹，无失败信号）；部署无特权
+- reward shaping：无（RL-free 扩散模仿）
+- reset 难度：真机底盘初始随机化，正常
+- eval budget：3 seeds × 50 episodes / 真机 20 trials，充足
+- 底层控制栈：轨迹切 motion primitives 执行（遥操作系统）；底盘+臂底层控制器兜底
+- 数据优势：与 π0.5 等 baseline 是否同数据训练未明说——若 baseline 未用 MoMani 则含数据优势（待确认）
 
 ## 消融实验与分析
 

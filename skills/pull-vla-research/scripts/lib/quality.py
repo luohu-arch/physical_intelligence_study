@@ -27,6 +27,67 @@ class QualityReport:
 
 # ── Section-level criteria ──────────────────────────────────────────
 
+def _check_nineq(text: str) -> tuple[int, list[str]]:
+    """九问速览: 9 问齐全 + 机器人四问表。"""
+    section = _extract_section(text, "九问速览")
+    if not section:
+        return 0, ["九问速览缺失"]
+    keys = ["Problem", "Bottleneck", "Insight", "Method", "Evidence",
+            "Ablation", "Assumption", "Failure", "Opportunity"]
+    missing = [k for k in keys if f"**{k}**" not in section]
+    robj = [k for k in ("Perception", "Closed-loop", "Correction",
+                        "Deployment") if k not in section]
+    score, flags = 0, []
+    if not missing:
+        score += 5
+    else:
+        flags.append(f"九问缺 {len(missing)} 项: {','.join(missing)}")
+        score += max(0, 5 - len(missing))
+    if not robj:
+        score += 3
+    else:
+        flags.append(f"机器人四问缺: {','.join(robj)}")
+    # 过短判定（模板化填空）
+    thin = [k for k in keys
+            if f"**{k}**：" in section
+            and len((section.split(f"**{k}**：", 1)[1].split("\n", 1)[0]).strip()) < 8]
+    if len(thin) >= 3:
+        flags.append(f"{len(thin)} 项过短（<8字，疑似模板填空）")
+        score -= 2
+    return max(0, min(score, 8)), flags
+
+
+def _check_protocol(text: str) -> tuple[int, list[str]]:
+    """实验协议清单: 15 项齐全 + 实填比例 + 附录陷阱自查。"""
+    section = _extract_section(text, "实验协议清单")
+    if not section:
+        return 0, ["实验协议清单缺失"]
+    rows = [l for l in section.split("\n")
+            if l.strip().startswith("|") and "---" not in l]
+    score, flags = 0, []
+    if len(rows) >= 15:
+        score += 3
+    elif len(rows) >= 12:
+        score += 2
+        flags.append(f"协议表仅{len(rows)}行（应15）")
+    else:
+        flags.append(f"协议表仅{len(rows)}行（应15）")
+    filled = sum(1 for l in rows if "未报告" not in l)
+    if filled >= 8:
+        score += 3
+    elif filled >= 5:
+        score += 1
+        flags.append(f"协议实填仅{filled}/15（大量未报告，查附录补）")
+    else:
+        flags.append(f"协议实填仅{filled}/15（大量未报告，查附录补）")
+    traps = ["privileged", "reward", "reset", "eval", "控制栈", "数据"]
+    if "附录陷阱" in section:
+        score += 2
+    else:
+        flags.append("缺附录陷阱自查块")
+    return max(0, min(score, 8)), flags
+
+
 def _check_ablation_quality(text: str) -> tuple[int, list[str]]:
     """Checks ablation section has quantitative data, not just hand-waving."""
     section = _extract_section(text, "消融实验与分析")
@@ -254,6 +315,8 @@ def grade_note(note_path: Path) -> QualityReport:
     highlights = []
 
     checks = [
+        ("九问速览", _check_nineq(text)),
+        ("实验协议", _check_protocol(text)),
         ("消融", _check_ablation_quality(text)),
         ("物理直觉", _check_physics_intuition(text)),
         ("精读问题", _check_questions(text)),
@@ -266,10 +329,10 @@ def grade_note(note_path: Path) -> QualityReport:
         total_score += score
         all_flags.extend([f"[{name}] {f}" for f in flags])
 
-    # Grade mapping
-    if total_score >= 85:
+    # Grade mapping (满分 101: 原85 + 九问8 + 协议8)
+    if total_score >= 90:
         grade = "A"
-    elif total_score >= 65:
+    elif total_score >= 68:
         grade = "B"
     elif total_score >= 45:
         grade = "C"
@@ -279,7 +342,7 @@ def grade_note(note_path: Path) -> QualityReport:
     # Highlight good things
     if total_score >= 85:
         highlights.append("深度分析: 消融定量+多层直觉+具体精读问题")
-    ablation_score = checks[0][1][0]
+    ablation_score = checks[2][1][0]
     if ablation_score >= 20:
         highlights.append("消融质量高: 多项定量数据+核心结论")
 

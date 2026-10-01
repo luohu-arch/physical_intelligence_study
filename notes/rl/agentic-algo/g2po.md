@@ -13,6 +13,25 @@
 
 G2PO（微软 + 北大）把多轮 agent RL 的线性轨迹重构为全局状态转移图——相同 observation 聚为状态组节点、动作作为有向边——用 group-aggregation state-value estimation（组内所有步的折扣回报平均）把 value 估计方差从 $\sigma^2$ 压到 $\sigma^2/|G_k|$，再用 edge-centric advantage（组间 1-step TD error 在全图所有转移上的均值-方差标准化）度量每个动作对任务的绝对推进，与 GRPO 式 episode 级优势和 node-centric 局部优势合成三粒度优势；在 WebShop/ALFWorld/AppWorld 上以 Qwen2.5-1.5B/7B/14B 全面超过 GRPO/GiGPO/PPO/RLOO（WebShop +22.2、ALFWorld +14.4 @1.5B；AppWorld 14B 27.6% vs GRPO 24.8%），优势计算纯 CPU、每步仅 +1s（约 0.4% 总训练时间）。
 
+## 九问速览
+
+1. **Problem**：长 horizon 稀疏奖励下 episode 级优势把功劳均摊，关键突破步与例行步拿同样信号。
+2. **Bottleneck**：PPO 要养 critic；GiGPO 局部归一化看不出动作的绝对推进（冰箱大跳只得 0.55 优势）。
+3. **Insight**：多轨迹探索天然共享状态——相同 observation 聚成图节点，价值用组平均把方差压到 σ²/|G_k|。
+4. **Method**：状态转移图 + 组聚合价值 + edge-centric 全局标准化 + episode/node/edge 三粒度优势合成。
+5. **Evidence**：1.5B ALFWorld 95.0 vs GRPO 72.8、GiGPO 86.7；优势计算纯 CPU 仅 +1s/步（0.4% 时间）。
+6. **Ablation**：A_EP→+A_NC→+GA→+A_EC 两基准单调抬升；Look 子任务 +42.6 增益最大。
+7. **Assumption**：observation 可精确字符串匹配建组；N=8 并行组采样可承受；γ=0.95。
+8. **Failure**：模糊/连续/带噪 observation 下建图失效；收益随规模递减（14B AppWorld 仅 +2.8）。
+9. **Opportunity**：近似聚类误差传播、δ≈0 的必要重复动作欠训练、组大小加权方差分析未做。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | agent 见文本 observation（含固定长度历史）；训练侧把相同 observation 聚为图节点 |
+| Closed-loop | 每动作即时环境反馈；建图与优势计算在 batch 后离线进行（无在线验证器） |
+| Correction | 无 retry；信用修正靠跨轨迹平均抹掉运气（好动作不再因后续失误吃负优势） |
+| Deployment | 文本仿真环境（WebShop/ALFWorld/AppWorld API 返回文本） |
+
 ## 核心技术
 
 ![g2po 架构图](figures/g2po/fig1.png)
@@ -101,6 +120,34 @@ $$\mathrm{Var}(\delta_j^i) = \mathrm{Var}(V(G_{k'})) + \mathrm{Var}(V(G_k)) - 2\
 - 建图实践：observation 需含固定长度历史（论文设定 observation incorporates a fixed number of historical steps）；按"observation 完全相同"聚类，无模糊匹配；`v_j^i = γ^{T-j+1} R_i` 中 $\gamma=0.95$ 使轨迹后段的步价值衰减
 - 组大小监控（训练动力学）：两基准平均组大小约 5；WebShop 组大小先升（早期决策趋同产生相同 observation）后降（细粒度信用分配帮助模型删除冗余步、轨迹变短）；ALFWorld 组大小持续上升（任务本身要求重复动作、必然重访相同状态）；组大小分布的具体分桶比例（图 7 柱状数值与分桶的对应关系）待确认：柱状图标签在 PDF 文本抽取中顺序被打乱，仅"组大小为 1 占 11.9%（WebShop）/8.1%（ALFWorld）"可从正文直接确认
 - 推理效率副产品：G2PO 训出的模型完成任务的交互步数少于 GRPO（两基准均如此）、多数情况少于 GiGPO（图 4c；柱状图数值与方法的一一对应待确认：文本抽取无法完全确定分组归属，WebShop 1.5B 一组读数为 GRPO 9 / GiGPO 7.3 / G2PO 5.4 步）——更少交互步直接降低推理与 API 调用成本
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 文本 observation（含固定历史步）；prompt 上限 2,048（ALFWorld）至 13,000 token（AppWorld） | App C/E |
+| 动作空间 | 文本动作 `<action>`（AppWorld 用 `<code>`），环境解析执行 | 第 4 节 |
+| 控制频率 | 不适用（回合制）；优势计算阶段仅 +1s/步（rollout 189s、update 56s） | 第 4 节 |
+| 重规划频率 | 每步一个动作；组方法 16 组 × 8 环境 = 128 并行环境 | 第 4 节 |
+| 动作 horizon | ALFWorld ≤50 步 / WebShop ≤15 / AppWorld ≤30 | 第 4 节 |
+| 数据 | 无外部数据；训练任务即三基准 train split | 第 4 节 |
+| 奖励 | 稀疏终局（success 10 / failure 0 / invalid -0.1）；γ=0.95；KL 0.01 | 第 4 节 |
+| Reset | 文本环境标准 reset（秒级） | — |
+| 成功定义 | 成功率（3 random seeds 平均 ± std）；WebShop 另报 Score | Table 1 |
+| 评估次数 | 1.5B/7B 各 100 迭代、14B 50 迭代；验证温度 0.4 | App E |
+| 随机种子 | 3 random seeds（主表明确标注均值±std） | Table 1 |
+| 扰动测试 | 无显式扰动；三基准跨域（电商/家庭/API）构成泛化测试 | 第 4 节 |
+| 真机 | 不适用 | — |
+| 算力 | ALFWorld/WebShop 1.5B/7B：4×H100；AppWorld 14B：8×H100 | App E |
+| 特权信息 | 无 judge；奖励由环境状态判定；建图用的 observation 对 agent 同样可见 | 第 4 节 |
+
+**附录陷阱自查**：
+- privileged 信息：无；建图与价值估计只用训练自己采样的 rollout，无 oracle 状态。
+- reward shaping：invalid action 罚 -0.1（轻微过程惩罚）；主奖励稀疏终局。
+- reset 难度：文本环境秒级重置。
+- eval budget：每基准 100/50 迭代训练 + 3 seeds 验证——报告规范（均值±std）。
+- 底层控制栈：verl-agent（GiGPO 同款）+ vLLM；tree/异步采样未验证（自述局限）。
+- 数据优势：无——与 GRPO/GiGPO/RLOO/PPO 同框架、同超参（除方法本身），对照公平。
 
 ## 消融实验与分析
 

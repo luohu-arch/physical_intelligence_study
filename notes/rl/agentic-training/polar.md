@@ -12,6 +12,25 @@
 
 NVIDIA 的 Polar（重写自其前作 ProRL Agent Server，已注册为 NeMo Gym 环境之一）回答一个系统层问题：**能否不打开黑箱就给任意 agent harness 做 RL？** 它把集成边界从"harness 内部事件循环"移到所有 LLM agent 唯一共有的接口——模型 API 调用边界：gateway 代理在 harness 零改动、零感知的情况下捕获 token 级请求/响应与 logprobs，重构出 trainer 直接可用的 token-faithful 轨迹；runtime 预热、执行、轨迹重构、评测与 trainer 回调全部拆成异步服务边界（rollout-as-a-service）。同一 Qwen3.5-4B 基座用朴素 GRPO 训练后，SWE-Bench Verified pass@1 在 Codex/Claude Code/Qwen Code/Pi 四个 harness 上分别 +22.6/+4.8/+0.6/+6.2 点；prefix merging 轨迹重构把 3 个训练步的 wall-clock 从 189.5 分钟压到 35.2 分钟（5.39 倍），rollout GPU 利用率从 20.4% 提到 87.7%。
 
+## 九问速览
+
+1. **Problem**：给任意 agent harness（含闭源 CLI/二进制）做 RL，不拆开黑箱就拿不到忠实训练信号。
+2. **Bottleneck**：框架内集成要 harness 搬家；SDK 插桩对二进制不可行；解码-重编码产生 token 漂移。
+3. **Insight**：所有 LLM agent 唯一共用的接口是模型 API 调用边界——在网关代理处捕获 token+logprobs。
+4. **Method**：gateway 代理四协议翻译 + prefix merging 链重构（loss mask 隔离 interstitial）+ 异步 staging。
+5. **Evidence**：Codex harness 上 pass@1 3.8%→26.4%（+22.6）；3 个训练步墙钟 189.5→35.2 分钟（5.39x）。
+6. **Ablation**：per_request + outcome 广播出现 reward hacking；prefix merging 把更新数从 1,185 缩到 218。
+7. **Assumption**：harness 经模型 API 调用；会话 append-only（前缀关系成立才能合并链）。
+8. **Failure**：compaction/子 agent 密集时频繁断链退化成短 trace；过程信用分配缺失；合成流时序未量化。
+9. **Opportunity**：per-trace 过程奖励、归一化前缀兜底时间戳 harness、TIS 细节开源核对均待做。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | harness 全程黑箱；Polar 只见模型 API 请求/响应（prompt、采样 token IDs、logprobs） |
+| Closed-loop | 每 session 评测器即时出 0/1；reward 按 trace 分配（outcome 广播已实测 reward hacking） |
+| Correction | 无执行期修正；超时 session 只要已有捕获仍进 POSTRUN，恢复部分轨迹并标记 terminal timeout |
+| Deployment | 真实 SWE 任务（SWE-Gym 293 任务训练 + Docker/Apptainer 沙箱），评测 SWE-Bench Verified |
+
 ## 核心技术
 
 ![polar 架构图](figures/polar/fig1.png)
@@ -86,6 +105,34 @@ $$z^{(j)} = p_1 \,\|\, a_1 \,\|\, u_1 \,\|\, a_2 \,\|\, u_2 \,\|\, \cdots \,\|\,
 - **发布语料格式**：每行含 SWE-Gym 实例元数据（`instance_id`、`repo`、`problem_statement`、`base_commit`、`version`）+ 完整多轮对话（OpenAI 风格 messages，含 `tool_calls`/`tool_call_id`），以产出合格 patch 的 assistant 轮收尾；平均每 session 104 条消息、51 个 assistant 轮，长尾超过 200 轮；HuggingFace 发布（`nvidia/polar-swegym-pi-qwen35-122b-a10b-trajectories`），Apache-2.0，按仓库分层的 90/10 train/test split。
 - **实操建议**：接新 harness 只需写 adapter（配置 + 启动命令）；流式 harness 无需改造（代理合成流兜底）；评测想拿干净状态就开 `refresh_runtime`；想复用同一部署做拒绝采样/verifier 训练数据/偏好对，只需改提交端 shard，编排代码零改动——论文明确说扩到全量 2,438 实例 SWE-Gym、换更强 teacher、加 codex/claude_code harness 都不动编排代码。
 - **合成流的一个未讨论点**：代理把流式请求实现为"上游非流式响应 + 合成 provider-shaped 流"，保住了 SSE 兼容与忠实捕获，但 harness 感知的流式时序不再等于真实 upstream 时序（待确认：论文未讨论该差异对依赖流式节奏做决策的 harness 是否有影响）。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | harness 原生上下文（黑箱不干预）；代理捕获 prompt/response token IDs + logprobs + finish reason | 第 3 节 |
+| 动作空间 | harness 原生（CLI 工具调用/代码编辑），RL 不改其动作协议 | 第 3 节 |
+| 控制频率 | 每 session 超时 1,200s；SFT 数据生成单任务超时 3,600s | 附录 A.3 |
+| 重规划频率 | harness 自主；异步 rollout 与训练解耦（Slime trainer） | 第 4 节 |
+| 动作 horizon | 每 prompt 16 采样；SFT 语料平均每 session 104 条消息/51 个 assistant 轮 | Table 4/第 6 节 |
+| 数据 | RL：SWE-Gym train split 293 任务；SFT：1,638 实例采得 504 条合格轨迹（30.8%） | Table 4/2 |
+| 奖励 | SWE-bench harness evaluator（FAIL_TO_PASS + PASS_TO_PASS 全过）二值；可 refresh_runtime | 附录 A.3 |
+| Reset | 每 session 独立 runtime（Docker / rootless Apptainer）；评测可刷新干净状态 | 第 3 节 |
+| 成功定义 | SWE-Bench Verified pass@1 | Table 1 |
+| 评估次数 | 四 harness 各一个 run（Table 1）；builder 消融同为 3 个训练步对比 | 第 6 节 |
+| 随机种子 | 未报告 seed 数；rollout 每 prompt 16 采样 | 未报告 |
+| 扰动测试 | 无显式扰动；四个 harness 本身即协议异质性测试 | 第 6 节 |
+| 真机 | 不适用（软件 coding agent） | — |
+| 算力 | SFT 数据生成：8×H100 约 64 GPU 时（interactive partition）；RL 集群规模未报告（附录 A.2 声明省略） | 第 6 节 |
+| 特权信息 | 无 LLM judge；奖励来自官方可执行测试，refresh_runtime 保证干净评分状态 | 第 6 节 |
+
+**附录陷阱自查**：
+- privileged 信息：无 judge；评分用 SWE-bench 官方测试协议（需 reference patch，属基准固有）。
+- reward shaping：无过程奖励；outcome 广播到 per-request trace 已实测 reward hacking（作者如实报告并列入 roadmap）。
+- reset 难度：每 session 新 runtime；evaluator prewarm + 可刷新评测环境。
+- eval budget：SWE-Bench Verified 全量；每 harness 单次运行、无 run-to-run 方差。
+- 底层控制栈：harness 原生编排完全保留（这是卖点也是观测上限）。
+- 数据优势：基座统一 Qwen3.5-4B、四 harness 同起点——内部对照公平；无外部基线重跑。
 
 ## 消融实验与分析
 

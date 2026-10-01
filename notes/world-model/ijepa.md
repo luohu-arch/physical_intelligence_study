@@ -10,6 +10,25 @@
 
 I-JEPA 用一张图的少量上下文 patch 去预测同图中若干大块目标区域的 EMA target-encoder 表征（L2 损失只算在表征空间），配合"多块 + 大目标块 + 信息充分的上下文块"的掩码策略，在不使用任何手工视图增强的前提下把 ViT-H/14 的 ImageNet linear probe 推到 79.3%（448 分辨率 81.1%），且 ViT-H/14 预训练只需 16 张 A100 上不到 72 小时，比 iBOT 训练一个 ViT-S/16 还省 2.5 倍以上算力。
 
+## 九问速览
+
+1. **Problem**：图像自监督表征依赖手工视图增强，语义抽象效率低
+2. **Bottleneck**：增强法引入图像空间归纳偏置；像素重建把容量浪费在纹理
+3. **Insight**：上下文块预测同图大块 EMA 表征即可学语义，无需任何增强
+4. **Method**：multi-block 掩码+target-encoder 表征空间回归，L2 只算在潜空间
+5. **Evidence**：ViT-H/14 linear probe 79.3%（448 下 81.1%），1% 标签 77.3
+6. **Ablation**：表征目标 66.9 vs 像素目标 40.7（1% IN）；multi-block 54.2 vs random 17.6
+7. **Assumption**：图内语义冗余足以驱动抽象层次涌现
+8. **Failure**：密集计数类任务弱于增强法（Clevr/Count 86.7 vs MAE 90.5）
+9. **Opportunity**：扩展到视频/多模态（即后续 V-JEPA 系）
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 图像（ImageNet-1K），上下文块+掩码目标块，无增强 |
+| Closed-loop | 不适用（纯表征，无预测-控制回路） |
+| Correction | 不适用（纯表征） |
+| Deployment | 无部署落差（纯预训练-评测范式，探针协议统一） |
+
 ## 核心技术
 
 ![ijepa 架构图](figures/ijepa/fig2.png)
@@ -85,6 +104,34 @@ flowchart TB
 | 评测 | 无 [cls] token，用 average-pooled patch 表征或末 4 层拼接；IN1k linear probe 用 LARS batch 16384、50 epoch | 1% low-shot 用 AdamW 微调 50 epoch、layer decay 0.75 |
 
 实操要点：(1) mask sampler 写在 data loader 的 collate 函数里，只传 patch index 给 GPU，实现轻；(2) 迁移到其他模态时不需要改损失，只需要重新设计掩码分布——这也是作者强调的"简单模型 + 弱归纳偏置"的卖点；(3) 若追求线性探测指标优先选 weight decay 渐增策略（77.8 对 76.4），若做低样本微调可选固定小 weight decay（70.7 对 69.4）；(4) 想 visual inspection 可以照搬 RCDM 扩散解码器做法，把 predictor/target 表征投回像素验证模型到底记住了什么。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 图像 ImageNet-1K（ViT-H/14 亦含 448x448 高分辨率变体） | 第 2 节/表 1 |
+| 动作空间 | 不适用（纯表征） | — |
+| 控制频率 | 不适用（纯表征） | — |
+| 重规划频率 | 不适用（纯表征） | — |
+| 动作 horizon | 不适用（纯表征） | — |
+| 数据 | ImageNet-1K（无标签用于预训练） | 第 5 节 |
+| 奖励 | 无（自监督表征回归） | 第 2 节 |
+| Reset | 不适用 | — |
+| 成功定义 | linear probe top-1（IN-1K/1%）、迁移（CIFAR/iNat）、低层探针（深度/计数） | 表 1-4 |
+| 评估次数 | 标准各基准协议（ sweep lr/wd 后对比） | 第 5 节 |
+| 随机种子 | 未报告（标准训练协议） | PDF 未披露 |
+| 扰动测试 | 无 | — |
+| 真机 | 无 | — |
+| 算力 | ViT-H/14 预训练 16xA100 <72 小时（<1200 GPU 时） | 图 1/第 1 节 |
+| 特权信息 | 无（评测探针用标签属标准协议） | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无
+- reset 难度：不适用
+- eval budget：标准基准，充足
+- 底层控制栈：无
+- 数据优势：与 iBOT/MAE 同用 ImageNet-1K，公平
 
 ## 消融实验与分析
 

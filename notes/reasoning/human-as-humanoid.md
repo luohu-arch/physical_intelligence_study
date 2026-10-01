@@ -10,6 +10,25 @@
 
 Human-as-Humanoid 提出硬件-软件联合设计：设计 PrimeU 人形使其身体比例对齐人类，配合 ego-exo 双视角视频→60-DoF 动作 pipeline，实现零样本迁移——无需任何机器人演示数据。CoRL 2026。
 
+## 九问速览
+
+1. **Problem**：高自由度人形的动作数据采集贵——遥操作吞吐低，人类视频又有 embodiment gap
+2. **Bottleneck**：通用比例人形与人类身体错配，跨本体迁移需大规模学习/RL 弥合
+3. **Insight**：把身体比例做到与人几乎一致（0.97/1.02/1.00），迁移问题就从「学习」退化为「运动学 IK 求解」
+4. **Method**：PrimeU 硬件对齐 + ego-exo 视频→mesh 重建→分阶段 IK 出 60-DoF 标签 + DS-HKC 双空间损失训练
+5. **Evidence**：1,500h 人类视频预训练后，7 个真机任务 stage-final 组合分全面超 GR00T N1.7（每任务 10 trials）
+6. **Ablation**：tokenizer 跨域重建 EE 误差仅 5.34mm（norm MAE 0.008）；DS-HKC FK 监督显著降训练损失；staged IK 优于整体求解
+7. **Assumption**：需要定制比例对齐硬件 PrimeU；仅上身 60-DoF 无 locomotion；ego-exo 双相机采集
+8. **Failure**：持续接触/精细手部任务（拧灯泡等）仍需少量真机数据锚定；比例不对齐的机器人不适用
+9. **Opportunity**：全身含行走扩展、比例不对齐本体的泛化、更大规模人类视频利用
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | ego-exo 多路 RGB（头戴 + 腕部 RealSense D435）；无深度/触觉 |
+| Closed-loop | 闭环：PhysDex flow-matching DiT 每次出 40 步 60-DoF chunk，按观测滚动 |
+| Correction | 无显式 retry；评估用 ordered stage-completion 诊断失败阶段 |
+| Deployment | 人类视频转换标签（控制器对齐 60-DoF）直接部署 PrimeU，4/7 任务零机器人 demo |
+
 ## 核心技术
 
 ![human-as-humanoid 架构图](figures/human-as-humanoid/fig3.png)
@@ -66,6 +85,34 @@ $$
 - **Pipeline**: Exo→人体跟踪 + Mesh 重建 → Staged IK (arm→hand) → 60-DoF action chunks → PhysDex VLA (DS-HKC loss)
 - **Training**: Action tokenizer 仅用人类衍生动作训练，normalized MAE 0.008
 - **Tasks**: ring placement, magic-cube packing, water pouring, cup stacking, bottle-cap loosening (zero-shot)
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | ego-exo 多路 RGB（头戴 + 腕部 RealSense D435），与部署视角一致 | §3 |
+| 动作空间 | 60-DoF 关节动作 chunk（双臂 7×2 + 双手 20×2 + 颈 3 + 腰 3），flow-matching DiT | §3、§4 |
+| 控制频率 | 未以 Hz 报告；转换管线约 20 FPS（采集设定 15 Hz） | §1、§3 |
+| 重规划频率 | 每 chunk（40 未来状态）执行后重新前向 | §4 |
+| 动作 horizon | chunk 含 40 个未来状态 × 60-DoF | §4 |
+| 数据 | 预训练 1,500 小时自采 ego-exo 人类示教（staged-IK 转 60-DoF 标签）；4 任务零机器人 demo，3 任务少量真机锚定 | §6.5 |
+| 奖励 | 无 RL：flow-matching 模仿 + DS-HKC（关节空间 + FK 任务空间）监督 | §5 |
+| Reset | 未报告 | — |
+| 成功定义 | ordered stage-completion 率 + 最终任务成功；组合分（progress-aware） | §6.5 |
+| 评估次数 | 每任务 10 trials（作者自述为 preliminary 比较，非统计结论） | §6.5 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 未报告 | — |
+| 真机 | 7 个任务（戒指放置/魔方装箱/叠杯/倒水/温度枪/拧灯泡/拧瓶盖），PrimeU 上身人形 | §6.5、Fig.9 |
+| 算力 | 未报告（训练 GPU 型号/时长无） | — |
+| 特权信息 | 转换阶段用外视角人体跟踪/mesh 重建（离线造标签）；部署仅 ego 视角 + 本体状态 | §3 |
+
+**附录陷阱自查**：
+- privileged 信息：标签生成用 exo 视角与 mesh 重建（离线特权）；部署无
+- reward shaping：无（RL-free）
+- reset 难度：未报告
+- eval budget：每任务仅 10 rollouts，作者自己声明是初步对比
+- 底层控制栈：60-DoF 关节指令与控制器接口对齐（URDF/关节限位约定）
+- 数据优势：基线 GR00T N1.7 在相同下游数据条件下适配——公平；但 PhysDex 额外用了 1,500h 人类动作预训练（人类数据优势，非机器人数据）
 
 ## 消融实验与分析
 

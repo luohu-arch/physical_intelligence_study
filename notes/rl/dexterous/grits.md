@@ -10,6 +10,25 @@
 
 GRITS 提出溅洒感知的引导扩散策略：先训练 spillage predictor（4K 仿真轨迹 + 4 种 primitive shapes 生成、随机物理参数），再在 diffusion denoising 时用其可微分输出做 guidance（ρ=2.5、延迟 30 步后激活），把轨迹在去噪后期"推离"溅洒区域。仅 80 条真机 demo、6 类食物训练，10 类 unseen 食物测试。82% 成功率、4% 溅洒率——比无引导的 Diffusion Policy (70%/15%) 溅洒率降低 73% 以上，比带后处理的 DP (52%/8%) 成功率提高 30pp。
 
+## 九问速览
+
+1. **Problem**：机器人舀取食物时同时要"舀得起来"与"不洒出来"——成功但溅洒也不可接受。
+2. **Bottleneck**：80 条成功 demo 里没有"洒"的知识；后处理修正空间小且引入新问题（52%/8%）。
+3. **Insight**：失败经验可从仿真廉价获得——可微分的溅洒概率能在去噪过程中实时引导轨迹生成。
+4. **Method**：Isaac Lab 4K 轨迹训 spillage predictor；denoising 后 30 步注入梯度 ρ=2.5 把轨迹推离溅洒区。
+5. **Evidence**：10 类 unseen 食物 82% 成功/4% 溅洒（无引导 DP 70%/15%；后处理 DP 52%/8%；BC 45%/45%）。
+6. **Ablation**：guidance 双指标同升（溅洒 15%→4%、相对降 73%+）；BC 证明安全无法从成功 demo 学到。
+7. **Assumption**：失败模式可由 4 种 primitive shapes+随机物理参数的仿真覆盖；点云分割可靠。
+8. **Failure**：粘稠物被误判零概率时退化为无引导 DP；遮挡/分割粘连污染 predictor 输入。
+9. **Opportunity**：多 guidance 冲突仲裁、动态任务的 (delay, ρ) 调度、其他失败模式（碰撞/倾覆）接入。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 分割点云（food 深度+SAM2 分割、spoon/bowl 用 CAD 模型）经 DP3 编码；无触觉 |
+| Closed-loop | 闭环：扩散策略滚动重规划（控制器 10 Hz） |
+| Correction | 无重试机制——guidance 在生成期预防失败（事前规避而非事后恢复） |
+| Deployment | 仿真训 predictor+80 条真机 demo 训策略 → Franka 真机直接部署（predictor 在线推理） |
+
 ## 核心技术
 
 ![grits 架构图](figures/grits/fig2.png)
@@ -57,6 +76,34 @@ $$x_{t-1} = \mu_\theta(x_t, c, t) + \sigma_t \cdot \epsilon - \rho \cdot \nabla_
 - 数据: 80 条真机 demo, 6 类食物训练（brown rice, soybeans, chocolate balls, dates 等）
 - 测试: 10 类 unseen 食物（sago, red beans, marshmallows, gummies, macaroni, mixed nuts, milk tea 等）
 - 指标: 成功率 + 溅洒率双指标（成功但溅洒被单独计为溅洒）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 分割点云：food 由深度图+SAM2 重建、spoon/bowl 用已知 CAD（前向运动学/标定位姿对齐），各下采样至 3000 点 | Sec III-C |
+| 动作空间 | 连续 EE 轨迹（DDIM 去噪生成） | Sec III-C |
+| 控制频率 | 机器人控制器 10 Hz | Sec IV-A |
+| 重规划频率 | 每次去噪输出一条轨迹；guidance 前 30 个去噪步不激活 | Sec III-C |
+| 动作 horizon | DDIM 去噪步数（具体步数未报告） | Sec III |
+| 数据 | 真机 80 条 demo（6 类食物×3 量级×5 碗位，kinesthetic 录制-回放）；仿真 4000 轨迹（2000 洒/2000 不洒，4 种 primitive shape 各 1000） | Sec III-C / IV-A |
+| 奖励 | 无 RL 奖励；guidance 梯度 ∇log(1−p_spill)、ρ=2.5 替代奖励 | Sec III-C |
+| Reset | 人工摆位（一碗固定，另一碗在 35×30 cm 工作区随机放置） | Sec IV-A |
+| 成功定义 | 成功舀取且不溅洒（成功但溅洒单独计为溅洒） | Sec IV-C |
+| 评估次数 | 10 类 unseen 食物×2 量级×5 trials=100 trials/方法 | Sec IV-A |
+| 随机种子 | 未报告 | |
+| 扰动测试 | 10 类未见食物（形状/质地泛化）；位置随机放置 | Sec IV-A |
+| 真机 | 7-DoF Franka Panda+勺具+2×Orbbec Femto Bolt RGB-D；10 类食物 100 trials | Sec IV-A |
+| 算力 | 未报告（训练/推理 GPU 未披露） | |
+| 特权信息 | 无（predictor 输入为部署可得的分割点云；仿真训 predictor 真机照常运行） | |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无奖励——guidance 梯度替代奖励，ρ=2.5 与延迟 30 步是两个关键手调超参（对任务敏感）
+- reset 难度：人工摆位（食物随机放置补偿部分）
+- eval budget：100 trials/方法，充足
+- 底层控制栈：10 Hz 控制器，PD 细节未报告
+- 数据优势：predictor 用 4K 仿真轨迹（baseline 均无此资产）；策略侧 80 条 demo 对各方法对齐
 
 ## 消融实验与分析
 

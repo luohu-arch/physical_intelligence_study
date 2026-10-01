@@ -10,6 +10,25 @@
 
 SimpleVLA-RL 构建了基于 veRL 的强化学习框架用于 VLA 模型后训练，以 OpenVLA-OFT 为基座，在 LIBERO 上达到 SOTA，在 RoboTwin 上超越 π0，并发现了 RL 训练中策略自主涌现新模式的「pushcut」现象。
 
+## 九问速览
+
+1. **Problem**：VLA 的 SFT 受示教数据覆盖限制出现天花板，长时序/组合任务尤甚。
+2. **Bottleneck**：示教数据贵且分布外无梯度；传统机器人 RL 依赖手工过程奖励，不可跨任务迁移。
+3. **Insight**：LLM 的 outcome RL（GRPO 式组内归一化+二值奖励）可直接搬到 VLA 的动作 token 上。
+4. **Method**：veRL 框架移植 VLA；轨迹级 0/1 奖励均匀传播到全部动作 token；动态采样+温度 1.6 探索。
+5. **Evidence**：LIBERO 平均 91%→99%、LIBERO-Long 86.5%→98.5%（超 π0 13.3pp）；RoboTwin2.0 38.3%→68.8%。
+6. **Ablation**：好基座是前提（OpenVLA-OFT）；pushcut 现象显示 RL 探索到 SFT 支撑集外的新动作模式。
+7. **Assumption**：仿真环境可大规模并行；任务成功可由规则自动判定；全参训练算力充足。
+8. **Failure**：真机平均仅 38.5%（Pick Bottle 15%）；探索可能产生不安全动作；需大量环境交互步。
+9. **Opportunity**：真机 RL 的安全约束、过程奖励与 outcome 奖励混合、pushcut 的可靠检测方法。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB（第三人称+腕部相机）+语言指令；LIBERO 设置下不用机器人本体状态 |
+| Closed-loop | 闭环：环境内多轮交互 rollout，chunk 8/25 步 |
+| Correction | 无执行层 retry；训练侧动态采样丢弃全成功/全失败组保梯度信号 |
+| Deployment | LIBERO/RoboTwin 仿真训练 → AgileX Piper 双臂真机零真机数据迁移 |
+
 ## 核心技术
 
 ![simplevla-rl 架构图](figures/simplevla-rl/fig2.png)
@@ -138,6 +157,34 @@ SimpleVLA-RL 相当于**给 VLA 模型安排了一个「实战训练营」**，�
 - **熵系数 $\beta$**：过大会导致动作过于随机、收敛慢；过小会导致过早确定性收敛。推荐从 0.03 开始调优
 - **并行环境数 $N$**：与环境交互速度和 GPU 推理速度匹配，避免 rollout worker 成为瓶颈
 - **奖励设计**：稀疏奖励（仅任务完成时 +1）最简单但学习慢；密集辅助奖励加速收敛但需精心设计
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB 图像（含腕部相机）+语言指令；LIBERO 下不用本体状态 | Sec 4.1 |
+| 动作空间 | 动作 chunk 8 步（LIBERO）/25 步（RoboTwin）；256 个 action token 自回归离散化输出 | 附录 Implementation Details |
+| 控制频率 | 未报告 Hz（按环境步计） | |
+| 重规划频率 | 每轨迹 chunk 8/25 步；rollout 随机采样、评测 greedy | 附录 |
+| 动作 horizon | 最大环境交互步 512（LIBERO）/200-800（RoboTwin，随任务） | 附录 |
+| 数据 | LIBERO：500 demos/suite SFT+500 仿真场景 RL；RoboTwin1.0：50 demos/任务+100 场景；2.0：1000+1000 | Sec 4.1 |
+| 奖励 | 稀疏二值 outcome（成功 1/失败 0）均匀传播到成功轨迹全部动作 token；无过程奖励 | Sec 3.2 |
+| Reset | 仿真自动 reset | |
+| 成功定义 | 环境规则判定任务完成 | Sec 3.2 |
+| 评估次数 | 每个 benchmark 评测 3 次取复现性；真机 50 trials/任务 | 附录 / Sec 5.3 |
+| 随机种子 | 评测重复 3 次；训练 seed 数未报告 | 附录 |
+| 扰动测试 | 真机 clean tabletop+unseen 背景；无系统性扰动测试 | Sec 5.3 |
+| 真机 | 4 个 RoboTwin2.0 任务（AgileX Piper 双臂），50 trials/任务；平均 17.5%→38.5% | Sec 5.3 / Table 6 |
+| 算力 | 8×NVIDIA A800 80GB 全参训练；lr 5e-6、batch 64、采样数 8、clip ε 0.2/0.28、温度 T=1.6 | 附录 |
+| 特权信息 | 无（仿真观测即部署观测；奖励由环境规则给出，非 oracle state） | |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无 shaping——纯 outcome 0/1 均匀传播（DAPO 式 clip ε_high=0.28 是唯一修饰）
+- reset 难度：仿真自动（极易）
+- eval budget：充足（真机 50 trials、仿真 3 次全量评测）
+- 底层控制栈：未报告 PD；chunk 由底层执行器执行
+- 数据优势：RL 阶段额外用 100-1000 仿真场景在线交互（baseline 只用 SFT demo）——这是 RL vs SFT 对比固有的数据优势
 
 ## 消融实验与分析
 

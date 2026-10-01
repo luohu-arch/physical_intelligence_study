@@ -12,6 +12,25 @@
 
 独立作者的分析型综述（50 页，arXiv v3 2026-08，单作者、无同行评审信息）：把 credit assignment（CA）设为审视 LLM RL 的中心透镜，冻结 2026-07-31 的语料——92 条去重筛选记录中纳入 69 篇（56 核心 CA 方法 + 13 邻近/边界使能器），其中固定 42 篇核心子集（15 reasoning + 23 agentic/mixed + 4 multi-agent）做全文诊断审计；保留 granularity × methodology 二维分类，新增六诊断框架（转移非闭合、部分可观测、受限重放、异构动作、弱局部可验证、智能体耦合）和两个识别命题（restored-state 对照在什么条件下可识别；text-only 历史连 credit 的符号都不可识别），并提出 CA-ID Card 声明契约与四层证据分级。核心论点：从 reasoning 到 agentic 的迁移不是"任务变难"，而是可识别的 credit 声明集合本身变了。
 
+## 九问速览
+
+1. **Problem**：LLM RL 从 reasoning 迁到 agentic 时，可识别的 credit 声明集合变了，领域缺系统化审视。
+2. **Bottleneck**：方法收益与「能声称什么」混谈；跨论文分数不可比；text-only 反事实声明无识别基础。
+3. **Insight**：credit assignment 本质是识别问题——restored-state 对照可识别，text-only 连符号都不可识别。
+4. **Method**：92→69 篇语料 + 六诊断盲编 + 两个识别命题 + 四层证据分级 + CA-ID Card 声明契约。
+5. **Evidence**：42 篇审计：完整预算对齐仅 19/42、21 篇不报任何不确定性；主家族编码 κ=1.000。
+6. **Ablation**：决策树 6 个已知 (task, method) 对回溯验证 6/6 命中；诊断信度 κ .543-.909、252 格一致 88.5%。
+7. **Assumption**：识别假设（状态恢复、共享下游协议）成立才可识别；42 篇子集非随机不可外推。
+8. **Failure**：单作者非系统检索（自认 recall 缺口）；语料冻结 2026-07-31；CA-ID Card 无前瞻验证。
+9. **Opportunity**：CA efficiency frontier、memory credit 单位、层次加深的方差复合均被点名为开放问题。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 综述视角：要求方法声明 credit 单位、有效状态、干预来源（CA-ID Card 六字段） |
+| Closed-loop | 不适用（无自有系统；用四层证据分级审计他人声明的可检验性） |
+| Correction | 不适用；「最低评估控制」（恢复隐藏状态、测 replica noise floor）是它给出的修正处方 |
+| Deployment | 纯文献分析（69 篇语料 + 42 篇全文审计），无部署与实验 |
+
 ## 核心技术
 
 ![reasoning-to-agentic 架构图](figures/reasoning-to-agentic/fig1.png)
@@ -95,6 +114,34 @@ $$V(s_t) = \mathbb{E}\left[\min_{t' \ge t} r_{t'}\right]$$
 **benchmark 地形**：reasoning 侧集中（GSM8K 8.5K 测试题、MATH 5K 题 5 档难度、AIME、CodeContests），agentic 侧碎片化（WebArena/Mind2Web/WebShop、ToolBench/API-Bank/Gorilla、SWE-bench/HumanEval+/MBPP+、ALFWorld/ScienceWorld/Minecraft、ChatDev/MetaGPT），很少有论文共用同一 benchmark——综述认为这种碎片化本身就是进展的主要阻碍。
 
 **复现入口**：companion repository（github.com/xxzcc/Awesome-Credit-Assignment-in-LLM-RL）承载活目录与决策辅助；42 篇子集的冻结审计包（评分细则、双盲台账、CA-ID Card 空模板）标注为"计划中的 dated release"，截至 v3 尚未发布。待确认：42 篇全文子集的逐篇名单与源定位诊断标签的完整机器可读版本在论文写作时未公开，正文只能复核汇总统计（88.5%、各 κ 值、Table 8 覆盖率），无法逐格独立对账。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 不适用（综述）；审计对象为 42 篇方法论文的全文与声明 | 第 2 节 |
+| 动作空间 | 不适用 | — |
+| 控制频率 | 不适用 | — |
+| 重规划频率 | 不适用 | — |
+| 动作 horizon | 综述对象 horizon 跨度：单轮 ~500 token（RLHF）至 10⁵-10⁶ token / 100+ 轮（agentic/multi-agent） | 第 3 节 |
+| 数据 | 92 条筛选记录 → 69 篇纳入（42 篇固定全文审计子集），语料冻结 2026-07-31 | 第 2 节 |
+| 奖励 | 不适用 | — |
+| Reset | 不适用；但六诊断要求声明环境恢复代价（Docker/浏览器秒到分钟级）——CA 可行性第一约束 | 第 5 节 |
+| 成功定义 | 审计覆盖率指标：matched comparator 40/42、预算对齐 19/42、CA 专属消融 39/42 | Table 8 |
+| 评估次数 | 决策树回溯验证 6 个已知 (task, method) 对（6/6 命中） | 第 6 节 |
+| 随机种子 | 非训练 seed：双人盲编 252 格一致 88.5%、各诊断 κ .543-.909（主家族 1.000） | Table 14 |
+| 扰动测试 | 不适用 | — |
+| 真机 | 不适用 | — |
+| 算力 | 未报告（文献工作，无训练） | — |
+| 特权信息 | 审计将「训练期特权 critic」（SWEET-RL 类）识别为合法但须声明的用法；报告规范要求列 GPU-hours | 第 5 节/Table 13 |
+
+**附录陷阱自查**：
+- privileged 信息：不适用；综述点名训练期特权信息是 agentic CA 常态，要求在 CA-ID Card 中显式声明。
+- reward shaping：不适用（无自有奖励）。
+- reset 难度：不适用；reset 代价被论证为压制中间态重执行类方法的硬约束。
+- eval budget：不适用；审计发现 21/42 不报任何不确定性、19/42 才做完整预算对齐。
+- 底层控制栈：不适用。
+- 数据优势：单作者、非系统检索（自认 recall 缺口）；42 篇子集非随机抽样，统计不可外推到 69 篇全集。
 
 ## 消融实验与分析
 

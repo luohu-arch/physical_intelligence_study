@@ -10,6 +10,25 @@
 
 WEAVER 是多视角 world model，同时优化预测保真度（ρ=0.870）、长程一致性、推理效率（5-10× Ctrl-World）。离策略改进无需真机交互即提升 π0.5 38% 成功率。融合 JEPA + Flow Matching + Diffusion Forcing 设计。
 
+## 九问速览
+
+1. **Problem**：世界模型无法同时满足保真、长程一致、快推理三目标
+2. **Bottleneck**：像素空间视频生成慢；纯 JEPA latent 无法评估任意策略
+3. **Insight**：latent flow matching+预训练 SD3 VAE 解码可兼顾效率与可评估性
+4. **Method**：多视角联合预测未来 latent+reward/critic head；优势过滤离线蒸馏
+5. **Evidence**：FID 10.20 vs 26.09（约 3x 快）；离线改进 pi0.5 成功率 +38%
+6. **Ablation**：latent reward head 是评估/改进/规划三应用共同支点；多视角+记忆缺一不可
+7. **Assumption**：预训练 VAE 编码器在部署分布外仍可靠
+8. **Failure**：离线改进受 replay buffer coverage 限制（5 任务 x50 rollouts）
+9. **Opportunity**：世界模型在线更新、更广任务覆盖未做
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 右侧+腕部 Zed 相机两视角+本体状态（关节角/夹爪宽）显式预测 |
+| Closed-loop | 想象闭环：策略可在预测 latent 上 rollout 评估；真机 best-of-N 每 chunk 选择 |
+| Correction | 稀疏记忆+短程历史抗长程漂移；advantage 过滤防负更新 |
+| Deployment | DROID 预训练+5 真机任务微调→同平台真机三应用 |
+
 ## 核心技术
 
 ![weaver 架构图](figures/weaver/fig2.png)
@@ -59,6 +78,34 @@ $$
 - 五个真实操作任务: pick-and-place, deformable object manipulation 等
 - 推理加速 5-10× over Ctrl-World
 - Offline improvement 完全在 replay buffer 上完成，零真机交互
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 2 视角（右侧 Zed 2i+腕部 Zed Mini；装 3 用 2）+本体状态 | 第 4 节 |
+| 动作空间 | 关节位置差（适配 pi0.5；另有关节速度-位置适配器） | 第 4 节 |
+| 控制频率 | 想象 5 Hz（步降采样 3） | 第 4 节 |
+| 重规划频率 | best-of-N：每动作块采样 B 候选想象 rollout 择优 | 第 3 节 |
+| 动作 horizon | 长序列评测 150 步/10s | 第 5.1 节 |
+| 数据 | DROID 预训练 1M steps；真机 5 任务x50 rollouts 微调+20 rollouts/任务评测 | 第 4 节 |
+| 奖励 | Robometer 进度奖励标注 DROID（latent reward head 学习） | 第 4 节 |
+| Reset | 真机人工 | 隐含 |
+| 成功定义 | FID/FVD、评估相关性 rho、真机成功率% | 表 1-3 |
+| 评估次数 | 每任务 20 rollouts 评测集；DROID(val) 256 样本 | 第 4/5.1 节 |
+| 随机种子 | 未报告 | PDF 未披露 |
+| 扰动测试 | OOD 任务数据 FID 对比 | 表 3 |
+| 真机 | Franka Emika Panda 5 任务 | 第 4 节 |
+| 算力 | 928M 模型：4xH100 10 天预训练（batch 32） | 第 4 节 |
+| 特权信息 | Robometer 自动进度标注（离线标注器，非人工特权） | 第 4 节 |
+
+**附录陷阱自查**：
+- privileged 信息：无（进度奖励来自自动标注器）
+- reward shaping：有——Robometer 进度奖励（reduced by 1 得负奖励），属自动 shaping
+- reset 难度：正常
+- eval budget：20 rollouts/任务评测，中等
+- 底层控制栈：pi0.5 基础策略+块级 best-of-N（选择器而非强 planner）
+- 数据优势：DROID 预训练与 Ctrl-World 同源，公平
 
 ## 消融实验与分析
 

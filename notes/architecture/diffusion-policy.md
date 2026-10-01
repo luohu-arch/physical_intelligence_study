@@ -10,6 +10,25 @@
 
 把机器人策略写成条件 DDPM：以视觉观测 $O_t$ 为条件，从高斯噪声出发迭代去噪出一段长度为 $T_p$ 的动作序列，配合 receding horizon control 只执行前 $T_a$ 步；在 4 个 benchmark 的 15 个任务上平均超过此前 SOTA 46.9%，并且用 score 而非 energy 绕开了 EBM 策略的负采样不稳定问题。
 
+## 九问速览
+
+1. **Problem**：行为克隆的策略表示——显式回归/离散分桶无法表达多模态动作分布
+2. **Bottleneck**：IBC(EBM) 负采样不稳定、训练震荡真机 0%；BET/LSTM-GMM 单步预测缺时序一致性
+3. **Insight**：用 DDPM 的 score 表示策略 p(A|O)——score 与配分函数 Z 无关，既稳定又能表达任意多峰分布
+4. **Method**：条件去噪生成 $T_p$ 步动作序列只执行 $T_a$ 步（receding horizon）；视觉特征编码一次、全部去噪步共享
+5. **Evidence**：4 个 benchmark 15 任务平均超此前 SOTA 46.9%；真机 Push-T 95% 成功率（IoU 0.80 vs 人 0.84）
+6. **Ablation**：$T_a=8$ 甜点、latency 4 步内保持峰值；CNN 版在 BlockPush 崩（0.36）而 Transformer 版 0.99
+7. **Assumption**：每任务百条级高质量示教；position control；10Hz 级控制频率对任务足够
+8. **Failure**：高频控制不够用（0.1s 推理延迟）；BC 上限继承（次优示教学出次优）；少数据下 ViT 从零训不动
+9. **Opportunity**：consistency model/更优 solver 压缩去噪步数；接 RL 微调利用负样本
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 每视角独立 ResNet-18 端到端编码的多相机 RGB（真机 Push-T 前视+腕视）+ 低维状态；无深度 |
+| Closed-loop | 闭环 receding horizon：预测 16 步执行 8 步再重观测；10Hz 指令线性插值到 125Hz 执行 |
+| Correction | 重规划即纠偏——扰动实验中 T 块被移走后立即反向重新规划 |
+| Deployment | 仿真（Robomimic/Push-T/Kitchen）+ UR5/Franka 真机；0.1s 推理@RTX 3080，无 sim2real 跨域 |
+
 ## 核心技术
 
 1. **条件扩散作为策略表示**：不直接回归动作，而是学噪声预测网络 $\epsilon_\theta(O_t, A_t^k, k)$，推理时执行 Langevin 式迭代去噪。可表达任意可归一化的分布，包括多模态动作分布。
@@ -134,6 +153,34 @@ flowchart TD
 - **Push-T 上 DiffusionPolicy-C 报告的数字用的是 inpainting-style conditioning 而非 FiLM**——换掉 FiLM 后效果好一档，属于论文自己披露的实现细节。
 - **训练时长参考**：real Push-T 每个方法固定训 12 小时取最后一个 checkpoint（IBC 除外，取训练集 MSE 最小的 checkpoint）。
 - **数据效率**：在 40 / 60 / 90 / 130 / 200 条示范的每个规模上 Diffusion Policy 都高于 LSTM-GMM（Fig. 15）。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | $T_o=2$ 帧历史；仿真有 state/视觉两版；真机 UR5 前视+腕视双相机，端到端 ResNet-18 | p3、附录C(p10) |
+| 动作空间 | 位置控制 EE 增量/绝对位姿（6D 旋转表示），动作 chunk | p4、Table 7 |
+| 控制频率 | 10Hz 预测 → 线性插值到 125Hz 执行（UR5）；推理 0.1s@RTX 3080 | p4、附录C(p9) |
+| 重规划频率 | 每执行 $T_a=8$ 步重规划（BlockPush 例外 $T_a$=1/3） | p4、附录B |
+| 动作 horizon | $T_p=16$、$T_a=8$、$T_o=2$ | Table 7 |
+| 数据 | Robomimic PH 200 条级；BlockPush 1000 scripted；Kitchen 566；真机 Push-T 136、Egg Beater 210、Shirt Folding 284 等 | 附录B |
+| 奖励 | 无(RL-free)：DDPM 去噪 MSE 损失（iDDPM cosine 调度） | p4 |
+| Reset | 仿真每任务 50 个环境初始条件；真机未详述 | p7、附录C |
+| 成功定义 | 任务级成功率；Push-T 按人类示教最小 IoU 阈值判定 | p7、附录C |
+| 评估次数 | 仿真 3 训练种子×50 初始条件=150 rollouts/任务；真机 Push-T 20 次、Mug Flip 20 次 | Table 1 注、附录C |
+| 随机种子 | 有：仿真 3 个训练种子 | Table 1 注 |
+| 扰动测试 | 有：前相机遮挡 3s、微调中移动 T 块、推送中移动 T 块——立即反向重规划恢复 | 附录C Fig.8(p9) |
+| 真机 | UR5 Push-T（95%）；Franka Panda 6 任务（Egg Beater 55%、Shirt Folding 75% 等） | 附录C-D(p10-11) |
+| 算力 | 推理 0.1s@RTX 3080（DDIM 16 步）；训练每方法固定 12h 取最后 checkpoint；硬件未细报 | p4、附录 |
+| 特权信息 | 无（state 基线与视觉版分开报告） | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯 BC）
+- reset 难度：仿真 50 初始条件随机采样；真机 Push-T 未详述重置协议
+- eval budget：充足——仿真 150 rollouts×3 seeds；真机 20 次/任务
+- 底层控制栈：125Hz 底层跟踪+线性插值，但无 planner/planner 兜底；position control
+- 数据优势：无——与全部基线共用同数据同评估协议（口径甚至同时报 max 与 last-10 均值）
 
 ## 消融实验与分析
 

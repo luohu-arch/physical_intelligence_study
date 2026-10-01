@@ -12,6 +12,25 @@
 
 Tool-R0 用 zero-data self-play RL 把同一个 instruction-tuned 基座初始化成 Generator（合成"问题 + 工具菜单 + gold tool-call"三件套的可验证任务）与 Solver（学习执行真实工具调用）两个角色，靠互补奖励 co-evolve——Generator 按 Solver 的能力边界领奖励、Solver 按结果正确性领奖励；在 Qwen2.5-1.5B 上平均准确率从 24.85 提到 47.84（相对提升 92.52%），零人工数据下超过用 4k–210k 条人工数据训出的全部监督基线（最强者 ToolRL 46.06）。
 
+## 九问速览
+
+1. **Problem**：工具调用训练依赖 4k-210k 条人工标注数据，换领域就要重新收集。
+2. **Bottleneck**：静态数据集分布有偏且固定（陪练棋力不变）；纯文本 QA 的 self-play 会退化。
+3. **Insight**：Generator 按 Solver 能力边界出题、Solver 按结果正确性学习，gold 全程可机检。
+4. **Method**：双角色 self-play（K=3 迭代）+ 带通难度奖励 [0.25,0.75] + value grounding 反幻觉。
+5. **Evidence**：Qwen2.5-1.5B 从 24.85 提到 47.84（+92.52%），零数据超最强人工基线 ToolRL 的 46.06。
+6. **Ablation**：共享权重掉 17.42pp 最狠（角色必须参数分离）；去难度奖励 -4.30pp；矩形硬窗 -3.74pp。
+7. **Assumption**：参数值可在问题文本逐字找到（grounding 锚）；扁平参数工具；32 域配置可采样。
+8. **Failure**：小模型约 3 迭代饱和且偶发 reward hacking；嵌套/隐含参数任务被 grounding 排除。
+9. **Opportunity**：带通参数与模型规模的标度关系、真实 API 生态迁移、多 run 标准误均未做。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | Generator 见任务规格 meta-prompt；Solver 见问题 + 工具菜单 + 生成物自检反馈 |
+| Closed-loop | 每迭代 Solver 用 8 次蒙特卡洛探测给 Generator 回传难度锚（双向闭环咬合） |
+| Correction | 生成物经去重 → Solver 交叉验证 → 难度分桶三段过滤自修正（10,000 选 2,000） |
+| Deployment | 合成封闭 JSON 工具菜单（非真实 API 生态）；五个工具调用基准评测 |
+
 ## 核心技术
 
 ![tool-r0 架构图](figures/tool-r0/fig1.png)
@@ -115,6 +134,34 @@ $$
 - **当作 mid-training 用**：把每个 self-play iteration 的 checkpoint 拿去做 SFT（ToolACE 数据），第 1 个 iteration 起就超过纯 SFT 基线，3 个 iteration 后同时超过纯 SFT 与纯 Tool-R0——self-play 可以当作强化后续监督的"continued pre-training"阶段。
 - **规模相关的饱和行为**：延长到 5 个 iteration 的实验里，0.5B/1.5B 约在第 3 个 iteration 见顶甚至微降（早期收敛到 Nash-like equilibrium / 知识边界），3B 持续上升无饱和——小模型早收敛、大模型慢爬坡，对应小模型初始增益反而更大的主表模式。
 - **失败模式的迁移**（Fig. 8）：基座以 structural errors（选错工具、调用数错、多/漏参数）为主，Tool-R0 把这类近乎砍半；semantic errors 同步下降但成为剩余主要瓶颈；format errors 基线本就少、训练后近乎清零。待确认：Fig. 8 仅以图形式给出三类失败的数量，正文与表格均无精确数值，"近乎砍半"只能按图读取。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 问题 + 工具菜单 JSON；Generator 另注入任务规格 (域/形态/菜单规模/调用数) | 第 3 节 |
+| 动作空间 | 结构化 tool call（`<tool call answer>` 标签内 JSON 列表）；90% single-turn / 10% multi-turn | 第 3 节 |
+| 控制频率 | 不适用（回合制任务自包含） | — |
+| 重规划频率 | 每 self-play 迭代一次角色切换（K=3）；每角色每轮训 50 步 | 第 3 节 |
+| 动作 horizon | 每迭代 Generator/Solver 各 50 步 × batch 24/32（均不足一个 epoch）；序列上限 4,096 | Table 4 |
+| 数据 | 零人工数据：每迭代 10,000 候选过滤到 2,000（20% 存活率，推理算力代价大） | 第 3 节 |
+| 奖励 | Generator：fmt + valid（0.4/0.4/0.2）+ 带通难度 + 语义分；Solver：格式 + 稠密 accuracy - 多余调用罚 | 第 3 节 |
+| Reset | 无环境状态（合成任务自包含）；解析器超宽松防误判零分 | 第 4 节 |
+| 成功定义 | 五基准平均准确率（gold call 贪心匹配子分）；难度探测 8 次一致率 | 第 4 节 |
+| 评估次数 | 五基准 × Qwen 0.5B/1.5B/3B + Llama-3.2-3B；延长实验 5 迭代 | 第 4 节 |
+| 随机种子 | 未报告；作者自认无多 run 标准误分析（仅初步重复显示低方差） | 第 6 节 |
+| 扰动测试 | 无显式扰动实验 | — |
+| 真机 | 不适用（工具学习 agent） | — |
+| 算力 | 3 GPU（bf16，TRL + DeepSpeed ZeRO-3）；GPU 型号未报告 | Table 4 |
+| 特权信息 | gold call 由 Generator 自带（AST/字符串匹配机检）；交叉验证与语义打分均用 Solver 自身（self-judge 回路） | 第 3 节 |
+
+**附录陷阱自查**：
+- privileged 信息：gold label 为 Generator 自生成但全部可执行验证；风险在语义分由 Solver 自评 1-5 分（数据质量评估者与被训者同源，偏见可能双倍放大）。
+- reward shaping：稠密过程奖励（name 0.2/key F1 0.3/value 0.5 子分 + 多余调用乘法罚 α=0.25）——设计使然非隐藏。
+- reset 难度：任务自包含无状态，无 reset 问题。
+- eval budget：五基准各全量评测；无 seed 方差（作者自认算力受限）。
+- 底层控制栈：无真实工具执行——菜单是合成的，验证走解析匹配而非调用真实 API。
+- 数据优势：零数据是卖点也是劣势；与人工基线同基座同 reward 设计重训（公平），但 0.5B 的 SNIPS +810% 类数字需警惕小基数效应。
 
 ## 消融实验与分析
 

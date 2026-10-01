@@ -78,11 +78,48 @@ Two note template levels are available:
 | Flag | Template | Sections |
 |------|----------|----------|
 | `--notes` (default) | Basic | Why This Matters, Abstract, Reading Questions, Key Ideas, Architecture, Implementation, My Notes |
-| `--notes --deep` | Deep Dive | 一句话总结, 核心技术, 底层原理与数学推导, 物理直觉解释, 工程细节与实操指南, 消融实验与分析, 技术权衡(Trade-off), 技术价值与演进定位, 与论文关系, 精读问题 |
+| `--notes --deep` | Deep Dive | 一句话总结, **九问速览**, 核心技术, 底层原理与数学推导, 物理直觉解释, 工程细节与实操指南, **实验协议清单**, 消融实验与分析, 技术权衡(Trade-off), 技术价值与演进定位, 与论文关系, 精读问题 |
 
 Use `--deep` for high-priority papers that need detailed technical analysis. Use the basic template for screening candidates. Existing notes are never overwritten — use `--backfill` to fill metadata into already-created notes.
 
 **After generating deep templates:** the AI must fill in each section by reading the paper PDF and/or extracting relevant content from `vla.md`. The `--backfill` mode only handles metadata (abstract, authors, PDF paths); the deep technical content requires AI analysis of the paper.
+
+## Reading Methodology (阅读方法论)
+
+**阅读顺序**（不要从第一页逐字读）：Abstract → Figure 1 → Introduction → Main Results → Experimental Setup → Method Overview → Method Details → Ablation → Failure Cases → Appendix（第一档）→ Related Work。第一遍 10–20 分钟只求填出 Problem→Insight→Mechanism→Evidence 链条；讲不出这四环就不钻公式。
+
+**九问速览**（每篇必填，插在一句话总结之后）：
+
+```markdown
+## 九问速览
+
+1. **Problem**：
+2. **Bottleneck**：
+3. **Insight**：
+4. **Method**：
+5. **Evidence**：
+6. **Ablation**：
+7. **Assumption**：
+8. **Failure**：
+9. **Opportunity**：
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception |  |
+| Closed-loop |  |
+| Correction |  |
+| Deployment |  |
+```
+
+机器人四问比网络结构更重要：模型知道多少环境信息（Perception）、失败能否发现（Closed-loop）、发现后能否重规划（Correction）、训练与部署条件差距（Deployment）。
+
+**实验协议清单**（每篇必填，插在工程细节之后；数据主要来自**附录**第一档内容）：
+
+15 项：观测 / 动作空间 / 控制频率 / 重规划频率 / 动作 horizon / 数据 / 奖励 / Reset / 成功定义 / 评估次数 / 随机种子 / 扰动测试 / 真机 / 算力 / 特权信息。查不到的写「未报告」，**严禁编造**。表后附「附录陷阱自查」六行：privileged 信息、reward shaping、reset 难度、eval budget、底层控制栈、数据优势——机器人论文"看起来是算法提升、实际是 protocol 不一样"大多藏在这六处。
+
+**附录三档法**：第一档必看（implementation/hyperparameters/eval protocol/reward/observation-action space/control frequency/success criteria/seeds/additional ablations/failure cases）；第二档复现或 follow-up 时再看（逐层架构/prompt 模板/完整 task list）；第三档可跳（长证明/大量定性图）。判断标准：不看这节会不会误判论文结论。**正文决定 insight，附录决定可信度。**
+
+**Method 拆法**：按 Input→Representation→Decision→Action→Training Signal 信息流拆，先问哪些 pretrained/frozen/训练、loss 是什么、train/infer 是否一致，再读公式；公式只精读 objective、policy 定义、体现 novelty 的三类。**消融比 SOTA 表更值得细看**——检查证据是否支持机制（No X / Correct X / Shuffled X / 长短 horizon 对照），只有 72%→76% 的整体提升不算证明。
 
 ## Quality Gate
 
@@ -93,7 +130,7 @@ python3 skills/pull-vla-research/scripts/pull_vla_papers.py --validate --workspa
 ```
 
 The gate checks every note for:
-- [x] All 10 deep-dive sections present
+- [x] All 12 deep-dive sections present (含 九问速览、实验协议清单)
 - [x] Zero `待补充` placeholders
 - [x] Mermaid architecture diagram present
 - [x] Trade-off table in 技术权衡 section

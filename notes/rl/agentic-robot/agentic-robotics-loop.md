@@ -12,6 +12,25 @@
 
 AgenticRobotics 把 Claude Code/Codex 式的"主 agent 管环 + 子 agent 执行 + 工具干活"架构搬到机器人策略改进的外层研究循环上，核心差异只有一条：机器人工具（训好的策略、训练流水线、数据采集） routinely 失败，所以工具质量必须每次调用都测量、记录、并在其背后的 artifact 变化时自动过期。系统是一个 backend 无关的控制平面，用不可变 objective + 控制器自持测量 + commit-keyed 崩溃恢复 + 证据分级技能库跑 durable 的 train-evaluate-improve 事务。标题是一个操作声明而非能力声明：人可以离开是因为晋升被证据门控、状态可恢复、能力信任可过期——而不是因为循环挑检查点比人挑得好；在作者实测的唯一一条 lineage 上，直接取最后一个 checkpoint 胜过包括自家方法在内的所有测量驱动选择器。
 
+## 九问速览
+
+1. **Problem**：把「训练-评测-晋升」的机器人策略改进外层循环做成无人可值守且决策可信的系统。
+2. **Bottleneck**：人工挑检查点靠直觉，会把选择噪声当改进（63% 假冠军实为 56.5%）；agent 循环偷看数据也会误晋升。
+3. **Insight**：人能离开靠的是危险决策被治理：晋升走统计门、能力信任绑定 artifact 版本、重训练即过期。
+4. **Method**：不可变 objective + commit-keyed 事务 + Agresti-Caffo/e-process 晋升门 + 质量五态注册表。
+5. **Evidence**：1,600 episodes 决策实验假晋升率压到 0.001/run；14,000 次 kill 注入零丢失零重复。
+6. **Ablation**：加固 12 点门 0.001 vs 固定 8 点 0.005；但选检查点上 oracle 60.0% 胜过一切测量驱动选择器。
+7. **Assumption**：评测可配对（同初始状态）；质量只由控制器解析的测量设定；后端支持幂等 commit-key。
+8. **Failure**：作为选择器输「取最后 checkpoint」约 6 个点；非配对多 seed 下 Type-I 膨胀到 0.118-0.505。
+9. **Opportunity**：区分晚期回退 regime 的多 lineage 实验、staleness 实战触发、skill/tool 复合收益消融均未做。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 控制器只读 JSONL 账本、工具回执与 notebook；从不触碰机器人物理，一切经工具边界 |
+| Closed-loop | 控制器自持测量、逐轮解析评测输出；晋升由统计门裁决，错误晋升以 0.001/run 速率被拦截 |
+| Correction | gate 失败回传修复；stagnation 强制切换策略类；commit-key 崩溃恢复只补齐缺失阶段 |
+| Deployment | 仿真战役（LIBERO-10）+ LeRobot 训练工具；无 sim-to-real 主张，backend 无关设计 |
+
 ## 核心技术
 
 ![agentic-robotics-loop 架构图](figures/agentic-robotics-loop/fig1.png)
@@ -84,6 +103,34 @@ anytime-valid 升级路径的理论来源是 Ville 不等式：对非负鞅（e-
 ** instrumentation 的教训**：controller token 成本没有保留——论文自评为设计缺陷，因为没有它，效率声明不可证伪。100 个 held-out episodes 给出 ±9.5 点的区间，而 min_delta 只有 8 点，所以验收判定的仪器宽度本身就是瓶颈。成本读数：全项目 121.6 GPU-hours、5,475 个真实 episodes，其中 9.9 小时属于第 5 节的验证实验。
 
 **可复用性边界**：复现基 revision af89f02d8f88；外部 LeRobot checkout 为 e40b58a8dfa9，但历史日志未 pin 它。一个已知未修缺陷：缺少可选依赖 hypothesis 时 `tests/test_replay_properties.py` 在 collection 阶段失败，尽管文档声称自动跳过；objective schema 是承重的——删掉该文件会重新引入 9 个测试失败。待确认：论文以"working-tree addition over base revision af89f02d8f88"描述复现范围并列出仓库内路径（`tools/`、`agentic_robot/tools.py`、`agentic_robot/invocation.py`、`agentic_robot/mcp.py`、`NOTEBOOK.md`），但全文未给出对外代码仓库地址，无法核实这些 artifact 是否公开可取。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 控制器只见 JSONL 账本、工具回执、notebook；不接触原始物理观测 | 第 4 节 |
+| 动作空间 | 工具调用：argv 模板 + JSON-Schema 参数 + 必需超时；可执行 allowlist、无 shell | 第 4 节 |
+| 控制频率 | 不适用（外层研究循环；崩溃恢复开销 0.15-0.25 ms/次） | 第 5.4 节 |
+| 重规划频率 | 每轮一次事务 Bind→Analyze→Act→Measure→Score→Commit；exit 后才读验收 holdout | 第 4 节 |
+| 动作 horizon | 战役一 10 配置筛选（n=30）；战役二 27+ 轮事务、每评测 100 episodes | 第 6 节 |
+| 数据 | 无外部数据集；战役二 0-26 轮真实 episodes + 决策实验 1,600 held-out episodes | Table 3 |
+| 奖励 | 二项成功计数 + Agresti-Caffo 半宽门（Δ≥1.5w 直接晋升，更小正差触发确认检验） | 第 5.1 节 |
+| Reset | 仿真评测可配对重置；真实训练副作用靠 commit-key 幂等契约（LeRobot 后端未实现） | 第 5.4 节 |
+| 成功定义 | LIBERO-10 任务成功率（episode 计数）；战役二目标 10 任务均值 ≥70% | 第 6 节 |
+| 评估次数 | 决策实验 budget 1,600 episodes × 2,000 bootstrap；Monte-Carlo 2×10⁵ 次 | Table 2/3 |
+| 随机种子 | 战役一固定 seed（n=30）；多 seed 复查用 2 个新 seed（McNemar p=1.0） | 第 6 节 |
+| 扰动测试 | 14,000 次 kill 注入、78 次部分追加注入、HMAC 篡改 6/6 检出、fenced fan-out 2,000 调度 | 第 5 节 |
+| 真机 | 无真机回合；战役在 LIBERO-10 仿真内执行（「真实 episodes」指仿真环境实跑） | 第 6 节 |
+| 算力 | 全项目 121.6 GPU-hours（Quadro RTX 8000）、5,475 episodes；其中 9.9 h 属验证实验 | 第 6 节 |
+| 特权信息 | 决策实验中「人取最后 checkpoint」即 oracle 对照（最终 checkpoint 事后已知）；验收 holdout 机制上只读一次 | Table 3 |
+
+**附录陷阱自查**：
+- privileged 信息：决策实验的 oracle 对照依赖该 lineage 最终 checkpoint 的事后知识；验收 holdout 严格隔离读取（3 次模拟越权被拒）。
+- reward shaping：无过程奖励，纯二项成功计数 + 统计门。
+- reset 难度：仿真评测可任意配对重置——统计保证成立的前提。
+- eval budget：决策实验固定 1,600 episodes；anytime-valid 门平均需 700-920 episodes 才决策。
+- 底层控制栈：LeRobot 二进制（幂等 key 未实现，会重跑物理副作用）；评测命令控制器自持不委托。
+- 数据优势：无——单 seed、小 n、两个战役，作者如实上报对自身不利的结果（选择器输给基线）。
 
 ## 消融实验与分析
 

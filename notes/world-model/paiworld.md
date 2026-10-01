@@ -10,6 +10,25 @@
 
 PAIWorld 解决世界模型的多视角 3D 不一致问题——Geo-RoPE 几何旋转位置编码 + Latent 3D-REPA 3D 蒸馏，在 DiT backbone 上同时注入视角间通信和 3D 几何先验。WorldArena 第一，超加性增益 2.64 > 0.93+0.72。
 
+## 九问速览
+
+1. **Problem**：多视角世界模型 3D 不一致——同一物体跨视角漂移变形
+2. **Bottleneck**：单视角生成式 backbone 无视角间通信，也无 3D 几何先验
+3. **Insight**：射线/位姿 RoPE 开通信通路+3D 老师蒸馏，二者耦合超加性
+4. **Method**：Geo-RoPE 跨视角注意力+Latent 3D-REPA（Depth Anything 3 冻结蒸馏）
+5. **Evidence**：MEt3R 16.84→14.20（+2.64>0.93+0.72 超加性）；WorldArena 第一
+6. **Ablation**：仅 CVA +0.93、仅 3D-REPA +0.72、联合 +2.64——耦合缺一不可
+7. **Assumption**：相机内外参已知且准确（标定信息可得）
+8. **Failure**：标定误差敏感；极端视角/腕部自遮挡未验证
+9. **Opportunity**：在线外参估计、更强 3D 老师、闭环控制应用
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 多视角视频流（每 token 携带射线方向+相机位姿 RoPE 编码） |
+| Closed-loop | 开环生成（世界模型本体）；下游可接 model-based planning |
+| Correction | 跨视角信息互补可互纠单视角漂移；无执行反馈修正 |
+| Deployment | 仿真基准（WorldArena/AgiBot-Challenge2026）评测，无真机 |
+
 ## 核心技术
 
 ![paiworld 架构图](figures/paiworld/fig2.png)
@@ -59,6 +78,34 @@ Latent 3D-REPA 用随机锚点采样把相似性矩阵计算从 $O(N^2)$ 降至 
 - **跨视角注意力**: 在选定 DiT 层插入 Cross-View Attention 子块 + 周期性的 spatial-concat self-attention，注意力按各视角自身相机几何旋转后再跨视角交换
 - **Latent 3D-REPA**: 冻结 Depth Anything 3 作为蒸馏老师，随机锚点采样（每帧 $K_s$ 个空间锚点 + 全片段 $K_t$ 个时间锚点）对齐 token 间相似性关系，O(N²)→O(MK)
 - **下游**: model-based planning（想象 rollout 做规划）、world action models 微调、multi-view policy post-training
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 多视角视频（AgiBot/RoboMIND 等多机位流） | 第 4.1 节 |
+| 动作空间 | 动作条件微调（AgiBot-Challenge/WorldArena 任务原生动作） | 第 4.1 节 |
+| 控制频率 | 不适用（世界模型生成） | — |
+| 重规划频率 | 不适用 | — |
+| 动作 horizon | 不适用 | — |
+| 数据 | 约 2.5M 多视角 clips：AgiBot-World 35%/RoboMIND 20%/Galaxea 15%/RoboTwin 15%/RoboCOIN 15% | 第 4.1 节 |
+| 奖励 | 无（生成式训练） | — |
+| Reset | 不适用 | — |
+| 成功定义 | EWMScore 总分、SSIM/LPIPS/FID/MEt3R | 第 4.2 节 |
+| 评估次数 | WorldArena/AgiBot-Challenge2026 官方协议（次数未详报） | 第 4 节 |
+| 随机种子 | 未报告 | PDF 未披露 |
+| 扰动测试 | OOD（未见任务/挑战集） | 第 4 节 |
+| 真机 | 无 | — |
+| 算力 | NVIDIA H200 约 30K GPU-hours（30K iters） | 第 4.1 节 |
+| 特权信息 | 相机内外参（标定）做 Geo-RoPE 输入 | 第 3 节 |
+
+**附录陷阱自查**：
+- privileged 信息：有用——相机标定（内外参）是显式特权输入，部署需标定
+- reward shaping：无
+- reset 难度：不适用
+- eval budget：官方挑战协议
+- 底层控制栈：无
+- 数据优势：2.5M 多视角数据远超对照开源模型（论文定位即大数据训练）
 
 ## 消融实验与分析
 

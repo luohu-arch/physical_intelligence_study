@@ -14,6 +14,25 @@
 
 不给 VLM 加动作头、也不重训深度编码器，而是把"标定深度反投影、持久视觉锚点、投影到 RGB 的抓取假设"做成 VLM 可调用的工具（SAM 3 分区 + TAPNext++ 点跟踪 + GraspGen 抓取提案），让冻结的 Gemini 3.7 Flash 在 LIBERO-PRO 匹配子集上拿到 77.8%、超过 RGB-only GPT-6 Astra 的 61.1%，并把 Astra 本身抬升 27.8 个点到 88.9%；零样本迁移到三种 RoboSuite 机械臂（共享四任务均值 90.0/88.8/86.2%），RoboTwin Easy 到 Hard 只掉 4.0 点（RDT 掉 28.4、$\pi_0$ 掉 38.8）；Qwen3.5-9B 只用 107 条 teacher episodes 做 SFT，在新状态/新任务 split 上达 44.2%/13.9%，而 OpenVLA 为 30.2%/0.0%、$\pi_0.5$ 为 7.0%/0.0%。
 
+## 九问速览
+
+1. **Problem**：VLM 从单张 RGB 猜米制几何（RGB-only 35.2% 评估因无效动作终止）；深度输入路线数据需求大。
+2. **Bottleneck**：给模型装深度视觉要改架构对齐训练；动作回归在 107 条量级数据下全失效（VLA 0%）。
+3. **Insight**：标定深度、持久锚点、抓取假设做成可调用工具——回执+参考线叠加，冻结 VLM 自己决策。
+4. **Method**：四族感知工具 + 有界运动语法 + 记忆检索；工具调用轨迹本身作为 SFT 监督（107 episodes）。
+5. **Evidence**：LIBERO-PRO 匹配子集 77.8% 超 RGB-only GPT-6 Astra 61.1%，并把 Astra 抬到 88.9%。
+6. **Ablation**：同骨干去感知工具 51.2%→7.0%；RGB-D 直接回归 0.0%；旧图历史 K≥3 反而掉分。
+7. **Assumption**：仿真完美标定深度与可恢复状态；VLM 冻结可多轮调用（约 35 次/episode）。
+8. **Failure**：真机标定管线未验证；held-out 新任务仅 13.9%；配对 GPT 对比 McNemar p=0.125 未达显著。
+9. **Opportunity**：感知预算优化、锚点漂移误差传播、工具蒸馏规模律、腕部力觉工具补接触均未做。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 冻结 VLM 读多视角 RGB+TCP 位姿+夹爪状态；工具回执给米制坐标、掩码 ID、锚点位移、抓取候选 |
+| Closed-loop | 感知证据可逐步复测；闭合夹爪不假设成功（回到仍躺在原处的螺母重新接地） |
+| Correction | move_toward 停机上报原因；锚点丢失挂 lost_remeasure 旗等重测；无显式 retry 策略 |
+| Deployment | 全仿真（LIBERO/RoboSuite 为 MuJoCo 栈，RoboTwin 为 SAPIEN）；真机未做 |
+
 ## 核心技术
 
 ![robo-harness-k1 架构图](figures/robo-harness-k1/fig2.png)
@@ -80,6 +99,34 @@ $$\mathcal{L}_{agent}=-\sum_j\sum_{k\in y_j}\log\pi_\theta(y_{j,k}\mid c_j,y_{j,
 - **执行细节**：小步工具每次最多 12 个原生伺服步；`move_toward` 停机条件 = 位置容差 3 mm/姿态容差 2 度/失速/120 步预算并上报原因；重复同帧感知在 3 次静止转移后触发提醒；replay 校验要求重放 TCP 偏差 $\le 10^{-6}$ m。
 - **迁移适配层**：RoboSuite 适配器提供 384×384 标定 RGB-D（场景 + 原生腕相机），UR5e/IIWA 沿用 Panda 夹爪以隔离运动学变化；不提供任务物体位姿、实例分割或塑形奖励；dual-arm 用 `move_effectors` 多臂同时推进、未指定臂保位。
 - **真机**：未做——全部结论限于仿真（LIBERO/RoboSuite 同为 MuJoCo 组件栈，跨环境不等于跨物理引擎；RoboTwin 为 SAPIEN）。待确认：真机深度-标定管线与工具延迟预算。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 多视角 RGB（384²/224²）+ TCP 位姿 + 夹爪状态；工具回执文本 + 叠加参考线的 RGB | 第 3 节 |
+| 动作空间 | 结构化运动命令：move_relative（每轴 ≤3cm）、rotate_toward（≤15°）、move_to_pose/toward、set_gripper | 第 3 节 |
+| 控制频率 | 原生控制 20Hz、1,200 步/episode 上限；agentic 侧 400 次调用上限（不推进仿真时间） | 第 4 节 |
+| 重规划频率 | 每次工具调用后重审；小步工具每次最多 12 个原生伺服步 | 第 3 节 |
+| 动作 horizon | 每 episode ≤400 次模型调用（实测均值 34.9 次/条，共 6,282 次决策） | 第 5 节 |
+| 数据 | 139 条 Gemini 成功 episodes（32 条留出 → 107 条训练/43 条件）；原生 40,808 控制帧 | 第 4 节 |
+| 奖励 | 无 RL 奖励；SFT = next tool call 交叉熵；终局由仿真成功谓词判定 | 第 4 节 |
+| Reset | 仿真 reset + replay 校验（重放 TCP 偏差 ≤10⁻⁶ m） | 附录 |
+| 成功定义 | LIBERO-PRO 任务谓词成功率；学生按 A（in-domain）/B（新状态）/C（新任务）三 split 报告 | 第 5 节 |
+| 评估次数 | 教师 180 条轨迹（全量 77.2%）；学生 122 例（A/B/C = 43/43/36）；记忆消融 18 例配对 | 第 5 节 |
+| 随机种子 | 适配 seed 17；reset seeds 271828-271832（4 rollouts/配置 = 20 trials）；采样 seeds 1729+4c+r | 附录 D/E |
+| 扰动测试 | RoboTwin Easy→Hard（K1 仅掉 4.0 点 vs RDT 28.4、π0 38.8）；LIBERO-PRO 本身为扰动基准 | 第 5 节 |
+| 真机 | 无；全部结论限于仿真（MuJoCo/SAPIEN 组件栈） | 第 6 节 |
+| 算力 | 学生训练时长：Qwen 26.6h / OpenVLA 19.1h / π0.5 5.7h；GPU 型号与数量未报告 | 第 4 节 |
+| 特权信息 | 深度来自仿真完美标定；不提供任务物体位姿、实例分割或塑形奖励 | 第 4 节 |
+
+**附录陷阱自查**：
+- privileged 信息：仿真完美标定深度是最大隐藏特权（真机标定误差未量化）；成功由仿真谓词判定，非 LLM judge。
+- reward shaping：无（纯 SFT 蒸馏）。
+- reset 难度：仿真可恢复状态 + replay 校验保证确定性。
+- eval budget：学生 122 例、配对子集仅 18 例（1 例 = 5.6 个点）；配对 GPT 对比 p=0.125 未达 0.05 显著。
+- 底层控制栈：运动语法硬界（3cm/15°）兜底安全；embodiment adapter 隔离运动学差异。
+- 数据优势：教师为 Gemini 3.7 Flash（强 VLM）；对比基线 VLA 用 OOX 级数据预训练——数据量级不同但方向相反（学生仅 107 条）。
 
 ## 消融实验与分析
 

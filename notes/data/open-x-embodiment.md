@@ -10,6 +10,25 @@
 
 OXE 把全球 21 个机构的 60 个数据集统一成 RLDS 格式，拼出 100 万+ 真机轨迹、22 种机器人形态、527 种技能（160266 任务实例）的数据底座，并用最小改动的 RT-1-X 与 RT-2-X 证明：不加任何跨机型对齐机制、只做「7 维末端执行器动作粗对齐 + 逐数据集归一化」的直接混合训练就能带来正迁移——小数据域平均成功率提升约 50%，55B 的 RT-2-X 在 Google Robot 上做出只在 WidowX 数据里出现过的技能（75.8% vs 单机 RT-2 的 27.3%）。
 
+## 九问速览
+
+1. **Problem**：机器人数据孤岛——各机构数据格式/机型各异，单机数据量不足以支撑泛化
+2. **Bottleneck**：此前跨本体迁移靠「翻译器」（共享动作表征/本体条件化模块），成本高且难规模化
+3. **Insight**：夹爪型操纵臂的操作几何结构相同，差异只在尺度与表达——min-max 归一化即可消掉，无需精细对齐
+4. **Method**：RLDS 统一 60 数据集 → canonical 视角 + 7 维 EE 动作 + 逐集归一化 256 bin → 单模型直接混合训练（零对齐机制）
+5. **Evidence**：3600 次真机评测：小数据域 5 域赢 4 个（平均 +50%）；RT-2-X 55B emergent skills 75.8% vs 单机 RT-2 27.3%
+6. **Ablation**：移除 Bridge 75.8%→42.8%（迁移因果证据）；35M 混合反而降（92→73）、55B 恢复（91%）——容量门槛；两帧历史 14.5→44.4%
+7. **Assumption**：夹爪型操纵臂家族；场景-机体相关性可隐式判别；web 预训练底线（from scratch 0%）
+8. **Failure**：场景同质化时机体判别失效；小模型在大数据域吃到负迁移；不测全新机器人
+9. **Opportunity**：容量门槛曲线、leave-one-out 归因、异构感知/驱动模态纳入、人形扩展
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 每数据集 1 个 canonical RGB 视角（统一分辨率）；RT-1-X 15 帧历史；无统一深度/触觉 |
+| Closed-loop | 闭环：3-10Hz 逐观测出动作 token（RT-1-X 本地、RT-2-X 云端） |
+| Correction | 无显式 retry；靠闭环重观测隐式纠偏 |
+| Deployment | 各机型遥操作数据混合训练 → 6 种机器人真机评测；动作按机型反解归一化 |
+
 ## 核心技术
 
 ![open-x-embodiment 架构图](figures/open-x-embodiment/fig2.png)
@@ -82,6 +101,34 @@ graph TD
 **评测设计**
 - 全文共计 3600 次真机评测 trial、覆盖 6 种机器人；对照组两类：「Original Method」= 数据原作者在自己数据上调好的专用模型，「RT-1 solo」= 同一架构只吃本域数据
 - 泛化评估沿用 RT-2 协议（unseen objects / backgrounds / environments），emergent skills 评估专门挑「Bridge 有、Google Robot 无」的任务作为跨机型探针
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 每数据集 1 个 canonical RGB 视角，统一分辨率；RT-1-X 15 帧历史；RT-2-X 0/2 帧历史 | §方法 |
+| 动作空间 | 7 维末端执行器（xyz+rpy+夹爪）→ 逐集归一化 → 256 bins × 8 维（含终止位）离散 token | §方法 |
+| 控制频率 | 3-10 Hz（按机器人需求；RT-1-X 本地跑、RT-2-X 云端查询） | §工程 |
+| 重规划频率 | 每步（3-10Hz 逐观测预测，无 chunk） | §方法 |
+| 动作 horizon | 单步动作 token（无 chunk） | RT-1 架构沿用 |
+| 数据 | 1M+ 真机轨迹 / 22 具身 / 60 数据集 / 21 机构；实际混合训练用 9 种操纵臂子集；RT-2-X web 数据约 1:1 共训 | Fig.2、§实验 |
+| 奖励 | 无 RL：categorical cross-entropy 模仿（动作 token） | §方法 |
+| Reset | 未报告 | — |
+| 成功定义 | 各技能任务二值成功；泛化评估沿用 RT-2 协议（unseen objects/backgrounds/environments） | §实验 |
+| 评估次数 | 全文共 3,600 次真机 trial，覆盖 6 种机器人 | §实验 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：unseen objects / backgrounds / environments（RT-2 协议） | Table II |
+| 真机 | 6 种机器人（Google Robot、WidowX×2、及小数据域各机型） | Fig.3/4 |
+| 算力 | 未系统报告（RT-2-X 55B 云 TPU 级；RT-1-X 35M 可本地） | — |
+| 特权信息 | 无；「Original Method」对照为数据原作者自调模型（存在实现差异，需注意公平性） | §实验 |
+
+**附录陷阱自查**：
+- privileged 信息：无；但 canonical 视角选择、归一化管线本身是手工先验（非零机制）
+- reward shaping：无（RL-free）
+- reset 难度：未报告
+- eval budget：3,600 trial 总量大，但分散到 6 机型多对比组——小于 5pt 的差异（44.4 vs 48.7）统计力存疑
+- 底层控制栈：各机型自带底层控制器；EE 动作反解下发
+- 数据优势：RT-1-X/RT-2-X 的对比对象（Original Method）是各领域原作者的已发表模型——训练细节不完全对齐；「RT-1 solo」同架构对照更干净
 
 ## 消融实验与分析
 

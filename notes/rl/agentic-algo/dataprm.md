@@ -12,6 +12,25 @@
 
 用先导实验证明通用域 PRM 监督不了数据分析 agent——静态 PRM 抓不住"解释器不报错但结果错误"的 silent error，还会把必要的试错探索（grounding error，如猜错列名触发 KeyError）当致命失败而过度惩罚（ThinkPRM 把 DABStep 子集从 32.67% 提到 40.00% 却仍不敌 Majority Voting）；据此提出 DataPRM，一个 environment-aware 的生成式 PRM：用与 policy 相同的 ReAct 范式主动执行代码探查中间状态、配 `query_document`/`query_image` 两个工具补多模态与长文档感知、以三元奖励 $r_t \in \{0, 0.5, 1\}$ 区分可修正错误与不可恢复错误；数据侧用"多样性驱动轨迹生成（K=4 采样、答案不一致才保留）+ 知识增强逐步标注（AutoManual 合并错误类别、人工核验 86.0% raw accuracy、$\kappa=0.83$）"造出 7K+ 实例。4B 的 DataPRM 在 Best-of-N 下把 Qwen3-235B-A22B-Instruct 在 ScienceAgentBench 提升 7.21%、DABStep 提升 11.28%，以 58 倍参数效率压过 GenPRM-32B、Qwen2.5-Math-PRM-72B 与 235B self-rewarding；接入 GRPO 后 DABench 78.73%、TableBench 64.84%，且训练熵不塌缩（约 0.18 vs outcome-only 的 0.12）。
 
+## 九问速览
+
+1. **Problem**：通用域 PRM 监督不了数据分析 agent——BoN 打不过免费的 Majority Voting。
+2. **Bottleneck**：静态 PRM 只读代码文本，抓不住 silent error，还把可修正试错（grounding error）当致命失败惩罚。
+3. **Insight**：验证器必须执行取证——与 policy 同范式跑代码看中间状态；三元奖励 {0,0.5,1} 保护探索。
+4. **Method**：DataPRM 4B 生成式 PRM（ReAct 执行 + query_document/query_image 工具）+ 7K 边界样本 SFT。
+5. **Evidence**：4B 在 Best-of-N 提升 235B policy：DABStep 40.89@N=16，58 倍参数效率压过 32B/72B PRM。
+6. **Ablation**：环境执行+多轮+三元缺一不可（CoT 35.33 → 全量 40.89）；三种数据过滤策略反而更差。
+7. **Assumption**：执行环境可隔离并行（24.66s→3.30s）；步级标签噪声约 14%（人工抽检 86% raw acc）。
+8. **Failure**：只用 SFT 不迭代；policy 换族分布漂移未测；终步分被 outcome 覆写（PRM 终点判分未被独立检验）。
+9. **Opportunity**：0.5 分档的形式化判据、PRM 与 policy 联合训练再校准、「故意犯错刷反馈」hacking 未防。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | PRM 输入 policy 轨迹 + 当前步，可主动跑探查代码、query_document/query_image 工具取证 |
+| Closed-loop | PRM 逐步打分（0/0.5/1）并附 rationale；验证反馈元组拼入后续验证保证跨步一致 |
+| Correction | TTS 端按步分聚合选轨迹（修正选错）；RL 端终步不一致时以 outcome 覆写 PRM 分 |
+| Deployment | 代码解释器 + 文件集环境（AutoSDT GitHub 抓取任务），隔离文件系统并行评测 |
+
 ## 核心技术
 
 ![dataprm 架构图](figures/dataprm/fig1.png)
@@ -102,6 +121,34 @@ $\beta = 0.5$、$G = 4$。另加终步一致性覆写：若 $r_{prm}(\tau_T) \ne
 1. 待确认：DataPRM 自身的 4B 底座型号——全文仅写 "4B parameters"，实验节明示的底座只有 RL 场景的 policy（Qwen2.5-Coder-7B-Instruct），未见 PRM 骨干命名。
 2. 待确认：摘要口径的 "+7.21% / +11.28%" 未注明参照基线；表内最接近的可对照差值为 N=16 下 ScienceAgentBench 25.64 vs Majority Vote 23.08（相对 +11.1%）、DABStep 40.89 vs Majority Vote 38.00（相对 +7.6%），与摘要两个数字不一一对应，参照口径无法从正文还原。
 3. 待确认：Figure 2b/2c、图 4、图 5 的柱状数值取自 PDF 文本层，柱与图例的逐一对应存在乱序风险；正文显式给出的数字（ThinkPRM 32.67%→40.00%、beam 35.33%→38.00%→38.89%、RL 78.73%/64.84%、熵 0.12/0.18）已单独核对无误；图 5a 中 pass@3 各组归属按与正文一致的读法标注。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | policy 完整轨迹 h_t + 当前步 τ_t + 历史验证反馈；PRM 自主执行取证（均值 0.87 次工具调用/步） | 第 3 节 |
+| 动作空间 | policy = ReAct 代码动作；PRM = 验证内循环（思考/写码/执行）+ 两个查询工具 | 第 3 节 |
+| 控制频率 | PRM 每步 21,456 token / 2.57 turns / 24.66s（隔离并行化后 3.30s/样本） | Table 5 |
+| 重规划频率 | 每步一次 PRM 验证；BoN/Beam/DVTS 按步分聚合选轨迹 | 第 3.2 节 |
+| 动作 horizon | 数据分析任务步数随任务而定；RL 端组大小 G=4、batch 32 | 第 3.2 节 |
+| 数据 | 7K+ 实例：K=4 采样终答不全一致才保留 + 7 项规则过滤 + 人工核验（86.0%、κ=0.83） | 第 3 节 |
+| 奖励 | 三元 r_t∈{0,0.5,1}；RL 混合 (1-β)·r_outcome + β·PRM 均值（β=0.5）+ 终步覆写 | 第 3.2 节 |
+| Reset | 隔离文件系统 + 轻量字符串上下文追踪的并行评测沙箱 | 第 4 节 |
+| 成功定义 | ScienceAgentBench SR（78 任务，Qwen3-VL-235B 判可视化）/ DABStep accuracy / RL 报 pass@1 与 pass@3 | 第 4 节 |
+| 评估次数 | BoN N=4/8/16 三档；Beam 深度扫描；RL 于 DABench/TableBench | 第 4 节 |
+| 随机种子 | PRM 推理温度 0.7 / top-p 0.9 / top-k 20；RL rollout 温度 0.7；seed 数未报告 | 第 4 节 |
+| 扰动测试 | 无显式扰动；beam search 下 reward hacking 抗性测试（35.33→38.89 单调升 vs 72B 波动下行） | 第 4 节 |
+| 真机 | 不适用（软件数据分析 agent） | — |
+| 算力 | 8×H20 | 第 4 节 |
+| 特权信息 | PRM 判分靠执行取证不看 gold；评测 judge 按 gold 答案；RL 判卷为 Qwen3-30B-A3B（LLM judge） | 第 4 节 |
+
+**附录陷阱自查**：
+- privileged 信息：PRM 不用参考答案（靠执行）；但 RL 端 judge 是 LLM 判卷（Qwen3-30B-A3B），其系统偏差会进梯度；PRM 终步分被 outcome 覆写。
+- reward shaping：PRM 即过程奖励本体；0.5 分档由 LLM 标注近似 KL 信息增益（依赖度高、边界无形式化判据）。
+- reset 难度：每样本隔离文件系统，正常。
+- eval budget：ScienceAgentBench 仅 78 任务（小基准方差风险，作者自认）；摘要 +7.21%/+11.28% 的参照口径无法从正文还原。
+- 底层控制栈：AgentLoop + RewardLoop 异步并行——PRM 延迟被吸收的前提。
+- 数据优势：4B 对 32B/72B 是参数劣势；policy 为 235B（BoN 场景）对 Self-Rewarding 公平。
 
 ## 消融实验与分析
 

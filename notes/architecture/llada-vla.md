@@ -12,6 +12,25 @@
 
 LLaDA-VLA 是首个基于预训练扩散 VLM（扩散 VLM）而非自回归 VLM 构建的 VLA 模型，通过局部特殊 token 分类（LSC）将连续动作映射为 32 个离散 bin 并仅预测动作 token 而非全词表，再通过层次化动作结构化解码（HAD）在帧内/帧间两个层级迭代 refine 动作生成，在 SimplerEnv（55.5%）、CALVIN（4.01）和真机（58%）上显著超越 OpenVLA 等自回归 VLA。
 
+## 九问速览
+
+1. **Problem**：把预训练 VLM 迁移成 VLA 时，自回归骨干逐 token 生成动作，慢且生成后无法回头修正
+2. **Bottleneck**：全词表分类（约 32k 词）让动作适配难度极大；动作各维度强相关却被迫逐个串行生成
+3. **Insight**：掩码扩散 VLM 天然支持"并行预测 + 迭代精炼"，与动作块内强相关、可整体修正的结构吻合
+4. **Method**：LLaDA-V 骨干 + LSC（仅在 32 个动作特殊 token 上分类）+ HAD（动作级/token 级双层置信度 remask 解码）
+5. **Evidence**：SimplerEnv 55.5%（超 OpenVLA 50.9 个百分点、CogACT +4.2）；CALVIN ABC→D 4.01；真机平均 58% 超 π0 约 28%
+6. **Ablation**：CALVIN 上基线 Avg.Len 2.54，+LSC 提升 0.79、+HAD 再提 0.58；chunk K=3/5/8/10 → 3.90/4.01/3.53/3.36
+7. **Assumption**：32 bin 离散化精度足够；扩散 VLM 预训练权重可迁移；固定长度输出（无 EOS）可接受
+8. **Failure**：量化误差限制精细控制；长动作块（K≥8）性能下降；扩散迭代步数限制高频控制
+9. **Opportunity**：与连续扩散头结合、更大扩散骨干 scaling、推理加速（dllm-cache 之外）均待探索
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 单路第三人称 RGB（真机 Intel RealSense D435）；无腕部相机/深度/触觉/本体状态 |
+| Closed-loop | 闭环：逐动作块重新观测；10 步扩散迭代、每动作 2 次迭代去噪 |
+| Correction | 无显式重规划；靠扩散 remask 机制在生成阶段内部修正（不可修正已执行动作） |
+| Deployment | 开源 LLaDA-V 权重 + 3 epochs 微调（lr 2e-5、batch 128）；仿真到 WidowX 250S 真机，含 4 个 OOD 泛化任务 |
+
 ## 核心技术
 
 1. **扩散 VLM 骨干（扩散 VLM Backbone）** — 使用 LLaDA（掩码扩散大语言模型）替代自回归 Transformer 作为语言骨干，配合 SigLIP-2 视觉编码器，利用非自回归的并行生成能力进行动作解码
@@ -121,6 +140,34 @@ LLaDA-VLA 的核心思想是：**别像写文章一样一个个字写动作，�
 LSC 提升 0.79，HAD 在此基础上提升 0.58，两者互为补充。
 
 **推理配置：** 10 步扩散 + 2 次 HAD 迭代。在 10 步扩散过程中，前几步先做粗粒度的动作结构确定，后几步做细粒度的 token 级精炼。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 真机：单台前置 Intel RealSense D435 第三人称 RGB；仿真：SimplerEnv/CALVIN 官方观测 | 4.1.1 Real-World 设置 |
+| 动作空间 | delta EEF 7 维（3 位移+3 旋转+1 夹爪），量化为 32 bin 离散 token；动作块 K×D 个 token | 3.x 离散化、4.1.2 |
+| 控制频率 | 未报告 | — |
+| 重规划频率 | 每动作块（K=5）重新观测推理 | 4.1.2 |
+| 动作 horizon | K=5（消融 3/5/8/10，K=5 最优 4.01） | 4.3 Table 6 |
+| 数据 | SimplerEnv（Google Robot 系）与 CALVIN 各自训练集；真机自采演示（数量未报告） | 4.2.1 |
+| 奖励 | 无(RL-free)：掩码预测交叉熵（仅掩码动作 token 计损） | Eq.训练目标 |
+| Reset | 未报告 | — |
+| 成功定义 | 任务成功率；CALVIN 另报连续 5 指令 Avg. Len. | 4.2 |
+| 评估次数 | CALVIN：每任务 1000 rollouts；真机：每任务 10 independent trials；SimplerEnv 官方协议 | Table 2、4.1.1 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有（真机泛化任务）：未见物体、未见容器、双未见、含干扰物长程 OOD | Table 4 |
+| 真机 | 有：WidowX 250S，8 任务（4 seen + 4 OOD）×10 trials | 4.1.1、Table 3/4 |
+| 算力 | 训练 3 epochs、lr 2e-5、batch 128；GPU 型号/数量与时长未报告 | 4.1.2 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯模仿损失）
+- reset 难度：未报告
+- eval budget：CALVIN 充足（1000 rollouts/任务）；真机每任务 10 trials 偏小
+- 底层控制栈：无强 controller 兜底；离散 bin 动作由底层执行器跟踪
+- 数据优势：无——与 OpenVLA/π0/CogACT 用同类基准官方设定对比
 
 ## 消融实验与分析
 

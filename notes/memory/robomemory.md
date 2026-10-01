@@ -11,6 +11,25 @@
 
 RoboMemory 提出脑启发四模块并行记忆架构：空间记忆（动态 KG，检索式增量更新）、时间记忆（FIFO buffer + VLM 摘要压缩）、情景记忆（RAG 任务交互历史）、语义记忆（RAG 经验总结）。四模块并行独立更新/检索——避免传统串行设计中多次调用 VLM 的累积延迟（实测并行更新延迟 ≈ 单模块更新延迟）。Critic-Planner 闭环（第一步免 Critic 评估防无限重规划）+ 低层 LoRA 微调 π0 VLA + SLAM 执行。EmbodiedBench 上 Qwen2.5-VL-72B 实例化版本平均 SR 62.0%、GC 74.0%，摘要口径称相对强基线平均成功率提升 26.5%，且超过闭源 SOTA Claude-3.5-Sonnet（SR 58.0%、GC 63.3%）与全部 agent 框架基线（最高 Cradle 30.0%）。真机 5 个导航点、8 个交互物体的厨房场景中，第二次执行成功率 46.67% > 第一次 26.67%——验证终身学习能力。
 
+## 九问速览
+
+1. **Problem**：具身 agent 缺持久记忆——跨任务经验无法积累，VLM 单次调用无法终身学习
+2. **Bottleneck**：串行多模块记忆每步多次调 VLM 延迟累积；动态环境 KG 全量重建不可扩展
+3. **Insight**：记忆瓶颈在「怎么查」不在「存多少」——四类记忆按脑区分工、并行更新检索即可
+4. **Method**：空间 KG（检索式增量更新 O(DK)）+ 时间 FIFO/VLM 摘要 + 情景/语义 RAG 并行，Critic-Planner 闭环 + LoRA π0 执行
+5. **Evidence**：EmbodiedBench 平均 SR 62.0% 超 Claude-3.5-Sonnet 58.0%（agent 基线最高 Cradle 30.0%）；真机二次执行 46.67% vs 首次 26.67%
+6. **Ablation**：去空间记忆 −20pts 最大；去 Critic −12；KG 检索比率 20 次迭代 76%→28% 验证增量更新
+7. **Assumption**：VLM 摘要/规划基本可靠；低层技能 API/π0 可执行计划；记忆写入无回滚
+8. **Failure**：规划错误是首要失败类型；VLM hallucination 会污染 KG/RAG 且无检测；真机场景仍简单
+9. **Opportunity**：世界模型验证器、记忆写入纠错、更复杂真机场景、技能库整合
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB + 深度（视频录像而非静态快照）→ VLM 逐步文本摘要；符号化后进记忆 |
+| Closed-loop | 闭环（规划层）：Critic 逐步评估视觉反馈与记忆一致性，不通过即重规划（第一步豁免） |
+| Correction | 有：Critic-Planner 重规划 + 长期记忆跨任务纠错（二次执行 +20pts） |
+| Deployment | 仿真用 EmbodiedBench 高层 API 执行器；真机 LoRA π0 + SLAM，高层动作→底层运动 |
+
 ## 核心技术
 
 ![robomemory 架构图](figures/robomemory/fig1.png)
@@ -70,6 +89,34 @@ RoboMemory 的核心洞察是**机器人记忆的瓶颈不在"存多少"而在"�
 - **情景/语义记忆**：vector DB（Qwen3-Embedding 编码），情景检索 top N=5 条过去经验；语义记忆维护行动级 + 任务级层次摘要；更新只涉及 top-S 相似条目，VLM updater 判定 add/update/remove/noop
 - **Critic**：基于视觉反馈和记忆一致性评估 plan 质量，step 1 exempt 防循环（原版 Planner-Critic 会无限重规划）
 - **真机**：5 navigable points, 8 interactive objects, 10+ 干扰物, 15 个任务（3 类 × 5）；低层执行器为 LoRA 微调 π0 + SLAM
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB + 深度视频流 → Step Summarizer 文本摘要（真机用执行中录像而非事后快照） | §III、§IV-F |
+| 动作空间 | 仿真：EmbodiedBench 高层动作 API（非 VLA）；真机：LoRA π0 操作 + SLAM 导航 | §IV-B、附录 E |
+| 控制频率 | 不适用（高层规划步级，非低频控制） | — |
+| 重规划频率 | 每步 Critic 评估，失败即重规划（step 1 豁免） | §III-C |
+| 动作 horizon | 任务级：EB-ALFRED Base oracle 10-20 步，实际常超 20 步（含搜索与纠错） | §IV-F |
+| 数据 | 无训练数据（框架级）：记忆在线积累；RAG 用 Qwen3-Embedding；真机 15 任务×2 次不清理记忆 | §IV |
+| 奖励 | 不适用（无 RL）：VLM 规划 + 记忆检索 | — |
+| Reset | 每任务独立；终身学习测试刻意不清理长期记忆 | §IV-F |
+| 成功定义 | SR=完成任务比率；GC=目标条件达成率（SCN/GCN） | §IV-B |
+| 评估次数 | 仿真：200 任务每任务执行 1 次（temperature=0）；真机：每任务 2 次 | §IV-A/IV-F |
+| 随机种子 | temperature=0 消除随机性（单次执行） | §IV-A |
+| 扰动测试 | 10+ 干扰物；动态环境 KG 一致性维护 | §IV-F |
+| 真机 | 厨房场景：5 导航点、8 交互物体、15 任务；首次 26.67% → 二次 46.67% | Fig.5 |
+| 算力 | 未报告（VLM 为 API/开源 72B 推理；LoRA 微调 π0 细节在附录 E） | — |
+| 特权信息 | 无；但高层依赖 VLM 摘要质量，仿真执行器为完美 API（真机才用 π0） | §IV-B |
+
+**附录陷阱自查**：
+- privileged 信息：仿真评测用 EmbodiedBench 完美高层执行器——规划对了就执行成功，掩盖低层执行误差
+- reward shaping：不适用
+- reset 难度：正常；终身学习协议（不清理记忆）是刻意设计
+- eval budget：每任务 1 次执行（temperature=0）、真机每任务 2 次——样本量小
+- 底层控制栈：仿真高层 API + 真机 LoRA π0/SLAM 兜底执行
+- 数据优势：与单 VLM 基线比，RoboMemory 相当于给同一 Qwen2.5-VL-72B 加外挂记忆——增益可归因记忆架构；但对比 RoboBrain2-32B 时模型容量不对等
 
 ## 消融实验与分析
 

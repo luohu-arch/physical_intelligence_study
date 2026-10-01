@@ -12,6 +12,25 @@
 
 当相机被移动或重新定位后，现有模仿学习策略大概率失效。这篇论文提出将策略条件化到相机外参（用 Plücker ray 编码每个像素的 3D 射线），使策略天然对相机视角鲁棒，在 6 个新操作任务上系统性超越 SOTA。ICRA 2026 Best Paper on Robot Learning。
 
+## 九问速览
+
+1. **Problem**：相机被移动或重新安装后，模仿学习策略大概率失效——视角变化是部署期最常见的扰动
+2. **Bottleneck**：策略从像素坐标学 shortcut（背景纹理泄露相机位姿），换视角即分布外；随机视角训练需数倍相机
+3. **Insight**：把相机外参显式条件化进策略——每像素编码 Plücker 射线（方向+矩），像素位置可翻译成 3D 空间位置
+4. **Method**：RGB+6 通道 Plücker map 拼接（预训练 encoder 用 late fusion 小 CNN）；图像与 Plücker 联合随机裁剪防背景 shortcut
+5. **Evidence**：3 种架构 6 任务全部为正增益：ACT Lift +27.0、SmolVLA Lift +34.8（19.6→54.4）；基线越差增益越大
+6. **Ablation**：联合随机裁剪一致提升；固定背景（可推断位姿）下 conditioning 仍有增益——显式 3D 输入减轻推断负担
+7. **Assumption**：相机外参已知（AprilTags/标定/元数据可得）；场景静态（不处理运动中的相机）
+8. **Failure**：外参估计错误时无鲁棒性分析；动态相机（手持/机载）场景未验证；6 通道输入增加计算量
+9. **Opportunity**：内参变化鲁棒性、外参自估计联合训练、与 3D 表示（FP3）叠加均待探索
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB + 每像素 6 维 Plücker 射线 map（[H,W,9] 输入）；真机 3 路可动第三人称相机；无深度图但射线编码 3D 几何 |
+| Closed-loop | 闭环（继承 ACT/DP/SmolVLA 的 chunk 级闭环）；控制频率未报告 |
+| Correction | 无重规划机制；贡献仅在输入表示层 |
+| Deployment | 训练时每条演示后移动 1 台相机（n=3, m=1 随机化）→ 测试 7 个随机机位×选 2 相机；绿布遮背景去除静态线索 |
+
 ## 核心技术
 
 1. **Plücker Ray 编码** — 每个像素不再只是 RGB，而是 (R, G, B, d_x, d_y, d_z, m_x, m_y, m_z)——6D 射线表示（方向+动量），显式编码该像素在 3D 空间中的位置
@@ -70,6 +89,34 @@ $$
 - **Hardware**: UR5 + 3 movable third-person cameras
 - **Tasks**: Pick Place, Plate Insertion, Hang Mug 等 6 个新 benchmark (RoboSuite + ManiSkill)
 - **Code**: github.com/ripl/CamPoseOpensource
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB + 6 维 Plücker ray map（channel concat 或 late fusion）；仿真 2 相机（n=3,m=1 随机化）；真机 3 路可动第三人称相机，AprilTags 估计位姿 | Sec.III、附录 A-B |
+| 动作空间 | delta 动作（消融含绝对动作空间对比；delta 在其设定下成功率 >99% 量级优势） | Fig.7 |
+| 控制频率 | 未报告 | — |
+| 重规划频率 | 继承各基线的 action chunk 机制（ACT/DP/SmolVLA 原设定） | — |
+| 动作 horizon | 未报告（沿用基线默认） | — |
+| 数据 | 真机：3 任务×20 条 VR 遥操作演示；仿真：各基准标准演示量 + 相机位姿随机化变体 | 附录 B |
+| 奖励 | 无(RL-free)：各基线 BC 损失（ACT CVAE / DP 扩散 / SmolVLA） | Sec.IV |
+| Reset | 真机：标记物体初始位置并跨方法一致复位；绿布遮背景消除静态线索 | 附录 B |
+| 成功定义 | 仿真：成功率；真机：成功 + half-success 两级（抓起但滑落/碰到挂钩等记半成功） | 附录 B |
+| 评估次数 | 真机：7 随机机位×选 2 相机=21 rollouts/设定；仿真按收敛后取值（ACT 30k epochs 每 1k 评一次） | 附录 B、附录 A.8 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有（核心设定）：相机位姿随机化（训练期 m=1 变换、测试期 7 机位）+ 随机背景 | Sec.IV |
+| 真机 | 有：UR5+Robotiq 三指爪 3 任务（Pick Place/Plate Insertion/Hang Mug），ACT 与 DP 两策略 | 附录 B |
+| 算力 | 未报告 GPU 型号/数量；训练 epochs：ACT 30k、DP 60-80k、SmolVLA 预训练权重微调 | 附录 A.8、B |
+| 特权信息 | 训练与测试均输入相机真值外参（AprilTags 估计）——这是方法前提而非泄漏 | Sec.III |
+
+**附录陷阱自查**：
+- privileged 信息：相机外参显式提供（方法设定如此）；未测试外参估计误差的影响
+- reward shaping：无
+- reset 难度：正常（物体位置标记并一致复位）；背景被绿布遮蔽以去除静态线索——环境比常规更难依赖背景
+- eval budget：真机 21 rollouts/设定偏小但跨 3 任务一致；half-success 提供更细粒度
+- 底层控制栈：无
+- 数据优势：无（与无 conditioning 基线同数据同训练预算对照）
 
 ## 消融实验与分析
 

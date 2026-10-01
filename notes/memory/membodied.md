@@ -12,6 +12,25 @@
 
 MemBodied（NTU declare-lab + Griffin Labs + École Centrale de Lyon，2026-09-23，Soujanya Poria 组）给 VLA 装上**固定容量的情节记忆**，两条互补通路：逐层关联矩阵状态 $M_t$（动作专家每层一个 $r\times r$ 矩阵，$r=128$，用 gated delta rule 把「执行的动作 chunk + 事后视觉后果」写成交互事件）+ 情节锚点 $\mathcal{A}$（首帧冻结视觉 token 从 16×16 池化到 4×4，当前状态经 rank-64 交叉注意力选择性检索初始场景）。记忆读出经专用 memory token 注入动作专家后缀 [state, memory, H action tokens]，上下文长度全程不变。RMBench 五个记忆任务平均成功率 50.0%——是 stateless π0（6.4%）的 7.81 倍、vanilla recurrent（16.8%）的 2.98 倍、压缩历史强基线 NativeMEM（38.4%）的 1.30 倍，而新增参数仅 40M（π0 的 1.26%，约为 NativeMEM 415M 的十分之一），推理延迟 129.2 ms vs NativeMEM 1593.7 ms（降 91.9%）；换 π0.5 骨干 12.4%→48.0%（3.87 倍），真机双臂三任务 3.33%→26.67%（8 倍）；全观测 LIBERO 不退化（均值 95.1% vs π0 94.2%），长程 LIBERO-Long 90.6% 反超 π0 5.4 个百分点。
 
+## 九问速览
+
+1. **Problem**：VLA 无情节记忆——瞬时不可观测任务（放回哪块、试过哪个电池极性）上 stateless π0 仅 6.4%
+2. **Bottleneck**：压缩历史 token 上下文随 episode 膨胀（NativeMEM 1593.7ms）；vanilla 循环策略学不出有效记忆（16.8%）
+3. **Insight**：固定容量关联矩阵（gated delta rule 误差修正写入「动作+后果」交互事件）可与 episode 长度解耦地承载记忆
+4. **Method**：动作专家逐层 r×r 矩阵 + 延迟写（因果一致）+ memory-token 注入 + 首帧锚点 rank-64 检索，纯动作目标端到端训练
+5. **Evidence**：RMBench 五任务均值 50.0% = stateless π0（6.4%）的 7.81 倍；延迟 129.2ms vs NativeMEM 1593.7ms（−91.9%）
+6. **Ablation**：接口差 30 点（memory-token 50.0 vs 注意力转向 20.8）；锚点 +12.4 集中于初始场景任务（Swap 16→56）；rank 32→128 单调升
+7. **Assumption**：π0 类 flow-matching 动作专家基座；序列级 BPTT 可行；episode 边界已知（跨 episode 携带有害 50.0→36.8）
+8. **Failure**：多试错长任务覆盖受限（Block Ranking 22%）；全观测任务无增益甚至微降；记忆内容不可读不可审计
+9. **Opportunity**：更大 rank 容量曲线、跨 episode 经验转化、锚点门控、与压缩历史 token 的组合
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 3 路 RGB 224×224（顶/腕相机）+ 语言 + 机器人状态；无深度/触觉 |
+| Closed-loop | 闭环：每次 policy call 读记忆出 H=50 步 chunk，执行后延迟写「动作+视觉后果」 |
+| Correction | 有隐式纠错：记忆记录失败尝试（Battery Try 一次重试解决 vs π0 盲试 4 次）；无显式 retry 模块 |
+| Deployment | π0/π0.5 骨干 + 40M 记忆参数；仿真 RMBench/LIBERO + 真机双臂 3 任务（3.33%→26.67%） |
+
 ## 核心技术
 
 ![membodied 架构图](figures/membodied/fig1.png)
@@ -94,6 +113,34 @@ $$c_t = z_t + W^A_o\,\mathrm{softmax}\!\left(\frac{(W^A_q z_t)(W^A_k \mathcal{A}
 - **效率剖析口径**：A100 80GB、bfloat16、单卡、只计模型侧耗时；每任务-策略前 3 次 query 作 warm-up 剔除；NativeMEM 2,548 个 cycle vs MemBodied 2,563 个 cycle，均值 1593.7 ms vs 129.2 ms（−91.9%），JAX allocator 峰值 20.57 GiB vs 18.61 GiB（−9.5%）；NativeMEM 额外要跑 per-frame 视频历史编码并维护增长队列
 - **基线实现要点**（同 backbone/LoRA/步数对齐）：FrameStack 为 4 帧间隔 50 步拼接、不足补齐；π0-µ-VLA 用 64 个 recurrent memory token、每 2 个 recurrent 步截断梯度（共享预算下五任务全 0%，论文明言只说明该适配未学出有效循环策略，不能代表 µVLA 原设定）；Vanilla Recurrent 用 Delta-Mem 机制（rank 128、scale 256、query/输出注意力修正、隐状态写入）；NativeMEM 两阶段——memory tokenizer 训 50,000 步 + 离线缓存 token，冻结后策略再训 20,000 步，队列 stride 1
 - **代码**：https://github.com/declare-lab/MemBodied
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 3 路 RGB 224×224 + 语言 + 机器人状态（真机：Orbbec 顶摄 + 2×D405 腕摄；状态 14 维/双臂） | §实现、附录 |
+| 动作空间 | 连续动作 chunk，H=50，10 步 flow-matching 去噪；状态/动作各 14 维（真机每臂 6 关节+1 夹爪） | §方法、附录 |
+| 控制频率 | 未以 Hz 报告；推理延迟 129.2ms（A100 80GB bf16 单卡、模型侧） | Fig.2 |
+| 重规划频率 | 每 5 步 replan（LIBERO），RMBench 每 policy call；记忆写间隔 50 步（round-robin 10 槽调和） | §LIBERO 训练 |
+| 动作 horizon | H=50 步 | 主超参 |
+| 数据 | RMBench：序列训练 8-18 对观测-动作 × stride 50；LIBERO：全量微调 batch 32、30K 步；真机：每任务 50 条遥操作（清洗后 41/50/49），30Hz | §工程细节 |
+| 奖励 | 无 RL：flow-matching 动作损失端到端（无记忆辅助损失） | §方法 |
+| Reset | 每 rollout 开始重置记忆（锚点与矩阵），episode 内持久 | §Benchmarks 协议 |
+| 成功定义 | 任务二值成功率（部分完成不计分） | Table 1 |
+| 评估次数 | RMBench：每任务 50 rollouts；LIBERO：每任务 50 rollouts（每 suite 500、共 2,000）；真机：每任务 20 次物理 rollout | §Benchmarks 协议、附录 |
+| 随机种子 | 训练 seed 42；评测随机性由 rollouts 承担（多 seed 未报告） | 主超参 |
+| 扰动测试 | 记忆任务本身含状态遮蔽（物体被藏/极性不可见）；未见物体/场景泛化 | §RMBench |
+| 真机 | 2×AgileX PiPER 双臂 3 任务：3.33%→26.67%（8 倍） | Table/Fig |
+| 算力 | RMBench 训练 10K 步 batch 8（LoRA）；剖析 A100 80GB 单卡；训练卡数未报告 | 附录 |
+| 特权信息 | 无；基线同 backbone/LoRA/步数对齐（π0-µVLA 适配全 0%，论文明言不能代表原设定） | §基线要点 |
+
+**附录陷阱自查**：
+- privileged 信息：无（记忆内容纯从自身交互学得）
+- reward shaping：无（RL-free）
+- reset 难度：记忆每 rollout 重置——协议干净；但训练时记忆状态分布与部署对齐（stateful 序列训练）是作者显式处理的坑
+- eval budget：每任务 50 rollouts（真机 20），充足
+- 底层控制栈：π0 flow-matching 动作头直出；无额外 planner
+- 数据优势：真机每任务仅 ~50 条 demo 对所有方法一致；RMBench 上与 NativeMEM 同数据同 backbone 对比公平
 
 ## 消融实验与分析
 

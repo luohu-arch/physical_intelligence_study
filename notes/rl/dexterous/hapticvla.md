@@ -10,6 +10,25 @@
 
 HapticVLA 提出触觉蒸馏 (Tactile Distillation)：两阶段训练——(1) SA-RWFM: 用触觉传感器做 safety-aware reward-weighted flow matching 离线 RL 训练 teacher，(2) 将 teacher 的触觉感知能力蒸馏到纯视觉 student VLA，student 从视觉+本体感知预测 compact "tactile token"。部署时不需要触觉硬件。真机 3 个接触丰富任务 86.7% 平均成功率——比还保留触觉传感器的 teacher (75%) 更高，比无蒸馏的视觉 baseline (75%) 高 11.7pp；X-VLA (0.9B) 与 VLA-0 基线直接 0%。
 
+## 九问速览
+
+1. **Problem**：接触丰富任务需要力反馈，但部署期触觉硬件贵、脆弱、难跨平台复现。
+2. **Bottleneck**：通用 VLA（X-VLA 0.9B/VLA-0）在力敏感任务上直接 0%——力度感是缺失的能力维度。
+3. **Insight**：触觉的价值在训练期（提供安全地面真值），推理期视觉线索足以预测"力度感"。
+4. **Method**：SA-RWFM 用触觉安全奖励加权 flow matching 训 teacher；蒸馏 compact tactile token 到纯视觉 student。
+5. **Evidence**：3 任务平均 86.7%，反而高于带触觉的 teacher 75%（+11.7pp）；X-VLA/VLA-0 为 0%。
+6. **Ablation**：无 TD 纯视觉 baseline 75%；TD 仅同步推理有效（+11.7pp），异步时优势消失（81.7%）。
+7. **Assumption**：训练期触觉阵列可用；任务力敏感但视觉有形变前兆等线索可读。
+8. **Failure**：高动态冲击任务视觉预测滞后于物理；透明/镜面物体预测置信度存疑；上限受 teacher 约束。
+9. **Opportunity**：tactile token 信息瓶颈分析、异步延迟补偿、部署期廉价单点力传感的混合。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 训练期：3 路 RGB+本体+触觉阵列（200 taxels@120 Hz，1-9 N/点）；部署：纯 RGB+本体（token 预测替代触觉） |
+| Closed-loop | 闭环：同步推理 86.7%（异步 81.7% 亦为闭环，但 TD 优势消失） |
+| Correction | 无显式恢复机制 |
+| Deployment | 全真机训练+部署（Jetson Orin NX 边缘计算）；无仿真环节 |
+
 ## 核心技术
 
 ![hapticvla 架构图](figures/hapticvla/fig1.png)
@@ -57,6 +76,34 @@ $$L_{TD} = \mathbb{E}\left[ \| f_{student}(o^{vis}, o^{prop}) - h^T(o^{vis}, o^{
 - 评测: 3 个接触丰富真机任务, 86.7% SR (vs teacher 75%)
 - 对比基线: X-VLA (0.9B) 与 VLA-0 直接 0%——通用 VLA 在接触丰富任务上无基础能力
 - 同步 vs 异步: 蒸馏 student 同步推理 86.7%（异步 81.7%），无 TD 的视觉 baseline 同步 75%（异步 81.7%）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | teacher：3 路 RGB（D435 外部+2 腕部 IMX335 640×480）+本体+触觉阵列（每指 10×10 taxel，共 200 点@120 Hz）；student：RGB+本体，预测 tactile token | Sec IV-A |
+| 动作空间 | 连续（SmolVLA flow-matching 动作专家输出）；具体维度未报告 | Sec III |
+| 控制频率 | 触觉采样 120 Hz；策略控制 Hz 未报告（边缘端高频异步部署设计） | Sec IV-A |
+| 重规划频率 | 未报告（对比同步/异步两种推理模式） | Sec IV |
+| 动作 horizon | 未报告 | |
+| 数据 | 演示数据量未报告（离线 tactile reward 计算后做离线 RL 加权训练） | Sec III |
+| 奖励 | 离线触觉安全奖励：每步奖励+episode 风险惩罚（抓取力/压力峰值/滑移，阈值由接触统计标定）加权 RWFM；无在线奖励 | Sec III-A |
+| Reset | 未报告 | |
+| 成功定义 | 物体完整无损+放置到位（jar 允许轻微形变、waffles 无裂纹、egg 完整入槽，逐任务细化） | Sec IV-B |
+| 评估次数 | 20 trials/任务/模型（3 任务） | Sec IV-B |
+| 随机种子 | 未报告 | |
+| 扰动测试 | 无专门扰动测试 | |
+| 真机 | 3 任务（jar/waffles/egg pick-and-place），双臂 2×LeRobot SO-101（右臂带触觉夹爪） | Sec IV-A/B |
+| 算力 | NVIDIA Jetson Orin NX 16GB 边缘计算机（训练算力未报告） | Sec IV-A |
+| 特权信息 | 有（结构性设计）：触觉是 teacher 特权模态（仅训练期），student 经蒸馏去除该依赖；blending α=0.5 | Sec III |
+
+**附录陷阱自查**：
+- privileged 信息：有——触觉即 teacher 特权模态，这正是本文主题（训练期借、部署期还）
+- reward shaping：离线触觉安全奖励（每步+episode 风险惩罚，阈值由接触统计标定而非在线试错）
+- reset 难度：未报告
+- eval budget：偏小（20 trials/任务/模型）
+- 底层控制栈：未报告（SO-101 舵机直驱）
+- 数据优势：teacher 多触觉模态+离线奖励标注；student 与视觉 baseline 同观测接口，公平
 
 ## 消融实验与分析
 

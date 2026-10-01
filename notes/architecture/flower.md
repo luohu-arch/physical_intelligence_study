@@ -10,6 +10,25 @@
 
 FLOWER 是一个仅 950M 参数的视觉-语言-动作 flow policy，通过中间模态融合（裁剪 50% LLM 层）和动作特定全局自适应层归一化（削减 20% 扩散头参数），预训练仅需 200 H100 GPU 小时，在 190 个任务上达到数十亿参数模型的性能水平，CALVIN ABC benchmark 取得新 SOTA 4.53。
 
+## 九问速览
+
+1. **Problem**：主流 VLA 动辄数十亿参数、数百至上万 GPU 时训练，中小团队无法参与通用机器人策略研究
+2. **Bottleneck**：VLM 深层专精语义推理，对"看懂即动手"的操作任务是过度参数化，参数预算错配在推理而非动作生成
+3. **Insight**：VLM 中间层表征已含足够语义——裁掉后 50% LLM 层、把省下的容量转给扩散动作头，几乎不损失性能
+4. **Method**：Florence-2 裁半 + 18 层 Flow Transformer 共 950M；Global-AdaLN 全层共享调制 + 动作特定残差，flow matching 出连续动作
+5. **Evidence**：仅 200 H100 GPU 时预训练，CALVIN ABC→D 4.53 SOTA；真机 20 任务平均 61%，是 OpenVLA(31%) 的两倍
+6. **Ablation**：LIBERO-Long 上中间融合 93.4% vs early 33.4% / late 73%；去 Flow Head 降到 3.33——融合位置与动作头是收益主体
+7. **Assumption**：操作任务的语义理解在中间层已饱和；单静态图输入足够；跨动作空间可由共享主干+特定编解码承载
+8. **Failure**：SIMPLER Google Robot 上 31.9% 低于 RT-1-X 42.4%；高杂乱环境精细操作仍有困难；深度多轮推理任务受限
+9. **Opportunity**：裁剪比例需逐 VLM 基座重新调优；变长 action chunk 尝试失败；sub-billion 的语义上限待探索
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 1-2 路 RGB（CALVIN/ALOHA/真机：单静态图或双静态；LIBERO/SIMPLER：主静态+腕部）；仅双臂用本体状态；无深度/触觉 |
+| Closed-loop | 闭环：逐 chunk 重新观测，单臂 4 步/双臂 8 步去噪；推理吞吐 311Hz@RTX 4090、延迟 52ms |
+| Correction | 无显式重规划/retry；依赖 flow policy 动作分布多模态隐式纠错 |
+| Deployment | 8 个公开数据集 OXE-soup（约 250k 轨迹）预训练，仿真零样本评测 + Franka 真机 417 轨迹（45min 示教）微调即用 |
+
 ## 核心技术
 
 1. **中间模态融合（Intermediate-Modality Fusion）** — 裁剪预训练 VLM（Florence-2）最后 30%-50% 的 Transformer 层，将压缩节省的模型容量重新分配给扩散动作头
@@ -140,6 +159,34 @@ FLOWER 的核心思想是**「好钢用在刀刃上」**——把每一分参数
 - **动作特定残差嵌入维度 $d_{\text{emb}}$**：8-16 即可捕获动作差异，过大浪费参数
 - **流匹配步数**：快速原型用 10 步，精度敏感任务用 20 步
 - **LoRA rank**：推荐 16-32，rank 过高时过拟合风险增大
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | CALVIN/SIMPLER：主静态+腕部 2 路；LIBERO：主静态+腕部；ALOHA：单主静态；真机：主静态+副静态；仅双臂（ALOHA）用本体状态 | 附录 Table 5 |
+| 动作空间 | delta-EEF（CALVIN/LIBERO/SIMPLER）、双臂关节（ALOHA）、单臂关节（真机微调）；连续动作 chunk | 附录 Table 5、Sec.4.2 |
+| 控制频率 | CALVIN 3/5 Hz、LIBERO 10 Hz、SIMPLER 10 Hz、ALOHA 50 Hz、真机 6 Hz | 附录 Table 5 |
+| 重规划频率 | 每 chunk 重新观测推理；chunk 长度 20（推理效率表按 50 计） | 附录 A、Table 4 |
+| 动作 horizon | chunk 长度 H=20（预训练与各基准统一） | 附录 A |
+| 数据 | 预训练 OXE-soup 8 数据集约 250k 轨迹（75% 来自 Droid/Google Robot/BridgeV2；74% delta-EEF+26% 关节）；真机 417 条语言标注轨迹（45min 动觉示教） | Sec.3.4、Sec.4.3、附录 Table 7 |
+| 奖励 | 无(RL-free)：flow matching 向量场回归损失（Eq.2） | Sec.3 |
+| Reset | 真机：每次评测从随机初始位姿出发；仿真由基准协议规定 | Sec.4.3 |
+| 成功定义 | CALVIN：连续 5 任务链成功率+平均序列长度；LIBERO：任务完成率；真机：20 任务成功率 | Sec.4.2-4.3 |
+| 评估次数 | CALVIN 1000 条指令链；LIBERO 每任务 50 trials（LIBERO-90 为 20）；真机每任务 5 次；消融每变体 3 seeds | Sec.4.1-4.3 |
+| 随机种子 | 设计消融 3 seeds 取平均 | Sec.4.1 |
+| 扰动测试 | 有：新物体、仅手电筒照明、背景干扰物、新任务组合（泛化 51.0% vs OpenVLA 23.4%） | Sec.4.3、Fig.6b |
+| 真机 | 有：Franka Panda 厨房场景 20 任务×5 次，平均 61% | Sec.4.3 |
+| 算力 | 预训练 4×H100×48h（≈200 GPU 时，350k 步）；微调 4 GPU×4h；推理 1.85GB VRAM@RTX 4090 | 附录 Table 8、Table 4 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯模仿/flow matching 损失）
+- reset 难度：正常（真机随机初始位姿）
+- eval budget：充足（CALVIN 1000 链、真机每任务 5 次偏小但跨 20 任务）
+- 底层控制栈：无强 controller 兜底；ALOHA 50Hz 依赖 chunk 执行摊薄推理
+- 数据优势：无——预训练数据量（250k 轨迹）远小于 OpenVLA/π0 等基线，对比反而吃亏；基线沿用其论文自报数字
 
 ## 消融实验与分析
 

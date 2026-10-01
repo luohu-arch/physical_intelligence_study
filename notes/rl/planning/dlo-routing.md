@@ -10,6 +10,25 @@
 
 提出分层框架处理可变形线性物体（线缆/绳子）的多夹点路由：高层 VLM (GPT-5, CoT prompting) 做任务进度推理和技能选择，低层 SAC RL 执行 Insert/Pull/Flatten 三种技能。关键创新是自动故障恢复——VLM 检测重复插入失败后自动触发 Flatten 技能重新整理线缆。仿真长时序路由总体成功率 80-100%（4/5-clip 场景 100%），真实世界 62.5%，超 fixed-order baseline 25 个百分点。ICRA 2026 Best Robot Learning Finalist。
 
+## 九问速览
+
+1. **Problem**：可变形线性物体（线缆）的多夹点长时序路由——接触敏感、失败会累积、无法用单一策略端到端解决
+2. **Bottleneck**：模仿学习高层依赖有限演示难扩展；端到端模型失败恢复不可解释；纯 RL 无法做任务级推理
+3. **Insight**：约束密度决定分工——插入处于接触敏感区需 RL 闭环，Pull/Flatten 在自由空间脚本即可；恢复应是一等公民
+4. **Method**：GPT-5 CoT 高层（技能选择+进度推理+故障检测）+ SAC 低层插入原语 + 连续失败计数触发 Flatten 重整理
+5. **Evidence**：仿真长时序 80-100%（4/5-clip 100%）；真机 62.5% vs fixed-order 37.5%（+25 点）；低层插入 87% vs heuristic 45%
+6. **Ablation**：去故障恢复 93%→7%（Fixed Spatial/Attr）；RL 换 heuristic 低层 100%→7%——恢复机制与低层 RL 各占半壁
+7. **Assumption**：GPT-5 API 可用且延迟可接受；DLO 可被粒子化状态表示；2D 平面+1D 旋转原语覆盖任务
+8. **Failure**：Flatten 误触发（已插入却重整）引发碰撞；提前终止高估完成度；真机 sim-to-real 掉 20-40 点
+9. **Opportunity**：6DoF 空间路由、VLM 自动集成新技能、视觉观测低层策略未实现
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 高层：全场景俯视图+当前 clip zoom-in 图（VLM）；低层：粒子化 DLO 状态+clip 位姿+rope_in 指示（仿真真值/真机 SAM2 分割提取）；无触觉 |
+| Closed-loop | 低层闭环（SAC 逐时步）；高层按技能粒度重规划，检测重复失败后触发恢复 |
+| Correction | 有显式恢复：连续插入失败计数→VLM 推理原因→Flatten 重初始化线缆→重试，全程无人工 |
+| Deployment | IsaacSim/GarmentLab 训练 + 腕装 D415 俯视 + SAM2 分割，RL 策略零微调 sim-to-real（62.5% vs 仿真 80-100%） |
+
 ## 核心技术
 
 ![dlo-routing 架构图](figures/dlo-routing/fig1.png)
@@ -63,6 +82,34 @@ $$r_{flat} = \frac{1}{1 + \frac{1000}{33} \sum_{i=0}^{32} \|p_{i+3} - p_i\|_y}$$
 - 评测：低层策略 100 个随机场景；长时序每策略 15 次 trial；成功判定为线缆头从 clip 另一侧伸出且端点距离 > +2cm。
 - 真实系统：Franka Emika Panda，腕装 Intel RealSense D415（1280x720 俯视图），MoveIt 规划，ROS，SAM2 分割（NVIDIA 5090 GPU），RL 策略零微调直接 sim-to-real。
 - 高层：GPT-5 low reasoning effort + CoT，prompt 含场景描述、DLO 头部追踪指令、技能定义与反例、插入成功标准。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 高层 VLM：全场景俯视+clip zoom-in 图像；低层 RL：粒子化 DLO 状态+clip 位姿+rope_in（state-based，真机由 SAM2 分割提取）；真机相机为腕装 D415 1280×720 俯视 | Sec.III、V-D |
+| 动作空间 | 插入原语 7 参数（2 via point×(2D 位置+1D 旋转)+1 抓取点索引）；抓手 3D 笛卡尔+1D 旋转；Pull/Flatten 为预定义脚本原语，MoveIt 生成轨迹 | Sec.III-B、V-D |
+| 控制频率 | 未报告（MoveIt 连续轨迹+ROS 栈） | — |
+| 重规划频率 | 高层按技能粒度（每次技能完成后）；低层逐时步闭环 | Sec.III |
+| 动作 horizon | 单次插入原语最多 7 步（pick-and-place 步数计） | Sec.IV |
+| 数据 | 无演示数据：低层 SAC 在仿真自监督训练 6.2k 步；高层 GPT-5 纯 in-context（prompt 含技能定义与反例） | Sec.III、IV-B |
+| 奖励 | RL dense shaping：0.5(rope_in+rope_out)+β·collide+γ·r_hor+r_dist（分段 10×/20×）+η·r_flat；β=-2、γ=-0.001、η=0.5 | Sec.III-B |
+| Reset | 仿真：DLO 位姿在 10cm×5cm 矩形随机、角度 ±10°、摩擦 0.5；Flatten 本身充当"软 reset" | IV-B |
+| 成功定义 | 插入：符号端点距离 >+2cm 且线头从另一侧伸出；路由：按正确顺序穿过全部 clip | Sec.IV、V-C |
+| 评估次数 | 低层：100 个随机场景；长时序：每策略 15 trials×4 种布局；真机：8 种 clip 配置 | Table I-III |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：训练期 clip 尺寸课程（scale 1.0-2.2→0.9-1.5）+位姿随机化；真机为域迁移本身 | IV-B |
+| 真机 | 有：Franka Emika Panda，8 种 clip 配置，成功率 62.5%、平均插入 2.625 夹 | Table III |
+| 算力 | RL 训练 6.2k 步（仿真内）；真机感知 SAM2 用 NVIDIA 5090；VLM 为 GPT-5 API（low reasoning effort） | IV-B、V-D |
+| 特权信息 | 低层训练用仿真粒子真值状态；Symbolic Planner 基线用真值 clip 位姿（对照用）；本文方法真机依赖 SAM2 分割非真值 | V-D、V-B 基线定义 |
+
+**附录陷阱自查**：
+- privileged 信息：训练期用仿真真值粒子状态；真机以 SAM2 分割近似状态（非端到端视觉策略，感知误差直接进状态）
+- reward shaping：重度 dense shaping（分段距离/平直度/碰撞/回合长度四类），低层 87% 依赖该配方；6.2k 步即收敛说明任务被原语参数化大幅简化
+- reset 难度：正常（随机位姿）；Flatten 恢复本质是重新初始化构型
+- eval budget：低层 100 场景充足；长时序 15 trials/配置偏小；真机 8 配置
+- 底层控制栈：有兜底——MoveIt 轨迹规划器+脚本原语；动作空间被压到 7 参数
+- 数据优势：无（零演示、API 调用为主）；但 GPT-5 闭源依赖使复现受成本限制
 
 ## 消融实验与分析
 

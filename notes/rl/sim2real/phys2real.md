@@ -10,6 +10,25 @@
 
 Phys2Real 提出 Real-to-Sim-to-Real 三阶段管道：3D Gaussian Splatting 重建真实场景，VLM 从 RGB 图像估计物理参数先验（如质心 CoM），RL 策略以物理参数为条件训练（PPO），部署时用逆方差加权融合 VLM 先验与交互式在线估计。在最具挑战的 top-weighted T-block 任务上 57.14% vs domain randomization 23%，消融显示 VLM-only 仅 4.76%、RMA-only 仅 14.29%，两者缺一不可。核心公式：$\hat{\theta} = (\theta_{vlm}/\sigma_{vlm}^2 + \theta_{rma}/\sigma_{rma}^2) / (1/\sigma_{vlm}^2 + 1/\sigma_{rma}^2)$。
 
+## 九问速览
+
+1. **Problem**：部署时物体物理参数（如质心）从 RGB 不可见，DR 策略泛化差、纯 VLM 估计偏差大。
+2. **Bottleneck**：VLM 先验有约 2 cm 系统偏差（估 4.0 vs 真值 6.0 cm）直接用会崩；RMA 纯交互起步即 OOD。
+3. **Insight**：物理参数可显式条件化——VLM 先验与交互式在线估计能在同一坐标系（物理量）里做最优融合。
+4. **Method**：3DGS 重建场景+GPT-5 估 CoM 先验；PPO 以物理参数为条件三阶段训练（GT→带噪→ensemble）；部署逆方差加权融合。
+5. **Evidence**：top-weighted T-block 57.14% vs DR 23%、VLM-only 4.76%、RMA-only 14.29%（oracle 上界 90.48%）。
+6. **Ablation**：两路信息缺一不可（单独 4.76%/14.29%）；锤子任务两者均 100% 但融合快 14.2%（77.79 vs 90.65 s）。
+7. **Assumption**：高质量 3D 重建可得；VLM 自报不确定度可用；Phase1.5 噪声 σ=1.5 cm 覆盖先验误差量级。
+8. **Failure**：镜像式 meshing 扭曲非对称物体；接触窗口短于收敛时间（约 40 s）时融合来不及修正。
+9. **Opportunity**：摩擦/惯量/刚度等更多参数、VLM 先验在线校准、短接触窗口任务的快速估计。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB 图像（VLM 先验+3DGS 重建）+在线 state-action 历史（RMA ensemble×10）；无触觉 |
+| Closed-loop | 闭环：接触中在线更新参数估计并反馈给条件化策略 |
+| Correction | 逆方差加权自动切换"信交互数据/信 VLM 先验"——内置参数级恢复机制 |
+| Deployment | real-to-sim-to-real：真实场景 3DGS 重建 → IsaacLab 仿真训练 PPO → 真机部署 |
+
 ## 核心技术
 
 ![phys2real 架构图](figures/phys2real/fig2.png)
@@ -55,6 +74,34 @@ $$\hat{\theta} = \frac{\theta_{vlm}/\sigma_{vlm}^2 + \theta_{rma}/\sigma_{rma}^2
 - RMA：10 个 adaptation model 的 ensemble；策略 PPO + asymmetric actor-critic，IsaacLab
 - 任务设定：T-block 顶部加重（CoM 6.1cm，挑战配置）与底部加重（CoM 0.7cm，简单配置），143g 金属块；成功标准为位置误差 <3cm 且朝向误差 <20°
 - 锤子推动任务：两者成功率均 100%，但 Phys2Real 完成时间 77.79s vs DR 90.65s（快 14.2%）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB（VLM 逐视角逐图查询 M 次取均值）+state-action 历史（RMA）；仿真训练期条件化于物理参数 | 笔记正文（本地 PDF 错配，无法核对页码） |
+| 动作空间 | 推动物体的操作动作（具体维度未报告） | |
+| 控制频率 | 未报告 | |
+| 重规划频率 | 每 step（参数估计随接触在线更新） | 笔记正文 |
+| 动作 horizon | 未报告 | |
+| 数据 | 纯仿真训练（env 数未报告）；Phase1 GT 参数→Phase1.5 带噪 σ=1.5 cm→Phase2 冻结策略训 10 个 adaptation model ensemble | 笔记正文 |
+| 奖励 | 任务成功（位置+朝向达标）；dense 项清单未报告 | 笔记正文 |
+| Reset | 仿真自动；真机复位方式未报告 | |
+| 成功定义 | 位置误差 <3 cm 且朝向误差 <20° | 笔记正文 |
+| 评估次数 | 未报告（只给百分比，trial 数未知） | |
+| 随机种子 | 未报告 | |
+| 扰动测试 | top/bottom 两种加重配置（CoM 6.1/0.7 cm、143 g 金属块）；无系统性扰动 | 笔记正文 |
+| 真机 | T-block 推动+锤子推动 2 类任务（真机，trial 数未报告） | 笔记正文 |
+| 算力 | 未报告（本地 PDF 错配无法核对） | |
+| 特权信息 | 有：Phase 1 用 GT 物理参数条件化训练+PPO asymmetric actor-critic；oracle（GT 参数条件化）90.48% 作上界参照 | 笔记正文 |
+
+**附录陷阱自查**：
+- privileged 信息：有（Phase 1 全程 GT 物理参数条件化；asymmetric AC；oracle 90.48% 上界对照）
+- reward shaping：未报告（本地 PDF 错配，dense 项与系数无法核对）
+- reset 难度：仿真正常；真机未报告
+- eval budget：未报告（百分比背后的 trial 数是关键缺口）
+- 底层控制栈：未报告
+- 数据优势：与 DR/RMA 基线共享仿真训练预算（笔记口径）；VLM 先验调用次数 M 是额外成本
 
 ## 消融实验与分析
 

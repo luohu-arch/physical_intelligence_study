@@ -10,6 +10,25 @@
 
 在 LeWM 的 encoder-predictor + SIGReg 框架上插入一次固定的正交分解 $z_t = P z^{\text{prog}}_t + Q z^{\text{cont}}_t$，让 SIGReg 只作用于 content 子空间、cosine-margin triplet 只作用于 $k$ 维 progression 子空间；由梯度支撑集正交（Prop. 1）推出两项防坍塌力不可互相补偿。四环境评测显示 Push-T 从 LeWM 的 96 升到 97.3 (k=8)、Reacher 86→88、Two-Room 87→90、OGB-Cube 74→72；更重要的是训练后自然出现一个可用 $\theta_t = \mathrm{atan2}(z^{\text{prog}}_{t,2}, z^{\text{prog}}_{t,1})$ 读出的"任务相位罗盘"，其角增量 |Δθ| 在 OGBench-Cube 上定位语义接触事件的 AUROC 比 latent 预测误差高 +0.176。
 
+## 九问速览
+
+1. **Problem**：LeWM 无任务进展先验，语义接触事件定位能力弱
+2. **Bottleneck**：单一 SIGReg 约束不区分"进展几何"与"内容几何"
+3. **Insight**：固定正交分解使两类防坍塌力梯度支撑集正交、不可互相补偿
+4. **Method**：z=P z_prog+Q z_cont 分解；SIGReg 只作用 content，triplet 只作用 prog
+5. **Evidence**：Push-T 96→97.3（k=8）；事件定位 AUROC 比预测误差高 +0.176
+6. **Ablation**：A2_full=A0 证分解必要；最优 k 随环境变化（2/4/8/2）
+7. **Assumption**：进展信息集中于低维（2-8 维）子空间
+8. **Failure**：OGB-Cube -2（74→72）；绝对进度跨 episode 不可比（pooled 探针 caveat）
+9. **Opportunity**：自适应 k、跨任务相位迁移、接入决策监督（D-JEPA）未做
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 同 LeWM：224x224 像素、history 3 |
+| Closed-loop | 闭环：CEM receding horizon 规划（与 LeWM 完全同协议） |
+| Correction | 每 5 块重规划；进展"相位罗盘"theta 可读出语义事件作诊断 |
+| Deployment | 纯仿真四环境；无真机 |
+
 ## 核心技术
 
 **子空间分解（式 4）。** 用两个固定正交注入矩阵：
@@ -120,6 +139,35 @@ flowchart TD
 - **诊断方法——三种互补 operationalisation**：(a) per-step AUROC 对 ground-truth 事件标签；(b) change-point detection 找 regime boundary；(c) linear probe R² 看单位维度承载的 progress 信息密度。这三个指标刻画的是同一个直觉的不同侧面，建议同时报告以避免选择性偏差。
 - **关键 negative control**：若把 planning cost 改成仅在 $z^{prog}$ 上匹配目标（丢掉 content 部分），Push-T 成功率崩到 28% —— 清楚说明 progression 子空间太低维无法独立承担 goal 表达，同时也强调各司其职才是正确用法。
 - **评估协议详尽可复现**：50-step horizon，25-step goal offset，CEM with 300 candidate / 30 iterations on Push-T / 10 on others, planning horizon 5 at frame-skip 5。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 同 LeWM（224x224、history 3） | 第 5 节 |
+| 动作空间 | 同 LeWM 环境动作块 | 第 5 节 |
+| 控制频率 | 不适用（离线规划） | — |
+| 重规划频率 | CEM-MPC（10 epochs 匹配 LeWM 训练预算） | 第 5 节 |
+| 动作 horizon | 50 步协议、goal offset 25、规划 horizon 5@frame-skip 5 | 第 5 节 |
+| 数据 | 与 LeWM 相同四环境数据集 | 第 5 节 |
+| 奖励 | 无（自监督） | 第 3 节 |
+| Reset | 仿真自动 | — |
+| 成功定义 | 规划成功率%（3-seed 均值）；事件定位 AUROC | 表 1 |
+| 评估次数 | 3 seedsx四环境；探针 40 held-out episodes/env | 表 1/附录 G |
+| 随机种子 | {0,42,3072}（3 seeds） | 第 5 节 |
+| 扰动测试 | 未报告 | PDF 未披露 |
+| 真机 | 无 | — |
+| 算力 | 训练 H100（Push-T 部分用 RTX 5090）；卡数未报告 | 附录 A |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无（事件标签仅评测用）
+- reward shaping：无
+- reset 难度：正常
+- eval budget：与 LeWM 同协议（50 步交互预算），充足
+- 底层控制栈：CEM 规划器
+- 数据优势：与 LeWM 同数据同预算（matched 10-epoch compute）
+- 附录最有价值发现：同配置同 seed 在 H100 训练评测 100% 而 RTX 5090 仅 94%——评测硬件可造成 6 点差异，跨硬件比较需显式控制
 
 ## 消融实验与分析
 

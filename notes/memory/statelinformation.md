@@ -10,6 +10,25 @@
 
 StateLinFormer 证明序列模型的"健忘"不一定是架构问题，而是训练协议问题。当前几乎所有 VLA 和序列策略用 stateless training——每个训练 batch 从零隐藏状态开始（$M_0 = 0$）。但真实部署是连续的——机器人不会在每次 reset 后重置记忆。StateLinFormer 改为 stateful training（batch 结束时把记忆状态 $M_T^{(b)}$ 传给下一 batch 的初始状态 $M_0^{(b+1)}$）+ Linear Attention（恒定 $O(1)$ 记忆成本）。效果：相同架构、相同参数量（约 0.2B）下，MAZE CON 成功率 0.64 → 0.77（+0.13）、步数 249 → 189，ProcTHOR CON 成功率 0.420 → 0.580（+0.16）、步数 669 → 496；10M 帧训练的 Stateful 版本还反超 40M 帧预训练的 SPOC-Pretrained（0.580 vs 0.566）。并且涌现了上下文学习能力——同一环境交互越长成功率越高，无需更新任何参数。IROS 2026。
 
+## 九问速览
+
+1. **Problem**：序列策略部署时连续运行，但训练时每 batch 记忆清零——训练-部署记忆状态分布失配
+2. **Bottleneck**：stateless 训练在退化的零初始化分布上优化，模型只会「用空白记忆思考」，长上下文反退化
+3. **Insight**：健忘是训练协议问题不是架构问题——把上一 batch 终止状态传给下一 batch 即对齐分布
+4. **Method**：stateful training（跨 batch 传 M、batch 内截断梯度）+ linear attention 恒容 O(1) 记忆矩阵
+5. **Evidence**：同架构同 10M 帧：MAZE CON 0.64→0.77、ProcTHOR 0.420→0.580；10M 帧反超 40M 帧 SPOC-Pretrained（0.580 vs 0.566）
+6. **Ablation**：增益完全来自训练协议（stateful vs stateless 同架构）；stateful 长上下文持续上升（涌现 ICL）vs stateless 停滞退化
+7. **Assumption**：linear attention 类恒容状态架构；指令无预告逐个给出；环境持续不变
+8. **Failure**：仅验证导航任务，操作未测；d_θ 平稳性只有经验证据（RSD）无收敛证明
+9. **Opportunity**：迁移到 VLA 操作策略、Gated DeltaNet/Mamba/TTT 架构即插即用、40M 帧饱和曲线
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 第一人称 RGB（MAZE 网格 / ProcTHOR 394×224）+ 指令；无深度/触觉 |
+| Closed-loop | 闭环：每步更新记忆矩阵 M_t 并出动作，O(1) 恒定成本 |
+| Correction | 无显式 retry；靠持续积累的环境记忆提升后续导航（ICL） |
+| Deployment | 训练与部署同为连续流（无 reset 清零）——这正是本文核心对齐点 |
+
 ## 核心技术
 
 ![statelinformation 架构图](figures/statelinformation/fig1.png)
@@ -62,6 +81,34 @@ $$\mathcal{L} = \sum_{t=1}^{T} \ell(\pi(a_t | h_t), a_t), \quad M_{t} = f_\theta
 - **数据**：MAZE 15×15 网格世界（1k 环境 / 50K 轨迹 / 100M 步），ProcTHOR（1k 环境 / 5K 轨迹 / 10M 步，394×224 第一视角）；训练序列 = 同一环境内连续多个导航目标
 - **评测**：自建 Continual Object Navigation (CON) benchmark——目标重复允许、无预告（完成当前目标才给下一个）、环境持续不变；16 个未见环境，最多 5000 步，单指令上限 500 步（MAZE）/ 1000 步（ProcTHOR）
 - **对比**：SPOC-10M（同数据重训）/ SPOC-Pretrained（40M 帧，context 100 步，按任务完成重置记忆以保持公平）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 第一人称 RGB：MAZE 15×15 网格 / ProcTHOR 394×224 + 顺序文本指令 | §实验 |
+| 动作空间 | 离散导航动作（网格移动/ProcTHOR 导航指令） | §实验 |
+| 控制频率 | 不适用（仿真步级，未以 Hz 报告） | — |
+| 重规划频率 | 每步（逐观测更新 M_t 出动作） | §方法 |
+| 动作 horizon | 单步动作预测（无 chunk） | §方法 |
+| 数据 | MAZE：1k 环境 / 50K 轨迹 / 100M 步；ProcTHOR：1k 环境 / 5K 轨迹 / 10M 步；训练序列=同环境连续多目标 | §工程细节 |
+| 奖励 | 无 RL：每步动作负对数似然（模仿）；梯度 batch 内截断 | §方法 |
+| Reset | CON 协议刻意无 reset——目标完成后直接给下一目标，环境持续不变 | §CON 定义 |
+| 成功定义 | Success Rate（达指令目标比例）+ Steps to Goal（失败计上限步数） | 附录 Evaluation |
+| 评估次数 | 16 个未见环境；每环境最多 5000 步；每指令上限 500（MAZE）/1000（ProcTHOR）步 | 附录 Evaluation |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 长上下文压力（最多 5000 步连续交互）即适应性测试 | Fig.2 |
+| 真机 | 无（纯仿真） | — |
+| 算力 | 8×NVIDIA A800（训练时长未报告）；基线容量统一约 0.2B 对齐 | §工程细节 |
+| 特权信息 | 无；SPOC-Pretrained 用发布权重直接评测（公平处理：按任务完成重置其记忆） | §Baselines |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（RL-free 模仿）
+- reset 难度：刻意无 reset 是研究对象本身，协议干净
+- eval budget：16 环境 × 多指令，中等
+- 底层控制栈：仿真导航步进，无控制栈问题
+- 数据优势：SPOC-10M 同数据重训、容量统一 0.2B——公平；SPOC-Pretrained 40M 帧被 10M 帧反超更显协议价值
 
 ## 消融实验与分析
 

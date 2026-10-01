@@ -10,6 +10,25 @@
 
 WAM-TTT 是面向具身世界模型的测试时训练框架：机器人部署后只需一段未标注的人类第一视角操作视频，就能通过视频预测自监督损失把人类行为"吸收"进轻量级 TTT fast weights（快速权重记忆），而预训练的 World Action Model（基座为 LDA，VLM 条件化的 DiT，含 video expert 与 action expert）完全冻结。人机配对元训练阶段用 key-value 记忆重建损失把人类 Key/Value 与机器人 Query 对齐，保证这段记忆能驱动动作生成。New 设置（未见过的家庭环境）9 任务平均 progress 46.2%，比无 TTT 的 LDA 基座高 13.7 个百分点，比把同一人类视频当 in-context 演示的 WAM-ICL 高 39.1 个百分点——"吸收进权重"远胜"塞进上下文"。与 RoboTTT（策略层快速权重 TTT）形成时间尺度互补：RoboTTT 是秒-分钟级策略适应，WAM-TTT 是分钟-小时级世界模型适应，两者合并构成多时间尺度的完整持续学习系统。
 
+## 九问速览
+
+1. **Problem**：机器人部署到新环境后世界模型过时，离线重训成本高且中断服务
+2. **Bottleneck**：人类视频无动作标注无法直接用（retargeting 噪声大）；塞进上下文（ICL）只有 7.1%
+3. **Insight**：动作自由的视频预测 + KV 记忆重建即可把人类行为「吸收」进 fast weights——训练 vs 提示差距 39.1pts
+4. **Method**：冻结 LDA 基座，video expert 挂 TTT 残差分支；人机配对元训练（相位对齐）学 Q/K/V 接口；部署时 inner SGD
+5. **Evidence**：New 设置 9 任务平均 46.2% vs 无 TTT 32.5%（+13.7）vs WAM-ICL 7.1%（+39.1）；扰动下 66.0/56.0 反超冻结基座
+6. **Ablation**：去元训练 Swap Place 88.9→0；TTT 换 LoRA 归零；去 KV 重建 −33.3；伪动作（MANO retarget）全面有害 72.3→28.9
+7. **Assumption**：需 2286 条配对人机 episode 预先对齐接口；egocentric RGB 输入；fast weights 表达力受限
+8. **Failure**：几何紧配合任务（Stamp Paper 8.3 vs 33.3）视频预测信号盲区；偏离配对分布适应变弱；遗忘风险
+9. **Opportunity**：与 RoboTTT 双层 TTT 合并、部署现场对齐跳过元训练、接触/3D 线索扩展接口
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 人类 GoPro 第一视角 RGB（无姿态/动作标注）；机器人侧多视角 RGB + 本体状态 |
+| Closed-loop | 闭环：WAM video expert 持续预测；TTT 只在人类演示阶段更新，rollout 时 fast weights 冻结 |
+| Correction | 有人工纠错入口：人类演示任务变体/纠正失败即被吸收进 fast weights |
+| Deployment | 预训练部署后在线适应（不中断）；3 种真机具身 × 未见家庭环境直接评测 |
+
 ## 核心技术
 
 ![wam-ttt 架构图](figures/wam-ttt/fig1.png)
@@ -60,6 +79,34 @@ $$W_{i+1}^{(\ell)} = W_i^{(\ell)} - \eta \nabla_{W_i^{(\ell)}} \mathcal{L}_{adap
 - **部署**：测试时输入一小批未标注人类视频 $B_h$，只更新 video-side fast weights（inner SGD，N 步预算）；WAM / slow projections / action expert 全部冻结
 - **评测**：3 种具身（Unitree G1 人形、Galbot 两指夹爪、Galbot sharpa 22-DoF 灵巧手）× 9 任务，每格 25 trials，progress 为子目标部分完成度分数
 - **与 RoboTTT 的协同**：策略层 (RoboTTT) 和 world model (WAM-TTT) 双层 TTT
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 人类侧：GoPro 第一视角 RGB（无标注）；机器人侧：多视角 RGB + 本体状态 + 语言 | §4 |
+| 动作空间 | 连续动作 chunk（LDA action expert，DiT）；具体维度未报告 | §3 |
+| 控制频率 | 未报告 | — |
+| 重规划频率 | 未报告（rollout 期间 fast weights 固定） | §3 |
+| 动作 horizon | 未报告 | — |
+| 数据 | 元训练 2286 条配对人机 episode（9 任务，默认每任务 (r,h)=(100,100)）；人类 GoPro 第一视角录制；测试时一小批未见任务人类视频 | §4 |
+| 奖励 | 无 RL：人类侧视频预测损失 L_vg + KV 记忆重建 L_KVM（自监督）；机器人侧标准多任务模仿 | §3 |
+| Reset | 未报告 | — |
+| 成功定义 | progress 部分完成度（满分 1.0/全任务完成，子目标部分给分） | §4 |
+| 评估次数 | 主表：每 (任务,设置) 格 25 trials；协议消融：每格 10 trials | Table 1/2 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：光照扰动、空间扰动（Deliver Drink 66.0/56.0 vs 冻结基座 54.0/28.0） | Table 3 |
+| 真机 | 3 具身：Unitree G1 人形、Galbot 两指夹爪、Galbot sharpa 22-DoF 灵巧手 × 9 任务 | §4 |
+| 算力 | 未报告（inner SGD 步数 N 亦未给出具体值） | — |
+| 特权信息 | 无特权标注（刻意无手部姿态/retargeting）；π0.5/LDA 基线为再实现或发布权重 | §4 |
+
+**附录陷阱自查**：
+- privileged 信息：无——人类数据完全无标注是卖点；但元训练的 2286 条人机配对数据是隐性门槛
+- reward shaping：无（自监督视频预测 + 模仿）
+- reset 难度：未报告
+- eval budget：主表 25 trials/格、消融 10 trials/格，中等
+- 底层控制栈：WAM action expert 直出；无额外 planner
+- 数据优势：LDA 基座为作者自有模型（非开源需再实现）；对比 WAM-ICL/WAM-COTRAIN 等内部对照公平，对比 π0.5/EGOSCALE 需注意基座差异
 
 ## 消融实验与分析
 

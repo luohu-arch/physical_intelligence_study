@@ -11,6 +11,25 @@
 
 SimDist 提出仿真蒸馏框架：在仿真中预训练完整世界模型管线（编码器 + 动力学 + 奖励 + 价值），将结构化先验蒸馏到 latent world model。真实部署时仅用 15-30 分钟数据微调 latent dynamics（监督式系统辨识），编码器与 reward/value 模型零样本迁移。仿真消融中 Peg Insertion 成功率 0.90（数据减半即跌至 0.72、10% 数据仅 0.06），真实任务中成功/分钟吞吐相对 zero-shot 提升约 1.5-2×。RSS 2026。
 
+## 九问速览
+
+1. **Problem**：latent world model 换真机部署需重学动力学，样本效率不足
+2. **Bottleneck**：从零训练浪费仿真先验；端到端策略微调脆弱易崩
+3. **Insight**：编码器/奖励/价值可零迁移，只微调 latent dynamics 即系统辨识
+4. **Method**：仿真预训练全管线（特权专家产数据）→真机 15-30 分钟数据监督微调 dynamics
+5. **Evidence**：Peg Insertion 成功率 0.90；真机吞吐较 zero-shot 提升 1.5-2x
+6. **Ablation**：数据减半 0.90→0.72、10% 仅 0.06；加像素重构损失掉到 0.32
+7. **Assumption**：仿真与真机差距集中在 dynamics 而非表征/奖励
+8. **Failure**：数据量不足时急剧退化；专家外行为覆盖不足则失效
+9. **Opportunity**：更快在线适应、跨任务复用 dynamics 未做
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | UR5e：3 路 224x224 RGB+关节状态（ResNet-18 融合 64 维 latent）；Go2：本体+地形高程图 |
+| Closed-loop | 闭环：dynamics 每 20 episodes 在线更新+策略持续部署 |
+| Correction | 在线 rollout 微调 dynamics 即显式校正机制（系统辨识式） |
+| Deployment | 仿真大规模预训练→真机 15-30 分钟数据适配（低落差设计） |
+
 ## 核心技术
 
 1. **仿真蒸馏** — 在仿真中预训练完整的 world model pipeline（encoder + dynamics + reward + value），蒸馏结构化先验
@@ -63,6 +82,34 @@ $$
 - **在线规划**：MPPI (Model Predictive Path Integral，TD-MPC 实现) 在世界模型中做 counterfactual reasoning
 - **任务**：Peg Insertion (Wide/Hard)、Table Leg 插装 + Slippery Slope（3.0°/5.7° PTFE 面板，1.82m）、Foam（5cm 记忆海绵，3.00m，仿真未建模的柔顺动力学）
 - **Baseline**：RLPD、IQL、SGFT-SAC（均给 20 条示教）、Diffusion Policy、π0.5（100 条示教）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 3 路 224x224 RGB（腕/顶/侧）+关节；四足为 proprio+地形高程图（CNN 编码） | 附录 A |
+| 动作空间 | UR5e：6 维相对 EE 位姿+二值夹爪；Go2：12 关节位置目标 | 附录 A |
+| 控制频率 | UR5e 5 Hz；Go2 50 Hz（笔记本 RTX 4090M 上规划） | 附录 A |
+| 重规划频率 | 每步规划；dynamics 每 20 真机 episodes 更新 | 附录 A |
+| 动作 horizon | H=T=5（操作）；H=T=25（四足） | 附录 A |
+| 数据 | 仿真 100K 轨迹（操作）/100M 轨迹（四足）；真机 20 演示+在线 rollouts | 附录 A/B |
+| 奖励 | 仿真特权 state 稠密奖励蒸馏进 reward head；真机稀疏成功判定 | 第 3 节 |
+| Reset | 仿真多样 reset；真机人工 | 附录 |
+| 成功定义 | 操作任务成功率；四足通过距离（1.82m/3.00m） | 附录 A |
+| 评估次数 | 四足每速度 5 trialsx3 速度；操作按任务设定 | 附录 A |
+| 随机种子 | 未报告 | PDF 未披露 |
+| 扰动测试 | 有：PTFE 低摩擦斜坡+记忆泡沫（显式扰动任务） | 附录 A |
+| 真机 | UR5e 机械臂+Unitree Go2 四足 | 附录 A |
+| 算力 | 仿真预训练大规模（型号未报告）；部署在笔记本 RTX 4090M 50Hz | 附录 A |
+| 特权信息 | 仿真训练用特权 state：专家策略、奖励、价值目标 | 图 2/第 3 节 |
+
+**附录陷阱自查**：
+- privileged 信息：有——仿真侧专家/奖励/价值全部来自特权 simulator state（论文显式声明，蒸馏后真机零特权）
+- reward shaping：有（仿真稠密奖励蒸馏），真机侧稀疏
+- reset 难度：仿真子优策略多样 reset；真机正常
+- eval budget：四足 5 trials/速度偏小
+- 底层控制栈：策略头+动作 chunking（无外部 planner）
+- 数据优势：仿真 100K/100M 轨迹远超基线的 20 真机演示（方法卖点即仿真蒸馏）
 
 ## 消融实验与分析
 

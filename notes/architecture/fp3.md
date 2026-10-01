@@ -10,6 +10,25 @@
 
 FP3 用 Uni3D ViT-L 编码点云（每视角 4000 点、带颜色）、CLIP 编码语言、MLP 编码本体状态，经 Transformer Encoder 融合成 latent token，再由带 causal mask 的 Diffusion Transformer decoder 以 adaLN 方式去噪出长度 $H=16$ 的动作块；在 DROID 60k 轨迹上预训练后，每个新任务只需 80 条示教 + 单卡 2 小时 LoRA 微调，in-domain 平均成功率 95%、in-the-wild（未见物体与环境）82.5%，而 DP/DP3/OpenVLA 的 in-the-wild 只有 0~3.75%。
 
+## 九问速览
+
+1. **Problem**：新任务要 200 条级示教且换环境即崩——如何做少样本、跨域泛化的操纵基础模型
+2. **Bottleneck**：2D 图像策略依赖像素相关性，域偏移即失效；小模型在 80 条示教分布之外无法从失败中恢复
+3. **Insight**：点云把深度直接写进坐标、世界系下天然视角不变；大规模预训练提供扰动下的行为先验
+4. **Method**：Uni3D 编码两路点云（各 4000 点）+CLIP 语言+本体 → DiT（adaLN+causal mask）去噪 H=16 chunk；DROID 60k 预训练+LoRA 后训练
+5. **Evidence**：80 条示教 in-domain 95%、in-the-wild 82.5%；DP/DP3/OpenVLA 野外仅 0-3.75%
+6. **Ablation**：图像(DINOv2)换点云野外 55→90；无预训练野外 0；预训练 60k→30k 无差（scaling 未显现）
+7. **Assumption**：深度相机+标定+1m box 背景裁剪工程链可靠；15Hz Cartesian 控制够用；任务为桌面级
+8. **Failure**：base model 零样本新任务差（作者归因 DROID 不够大）；无 VLM 表达不了复杂/动态指令
+9. **Opportunity**：3D 数据生态（无 OXE 级点云数据集）；融合 2D/VLM 特征与 zero-shot 能力
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 两路带颜色点云（第三人称 ZED 2 + 腕部 ZED mini，各 4000 点）+语言（CLIP 冻结）+本体状态；obs horizon 2 帧 |
+| Closed-loop | 闭环 15Hz：预测 16 步执行 8 步再重规划；DDIM 16 步去噪 |
+| Correction | 无显式 retry；预训练先验使一次落空后可重新定位再抓（定性观察） |
+| Deployment | DROID（同款可搬运硬件栈）预训练→4 个未见环境+未见物体零样本部署；RTX 3090 推理 |
+
 ## 核心技术
 
 1. **3D 点云作为主观测模态**：RGB-D 反重建点云后统一到世界坐标系，裁掉 1 m box 外的点，FPS 降到 4000 点并保留颜色；第三人称与腕部视角各用一个独立 Uni3D ViT-L encoder（300M 参数，预训练对齐图文特征），微调而非冻结。
@@ -110,6 +129,34 @@ flowchart LR
 - **任务设计细节**：Fold Towel 允许 ±30 度朝向随机、 towel 颜色材质多样但预先叠成近似矩形；Clean Table 抓皱纸团丢进桶，位置随机；Stand up Cup 在开口朝向机械臂的 180 度范围内随机倒伏；Pour Water 是三阶段（抓瓶→倒水入杯→放回杯垫），瓶子始终大致在杯左、杯垫在杯右，三件容器颜色材质尺寸都随机。
 - **评测协议**：每任务 8 个环境 × 8 个物体采 80 条；4 个 in-domain 环境（见过的物体）+ 4 个 in-the-wild 环境（未见物体），每格 5 trials × 20 trials 总量级（Table I 每格为 5 次/环境的平均，Table 中结果为 20 次评测均值口径以论文描述为准）。
 - **待确认**：用户提供的"ICRA 2026 Finalist"奖项信息未出现在本 PDF（arXiv v1, 2025-03）正文中，无法从此版本核实。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 2 路带颜色点云（FPS 4000 点、世界系 1m box 裁剪）+语言+本体 MLP；obs horizon 2 帧 | Sec.III(p3-4) |
+| 动作空间 | 绝对 Cartesian 空间控制，动作 chunk | Sec.III、p4 |
+| 控制频率 | 15Hz（与 Meta Quest 2 遥操采集同频） | Sec.IV(p4) |
+| 重规划频率 | 每执行 8 步（预测 16）重规划 | p4 |
+| 动作 horizon | 预测 16、执行 8；DDIM 16 步去噪 | Sec.III |
+| 数据 | 预训练：DROID 60k 轨迹（86 任务 76k 中取 60k）；后训练：每任务 8 环境×8 物体×10 条=80 条遥操 | p4、p5 |
+| 奖励 | 无(RL-free)：DDPM 去噪 MSE | Sec.III |
+| Reset | 任务级受控随机化：towel ±30° 朝向、纸团位置随机、杯子 180° 倒伏范围 | 任务设计节 |
+| 成功定义 | 任务级二元成功率 | Sec.IV-A(p5) |
+| 评估次数 | Table I 为 20 trial 均值（4 in-domain + 4 wild 环境 × 各 5 trial） | p5-6 |
+| 随机种子 | 未报告 | 附录未披露 |
+| 扰动测试 | 有：in-the-wild 未见环境+未见物体；相机视角旋转约 30°与干扰物实验（Fig.5，仅柱状图） | p5-6 |
+| 真机 | Franka Panda+Robotiq+升降台，4 任务全程真机，移动电源可搬运 | Sec.IV(p4) |
+| 算力 | 预训练 8×A800×约 48h（batch 128、lr 1e-4 cosine）；LoRA 微调 1×A800×约 2h/任务；推理 RTX 3090(24GB) | p4 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（DDPM BC）
+- reset 难度：随机化范围受控（如倒水瓶始终在杯左、杯垫在杯右）——任务有隐式空间先验
+- eval budget：偏少——每环境 5 trial、每任务共 20 trial，95%/82.5% 的置信区间不窄
+- 底层控制栈：无 planner；绝对 Cartesian 命令直接执行
+- 数据优势：对基线公平——同 80 条示教，OpenVLA 也按 pre/post recipe 微调
 
 ## 消融实验与分析
 

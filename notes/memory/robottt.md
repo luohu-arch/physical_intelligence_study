@@ -11,6 +11,25 @@
 
 RoboTTT 将 Test-Time Training 引入 VLA 基础模型：在 GR00T N1.7 的 DiT 动作头的 attention 层后插入 16 个 TTT 层，每观测一帧机器人数据就在内循环中做一步梯度下降，将 8K 时间步（~5 分钟）的观测-动作历史压缩到快速权重（fast weights）中。推理延迟恒定 30Hz（RTX 5090），8K 上下文比 1K 提升 62% 闭环性能且未饱和，比单步基线提升 87%。三种记忆写入模式共享同一 TTT 框架：序列动作强制（标准训练）、视频 one-shot 模仿（人类视频→内循环更新快速权重→执行）、DAgger 蒸馏（失败作为上下文编码到快速权重 + 纠正动作作为 loss target）。上下文长度成为一个新的 scaling axis。
 
+## 九问速览
+
+1. **Problem**：VLA 策略上下文仅 1-8 步，多阶段长任务中「忘了之前做过什么」导致失败
+2. **Bottleneck**：KV cache 式记忆计算/显存随序列线性增长；线性快速模型（DeltaNet）表达力不足（低 27%）
+3. **Insight**：上下文长度是被忽视的 scaling axis——梯度下降天然自适应压缩冗余观测到固定大小快速权重
+4. **Method**：DiT 动作头 16 个 TTT 层（每步内循环梯度写入 W），序列动作强制 + TBPTT + tanh 门控，三种写入模式统一
+5. **Evidence**：8K 上下文比 1K 闭环 +62%（未饱和）、比单步基线 +87%；扰动下 83% vs 基线最佳 53%；齿轮装配唯一跑完 5 分钟
+6. **Ablation**：TTT 非线性 MLP 比线性 GDN 高 27%；DAgger 蒸馏（失败作上下文）+36% vs 标准 DAgger +13%
+7. **Assumption**：GR00T N1.7 基座；8×H100×4 天训练预算；单 episode 内记忆（跨 episode 未验证）
+8. **Failure**：快速权重 160M 容量有限且写入无保护（潜在遗忘）；W0 元学习二阶优化数值敏感
+9. **Opportunity**：跨 episode 记忆 checkpoint、更多 TTT 层容量曲线、task-relevant 内循环损失
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 3×RealSense RGB + 本体状态；VL token 经 16 个 register token 代理进 TTT |
+| Closed-loop | 闭环：30Hz 恒定延迟（TTT 每步 <5ms 开销），每步读快速权重出 H=16 chunk |
+| Correction | 有：扰动恢复（记住扰动前在做什么，83%）；DAgger 蒸馏把失败编码为上下文纠错 |
+| Deployment | GR00T N1.7 预训练 + 遥操作数据后训练，YAM 双臂装配任务真机部署 |
+
 ## 核心技术
 
 ![robottt 架构图](figures/robottt/fig2.png)
@@ -151,6 +170,34 @@ TTT 不"复述"历史——它把每帧的要点"刻"进固定数量的参数里
 - **数据**：~2K teleoperated demos + ~500 human video demos (for one-shot mode) + ~1K failure trajectories (for DAgger distillation)
 - **Robot platform**：bimanual setup (2×Franka arms), 3×RealSense cameras
 - **Task suite**：Gear Bot assembly (10 stages, 5min), Circuit (60 unseen configs for one-shot test), perturbation test (external forces applied mid-execution)
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 3×RealSense 相机 RGB + 本体状态；VL tokens 冻结骨干提取 | §架构 |
+| 动作空间 | 连续动作 chunk H=16（flow-matching，DiT 40 层 hidden 1024） | §架构 |
+| 控制频率 | 30Hz（RTX 5090，延迟恒定，TTT 每步 <5ms） | §推理 |
+| 重规划频率 | 每步（30Hz 滚动，chunk 生成连续） | §推理 |
+| 动作 horizon | H=16 步/次；上下文 8K 时间步（约 5 分钟） | §主结果 |
+| 数据 | 约 2K 遥操作示教 + 约 500 条人类视频（one-shot 模式）+ 约 1K 失败轨迹（DAgger 蒸馏） | §工程细节 |
+| 奖励 | 无 RL：外循环 flow-matching 损失 + 内循环 MSE 自监督（L_FW）；DAgger 模式 loss 仅在纠正动作上 | §3 |
+| Reset | 未报告（装配任务初始配置固定/变化） | — |
+| 成功定义 | 完全成功 trial 数 + rubric 任务完成度分数（归一化 [0,1]） | §主评测 |
+| 评估次数 | 每策略 20 trials（Gear Bot 因 5 分钟长程为 10 trials），跨不同配置 | §主评测 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：执行中施加外力（成功率 83% vs 基线 53%） | §消融 |
+| 真机 | YAM 双臂平台：Pup Go Car（2 分钟）/Circuit（1 分钟，60 未见配置）/Gear Bot（5 分钟 10 阶段） | Fig.5、§主评测 |
+| 算力 | 训练 8×H100、batch 1/GPU、约 4 天；推理 RTX 5090 单卡 | §工程细节 |
+| 特权信息 | 无；非序列基线按匹配算力预算训练（公平性声明） | §主评测 |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无 RL（内循环自监督 + 外循环模仿）
+- reset 难度：未报告
+- eval budget：每任务 10-20 trials，长任务样本量偏小但合理
+- 底层控制栈：chunk 直出底层执行；无额外 planner
+- 数据优势：与基线「matched compute budget」训练——作者显式控制；但长上下文训练数据构造方式独有
 
 ## 消融实验与分析
 

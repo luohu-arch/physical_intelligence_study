@@ -11,6 +11,25 @@
 
 InstructVLA 回答「VLA 微调是否必然摧毁 VLM 的多模态推理」这一开放问题：它在 Eagle2-2B 主干上加 $N{=}64$ 个可学习 latent action query 作为「动作输出轴」，用两阶段训练（650M 参数的动作预训练 → 仅 220M 参数的 MoE 适配指令微调）同时保持视觉问答能力并生成 flow matching 动作块。自建 SimplerEnv-Instruct（80 任务 / 1.1K trials）上，Generalist 版本达 46.2%，比微调后 OpenVLA 高 96%、比 GPT-4o 当外挂解释器的级联方案高 29%；SimplerEnv 上 Expert 版比 SpatialVLA 高 33.3%；多模态榜（MMMU 44.2、MMStar 56.2）几乎无损于基座 Eagle2，而 OpenVLA 微调后 MMMU 从 0 到 26.0 无法恢复。
 
+## 九问速览
+
+1. **Problem**：VLA 微调是否必然摧毁 VLM 的多模态理解——动作与理解能否装进同一个可用的模型
+2. **Bottleneck**：从词表直接吐动作 token（OpenVLA 路线）让梯度污染语义空间，微调后 MMMU 归零且难恢复
+3. **Insight**：低层控制可与 VLM 语义空间隔离——64 个 latent action query 当"动作输出轴"，从冻结主干抽取任务意图
+4. **Method**：冻结 Eagle2-2B + 双 LoRA MoE 门控（语言/动作支路自适应切换）+ 134M flow matching 动作专家，两阶段训练
+5. **Evidence**：SimplerEnv-Instruct 46.2%（比微调 OpenVLA 高 96%、比 GPT-4o 级联高 29%）；MMStar 56.2 vs 基座 56.4 近无损
+6. **Ablation**：去 language motion 监督总成功率掉 9.3%（52.9→48.4）；去 DINOv2 输入 Ave 23.0、去 FiLM 45.9——视觉通路逐层有效
+7. **Assumption**：GPT-4o 标注需真值指令打分器兜底；1:7 多模态-操作交错配比合理；469h 操作数据足以承载动作能力
+8. **Failure**：涉及指令跟随时本体状态增益有限（未受控验证）；对照组 π0 在算术抓取上过拟合腕视野、无视推理线索
+9. **Opportunity**：状态输入对 OOD 泛化的影响、更大主干与更多本体的 scaling、thinking 触发策略均待探索
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | SigLIP+DINOv2 双视觉通路（VLM 448²/专家 224² 双分辨率）；LIBERO 加腕视角；本体状态可选；无深度/触觉 |
+| Closed-loop | 闭环（激进）：预测 16 步动作块但只执行 1 步即重观测；实测 2.51-4.96 Hz@A100 |
+| Correction | 有 test-time thinking：先生成文字分析（工具选择/隐式意图）再引导 latent 动作，整体相对增益 36.1% |
+| Deployment | 469h/5.9M 转移异构数据预训练 + 650K VLA-IT 指令微调；WidowX 零样本 + Franka 少样本真机 |
+
 ## 核心技术
 
 1. **Latent action query 接口** — $N$ 个可学习查询 attend 到 VLM 隐状态抽取任务相关 latent $\mathcal{C}\in\mathbb{R}^{N\times D}$，动作专家从 latent 生成动作而非直接从 VLM 词表生成；低层控制学习被隔离在 VLM 语义空间之外，这是防灾难遗忘的第一道墙；扫描实验显示 64 个 token 最优（16 太少限制行为多样性、128 训练效率下降）
@@ -92,6 +111,34 @@ $$\mathcal{L}_{FM} = \mathbb{E}\big[\| V_\theta(A_\tau, q_t) - (\epsilon - A) \|
 - **真机协议**：WidowX-250 零样本厨房任务（Bridge 场景系）+ Franka Research 3 少样本（货架抓放与算术抓取）；算术任务对每个 case 用三种目标物各测一次，250 条训练样本与评测集分离
 - **LIBERO 细节**：加入腕部视角图像（主图与腕图拼接缩放到一帧送 VLM）训练，8×A800、全局 batch 256；有腕视 95.8%、无腕视 89.2%，腕部信息价值 6.6 个点
 - **状态输入的双刃剑**：论文假设本体状态帮助保留操作技能但可能损害 OOD 指令泛化——无需语言响应时带状态的版本更好，涉及指令跟随时增益有限，待确认（假设未经受控实验验证）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | SigLIP+DINOv2 双视觉（VLM 448×448、动作专家 224×224）；LIBERO 额外拼入腕视角；本体状态为可选输入 | 工程细节、附录 A.3 |
+| 动作空间 | 7 维 EEF delta（含夹爪）连续动作块，flow matching 解码 | Sec.3 |
+| 控制频率 | A100 BF16 实测：带语言生成 2.51 Hz / 纯动作 3.50 Hz / latent 缓存 4.96 Hz | 附录推理加速 |
+| 重规划频率 | 每步重观测（预测 H=16 只执行 1 步）；latent 每 2 步复用；thinking 每 20 专家步触发一次 | 工程细节 |
+| 动作 horizon | H=16（主实验未开 chunking） | Sec.3 |
+| 数据 | Stage 1：469h/5.9M transitions 异构操作数据；Stage 2：VLA-IT 650K 样本（GPT-4o 三帧+真值指令打分器标注）+2M 多模态语料，1:7 交错 | Table 6、Sec.4.1 |
+| 奖励 | 无(RL-free)：L_LM + L_FM 按 1:1 相加 | Sec.3 |
+| Reset | 未报告（沿用 SimplerEnv/LIBERO 官方协议） | — |
+| 成功定义 | SimplerEnv-Instruct / SimplerEnv / LIBERO 官方成功率（LIBERO 报标准误） | Sec.4 |
+| 评估次数 | SimplerEnv-Instruct 80 任务/1.1K trials；LIBERO 3 seeds×500 trials；真机算术每 case 3 种目标物 | Sec.4、附录 |
+| 随机种子 | 3 个随机种子取平均 | Sec.4、Table 10 |
+| 扰动测试 | 有：OOD 物体、新动词、多语言、属性指代、隐式意图情境题（三人交叉校验） | Sec.4.1 |
+| 真机 | 有：WidowX-250 零样本厨房任务 + Franka Research 3 少样本（货架抓放/算术抓取） | Sec.4 |
+| 算力 | 预训练 27h@64×A100；VLA-IT 12h@64×A100；低配 8×A800×2.5 天；LIBERO 微调 8×A800 batch 256 | 工程细节 |
+| 特权信息 | 训练数据构造用真值指令打分器过滤 GPT-4o 标注；评测无特权输入 | Sec.4.1 |
+
+**附录陷阱自查**：
+- privileged 信息：训练标注依赖数据集自带真值指令（构造期）；测试无
+- reward shaping：无（语言 CE + flow matching 回归）
+- reset 难度：未报告（沿用基准默认）
+- eval budget：SimplerEnv-Instruct 1.1K trials 规模适中；LIBERO 500 trials×3 seeds 充足
+- 底层控制栈：无强 controller 兜底；每步重观测缓解开环误差
+- 数据优势：明显小于 π0.5（469h vs >10000h）与 Magma（5.9M vs 9.4M transitions），数据维度劣势
 
 ## 消融实验与分析
 

@@ -11,6 +11,25 @@
 
 DreamZero 把一个 14B 的预训练 image-to-video 扩散模型（Wan2.1-I2V-14B-480P）直接改造成自回归 World Action Model：单一 DiT 通过 flow matching **同时去噪未来视频 latent 和动作**，训练目标是"联合去噪"而不是独立的视频预测器 + IDM 两段式流水线。核心主张是"策略能力的上限被视频生成质量决定"——数据上主张 500 小时**异构、非重复**遥操作数据优于等时长重复演示数据，泛化上未见任务平均进度比 SOTA VLA 高出 2 倍以上，工程上通过系统级优化 + DreamZero-Flash 解耦噪声调度拿到 38 倍推理加速实现约 7Hz 闭环控制。
 
+## 九问速览
+
+1. **Problem**：视频世界模型推理太慢无法闭环控制；VLA 缺物理一致性想象
+2. **Bottleneck**：14B 扩散单 chunk 5.7 秒，远超 1.6 秒的实时窗口
+3. **Insight**：视频与动作联合 flow-matching 去噪；解耦噪声调度可 38x 加速
+4. **Method**：14B I2V DiT 自回归联合预测未来帧+动作，系统优化+Flash 加速
+5. **Evidence**：未见任务进度超 SOTA VLA 2 倍以上；约 7Hz 闭环控制
+6. **Ablation**：异构 500h 数据 50% vs 重复数据 33%；5B 模型仅 21%
+7. **Assumption**：策略上限被视频生成质量决定；KV 缓存可被真观测替换
+8. **Failure**：20Hz 消费级 GPU 上的 VLA 仍更快；重复数据下明显退化
+9. **Opportunity**：更长视野规划、跨具身统一、更快蒸馏未做
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 图像+状态序列（480P 视频 latent，Wan2.1-14B-480P 骨干） |
+| Closed-loop | 闭环：chunk 执行期间并发推理下一 chunk，真观测替换生成帧（KV 缓存） |
+| Correction | 地面真值观测回写 KV 即校正机制；动作 chunk 有 Savitzky-Golay 平滑 |
+| Deployment | AgiBot G1 真机遥操作数据训练→双臂真机 7Hz 闭环+Genie Sim 3.0 泛化 |
+
 ## 核心技术
 
 ![dreamzero 架构图](figures/dreamzero/fig1.png)
@@ -81,6 +100,34 @@ $$\mathcal{L}(\theta) = \mathbb{E}_{z,a,\{t_k\}}\left[\frac{1}{K}\sum_{k=1}^{K} 
 - **系统优化明细**：CFG 双 GPU 并行（每步延迟降 47%）；DiT caching 利用 flow matching 速度方向一致性，当相邻速度余弦相似度超阈值即复用缓存，等效去噪步数 16 变 4；NVFP4 量化但 QKV/Softmax 保 FP8、非线性算子保 FP16；cuDNN attention；调度器操作迁到 GPU 消除 CPU-GPU 同步停顿。
 - **数据规模参照**：AgiBot 语料 7193 条轨迹约 500 小时；评估每个 checkpoint 做 160 条真机 rollout（seen/unseen 各 10 任务 x 8 rollout x 4 台机器人）。
 - **开源范围**：模型权重、推理代码、RoboArena/PolaRiS/Genie Sim 3.0 评测运行脚本。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 图像+状态；视频 480P 分辨率（Wan2.1-I2V-14B-480P） | 第 3.1 节 |
+| 动作空间 | 双臂操作动作 chunk（48 步） | 第 3.2 节 |
+| 控制频率 | 30 Hz（双臂操作平台） | 第 3.2 节 |
+| 重规划频率 | 每 action chunk（48 步=1.6s）重推理 | 第 3.2 节 |
+| 动作 horizon | 48 步/chunk | 第 3.2 节 |
+| 数据 | AgiBot G1 约 500 小时遥操作（7.2K episodes、22 环境）+DROID | 第 5.1 节 |
+| 奖励 | 无（自监督联合去噪+演示模仿） | 第 3 节 |
+| Reset | 仿真评测（Genie Sim 3.0）自动 | 第 5 节 |
+| 成功定义 | 任务进度 progress（Genie Sim 3.0，100 任务） | 第 5 节 |
+| 评估次数 | 主实验见任务集评测；消融统一 50K steps+PnP Easy | 表 4 注 |
+| 随机种子 | 未报告 | PDF 未披露 |
+| 扰动测试 | 未报告 | PDF 未披露 |
+| 真机 | 双臂平台部署（约 7Hz 闭环） | 第 3.2 节 |
+| 算力 | 训练 100K steps 全局 batch 128（GPU 型号未报告）；推理对比 H100/GB200 | 第 5.1/4.2 节 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无
+- reset 难度：仿真自动（真机闭环演示为主）
+- eval budget：未见任务集评测，规模中等
+- 底层控制栈：无强 planner 兜底；chunk 平滑是轻量后处理
+- 数据优势：与 VLA 基线同等 500h 数据对比（Table 4 控制变量）
 
 ## 消融实验与分析
 

@@ -10,6 +10,25 @@
 
 Dreamer v3 用一组固定超参数（归一化、KL 平衡 + free bits、symlog 变换三大类鲁棒技术）在 Atari、ProcGen、DMLab、DMControl、BSuite、Minecraft 等 150+ 任务上超越各领域调参专家算法，并在 Minecraft Diamond 上成为首个不用人类数据或课程学习、从零在 100M 步内拿到钻石的算法，同时证明模型规模 12M 到 400M 单调提升性能且越大越省环境交互。
 
+## 九问速览
+
+1. **Problem**：RL 算法跨域需逐任务调参，能否一组固定超参通吃 150+ 任务
+2. **Bottleneck**：各基准 SOTA 依赖领域专用技巧与大量调参，不可复用
+3. **Insight**：归一化、KL 平衡+free bits、symlog 三类鲁棒技术让训练免调参
+4. **Method**：固定超参 Dreamer v3：symlog 两值/离散回归/免梯度平衡的世界模型
+5. **Evidence**：Minecraft 100M 步零人类数据拿钻石（100% 种子）；Atari median 830%
+6. **Ablation**：切断 reward/value 梯度则崩坏；去掉重建梯度几乎无影响
+7. **Assumption**：世界模型+actor-critic 框架本身足够通用
+8. **Failure**：精细操作（Meta-World lift/pick/stack）与部分 Dog 任务不稳
+9. **Opportunity**：更大模型的数据效率继续提升；真机迁移未做
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 像素或本体观测（各基准原生），stride-2 卷积编码到 6x6/4x4 特征 |
+| Closed-loop | 闭环：每步 actor 出动作；5 上下文帧预测 45 未来帧 |
+| Correction | 世界模型随 replay 在线更新即校正；无显式偏差校正项 |
+| Deployment | 全仿真基准；无真机（DayDreamer 承接真机侧） |
+
 ## 核心技术
 
 ![dreamer-v3 架构图](figures/dreamer-v3/fig3.png)
@@ -129,6 +148,34 @@ critic 对每个模型状态学一个 categorical 回报分布，$\lambda$-retur
 | 规模派生规则 | hidden $d$；GRU 8$d$（8 block）；CNN 底层通道 $d/16$；每 latent 编码数 $d/16$ | 层数与 latent 个数跨规模不变，学习率/批量也不变 |
 
 实操要点：(1) Minecraft 用 MineRL v0.4.4 改造出 flat categorical 动作空间，修复了打破钻石矿提前终止、跳跃键需按住 200ms 的问题，episode 到死亡或 36000 步结束；(2) 每个里程碑（log 到 diamond 共 12 个）一次性 +1，另有每颗心血 $\pm0.01$；(3) 各基准的资源开销——Minecraft 8.9 GPU 天、Atari 7.7、ProcGen 16.1、DMLab 2.9、Atari100k 只要 0.1；(4) 建议复现时先跑 12M 版本验证管线，再上 200M 默认档。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 各基准原生像素/本体；图像编码至 6x6 或 4x4 特征 | 附录网络细节 |
+| 动作空间 | 离散（Atari/DMLab/Minecraft）与连续（DMControl 等）均有 | 表 2 |
+| 控制频率 | 不适用（各基准标准 action repeat，如 DMControl repeat 2） | 附录 B |
+| 重规划频率 | 每步 actor 出动作（无显式规划器） | 第 3 节 |
+| 动作 horizon | 想象 horizon 未报告（Dreamer 系默认） | PDF 未详列 |
+| 数据 | 在线交互：Atari 200M 帧、DMLab 100M 步、ProcGen 50M 帧、Crafter/Minecraft 100M 步 | 表 2/附录 |
+| 奖励 | 各基准原生奖励（稀疏/密集均有；Minecraft 极稀疏） | 第 4 节 |
+| Reset | 各基准自动 reset（标准协议） | 基准定义 |
+| 成功定义 | normalized score / gamer median/mean / 拿钻石种子比例 | 表 5-9 |
+| 评估次数 | 各基准标准协议（57 Atari 游戏等），训练曲线末端读数 | 第 4 节 |
+| 随机种子 | 5 seeds（Dreamer 与 PPO 每基准）；ProcGen 1、BSuite 10、Minecraft 10 | 附录 B |
+| 扰动测试 | 无（BSuite 为诊断性套件） | — |
+| 真机 | 无 | — |
+| 算力 | 每 agent 单张 A100；Minecraft 1 GPU 9 天（对照 VPT 720 GPU 9 天） | 附录 B |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（用各基准原生奖励）
+- reset 难度：正常（基准自动 reset）
+- eval budget：各基准标准 200M 帧级预算，充足
+- 底层控制栈：无（端到端策略）
+- 数据优势：与基线同等环境步数预算（DMLab 100M vs 基线 1B/10B 步反而占劣）
 
 ## 消融实验与分析
 

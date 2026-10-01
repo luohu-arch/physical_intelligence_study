@@ -10,6 +10,25 @@
 
 先用 V-JEPA 目标在约 100 万小时互联网视频上把视觉编码器扩到 ViT-g/1B 并得到通用运动理解表征，再冻结该编码器、只用 Droid 数据集不到 62 小时的无标注机器人视频训练一个自回归动作条件预测器 V-JEPA 2-AC，最后通过最小化 latent 空间 L1 能量函数 + CEM 的 MPC，实现两间新实验室 Franka 臂上的零样本图像目标抓取与放置（如 pick-&-place cup 达 80%），全程不采集新数据、不做任务专项训练。
 
+## 九问速览
+
+1. **Problem**：机器人缺兼具运动理解与零样本控制的通用视觉编码器
+2. **Bottleneck**：视频编码器缺动作条件预测；真机标注数据极少
+3. **Insight**：1M 小时互联网视频预训练+62h 无标注机器人视频即可支撑 MPC 控制
+4. **Method**：V-JEPA 目标扩到 ViT-g/1B，Droid 上训自回归 AC 预测器+CEM 能量最小化
+5. **Evidence**：零样本 pick&place cup 达 80%（两实验室 Franka，各 10 trials）
+6. **Ablation**：scaling 四要素逐步叠加 84.2→88.2（数据/模型/时长/分辨率）
+7. **Assumption**：latent L1 能量最小化与物理任务成功对应
+8. **Failure**：需力控精细任务失效；视频生成式基线推理太慢难以闭环
+9. **Opportunity**：动作条件预训练规模化、多具身统一、真机数据继续叠加
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 视频输入（预训练 256→384 分辨率、16→64 帧）；AC 吃视频+EE 状态 |
+| Closed-loop | 闭环 receding horizon：CEM 只执行首个动作即重规划 |
+| Correction | 每步重规划即校正；无需世界模型再训练 |
+| Deployment | 互联网+Droid 数据训练→两间新实验室 Franka 零样本部署（无任务专项训练） |
+
 ## 核心技术
 
 ![v-jepa2 架构图](figures/v-jepa2/fig1.png)
@@ -98,6 +117,34 @@ flowchart LR
 - **规划数值约束很关键**：每个采样动作被约束在半径 0.075 的 L1 ball 内（对应单步末端位移上限约 13 cm），否则大动作会让分布外的预测污染规划。pick-&-place 用两张子目标图分阶段切换（4 步朝抓取子目标、10 步朝放置点附近、最后 4 步朝最终目标），代替单一 final goal 来化整长程问题。
 - **部署硬件与控制器**：双实验室 Franka Emika Panda + RobotiQ 夹爪，未标定的低分辨率单目 RGB，运行操作空间控制的底层控制器；blocking control 用于 V-JEPA 2-AC 与 Cosmos，Octo 同时试了 blocking/non-blocking 取最好。
 - **复现入口**：代码 `https://github.com/facebookresearch/vjepa2`，博客 `https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks`。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 视频帧（渐进策略：预训练升到 384 分辨率/64 帧）+末端状态 | 第 2.2/3.1 节 |
+| 动作空间 | 7 维末端增量（Droid 相邻帧 EE 状态差） | 第 3.1 节 |
+| 控制频率 | 未报告（每步重规划的 receding horizon） | 第 3.2 节 |
+| 重规划频率 | 每步（只执行第一个动作再重规划） | 第 3.2 节 |
+| 动作 horizon | 规划 horizon T（CEM 优化序列长度） | 第 3.2 节 |
+| 数据 | 预训练 1M 小时视频+1M 图像；AC 训练 Droid 23k 轨迹/约 62 小时（含成败、无标注） | 图 1/第 3.1 节 |
+| 奖励 | 无（自监督+目标条件 L1 能量） | 式 5 |
+| Reset | 真机评测人工布置（每 trial 变化物体位置/初始位姿） | 表 2 注 |
+| 成功定义 | 零样本任务成功率%（视觉目标指定） | 表 2 |
+| 评估次数 | 每任务 10 trials（带任务扰动排列） | 表 2 注 |
+| 随机种子 | 未报告（10 trials 内含位姿/位置排列） | 表 2 注 |
+| 扰动测试 | 有：trials 间物体位置、起始位姿等扰动 | 表 2 注 |
+| 真机 | 两间实验室 Franka+RobotiQ 夹爪 | 第 4 节 |
+| 算力 | ViT-g 训练 A100 GPU-days（渐进策略省约 60 GPU-years） | 图 5 |
+| 特权信息 | 无（AC 训练不用动作标签外信息；raw 视频含成功与失败轨迹） | 第 3.1 节 |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（能量函数即目标距离）
+- reset 难度：真机人工布置（每 trial 变化布置）
+- eval budget：10 trials/任务，偏小
+- 底层控制栈：CEM 采样优化（方法本体），无外部 planner
+- 数据优势：基线 Octo 用整个 Droid 微调，本文 AC 仅 62h 子集（反而占劣）；但预训练 1M 小时远超基线
 
 ## 消融实验与分析
 

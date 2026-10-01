@@ -10,6 +10,25 @@
 
 在冻结的 π0.6 上训一个 encoder-decoder transformer，把 VLA 最终层的海量 embedding 压成单个 1×2048 的 RL Token 作为小 actor-critic 的状态输入；actor 以 VLA 参考动作 chunk 为条件并被 β 正则锚在其附近，配合 reference dropout 防止照抄——四个毫米级精度真机任务上只用 15 分钟到 5 小时机器人数据，把最难的螺丝安装成功率从 20% 拉到 65%，关键阶段提速最高 3×，Ethernet 中位完成时长甚至反超专家遥操作（66 步 vs 146 步，Fig 9）。
 
+## 九问速览
+
+1. **Problem**：冻结 VLA 想在真机几小时内学会毫米级精密段——直接 RL 状态维度太高、信用链太长。
+2. **Bottleneck**：全模型 RL 太贵；旧轻量 RL（HIL-SERL/PLD）的单步+低频设计在 50 Hz 长时序稀疏奖励下不可学。
+3. **Insight**：VLA 最终层 embedding 已含任务语义——压成单个 RL token 即可作为小 actor-critic 的状态输入。
+4. **Method**：encoder-decoder 蒸出 1×2048 token；actor 条件于 VLA 参考 chunk（β 锚定+50% dropout）；C=10 块级 TD3。
+5. **Evidence**：螺丝 20%→65%；Ethernet 中位 66 步 vs 专家 146（3.45×）；仅 15 分钟到 5 小时真机数据。
+6. **Ablation**：β=0 跌幅最大；去 chunk 学不会；去 RL token 吞吐减半；四个组件全有效、排序 BC 正则>块结构。
+7. **Assumption**：冻结 π0.6 质量够高；人工二值奖励与接管可用；关键阶段切换点需人工标注后蒸馏。
+8. **Failure**：full-task 提升小于 critical-phase（前段误差复利）；token 信息保真度未度量；β 静态可能封顶。
+9. **Opportunity**：β 退火调度、token 信息审计、自动 handover、UTD 提升与 FlashSAC 式稳定机制结合。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 3 相机 RGB+语言+本体 → 冻结 π0.6 → RL token(1×2048)+本体位置/速度；无触觉 |
+| Closed-loop | 闭环：50 Hz 块级执行（C=10），actor 每块重规划 |
+| Correction | 人工接管数据入 replay（参考动作被替换）；训练后蒸馏 handover 预测器自动切换 |
+| Deployment | 全真机（zip tie/Ethernet/charger/screw 四任务）；冻结 VLA+小 MLP 在线学习，无 sim |
+
 ## 核心技术
 
 ![rl-token 架构图](figures/rl-token/fig1.png)
@@ -89,6 +108,34 @@ flowchart TB
 - **关键段协议**：critical-phase 评测从任务中途、随机化的阶段前初态开始（如 zip tie 任务开始时已握住两端），每 agent 测 50 episodes，以此隔离高精度段；full-task 评测从 home 位置起跑、经 base VLA 过渡进关键段，考验跨段鲁棒性。screw 与 zip tie 两难任务先只在 critical-phase 训练再加小随机化过渡到 full-task。
 - **训练预算**：每任务 400–1000 episodes，实际机器人交互 15 分钟–5 小时（不含 reset 与开销）；screw 与 zip tie 两难任务先只在 critical-phase 训练、再过渡到 full-task 两阶段训练，其最终报告的性能对应约 5 小时累计数据；RM token 之外的全部可学习参数不到百万级（两个小 MLP + tokenizer），待确认：paper 未给出 RL Token 训练的具体参数量与单步推理延迟。
 - **自主化收尾**：训练结束后用人工干预记录当标签微调 VLA 的 handover 预测器，部署时自动在正确时刻把控制权交给 RL 策略——不需要测试期再有人在旁边按键。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RL 侧 = RL token(1×2048)+本体位置/速度；参考 chunk = 冻结 VLA 采样 H=50 | Sec IV / 附录 B |
+| 动作空间 | 连续动作块 C=10×14 维=140 维 delta（EE 空间） | Sec III/IV-B |
+| 控制频率 | 50 Hz（VLA 亦按 50 Hz 查询出参考块） | Sec V / 附录 B |
+| 重规划频率 | 每 C=10 步出一块（0.2 s）；VLA 参考块执行前约 20 步 | Sec IV-B |
+| 动作 horizon | RL 块 C=10；任务全程 30-120 s（1500-6000 控制步） | Sec V |
+| 数据 | 1-10 h 遥操 demo/任务（RLT 训练 2000-10000 梯度步）+VLA warmup+自主 rollout+人工接管；400-1000 episodes/任务 | Sec V / 附录 B |
+| 奖励 | 稀疏二值终局（操作员判成功 +1）；接管段替换参考动作入 buffer；无 shaping | 附录 B |
+| Reset | 人工 reset（计时排除，"15 分钟-5 小时"为净机器人时间） | Sec V |
+| 成功定义 | 人工判定 episode 终局成功/失败 | Sec V |
+| 评估次数 | 50 episodes/agent（critical-phase 从随机化中途初态起评）；full-task 从 home 位置起跑 | Sec V |
+| 随机种子 | 未报告 | |
+| 扰动测试 | critical-phase 初态随机化（非环境扰动）；无光照/物理扰动测试 | Sec V |
+| 真机 | 4 任务全真机；screw/zip tie 累计约 5 h 数据后报告性能 | 附录 B |
+| 算力 | 未报告（VLA 推理硬件、RL 训练 GPU 未披露） | |
+| 特权信息 | 无 oracle/teacher-student；VLA 参考动作在部署期同样可得（非特权） | |
+
+**附录陷阱自查**：
+- privileged 信息：无（无 teacher-student/oracle critic；参考动作部署时照常提供）
+- reward shaping：无——纯稀疏二值人工标签；β 正则只约束动作不进奖励
+- reset 难度：人工 reset 且计时排除（"15 分钟起步"的口径建立在人工开销不计入之上）
+- eval budget：50 episodes/agent，中等
+- 底层控制栈：14 维 delta 直接执行，未见 PD/柔顺层
+- 数据优势：与 DAgger/HIL-SERL/PLD/DSRL 同环境同动作空间对比（附录 C 逐一适配），公平
 
 ## 消融实验与分析
 

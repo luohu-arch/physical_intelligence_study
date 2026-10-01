@@ -11,6 +11,25 @@
 
 BridgeVLA 主张 3D VLA 的瓶颈不在「要不要 3D 信息」，而在「输入输出是否与 VLM 预训练分布对齐」：它先用 120K 目标检测数据（RoboPoint）把 PaliGemma 预训练成「按文字要求在图上画 2D heatmap 找物体」，再做 3D 动作微调时把点云正交投影成三张图（输入对齐）、并让模型先画热图再回传 3D 平移目标（输出对齐）。RLBench 平均成功率从最强基线 RVT-2 的 81.4% 提到 88.2%，COLOSSEUM 从 56.7% 到 64.0%，GemBench 平均 50.0%；真机上仅 3 条轨迹/任务就拿到 95.4%（13 任务），同期 π0 喂 10 条轨迹只有 3.8%、基本全崩。
 
+## 九问速览
+
+1. **Problem**：3D VLA 如何避免「把点云 token 塞进 VLM」造成的预训练-微调特征分布漂移
+2. **Bottleneck**：引入 3D 编码器/逐像素 3D 坐标即破坏 VLM 预训练分布（消融：混入 3D 位置特征 88.2%→56.2%）；无 VLM 的 RVT-2 语义弱
+3. **Insight**：输入输出同时压回 VLM 的母语 2D 图像空间——点云投影成三视图、动作输出成与输入同坐标系的 2D 热图
+4. **Method**：120K 检测数据先把 PaliGemma 训成「画热图」；点云正交投影三视图输入；热图反投影取 3D 点+MLP 出旋转/夹爪/碰撞旗标
+5. **Evidence**：RLBench 平均 88.2%（vs 最强基线 RVT-2 81.4%）；真机仅 3 条轨迹/任务达 95.4%（13 任务）
+6. **Ablation**：热图换 Transformer 回归头 88.2%→31.4%；coarse-to-fine 与三视角反投影互相背书保证空间一致
+7. **Assumption**：相机外参标定与深度质量可靠；关键帧粒度决策对任务够用；OMPL 规划器可承接帧间运动
+8. **Failure**：Category 未见类别绝对成功率不高（指对物体但放错步）；自然图像预训练与正交投影渲染存在域差
+9. **Opportunity**：长程任务 LLM 分解（论文 future work）；不支持高频连续控制（0.21s/决策）
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB-D 点云正交投影 top/front/right 三视图 + 语言；无本体状态；真机用 ZED 2i 彩色点云 |
+| Closed-loop | 关键帧级闭环：只在瓶颈帧决策（0.21s/次@4090），帧间运动由规划器执行；collision flag 控避障 |
+| Correction | coarse-to-fine 双次前向精化；无显式失败检测/retry 机制 |
+| Deployment | RLBench 仿真训练 → 真机 Franka FR3 仅需 3-10 条示教微调约 1.5h（8×A100）；依赖标定好的相机 |
+
 ## 核心技术
 
 1. **输入对齐（3D 转 2D）** — 场景点云按 top/front/right 三个方向做正交投影（沿袭 RVT/RVT-2 的做法），得到的三张 2D 图直接替换 VLM 原本吃的 RGB 图；整个 VLM 前向过程中不注入任何额外模态（没有机器人状态、没有逐像素 3D 坐标），最大限度避免预训练与微调的特征分布漂移
@@ -92,6 +111,34 @@ $\mathcal{L}_{trans}$ 是热图的交叉熵，$\mathcal{L}_{rot}$ 是 bin 分类
 - **七个评测场景设计**：Basic / Distractor（加相似干扰物）/ Lighting（关灯）/ Background（三种桌布）/ Height（物体垫高 9.5 cm 抽屉）/ Combination（见过的物体和技能、没见过的组合指令共 13 条）/ Category（7 个未见类别物体）
 - **执行栈依赖**：OMPL/RRT-Connect 系运动规划器负责关键帧之间的运动，模型的 collision flag 决定是否启用避障；整套方案隐含依赖标定好的相机外参与深度质量
 - **内部数字出入提示**：引言称「3 条轨迹达 96.8%」，摘要与实验节、附录 C.5 给的是 95.4%（与 Table 12 十三项任务的均值吻合），引用时应采用 95.4%
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB-D 点云正交投影 3 视图（top/front/right）+语言；仿真 4 路 RGB-D、真机 ZED 2i 点云；无本体状态 | Sec.4、附录C.1 |
+| 动作空间 | 关键帧级：EE 平移（热图反投影）+旋转（Euler 每轴 72 bin）+夹爪+collision flag | Sec.3 |
+| 控制频率 | 关键帧粒度：0.21s/决策@RTX 4090（含两次前向，100 次实测）；帧间由运动规划器执行 | 附录A(p16) |
+| 重规划频率 | 每关键帧重规划（静止/夹爪变化/终止帧触发，沿 PerAct 策略） | 附录B.1 |
+| 动作 horizon | 单关键帧目标（非 chunk）；真机每任务 3-9 个关键帧 | 附录C.1 |
+| 数据 | 仿真：RLBench 18 任务×100 专家 demo（带增广）；真机：13 任务×10 条（数据效率测试仅 3 条），kinesthetic 示教 | Sec.4、附录B/C |
+| 奖励 | 无(RL-free)：热图 CE+旋转分类 CE+夹爪/碰撞 BCE | Sec.3 |
+| Reset | 仿真物体工作区内随机化；真机拍照手动对齐场景保证各方法同条件 | 附录B、C.2 |
+| 成功定义 | 二元成功率（仿真每任务 25 trial、单次 ≤25 步；真机 10 trial/任务） | p7、附录C.2 |
+| 评估次数 | RLBench 25 trial×18 任务；真机每基线 10 trial×13 任务；GemBench 20 trial/变体 | p7、附录B.4/C.2 |
+| 随机种子 | GemBench 用 5 个随机 seed；RLBench/真机未报告 | 附录B.4 |
+| 扰动测试 | 有：真机 7 场景（Distractor/Lighting/Background/Height/Combination/Category）+ COLOSSEUM 14 类扰动 | Sec.4 |
+| 真机 | Franka Research 3 + ZED 2i，13 任务：10 条轨迹 96.9%、3 条 95.4% | 附录C、Table 12 |
+| 算力 | 预训练 8×A100×约 2h（3800 步）；RLBench/COLOSSEUM 各 48×H100×约 20h（83k 步）；GemBench 40×A100×2.1h；真机微调 8×A100×1.5h | 附录A Table 5(p16) |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（模仿学习多损失组合）
+- reset 难度：真机各方法拍照手动对齐同一场景——受控但公平
+- eval budget：充足——仿真 25 trial×18 任务、真机 10 trial×13 任务、GemBench 5 seed×20 trial
+- 底层控制栈：有——OMPL/RRT-Connect 运动规划器承接帧间运动与避障，模型只做关键帧决策
+- 数据优势：无——与 RVT-2/SpatialVLA 等同 demo 数对比；真机甚至只用 3 条轨迹
 
 ## 消融实验与分析
 

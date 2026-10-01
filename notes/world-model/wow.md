@@ -10,6 +10,25 @@
 
 WoW 是一个 14B 参数的视频扩散世界模型，用 203 万条真机交互轨迹（约 7300 小时、6.33 亿帧 @24fps、12 种机器人本体、过滤掉约 75% 原始数据）训练，其核心论点是：**大规模因果丰富的交互数据才能把"视频生成器"抬升为"世界模型"**。它的独特处在于承认扩散模型学到的物理只是"合理结果的概率分布"，因此外挂一套 SOPHIA 测试时框架——Refiner Agent 反复改写语言指令、"Dynamic Critic Model Team" 打分（physics/motion/semantic/quality 四模板）、不过关就重新生成，即所谓 Prover-Verifier 范式移植到视频域；再由 Flow-Mask IDM（SAM 掩码分支 + CoTracker3 光流分支 + MLP 头，64.6 万图像-动作对）把想象出的未来帧翻译成 7-DoF 末端动作，在真机上 Easy 94.5% / Mid 75.2% 回放成功。配套的 WoWBench（606 样本、4 大能力、20 子任务）上，纯 DiT 版自治评测 Overall 49.39、加 SOPHIA Agent 后 51.97，均超过最强的原版底座 Cosmos-Predict2（42.71，配 Agent 为 50.53）。
 
+## 九问速览
+
+1. **Problem**：视频生成模型缺物理一致性与因果理解，当不了世界模型
+2. **Bottleneck**：扩散学的是"合理结果的概率分布"，无因果约束兜底
+3. **Insight**：大规模因果丰富交互数据+测试时 Prover-Verifier 框架可抬升
+4. **Method**：14B DiT+203 万真机轨迹；SOPHIA Refiner/Critic 迭代；Flow-Mask IDM
+5. **Evidence**：真机回放 Easy 94.5%/Mid 75.2%；WoWBench 51.97 超 Cosmos-Predict2
+6. **Ablation**：同配方换底座 WoW-DiT 46.05 vs Cosmos-Predict2 42.71（数据+DINOv2 注入之功）
+7. **Assumption**：批评模型团队打分可代理物理正确性；回放成功上界即控制上界
+8. **Failure**：Hard 任务仅 17.5%；规划子分低（2.89）——开环回放范式弱规划
+9. **Opportunity**：闭环在线控制、更强 IDM、可微分 critic 未做
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 视频+文本指令（InternVL3-78B 改写指令）；640x480 原生上采样 720x1024@24fps |
+| Closed-loop | 开环回放式执行（想象帧→IDM→动作）；Critic 循环只在生成侧 |
+| Correction | SOPHIA 不达标重新生成即测试时校正；无执行后反馈修正 |
+| Deployment | 真机交互数据训练→真机任务回放执行（Easy/Mid/Hard 分级） |
+
 ## 核心技术
 
 ![wow 架构图](figures/wow/fig4.png)
@@ -111,6 +130,34 @@ graph TD
 - **4D 新视角管线要点**：VGGT 从少量 anchor 视角重建稠密对应并升维点云，专门的 wrist head 从多视角特征回归目标腕部相机位姿，点云投影成粗糙条件图；投影损失分前后两面处理——朝前点最小化重投影误差，背面点鼓励正深度保证几何可行。随后条件图经 VAE 编码与噪声腕部 latent 拼接，anchor 视角的 CLIP 嵌入再加时间与视角 embedding 注入。图 22 给出三档对比数字 3.67 / 3.81 / 4.00；待确认：图中仅标 VLA Evaluation/VLA Training 与三档标注（w/o wrist、gt wrist、gen wrist），三个数对应的具体协议与指标名称论文正文未明说。
 - **Style-transfer 工具箱的顺序敏感**：前景分割先固定 embodiment（保机械臂语义），对象级用 SegAnyMo（带运动线索的时间一致掩码），最后背景取前景并集的余集整体替换；Light-A-Video 提供 relighting。多重条件可以混合叠加。
 - **交互沙盒用法**（Section 8.5）：VLM 提子目标 → 世界模型仿真出未来帧 → VLM critic 评估进度 → 回写计划（借鉴 MindJourney）。两轮交互后 Qwen-2.5-VL-7B-Instruct 规划成功率从 1/3 升至 8/9，任务成功率 0 → 4/9（表 6）。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 视频原生 640x480 上采样 720x1024、24fps | 第 6.1 节 |
+| 动作空间 | 7-DoF 末端动作（Flow-Mask IDM 输出） | 第 5 节 |
+| 控制频率 | 未报告（回放开环执行） | PDF 未披露 |
+| 重规划频率 | 不适用（回放范式，无在线重规划） | 第 5 节 |
+| 动作 horizon | 不适用 | — |
+| 数据 | 203 万真机轨迹/7300 小时/6.33 亿帧/12 具身（过滤掉约 75% 原始数据）；IDM 64.6 万图像-动作对 | 第 6.1 节 |
+| 奖励 | 无（Critic 模型团队四维打分做测试时选择） | 第 4 节 |
+| Reset | 回放/仿真（WoWBench 样本化） | 第 5 节 |
+| 成功定义 | WoWBench 自治评测 VQ/IF/PL/Plan 与 Overall；人评 1-5 分制；回放成功率% | 表 1/表 5 |
+| 评估次数 | WoWBench 606 样本/4 能力/20 子任务；回放分难度层级 | 第 5 节 |
+| 随机种子 | 未报告 | PDF 未披露 |
+| 扰动测试 | OOD 场景生成（未见场景） | 第 6 节 |
+| 真机 | 真机部署操作任务（Easy/Mid/Hard 三级） | 第 5 节 |
+| 算力 | 未报告（PDF 无训练 GPU 信息） | PDF 未披露 |
+| 特权信息 | 无（SAM/CoTracker3 离线标注仅用于 IDM 训练） | 第 5 节 |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（Critic 打分为测试时选择，非训练 shaping）
+- reset 难度：回放式免 reset（也是其局限）
+- eval budget：606 样本 WoWBench+分级回放，充足
+- 底层控制栈：无强 planner——IDM 翻译+开环执行，规划能力弱是实测短板
+- 数据优势：203 万轨迹/7300 小时远超对比基座的原生数据（论文核心主张）
 
 ## 消融实验与分析
 

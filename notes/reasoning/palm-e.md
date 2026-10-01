@@ -10,6 +10,25 @@
 
 PaLM-E 用「多模态句子」把图像、状态估计、神经 3D 场景表征（OSRT）以向量形式直接插入 PaLM（8B/62B/540B）的语言 token 流中端到端训练——最大版本 PaLM-E-562B 是当时已报道最大的 VLM，在 OK-VQA 上拿到 SOTA（66.1），同时证明单一通用模型跨三种机器人具身做规划时，混合互联网级图文数据共训能带来成倍性能提升（TAMP 规划均值 48.6% 到 94.9%），并发现「规模越大、多模态微调的语言遗忘越少」这一关键规律。
 
+## 九问速览
+
+1. **Problem**：让单一多模态 LLM 直接消费连续具身观测（图像/状态/3D 表征）做规划，而非靠感知系统转述文本
+2. **Bottleneck**：SayCan 类纯文本 LLM+affordance 丢几何细节（38.7/33.3）；冻结式注入表达力不足；多模态微调致语言灾难遗忘
+3. **Insight**：观测编码为向量插入语言 token 流端到端共训——互联网图文数据可补偿机器人数据稀缺；模型越大遗忘越少
+4. **Method**：多模态句子（ViT/OSRT/状态 MLP→仿射投影→PaLM 任意位置注入）+ full mixture 共训 + entity referrals
+5. **Evidence**：TAMP 少样本规划 48.6%→94.9%（微调+共训）；OK-VQA 66.1 超 PaLI 64.5；562B 语言仅退 3.9%
+6. **Ablation**：无机器人数据 PaLI 具身 VQA 0.0；共训使 ViT-4B 规划翻倍（30.6→74.1）；OSRT 无大数据亦最优（82.5）
+7. **Assumption**：外挂低层技能策略（RT-1 等）且无输出过滤；TAMP 靠专家规划器造数据；OSRT 需域内视频
+8. **Failure**：小模型微调后语言能力崩（12B 退 87.3%）；冻结 LLM 规划少 20 点；接口语义鸿沟限制技能词汇表
+9. **Opportunity**：符号化观测表征+数据规模双轴融合、嵌入注入与动作 token 的统一（后被 RT-2 完成）
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB 图像（ViT 编码）+ 状态估计 + OSRT 3D 场景表征 + 语言；无触觉 |
+| Closed-loop | 闭环：子目标 1Hz 输出，基于新观测自回归重规划直至 terminate |
+| Correction | 有：失败检测 VQA（F1 0.91）+ 遇扰动/失败基于新图重规划 |
+| Deployment | 输出文本计划交外部策略执行（RT-1 等 5Hz/10Hz），语义鸿沟由技能词汇表承担 |
+
 ## 核心技术
 
 ![palm-e 架构图](figures/palm-e/fig1.png)
@@ -111,6 +130,34 @@ graph TD
 - 失败检测：`Q: Was <skill> successful?`
 - 可供性预测：`Q: Is it possible to <skill> here?`
 - 长程规划：逐步生成 + 重规划；这两个 VQA 化的评测子任务后来成为 embodied reasoning 的标准探针
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB 图像（224 级 ViT-4B/22B）+ 状态向量（部分实验含 GT 物体中心）+ OSRT 多视角 object slots + 语言 | §3 |
+| 动作空间 | 不直接输出动作：生成自然语言子目标/技能序列，交低层策略（RT-1、Language-Table 策略）执行 | §3.6 |
+| 控制频率 | 子目标 1Hz；真机低层 5Hz；Language-Table 仿真低层 10Hz（40 步/4s） | §4.3、附录 B.2 |
+| 重规划频率 | 每 4s（低层执行一段后）基于新观测出下一条指令 | 附录 B.2 |
+| 动作 horizon | 不适用（文本规划层；每条指令覆盖一个短程技能） | — |
+| 数据 | full mixture：具身数据仅 8.9%（LT 4.2% + Mobile Manipulator 3.1% + TAMP 1.6%），Webli 52.4% 等；SayCan 轨迹 2912 条；TAMP 每规划任务 320 条示教（1% 数据设定） | 附录 Table 6、§5.2 |
+| 奖励 | 不适用（无 RL）：prefix 后文本 token 交叉熵 | §3 |
+| Reset | 未报告 | — |
+| 成功定义 | TAMP：规划正确率；LT：自动奖励判定的任务成功率；VQA：accuracy | §5、附录 B.2 |
+| 评估次数 | LT 仿真 Task 2/3 每任务 80 rollouts；TAMP 按测试集；VQA 按标准 split | 附录 B.2 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 定性演示：真机移动操作遇扰动重规划（论文演示段落） | §5.4 |
+| 真机 | 有：Everyday Robots 移动操作平台（SayCan 数据同款）长程任务定性演示 + Language Table 真机 | §5.4、附录 B.2 |
+| 算力 | 未报告（Google 内部 TPU；562B 仅云端可跑） | — |
+| 特权信息 | TAMP 训练数据由仿真专家规划器（Driess et al. 2020）生成；State 输入版用 GT 物体中心（作为对照） | §5.1 |
+
+**附录陷阱自查**：
+- privileged 信息：TAMP 示教来自仿真专家规划器（特权数据源）；SayCan baseline 用 oracle affordance（对 baseline 有利仍被击败，反过来说明结论稳健）
+- reward shaping：不适用（无 RL）
+- reset 难度：未报告
+- eval budget：仿真 80 rollouts/任务，充足
+- 底层控制栈：完全依赖现成低层策略（RT-1/LT policy），PaLM-E 输出无任何过滤约束——计划合法性全靠训练分布
+- 数据优势：与 PaLI/SayCan 对比时 mixture 配方不同；但共训 vs 单域对比在自身内部完成，公平
 
 ## 消融实验与分析
 

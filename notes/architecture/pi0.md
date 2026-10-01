@@ -10,6 +10,25 @@
 
 π0 是 Physical Intelligence 的通用机器人策略基础模型，基于 VLM 骨干 (PaliGemma) + Flow Matching 动作专家，在 7 种机器人配置、68 个任务上预训练，可通过 prompt 直接执行或微调适配复杂多阶段任务。
 
+## 九问速览
+
+1. **Problem**：一个模型跨机器人、跨任务执行高频灵巧操作，替代每任务单独训练的策略
+2. **Bottleneck**：自回归离散 token VLA 难以输出 50Hz 连续动作 chunk；扩散模型推理步数多、慢
+3. **Insight**：动作生成可建模为 flow matching 的直线路径 ODE；VLM 骨干与 300M 动作专家分工可兼得语义与高频控制
+4. **Method**：PaliGemma 骨干 + 动作专家，10 步积分生成 H=50 连续动作 chunk；先 1 万小时跨具身预训练再任务微调
+5. **Evidence**：160k 步 parity 版在 5 任务 out-of-box 评估即全面超过 OpenVLA(160k) 与 Octo(320k)；衬衫折叠近满分
+6. **Ablation**：π0-small 无 VLM 初始化仍胜 OpenVLA 但低于全模型；离散 token 的 OpenVLA 垫底——VLM 先验与连续 chunk 各自贡献
+7. **Assumption**：预训练数据需覆盖目标域（7 配置 68 任务）；长程复杂任务需 5-100h 高质量微调数据
+8. **Failure**：论文自述并非所有评测任务都可靠工作；无法预测某任务需多少何种数据才达近满分
+9. **Opportunity**：跨更异构域（自动驾驶/导航/足式）正迁移未知；万级小时数据混合加权仍开放
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 每机器人 2-3 路 RGB（腕+基座）+ 关节本体状态，无深度/触觉 |
+| Closed-loop | 闭环：每 0.5s(50Hz)/0.8s(20Hz) 重新观测推理；chunk 内开环执行，无 temporal ensembling |
+| Correction | 无显式重规划；依赖预训练数据中学到的失败恢复行为 |
+| Deployment | 直接真机训练与评估（7 种配置），无 sim2real gap；推理 73ms@RTX 4090 |
+
 ## 核心技术
 
 1. **Flow Matching 动作生成** — 用连续归一化流替代扩散模型，将动作去噪建模为 ODE 求解，10 步推理生成 SE(3) 连续动作
@@ -70,6 +89,34 @@ graph TD
 - 微调后执行复杂长序任务：洗衣折叠（从烘干机取出 → 装篮 → 运到折叠桌 → 折叠多件衣物）、组装盒子、擦桌子
 - 支持高频精细动作（10Hz+ 推理）
 - VLM 提供语义 grounding，action expert 提供精准动作
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 2-3 路 RGB + 关节状态 $q_t$（维度随机器人 7/8/14） | 机器人设置(p6)、附录(p11) |
+| 动作空间 | 连续关节空间（7/8/14 维），动作 chunk | p6 |
+| 控制频率 | 20Hz(UR5e/Franka) 或 50Hz(其余机器人) | 附录(p16) |
+| 重规划频率 | 每 0.8s 执行 16 步(20Hz) 或每 0.5s 执行 25 步(50Hz)，chunk 开环执行 | 附录(p16) |
+| 动作 horizon | H=50 | 附录(p15) |
+| 数据 | 预训练 10000h 自采遥操作数据 + OXE/DROID/Bridge；微调每任务 5-100h | 摘要、附录(p11) |
+| 奖励 | 无(RL-free)：flow matching BC 损失 | 方法节(p4) |
+| Reset | 未报告 | 附录未披露 |
+| 成功定义 | 每任务点数制（bussing 按 7/12 物品各计 1 分；衬衫折叠二元判定），归一化 0-1 分 | 附录(p14-16) |
+| 评估次数 | out-of-box 每任务 10 episodes；衬衫折叠 5 件×2 次（每件 ≤5min/15000 步） | p7、附录(p14) |
+| 随机种子 | 未报告 | 附录未披露 |
+| 扰动测试 | 未报告（无显式扰动实验） | 附录未披露 |
+| 真机 | 7 种配置全真机预训练+评测；微调评测 20+ 任务 | p5-7 |
+| 算力 | 推理 73ms@RTX 4090（Table I 含逐模块分解）；训练硬件未报告 | 附录 Table I(p16) |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯 BC 式 flow matching 损失）
+- reset 难度：未报告
+- eval budget：out-of-box 每任务 10 episodes，规模偏小但跨任务一致
+- 底层控制栈：无强 controller/planner 兜底，chunk 开环执行
+- 数据优势：有——10000h 自采数据远超基线；compute-parity 消融（160k 步）部分缓解此质疑
 
 ## 消融实验与分析
 

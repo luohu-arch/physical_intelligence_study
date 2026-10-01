@@ -12,6 +12,25 @@
 
 浙江大学 + Simplex AI + 香港理工的 LiteResearcher 论证：deep research 的 agentic RL 扩不动，瓶颈不在 RL 范式本身，而在"手工合成数据引不出真实搜索能力 + 真实联网训练又贵又抖"这一对耦合难题。它构建一个**镜像真实网络结构、执行上完全隔离**的 lite virtual world——约 3,200 万页真实网页语料、本地搜索引擎（约 0.15 s/query）与本地浏览工具（约 0.17 s/page）——配合难度感知课程 RL，让 Qwen3-4B-Thinking 基座在 73.2M 次本地工具调用（线上等价成本 $59K-$243K，本地零边际成本）上稳定训练 700+ 步：LiteResearcher-4B 在 GAIA 71.3%、Xbench-DS 78.0%，均为开源 SOTA，超过 8 倍大的 Tongyi DeepResearch 30B（70.9%/75.0%）与 Claude-4.5-Sonnet（71.2%/66.0%），Xbench 上甚至压过 GPT-5-high（77.8%）。
 
+## 九问速览
+
+1. **Problem**：deep research 的 agentic RL 扩不动：手工合成数据引不出真实搜索力，真实联网又贵又抖。
+2. **Bottleneck**：在线环境奖励噪声大（同期在线训练对照仅 +3.8pp）；窄本地语料切断学习梯度。
+3. **Insight**：RL 要的环境不是「真实」而是「可信」——真实数据供分布、隔离执行供稳定性、课程供梯度。
+4. **Method**：约 3,200 万页本地镜像世界（0.15s/查询）+ source masking 合成 + pass@8 难度课程 + 严格 on-policy GRPO。
+5. **Evidence**：4B 在 GAIA-Text 71.3%、Xbench-DS 78.0%，超 8 倍大的 Tongyi 30B（70.9%/75.0%）。
+6. **Ablation**：严格 on-policy +2.1pp；自合成数据 +8.1pp；两阶段课程突破单阶段平台 +3.6pp。
+7. **Assumption**：本地语料结构镜像真实网络；LLM judge（Qwen3-30B）判答案等价可靠；任务可合成。
+8. **Failure**：BrowseComp 27.5% 远落后 30B 级 43.4%；非平稳信息过期被排除在训练外；RL 算力未报。
+9. **Opportunity**：过程奖励（dataprm 式）、非平稳环境训练、检索保真与吞吐折中均未解决。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | agent 见 query + 搜索摘要/URL 列表 + 页面条件摘要（本地引擎约 0.15s/查询） |
+| Closed-loop | 每步 Search/Browse 即时反馈；二值终局奖励由 LLM judge 判语义等价 |
+| Correction | 无显式 retry；RL 自发消除重复搜索（截断率 0.28→0.02、响应 -33%） |
+| Deployment | 本地确定性环境训练，评测全部换线上 API（Serper+Jina）——迁移靠评测端检验 |
+
 ## 核心技术
 
 ![lite-researcher 架构图](figures/lite-researcher/fig2.png)
@@ -87,6 +106,34 @@ graph TD
 - **多跳 QA 合成**（附录 A.3）：从种子实体建知识图（$N_{\max}=8$ 节点，每实体 $K_{\mathrm{feat}}=2$ 个事实特征、扩展 $K_{\mathrm{ent}}=2$ 个新实体，排除通用概念与媒体源），BFS 采 6 节点连通子图（加 Uniform(0, 0.5) 扰动），反向生成约束式问题（边转含糊指称，如 "a late antique writer"），产出需 3-5 跳推理的信息极小问题。
 - **评测协议**：8 个基准（GAIA-Text、BrowseComp、BrowseComp-ZH、HLE、Frames、WebWalker、Seal-0、Xbench-DeepSearch-2505），评测用线上 API（Serper 搜索 + Jina 浏览），与 prior work 同工具配置；BrowseComp 随机抽 400 例。128K 上下文为默认配置；带 `*` 的结果（BrowseComp 27.5%、Browse-ZH 32.5%）用 64K 上下文 + 记忆机制（到顶后调摘要模型把每个历史工具交互压成一句）。
 - **实操要点**：GAIA-Text 是论文使用的列名，与完整 GAIA 基准（含多模态样本）的关系文中未明确说明（待确认：是否为纯文本子集需对照 benchmark 官方定义）；Fig. 4 图内标注 +3.5% 而正文写 +3.6%（68.3 - 64.7 = 3.6），引用时以正文为准。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 文本：query + 检索片段 + Browse 条件摘要；响应上限 32K→48K token | Table 11 |
+| 动作空间 | 两个原语：Search(q') / Browse(u, q')，信息足够后终止作答 | 第 3 节 |
+| 控制频率 | 本地搜索约 0.15s/查询、浏览约 0.17s/页（比在线快约 10-46 倍） | 第 3 节 |
+| 重规划频率 | 每步思考→动作→观察循环；最大 assistant 轮数 40→60 | Table 11 |
+| 动作 horizon | RL 共 723 步训练；每 episode ≤40/60 轮；max prompt 1,024 | 第 4 节 |
+| 数据 | RL 26,597 条（Stage 1 10,398 + Stage 2 16,199，过滤后）；SFT 68,231 轨迹 | Table 10 |
+| 奖励 | 二值最终答案正确性（Qwen3-30B-A3B-Instruct judge 判语义等价） | 第 3 节 |
+| Reset | 本地环境确定性：同一 query 永远返回同一结果 | 第 3 节 |
+| 成功定义 | GAIA-Text/Xbench-DS 等 8 基准准确率；BrowseComp 随机抽 400 例 | 第 5 节 |
+| 评估次数 | 8 基准（评测全换线上 API）；行为曲线 420 步监控 | 第 5 节 |
+| 随机种子 | rollout 温度 0.7→1.0、top-p 0.95；seed 数未报告 | 未报告 |
+| 扰动测试 | 无显式扰动；评测从本地切线上 API 本身即环境迁移测试 | 第 5 节 |
+| 真机 | 不适用（软件 deep research agent） | — |
+| 算力 | SFT 8×H100（DeepSpeed ZeRO-2）；RL 阶段 GPU 数量与时长未报告 | 第 4 节 |
+| 特权信息 | judge 为 LLM（Qwen3-30B）按语义等价对 gold 答案判分；语料侧做 source masking 删 QA 出处防捷径 | 第 3 节 |
+
+**附录陷阱自查**：
+- privileged 信息：judge 看 gold 答案做语义等价判定（非 oracle 状态）；训练奖励同一 judge，其偏差构成隐性上界（作者自认）。
+- reward shaping：纯二值 outcome，无过程奖励（对照 dataprm 线）。
+- reset 难度：本地确定性环境是刻意设计（换真环境训练即失去该前提）。
+- eval budget：8 基准单次评测，重复次数/seed 未报告。
+- 底层控制栈：BGE-M3 + Milvus + DiskANN 本地检索栈；训练时无外部搜索兜底。
+- 数据优势：自合成语料与课程引擎是主要优势；对照 AgentCPM-Explore 同为 4B 在线训练（同量级公平）。
 
 ## 消融实验与分析
 

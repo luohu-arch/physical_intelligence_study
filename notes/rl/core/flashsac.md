@@ -10,6 +10,25 @@
 
 FlashSAC 将 scaling law 引入 off-policy RL：用更大模型（2.5M）配合极低更新频率（2 次梯度更新/1024 步数据）、大 batch（2048）和大 replay buffer（10^7），加 RMSNorm + 预激活 BN + 权重归一化防止 bootstrapping 崩溃。60+ 任务 10 个仿真器全面超越 PPO/SAC/TD3/REDQ，人形机器人在 Unitree G1 上 sim-to-real <20 分钟。RSS 2026 Best Paper。
 
+## 九问速览
+
+1. **Problem**：off-policy RL（SAC/TD3/REDQ）在高维机器人控制上不稳定、收敛慢，撑不起 sim-to-real。
+2. **Bottleneck**：高 UTD 下 bootstrapping 误差沿时间递归放大导致 critic 发散；旧配方只能小模型+频繁更新。
+3. **Insight**：LLM 的 scaling law（大模型+大 batch+低更新率）可搬进 off-policy RL，范数约束能驯服 bootstrapping。
+4. **Method**：2.5M 模型+UTD 2/1024+batch 2048+buffer 10M；权重/特征/梯度三重范数约束+分布 critic；Zeta 噪声重复探索。
+5. **Evidence**：60+ 任务、10 个仿真器全面超 PPO/SAC/TD3/REDQ；G1 平地 sim-to-real 约 20 min（PPO 约 3 h）。
+6. **Ablation**：MLP→各归一化逐级叠加均降 critic 条件数；buffer 10M 最优（50M 反噬）；低 UTD 与大容量协同。
+7. **Assumption**：高吞吐 GPU 仿真（1024 并行 env）；单套超参跨任务成立；sim-to-real 仍靠手工 reward+DR。
+8. **Failure**：buffer 过大变慢；接触丰富操作（灵巧手拧螺丝类）未验证；UTD 正文 2/1024 与附录表 2/2048 记法不一致。
+9. **Opportunity**：更高 UTD 与稳定化机制的组合、动态接触任务验证、buffer 容量与任务规模的 scaling 律。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 纯本体感知（盲走 locomotion：角速度、关节位置/速度、投影重力、上一动作、速度指令+CENet 历史编码）；视觉版另测 |
+| Closed-loop | 闭环：50 Hz 每步在线推理反馈 |
+| Correction | 无显式 retry/恢复机制；地形课程随通过率自适应升难度 |
+| Deployment | IsaacLab 仿真（4096 env）→ Unitree G1 真机零微调直接部署；策略 50 Hz、底层 PD 200 Hz |
+
 ## 核心技术
 
 ![flashsac 架构图](figures/flashsac/fig2.png)
@@ -71,6 +90,34 @@ $$
 - **探索**：Noise Repetition（Zeta 分布 s=2，最长重复 16 步）+ 统一熵目标 σ_tgt=0.15
 - **工程优化**：PyTorch JIT 编译 + 全流程混合精度（省 5-10% wall-clock）
 - **硬件**：sim-to-real 在 4096 并行环境中约 4h 完成训练（单张 A100），策略直接部署、无微调；50 Hz 输出目标关节位置，低层 PD 控制器 200 Hz
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 本体感知向量（公式 8：ω、q、q̇、投影重力、上一动作、速度指令）；视觉任务 84×84×9 帧堆叠 | 附录 D.0.4 / Table 11 |
+| 动作空间 | 连续目标关节位置（n-step=1）；无 chunk | 附录 Table 9 |
+| 控制频率 | 策略 50 Hz / 底层 PD 控制器 200 Hz | 附录 D.0.2 |
+| 重规划频率 | 每步（50 Hz 在线推理） | 附录 D.0.2 |
+| 动作 horizon | 单步；基准任务训练 1M 环境步（视觉任务 action repeat 2） | Sec 5 / Table 11 |
+| 数据 | 无 demo；GPU 仿真 1024 并行 env（基准）/4096 env（sim-to-real）自生成 | 附录 Table 9 / D.0.1 |
+| 奖励 | dense：速度跟踪任务奖励+足滑/关节力矩/动作率/姿态正则；FlashSAC 仅最小存活奖励，PPO 需终止惩罚（两算法权重不同） | 附录 D.0.5 / Table 14 |
+| Reset | 仿真自动（并行 env 集体重置） | |
+| 成功定义 | 各 benchmark 任务分数/行走距离，无统一成功判据 | |
+| 评估次数 | 未报告固定 eval episodes（以学习曲线聚合呈现） | |
+| 随机种子 | "多随机种子取平均"（具体数量未报告） | 图 3 等图注 |
+| 扰动测试 | 域随机化+5 类地形（楼梯/网格/波浪/坑）10 级课程；楼梯测试用训练未见过的 15cm 台阶 | 附录 D.0.3 |
+| 真机 | Unitree G1（29-DoF）：平地 ~20 min（PPO ~3 h）、楼梯 ~4 h（PPO ~20 h），零微调 | 附录 D |
+| 算力 | 基准曲线：RTX 5090 + Ryzen 9 9950X3D；sim-to-real：4096 env 单张 A100 约 4 h | 附录 A / D.0.1 |
+| 特权信息 | 有：asymmetric actor-critic——critic 额外吃真值底盘线速度、足接触状态、高度图；actor 侧 CENet 隐式系统辨识 | 附录 D.0.4 |
+
+**附录陷阱自查**：
+- privileged 信息：有（asymmetric AC：critic 吃 GT 线速度/足接触/高度图——笔记正文未提，附录 D.0.4 才披露）
+- reward shaping：dense 任务奖励+多项正则；且 PPO 与 FlashSAC 用不同 reward 权重才都能稳定（Table 14）
+- reset 难度：正常（并行自动 reset）
+- eval budget：学习曲线制，未见固定评估 episodes
+- 底层控制栈：有：200 Hz PD（Kp/Kd 启发式设定，Table 12 列全关节参数）
+- 数据优势：与 baseline 同 env 数对比公平；sim-to-real 用 4096 env 约 4h
 
 ## 消融实验与分析
 

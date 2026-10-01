@@ -10,6 +10,25 @@
 
 把工作空间表示成一堆带可学习 latent 特征的 neural points：离线学好的特征在执行期完全冻结，只靠 object-level SE(3) 跟踪挪环境点、靠 forward kinematics 摆机器人点，从而得到一张随时间演化的 4D 地图；再从多个参考系与尺度 tokenize 出 8 个 map token 喂给 π0.5，让策略同时获得 allocentric（我在场景哪）与 egocentric（手够不够得着）两种推理——BEHAVIOR-1K 三任务平均任务进度从 image-only 的 44.0% 提到 58.7%（Abstract/Table 1）。
 
+## 九问速览
+
+1. **Problem**：长时程移动操作中策略需持续回答「我在哪/什么变了/进度几成」，image-only 短视距推不动这三个问题
+2. **Bottleneck**：已有 3D 特征图只建模静态环境且不含机器人本体；栅格地图无「物体」概念，一动就整片重涂
+3. **Insight**：语义是慢变量、位置是快变量——特征冻结给身份，刚体 SE(3)/FK 闭式几何给运动，两者分工
+4. **Method**：neural points（坐标显式+特征冻结）在线只挪坐标；8 分支 map token（本体/环境多尺度）条件化 π0.5
+5. **Evidence**：BEHAVIOR-1K 三任务平均进度 44.0%→58.7%；脱手落物恢复 65%→95%；未访问区域 OOD +23.0
+6. **Ablation**：去地图掉 14-17pts 最大；静态→时序更新 Task22 +6.5；去 end-effector/robot-only token 各 −6.1 最痛
+7. **Assumption**：prior map 执行前预学；仿真器特权实例标签（非真实分割）；物体刚体假设
+8. **Failure**：铰接/柔性物（抽屉、布料）超出 SE(3) 表达；外观巨变（撕开的包装）特征冻结失明；chunk 内地图过期
+9. **Opportunity**：SAM2 替换特权标签的退化量化、articulation 模型扩展、事件差分 token、显式探索规划器级联
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | RGB-D（DINOv3 480×480）+ 相机位姿 + 本体状态 + prior map 特权实例标签；无触觉 |
+| Closed-loop | 闭环：每 query（非每控制步）重算 map token，20 步 Euler 出 30 步 chunk 保留 26 步 |
+| Correction | 有：脱手落物零样本恢复（95%）——掉落物在图上仍有带语义的点可重定位 |
+| Deployment | BEHAVIOR-1K 仿真内训练与评测；依赖预建 prior map 与仿真特权标签，真机未验证 |
+
 ## 核心技术
 
 ![serf 架构图](figures/serf/fig4.png)
@@ -99,6 +118,34 @@ flowchart TB
 - **评测协议（Appendix G/H）**：Task 21 收玩具（7 个目标物，4.4×3.0 m，最长 38,372 步）、Task 22 鞋上架（5.5×9.0 m，15,384 步）、Task 26 组装礼篮（20 个物件，7.6×8.8 m，52,120 步）；每任务训练 200 条专家演示、评测 20 个配置；指标是 BDDL 子目标完成比例（task progress %），不是二值成功率。
 - **失败恢复诱导协议**：运输途中强制张开夹爪使物体坠出视野，两个 policy 从同一 post-drop 状态继续；演示数据不含恢复情形，成功与否考察的是超出示教分布的泛化。
 - **诚实披露的前提假设（Limitations）**：依赖执行前预学的 prior map（特征不能从零流式建立）+ **仿真器特权实例标签**（非真实分割）；作者明言所有对比应理解为"在这些假设下加入空间记忆的收益"，而非严格同输入信号的比较。他们指出 MISO 式 feed-forward 编码器和 SAM 2 是两条替代路径。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | RGB-D + 相机位姿（back-project 到世界系）+ prior map；DINOv3 480×480 patch embedding | 附录 A/B |
+| 动作空间 | 连续动作 chunk，action horizon 30、动作维 32（π0.5 双臂），flow matching | §4 |
+| 控制频率 | 未以 Hz 报告；30 步 chunk 保留前 26 步重采样为 20 条控制指令 | §4 |
+| 重规划频率 | 每个 policy query 重算一次 map token（chunk 执行期间不更新） | §4 |
+| 动作 horizon | H=30（执行 26/重采样 20） | §4 |
+| 数据 | 每任务 200 条专家演示（BEHAVIOR-1K）；环境特征离线预学（预执行观测+机器人多视角渲染） | 附录 G |
+| 奖励 | 无 RL：重建 + 对比学习（建图）→ flow matching BC（策略） | §3-4 |
+| Reset | 每任务评测 20 个配置（初始布置变化） | 附录 G/H |
+| 成功定义 | BDDL 子目标完成比例（task progress %，非二值成功率），20 配置均值±std | Table 1 |
+| 评估次数 | 每任务 20 个配置/episodes | Table 1、Fig.6/7 |
+| 随机种子 | 未报告（以配置方差 ±std 呈现） | Table 1 |
+| 扰动测试 | 有：OOD 书架搬家/追加物体/未访问区域 + 强制脱手落物恢复协议 | Fig.6/7 |
+| 真机 | 无（纯 BEHAVIOR-1K 仿真） | — |
+| 算力 | 未报告（Point Transformer 推理成本论文明确说未量化） | Limitations |
+| 特权信息 | 有：仿真器实例标签（非真实分割）、prior map、BDDL 任务过滤背景；作者自述对比是「这些假设下的收益」 | Limitations |
+
+**附录陷阱自查**：
+- privileged 信息：重——仿真器实例标签直接喂给跟踪/过滤/筛选全链路；作者诚实披露基线对比非严格同输入
+- reward shaping：无（RL-free）
+- reset 难度：20 配置含布置变化，正常
+- eval budget：每任务 20 配置，方差 ±20 上下——排序结论是趋势而非精确差值
+- 底层控制栈：π0.5 flow-matching 动作头 + 底层执行；SE(3)/FK 闭式几何是强经典先验兜底
+- 数据优势：所有变体共享同一 π0.5 主干与训练设置，唯一差别 map token——归因干净，但 map 管线本身用了特权标签
 
 ## 消融实验与分析
 

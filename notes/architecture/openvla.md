@@ -9,6 +9,25 @@
 
 OpenVLA 是首个完全开源、可商用、性能比肩闭源 RT-2 的 7B 级端到端 VLA 模型，基于双视觉编码器（DINOv2+SigLIP）和 Llama 2 7B 骨干，在 Open X-Embodiment 97 万条轨迹上预训练，通过 LoRA 实现消费级 GPU 低成本微调。
 
+## 九问速览
+
+1. **Problem**：构建开源可商用、消费级 GPU 可微调部署、性能比肩闭源 RT-2 的通用 VLA
+2. **Bottleneck**：此前 VLA（RT-2 55B）闭源且过大；Octo/RT-1-X 无互联网预训练语义，OOD 泛化差
+3. **Insight**：复用开源 VLM（Llama 2）预训练 + 双视觉编码器（SigLIP 语义/DINOv2 空间互补），7B 小模型也能逼近闭源上界
+4. **Method**：DINOv2+SigLIP 融合特征 + Llama 2 7B 自回归输出 256 档离散动作；970k OpenX 轨迹预训练；LoRA 微调
+5. **Evidence**：29 个评测任务平均超 RT-2-X 16.5% 绝对成功率；Bridge 微调后 8 任务平均 76.3%
+6. **Ablation**：去 OpenX 预训练 76.3%→45.6%（-30.7）；去 DINOv2 再降 5.0；int4 量化 68.8%≈bf16 70.0%
+7. **Assumption**：单张第三方 RGB+语言即可描述任务；256 档离散动作精度够用；评测平台与 OpenX 分布相近
+8. **Failure**：无本体感知、单步动作无 chunking——高频精细任务弱于扩散策略（论文自述可受益于 chunking）
+9. **Opportunity**：多视角+本体输入、动作 chunking、更高频控制是论文明示的改进方向
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 单路 224×224 RGB + 语言指令；无本体感知、无深度/触觉 |
+| Closed-loop | 闭环但每步只预测 1 个动作（无 chunking）；未优化推理 6Hz@RTX 4090 |
+| Correction | 无显式机制；定性观察到可从抓取不牢等失误中恢复 |
+| Deployment | OpenX 真机数据训练；WidowX/Google Robot/Franka 真机评测；新任务微调仅需 10-150 条 demo |
+
 ## 核心技术
 
 1. **双视觉编码器（DINOv2 + SigLIP）** — SigLIP 提取语义特征以支撑常识推理，DINOv2 提取空间几何特征以支撑精细操作，二者融合实现语义与空间的双重精准感知
@@ -88,6 +107,34 @@ OpenVLA 像一个"会看图的通用翻译官"——看一张操作场景的图�
 **2. 部署优化**：采用 INT4 量化 + KV-Cache 优化后，7B 模型可在单张 RTX 4070Ti GPU 上实现 10Hz 的实时推理，满足工业落地要求。
 
 **3. 核心性能**：零样本场景下，在 WidowX、UR5、RT-1 机器人上的表现比肩 550 亿参数的闭源 RT-2-X 模型，平均成功率超越 Octo 与 RT-1-X。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 单路 224×224 RGB + 语言指令；无本体感知 | p6、附录(Diffusion Policy matched 对照) |
+| 动作空间 | 7 维离散化（256 bins）delta EE 位姿+夹爪；无 chunk（每步 1 动作） | p4、p9 |
+| 控制频率 | 未优化 6Hz@RTX 4090（量化后更高）；Franka 实验用 5Hz/15Hz 两档控制器 | p6、p9 |
+| 重规划频率 | 每步重规划（单动作预测；对照 chunking 基线 T=16 执行 8@15Hz、T=8 执行 3@5Hz） | p9 |
+| 动作 horizon | H=1（无动作分块） | p9 |
+| 数据 | 预训练 970k OpenX 轨迹（vs RT-2-X 350k）；微调每任务 10-150 条 demo（遥操作） | p1、p8、附录C |
+| 奖励 | 无(RL-free)：下一 token 交叉熵 | p4 |
+| Reset | 未报告；A/B 评测用相同初始机器人/物体状态 | p8 |
+| 成功定义 | 任务级二元成功率（正确操作目标物体并完成放置） | p7-8 |
+| 评估次数 | Bridge V2 17 任务×10 次=170 rollout；Google Robot 12 任务×5 次=60 rollout | p7 |
+| 随机种子 | 未报告（报告 StdErr） | 附录未披露 |
+| 扰动测试 | 有：视觉（未见背景/干扰物/外观）、运动、物理、语义四轴 OOD 泛化任务 | p7 |
+| 真机 | WidowX、Google Robot、Franka-Tabletop、Franka-DROID 全真机评测 | p7-9 |
+| 算力 | 预训练 64×A100×14 天=21,500 A100 时（batch 2048）；全量微调 8×A100×5-15h；LoRA 1×A100×10-15h；推理 15GB 显存 | p6、p10 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯 BC token 预测）
+- reset 难度：未报告；但 A/B 评测固定相同初始状态，利于公平对比
+- eval budget：充足（170+60 rollout；Bridge 每任务 10 次）
+- 底层控制栈：无 planner；WidowX 用低级 EE 位置控制
+- 数据优势：有——970k vs RT-2-X 350k 轨迹且做了清洗过滤（论文自述是超 RT-2-X 的部分原因）
 
 ## 消融实验与分析
 

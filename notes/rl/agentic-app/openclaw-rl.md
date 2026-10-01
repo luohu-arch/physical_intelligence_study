@@ -12,6 +12,25 @@
 
 把 agent 每次交互自然产生的**下一状态信号**（next-state signal：用户回复、工具输出、终端或 GUI 状态变化）就地转化为两类互补训练信号——评价性（标量 PRM 投票）与指导性（token 级 hint 蒸馏）——通过 server-client 异步架构实现**部署中在线学习**：agent 被使用就在变强，联合优化下约 10.3 个会话即可对齐用户偏好。
 
+## 九问速览
+
+1. **Problem**：agent 训练数据采集与部署脱节——RLHF 要专门造标注，部署流量本身未被利用。
+2. **Bottleneck**：纯 GRPO 信号薄（整回合压一个标量）；纯蒸馏信号稀（不是每步都有修正）。
+3. **Insight**：下一状态信号是免费裁判——用户回复/工具输出天然给分，还能蒸馏成 token 级 hint。
+4. **Method**：server-client 异步四组件 + PRM 标量投票与 overlap 选择 hint 蒸馏的混合目标。
+5. **Evidence**：偏好对齐混合 RL 10.3 会话 vs GRPO 14.1、Mem0 14.5；joint 下 15.0→10.3。
+6. **Ablation**：随机选 hint 比不用还差（OPD 29.9）；top-k 宽度 k≥4 饱和；overlap 支撑集掉分（21.3 vs 10.3）。
+7. **Assumption**：PRM 质量可靠；hint 不泄漏答案（prompt 硬约束）；用户反馈非恶意。
+8. **Failure**：恶意/误导反馈可直接污染权重（作者自认）；策略 ≤8B、偏好任务浅（风格/格式层）。
+9. **Opportunity**：对抗反馈过滤、异构强教师的 overlap 准则、跨 session 组基线均未做。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | agent 见用户消息、工具输出、终端或 GUI 状态变化——下一状态本身就是反馈源 |
+| Closed-loop | PRM 每回合即时投票 (+1/-1/0)；下一状态含可提取修正时蒸馏成 [HINT] 包裹的指导信号 |
+| Correction | hint 蒸馏给 token 级方向修正；Δ clip 封顶纠正力度，防 log-prob 差 ±16 的离群主导 |
+| Deployment | 模拟用户（Qwen3-32B 三角色）+ 云端 terminal/GUI/SWE/tool-call 环境（128/64/64/32 并行） |
+
 ## 核心技术
 
 ![openclaw-rl 架构图](figures/openclaw-rl/fig3.png)
@@ -83,6 +102,34 @@ $\rho_v = \exp(\ell_{cur}(v) - \ell_{old}(v))$ 是逐步重要性比率。直觉
 - **PRM 提示词设计要点**（附录 A.7 全文给出）：评价性 prompt 明确"修改请求就是负反馈，不要当成中性新指令"；hint 提取 prompt 强制"hint 不得引用/复述下一状态内容、不得包含答案数字、单句、抽象"——防泄漏是硬约束，违规宁可不输出 hint。
 - **复现入口**：基于 slime 异步框架（THUDM），开源在 Gen-Verse/OpenClaw-RL。
 - **评测协议**：三个模拟用户（student/TA/teacher，Qwen3-32B 扮演，GSM8K 任务，session 上限 72）；判定"已对齐"= 首条硬编码消息（不含偏好信息）的响应连续 3 个会话满足偏好。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 用户/环境下一状态信号（回复、工具输出、终端/GUI 变化）；上下文 16,384 token | 附录 A |
+| 动作空间 | 主线回合 = 文本响应 + 工具调用（可训练）；侧线回合只转发不训练 | 第 3 节 |
+| 控制频率 | 不适用（异步流式）；个人场景攒 16 样本触发一次异步训练 | 第 4 节 |
+| 重规划频率 | 每回合 PRM 判定；步级奖励按同 step index 分组标准化 | 第 3 节 |
+| 动作 horizon | 最大交互步 30（GUI）/20（SWE）/10（terminal）；响应 8,192 token | 附录 A |
+| 数据 | 部署交互流自生成：GSM8K 任务 × 3 模拟用户（student/TA/teacher），session 上限 72 | 第 5 节 |
+| 奖励 | PRM m 次投票 r_t∈{+1,-1,0}（m=3 GUI/1 其他）+ hint 蒸馏 token 优势；步级 o+Σr_i/m | 第 3 节 |
+| Reset | 会话级自然开始（session id 解复用多用户并发流） | 第 3 节 |
+| 成功定义 | 偏好对齐 = 首条硬编码消息响应连续 3 会话满足偏好；AIME 20 次独立运行均值 | 第 5 节 |
+| 评估次数 | 对齐实验 5 次试验均值；AIME 20 次独立运行 | 第 5 节/附录 |
+| 随机种子 | 未报告 seed 数；采样温度 1.0（RL）/0.6（PRM judge 与 AIME 评估） | 附录 A |
+| 扰动测试 | 无显式扰动；恶意反馈仅列为挑战未实验 | 第 6 节 |
+| 真机 | 不适用（个人/软件 agent） | — |
+| 算力 | 8 GPU：policy actor 4（Megatron）+ policy server 2（SGLang）+ PRM actor 1 + PRM server 1 | 第 4 节 |
+| 特权信息 | PRM 判分看下一状态信号而非 gold 答案；hint 被 prompt 硬约束「不得复述下一状态/含答案数字」 | 附录 A |
+
+**附录陷阱自查**：
+- privileged 信息：PRM 用下一状态反应打分（非参考答案）；hint 防泄漏全靠 prompt 硬规则，无形式化信息论检验（作者留白）。
+- reward shaping：步级 PRM 奖励为过程信号（o+Σr_i/m）；0.5 分式的探索保护不涉及——但 PRM 本身可被 4B/8B 互换（12.3 vs 12.5）。
+- reset 难度：会话级自然开始，无环境重置问题。
+- eval budget：对齐 5 次试验；单响应场景优势退化为原始 r_t（方差大，作者未处理）。
+- 底层控制栈：slime 异步框架 + SGLang 无状态 API + Megatron 训练引擎，四组件零服务中断换权重。
+- 数据优势：模拟用户为 Qwen3-32B（强于 4B policy）；偏好判定用硬编码规则（客观，非 LLM 自评）。
 
 ## 消融实验与分析
 

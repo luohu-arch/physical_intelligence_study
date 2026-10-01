@@ -11,6 +11,25 @@
 
 WholeBodyVLA 在 AgiBot X2 人形上实现首个大空间端到端 loco-manipulation：用一个 VQ-VAE 式的 manipulation LAM（学自 AgiBot World）与一个 locomotion LAM（学自自采 300 小时单人头戴相机 egocentric 视频）分别把无动作视频压成离散 latent 动作，VLM 主干（Prismatic-7B 初始化）联合预测两类 latent token，再由轻量 decoder 落到上身关节角 + 三元离散移动指令 $[s_x, s_y, s_\psi, h^*]$，最后由 Loco-Manipulation-Oriented（LMO）RL 控制器以 50 Hz 执行。三任务套件平均成功率 78.0%，比 OpenVLA-OFT w/ LMO 高 21.3 个点、比速度跟踪 RL 版本高 24.0 个点；去掉 latent 预训练直接掉到 39.3%。
 
+## 九问速览
+
+1. **Problem**：人形大空间 loco-manipulation 缺大规模全身遥操作数据，且 VLA 决策频率与下身控制需求错位
+2. **Bottleneck**：人形遥操作昂贵稀缺；操作视频与行走视频的相机运动假设冲突，混合训单一 LAM 产生歧义 latent
+3. **Insight**：无动作视频可按"相机静止/移动"分两路压成离散 latent 动作；下身只需离散方向指令+目标站姿而非速度跟踪
+4. **Method**：manipulation/locomotion 双 LAM 监督 Prismatic-7B 联合预测；轻量 decoder 出上身关节+移动指令，LMO RL 50Hz 执行
+5. **Evidence**：三任务六子目标平均 78.0%（每子目标 25 trials），超 OpenVLA-OFT w/ LMO 21.3 点、速度跟踪 RL 版 24.0 点
+6. **Ablation**：去掉 latent 预训练掉到 39.3%（-38.7 点）；分离 LAM 的 RRG 全面高于 shared（Grasp 21.78 vs 19.70）
+7. **Assumption**：头戴相机行走视频可迁移到人形步态；LMO 控制器仿真训练后跨真机保持；~10Hz VLA 决策够用
+8. **Failure**：崎岖地形穿越仅 32.0%；速度精细跟踪类能力受限；proprio 消融出现方向反常且无显著性检验
+9. **Opportunity**：更高频决策接口、地形鲁棒性、更多本体形态与真实接触丰富场景待扩展
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 头部 RealSense D435i 第一人称单目 RGB + 本体状态（上身关节）；D435i 为 RGB-D 相机但仅用 RGB；无触觉 |
+| Closed-loop | 分层闭环：VLA 约 10Hz（RTX 4090 工作站）+ LMO RL 50Hz（NanoPi 板载）经 ZeroMQ/Ethernet 流式衔接 |
+| Correction | 无显式重规划；离散指令 + tanh 软门控参考整形保证指令切换可预期、隐式约束加速度上界 |
+| Deployment | AgiBot World + 300h 自采 egocentric 视频预训练 → AgiBot X2 真机每任务 50 条 VR 遥操作微调（LoRA） |
+
 ## 核心技术
 
 1. **分离式统一潜在学习** — 分别训练 manipulation LAM 与 locomotion LAM：混合训练单一 LAM 会因「操作视频相机基本静止 vs 行走视频相机持续运动」产生冲突的注意力目标与歧义 latent 编码（同一个臂-环境相对位置变化，一个来源归因手、另一个来源归因相机）；两个 LAM 的离散 codebook 作为伪动作标签共同监督 VLA 训练
@@ -97,6 +116,34 @@ $$J_{dir} = \big| \mathrm{wrap}(\psi_{end} - \psi_{start}) \big|, \qquad J_{stan
 - **执行耗时**（Table 8，秒）：WholeBodyVLA 六个子目标 18.4 / 29.7 / 16.8 / 7.6 / 11.3 / 12.7，全面快于 GR00T w/ LMO（26.3 / 38.6 / …）与 OpenVLA-OFT w/ LMO（33.2 s 的 Rise & Turn 明显拖慢流程）；Modular Design 因人类接管导航部分环节更快（如 Move & Squat 23.0 vs 29.7）
 - **proprioceptive state 消融的反常现象**：Table 7 显示视觉扰动设置下去掉状态注入反而均分更高（76.7% vs 64.0%），正文以方差增大解释但数字方向相反，判读需谨慎，待确认：论文未给出该反常的显著性检验
 - **扩展任务成绩范围**：五项扩展场景（长时程多步、崎岖地形、擦污渍、吸尘、视觉导航标记跟随）成功率落在 32.0%~88.0% 区间，其中地形穿越最低（32.0%）、单任务-数值对应关系请对照原文 Fig. 3(c)，图中标注顺序存在排版歧义，待确认
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 头部 D435i 第一人称单目 RGB + 本体（上身关节）状态；AgiBot X2 平台（双臂各 7-DoF+夹爪、双腿 6-DoF、腰 1-DoF） | Sec.4.1、工程细节 |
+| 动作空间 | 上身 14 关节目标角（双臂各 7）+ 三元离散移动指令 $[s_x,s_y,s_\psi]$ + 目标站姿高度 $h^*$；下身力矩由 LMO RL 生成 | Sec.3 |
+| 控制频率 | VLA 约 10Hz；LMO RL 50Hz | Sec.3.3、摘要 |
+| 重规划频率 | 每 VLA 步重观测（10Hz 级）；移动指令经 EMA+tanh 平滑后由 RL 持续执行 | Sec.3 |
+| 动作 horizon | 未报告（decoder 输出上身关节目标，无明确 chunk 长度） | — |
+| 数据 | manipulation LAM：AgiBot World；locomotion LAM：自采约 300h 单人头戴相机 egocentric；微调每任务 50 条 VR 遥操作（Quest Pro+joystick） | Sec.3.2、4.1 |
+| 奖励 | VLA 无(RL-free)：双 latent 交叉熵 + 微调 L1；LMO RL：dense shaping（方向意图 1.5-2.0、垂直速度抑制、终止偏差 $J_{dir}$、能耗等，两阶段课程） | Table 4、Sec.3.3 |
+| Reset | MuJoCo 步态精度：5s 恒定指令 + 10s 归位期（误差仅归位期结算）；真机子目标按序评测 | 附录、工程细节 |
+| 成功定义 | 双盲独立评审员裁定子目标成败，失败按序传播（第一子目标败则第二记败） | Sec.4.1 |
+| 评估次数 | 每任务 2 子目标 × 25 trials（六子目标共 150）；扩展场景另计 | Table 2、Fig.3 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：RL 域随机化（质量/摩擦/推撞 0.5m/s/延迟）+ AgiBot 手臂轨迹回放结构化扰动（2.0×速/1.5×幅/150N 推力）；真机扩展含崎岖地形 | Table 5、工程细节 |
+| 真机 | 有：AgiBot X2 三任务套件 + 五项扩展场景（成功率 32.0-88.0%） | Sec.4.5 |
+| 算力 | LAM/VLA 训练 8×H100（VLA 预训练 20k 步 batch 1024、LAM 30k 步 batch 256）；RL 单张 H100；部署 RTX 4090+NanoPi | 工程细节 |
+| 特权信息 | LMO RL 在 MuJoCo 仿真用真值状态与奖励训练（控制器侧特权）；VLA 训练/测试无特权输入 | Sec.3.3 |
+
+**附录陷阱自查**：
+- privileged 信息：有（下身 RL 控制器仿真训练用真值状态；sim2real 后固定）
+- reward shaping：LMO RL 重度 dense shaping（Table 4 十余项权重），且两阶段课程逐步加扰——控制器性能依赖该配方
+- reset 难度：正常；归位期结算设计合理
+- eval budget：每子目标 25 trials、双盲评审——规模偏小但协议严谨；无随机种子报告
+- 底层控制栈：有强兜底——50Hz LMO RL 控制器接管全部下身控制，VLA 只出离散指令（这是分层设计而非缺陷，但对比端到端基线时需注意接口差异）
+- 数据优势：无——遥操作数据每任务仅 50 条，主要靠廉价 egocentric 视频补量
 
 ## 消融实验与分析
 

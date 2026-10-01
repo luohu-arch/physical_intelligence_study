@@ -12,6 +12,25 @@
 
 这篇来自 Samsung Robotics eXperience 等机构的论文不做新系统、专做**受控消融**——把 WAM（世界-动作模型）的设计空间拆成三个正交轴（6 种视频-动作因果结构、8 种潜表征、4 种训练目标），在固定基座内逐轴做结构受控实验（ID 用 RoboCasa-GR1、OOD 用 LIBERO/LIBERO-Plus、真机数据用 DROID 离线验证），得到三个反直觉结论：(1) 生成未来对动作的影响主要走**时间组织**通道——最强内容腐蚀（强度 0.50）只改变动作预测 <1%，而时序反转在 OOD 下改变动作 12.79-14.36%、掉成功率 24.24-32.37%；(2) 帧间（inter-frame）潜表征利于 ID 控制、帧级（framewise）潜表征 OOD 更稳，两者排序在分布内外**完全反转**；(3) ID 场景下一切辅助目标都拖累 BC-only，但 BC+VG 把 OOD 从 77.96% 提到 81.22%，且分阶段训练（前 80% BC+VG、末 20% 加动力学）达到最高 83.15%。
 
+## 九问速览
+
+1. **Problem**：WAM 设计空间混乱——因果结构/潜表征/训练目标哪轴真正有效
+2. **Bottleneck**：系统论文混杂多变量，无法归因单一设计贡献
+3. **Insight**：生成未来对动作的影响主要走"时间组织"通道而非内容通道
+4. **Method**：固定基座内对 6 因果结构x8 潜表征x4 目标做结构受控消融
+5. **Evidence**：时序反转 OOD 掉 24.24-32.37%，最强内容腐蚀仅 <1%
+6. **Ablation**：帧间表征 ID 强/帧级 OOD 强（排序完全反转）；分阶段 83.15% 最高
+7. **Assumption**：所选基座与数据规模能代表 WAM 家族的典型行为
+8. **Failure**：结论依赖特定基座；ID 收益与 OOD 收益常相互冲突
+9. **Opportunity**：更大规模验证、真机在线闭环、内容通道深挖未做
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 多帧视频（LIBERO/RoboCasa-GR1/DROID 各自原生观测） |
+| Closed-loop | 离线训练+仿真评测（BC 式）；无执行反馈回路 |
+| Correction | 无执行校正（消融研究对象即"未来信息进动作"的通路） |
+| Deployment | RoboCasa-GR1（ID）/LIBERO-Plus（OOD）仿真；DROID 真机数据仅离线验证 |
+
 ## 核心技术
 
 ![what-matters-wam 架构图](figures/what-matters-wam/fig1.png)
@@ -84,6 +103,35 @@ $$\text{Accuracy}@\tau=\frac{|\{j:\lvert\hat{a}_j-a_j\rvert\le\tau,\;a_j\text{ v
 - **分类速查（复用价值高）**：DreamZero = Joint（chunk 内双模态联合去噪）；LingBot-VA 系 = Causally Interleaved（统一因果序列内时间排序；自回归 chunk 调度本身不定类）；Fast-WAM = Unconditional 一侧的框架基座（本论文因果轴全部在 Fast-WAM 框架内实例化，包括其 2603.16666 所质疑的"test-time future imagination"问题）。
 - **真机指标**：归一化动作空间的 MSE/L1（越低越好）与 Accuracy@0.1/0.5（越高越好）——若要在自己的 DROID 离线管线复现，这四个指标是论文给定的完整集合。
 - **代码/项目页**：待确认——论文未提供代码或项目页链接。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 多帧视频+动作 token（各基准原生输入） | 第 3 节 |
+| 动作空间 | 动作 chunk（WAM 标准） | 第 3 节 |
+| 控制频率 | 未报告 | PDF 未披露 |
+| 重规划频率 | 每 chunk | 第 3 节 |
+| 动作 horizon | 未报告 | PDF 未披露 |
+| 数据 | RoboCasa-GR1（ID）、LIBERO/LIBERO-Plus（OOD）、DROID（真机离线） | 第 4 节 |
+| 奖励 | 无（BC+辅助目标：视频生成 VG、动力学预测） | 第 3 节 |
+| Reset | 仿真自动 | 标准协议 |
+| 成功定义 | 成功率%（ID/OOD）；DROID 离线动作预测 MSE/L1/Acc@k | 第 4 节 |
+| 评估次数 | LIBERO 标准协议（具体次数未详报） | PDF 未详列 |
+| 随机种子 | 未报告 | PDF 未披露 |
+| 扰动测试 | 有：LIBERO-Plus 视角/光照扰动；内容腐蚀与时序反转策略内干预 | 第 4 节 |
+| 真机 | 无在线真机（DROID 为离线真机数据） | 第 4 节 |
+| 算力 | 未报告（PDF 无 GPU 信息） | PDF 未披露 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯模仿+辅助自监督目标）
+- reset 难度：正常
+- eval budget：标准基准
+- 底层控制栈：无
+- 数据优势：各配置同数据同基座受控对比（本文方法论核心）
+- 关键方法论发现：检查点全谱（10K-200K）一致性的 DROID 离线验证，避免单检查点侥幸
 
 ## 消融实验与分析
 

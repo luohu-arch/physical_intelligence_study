@@ -13,6 +13,25 @@
 
 Capek 0.5 是一个以"执行"为组织原则的具身 VLM：把机器人在执行循环中反复调用的能力分成 Spatial Reasoning、Temporal Understanding、Action Guidance、State Verification 四族，从同一个 Qwen backbone 各训一个 GRPO 专家，再用 TIES 权重合并 + routed MOPD 在线策略蒸馏压成单一推理模型（2B 与 35B-A3B 两个尺度）；34 个协议对齐基准行上 35B 赢 28 行、2B 赢 30 行，并在 EmbodiedBench 与 VIGIL 闭环仿真里验证能力能组合成任务成功。
 
+## 九问速览
+
+1. **Problem**：具身 VLM 需在执行循环中反复提供空间/时间/引导/核验四类能力，单模型联合 RL 梯度互相干扰
+2. **Bottleneck**：多能力联合训练优化干扰大、合并有损且不透明；现有基准几乎不测"执行后状态核验"
+3. **Insight**：按执行循环的信息需求（而非数据集）组织能力成四族，先专精再合并，能力获取与保留可分开审计
+4. **Method**：同一 Qwen backbone 各训一个 GRPO 专家，TIES 权重合并初始化 + routed MOPD 在线策略蒸馏成单一模型
+5. **Evidence**：35B 在 34 个对齐基准行赢 28 行（2B 赢 30 行）；EB-HAB 成功率 63.0%（+17.0），长时程子集 +26.0 点
+6. **Ablation**：同起点四列受控对照：Mix-RL 保留差、TIES 空间/时间强但 State 回退、MOPD 动作/状态最稳，TIES+MOPD 7/8 行优于 MOPD-only
+7. **Assumption**：能力须能写成可验证文本格式；四专家同构同源才可 TIES 合并；全部数字为厂商自报（内部设施统一重跑）
+8. **Failure**：合并非无损（StateBench-P 专家 80.00→合并后 76.80）；不输出低层动作，需搭配下游 policy；无真机证据
+9. **Opportunity**：action tools 未接入执行循环；柔性物操作等自由形态技能不在分类学覆盖内；VIGIL 虚报率仍剩 6.4 点
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 单图/视频（推理最多 64 帧、128K 上下文），无深度/本体状态/触觉——纯视觉语言推理核 |
+| Closed-loop | 半闭环：EmbodiedBench/VIGIL 仿真中按离散语义动作与环境交互，非连续控制、无控制频率概念 |
+| Correction | State Verification 族（PSV/PVE）显式输出"这步成没成/整体进度百分比+下一步"，供下游重规划 |
+| Deployment | 训练与评测全部在仿真/离线基准（AI2-THOR/ProcTHOR/Habitat/ALFRED），无真机迁移实验 |
+
 ## 核心技术
 
 ### Execution-centric 能力分类学
@@ -132,6 +151,34 @@ $$ \hat{A}^{MOPD}_{t} = \text{clip}\!\left( \text{sg}\!\left[ \log \frac{q_r(y_t
 - **待确认：2B track 的专家 GRPO manifest 只有"记录在其自身 run manifest 中"的表述，具体超参未在正文给出**。
 - **待确认：MOPD 的 $\varepsilon_{max}$、KL 系数 $\beta$、GRPO 的 clip 阈值 $\varepsilon$、G（每 prompt rollout 数为 8，但奖励归一化分组是否跨能力共享）等训练敏感量的具体取值未全部给出**。
 - **待确认：报告未提供真机闭环实验**，EmbodiedBench 与 VIGIL 均为仿真（AI2-THOR / ProcTHOR / ALFRED / Habitat 系），因此"执行中心能力能否迁移到物理机器人"没有直接证据。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 单图/视频（评测最多 64 帧，vLLM 128K 上下文自动截断） | 附录推理设置 |
+| 动作空间 | 不适用——输出点/框/有序轨迹/时间区间/状态判定等文本化中间量，不输出低层动作 | Sec.3 统一输出接口 |
+| 控制频率 | 不适用（无连续控制；闭环评测为离散语义动作） | — |
+| 重规划频率 | 不适用 | — |
+| 动作 horizon | 不适用 | — |
+| 数据 | 316,736 条 train-side 候选视图（Spatial 84.0K / Temporal 92.6K / Guidance 95.9K / State 44.2K）；State 族全部由 BEHAVIOR-1K 轨迹构造 | Sec.4 数据审计 |
+| 奖励 | GRPO：λ_fmt 格式硬解析奖励 + λ_acc 能力特定规则奖励（时间 IoU、Frechet 指数核、25 点截断进度等），非机器人 RL | Sec.4 奖励结构 |
+| Reset | 不适用（离线基准+仿真 episode 由基准自身提供） | — |
+| 成功定义 | 各基准官方指标：SR（EmbodiedBench）、W/B 分计（VIGIL）、s_T=(5s_p+4s_a)/9（StateBench-T） | Table 5/6、Sec.3 |
+| 评估次数 | EB-HAB/EB-AL 各 300 episodes（每子集 50）；VIGIL 1000 episodes（每族 125）；StateBench-P/T 各 500 例 | 5.4 节、附录 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 无 | — |
+| 真机 | 无——全部仿真（AI2-THOR/ProcTHOR/Habitat/ALFRED）或离线基准 | 5.4 节 |
+| 算力 | MOPD：12 张 actor GPU（TP2/EP4）+ rollout TP2；专家 GRPO TP2/EP8；总 GPU 时与训练时长未披露 | Table 7、附录 |
+| 特权信息 | 训练：State 族标签由仿真器状态+BDDL 目标条件在教师侧推导，模型只见检查点前的因果视觉前缀；评测：基准严格 held out | Sec.4 |
+
+**附录陷阱自查**：
+- privileged 信息：有（训练期）——State 标签来自仿真器真值状态，非模型可观测信息
+- reward shaping：重度依赖规则化 dense 奖励（IoU/指数核/截断进度），但仅作用于文本推理不涉及控制
+- reset 难度：不适用
+- eval budget：充足（300+1000 episodes 级）；但全部由厂商内部 DeepInsight 设施自跑，无第三方复核
+- 底层控制栈：无——模型不输出动作，闭环评测用基准自带离散语义动作接口
+- 数据优势：State 族训练数据与 StateBench 同出 BEHAVIOR-1K（分布同源，76.80 绝对值有高估风险）
 
 ## 消融实验与分析
 

@@ -10,6 +10,25 @@
 
 把 JEPA 世界模型的防坍塌机制从"EMA target + stop-gradient"或"7-term VICReg"压缩为一项 SIGReg 正则（强制 latent 边缘分布为各向同性高斯），与 next-embedding MSE 组成两项式损失 $\mathcal L_{LeWM} = \mathcal L_{pred} + \lambda\,\mathrm{SIGReg}(Z)$，在 Push-T / OGBench-Cube 等连续控制环境上端到端训练出仅 15M 参数的世界模型——规划速度比 DINO-WM 快最多 48 倍，Push-T 成功率 96% 超过带 proprioception 的 DINO-WM (92)，且消融显示除 $\lambda$ 外的所有超参都不敏感。
 
+## 九问速览
+
+1. **Problem**：JEPA 世界模型防坍塌机制复杂（EMA/VICReg 7 项），端到端难训稳
+2. **Bottleneck**：目标网络+stop-gradient 引入不稳定；DINO-WM 依赖大预训练模型
+3. **Insight**：一项 SIGReg（latent 边缘各向同性高斯）足以防坍塌
+4. **Method**：next-embedding MSE+SIGReg 两项损失，端到端训仅 15M 参数模型
+5. **Evidence**：Push-T 96%（3 seeds）超带 proprio 的 DINO-WM 92；规划快最多 48x
+6. **Ablation**：除 lambda 外全部超参不敏感；方差 ±2.83 远小于 PLDM ±5.0
+7. **Assumption**：高斯边缘约束不破坏任务相关几何
+8. **Failure**：自述限于短视野，长时程误差累积（需层级世界模型）
+9. **Opportunity**：层级建模长视野、与执行结果监督结合（D-JEPA 方向）
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 224x224 单帧；history 3（PushT/Cube）或 1（TwoRoom） |
+| Closed-loop | 闭环规划：MPC receding horizon，执行完整优化序列后用新观测重规划 |
+| Correction | 每 5 块（25 步）重新 CEM 规划即校正；对中间随机重置扰动有恢复演示 |
+| Deployment | 纯仿真四环境；无真机 |
+
 ## 核心技术
 
 ![leworldmodel 架构图](figures/leworldmodel/fig2.png)
@@ -109,6 +128,34 @@ flowchart TD
 - **CEM 调参**：300 candidate sequences per iteration、30 elites、30 iterations，horizon H 权衡 lookahead 能力与误差累积；执行前 K 步就 replan。
 - **可视化验证手段（推荐照抄的诊断套路）**：(a) t-SNE on latents 应看到邻域关系保留；(b) train-a-posteriori decoder（仅在诊断时训练）观察 latent 信息能否还原像素；(c) linear/MLP probe 到物理量（agent/block 位置角度），报告 MSE 与 Pearson r；(d) violation-of-expectation 测试——给轨迹插入颜色突变或物体 teleport，测 prediction MSE 的 spike；(e) temporal path straightening 曲线随 training steps 的变化。
 - **VoE 实验具体设计（可直接借鉴）**：每 env 设计两类扰动——visual perturbation（物体颜色突变）与 physical perturbation（物体瞬移到随机位置）；paired t-test 显示 teleport 引起的 surprise 提升显著 ($p<0.01$) 而 color change 不显著，说明模型确实学到物理意义上的动力学而不只是视觉模式匹配。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 每帧 224x224；history 3（PushT/Cube）或 1（TwoRoom） | 附录 D |
+| 动作空间 | 环境动作块（frame-skip 5，5 动作/块） | 附录 D |
+| 控制频率 | 不适用（离线数据集上规划） | — |
+| 重规划频率 | CEM-MPC horizon 5 块，执行完整序列后重规划 | 附录 D |
+| 动作 horizon | 5 块=25 环境步 | 附录 D |
+| 数据 | TwoRoom 10K episodes（均长 92）；PushT 20K 专家 episodes（均长 196）；OGB-Cube 10Kx200 步；Reacher 10Kx200 步 | 附录 E |
+| 奖励 | 无（目标条件潜距离规划） | 第 3 节 |
+| Reset | 仿真自动 | 附录 E |
+| 成功定义 | 任务成功率%（PushT 50 条目标轨迹/seed） | 表 5/附录 |
+| 评估次数 | PushT 50 目标轨迹x3 seeds | 表 5 |
+| 随机种子 | 3 个训练种子（报均值） | 表 5 |
+| 扰动测试 | 有：轨迹中随机重置的恢复演示图 | 图（Real/Imagined） |
+| 真机 | 无 | — |
+| 算力 | 单 GPU 数小时（15M 参数） | 摘要/第 1 节 |
+| 特权信息 | 无（纯像素，无 privileged state） | 附录 F |
+
+**附录陷阱自查**：
+- privileged 信息：无（decoder 仅可视化诊断用）
+- reward shaping：无（潜距离目标）
+- reset 难度：正常
+- eval budget：50 轨迹/seed，中等
+- 底层控制栈：CEM 采样 300 候选/30 精英/30 迭代（PushT），无外部 planner
+- 数据优势：与 DINO-WM 共用 PushT 数据集（同 Zhou et al. 协议）
 
 ## 消融实验与分析
 

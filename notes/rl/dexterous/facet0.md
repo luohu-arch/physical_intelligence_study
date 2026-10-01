@@ -12,6 +12,25 @@
 
 PaliGemma 视觉-语言骨干 + flow-matching 动作专家联合生成 50 步 Cartesian 动作块与"该动作预期诱发的腕部 wrench"（$Y\in\mathbb{R}^{50\times13}$，只有动作被执行、wrench 始终是预测量），把接触从"事后观测"变成"被预测、被估值的动作后果"；用 1000 小时力同步语料 ManuFacet-1K 做语义-接触对齐，再用分布式 Action-Wrench Critic 做 contact-selective 后训练，最后用只更新 6.6% 参数的有界局部 actor 适配新零件。五个亚毫米级电脑装配任务平均 82% 成功（最强基线 π0.5+RECAP-style 15%，5.5 倍），0.5 mm 定位精度、50 ms 指令延迟，比专家遥操作快 40%。
 
+## 九问速览
+
+1. **Problem**：亚毫米级电脑装配（0.10-0.30 mm 间隙）上 VLA 成功率极低（π0.5 仅 10%）。
+2. **Bottleneck**：接触后果不可见——把 wrench 塞进输入（π0.5+F 反而 9%）不改变行为；接触信号从未被估值。
+3. **Insight**：wrench 应作为"被预测的动作后果"进入生成目标与 critic 估值——预报对了才算理解接触。
+4. **Method**：action-wrench 联合 flow matching+分布式 Action-Wrench Critic+contact-selective credit+有界局部 actor 适配。
+5. **Evidence**：五任务平均 82%（最强基线 15%，5.5×）；0.5 mm 定位、50 ms 延迟、比专家遥操作快 40%。
+6. **Ablation**：16%→38%（值引导 +22）→82%（局部适配 +44）；去全部接触角色 45% 且峰值离轴力升 5 倍。
+7. **Assumption**：腕部六轴 F/T 硬件+约 1000 小时 ManuFacet-1K 语料；200 Hz 柔顺控制兜底。
+8. **Failure**：LEVER 任务 +RL 反退到 0%；单角色消融 20 试次统计力不足；依赖腕部力传感。
+9. **Opportunity**：无腕部 F/T 的力条件化蒸馏、critic 蒸回 actor 减推理栈、盒宽自适应。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 3 路 RGB+13 维状态（EE 位姿 6+夹爪 1+wrench 6）+K=10 wrench 历史；部署保留实测腕部 F/T |
+| Closed-loop | 闭环：粗专家 5-10 Hz→精化专家 20 Hz→200 Hz 柔顺控制闭在实测力上 |
+| Correction | 干预成功片段作 BC 锚+恢复帧保留正 credit（恢复率 44%→81%）；replay 存安全过滤后命令 |
+| Deployment | 约 1000 h 真机数据训练；评测底盘随机+自动送料器；新零件适配仅 10 demos+3 h（更新 6.6% 参数） |
+
 ## 核心技术
 
 ![facet0 架构图](figures/facet0/fig1.png)
@@ -87,6 +106,34 @@ $$\mathcal{L}_{actor}(\eta)=-\mathbb{E}\big[Q_{\xi_1}(e_t,a_t)\big]+\lambda_{BC}
 - **评测套件**：五任务 23 子目标、七动词词汇表，9 个自由空间 + 14 个接触关键子目标；间隙 0.10–0.30 mm；相位安全限 $F_{\max}$：RAM 70 N、CPU 8 N（针阵）/35 N（ZIF 座）、Disk 20 N、GPU 55 N、LEVER 60 N。
 - **适配实操**：10 条演示 + 3 小时单机训练；安全过滤后的命令存入 replay 保证 critic 一致性；干预锚只保留"事后确认成功"的片段且确认键不进入观测（防策略学会读键）；训练硬件配置未披露（待确认）。
 - **分布式 critic 参数化**：论文自述"具体分布式参数化与回归距离是实现相关的"，方法只要求均值为 $Q_\psi$（待确认：复现需自选 QR-DQN/QR-C51 类实现）。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 3 路 RGB+13 维状态（x_t∈R^6+g_t+w_t∈R^6）+K=10 因果 wrench 历史；15 Hz 训练时间线（共享硬件时钟） | Sec 3 / 附录 A |
+| 动作空间 | H=50 步×7 维 Cartesian 动作块（局部适配为单步绝对目标，tanh 映射到任务盒 [a_min,a_max]） | Sec 3/5 |
+| 控制频率 | 粗专家 5-10 Hz（约 5 mm）→精化专家 20 Hz（0.5 mm）→200 Hz 柔顺控制器；指令延迟 50 ms | Sec 5 |
+| 重规划频率 | 精化专家 20 Hz 持续更新 | Sec 5 |
+| 动作 horizon | H=50 chunk；credit 视野 N<H（刻意无折扣短视野） | Sec 4 |
+| 数据 | ManuFacet-1K 约 1000 h（CPU 37.3%/RAM 21.9%/Disk 23.4%/GPU 17.3%）；episode 数与具身占比未披露；适配 10 demos+3 h | Sec 3 / 附录 |
+| 奖励 | VLM judge 子目标进度+提前完成加分+相位包络归一的越界用力扣分（α,β 未披露）；分布式 TD critic | Sec 4 |
+| Reset | 自动送料器供零件+底盘位姿逐 trial 随机；适配早期靠 S_task 兜底 | Sec 6.1 / 附录 A |
+| 成功定义 | 23 子目标任务链全达成；同时报告 violation/intervention/recovery/峰值离轴力 | Sec 6.1 |
+| 评估次数 | 每格 20 trials（预声明协议不重跑） | Sec 6.1 |
+| 随机种子 | 未报告（20 试次/格） | |
+| 扰动测试 | 底盘位姿随机+送料器供件；未见零件 10 demos 迁移 45%（9×最强基线） | Sec 6.4 |
+| 真机 | 5 任务×8 方法（20 trials/格）；适配范式对照（2 h 窗口、30 min 检查点） | Sec 6 |
+| 算力 | 训练硬件配置未披露；仅局部适配更新 6.6% 参数（约 1/15） | 附录 |
+| 特权信息 | 无 oracle state；干预确认键不进观测（防策略读键）；VLM judge 切分奖励属模型级监督 | Sec 3/5 |
+
+**附录陷阱自查**：
+- privileged 信息：无 oracle；但奖励由 VLM judge 生成（模型级监督）+replay 存安全过滤后命令（critic 与 actor 有已知错位）
+- reward shaping：dense 进度+接触包络力扣分+提前完成加分（交换率 α,β 与 credit 视野 N 均未披露——复现缺口）
+- reset 难度：自动化（送料器）
+- eval budget：20 trials/格，单格分辨率 5pp（论文自认 contact-role 消融排序不可分辨）
+- 底层控制栈：有：200 Hz 柔顺控制器+S_task 安全算子（单步位移上限+工作空间剪裁）
+- 数据优势：约 1000 h 独占语料；baseline 同预算训练（对齐协议），但语料本身是自家资产
 
 ## 消融实验与分析
 

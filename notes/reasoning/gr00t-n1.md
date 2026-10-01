@@ -13,6 +13,25 @@
 
 GR00T N1 是首个开源（CC BY 4.0）2.2B 参数人形机器人基础模型，采用 System 2（Eagle-2 VLM, 10Hz）+ System 1（DiT + Flow Matching, 120Hz）双系统架构，以 592.9M 帧 / 8376h 数据金字塔共训，仅用 10% 真实数据（42.6%）即匹敌扩散策略全量表现（46.4%），全量数据达 76.8%，超越扩散策略 30.4 个百分点。
 
+## 九问速览
+
+1. **Problem**：人形机器人缺通用基础模型——真实数据贵，感知频率与控制频率需求冲突
+2. **Bottleneck**：纯真实数据训练成本高；单系统 VLA 无法同时慢推理（10Hz）与快控制（120Hz）
+3. **Insight**：双系统解耦 + 数据金字塔——视频/仿真/神经轨迹可大幅替代真实数据
+4. **Method**：System 2 VLM（10Hz，第 12 层中间特征）交叉注意力注入 System 1 DiT Flow Matching（K=4，H=16，120Hz）
+5. **Evidence**：仅 10% 真实数据 42.6% ≈ 扩散策略全量 46.4%；全量 76.8%，超 DP 30.4pp；sim 三基准平均 45.0% vs DP 33.4%
+6. **Ablation**：10%/全量数据对比证明数据金字塔有效；K=4 步 Flow 精度-速度最优；H=16 平衡一致性与反应速度
+7. **Assumption**：需要大规模仿真（DexMimicGen）与视频生成（WAN2.1）基础设施；本体状态可得
+8. **Failure**：仅短时域桌面操作，不支持移动+操作；神经轨迹物理一致性无保证；VLM 骨干较小限制复杂推理
+9. **Opportunity**：更大数据金字塔、移动操作长任务、更强 VLM 骨干、神经轨迹质量提升
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 多视角 RGB（224×224，历史帧堆叠）+ 语言 + 本体关节状态；无深度/触觉 |
+| Closed-loop | 闭环：System 2 每 100ms 更新语义 embedding，System 1 每 ~8ms 以 120Hz 出 16 步 chunk 持续修正 |
+| Correction | 无显式 retry/replan 机制，靠高频重规划隐式纠偏 |
+| Deployment | GR-1 遥操作数据训练、GR-1 真机部署（同本体）；预训练 checkpoint 零微调泛化任务 76.6%（15 trials） |
+
 ## 核心技术
 
 ![gr00t-n1 架构图](figures/gr00t-n1/fig1.png)
@@ -169,6 +188,34 @@ graph TD
 2. **环境适配**：根据目标机器人运动学参数调整动作空间维度 $d$，修改 action encoder/decoder MLP 的输入输出维度
 3. **后训练**：固定 language embedder，开放其余参数，以真实数据:神经轨迹 = 1:1 混合采样，训练 20K-60K 步
 4. **推理部署**：System 2 以 10Hz 异步运行（每 100ms 更新 VLM embedding $\phi_t$），System 1 以 120Hz 运行（每 ~8ms 一次 4 步去噪，输出 16 步 action chunk），两系统通过交叉注意力连接
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 多视角 RGB 224×224（历史帧堆叠）+ 语言指令 + 本体状态 q_t | §2.1 |
+| 动作空间 | 连续动作（人形关节目标），DiT + Flow Matching，chunk H=16（约 0.13s） | §2.2、Fig.1 |
+| 控制频率 | System 1 120Hz；System 2 10Hz（L40 bf16 单次 63.9ms 出 16 步） | §2、§3 |
+| 重规划频率 | System 1 每 ~8ms 重新去噪；System 2 每 100ms 刷新 embedding | §部署步骤 |
+| 动作 horizon | H=16 步/次推理 | §2.2 |
+| 数据 | 预训练数据金字塔 592.9M 帧 / 8376h（人类视频 2517h + 神经轨迹 827h + 仿真 1743h + 真实 3289h）；后训练每任务 30/100/300 条 demo（遥操作） | §3.1、§4.3 |
+| 奖励 | 无 RL：Flow Matching 模仿损失 + λ·OWL-v2 检测辅助损失 | §2.2 |
+| Reset | 未报告 | — |
+| 成功定义 | 任务二值成功率；真机采用 partial scoring 分阶段计分；Pack Machinery 按 5 件物品入桶比例（30s 时限） | §4.3 |
+| 评估次数 | 仿真：每任务 100 trials、取最后 5 个 checkpoint（每 500 步）最高值；真机：每任务 10 trials（个别 5 trials）；预训练泛化：5 物体×3 trials=15 | §4.3 Evaluation Protocol |
+| 随机种子 | 未报告（以 checkpoint 选择代替） | — |
+| 扰动测试 | 有：预训练泛化任务用未见物体/未见容器（73.3%，11/15） | §4.4 |
+| 真机 | GR-1 人形：24 桌面任务（后训练）+ 2 个双臂协调泛化任务；全量数据 76.8% | Table 3、§4.4 |
+| 算力 | 预训练约 50,000 H100 GPU 小时（最多 1024 卡集群）；神经轨迹生成约 105K L40 GPU 小时（3,600 张 L40 约 1.5 天） | §3.1、附录 |
+| 特权信息 | 训练用 OWL-v2 检测框做辅助监督、IDM 伪标注神经轨迹；测试无特权信息 | §2.2、§3.1 |
+
+**附录陷阱自查**：
+- privileged 信息：训练依赖 OWL-v2 检测与 IDM 伪动作标注（离线）；推理无需
+- reward shaping：无（RL-free）
+- reset 难度：未报告
+- eval budget：sim 100 trials×5 checkpoints 取最大——取 checkpoint 最大值会高估（论文沿用 RoboCasa 协议，需注意）
+- 底层控制栈：人形本体自带关节控制器执行 120Hz 目标
+- 数据优势：与 DP 基线用相同后训练数据（30/100/300 demo）——公平；但预训练语料独有，基线为 from-scratch
 
 ## 消融实验与分析
 

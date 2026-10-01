@@ -12,6 +12,25 @@
 
 RAGEN-2 发现多轮 agent RL 存在一类对熵完全不可见的失败模式——template collapse（推理在单个输入内看似多样、跨输入却完全 input-agnostic），并把推理质量沿信息论分解为 within-input diversity（条件熵 $H(Z|X)$）与 cross-input distinguishability（互信息 $I(X;Z)$）两个轴：用 in-batch cross-scoring 构造无需外部模型的 MI proxy 家族做在线诊断（Trajectory MI-ZScore 与最终性能的 Spearman 相关 +0.39，熵类指标反而为 -0.11~-0.14），用 SNR 机制解释成因（低 reward variance 削弱任务梯度、使输入无关的 KL/entropy 正则主导更新），再用 SNR-Aware Filtering（按 reward variance 保留 top-p prompt，默认 $\rho=0.9$）干预——在 PPO/DAPO/GRPO/Dr. GRPO × Qwen2.5 0.5B~7B × 文本/视觉模态的 11 组设置上平均增益全为正（+0.8~+35.8），RV 计算开销仅占迭代时间 <0.1%，过滤还使每步时间下降 26-41%。
 
+## 九问速览
+
+1. **Problem**：多轮 agent RL 存在 template collapse——推理看似多样实则与输入无关，熵监控完全失明。
+2. **Bottleneck**：熵只测 H(Z|X) 轴；低 reward variance 时任务梯度趋零、reward-agnostic 正则主导更新。
+3. **Insight**：推理质量 = 条件熵 × 互信息双轴；in-batch cross-scoring 可零成本构造 MI proxy 在线诊断。
+4. **Method**：MI proxy 家族（Retrieval-Acc/MI-ZScore 等）+ SNR-Aware Filtering（按 per-prompt 方差保留 top-p=0.9）。
+5. **Evidence**：11 组设置平均增益 +0.8~+35.8 全正；MI proxy 与最终性能 Spearman +0.39（熵类 -0.11~-0.14）。
+6. **Ablation**：RV 四分位 Q1→Q4 性能 21.1→11.0、MI 0.95→0.73 单调退化；entropy 过滤反使 MI 降。
+7. **Assumption**：reward variance 是 SNR 的可靠代理；batch 内 prompt 有主题差异（MI 估计才有效）。
+8. **Failure**：高噪声奖励下失效（随机性 80-100% 时优势消失；GRPO FrozenLake -5.0）。
+9. **Opportunity**：跨 batch 锚池校准、RV 与 process reward 的耦合、干预时机-收益曲线未做。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | agent 见环境文本/视觉观测 + 轨迹历史；训练侧另算 in-batch cross-scoring 矩阵（诊断通道） |
+| Closed-loop | 每迭代监控成功率/KL/梯度范数/格式比率/MI 五联曲线；MI 下跌早于成功率退化（预警窗） |
+| Correction | 无执行期修正；top-p 过滤在采样后做梯度掩码（不改变 rollout 分布），步时还降 26-41% |
+| Deployment | 七个文本/视觉仿真环境（Sokoban/FrozenLake/MetaMathQA/Countdown/SearchQA/WebShop/DeepCoder） |
+
 ## 核心技术
 
 ![ragen-2 架构图](figures/ragen-2/fig1.png)
@@ -88,6 +107,34 @@ $$k^* = \min\left\{k:\sum_{j=1}^{k}\widehat{\mathrm{Var}}(R\mid X=x_{\sigma(j)})
 - 七环境测试台奖励设计：Sokoban（+1/箱入目标、-1/箱离目标、+10 完成、-0.1/步）；FrozenLake（2% 滑动随机，稀疏 +1）；MetaMathQA（首次答对 1.0、每重试减半 0.5/0.25/...）；Countdown（对 1.0、数字对结果错 0.1、格式错 0）；SearchQA/WebShop（多轮稠密）；DeepCoder（按通过测试数给奖励）
 - 轮次结构：Sokoban/FrozenLake 最多 5 轮 × 每轮 2 动作 = 10 动作/轨迹；Countdown/MetaMathQA 单轮单动作
 - 计算开销：RV 计算 <0.1% 迭代时间；过滤后梯度计算组数减少，步时间下降 26-41%（表 5）；$G\ge 4$ 且过滤的配置即可匹配或超过 128×1 基线
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 文本（+Qwen2.5-VL 视觉）环境观测 + 轨迹历史；Sokoban/FrozenLake 最多 5 轮 × 2 动作 | 第 4 节 |
+| 动作空间 | 环境动作 + `<think>`/`<answer>` 文本；格式错罚 -0.1 | 第 4 节 |
+| 控制频率 | 不适用（回合制）；每次迭代采 K=P×G=128 条轨迹 | 第 4 节 |
+| 重规划频率 | 每迭代 rollout→update 一次；默认 P=8、G=16 | 第 4 节 |
+| 动作 horizon | 最多 400 次 rollout-update 迭代；两条早停条件（RV 跌破基线 10% 或验证成功率 <1% 连续 5 checkpoint） | 第 4 节 |
+| 数据 | 七环境训练任务自带（Sokoban 逐箱计分、FrozenLake 稀疏 +1、DeepCoder 按测试数等） | 第 4 节 |
+| 奖励 | 各环境规则奖励（如 Sokoban +1/箱、+10 完成、-0.1/步）；GAE(γ,λ)=(1.0,1.0) | 第 4 节 |
+| Reset | 文本环境标准 reset | — |
+| 成功定义 | 各环境成功率（Sokoban 推箱入格、MetaMathQA 首次答对 1.0 等）；表 4 为峰值 | Table 4 |
+| 评估次数 | 每环境固定 512 条验证 prompt、采样温度 T=0.5；每 5 迭代评一次 | 第 4 节 |
+| 随机种子 | 未报告 seed 数 | 未报告 |
+| 扰动测试 | 环境随机性注入 0-100%（80%+ 时过滤优势消失——机制边界自证） | 图 9 |
+| 真机 | 不适用 | — |
+| 算力 | veRL/HybridFlow 框架；GPU 型号与数量未报告 | 第 4 节 |
+| 特权信息 | 无 judge；奖励由环境规则自动判定；MI proxy 复用训练 rollout 无需外部模型 | 第 4 节 |
+
+**附录陷阱自查**：
+- privileged 信息：无；诊断与过滤均只用训练自身数据（奖励方差、模型自身 logprob）。
+- reward shaping：部分环境自带稠密过程奖励（Sokoban 逐箱计分、SearchQA/WebShop 多轮稠密）——属测试床设定而非本文注入。
+- reset 难度：文本环境秒级重置。
+- eval budget：512 验证 prompt × 每 5 迭代 + 早停；过滤还附带 26-41% 步时节省。
+- 底层控制栈：veRL/HybridFlow + PPO/DAPO/GRPO/Dr. GRPO 四算法同置。
+- 数据优势：无——诊断/过滤对所有算法、规模、模态同置（11 组全正增益）。
 
 ## 消融实验与分析
 

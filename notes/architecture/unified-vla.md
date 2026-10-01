@@ -9,6 +9,25 @@
 
 UniVLA 将视觉、语言、动作信号全部统一为离散 token 序列，用自回归 Transformer 进行联合建模，在 post-training 阶段引入世界模型学习视频中的因果动态，在 LIBERO 上以 95.5% 的成功率超过 π0-FAST（85.5%）整整 10 个百分点。
 
+## 九问速览
+
+1. **Problem**：主流 VLA 只在语言→动作上训练，浪费视频观测中的时序与因果信息，长程/OOD 任务表现差
+2. **Bottleneck**：模态特定分支与连续动作专家割裂，无动作标注的海量视频里的因果知识迁移不进策略
+3. **Insight**：视觉/语言/动作全部离散化为共享词表 token、用单一自回归目标建模后，可仅监督 vision token 学世界模型
+4. **Method**：Emu3 初始化 + VQ 视觉 token + FAST 动作 token（1024 词表）；622K 机器人视频 world-modeling 后训练，再任务微调
+5. **Evidence**：LIBERO 平均 95.5% vs π0-FAST 85.5%（+10 点）；LIBERO-Long 从此前 SOTA 69.0% 提到 94.0%
+6. **Ablation**：多种 post-training 策略受控对比中 world model（仅监督视觉 token、30K 步）最有效
+7. **Assumption**：离散统一 token 容量足够承载动作精度；视频因果知识可经共享表征迁移到动作预测
+8. **Failure**：证据以仿真为主；真机仅 ALOHA 8 任务；SimplerEnv 用单视角；离散化仍可能有量化损失
+9. **Opportunity**：多模态输出（空间推理/视频预测）初步展示；自动驾驶 NAVSIM 仅初步迁移；scaling 未测
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 仿真 2 路 RGB（第三人称+腕部；SimplerEnv 单视角 256²）；真机 ALOHA 3 路（双腕+高位）；视觉经 VQ 离散化；无深度/触觉 |
+| Closed-loop | 闭环：两帧交错视觉-动作序列，逐 chunk（CALVIN/LIBERO 为 10、SimplerEnv 为 5）重观测 |
+| Correction | 无显式重规划；世界模型后训练提供因果先验（对动作后果的隐式预期） |
+| Deployment | 622K 视频后训练 → 各基准 8k-20k 步微调；真机 AgileX Cobot Magic 8 任务×约 500 轨迹（30Hz 录制） |
+
 ## 核心技术
 
 1. **统一 token 化（Unified Tokenization）** — 视觉、语言、动作三种模态的信号全部离散化为统一格式的 token 序列，在同一语义空间中处理
@@ -154,6 +173,34 @@ UniVLA 想实现的是**「用同一种语言说三件事」**——让视觉、
 - **世界模型训练步数**：过少则因果知识不充分（<10k 步），过多则可能遗忘预训练知识（>100k 步）。推荐 30k-50k 步
 - **视觉 token 数 $N_v$**：图像 patch size 越小 token 越多（精度更高但序列更长需更多显存）。推荐 196-256 个 token（对应 16x16 patch + 14x14 grid）
 - **离散动作分箱数**：256 为标准配置，与 RT-1 兼容。动作精度要求高的任务可考虑 512 箱
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | CALVIN：第三人称 200×200 + 腕部 80×80；LIBERO：第三人称+腕部均 200×200；SimplerEnv：单视角 256×256；真机：双腕+高位 3 路 RGB；均 VQ 离散化 | Sec.4.2、附录 B |
+| 动作空间 | 连续动作 FAST token 化（词表 1024，替换语言 tokenizer 末尾 1024 个 ID）；1/99 分位归一化；真机为关节值（chunk 首帧作差） | Sec.4.1、附录 B |
+| 控制频率 | 真机数据以 30Hz 录制（按动作关节变化阈值选关键帧降冗余）；执行频率未单独报告 | 附录 B |
+| 重规划频率 | 每 chunk（2 帧交错序列）重新观测；chunk 大小 10（CALVIN/LIBERO）、5（SimplerEnv） | Sec.4.2 |
+| 动作 horizon | H=10（CALVIN/LIBERO）、5（SimplerEnv） | Sec.4.2 |
+| 数据 | 后训练：622K 机器人视频；微调：CALVIN/LIBERO 各自基准演示（每套件 10 任务×50 人类遥操作演示）；真机 8 任务×约 500 轨迹（共约 4.2k） | Sec.4.2、附录 Table 9 |
+| 奖励 | 无(RL-free)：next-token 交叉熵（后训练仅视觉 token、微调仅动作 token） | Sec.4 |
+| Reset | 未报告（沿用各基准协议） | — |
+| 成功定义 | LIBERO/CALVIN/SimplerEnv 官方指标（成功率、连续任务链长） | Sec.4.3 |
+| 评估次数 | LIBERO：每套件 500 episodes（单模型评 4 套件）；CALVIN 官方链式协议 | Sec.4.3 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 无显式扰动实验（LIBERO-Object/Goal/Spatial 为泛化维度） | — |
+| 真机 | 有：AgileX Cobot Magic V2.0 双臂 8 任务（擦白板/理餐具/做汉堡/插接头等） | 附录 B |
+| 算力 | A100 GPUs、微调 batch 128-192、8k-20k 步；GPU 数量与总时长未披露 | Sec.4.2 |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯 next-token 损失）
+- reset 难度：未报告（基准默认）
+- eval budget：LIBERO 500 episodes/套件充足；真机评测次数未披露
+- 底层控制栈：无强 controller 兜底；关键帧筛选降低训练冗余但可能丢动态细节
+- 数据优势：真机每任务约 500 条自采轨迹，量级偏大但与基线（OpenVLA-OFT 等）微调口径大致对齐
 
 ## 消融实验与分析
 

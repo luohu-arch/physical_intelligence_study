@@ -12,6 +12,25 @@
 
 TriVLA 受认知神经科学的「情景记忆」理论启发，提出首个 VLA 中的三元系统架构——VLM（System 2）负责语义接地、视频扩散模型（System 3）负责时序动态感知、流匹配策略（System 1）负责动作生成，通过情景世界模型让机器人积累、回忆和预测操作经验，在 ~36Hz 实时运行下达到 CALVIN 4.37 / LIBERO 87.0% / MetaWorld 0.714 的 SOTA 水平。
 
+## 九问速览
+
+1. **Problem**：VLA 缺乏对时序动态的显式建模，长程规划与开放意图理解不足
+2. **Bottleneck**：双系统（VLM+动作）语义够但动态不足；视频预测类方法去噪慢、控制频率低或开环
+3. **Insight**：视频扩散单步前向（不完整去噪）即可提供预测性时序特征——认知上的「情景记忆」可三系统分工
+4. **Method**：System 2 Eagle-2 VLM 语义 + System 3 SVD 单步推理动态特征 + System 1 DiT 流匹配 10 步 chunk
+5. **Evidence**：CALVIN ABC→D 4.37；LIBERO 87.0%（每 suite 500 trials × 3 seeds）；MetaWorld 平均 0.714
+6. **Ablation**：仅策略 3.68 → +System 2 4.06（+0.38）→ +System 3 4.37（+0.31）；微调 SVD 优于从头训
+7. **Assumption**：SVD 视频先验可迁移到操作域；H100 级推理算力；Eagle-2 冻结可用
+8. **Failure**：3.39B 参数 142.69ms 延迟部署成本高；10 步 chunk 开环执行缺块内重规划；记忆机制仍隐式
+9. **Opportunity**：显式记忆存储/检索、块内重规划、高速精细操作（插入/拧螺丝）验证
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 双视角 RGB（第三人称 + 腕载 RealSense D455，224×224）+ 语言 + 机器人状态；无触觉 |
+| Closed-loop | 闭环：每观测 System 3 单步前向（<85.9ms）刷新动态特征，34-36Hz 出 chunk |
+| Correction | 无显式 retry/replan 机制；靠高频重观测隐式纠偏 |
+| Deployment | 仿真（CALVIN/LIBERO/MetaWorld）训练 + KINOVA GEN2 真机任务；H100 单卡推理 |
+
 ## 核心技术
 
 ![trivla 架构图](figures/trivla/fig1.png)
@@ -118,6 +137,34 @@ TriVLA 的三元系统可以类比人类驾驶：
 - +System 2（VLM）：CALVIN 4.06 (+0.38), 115.19ms, 1.87B 参数
 - +System 2 + System 3（完整）：CALVIN 4.37 (+0.31), 142.69ms, 3.39B 参数
 - System 2 贡献最大（+0.38），System 3 在此基础上进一步提升（+0.31）
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 双视角 RGB（第三人称 + 腕载 RealSense D455，eye-to-hand），224×224 + 语言 + 本体状态 | §5 Real-world Setups |
+| 动作空间 | 连续动作 chunk（DiT 流匹配/扩散头），chunk size = 10 | §4、附录 B.2 |
+| 控制频率 | 34-36 Hz（System 2 36.36Hz，System 3 延迟 <85.9ms，总 142.69ms，H100） | 附录 B.2、Table 4 |
+| 重规划频率 | 每 10 步 chunk 滚窗重前向 | §4 |
+| 动作 horizon | H=10 步/次 | 附录 B.2 |
+| 数据 | System 3 微调：Something-Something 193,690 条人类视频 + OXE 179,074 条机器人轨迹 + CALVIN ABC + MetaWorld + 真机；LIBERO 每任务 50 demo；CALVIN 仅用带语言标注的 ABC | §5、附录 B.1 |
+| 奖励 | 无 RL：扩散重建损失（视频）+ 流匹配动作损失 | §4 |
+| Reset | 未报告 | — |
+| 成功定义 | CALVIN：连续任务链平均长度（Avg. Len）；LIBERO/MetaWorld/真机：任务成功率 | Table 1-3 |
+| 评估次数 | LIBERO：每 suite 500 trials × 3 随机种子；CALVIN ABC→D 标准协议；真机 trials 数未报告 | §5 |
+| 随机种子 | LIBERO 3 seeds；其余未报告 | §5 |
+| 扰动测试 | 定性：高动态任务（需积累/回忆/预测经验的动态场景） | §5、附录 C |
+| 真机 | KINOVA GEN2：短程取放/倒水/叠毛巾 + 长程高动态任务（视频演示） | §5、附录 C |
+| 算力 | System 3 微调 8×H100 2-3 天；策略训练 4×H100 5-9 小时；推理单卡 H100 | 附录 B.1/B.2 |
+| 特权信息 | 无特权观测；System 3 用人类视频 + 机器人视频离线预训练（数据级先验） | 附录 B.1 |
+
+**附录陷阱自查**：
+- privileged 信息：无（仿真用模拟器标准观测）
+- reward shaping：无（RL-free）
+- reset 难度：未报告（CALVIN/LIBERO 沿用标准自动 reset）
+- eval budget：LIBERO 500 trials×3 seeds 充足；CALVIN 标准协议；真机评测次数未量化
+- 底层控制栈：chunk 连续下发至 KINOVA 底层控制器
+- 数据优势：与 VPP/Seer 等基线相比，System 3 额外用了 37 万+ 视频轨迹微调——视频预训练数据规模占优，对比时需注意
 
 ## 消融实验与分析
 

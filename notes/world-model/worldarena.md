@@ -10,6 +10,25 @@
 
 WorldArena 的核心主张是：**视觉保真度不等于具身可用性**。它对 14 个代表性世界模型（通用视频生成模型 CogvideoX/Wan 2.2/Wan 2.6/Veo 3.1、文本条件具身模型 Genie Envisioner/GigaWorld/TesserAct/Cosmos-Predict 2.5/WoW/RoboMaster/Vidar、动作条件模型 IRASim/Cosmos-Predict 2.5 (action)/CtrlWorld）做统一评测：感知侧 16 指标覆盖视觉/运动/内容一致性/物理符合性/3D 精度/可控性六个维度；功能侧把世界模型分别当**数据引擎**（生成数据训 pi0.5）、**策略评估器**（与 RoboTwin 仿真成功率算相关性）、**动作规划器**（配 IDM 闭环执行）。最有分量的数字是三个相关性：EWMScore 与人类判断 Pearson r = 0.825（证明指标有效），但与数据引擎性能只有 r = 0.600、与动作规划性能仅 r = 0.360——"好看"与"好用"的鸿沟被量化了。
 
+## 九问速览
+
+1. **Problem**：世界模型"好看"不等于"好用"——缺统一具身评测
+2. **Bottleneck**：感知指标与下游效用脱钩，各家自评无法横向比较
+3. **Insight**：同一模型分别当数据引擎/策略评估器/动作规划器测功能效用
+4. **Method**：16 感知指标合成 EWMScore+三功能角色，统一评测 14 个模型
+5. **Evidence**：EWMScore 与人评 Pearson r=0.825，但与规划性能仅 r=0.360
+6. **Ablation**：三角色相关性分化（数据引擎 r=0.600/规划 r=0.360）——保真不保证效用
+7. **Assumption**：VLM 判定任务成功可靠；RoboTwin 可代理真实动力学
+8. **Failure**：纯感知指标无法预测决策保真度（D-JEPA 式局部反转测不到）
+9. **Opportunity**：决策局部指标、闭环在线评测维度未覆盖
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 各模型原生输入（文本指令+初始帧；动作条件模型另吃动作） |
+| Closed-loop | 规划器角色为 WM+IDM 闭环执行；数据引擎/评估器角色开环 |
+| Correction | 闭环角色有 rollout 至超 GT 20% 帧的截断；无显式校正 |
+| Deployment | RoboTwin 仿真内统一执行（无真机） |
+
 ## 核心技术
 
 ![worldarena 架构图](figures/worldarena/fig3.png)
@@ -74,6 +93,34 @@ $$S_{traj}^{raw} = \frac{1}{\mathrm{NDTW}(GT, P)}$$
 - **榜单速览（EWMScore）**：Wan 2.6 61.86 > CtrlWorld 59.70 > Veo 3.1 58.87 > IRASim 58.11 > CogvideoX 57.88 > Cosmos-Predict 2.5(action) 55.90 > WoW 54.88 > Wan 2.2 54.54 > GigaWorld-0 53.39 > TesserAct 53.23 > RoboMaster 51.84 > Vidar 51.60 > Cosmos-Predict 2.5(text) 50.81 > Genie Envisioner 43.65。
 - **关键相关性结论**：EWMScore vs 人类评分 r = 0.825；vs 数据引擎表现 r = 0.600；vs 动作规划表现 r = 0.360。
 - **资源入口**：world-arena.ai 提供公开 leaderboard，可持续提交新模型。
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 文本+初始帧（各世界模型原生输入规格） | 第 3 节 |
+| 动作空间 | 动作条件模型原生动作（Cosmos-action/CtrlWorld 等） | 第 2 节 |
+| 控制频率 | 不适用（基准评测） | — |
+| 重规划频率 | 闭环规划角色：WM+IDM 迭代执行 | 第 3.2 节 |
+| 动作 horizon | 各模型默认 | — |
+| 数据 | RoboTwin 2.0 数据集（策略训练用各 WM 25 条合成轨迹/任务） | 第 3.2 节 |
+| 奖励 | 无（VLM 判定任务成功） | 第 3.2 节 |
+| Reset | RoboTwin 仿真自动 | — |
+| 成功定义 | 任务成功率%（VLM 判定；rollout 超 GT 帧数 20% 截断） | 第 3.2 节 |
+| 评估次数 | 数据引擎/规划器每任务 100 次执行取均值（2 任务） | 表 4 注 |
+| 随机种子 | 未报告 | PDF 未披露 |
+| 扰动测试 | 无 | — |
+| 真机 | 无（RoboTwin 仿真） | — |
+| 算力 | 未报告 | PDF 未披露 |
+| 特权信息 | 无；人评 70 标注员共评 3500 视频 | 第 3.3 节 |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无
+- reset 难度：仿真自动
+- eval budget：100 次/任务偏小（仅 2 任务做功能评测）
+- 底层控制栈：规划器角色依赖 IDM 配对（IDM 质量混入测量）
+- 数据优势：各 WM 同任务同轨迹数对比（公平），但 pi0.5 真数据对照 77%/66% 远超全部合成数据结果（25 条合成轨迹的小预算是主要限制）
 
 ## 消融实验与分析
 

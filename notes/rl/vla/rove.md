@@ -10,6 +10,25 @@
 
 ROVE 解决人形机器人 VLA 部署后的核心痛点：人类遥操作干预数据本身是不完美的（犹豫、错误、重映射噪声）。提出乐观价值估计（OVE）——用 expectile regression 从混合质量干预数据中抽取高价值行为，配合跨具身人类视频增强，实现 VLA 策略的迭代 RL 改进。
 
+## 九问速览
+
+1. **Problem**：人形 VLA 部署后需从"自主 rollout+人类干预"混合质量数据持续迭代改进。
+2. **Bottleneck**：干预数据含犹豫/错误/重映射噪声，HG-DAgger 式无差别模仿把噪声也学进去。
+3. **Insight**：同一段干预里"恢复段"远比"犹豫段"值钱——用乐观价值估计自动筛出高价值行为。
+4. **Method**：OVE=H 步 TD bootstrap+expectile(τ=0.7)拟合价值；优势条件化 actor 更新；跨具身人类视频喂 critic。
+5. **Evidence**：3 轮迭代擦黑板 45.0%→80.0%、放面包 56.7%→86.7%；同批数据下超 SFT/HG-DAgger/standard RL。
+6. **Ablation**：OVE vs MC：产生结构化价值曲线与负优势区（MC 噪声大无区分度）；去人类视频 critic 高估部分擦除状态。
+7. **Assumption**：冻结 VLM 主干只训头；人在环采集可持续；人类视频的"状态进度语义"跨具身共享。
+8. **Failure**：τ 需调参；乐观偏差可能偏好高风险行为；人类恢复动作在机器人上未必可行（embodiment gap）。
+9. **Opportunity**：τ 与干预噪声水平的关系、干预密度控制、第 4 轮后增益是否饱和、自动干预时机。
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 人形 VLA 多模态观测（视觉+语言+本体）；critic 额外消费跨具身人类视频（无动作对齐） |
+| Closed-loop | 闭环：chunk H=16 执行后重规划 |
+| Correction | 框架本身即恢复机制：失败→人干预→OVE 提取恢复段→下轮迭代改进 |
+| Deployment | 真人形（小鹏）遥操作+自主 rollout 迭代 RL；不重训全模型，只训价值头/动作头 |
+
 ## 核心技术
 
 ![rove 架构图](figures/rove/fig1.png)
@@ -65,6 +84,34 @@ $$
 - **数据**：自主执行 + 人类干预 + 跨具身人类视频，混合质量
 - **OVE 关键参数**：expectile τ > 0.5（倾向乐观过滤）
 - **多轮迭代**：rollout→干预→OVE 过滤→RL 更新→rollout
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | VLA 多模态观测，干预 episode 分解为 rollout/adaptation/recovery 三段；值模型自 VLAC checkpoint 初始化（layer 23，2048 维） | Sec 3 / 附录 G |
+| 动作空间 | 连续动作 chunk（flow-matching DiT 动作头，Qwen3-VL-4B 主干）；执行 chunk H=16、训练 chunk 50 | 附录 G |
+| 控制频率 | 未报告 Hz | |
+| 重规划频率 | 每执行完 16 步 chunk 重规划 | 附录 G |
+| 动作 horizon | H=16（执行/值 bootstrap）/50（监督训练） | 附录 G |
+| 数据 | 遥操 demo+自主 rollout+干预轨迹（D_actor）；critic 数据另加人类经验视频（D_critic）；各轮新增量见表 2（总规模中等） | 附录 G / Table 2 |
+| 奖励 | 非终步 r=−1、成功终局、C_fail=−500（预训练期取负均值长度）；γ=1；TD 目标归一到 [−1,0] | Sec 3.1 |
+| Reset | 未报告（人形平台场景复位方式未披露） | |
+| 成功定义 | 任务成功 trial 计数（擦黑板按 mark 逐格计，共 20 格） | 附录 B |
+| 评估次数 | 擦黑板 20 trials、放面包 30 trials（独立 trial 数） | 附录 B |
+| 随机种子 | 未报告 | |
+| 扰动测试 | 无专门扰动测试 | |
+| 真机 | 2 个真机人形任务、3 轮 rollout-intervention 迭代 | Sec 4 |
+| 算力 | 8 GPU（140GB 显存级）；critic/actor 各 8000 步；per-device batch 64/16；lr 首轮 1e-4、后续 1e-5 | 附录 G |
+| 特权信息 | 无 oracle state；人类视频是"软特权"监督（补机器人到不了的长尾状态，无动作对齐） | Sec 3.2 |
+
+**附录陷阱自查**：
+- privileged 信息：无 oracle critic；跨具身人类视频监督是隐藏的数据优势（critic 见过人类恢复模式，baseline 无）
+- reward shaping：有——每步 −1 时间惩罚+C_fail=−500+TD 目标归一化+γ=1 隐式长度折扣
+- reset 难度：未报告
+- eval budget：偏小（20-30 trials/任务）
+- 底层控制栈：未报告 PD
+- 数据优势：与 SFT/HG-DAgger 同批演示对比；但 critic 用了 VLAC 预训练 checkpoint+人类视频，均为额外资产
 
 ## 消融实验与分析
 

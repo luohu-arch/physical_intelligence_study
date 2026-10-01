@@ -12,6 +12,25 @@
 
 XR-1 提出 Unified Vision-Motion Codes (UVMC)：用双分支 VQ-VAE 将视觉动态和机器人运动联合编码到共享离散 latent 空间。三阶段训练（自监督 UVMC → VLA 预训练 → 任务适配），6 种具身形态、120+ 任务、14,000+ 真实 world rollouts 评估。平均成功率 72.0%（π0.5 仅 41.0%、π0 40.8%），few-shot 即可适配新任务，全套开源。ICML 2026 Oral。
 
+## 九问速览
+
+1. **Problem**：像素与关节角之间距离太远，无动作标注的人类视频与异构机器人数据难以共同训练 VLA
+2. **Bottleneck**：单侧表示（仅视觉或仅动作 latent）无法对齐"看到别人做"与"自己会做"，跨具身迁移差
+3. **Insight**：视觉动态与机器人运动可被联合编码进同一个离散 codebook——统一视动代码是两者的翻译层
+4. **Method**：双分支 VQ-VAE（共享 codebook + KL 对齐使视觉分支靠拢运动分支）+ 三阶段（UVMC→VLA 预训练→任务微调）
+5. **Evidence**：6 具身 120+ 任务 14000+ 真机 rollouts 平均 72.0%（π0.5 41.0%、π0 40.8%）
+6. **Ablation**：去 KL 对齐 66.7%→48.3%；motion-only 35.0%、vision-only 50.0%；跳过预训练仅 28.3%——双分支统一编码是核心
+7. **Assumption**：视觉动态与运动模式存在共享离散结构；Ego4D 等人类视频分布可迁移；20 demos 足以适配
+8. **Failure**：codebook collapse 风险；6 具身仍以单/双臂为主；工业场景验证不足
+9. **Opportunity**：更多本体形态覆盖、codebook 规模化、UVMC 作为规划接口均待扩展
+
+| 维度 | 论文答案 |
+|---|---|
+| Perception | 多视角标定 RGB + 本体流（关节位置/夹爪指令），各平台并行夹爪；无深度/触觉 |
+| Closed-loop | 闭环逐 chunk 重观测；控制频率未报告 |
+| Correction | 无显式重规划；UVMC 对动作后果的视觉预测提供隐式预期 |
+| Deployment | RoboMIND+Open-X+XR-D+Ego4D 预训练 → 6 具身遥操作数据微调；新任务 20 demos 即适配 |
+
 ## 核心技术
 
 1. **UVMC (Unified Vision-Motion Codes)** — 双分支 VQ-VAE：视觉分支编码场景动态，运动分支编码机器人动作，共享离散 codebook。KL 对齐损失强制视觉编码向运动编码靠拢，使人类视频（无动作标注）也能参与训练
@@ -77,6 +96,34 @@ KL 对齐损失是这座桥的"桥墩"——视觉分支编码的场景动态被
 - **Stage 3 适配**：仅需 20 demos / 新任务，相比 π0.5 的 50+ demos 更高效
 - **硬件**：UR-5e 单/双臂、Franka 双臂、AgileX Cobot Magic 2.0、天工 1.0/2.0 人形
 - **评估**：14,000+ 真实 world rollouts
+
+## 实验协议清单
+
+| 项目 | 论文设置 | 来源与备注 |
+|---|---|---|
+| 观测 | 多视角标定 RGB（外部或机载相机）+ 本体流（关节位置+夹爪指令）；视觉分支为 SigLIP 约 400M | Sec.4.1、附录 B |
+| 动作空间 | 跨具身动作经 motion 分支编码为共享 codebook 离散码（约 8192 code）；动作头以 MSE 并行回归动作 | Sec.3、附录 B |
+| 控制频率 | 未报告 | — |
+| 重规划频率 | 逐动作 chunk 重观测；chunk 大小未报告 | — |
+| 动作 horizon | 未报告 | — |
+| 数据 | Stage1：Open-X + RoboMIND + Ego4D + XR-D（按数据集加权采样）；每具身 20 任务×遥操作演示；新任务 15×20 条轨迹 | Sec.3.5、4.1 |
+| 奖励 | 无(RL-free)：VQ-VAE 重建 + KL 对齐 + UVMC token 回归的 MSE 辅助监督 | Sec.3 |
+| Reset | 未报告 | — |
+| 成功定义 | 人工判定（human evaluation）的成功率——非自动判定 | Sec.4.1 |
+| 评估次数 | 每任务 20 rollouts；总计 14,000+ 真机 rollouts | Sec.4.1 |
+| 随机种子 | 未报告 | — |
+| 扰动测试 | 有：泛化实验含新物体、环境变化（Table 4 与附录） | Table 4 |
+| 真机 | 有：6 具身（天工 1.0/2.0 人形、单/双臂 UR-5e、双臂 Franka、Cobot Magic 2.0）120+ 任务 | Sec.4.1 |
+| 算力 | 未报告（GPU 型号/数量/训练时长均未披露） | — |
+| 特权信息 | 无 | — |
+
+**附录陷阱自查**：
+- privileged 信息：无
+- reward shaping：无（纯重建/回归损失）
+- reset 难度：未报告
+- eval budget：总量大（14k+ rollouts、每任务 20 次），但成功率为人工判定，主观性无校准说明
+- 底层控制栈：无强 controller 兜底（各平台仅并行夹爪执行器）
+- 数据优势：预训练含自家 XR-D 子集（RoboMIND 2.0），与 π0.5 等的预训练数据口径不完全可比
 
 ## 消融实验与分析
 
