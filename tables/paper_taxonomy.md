@@ -14,10 +14,11 @@
 **VLA 后训练 + RL**：simplevla-rl, rl-token, rove
 **闭环失败归因**：gtp-fa
 **VLA 推理系统**：oxygen
+**Action Chunking 理论**：why-chunking-works, chunking-exploratory
 **数据多样性**：diversity-is-all-you-need
 **Agentic VLA / 执行中心 VLM**：art-vla-agent, capek05
 
-32 篇
+34 篇
 
 ---
 
@@ -54,8 +55,8 @@
 
 ## RL（RL 方法）— notes/rl/（物理子目录按子线组织）
 
-**core/（核心算法与技能发现，3 篇）**：flashsac, rl-100, diayn
-**vla/（VLA + RL，5 篇）**：rl-token, simplevla-rl, rove, z-1, vlac
+**core/（RL 基础方法，5 篇）**：flashsac, rl-100, diayn, q-chunking, dqc
+**vla/（VLA + RL，6 篇）**：rl-token, simplevla-rl, rove, z-1, vlac, smoothrl
 **sim2real/（2 篇）**：viserdex, phys2real
 **dexterous/（灵巧操作 RL，4 篇）**：dexora, torl-vla, hapticvla, grits
 **planning/（分层/规划 RL，3 篇）**：omniretarget, dlo-routing, lessmimic
@@ -77,7 +78,7 @@
 **状态化训练记忆**：statelinformation
 **世界模型持续学习**：wam-ttt
 
-39 篇
+42 篇
 
 ---
 
@@ -115,10 +116,10 @@
 
 | 赛道 | 篇数 | 核心问题 |
 |------|------|---------|
-| Architecture | 32 | 动作怎么表示和生成 |
+| Architecture | 34 | 动作怎么表示和生成 |
 | Reasoning | 15 | 长程任务中的时序推理 |
 | World Model | 31 | 如何建模环境动力学 |
-| RL | 39 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
+| RL | 42 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
 | Memory | 8 | 如何让机器人不忘记 |
 
 **演进方向**：动作表示升级（频域/VQ/联合编码）→ 世界模型从被动预测变主动训练环境（WAM）→ RL 从 demo 走向自我改进 → 自我改进再升级为 agentic 闭环（coding agent 驱动 harness 自动化，HARBOR/ENPIRE 线）→ 记忆从外挂变成架构核心 → 3D 几何回归
