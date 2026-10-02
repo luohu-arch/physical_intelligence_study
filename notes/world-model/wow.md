@@ -92,18 +92,43 @@ $$\hat{x}^{\,LIB}_{i,m} = 1 - \frac{\mathrm{clip}(x_{i,m}; L_m, U_m) - L_m}{U_m 
 **6) 闭环的完整信息流**（含真实奖励回传 GRPO 的通道，摘要与 Section 4.3）：
 
 ```mermaid
-graph TD
-    INST["User instruction g"] --> REF["Refiner Agent: rewrite prompt"]
-    REF --> P["Physically detailed prompt p_k"]
-    OBS["Initial frame o_t"] --> GEN
-    P --> GEN["WoW DiT: T5 text cond + Haar wavelet VAE latents + DINOv2 mid-layer inject"]
-    GEN --> VID["candidate video x_hat"]
-    VID --> CRIT["Critic Team: physics + motion + semantic + quality templates, 1-5 each"]
-    CRIT -->|failed: textual feedback| REF
-    CRIT -->|accepted| IDM["FM-IDM: masked frame SAM branch + CoTracker3 flow branch + DINO feat"]
-    IDM --> ACT["7-DoF delta end-effector action"]
-    ACT --> ROBOT["real execution: success rate / position error / torque stability / energy"]
-    ROBOT -->|GRPO reward signal| GEN
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    INST(["用户指令 g"]) ==> REF["Refiner Agent<br/>改写提示词 (SOPHIA 迭代)"]
+    REF ==> P["物理细节化提示词 p_k"]
+    OBS(["初始帧 o_t"]) ==> GEN
+    P ==> GEN["WoW DiT 14B<br/>T5 文本条件 + Haar 小波 VAE latent<br/>+ DINOv2 中间层注入<br/>203 万真机轨迹训练"]
+    GEN ==> VID["候选视频 hat x<br/>扩散学的是合理结果分布<br/>无因果兜底"]
+    VID ==> CRIT["Critic Team: 物理/运动/语义/质量<br/>四模板各 1-5 分打分"]
+    CRIT -.->|"不通过: 文字反馈退回重抽<br/>对分布筛样本而非修权重"| REF
+    CRIT ==>|"通过"| IDM["FM-IDM 逆动力学<br/>掩码帧 SAM 分支 + CoTracker3 光流分支<br/>+ DINO 特征"]
+    IDM ==> ACT["7 自由度增量末端动作"]
+    ACT ==> ROBOT["真机执行: 成功率/位置误差<br/>/力矩稳定/能耗<br/>Easy 94.5% Mid 75.2%"]
+    ROBOT -.->|"GRPO 奖励信号回传"| GEN
+
+    class INST,OBS data
+    class REF,GEN train
+    class P data
+    class VID env
+    class CRIT,IDM key
+    class ACT,ROBOT act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 **为什么闭环要对"分布"而非"样本"操作？** 扩散模型的输出本身是从 $G_\theta$ 中抽样，物理失真是个体样本偏离支撑集的现象；SOPHIA 不修 $G_\theta$ 的权重而是筛样本 + 缩小条件熵（更具体的 $p$ 使 $G_\theta(\cdot \mid p)$ 更集中），等价于在不触碰生成器的前提下做条件熵压缩。

@@ -84,15 +84,42 @@ FAST Tokenizer 的核心突破是解决了长时序任务中，Transformer 注�
    高频截断部分（$k \geq M$）补零，还原过程在压缩比合理的前提下完全无损。
 
 ```mermaid
-graph LR
-    SEQ[时域动作序列<br/>长度 N=50] --> DCT[一维 DCT 变换<br/>时域转频域]
-    DCT --> FREQ[频域系数<br/>95% 能量在前 10%]
-    FREQ --> TRUNC[截断高频<br/>保留前 M=10 个系数]
-    TRUNC --> BPE[BPE 量化建库<br/>转化为离散 Token]
-    BPE --> TRANS[Transformer 训练]
-    TRANS --> PRED[预测频域 Token]
-    PRED --> IDCT[逆 DCT 还原<br/>频域转回时域]
-    IDCT --> ROBOT[机器人执行]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    SEQ(["时域动作序列 chunk<br/>长度 N = 50"]) ==> DCT
+    subgraph FAST["FAST 频域压缩 (核心 token 化)"]
+        DCT["一维 DCT 变换<br/>时域 转 频域"]
+        TRUNC["截断高频系数<br/>保留前 M = 10 个低频 (95% 以上能量)"]
+        BPE["BPE 量化建库<br/>词表 1024, 压成密集 token<br/>(FAST+: 1M 真机轨迹训通用 tokenizer)"]
+    end
+    DCT --> TRUNC --> BPE
+    BPE ==> TR["Transformer 自回归骨干<br/>(pi0-FAST, next-token 预测)"]
+    LCE["损失: next-token 交叉熵"] -.-> TR
+    TR ==> PRED["自回归生成频域 token<br/>(每 chunk 约 30-60 token)"]
+    PRED ==> IDCT["逆 DCT 还原<br/>高频部分补零"]
+    IDCT ==> ROBOT(["机器人执行 1 秒动作 chunk"])
+    ROBOT -.->|"执行后重观测<br/>(与 pi0 相同执行协议)"| SEQ
+
+    class SEQ data
+    class DCT,TRUNC,BPE key
+    class TR train
+    class PRED,IDCT,ROBOT act
+    class LCE loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

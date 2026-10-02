@@ -84,19 +84,44 @@ $$
 $\delta_{3D} \in \{0.1, 0.3, 0.5, 1.0\}$ m 取平均；失效判定为 EPE² 超过 $\delta_{3D}$。
 
 ```mermaid
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
 flowchart LR
-    A[Monocular long video<br/>200-500 frames] --> B[Partition into 48-frame chunks<br/>8-frame overlap]
-    B --> C[Encoder E: DA3-init ViT<br/>scene repr F + depth D + pose P]
-    A2[Query pixels in frame 0] -->|unproject with D0| Q[3D query p = x,y,z]
-    A2 -->|patch from first visible frame| S[Visual descriptor S<br/>reused across all chunks]
-    C --> D[Cross-attn decoder<br/>q = PE p + cam tokens + time token + emb S]
-    Q --> D
-    S --> D
-    D -->|sweep ttgt over chunk| E[Per-chunk 3D trajectories]
-    E --> F[Sim3 align via overlap depth<br/>Umeyama]
-    F -->|transform 3D endpoint| Q2[Re-query in next chunk<br/>no reprojection, no matching]
-    Q2 --> D
-    F --> G[Global-frame long-range<br/>dense 3D trajectories]
+    A(["单目长视频<br/>200-500 帧"]) --> B["切成 48 帧的块<br/>8 帧重叠"]
+    B ==> C["编码器 E: DA3 初始化 ViT<br/>场景表征 F + 深度 D + 位姿 P"]
+    A2(["第 0 帧查询像素"]) -->|"用 D_0 反投影"| Q["3D query p = (x,y,z)<br/>query 3D 点而非像素<br/>坐标不依赖可见性<br/>消融 Survival 0.283->0.514"]
+    A2 -->|"取首次可见帧的 patch"| S["视觉描述子 S<br/>跨所有块复用"]
+    C ==> D["交叉注意力解码器<br/>q = PE(p) + 相机 token + 时间 token + emb(S)"]
+    Q ==> D
+    S ==> D
+    D ==>|"块内扫 t_tgt"| E2["每块 3D 轨迹"]
+    E2 ==> F["Sim(3) 对齐: 用重叠帧深度<br/>Umeyama 求变换<br/>交棒误差从乘性放大变加性缓增"]
+    F ==>|"直接变换 3D 端点"| Q2["下一块重查询<br/>无重投影无匹配<br/>遮挡/出画不断链"]
+    Q2 -.-> D
+    F ==> G["全局系长程稠密 3D 轨迹<br/>200 帧三基准平均第一<br/>可作世界模型稠密运动监督"]
+
+    class A,A2 data
+    class B,C,D train
+    class Q,F key
+    class S mem
+    class Q2 loop
+    class E2,G env
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 ## 物理直觉解释

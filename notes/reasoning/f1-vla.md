@@ -96,14 +96,47 @@ $$\mathcal{L}_{\text{joint}} = \mathcal{L}_{\text{action}} + \alpha \mathcal{L}_
 **阶段 III（特定平台微调）**：在目标机器人平台（如 Genie-1、ARX LIFT II、Franka）上，使用领域特定数据集进行轻量微调，优化 $\mathcal{L}_{\text{action}}$。
 
 ```mermaid
-graph TD
-    OBS[当前观测] --> PERC[感知模块]
-    LANG3[语言指令] --> PERC
-    PERC --> FORESIGHT[前瞻生成模块<br/>视觉目标预测]
-    FORESIGHT --> TARGET[目标视觉状态]
-    TARGET --> CONTROL[控制模块<br/>逆向动力学]
-    OBS --> CONTROL
-    CONTROL --> ACT2[机器人动作]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    OBS[当前观测 o_t]:::data
+    LANG[语言指令 l]:::data
+
+    subgraph MOT["Mixture-of-Transformer 三专家"]
+        PERC[感知专家<br/>多模态 Transformer 编码]:::frozen
+        GEN[前瞻生成专家<br/>下一尺度预测 逐尺度残差精修]:::key
+        CTRL[控制专家<br/>前瞻引导逆动力学]:::act
+    end
+
+    OBS ==> PERC
+    LANG ==> PERC
+    PERC ==> GEN
+    GEN ==> TGT[未来视觉状态<br/>t+tau 步目标画面]:::env
+    TGT ==> CTRL
+    OBS ==> CTRL
+    CTRL ==> ROBOT([机器人动作序列 a_t 至 a_t+T]):::act
+    BASE[pi_0 预训练权重基座]:::frozen -.初始化.-> PERC
+    LF[前瞻生成损失<br/>与真实未来帧 L2]:::loss
+    LA[动作负对数似然损失]:::loss
+    LF -.-> GEN
+    LA -.-> CTRL
+    LJ[三阶段训练<br/>对齐预训练 - 联合预训练 - 平台微调]:::loss
+    LJ -.alpha/beta 加权联合优化.-> GEN
+    ROBOT -.每 action chunk 执行完重新生成前瞻.-> OBS
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

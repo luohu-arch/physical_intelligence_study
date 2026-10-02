@@ -71,19 +71,66 @@ $$r_i(\theta) = \frac{\pi_\theta(o_i \mid q)}{\pi_{\theta_{\mathrm{rollout}}}(o_
 **训练全景数据流**：
 
 ```mermaid
-graph TD
-    A["Seed corpus: Wikipedia + BBC News, ~10M pages"] --> B["LLM extracts factual QA pairs"]
-    B --> C["Source masking: delete origin page from corpus"]
-    C --> D["7-point rubric filter: all 7 must pass"]
-    D --> E["Corpus expansion: fetch related live pages per QA"]
-    E --> F["Enriched corpus: ~32M pages, 1M+ domains (~220K Serper calls, ~$220 one-time)"]
-    F --> G["Local Search: BGE-M3 + Milvus + DiskANN, ~0.15s/query"]
-    F --> H["Local Browse: PostgreSQL Markdown, ~0.17s/page"]
-    G --> I["Difficulty filter: pass@8, keep 1 <= c <= 7"]
-    H --> I
-    I --> J["Stage 1: on-policy GRPO, 32K ctx, temp 0.7"]
-    J --> K["Stage 2: 48K ctx, temp 1.0, add science data"]
-    K --> L["LiteResearcher-4B: GAIA 71.3%, Xbench-DS 78.0%"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    SEED(["种子语料: Wikipedia + BBC News 约 1000 万页"]):::data
+    EXT["LLM 从网页抽取事实性 QA 对<br/>覆盖五种原子搜索能力"]:::frozen
+    MASK["source masking: 删掉 QA 出处页<br/>逼 agent 走非平凡搜索路径"]:::data
+    RUB["7 项 LLM 评分规则<br/>全过硬才保留"]:::reward
+    EXP["语料扩张: 按 QA 抓真实网页入语料<br/>两轮迭代, 220K 次 Serper 约 $220 一次性"]:::data
+
+    subgraph WORLD["lite virtual world (核心): 镜像真实网络结构, 执行完全隔离"]
+        direction LR
+        CORP["约 3200 万页 / 100 万+ 域名<br/>确定性: 同 query 永远同结果"]:::key
+        SEARCH["本地 Search: BGE-M3 + Milvus + DiskANN<br/>约 0.15s/查询, 支撑数百并发 rollout"]:::env
+        BROWSE["本地 Browse: PostgreSQL Markdown<br/>约 0.17s/页"]:::env
+    end
+
+    POL["策略 Qwen3-4B-Thinking<br/>ReAct: 思考 -> Search/Browse -> 观察"]:::train
+    TCH["SFT 冷启动: Tongyi DeepResearch 当 teacher<br/>68,231 条轨迹, GAIA 55.6% 留出 RL 空间"]:::frozen
+    DIFF["难度课程过滤: pass@8 保留 1<=c<=7<br/>c=8 零梯度 / c=0 噪声均丢弃"]:::loop
+    JUDGE["二值终局奖励: Qwen3-30B judge<br/>判最终答案语义等价"]:::reward
+    S1["Stage 1: 严格 on-policy GRPO, 无 KL/无熵项<br/>32K 上下文, 温度 0.7, TIS 修引擎失配"]:::loss
+    S2["Stage 2: 48K, 温度 1.0<br/>混入 science 数据突破平台"]:::loss
+    ACC(["LiteResearcher-4B: GAIA 71.3% / Xbench-DS 78.0%<br/>超 8 倍大的 Tongyi 30B; 73.2M 次本地调用零边际成本"]):::data
+
+    SEED ==> EXT
+    EXT ==> MASK
+    MASK ==> RUB
+    RUB ==> EXP
+    EXP -.->|"数据-语料共进化迭代"| EXT
+    EXP ==> CORP
+    CORP ==> SEARCH
+    CORP ==> BROWSE
+    TCH -.->|"SFT 初始化"| POL
+    POL -.->|"ReAct 交互: 45.8M 次 search + 27.4M 次 browse"| SEARCH
+    POL -.-> BROWSE
+    SEARCH -.->|"即时确定性反馈"| POL
+    BROWSE -.-> POL
+    POL -.->|"每阶段 pass@8 探测"| DIFF
+    WORLD ==> DIFF
+    DIFF ==> S1
+    S1 ==> S2
+    JUDGE -.->|"二值奖励注入组相对优势"| S1
+    JUDGE -.-> S2
+    S2 ==> ACC
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

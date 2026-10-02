@@ -46,16 +46,46 @@ XR-1 提出 Unified Vision-Motion Codes (UVMC)：用双分支 VQ-VAE 将视觉�
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    VIDEO["人类视频 (Ego4D, 无动作标签)"] --> VISENC["Visual Encoder (VQ-VAE)"]
-    ROBOT["机器人数据 (RoboMIND, OXE)"] --> VISENC
-    ROBOT --> MOTENC["Motion Encoder (VQ-VAE)"]
-    VISENC --> CODEBOOK["共享离散 Codebook"]
-    MOTENC --> CODEBOOK
-    CODEBOOK --> UVMC["Unified Vision-Motion Codes"]
-    UVMC --> VLM["VLM Backbone (辅助监督)"]
-    VLM --> ACTION["动作预测"]
-    KL_LOSS["KL 对齐损失 (视觉→运动)"] --> VISENC
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    HVIDEO(["人类视频 Ego4D<br/>(无动作标签)"]) ==> VENC
+    RDATA(["机器人数据 RoboMIND / OXE<br/>(带动作标注)"]) ==> VENC
+    RDATA ==> MENC
+    subgraph UVMCG["UVMC: 统一视动编码 (核心)<br/>双分支 VQ-VAE, 共享离散空间"]
+        VENC["视觉分支编码器<br/>编码场景动态"]
+        MENC["运动分支编码器<br/>编码机器人动作"]
+        CB["共享离散 codebook 约 8192<br/>具身无关: 同一码 = 抓取<br/>(UR5 与人形共用)"]
+    end
+    VENC --> CB
+    MENC --> CB
+    KL["KL 对齐损失 D_KL(q_vis || q_mot)<br/>强制视觉分布靠拢运动分布<br/>(去 KL: 66.7% -> 48.3%)"] -.-> VENC
+    LUVMC["Stage 1 损失: 双分支重建 L1 + VQ 目标<br/>+ beta * KL 对齐"] -.-> CB
+    CB ==> UVMC(["UVMC token<br/>视觉动态与运动模式的翻译层"])
+    UVMC ==>|"Stage 2: 辅助监督注入"| VLM["VLM backbone<br/>(SigLIP 约 400M + LLM)"]
+    LMSE["Stage 2 损失: UVMC token 回归 MSE<br/>+ 动作头 MSE 并行回归"] -.-> VLM
+    VLM ==> FT["Stage 3: 任务适配 post-training<br/>新任务仅 20 demos"]
+    FT ==> ACT(["动作预测<br/>6 具身 120+ 任务 14000+ 真机 rollouts<br/>平均 72.0% (pi0.5 为 41.0%)"])
+
+    class HVIDEO,RDATA data
+    class VENC,MENC,CB,UVMC key
+    class VLM,FT train
+    class ACT act
+    class KL,LUVMC,LMSE loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 UVMC 的核心公式——双分支 VQ-VAE 的联合优化：

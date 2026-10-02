@@ -81,13 +81,36 @@ $$
 整个系统唯一闭环的地方在测试时：每隔 $k_{test}$ 步重新采样子目标，再让策略朝它滚出 $k_{test}$ 步。
 
 ```mermaid
-graph TD
-    OBS["observe st"] --> GEN["p_theta generates fresh subgoal b_s plus every k_test steps"]
-    CMD["language command l"] --> GEN
-    GEN --> LOW["pi_phi(a | st, b_s): diffusion policy, chunk of 4 actions"]
-    LOW --> AVG["temporal averaging: execute dim-wise mean of last 4 predictions"]
-    AVG --> ROBOT["execute on robot"]
-    ROBOT --> OBS
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    OBS(["观测 s_t"]) ==> GEN["子目标生成器 p_theta<br/>InstructPix2Pix 微调<br/>只生成下一子目标帧 b_s<br/>每 k_test=20 步刷新"]
+    CMD(["语言指令 l"]) ==> GEN
+    GEN ==> LOW["低层策略 pi_phi(a|s_t, b_s)<br/>语言无关扩散策略<br/>4 步动作块追子目标"]
+    LOW ==> AVG["时间平均<br/>执行最近 4 次预测的逐维均值"]
+    AVG ==> ROBOT["机器人执行<br/>CALVIN 五连 0.26 SOTA<br/>胜过真值目标图 Oracle"]
+    ROBOT -.->|"闭环重观测"| OBS
+
+    class OBS,CMD data
+    class GEN key
+    class LOW train
+    class AVG,ROBOT act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 两个独立的超参表值得记住（重复实验时的易错点）：CALVIN 用 $k_{min}=20, k_{max}=22, k_\delta=2$；BridgeData V2 与 Something-Something 都用 $k_{min}=11, k_{max}=14$，其中 Bridge 配 $k_\delta=6$；$k_{test}$ 两边都是 20。

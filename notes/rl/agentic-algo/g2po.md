@@ -47,18 +47,48 @@ G2PO（微软 + 北大）把多轮 agent RL 的线性轨迹重构为全局状态
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    A["Sample N trajectories per task"] --> B["Collect all intermediate observations"]
-    B --> C["Cluster identical observations<br/>into disjoint state groups"]
-    C --> D["State-transition graph:<br/>nodes = state groups, edges = actions"]
-    D --> E["Group-aggregation state value<br/>V(Gk) = mean of v = gamma^(T-j+1) * R_i"]
-    E --> F["Edge-centric advantage:<br/>TD error between group values,<br/>standardized over ALL edges"]
-    E --> G["Node-centric advantage:<br/>local normalization among actions<br/>leaving the same source state"]
-    E --> H["Episode-level advantage:<br/>GRPO-style outcome normalization"]
-    F --> I["A = A_EP + w * (A_NC + A_EC)"]
-    G --> I
-    H --> I
-    I --> J["Clipped per-step policy update<br/>+ KL penalty to reference policy"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    POL["被 RL 的策略 Qwen2.5-1.5B/7B/14B<br/>(critic-free, 不养 value 网络)"]:::train
+    ENV["文本环境: WebShop / ALFWorld / AppWorld<br/>稀疏终局奖励, 中间步零奖励"]:::env
+    TRAJ["每任务 N=8 条并行轨迹<br/>多宇宙探索天然共享状态"]:::data
+    GRAPH["状态转移图 (核心): 相同 observation 聚为状态组节点<br/>动作 (G_s, a, G_t) 为有向边, 线性轨迹在图上重新连通"]:::key
+    GA["组聚合状态价值 V(G_k) = 组内折扣回报平均<br/>方差 sigma^2 -> sigma^2/|G_k|, 跨轨迹抹掉运气"]:::reward
+    AEC["edge-centric 优势 A_EC: 组间 1-step TD error<br/>在全图所有转移上均值-方差标准化 (全局标尺)"]:::reward
+    ANC["node-centric 优势 A_NC<br/>同源状态各动作的局部相对比较"]:::reward
+    AEP["episode 级优势 A_EP<br/>GRPO 式终局归一化, 锚定任务目标"]:::reward
+    ADV["三粒度合成<br/>A = A_EP + w*(A_NC + A_EC)"]:::reward
+    OBJ["G2PO 目标: 逐样本裁剪代理 + KL 惩罚<br/>w=0 时退化为 GRPO; 优势计算纯 CPU 仅 +1s/步"]:::loss
+    ACC(["1.5B ALFWorld 95.0 vs GRPO 72.8 / GiGPO 86.7<br/>关键突破型子任务 Look +42.6; 交互步数 9 -> 5.4"]):::data
+
+    POL -.->|"rollout"| ENV
+    ENV ==> TRAJ
+    TRAJ ==>|"收集全部中间 observation, 完全相同者聚类"| GRAPH
+    GRAPH ==> GA
+    GA ==> AEC
+    GA ==> ANC
+    TRAJ ==> AEP
+    AEC ==> ADV
+    ANC ==> ADV
+    AEP ==> ADV
+    ADV ==> OBJ
+    OBJ -.->|"逐步策略更新"| POL
+    OBJ ==> ACC
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 **问题设定与 GRPO 基线。** 轨迹 $\tau=(o_1,a_1,\dots,o_T,a_T)$，策略 $\pi_\theta(a_i|o_i)$，仅任务完成或达到步数上限时返回标量奖励 $R$（中间步零奖励）。GRPO 对每个 query 采 $G$ 个输出，优势 $A_i = (R_i-\mu)/\sigma$，目标为裁剪代理 + KL 惩罚：

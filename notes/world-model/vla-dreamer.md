@@ -49,22 +49,49 @@
 整个方案可以浓缩为一个闭环：冻结编码器 $E$ 把帧变成嵌入，世界模型 $f_{\mathrm{WM}}$ 在嵌入上单步前推，策略（VLA 本体）在世界模型展开的轨迹上用距离奖励更新。论文没有给出编号公式，以下为其文字描述的忠实转写。
 
 ```mermaid
-graph TD
-    DEMO["NICOL teleoperation dataset"] --> FT["VLA fine-tune: freeze vision encoder, regularize LLM backbone"]
-    FT --> VLA["VLA policy: pi0-FAST or OpenVLA, token-probability actions"]
-    MIX["Random actions + semi-expert and expert demos"] --> WM["World model training in embedding space"]
-    FRAME["Camera frames"] --> ENC["Frozen VLA vision encoder E"]
-    ENC --> HIST["Embedding history e_t-h+1 : t + proprio p_t + action a_t"]
-    HIST --> WM
-    WM --> NEXTE["Predicted next-observation embedding e_hat_t+1"]
-    GOAL["Goal image"] --> ENC
-    ENC --> EG["Goal embedding e_g"]
-    NEXTE --> ROLL["Imagination rollout with bounded horizon H"]
-    EG --> REW["Dense reward r = - mean squared distance of embeddings"]
-    ROLL --> REW
-    REW --> RL["PPO refines VLA inside the world model"]
-    PROBE["Probes: segmentation mIoU + depth RMSE + image decoder"] --> ENC
-    PROBE --> NEXTE
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    DEMO[(NICOL 遥操作数据集)] ==> FT["VLA 微调<br/>冻结视觉编码器 + 正则化 LLM 骨干"]
+    FT ==> VLA["VLA 策略<br/>pi0-FAST 或 OpenVLA<br/>token 概率动作"]
+    MIX(["随机动作 + 半专家与专家演示"]) ==> WM["嵌入空间世界模型训练<br/>JEPA 式动作条件前推<br/>检验 VLA 隐式世界模型假设"]
+    FRAME(["相机帧"]) ==> ENC["冻结 VLA 视觉编码器 E"]
+    ENC ==> HIST["嵌入历史 e_(t-h+1):t<br/>+ 本体 p_t + 动作 a_t"]
+    HIST ==> WM
+    WM ==> NEXTE["预测下一观测嵌入 hat e_t+1"]
+    GOAL(["目标图像"]) ==> ENC
+    ENC ==> EG["目标嵌入 e_g"]
+    NEXTE ==> ROLL["有界视野 H 的想象 rollout"]
+    EG ==> REW["稠密奖励<br/>r = - 嵌入距离均方"]
+    ROLL ==> REW
+    REW ==> RL["PPO 在世界模型内精修 VLA"]
+    PROBE["探针检验: 分割 mIoU<br/>+ 深度 RMSE + 图像解码器"] -.-> ENC
+    PROBE -.-> NEXTE
+
+    class DEMO,MIX,FRAME,GOAL data
+    class ENC frozen
+    class FT,VLA,RL train
+    class WM key
+    class HIST,NEXTE,EG env
+    class REW reward
+    class ROLL loop
+    class PROBE loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 **世界模型预测目标**：记 $e_t=E(o_t)$ 为冻结编码器输出、$p_t$ 为本体感觉、$h$ 为嵌入历史长度，世界模型学习

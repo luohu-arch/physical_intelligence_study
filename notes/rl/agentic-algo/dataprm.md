@@ -46,17 +46,61 @@
 7. **两种消费场景**：TTS（Best-of-N、Beam Search、DVTS 下按步分聚合选轨迹）与 RL（GRPO + clip-higher + token-level loss，PRM 分数与 outcome 奖励加权混合，终步不一致时以 outcome 覆写）。
 
 ```mermaid
-graph TD
-    CRAWL["AutoSDT GitHub crawl + human expert revision"] --> QUERY["DeepSeek-V3.2 synthesizes reasoning-focused queries"]
-    QUERY --> SAMP["policy Qwen3-235B samples K=4 trajectories per query"]
-    SAMP --> JUDGE{"final answers all identical?"}
-    JUDGE -- "identical: no boundary signal, discard" --> SAMP
-    JUDGE -- "diverse: keep boundary case" --> SPLIT["step split + initial annotation by Qwen3-235B"]
-    SPLIT --> MERGE["AutoManual merges error categories, human experts verify and inject few-shots"]
-    MERGE --> TAG["DeepSeek-V3.2 assigns ternary rewards 0 / 0.5 / 1"]
-    TAG --> SFT["SFT DataPRM 4B via ms-swift"]
-    SFT --> TTS["TTS consumer: Best-of-N / Beam / DVTS"]
-    SFT --> RL["RL consumer: GRPO with mixed outcome + process reward"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    CRAWL["AutoSDT GitHub 抓取任务与文件<br/>+ 人类专家修订"]:::data
+    QUERY["DeepSeek-V3.2 合成推理型查询"]:::frozen
+    SAMP["policy Qwen3-235B 每查询并行采 K=4 条轨迹"]:::frozen
+    JUDGE{"4 条终答全一致?"}:::reward
+    SPLIT["步级切分 + Qwen3-235B 初标注"]:::frozen
+    MERGE["AutoManual 合并错误类别<br/>人工核验 (86.0%, kappa=0.83) 注回 few-shot"]:::mem
+    TAG["DeepSeek-V3.2 打三元分<br/>1 严格正确 / 0.5 可修正试错 / 0 不可恢复"]:::reward
+    SFT["SFT 训 DataPRM 4B (ms-swift)<br/>7K+ 边界样本"]:::loss
+
+    PRM["DataPRM 4B (核心): environment-aware 生成式 PRM<br/>与 policy 同 ReAct 范式, 验证反馈元组跨步拼接"]:::key
+    SANDBOX["代码解释器 + 隔离文件系统沙箱<br/>主动跑探查代码核对中间状态 (抓 silent error)"]:::env
+    TOOL["query_document / query_image 工具<br/>补长文档与多模态感知"]:::act
+    POL["数据分析 policy (ReAct 写代码)<br/>BoN 场景 235B / RL 场景 Qwen2.5-Coder-7B"]:::train
+    TTS["TTS 消费: Best-of-N / Beam / DVTS<br/>按步分聚合选轨迹, 保护先试错后收敛"]:::loop
+    RL["RL 消费: GRPO + clip-higher<br/>r_total = (1-beta)*outcome + beta*PRM 均值, 终步覆写"]:::loss
+    ACC(["BoN: DABStep 40.89@N=16 唯一单调升, 4B 压 32B/72B<br/>RL: DABench 78.73%, 训练熵 0.18 不塌缩"]):::data
+
+    CRAWL ==> QUERY ==> SAMP ==> JUDGE
+    JUDGE -.->|"全一致: 无判别信号, 丢弃重采"| SAMP
+    JUDGE ==>|"多样: 保留边界样本"| SPLIT
+    SPLIT ==> MERGE ==> TAG ==> SFT
+    SFT ==> PRM
+    POL ==>|"完整轨迹 h_t + 当前步"| PRM
+    PRM -.->|"写取证代码 (均值 0.87 次工具调用/步)"| SANDBOX
+    SANDBOX -.->|"中间执行状态观测"| PRM
+    PRM -.->|"查询手册 / 图像"| TOOL
+    TOOL -.-> PRM
+    PRM ==>|"三元步分 + rationale"| TTS
+    POL -.->|"N 候选轨迹"| TTS
+    PRM -.->|"过程奖励注入"| RL
+    POL -.->|"rollout"| RL
+    RL -.->|"更新 policy"| POL
+    TTS ==> ACC
+    RL ==> ACC
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 底层原理与数学推导

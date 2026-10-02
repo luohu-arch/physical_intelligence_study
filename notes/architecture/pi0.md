@@ -64,15 +64,49 @@ $$L_{CFM} = \mathbb{E}_{t, x_0, x_1} \left[ \| v_\theta(x_\tau, \tau, c) - (x_1 
 ### 3. 系统架构
 
 ```mermaid
-graph TD
-    IMG[多视角 RGB] --> VLM["PaliGemma VLM (SigLIP 加 Gemma)"]
-    LANG[语言指令] --> VLM
-    PROP[Proprioception] --> VLM
-    VLM --> LATENT[多模态 latent token]
-    NOISE["噪声 x0 ~ N(0,I)"] --> EXPERT["Action Expert (300M Flow Matching)"]
-    LATENT --> EXPERT
-    EXPERT --> ACTION["SE(3) 连续动作 (平移 加 旋转 加 夹爪)"]
-    ACTION --> ROBOT[机器人执行]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    subgraph IN["输入"]
+        direction TB
+        IMG(["多视角 RGB"])
+        LANG(["语言指令"])
+        PROP(["本体状态 q"])
+    end
+
+    subgraph BASE["VLM 主干 (PaliGemma: SigLIP + Gemma)"]
+        VLM["多模态 token 化<br/>约 3B 参数"]
+    end
+
+    subgraph ACT["动作专家 (300M)"]
+        EXP["Flow Matching 去噪网络<br/>x0 ~ N(0,I) 经 v(x_t, t) 积分"]
+    end
+
+    IMG --> VLM
+    LANG --> VLM
+    PROP --> VLM
+    VLM -- "多模态 latent<br/>(跨注意力条件)" --> EXP
+    NOISE(["噪声 x0"]) --> EXP
+    EXP ==>|"SE(3) 连续动作<br/>(平移 + 旋转 + 夹爪)"| CTRL["机器人执行"]
+    CTRL -.->|"新观测反馈"| IMG
+
+    class VLM frozen
+    class EXP,ACT train
+    class IMG,LANG,PROP,NOISE data
+    class CTRL act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
 ```
 
 ## 物理直觉解释

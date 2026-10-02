@@ -71,36 +71,76 @@ $$\hat{r}(s) = \frac{\hat{p} + \frac{z^2}{2n} - z\sqrt{\frac{\hat{p}(1-\hat{p})}
 **(5) 知识的两条持久化通路**。技能库存储为可执行 Python 源码 + 前置条件/预期效果/依赖/出处/使用与成功计数 + 可靠度档位，插入前静态校验（定义了可调用函数、只用可用原语或已知依赖、不与现有技能重复），并提供两套视图：给 Task Proposer 的 metadata-only 视图（省上下文）与给 Planner/Writer 的 code-bearing 视图。失败记忆则把 episode（任务、物体、失败类别、失败步骤、诊断、已试方案、代码片段）蒸馏成可检索的教训，Planner 按任务与物体重叠检索——**等价于把稀疏的「任务成败」信号分解成 step 级诊断 + 语言化教训，这是没有梯度也能积累知识的替代通路**。
 
 ```mermaid
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
 flowchart TB
-    SCENE["scene context + skill summary (metadata only) + last 10 attempts"] --> PROPOSE
-    subgraph PROPOSE["Task Proposer team"]
-        GEN["LLM generates K=5 candidate play tasks"] --> RANK["rank by s = novelty x competence frontier + retry bonus - failure penalty"]
-        RANK --> CREATE["Environment Creator: BDDL spec or grounded task artifact, one bounded repair"]
-        CREATE --> EVERIFY["Environment Verifier: two reset seeds, deterministic checks; reject returns to proposing"]
+    SCENE(["场景上下文 + 技能库摘要 (仅元数据) + 近 10 条任务历史"]):::data
+
+    subgraph PROPOSE["Task Proposer 团队: 无外部任务, 自提练习目标"]
+        direction TB
+        GEN["LLM 生成候选池<br/>人设: 3-4 岁小孩, 一次一件单步小事"]:::frozen
+        GOLD["Goldilocks 打分: 新颖度 N x 能力边界 F<br/>F = 4*r*(1-r), Wilson 下界成功率, 峰在半熟"]:::key
+        CREATE["Environment Creator<br/>编译成 BDDL 任务实例 + 一次有界修复"]:::env
+        EVERIFY["Environment Verifier<br/>2 个 reset seed 确定性检查, 不合格退回"]:::env
+        GEN ==> GOLD ==> CREATE ==> EVERIFY
     end
-    EVERIFY --> EXEC
-    subgraph EXEC["Execution team: Write - Execute - Verify - Diagnose loop, bounded retries"]
-        PLAN["Planner: ordered plan, skill-annotated steps, predicted failure points"] --> PVER["Planner Verifier: is the plan grounded in the scene"]
-        PVER --> WRITE["Policy Writer: python code, local edits on retry"]
-        WRITE --> QCHECK["Quality Checker: static screen before spending robot budget"]
-        QCHECK --> RUN["execute in env"]
-        RUN --> GVER["Goal Verifier + Per-Step Verifier: task verdict + step-level evidence"]
-        GVER -->|fail| DIAG["Failure Diagnoser: category, first failed step, repair, routing"]
-        DIAG -->|code bug| WRITE
-        DIAG -->|plan flaw| PLAN
-        DIAG -->|persistent local bottleneck| SUB["SubAgent practices one sub-action, helper goes to current retry only"]
-        DIAG -->|retry feedback| WRITE
+
+    subgraph EXEC["Execution 团队: Write-Execute-Verify-Diagnose 循环 (最多 5 次重试)"]
+        direction TB
+        PLAN["Planner: 带技能标注分步计划<br/>+ 预测失败点"]:::frozen
+        PVER["Planner Verifier<br/>计划是否物理落地"]:::reward
+        WRITE["Policy Writer: 写 Python 控制代码<br/>retry 只做局部修改"]:::act
+        QCHECK["Quality Checker: 静态筛查<br/>语法/不可用 API/无界循环, 省执行预算"]:::reward
+        RUN["仿真执行"]:::env
+        GVER["Goal Verifier + Per-Step Verifier<br/>任务判定 + step 级证据 (策略 crash 一律失败)"]:::reward
+        DIAG["Failure Diagnoser: 失败类别 + 首个失败步<br/>+ 修复建议 + 路由标志"]:::reward
+        SUB["SubAgent 单练瓶颈子动作<br/>成果只注入当前 retry, 不自动入库"]:::act
+        PLAN ==> PVER ==> WRITE ==> QCHECK ==> RUN ==> GVER
+        GVER -.->|"失败: 定位证据"| DIAG
+        DIAG -.->|"代码级 bug"| WRITE
+        DIAG -.->|"计划级错误: 重规划"| PLAN
+        DIAG -.->|"持续局部瓶颈"| SUB
     end
-    GVER -->|success| MEM
-    DIAG --> MEM
-    subgraph MEM["Memory-Management team, curate every K=5 iterations"]
-        UP["success: extract parameterized helpers as experimental; failure: distill lesson into failure memory"]
-        CUR["Memory Curator merges duplicates; Skill Proposer drafts anticipatory helpers"]
-        TIER["reliability tiers: 3+ uses and rate 0.5+ to verified; 10+ uses and rate 0.2 or less to deprecated"]
+
+    subgraph MEM["Memory-Management 团队: 每 K=5 轮维护"]
+        direction LR
+        UP["成功: 抽参数化 helper 以 experimental 入库<br/>失败: 蒸馏紧凑教训入错题本"]:::mem
+        CUR["Memory Curator 合并近似重复<br/>Skill Proposer 前瞻草拟 helper"]:::mem
+        TIER["可靠度三档: 3 次用且率>=0.5 升 verified<br/>10 次用且率<=0.2 隐藏; Wilson 下界排序"]:::mem
     end
-    MEM --> LIB["frozen skill library L at test time"]
-    LIB --> PLUG["plug into CaP-Agent0 context"]
-    LIB --> FULL["RATS Exec: planner retrieves verified skills"]
+
+    LIB["冻结技能库 L = L0 + L_learned<br/>可执行 Python 源码 + 前置条件/效果元数据"]:::key
+    PLUG["Plug-and-Play: 冻结库插入 CaP-Agent0<br/>不带 RATS 回路, 单独度量库价值"]:::frozen
+    FULL["RATS Exec: 完整团队带库上场<br/>Planner 优先检索 verified 技能"]:::frozen
+    ACC(["LIBERO-PRO 23.2% -> 43.8% (+20.6pp)<br/>RoboSuite +8.9pp / 真机 +8.8pp 零微调"]):::data
+
+    SCENE ==> GEN
+    EVERIFY ==>|"合格任务"| PLAN
+    GVER ==>|"成功"| UP
+    DIAG ==>|"失败也归档"| UP
+    UP ==> CUR ==> TIER
+    UP ==> LIB
+    TIER -.->|"检索排序"| LIB
+    LIB ==> PLUG
+    LIB ==> FULL
+    PLUG ==> ACC
+    FULL ==> ACC
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

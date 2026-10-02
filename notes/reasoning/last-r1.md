@@ -184,21 +184,51 @@ $$
 7. 潜推理与动作之间的信息瓶颈只有 <latent_end> 的 hidden——把 value head 换成多个中间潜 token 的池化、或在动作解码时让每个动作 token 只看部分潜前缀，是否会改变推理结构与可优化性？
 
 ```mermaid
-graph TD
-  A[Observation - image 3 cams + language instruction] --> B[SigLIP2-Large visual encoder - 2D RoPE]
-  B --> C[LLM backbone - Qwen3-VL-4B]
-  D[Text tokenizer] --> C
-  C --> E[Autoregressive latent CoT - Nz up to 8 tokens]
-  E --> F{latent_end token emitted? p >= 0.99}
-  F -->|no| E
-  F -->|yes| G[Value head - 4 layer MLP --> state value vt]
-  F --> H[Parallel action decoding - 8 step chunk, 56 tokens, bidirectional mask, KV cache reused]
-  H --> I[Robot - Franka Research 3 single or dual arm]
-  I -->|next observation| A
-  I -->|transition tuples + human intervention buffer| J[Learner - LoRA r 32, async actor-learner]
-  E -->|latent ratio rz| J
-  H -->|action ratio ra| J
-  J -->|reward shapes latent + action spaces| C
-  K[Offline DINOv3 CLS top-k 2560 latent GT targets] -->|cosine similarity SFT loss| E
-  L[Pre-train - 400K trajectories OXE DROID RoboMIND] --> C
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    OBS[图像观测 三相机 + 语言指令]:::data
+    VIS[SigLIP2-Large 视觉编码<br/>2D-RoPE]:::train
+    LLM[Qwen3-VL-4B 骨干<br/>真机 RL 阶段仅更新 LoRA r=32]:::train
+    OBS ==> VIS
+    VIS ==> LLM
+    LCOT[自回归潜 CoT<br/>最长 8 个潜 token]:::key
+    LLM ==> LCOT
+    END{latent_end 概率 >= 0.99<br/>自适应早退}:::loop
+    LCOT ==> END
+    END -.未终止继续生成.-> LCOT
+    VH[价值头 4 层 MLP<br/>估计状态价值 v_t]:::reward
+    END ==> VH
+    AD[并行动作解码<br/>8 步 chunk 56 token 双向注意力复用 KV cache]:::act
+    END ==> AD
+    AD ==> ROBOT([Franka Research 3 单/双臂]):::act
+    ROBOT -.下一观测.-> OBS
+    DINO[DINOv3 CLS top-k 潜 GT 目标<br/>离线预计算 始终冻结]:::frozen
+    LS[潜余弦相似度 SFT 损失]:::loss
+    DINO -.-> LS
+    LS -.-> LCOT
+    LAPO[LAPO 在线 RL<br/>潜比率 r_z + 动作比率 r_a 联合裁剪代理]:::loss
+    ROBOT -.transition + 人工干预 buffer.-> LAPO
+    LCOT -.潜似然比.-> LAPO
+    AD -.动作似然比.-> LAPO
+    VH -.价值估计.-> LAPO
+    LAPO -.奖励同时重塑推理与动作空间.-> LLM
+    PRE[预训练 400K 轨迹<br/>OXE + DROID + RoboMIND]:::data
+    PRE -.-> LLM
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```

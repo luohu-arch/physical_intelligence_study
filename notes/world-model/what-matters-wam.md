@@ -50,21 +50,44 @@
 研究设计的骨架是"同一基座、单变量替换、双分布评估"：ID 分布 $D_{\text{id}}$（RoboCasa-GR1）测的是设计能否利用熟悉轨迹的先验，OOD 分布 $D_{\text{ood}}$（LIBERO-Plus 的布局/视角/初始状态/语言/光照/纹理/传感器噪声七类受控扰动）测的是先验失效后表征还剩多少可迁移结构。
 
 ```mermaid
-graph TD
-    Q["WAM design space, one variable at a time, shared base model"] --> AXIS1["Axis 1: 6 video-action causal structures, framework = Fast-WAM"]
-    Q --> AXIS2["Axis 2: 8 latent representations in 4 families, framework = LDA-1B"]
-    Q --> AXIS3["Axis 3: 4 objectives BC IDM FDM VG, framework = LDA-1B"]
-    AXIS1 --> ID1["RoboCasa-GR1 in-distribution"]
-    AXIS1 --> OOD1["LIBERO and LIBERO-Plus OOD"]
-    AXIS2 --> PROBE["Linear probes at Blocks 0, 7, 15 predict expert actions, held-out R2"]
-    AXIS3 --> GRAD["Pairwise gradient cosine alignment + per-dimension target spread"]
-    AXIS1 --> INTERV["Within-policy interventions on generated futures: content corruption 0.10 / 0.25 / 0.50, temporal reversal at final 25 / 50 / 100 percent of denoising"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    Q["WAM 设计空间: 同一基座<br/>单变量替换 逐轴受控消融"] --> AXIS1["轴 1: 6 种视频-动作因果结构<br/>框架 = Fast-WAM"]
+    Q --> AXIS2["轴 2: 4 族 8 种潜表征<br/>框架 = LDA-1B"]
+    Q --> AXIS3["轴 3: 4 种训练目标 BC/IDM/FDM/VG<br/>框架 = LDA-1B"]
+    AXIS1 --> ID1["RoboCasa-GR1<br/>分布内 ID"]
+    AXIS1 --> OOD1["LIBERO / LIBERO-Plus<br/>七类受控扰动 OOD"]
+    AXIS2 --> PROBE["Block 0/7/15 线性探针<br/>预测专家动作, held-out R^2"]
+    AXIS3 --> GRAD["成对梯度余弦对齐<br/>+ 逐维目标散度"]
+    AXIS1 --> INTERV["策略内干预生成未来:<br/>内容腐蚀 0.10/0.25/0.50<br/>去噪末端 25/50/100% 时序反转"]
     OOD1 --> INTERV
-    ID1 --> DROID["DROID offline action prediction, 200K steps, MSE L1 Acc@0.1 Acc@0.5"]
+    ID1 --> DROID["DROID 离线动作预测 200K 步<br/>MSE / L1 / Acc@0.1 / Acc@0.5"]
     OOD1 --> DROID
-    PROBE --> FIND["Shared factor: temporal structure, where and how it is modeled decides ID gain vs OOD robustness"]
+    PROBE --> FIND["共同因子: 时间组织通道<br/>时序反转 OOD 掉 24-32%<br/>最强内容腐蚀仅 <1%<br/>在哪建模时序决定 ID 增益 vs OOD 鲁棒"]
     GRAD --> FIND
     INTERV --> FIND
+
+    class Q,FIND key
+    class AXIS1,AXIS2,AXIS3 train
+    class ID1,OOD1 data
+    class PROBE,GRAD,DROID,INTERV loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 **四种目标的形式化**（第 III-B 节原文符号）：记 $o_t$ 当前观测、$\ell$ 任务指令、$a_{t+1:t+k}$ 未来动作 chunk、$z_{t+1:t+k}$ 对应未来视觉潜变量，四个目标分别是

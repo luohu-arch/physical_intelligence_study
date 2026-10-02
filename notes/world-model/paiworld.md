@@ -43,14 +43,45 @@ PAIWorld 解决世界模型的多视角 3D 不一致问题——Geo-RoPE 几何�
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    VIEW1["视角 1 tokens"] --> GEOATTN["Geo-RoPE 跨视角 Attention"]
-    VIEW2["视角 2 tokens"] --> GEOATTN
-    GEOATTN --> DIT["DiT Backbone (Cosmos-Predict2.5 14B)"]
-    DIT --> MID["中间特征"]
-    MID --> REPA["Latent 3D-REPA 蒸馏 (Depth Anything 3)"]
-    MID --> PRED["未来帧预测"]
-    REPA --> LOSS["3D 一致性 Loss"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    subgraph VIEWS["多视角输入 (相机内外参标定已知)"]
+        direction TB
+        VIEW1(["视角 1 tokens"])
+        VIEW2(["视角 2 tokens"])
+    end
+
+    GEOATTN["Geo-RoPE 跨视角 Attention<br/>ray 子空间 + pose 子空间<br/>给单视角骨干开通信通路 仅此 +0.93"]
+    VIEW1 ==> GEOATTN
+    VIEW2 ==> GEOATTN
+    GEOATTN ==> DIT["DiT 骨干<br/>Cosmos-Predict2.5 14B"]
+    DIT ==> MID["中间特征"]
+    MID ==> REPA["Latent 3D-REPA 蒸馏<br/>冻结 Depth Anything 3 老师 仅此 +0.72"]
+    MID ==> PRED["未来帧预测<br/>多视角 3D 一致不漂移"]
+    REPA -.->|"联合 +2.64 超加性<br/>两个耦合缺一不可"| LOSS["3D 一致性损失"]
+
+    class VIEW1,VIEW2 data
+    class GEOATTN,REPA key
+    class DIT train
+    class MID,PRED env
+    class LOSS loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 Geo-RoPE 双子空间设计：每个注意力头的 query/key 切成两个等维子空间（$d_r = d/2$，$d_p = d/2$），ray 子空间编码像素级 3D 射线方向，pose 子空间编码视角级相机位姿特征（12 维：yaw/pitch/roll + 平移 + 相机位置 + 光轴）。像素 $(h,w)$ 在视角 $v$ 下的世界系射线方向通过相机内参 $K_v$ 反投影并用旋转 $R_v$ 变换得到：

@@ -52,12 +52,37 @@ UniPi 将序列决策重定义为文本条件视频生成问题：扩散模型�
 ### 两阶段架构
 
 ```mermaid
-graph LR
-    IMG["当前帧 o1"] --> DIFFUSE["视频扩散模型 (规划)"]
-    TEXT["文本目标 g"] --> DIFFUSE
-    DIFFUSE --> VIDPLAN["生成的未来帧序列"]
-    VIDPLAN --> INVDYN["逆动力学模型"]
-    INVDYN --> ACTION["底层控制动作 at"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    IMG(["当前帧 o_1"]) ==> DIFFUSE["视频扩散模型 (即策略本身)<br/>文本 + 首帧条件生成计划<br/>视频作为通用接口"]
+    TEXT(["文本目标 g"]) ==> DIFFUSE
+    DIFFUSE ==> VIDPLAN["生成的未来帧序列<br/>视频即计划, 组合泛化来自<br/>互联网视频预训练"]
+    VIDPLAN ==> SR["时序超分增稠<br/>粗到细分层规划<br/>补足控制频率"]
+    SR ==> INVDYN["逆动力学模型 IDM<br/>把视频计划翻译成动作"]
+    INVDYN ==> ACTION["底层控制动作 a_t<br/>组合泛化 59.1/53.2/60.1/46.1<br/>vs 基线 19.4/12.8/13.2/9.6"]
+
+    class IMG,TEXT data
+    class DIFFUSE key
+    class VIDPLAN,SR env
+    class INVDYN train
+    class ACTION act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 ### 关键技术

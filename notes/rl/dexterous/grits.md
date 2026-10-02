@@ -42,12 +42,35 @@ GRITS 提出溅洒感知的引导扩散策略：先训练 spillage predictor（4
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    DEMO["80 real demos"] --> DP["Diffusion Policy"]
-    SIM["4K sim trajectories<br/>(4 primitive shapes)"] --> PRED["Spillage Predictor"]
-    PRED --> GUIDE["Differentiable guidance signal"]
-    GUIDE --> DP
-    DP --> ACTION["Safe scooping action"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    PC(["分割点云<br/>food: 深度 + SAM2 分割<br/>spoon / bowl: CAD 模型<br/>(DP3 式 PointNet++ 编码)"]) ==> DP["扩散策略<br/>80 条真机 demo 训练<br/>(只有成功经验)"]
+    SIM[("4K 仿真轨迹 (Isaac Lab)<br/>4 种 primitive shapes + 随机物理参数<br/>2000 洒 / 2000 不洒")] ==> PRED["spillage predictor<br/>点云 -> 溅洒概率 p_spill<br/>(廉价获得失败经验)"]
+    DP ==> DEN["DDIM 去噪过程"]
+    PRED ==> GUIDE["可微分溅洒引导 (核心)<br/>去噪 30 步后延迟激活:<br/>x <- x - rho * grad log(1 - p_spill)<br/>rho = 2.5, 轨迹推离溅洒区"]
+    GUIDE -.->|"梯度注入去噪后期<br/>(约束参与生成, 而非事后补救)"| DEN
+    DEN ==> ACTN(["安全舀取动作 (10 Hz)"])
+    ACTN ==> ROBOT["Franka 真机<br/>10 类 unseen 食物 82% 成功 / 4% 溅洒"]
+
+    class PC data
+    class SIM data
+    class DP,PRED train
+    class DEN,ACTN act
+    class GUIDE key
+    class ROBOT env
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
 ```
 
 扩散策略的 denoising 过程从噪声动作 $x_T$ 出发、迭代 $T$ 步还原出动作 $x_0$。标准 DDPM 更新为

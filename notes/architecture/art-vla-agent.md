@@ -83,20 +83,52 @@ ART 的做法是把 VLA 的动作空间从 $a_t \in \mathcal{A}$ 扩成 $\mathca
 ### 推理时的整体流程
 
 ```mermaid
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
 flowchart TD
-    A["raw observation ot"] --> B["LoRA branch: reasoning tokens plus tool decision"]
-    B --> C["tool on/off per tool function"]
-    C --> D{"tool class"}
-    D -->|"visual"| E["low-light / denoise / deblur / jitter"]
-    D -->|"affordance"| F["depth map / open-world detection"]
-    D -->|"embodiment"| G["camera rotate / zoom / body reset"]
-    E --> H["enhanced observation"]
-    F --> H
-    G --> H
-    H --> I["frozen VLA backbone, LoRA output masked"]
-    I --> J["action chunk: H embodied actions"]
-    J --> K["environment steps H times"]
-    K --> A
+    OBS(["原始观测 o_t<br/>视觉 / 语言 / 本体状态"]) --> LORA
+    subgraph TOOLS["工具旁路 (Adaptive LoRA)"]
+        LORA["LoRA 推理分支<br/>生成推理 token + 工具决策"]
+        TOOLSEL["工具开关选择<br/>(词表尾 N 个离散 token)"]
+        TOOLDISP{"工具类别"}
+        VIS["视觉增强工具<br/>暗光 / 去噪 / 去模糊 / 防抖"]
+        AFF["Affordance 工具<br/>Metric3D 深度 + DINO-X 检测"]
+        EMB["具身工具<br/>相机旋转 / 变焦 / 本体重置"]
+    end
+    LORA --> TOOLSEL --> TOOLDISP
+    TOOLDISP -->|"视觉"| VIS
+    TOOLDISP -->|"affordance"| AFF
+    TOOLDISP -->|"具身"| EMB
+    VIS --> ENH(["增强后观测"])
+    AFF --> ENH
+    EMB --> ENH
+    ENH ==> VLA
+    subgraph BASE["冻结基座 (3B pi0-FAST, FAST/DCT 动作 token)"]
+        VLA["VLA 主干<br/>动作生成阶段屏蔽 LoRA 输出"]
+    end
+    VLA ==>|"动作 chunk: H 步具身动作"| ACT(["机器人执行 H 步"])
+    ACT -.->|"下一 chunk 开头重新观测<br/>(chunk 级闭环)"| OBS
+    LTOOL["损失 L_tool<br/>推理 + 工具 token 交叉熵"] -.->|"只更新 LoRA"| LORA
+    LACT["损失 L_action<br/>动作 token 交叉熵"] -.->|"只走主干"| VLA
+
+    class OBS,ENH data
+    class VLA,VIS,AFF,EMB frozen
+    class LORA,TOOLSEL key
+    class ACT act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 底层原理与数学推导

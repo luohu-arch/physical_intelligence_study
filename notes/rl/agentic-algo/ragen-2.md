@@ -46,17 +46,49 @@ RAGEN-2 发现多轮 agent RL 存在一类对熵完全不可见的失败模式�
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    A["Rollout: P prompts x G trajectories each"] --> B["Per-prompt reward variance RV"]
-    B --> C{"Top-p filtering, keep rate rho"}
-    C -- "kept: cumulative variance mass reaches rho * total" --> D["Policy update on kept subset<br/>loss scaled by rho"]
-    C -- "filtered out: near-zero RV" --> E["No update from these prompts<br/>g_reg would dominate here"]
-    D --> F["In-batch cross-scoring MI proxy:<br/>score every Z under all P prompts"]
-    E --> F
-    F --> G{"Retrieval-Acc falling toward 1/P<br/>while conditional entropy stays high?"}
-    G -- "yes: template collapse early warning" --> H["Raise filtering pressure / inspect reward signal"]
-    G -- "no" --> A
-    H --> A
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    POL["被 RL 的策略 Qwen2.5 0.5B-7B / Llama3.2 / VL<br/>PPO / DAPO / GRPO / Dr.GRPO 皆可插"]:::train
+    ENV["七环境测试台: Sokoban / FrozenLake / MetaMathQA /<br/>Countdown / SearchQA / WebShop / DeepCoder"]:::env
+    ROL["rollout: P=8 prompt x G=16 轨迹/迭代<br/>(X, Z) 对复用训练数据"]:::data
+    RV["逐 prompt 奖励方差 RV<br/>信号强度上界 sqrt(RV)"]:::reward
+    FILT{"SNR-Aware Top-p 过滤 (rho=0.9)<br/>按方差累积质量保留最小前缀"}:::loop
+    DROP["滤除近零 RV prompt: 此处任务梯度趋零<br/>reward-agnostic 的 KL/熵正则会主导更新"]:::loop
+    UPD["高信号子集上策略更新, loss 乘 rho<br/>附带步时下降 26-41%"]:::loss
+    MI["MI proxy (核心): in-batch cross-scoring<br/>双轴分解 H(Z|X) 条件熵 x I(X;Z) 互信息, 无需外部模型"]:::key
+    DIAG{"Retrieval-Acc 跌向 1/P<br/>而条件熵仍高?"}:::reward
+    ACT["升高过滤压力 / 检查奖励信号<br/>(MI 先于成功率下跌的预警窗)"]:::loop
+    ACC(["11 组设置增益 +0.8 ~ +35.8 全正<br/>MI proxy 与最终性能 Spearman +0.39, 熵类 -0.11 ~ -0.14"]):::data
+
+    POL -.->|"rollout"| ENV
+    ENV ==> ROL
+    ROL ==> RV
+    RV ==> FILT
+    FILT ==>|"保留高方差子集"| UPD
+    FILT -.-> DROP
+    UPD -.->|"梯度更新"| POL
+    ROL ==>|"teacher-forcing 全交叉打分"| MI
+    MI ==> DIAG
+    DIAG -.->|"是: template collapse 早期预警"| ACT
+    DIAG -.->|"否: 正常迭代"| POL
+    ACT -.-> FILT
+    UPD ==> ACC
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 **信息论分解。** 推理多样性的边际熵按标准恒等式分解为

@@ -75,22 +75,65 @@ $$\mathcal{L}=\sum_{p\in\{\text{base},\text{arm}\}}\mathbb{E}_{t,\mathbf{z}_t}\B
 - 论文符号中扩散时间步与观测时间步都写作 $t$（Eq. 8 中的 $\mathbf{z}_t$ 与 Eq. 4 中 buffer 索引重名），阅读时需区分；未给出去噪步数、$\mathbf{H}_t$ 注入去噪器的具体方式（拼接还是 FiLM 层）等实现细节，待确认：正文仅到伪代码级别描述。
 
 ```mermaid
-flowchart TB
-    subgraph ENC["multimodal encoding"]
-        LANG["language: frozen SigLIP text tower"] --> ST["unified tokens St"]
-        IMG["3 RGB views: frozen SigLIP vision"] --> ST
-        PTS["depth point cloud: trainable PointAttn"] --> ST
-        PRP["proprioception: small MLP"] --> ST
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    LANG[语言指令]:::data
+    IMG[3 路固定 RGB]:::data
+    PTS[深度点云]:::data
+    PRP[本体感知]:::data
+
+    subgraph ENC["多模态统一 token 编码"]
+        SIG[SigLIP 语言塔 + 视觉塔<br/>冻结保住跨模态对齐]:::frozen
+        PA[PointAttn 点云编码<br/>可训练适配本体]:::train
+        MLP[本体小 MLP]:::train
     end
-    ST -->|"query = current tokens"| FINE["fine cross attention"]
-    VMAP["Scene memory: voxel 3D feature map, discrepancy-gated update with threshold tau"] -->|"query = current voxel map"| COARSE["coarse cross attention"]
-    BUF["Episodic memory: FIFO of last L token sequences with timestamps"] -->|"top-k cosine match"| FINE
-    COARSE --> FUSE["concat fused memory Ht"]
-    FINE --> FUSE
-    FUSE --> ARM["arm diffusion denoiser"] --> OUT["action chunk"]
-    FUSE --> BAS["base diffusion denoiser"] --> OUT
-    ST --> VMAP
-    ST --> BUF
+
+    ST[统一 token 序列 S_t]
+    LANG ==> SIG
+    IMG ==> SIG
+    SIG ==> ST
+    PTS ==> PA
+    PA ==> ST
+    PRP ==> MLP
+    MLP ==> ST
+
+    SMEM[Scene Memory 场景记忆<br/>voxel 3D 特征图 跨 episode 持久演化<br/>discrepancy 门控更新 阈值 tau]:::mem
+    EMEM[Episodic Memory 情景记忆<br/>FIFO 最近 L 条带时间戳 token 序列]:::mem
+    ST ==> SMEM
+    ST ==> EMEM
+    COARSE[coarse cross-attention<br/>query 为当前 voxel 图 空间粗粒度]:::key
+    FINE[fine cross-attention<br/>query 为当前 S_t 时间细粒度]:::key
+    SMEM ==>|top-k cosine 检索| COARSE
+    EMEM ==>|top-k cosine 检索| FINE
+    HT[融合记忆条件 H_t]
+    COARSE ==> HT
+    FINE ==> HT
+    ARM[arm 扩散去噪器]:::act
+    BAS[base 扩散去噪器]:::act
+    HT ==> ARM
+    HT ==> BAS
+    ARM ==> OUT([base / arm 动作 chunk]):::act
+    BAS ==> OUT
+    LD[扩散去噪损失<br/>base 与 arm 各一个去噪器]:::loss
+    LD -.-> ARM
+    LD -.-> BAS
+    OUT -.闭环新观测写入双记忆.-> PTS
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

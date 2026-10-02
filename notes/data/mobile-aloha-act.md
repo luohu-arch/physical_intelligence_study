@@ -65,14 +65,53 @@ $$
 - $p(y|x,z)$ 为解码网络，根据当前观测与风格变量，预测未来 K 步的动作序列。
 
 ```mermaid
-graph TD
-    IMG[当前观测] --> ENC[CVAE 编码器]
-    DEMO[示教动作] --> ENC
-    ENC --> Z[潜在风格变量<br/>编码操作方式]
-    Z --> DEC[CVAE 解码器]
-    IMG --> DEC
-    DEC --> CHUNK[动作块 Chunk<br/>K 步 重叠执行]
-    CHUNK --> ROBOT[机器人执行]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    subgraph IN["输入"]
+        direction TB
+        IMG(["当前观测 x<br/>3 路 RGB 480x640@50Hz"])
+        DEMO(["示教动作 y<br/>每任务仅 50 条"])
+        STAT([(静态 ALOHA 数据 2.7K<br/>0.5/0.5 协同采样)])
+    end
+
+    subgraph CVAE["ACT 策略 = CVAE + Transformer"]
+        ENC["CVAE 编码器 q(z|x,y)<br/>ResNet18 + 4 层 Transformer"]
+        Z["隐变量 z<br/>编码多模态操作风格"]
+        DEC["CVAE 解码器 p(y|x,z)<br/>7 层 Transformer"]
+    end
+
+    IMG --> ENC
+    DEMO --> ENC
+    ENC ==>|"风格采样"| Z
+    Z ==> DEC
+    IMG ==>|"观测条件"| DEC
+    STAT -.->|"协同训练<br/>复用视觉-动作表征"| DEC
+    DEC -.->|"重构 + KL(beta=10)<br/>ELBO 损失"| ELBO["ELBO<br/>抑制复合误差 O(T^2 eps)"]
+    DEMO -.-> ELBO
+    DEC ==> CHUNK["动作块 Action Chunk<br/>一次预测 K=45 步"]
+    CHUNK ==>|"块间 temporal ensemble<br/>重叠预测加权融合"| ROBOT["机器人执行<br/>双臂位置控制 + 底座速度控制<br/>延迟 d 步错位补偿"]
+    ROBOT -.->|"新观测闭环修正<br/>无 SLAM 纠偏 ~10cm"| IMG
+
+    class IMG,DEMO,STAT data
+    class ENC,Z,DEC train
+    class CHUNK key
+    class ELBO loss
+    class ROBOT act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
 ```
 
 ## 物理直觉解释

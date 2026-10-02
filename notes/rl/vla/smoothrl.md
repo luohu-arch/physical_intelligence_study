@@ -198,22 +198,45 @@ SmoothRL 补上了"chunk 执行三步曲"的最后一块：Q-chunking 让 RL 在
 7. 并发状态增广只用了"在飞动作"（剩余时间被 budget 常数化）——若放宽 budget 固定假设（问题 2），增广需要补时间维度，Q 的输入维度与时序对齐如何设计？
 
 ```mermaid
-sequenceDiagram
-    participant R as Robot at 30 Hz
-    participant B as Frozen base policy pi 0.5
-    participant A as Residual actor pi theta
-    participant C as Critic ensemble Q phi
-    participant D as Replay buffer
-    Note over R,B: latency budget n = 6 frames (200 ms), chunk horizon H = 32
-    R->>B: observe s_t, committed prefix a_tilde 0 n
-    B->>A: reference chunk a_bar 0 2n + RL token z_t
-    A->>R: final chunk a = a_bar + bounded delta
-    Note over R: frames 0 n: execute a_tilde issued by previous chunk
-    Note over R: frames n 2n: execute a n 2n (execution region)
-    R->>D: transition s_t z_t a_tilde 0 n a n 2n a_target r s_t+2n
-    D->>C: batch 256, G = 5 critic iters per trajectory
-    C->>C: y = r + gamma 2n min_M Q_bar of z_prime s_prime a_tilde_prime pi_bar plus noise
-    C->>A: every D = 5 iters actor loss L = -Q sg a_tilde a n 2n + w_bc MSE + w_smooth jerk penalty
-    Note over R,A: gradient flows only through execution region n 2n
-    Note over R: frames 2n H: discarded, superseded by next chunk
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    subgraph LOOP["异步执行循环 (30 Hz 控制 / 5 Hz 推理)"]
+        ROBOT["机器人 (Astribot S1)<br/>latency budget n = 6 帧 = 200 ms"] --> OBS(["观测 s_t<br/>+ 在飞动作前缀 a_tilde[0,n)"])
+        OBS --> ROBOT
+    end
+    OBS ==> BASE["冻结 pi_base (pi 0.5)<br/>输出参考 chunk a_bar (H = 32) + RL token z_t"]
+    BASE ==> THREE["chunk 三区划分 (核心)<br/>committed [0,n): 上一 chunk 已占用<br/>execution [n,2n): 唯一真正执行的 6 帧<br/>discarded [2n,H): 被下一 chunk 覆盖"]
+    THREE ==> ACT["残差 actor (3 层 MLP)<br/>a = a_bar + 有界 delta (界 0.05)<br/>梯度只流经 execution 区"]
+    ACT ==>|"execution 区 6 帧生效<br/>训练 = 部署同一动力学"| ROBOT
+    ROBOT ==> BUF[("回放缓冲<br/>base policy 50 eps 初始化<br/>+ 在线 rollout + 人工干预")]
+    HUM["人工干预 (绝对 / 残差)<br/>+ 二值终局奖励"] -.->|"干预 chunk 既作 BC 目标<br/>又作 TD transition"| BUF
+    BUF ==> CRITIC["critic 集成 (REDQ)<br/>输入 [z, s, a_tilde[0,n), a[n,2n)]<br/>committed 区 stop-gradient 状态增广"]
+    CRITIC ==>|"actor 损失: -Q + w_bc * MSE + w_smooth * jerk 惩罚"| ACT
+    CRITIC -.->|"chunk-skip TD: y = r + gamma^2n * min_M Q_bar"| CRITIC
+
+    class OBS data
+    class BASE frozen
+    class THREE key
+    class ACT train
+    class ROBOT env
+    class BUF mem
+    class HUM data
+    class CRITIC reward
+    class LOOP loop
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
 ```

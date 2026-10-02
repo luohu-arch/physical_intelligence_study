@@ -49,18 +49,52 @@ NVIDIA 的 Polar（重写自其前作 ProRL Agent Server，已注册为 NeMo Gym
 数据流全景（harness 全程黑箱，训练信号只在代理边界产生）：
 
 ```mermaid
-graph LR
-    RS["Rollout server: expand TaskRequest into sessions"] -- dispatch --> GW["Gateway node"]
-    GW --> INIT["INIT pool: start runtime, prepare harness"]
-    INIT --> RDY["READY buffer: initialized runtimes"]
-    RDY --> RUN["RUNNING pool: native harness runs unchanged"]
-    RUN -- "model API call" --> PX["Proxy: detect provider, normalize, capture, return"]
-    PX --> INF["Local inference server (OpenAI Chat shape)"]
-    PX --> REC["Completion record: prompt ids, sampled ids, logprobs"]
-    RUN --> POST["POSTRUN pool: build trajectory, evaluate, callback"]
-    REC --> POST
-    POST --> TR["Async trainer (Slime GRPO)"]
-    TR -- "weight sync" --> INF
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    RS["Rollout server: TaskRequest 展开成 sessions<br/>rollout-as-a-service"]:::loop
+    GW["Gateway node: session 全生命周期<br/>+ 同置托管代理端点"]:::loop
+    INIT["INIT 池: 起 runtime, 备 harness<br/>Docker / rootless Apptainer"]:::loop
+    RDY["READY 有界缓冲<br/>囤初始化好的 runtime"]:::loop
+    RUN["RUNNING 池: 原生 harness 零改动执行 (黑箱)<br/>codex / claude_code / qwen_code / pi"]:::loop
+    PX["Gateway 代理 (核心): 模型 API 边界窃听<br/>检测四协议 -> 归一化 -> 捕获 token+logprobs -> 转回"]:::key
+    INF["本地推理服务器 (OpenAI Chat 形状)<br/>承载被训策略 Qwen3.5-4B"]:::train
+    REC["Completion record 缓存:<br/>prompt ids + 采样 ids + logprobs"]:::mem
+    BLD["prefix merging 轨迹重构: append-only 链合并<br/>harness 塞的 interstitial token loss mask 置 0"]:::key
+    EVAL["evaluator registry: SWE-bench 官方测试<br/>二值 0/1, 可刷新干净 runtime"]:::reward
+    CB["POSTRUN: 建轨迹 + 评测 + 回调<br/>超时 session 恢复部分轨迹"]:::loop
+    TR["异步 trainer (Slime GRPO)<br/>训练框架/算法均解耦"]:::loss
+    ACC(["SWE-Bench Verified: Codex +22.6 / Claude Code +4.8<br/>Qwen Code +0.6 / Pi +6.2; 3 步墙钟 189.5 -> 35.2 分钟"]):::data
+
+    RS ==>|"dispatch"| GW
+    GW ==> INIT
+    INIT ==> RDY
+    RDY ==> RUN
+    RUN -.->|"每次模型 API 调用"| PX
+    PX ==> INF
+    PX ==> REC
+    RUN ==> CB
+    REC ==> BLD
+    BLD ==> CB
+    EVAL -.->|"按 trace 分配 (outcome 广播会 reward hacking)"| CB
+    CB ==> TR
+    TR -.->|"weight sync"| INF
+    TR ==> ACC
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 **问题形式化**。一次 harness session 产生一列按时间有序的 completion $C_1, \ldots, C_T$，其中 $C_i$ 有 prompt token 序列 $p_i$、raw 采样响应 token 序列 $a_i$、响应 logprobs $\ell_i$ 和 prompt/response messages $m_i$。RL 训练信号的正确性前提是：**梯度只附着在行为策略真正采样过的 token 上**。难点是 provider API 返回的是文本、tool-call JSON、reasoning 字段或流式事件，而非推理后端实际使用的 token ID 与 logprobs——vLLM 与 Agent Lightning 讨论的 retokenization drift（解码再重编码会产生不同 token ID）正是 Polar 要在任意 harness 上规避的。

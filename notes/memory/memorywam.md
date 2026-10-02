@@ -48,24 +48,54 @@ MemoryWAM 提出三层混合记忆：4 帧滑动窗口（短期高保真, N_rece
 MemoryWAM 的记忆不只是一个"更大的 KV cache"——它是一个精心设计的多层 attention mask，不同历史帧之间的可见性不同：
 
 ```mermaid
-graph TD
-    subgraph "Memory Stores"
-        ANCHOR["Anchor Frames (N_init=2)<br/>full visual tokens<br/>任务起始帧, 被后续所有帧 attend"]
-        RECENT["Recent Frames (N_recent=4)<br/>sliding window<br/>高保真 closed-loop control"]
-        GIST["Gist Tokens (M_v=8/frame)<br/>learnable params<br/>15x compression of long history"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    CLEAN[当前 clean latent z_t<br/>推理仅单次前向不生成视频]:::data
+    NOISY[加噪 latent 视频预测目标<br/>仅训练期]:::loss
+
+    subgraph STORES["三层混合记忆 KV cache"]
+        ANCHOR[锚帧 N_init=2<br/>任务起始完整视觉 token]:::mem
+        RECENT[近期滑动窗 N_recent=4<br/>高保真闭环控制]:::mem
+        GIST[Gist token 每帧 M_v=8<br/>可学习参数 15 倍压缩长历史]:::key
     end
 
-    subgraph "Current Frame"
-        CLEAN["Clean latent z_t<br/>(current observation)"]
-        NOISY["Noisy latent (training only)<br/>(video prediction target)"]
-        ACTION["Action tokens Ã_t<br/>(denoising target)"]
+    subgraph MOT["MoT 双 DiT 共享 3D RoPE"]
+        VDIT[Video DiT Wan2.2 约 5B<br/>处理观测并维护记忆缓存]:::train
+        ADIT[Action DiT 约 1B<br/>从缓存解码动作]:::act
     end
 
-    ANCHOR -->|"attend"| ANCHOR_SELF["Anchor self-attn"]
-    RECENT -->|"attend"| RECENT_CTX["Recent → self + anchors"]
-    GIST -->|"attend"| GIST_CTX["Gist → self + anchors + recent"]
-    CLEAN -->|"attend"| CLEAN_CTX["Clean → anchors + recent + all gist"]
-    ACTION -->|"attend"| ACTION_CTX["Action → anchors + recent + all gist<br/>(full historical context)"]
+    ANCHOR -.仅自注意力 场景锚点不被污染.-> VDIT
+    RECENT -.看自身加锚帧.-> VDIT
+    GIST -.看自身加锚帧加近期帧.-> VDIT
+    CLEAN ==>|看锚帧加近期帧加全部 gist| VDIT
+    NOISY -.视频 flow-matching 损失.-> VDIT
+    VDIT ==>|缓存 video key 同一位置空间| ADIT
+    ANCHOR -.动作去噪 attend 全部历史.-> ADIT
+    RECENT -.-> ADIT
+    GIST -.-> ADIT
+    ACTOUT([16 步双臂动作 chunk]):::act
+    ADIT ==> ACTOUT
+    ALOSS[动作 flow-matching 损失]:::loss
+    ALOSS -.-> ADIT
+    ROBOT([ARX 双臂执行]):::env
+    ACTOUT ==> ROBOT
+    ROBOT -.新观测单次前向更新记忆.-> CLEAN
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 **Attention Mask 的语义**：

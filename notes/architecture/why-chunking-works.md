@@ -200,22 +200,45 @@ $$
 7. 跨频率外推：人类 2-10Hz 反应带宽解释了 50-60Hz 失效，那么对非人类示教源（脚本专家、RL 策略、VLA 蒸馏）生成的数据，最优 chunk/延迟是否应该完全不同（对照 chunking-exploratory 的确定性专家实验）？
 
 ```mermaid
-sequenceDiagram
-    participant E as Env
-    participant A as AC(k): open-loop chunk
-    participant D as Delay(d): stepwise, stale obs
-    participant X as RDE(n): random delay
-    Note over E,A: chunking: 1 query per k steps
-    A->>E: query o_0
-    E-->>A: predict a_0 ... a_k-1
-    A->>E: execute a_0 ... a_k-1 open-loop
-    A->>E: query o_k only after k steps
-    Note over E,D: delay: query every step, obs d steps old
-    D->>E: query a_t given o_t-d
-    E-->>D: one action, replan next step
-    Note over E,X: RDE: query every step, random stale obs
-    X->>X: sample i from unif(0..n-1)
-    X->>E: query a_t given o_t-i
-    E-->>X: action from random ensemble member
-    Note over E,X: matches AC without chunk execution
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    OBS(["当前与历史观测<br/>o_t, o_t-1, ..."]) --> PI
+    DEMO(["人类示教<br/>(决策边界处停顿, 非马尔可夫)"]) -.->|"BC 训练"| PI
+    PI["训练好的 chunk 策略 pi_hat_k (k = 20)<br/>同一动作被 k 种条件重复监督:<br/>a_t | o_t, o_t-1, ..., o_t-k+1<br/>(隐式集成 k 个延迟成员)"]
+    subgraph DEPLOY["同一 pi_hat_20 的三种部署方式 (机制隔离对照)"]
+        AC["AC(k): 开环 chunk 执行<br/>每 k 步才查询一次观测<br/>预测 a_0 ... a_k-1 整段开环执行"]
+        DELAY["Delay(d): 每步重算<br/>但条件于 d 步前的旧观测 o_t-d<br/>(延迟条件预测, 可复制 chunking)"]
+        RDE["RDE(n): 每步采样 i ~ unif{0..n-1}<br/>随机抽一个延迟成员执行<br/>9/9 设置匹配 AC, 无需 chunk 执行"]
+    end
+    PI ==> AC & DELAY & RDE
+    AC ==> ENV(["环境 / 机器人 15-20Hz<br/>500Hz 底层跟踪"])
+    DELAY ==> ENV
+    RDE ==> ENV
+    ENV -.->|"新观测反馈"| OBS
+    TE["TE 时间集成: 预测线性平均<br/>压掉集成效应 (Tool Hang 仅 42.2<br/>vs RDE 71.8)"] -.-> DELAY
+    ENS(["显式集成: m 个独立 pi_hat_20<br/>Transport 12.6 -> 41.5 (+28.9 点)<br/>Tool Hang 75.2 -> 87.6"]) -.->|"放大隐式集成"| RDE
+    LBCL["BC 损失 (chunk 内逐步<br/>以 k 种延迟条件重复监督)"] -.-> PI
+
+    class OBS,DEMO data
+    class PI train
+    class AC,DELAY loop
+    class RDE,ENS key
+    class ENV env
+    class TE,LBCL loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```

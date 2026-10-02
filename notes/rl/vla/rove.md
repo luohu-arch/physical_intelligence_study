@@ -43,17 +43,43 @@ ROVE 解决人形机器人 VLA 部署后的核心痛点：人类遥操作干预�
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    VLA["VLA Policy (基座)"] --> ROLLOUT["自主执行 rollout"]
-    ROLLOUT --> FAIL{"失败/需要帮助?"}
-    FAIL -->|是| INTERVENE["人类遥操作干预"]
-    FAIL -->|否| SUCCESS["成功, 加入 buffer"]
-    INTERVENE --> BUFFER["混合质量数据 buffer"]
-    SUCCESS --> BUFFER
-    BUFFER --> OVE["OVE: expectile regression 过滤低价值行为"]
-    OVE --> RL["RL 更新 (critic + actor)"]
-    RL --> VLA
-    HUMVID["跨具身人类视频"] --> CRITIC["Critic 辅助监督"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TB
+    subgraph LOOP["部署迭代回路 (小鹏人形, 3 轮)"]
+        ROLLOUT["VLA 自主 rollout<br/>执行 chunk H = 16"] --> CHK{"失败 / 需要帮助?"}
+        CHK -->|"是"| IV["人类遥操作干预<br/>含犹豫 / 错误 / 重映射噪声"]
+        CHK -->|"否"| BUF[("混合质量数据 buffer<br/>rollout + adaptation + recovery 三段")]
+        IV --> BUF
+    end
+    HUMVID["跨具身人类视频<br/>(无动作对齐, 软特权监督)"] -.->|"补长尾中间状态的值监督"| CRITIC
+    BUF ==> OVE["OVE 乐观价值估计 (核心)<br/>H 步 TD bootstrap + expectile 回归 (tau = 0.7)<br/>自动筛出高价值恢复段, 过滤犹豫与错误"]
+    OVE ==> CRITIC["critic 价值头<br/>标出正 / 负优势区<br/>(擦黑板 45.0% -> 80.0%)"]
+    CRITIC ==> ACT["优势条件化 actor 更新<br/>冻结 VLM 主干, 只训价值头 / 动作头"]
+    ACT -.->|"下一轮迭代"| ROLLOUT
+
+    class ROLLOUT act
+    class IV data
+    class BUF mem
+    class HUMVID data
+    class OVE key
+    class CRITIC reward
+    class ACT train
+    class LOOP loop
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
 ```
 
 OVE 的核心——expectile regression 替代 standard TD。给定长度为 H 的 transition 段，先用 EMA 目标 critic $V_{\bar{\phi}}$ 构造 H 步 TD bootstrap 目标

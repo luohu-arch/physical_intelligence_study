@@ -46,18 +46,45 @@
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    RGB["RGB 图像 [H,W,3]"] --> ENC["Vision Encoder"]
-    CAM_POSE["相机外参 (R,t)"] --> PLUCKER["Plücker Ray 编码"]
-    PLUCKER --> PLUCKER_MAP["Plücker Map [H,W,6]"]
-    PLUCKER_MAP --> FUSION{"Fusion 方式"}
-    FUSION -->|非预训练| CONCAT["Channel-wise Concat"]
-    FUSION -->|预训练| LATEFUSION["Late Fusion CNN"]
-    RGB --> CONCAT
-    CONCAT --> ENC
-    LATEFUSION --> MERGE["与预训练特征合并"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    RGB(["RGB 图像 [H,W,3]"]) --> FUSION
+    CAM(["相机外参 (R, t)<br/>(AprilTags / 标定 / 元数据)"]) --> PL
+    PL["Plucker Ray 编码 (核心)<br/>d = R * K^-1 * [u,v,1]^T, m = t x d<br/>(每像素 6 维: 方向 + 矩)<br/>对相机位姿等变"]
+    PL --> PLM(["Plucker map [H,W,6]"])
+    CROP["图像与 Plucker map 联合随机裁剪<br/>(相同空间裁剪, 防背景泄露相机位姿)"] -.-> RGB
+    CROP -.-> PLM
+    PLM --> FUSION{"Fusion 方式"}
+    FUSION -->|"非预训练 encoder"| CONCAT["channel-wise 拼接<br/>成 [H,W,9] 输入"]
+    FUSION -->|"预训练 encoder"| LATE["late fusion 小 CNN<br/>(不污染预训练权重)"]
+    CONCAT --> ENC["Vision Encoder"]
+    LATE --> MERGE["与预训练特征合并"]
     ENC --> MERGE
-    MERGE --> POLICY["Action Policy (ACT/DP/SmolVLA)"]
+    MERGE ==> POL["Action Policy<br/>(ACT / DP / SmolVLA)"]
+    LBC["各基线自身 BC 损失<br/>(ACT CVAE / DP 扩散 / SmolVLA)"] -.-> POL
+    POL ==> ACTOUT(["动作输出: 相机移动后策略不失效<br/>3 架构 6 任务全部正增益<br/>(SmolVLA Lift 19.6 -> 54.4)"])
+
+    class RGB,CAM,PLM,CROP data
+    class PL key
+    class ENC frozen
+    class CONCAT,LATE,MERGE,POL train
+    class ACTOUT act
+    class LBC loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 **1. Plücker Ray 的几何定义**：给定相机内参 $K$ 与外参 $(R, t)$，像素 $(u,v)$ 的光线方向与其矩为

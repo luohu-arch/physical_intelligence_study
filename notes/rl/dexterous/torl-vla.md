@@ -42,13 +42,44 @@ TORL-VLA 提出触觉引导在线 RL 框架：VLA 同时预测参考动作和未
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    VLA["Wrench-aware VLA"] --> REF["Reference action + wrench"]
-    WRENCH["Real-time wrench"] --> RL["Online RL actor-critic"]
-    REF --> RL
-    RL --> ACTION["Refined action"]
-    HUMAN["Human intervention"] --> CENSOR["Intervention-censored Critic"]
-    CENSOR --> RL
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    subgraph LOOP["真机在线回路 (20 Hz)"]
+        ROBOT["接触丰富任务<br/>coffee / latch / egg"] --> FB(["实测 wrench + 观测回流<br/>(12 维指尖 wrench, J = 10 历史)"])
+        FB --> ROBOT
+    end
+    FB ==> VLA["冻结 wrench-aware VLA<br/>预测参考动作 chunk (50 步, 执行前 10)<br/>+ 未来 wrench 序列 (事前物理先验)"]
+    VLA ==> ACT["轻量在线 RL actor<br/>学修正量: a = a_ref + delta"]
+    FB ==> ACT
+    ACT ==> MOE["MoE 融合<br/>门控加权: 参考动作 / wrench 预测 / RL 修正"]
+    MOE ==> ROBOT
+    ROBOT ==> CEN["intervention-censored critic (核心)<br/>干预前策略动作回报记 0<br/>切分功劳归属, 防失败动作被奖励"]
+    HUM(["人工干预 + 二值成功奖励"]) -.->|"干预 mask"| CEN
+    CEN -.->|"Q 梯度在线精调"| ACT
+
+    class LOOP loop
+    class ROBOT env
+    class FB data
+    class VLA frozen
+    class ACT train
+    class MOE act
+    class CEN key
+    class HUM data
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 VLA 的预测头同时输出动作 chunk 与 wrench 序列：$(\hat{a}_{t:t+H}, \hat{w}_{t:t+H}) = f_\theta(o_t, L)$。参考动作 $\hat{a}$ 提供先验分布，在线 RL 学的是修正量 $\delta_t$：

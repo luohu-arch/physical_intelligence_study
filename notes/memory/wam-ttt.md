@@ -43,11 +43,54 @@ WAM-TTT 是面向具身世界模型的测试时训练框架：机器人部署后
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    DEPLOY["正常部署执行"] --> OBS["Human operator demonstrates<br/>task variation or corrects failure"]
-    OBS --> UPDATE["TTT: 增量微调 world model dynamics"]
-    UPDATE --> IMPROVED["Improved dynamics → 更好的 planning"]
-    IMPROVED --> DEPLOY
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    HVID[人类 GoPro 第一视角视频<br/>无动作/姿态标注]:::data
+    ROBS[机器人多视角 RGB + 本体状态 + 语言]:::data
+
+    subgraph LDA["LDA 基座 WAM 部署期全部冻结"]
+        VLMC[VLM 条件化]:::frozen
+        VE[video expert DiT<br/>每个块挂 TTT 残差分支]:::frozen
+        AE[action expert DiT<br/>经 joint attention 通信]:::frozen
+    end
+
+    TTT["部署时内循环 SGD<br/>W_(i+1) = W_i - eta * grad L_adapt"]:::key
+    FW[TTT fast weights 快速权重记忆<br/>人类行为吸收进权重 分钟-小时级世界模型适应]:::mem
+    LTT[自监督适应损失<br/>L_vg 视频预测 + lambda * L_KVM 记忆重建]:::loss
+    META[人机配对元训练<br/>2286 条 episode 相位对齐学 Q/K/V 接口]:::key
+    ICL["对照 WAM-ICL<br/>同一视频塞进上下文仅 7.1 百分比"]:::loop
+
+    HVID ==> TTT
+    HVID -.塞进上下文对照 吸收进权重达 46.2.-> ICL
+    LTT -.-> TTT
+    META -.预对齐人类 Key Value 与机器人 Query.-> TTT
+    TTT ==> FW
+    FW ==>|rollout 期间固定 注入视频流残差| VE
+    ROBS ==> VLMC
+    VLMC ==> VE
+    VE ==> AE
+    ACT([连续动作 chunk]):::act
+    AE ==> ACT
+    ROBOT([G1 人形 / Galbot 夹爪 / 22-DoF 灵巧手]):::env
+    ACT ==> ROBOT
+    ROBOT -.人类演示任务变体或纠错 不中断部署持续吸收.-> HVID
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 TTT 残差分支挂在每个 DiT block 的 video expert 上，只改视频流、不动动作流：

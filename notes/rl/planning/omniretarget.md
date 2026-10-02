@@ -39,13 +39,38 @@ OmniRetarget 提出交互网格（Interaction Mesh）数据生成引擎：把一
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    DEMO["Human demonstration"] --> MESH["Interaction Mesh 构造<br/>(人-物-环境 keypoints)"]
-    MESH --> RETARGET["Retarget 求解<br/>保持 mesh 拓扑的形变"]
-    ROBOTS["多本体规格<br/>(骨骼长度/关节限位)"] --> RETARGET
-    RETARGET --> DATA["增强数据<br/>(8+ hours trajectories)"]
-    DATA --> RL["RL (5 shared rewards)"]
-    RL --> POL["全身 loco-manipulation 策略"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    DEMO(["一次人类示范<br/>OMOMO / LAFAN1 / 自采 MoCap"]) ==> MESH["交互网格 Interaction Mesh (核心)<br/>节点 = 人体 + 物体 + 地形关键点<br/>边 = 必须保持的相对几何关系<br/>(语义藏在相对关系而非骨骼角里)"]
+    MESH ==> RET["重定向求解<br/>Laplacian 形变最小化 + 运动学硬约束<br/>sequential SOCP 逐段求解"]
+    SPEC(["多本体规格<br/>G1 / H1 / Booster T1<br/>骨骼长度 / 关节限位"]) ==> RET
+    RET ==> AUG[("增强数据 8+ 小时<br/>多本体 x 地形 x 物体组合")]
+    AUG ==> RL["RL 训练 (仿真)<br/>纯本体感知观测 + 域随机化"]
+    REW["5 项共享奖励<br/>Body / Object Tracking + Action Rate<br/>+ Soft Joint Limit + Self-Collision<br/>(权重沿用不调参)"] -.->|"避免逐任务手写 reward"| RL
+    RL ==> POL["全身 loco-manipulation 策略<br/>成功率 > 82% (naive 重定向 50-70%)"]
+    POL ==> G1["Unitree G1 零样本部署<br/>wall-flip 5/5 / 动态攀 0.9m 平台"]
+
+    class DEMO,SPEC data
+    class MESH key
+    class RET data
+    class AUG data
+    class RL train
+    class REW reward
+    class POL train
+    class G1 env
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
 ```
 
 交互网格定义为带拓扑的图 $M = (V, E)$，节点集合 $V$ 由人体关键点、物体关键点与地形锚点组成，边集合 $E$ 编码"哪些点对之间的相对关系必须保持"。重定向被形式化为保持网格拓扑的几何形变问题：给定源网格 $M^{src}$ 与新本体的关键点位置 $P^{tgt}$，求解

@@ -63,18 +63,50 @@ Capek 0.5 是一个以"执行"为组织原则的具身 VLM：把机器人在执�
 2. **合并**：先用 TIES 做权重空间合并得到学生初始化，再用 routed MOPD（Multi-Teacher On-Policy Distillation）在学生自己生成的前缀上，把对应专家的行为蒸馏进来。专家与路由**只存在于训练期**，推理只加载一个 checkpoint。
 
 ```mermaid
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
 flowchart TD
-    A["shared Qwen backbone checkpoint"] --> B["Spatial specialist: GRPO"]
-    A --> C["Temporal specialist: GRPO"]
-    A --> D["Guidance specialist: GRPO"]
-    A --> E["State specialist: GRPO"]
-    B --> F["TIES merge: trim lowest 80 percent, sign election, average"]
-    C --> F
-    D --> F
-    E --> F
-    F --> G["student init"]
-    G --> H["routed MOPD: student rollout prefixes, frozen routed teacher, reverse KL"]
-    H --> I["single inference checkpoint: all four capabilities"]
+    SEED(["共享 Qwen backbone 起点<br/>(2B dense / 35B-A3B MoE)"])
+    subgraph SPEC["阶段一: 按执行循环四族各训一个专家"]
+        SP["Spatial 专家<br/>GRPO 强化学习"]
+        TP["Temporal 专家<br/>GRPO 强化学习"]
+        GP["Guidance 专家<br/>GRPO 强化学习"]
+        VP["State 专家<br/>GRPO 强化学习"]
+    end
+    SEED ==> SP & TP & GP & VP
+    REWARD["GRPO 组相对奖励<br/>R_fmt 格式 + R_acc 正确性"] -.-> SP & TP & GP & VP
+    subgraph CONS["阶段二: 合并成单一模型"]
+        TIES["TIES 权重合并<br/>裁掉低幅值 80% + 符号投票 + 平均"]
+        STUDENT["学生初始化"]
+        MOPD["routed MOPD 在线策略蒸馏<br/>学生 rollout 前缀上逐样本路由"]
+        TEACHER["冻结的按能力路由教师"]
+    end
+    SP & TP & GP & VP --> TIES
+    TIES --> STUDENT --> MOPD
+    TEACHER -.->|"token 级反向 KL"| MOPD
+    MOPD ==> FINAL(["单一推理 checkpoint<br/>四族能力合一"])
+    REWARD2["进度奖励 R_prog+act<br/>(PVE: 0.5 r_value + 0.4 r_action + 0.1 r_fmt)"] -.-> VP
+
+    class SEED frozen
+    class SP,TP,GP,VP,STUDENT train
+    class TIES,MOPD,FINAL key
+    class TEACHER frozen
+    class REWARD,REWARD2 reward
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ### Capek-StateBench：自建的 State Verification 基准

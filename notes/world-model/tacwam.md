@@ -45,18 +45,47 @@ TacWAM 回答了一个此前 WAM 工作都回避的问题：**触觉未来该不
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    RAW["Two gripper-side tactile sensors"] --> SAF["SAF encoder: image + force field + mesh flow"]
-    SAF --> Z["Shared tactile latent z_tac"]
-    Z --> HIST["History encoder E_hist over last Thist frames"]
-    HIST --> MOD["Adaptive normalization modulates tactile expert"]
-    V["Current visual anchor V0"] --> GEN["Tri-modal generator: Video DiT + Action DiT + Tactile DiT"]
-    Z --> GEN
-    GEN --> TF["Future tactile tokens T1:H (prediction targets only)"]
-    GEN --> VF["Future visual tokens"]
-    GEN --> A["Action tokens read only V0 and T0"]
-    TF --> DEC["Frozen R_tac decodes force field + wrench + flow for consistency loss"]
-    A --> EXEC["Closed-loop receding horizon execution at 30 Hz"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    RAW(["夹爪侧双触觉传感器<br/>图像 + 力场 + mesh 流 30Hz"]) ==> SAF["SAF 编码器<br/>图像 + 力场 + mesh 流"]
+    SAF ==> Z["共享触觉 latent z_tac"]
+    Z ==> HIST["历史编码器 E_hist<br/>最近 T_hist 帧<br/>单帧力歧义靠历史消歧"]
+    HIST ==> MOD["自适应归一化<br/>调制触觉专家"]
+    V(["当前视觉锚点 V_0"]) ==> GEN["三模态生成器<br/>Video DiT + Action DiT + Tactile DiT<br/>AGT 掩码隔离锚点/未来/动作四类 token"]
+    Z ==> GEN
+    GEN ==> TF["未来触觉 token T_1:H<br/>只作预测监督目标<br/>不进动作分支防特权泄漏"]
+    GEN ==> VF["未来视觉 token"]
+    GEN ==> A["动作 token 只读 V_0 与 T_0<br/>掩码纪律: 放宽即 7.5%"]
+    TF -.-> DEC["冻结 R_tac 解码器<br/>力场 + wrench + 流"]
+    DEC -.-> LOSS["触觉一致性损失"]
+    A ==> EXEC["闭环滚动视野执行 30Hz<br/>四真机任务均值 75.0%<br/>超 VT-WAM 37.5pp"]
+
+    class RAW,V data
+    class SAF train
+    class Z,VF env
+    class HIST,MOD mem
+    class GEN key
+    class TF,LOSS loss
+    class DEC frozen
+    class A act
+    class EXEC loop
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 **问题形式化**：时刻 $t$ 的观测为

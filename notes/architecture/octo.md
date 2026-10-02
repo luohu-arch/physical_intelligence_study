@@ -66,15 +66,39 @@ $$
 Octo 通过特殊的 Tokenizer 设计，将不同视角的相机图像编码为独立的 Token 序列，在推理时可以随意增删相机视角，无需重新微调模型，完美适配不同机器人的多相机配置，是开源模型中首个实现该能力的架构。
 
 ```mermaid
-graph TD
-    IMG1[相机 1] --> TOK[灵活 Tokenizer]
-    IMG2[相机 2] --> TOK
-    LANG[语言指令] --> TOK
-    GOAL[目标图像] --> TOK
-    TOK --> TRANS[Transformer 骨干<br/>Small 27M / Base 93M]
-    TRANS --> DDPM[DDPM 扩散头<br/>10 步去噪]
-    DDPM --> ACT[连续动作输出]
-    ACT --> ROBOT[机器人执行]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    C1(["相机视角 1 RGB<br/>(+2 帧历史)"]) --> TOK
+    C2(["相机视角 2<br/>(推理时可随意增删)"]) --> TOK
+    LANG(["语言指令<br/>(或目标图像条件)"]) --> TOK
+    TOK["灵活 Tokenizer<br/>每视角独立 token 序列"] ==> TRANS["Transformer 骨干<br/>Small 27M / Base 93M"]
+    NOISE(["噪声动作 x_K ~ N(0, I)"]) ==> DDPM
+    TRANS ==>|"动作读出嵌入 e"| DDPM["DDPM 扩散头 (3 层 MLP)<br/>10 步去噪, cosine 调度"]
+    LDDPM["DDPM 扩散损失"] -.-> DDPM
+    DDPM ==> ACT(["连续动作输出<br/>多峰分布, 83% vs MSE 35% vs 离散 18%"])
+    ACT ==> ROBOT(["机器人执行<br/>4090 上 13 it/sec"])
+    ROBOT -.->|"receding horizon<br/>执行 chunk 前缀后重规划"| C1
+
+    class C1,C2,LANG,NOISE data
+    class TOK,DDPM key
+    class TRANS train
+    class ACT,ROBOT act
+    class LDDPM loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

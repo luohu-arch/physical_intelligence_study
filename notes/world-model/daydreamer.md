@@ -59,17 +59,57 @@ $$
 所有部件以 stochastic backpropagation（重参数化变分推断）联合优化。关键工程取向是**预测表征而非原始观测**：解码只在训练时提供梯度信号，行为学习阶段完全不调用 decoder，避免逐像素误差累积并支撑大批量并行 rollout。
 
 ```mermaid
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
 flowchart LR
-    SENS["sensors: camera images plus proprioception"] --> ENC["encoder fuses all modalities into z_t"]
-    Z["z_t discrete codes"] --> WM["RSSM recurrent state h_t"]
-    A["action a_t"] --> WM
-    WM --> DEC["decoder reconstructs inputs during training"]
-    WM --> RWD["reward predictor"]
-    S0["replay buffer of real experience"] --> TRAIN["world model supervised training"]
-    TRAIN --> IMAG["imagined latent rollouts batch up to 16K on one GPU"]
-    IMAG --> AC["actor pi and critic v trained in latent space"]
-    AC --> POLICY["policy runs on robot hardware"]
-    POLICY --> S0
+    subgraph REAL["真机物理世界 (4 平台同一组超参)"]
+        SENS(["传感器<br/>相机图像 + 本体感知"]) --> ENC["编码器<br/>多模态融合为观测表征"]
+        POLICY["策略部署到真机硬件<br/>异步 actor-learner"] -.->|"新真机经验入池"| S0[("真机经验回放池")]
+    end
+
+    subgraph WMT["RSSM 世界模型 (单 GPU 训练)"]
+        ENC2["编码为离散隐码 z_t"]
+        WM["RSSM 循环状态 h_t"]
+        DEC["解码器<br/>仅训练期重建观测<br/>行为学习阶段不调用"]
+        RWD["奖励预测头"]
+        TRAIN["世界模型监督训练"]
+    end
+
+    ENC ==> ENC2
+    ENC2 ==> Z["隐状态 z_t"]
+    A(["动作 a_t"]) ==> WM
+    Z ==> WM
+    WM --> DEC
+    WM --> RWD
+    S0 ==> TRAIN
+    TRAIN ==> IMAG["潜空间想象 rollout<br/>批量并行至 16K 轨迹<br/>无需环境步进"]
+    WM ==> IMAG
+    IMAG ==> ACT["actor pi<br/>Reinforce + 熵正则<br/>纯潜空间更新"]
+    IMAG ==> CRIT["critic v<br/>lambda-return 回归"]
+    ACT ==> POLICY
+
+    class SENS,A data
+    class S0 data
+    class ENC,ENC2,Z,WM,DEC,TRAIN train
+    class IMAG key
+    class RWD,CRIT reward
+    class ACT,POLICY act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
 ```
 
 ### 2. Lambda-return 与 actor 目标（论文式 3-4）

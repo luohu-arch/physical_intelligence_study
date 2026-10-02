@@ -120,14 +120,44 @@ $$\text{FD}(\tau, \tau') = \max\left(d(\rho_0, \rho'_0), \min\begin{cases}
 其中 $\tau = \{\rho_0, ..., \rho_m\}$ 为轨迹路径点序列，$d(\cdot, \cdot)$ 为欧氏距离。FD 越小表示运动模式越相似。
 
 ```mermaid
-graph TD
-    IMG[RGB 图像 3 通道] --> CONCAT[6 通道拼接]
-    SKETCH[2D 轨迹草图 3 通道] --> CONCAT
-    CONCAT --> ENC[EfficientNet-B3<br/>零初始化首层]
-    LANG[语言指令可选] --> ENC
-    ENC --> TRANS[Transformer]
-    TRANS --> ACT[动作预测]
-    ACT --> ROBOT[机器人执行]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    IMG[相机 RGB 图像<br/>3 通道 6 帧历史]:::data
+    SKETCH[2.5D 轨迹草图 3 通道<br/>红色编码时间 绿色编码高度 交互圆圈标记]:::key
+    CONCAT[6 通道拼接]:::key
+    IMG ==> CONCAT
+    SKETCH ==> CONCAT
+    CONCAT ==> ENC[EfficientNet-B3<br/>ImageNet 预训练 首层扩至 6 通道]:::frozen
+    ENC ==> TRANS[RT-1 Transformer<br/>移除语言 FiLM 条件层]:::train
+    TRANS ==> ACT([256 离散动作 token 预测]):::act
+    ACT ==> ROBOT([Everyday Robots 移动操作臂]):::env
+    ROBOT -.逐观测闭环重规划.-> IMG
+    HUMAN[人工 GUI 手绘草图]:::data
+    VIDEO[人类示范视频轨迹提取]:::data
+    LLMG[LLM 代码生成 3D 路径点<br/>经相机内外参投影]:::data
+    HINDSIGHT[事后轨迹标注<br/>示教末端真值位置投影]:::data
+    HUMAN ==> SKETCH
+    VIDEO ==> SKETCH
+    LLMG ==> SKETCH
+    HINDSIGHT -.免人工训练标签.-> SKETCH
+    BC[行为克隆交叉熵]:::loss
+    BC -.-> TRANS
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

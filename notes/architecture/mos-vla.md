@@ -45,16 +45,45 @@ MoS-VLA 将机器人操作策略表示为一组可学习基函数的线性组合
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    subgraph Pretrain[OXE 跨数据集预训练]
-        DATA2[多机器人数据] --> BASIS[技能基函数学习<br/>有限可学习基函数集]
-        BASIS --> ORTHO[正交正则化]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    subgraph PRE["OXE 27 数据集跨上下文预训练"]
+        OXE(["多机器人混合数据<br/>(Magic Soup Plus)"]) --> BB
+        BB["OpenVLA backbone<br/>Llama 2 + SigLIP + DinoV2, LoRA 微调"]
+        BB --> BASIS["k = 16 个可学习基函数头<br/>(function encoder 头, MLPResNet)"]
+        L1L["训练损失 L: L1 范数<br/>(抗 OXE 噪声, 替代 L2)"] -.-> BASIS
+        ORTHO["Gram 正交正则 L_reg<br/>保持基函数多样性"] -.-> BASIS
+        CAL["calibration buffer<br/>每数据集 512 样本, 每 16 步重算系数"] -.-> BASIS
     end
-    DEMO2[单次专家演示] --> OPT[凸优化求解<br/>最小化动作误差 无梯度]
-    BASIS --> OPT
-    OPT --> WEIGHTS[技能权重线性组合]
-    WEIGHTS --> POLICY4[操作策略 = 基函数加权和]
-    POLICY4 --> ROBOT5[机器人执行]
+    DEMO(["单次专家演示<br/>(未见环境/任务/本体)"]) --> OPT["L1 凸优化求权重<br/>线性规划 CVXPY, 无梯度数秒完成"]
+    BASIS ==> OPT
+    OPT --> W(["基函数权重 alpha (k 维)"])
+    W ==> POL["策略 = sum alpha_i * g_i<br/>推理 O(1), 与演示长度无关"]
+    POL ==> ROBOT(["机器人执行<br/>逐帧重观测"])
+    ROBOT -.->|"上下文变化需再给一条演示<br/>重新标定系数"| DEMO
+
+    class OXE,DEMO data
+    class BB train
+    class BASIS,POL key
+    class OPT key
+    class ROBOT act
+    class L1L,ORTHO loss
+    class CAL loop
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 MoS-VLA 的核心思想来自函数编码器（Function Encoder）理论：将策略函数空间 $(\Pi, \mathcal{H})$ 投影到一组有限基函数张成的子空间上，从而将适配问题简化为系数求解。

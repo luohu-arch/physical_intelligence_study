@@ -171,13 +171,38 @@ $$
 Pi-Zero 将时间步 $t$ 仅切分为 10 步，相比扩散模型的 100 步，推理速度提升 10 倍。
 
 ```mermaid
-graph LR
-    NOISE[高斯噪声] --> PATH[线性概率路径<br/>直线插值]
-    DATA[真实动作] --> PATH
-    PATH --> VF[速度场预测网络<br/>学习位移向量]
-    VF --> RK4[RK4 高阶积分<br/>10 步推理]
-    RK4 --> ACT[连续动作]
-    ACT --> ROBOT[机器人执行]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    NOISE(["高斯噪声 x_0 ~ N(0, I)"]) ==> PATH
+    DATA(["真实动作数据 x_1"]) ==> PATH
+    PATH["OT 线性概率路径 (核心)<br/>x_t = t*x_1 + (1-t)*x_0<br/>粒子沿直线匀速运动, 路径更直"]
+    PATH --> VF["速度场预测网络 v_theta(x_t, t)<br/>回归条件速度场, 免模拟训练"]
+    LCFM["损失 L_CFM<br/>|| v_theta - (x_1 - x_0) ||^2<br/>无需模拟 ODE, 与 L_FM 梯度等价"] -.-> VF
+    VF ==> RK4["RK4 高阶积分<br/>仅 10 步, 截断误差 O(dt^4)"]
+    RK4 -.->|"每步 4 次速度场求值"| VF
+    RK4 ==> ACT(["连续动作 x_1<br/>平滑无台阶"])
+    ACT ==> ROBOT(["机器人执行<br/>(pi0 动作专家同款机制)"])
+
+    class NOISE,DATA data
+    class VF train
+    class PATH,LCFM key
+    class RK4 loop
+    class ACT,ROBOT act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

@@ -72,21 +72,47 @@ $$\mathcal{L}_\pi(\theta)=\mathbb{E}\big[-Q_\psi(x,a_{1:C})+\beta\,\|a_{1:C}-\ti
 - **β 正则与 KL-regularized RL 的关系**：论文自述"in spirit similar"于 MPO/AWR 一族的最大后验策略优化（引 [20][37-40]）；区别在于惩罚项落在动作空间而非分布层面，形式上是平滑的行为克隆约束而不是严格的 KL 散度。
 
 ```mermaid
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
 flowchart TB
-    IN["cameras x3 + language + proprio"] --> VLA["frozen pi0.6: SigLIP 400M + Gemma 4B VLM, 860M action expert"]
-    VLA --> EMB["final-layer embeddings z1..zM"]
-    EMB --> ENC["lightweight encoder transformer with appended rl-token slot"] --> TOK["RL token: 1 x 2048 readout"]
-    DEC["decoder transformer autoregressively reconstructs the embeddings, stop-gradient targets"] -.->|"trains phi"| ENC
-    TOK --> STATE["rl state x = (RL token, proprio)"]
-    VLA --> REF["sampled reference chunk a~ with horizon H=50, execute first ~20"]
-    REF --> ACTOR["small Gaussian actor conditioned on (x, a~), chunk C=10"]
-    STATE --> ACTOR
-    ACTOR --> EXEC["execute chunk at 50 Hz"]
-    HUM["human operator: binary success label, optional takeover overrides actions AND replaces a~ in buffer"] --> BUF
-    VLA --> WARM["warmup rollouts fill buffer first"] --> BUF["replay buffer: VLA data + RL rollouts + interventions, stride-2 subsampling"]
-    EXEC --> BUF
-    BUF --> UPD["async off-policy updates: double-Q critic TD over C-step backups, UTD G=5, loss = -Q + beta * ||a - a~||^2"]
-    UPD --> ACTOR
+    IN(["3 相机 RGB + 语言 + 本体"]) ==> VLA["冻结 pi0.6<br/>SigLIP 400M + Gemma 4B<br/>+ 860M action expert"]
+    VLA ==> EMB["最终层 embeddings z_1..z_M"]
+    EMB --> ENC["轻量 encoder-decoder<br/>追加 rl 占位 token"]
+    ENC ==> TOK["RL Token: 1 x 2048 读出 (核心)<br/>decoder 自回归重建监督 (stop-gradient)<br/>压缩有损但信息保真"]
+    TOK ==> X["RL 状态 x = (z_rl, 本体位置/速度)"]
+    VLA ==> REF["参考动作 chunk a~<br/>H = 50, 执行前约 20 步"]
+    X --> ACT["小高斯 actor (2-3 层 MLP)<br/>条件于 (x, a~), 输出 C = 10 块 (140 维)<br/>beta 正则锚定 + 50% 参考 dropout"]
+    REF --> ACT
+    ACT ==> EXEC(["50 Hz 块级执行"])
+    HUM["操作员: 二值成功标签<br/>接管时替换动作与参考 a~"] -.->|"干预 / 奖励"| BUF
+    EXEC ==> BUF[("回放缓冲<br/>VLA warmup + RL rollout + 人工接管<br/>stride-2 子采样")]
+    BUF ==> UPD["异步 off-policy 更新<br/>双 Q critic, C 步块级 TD, UTD = 5"]
+    UPD -.->|"loss = -Q + beta * ||a - a~||^2"| ACT
+    UPD -.->|"蒸馏 loss 更新 phi 后冻结"| ENC
+
+    class IN,EMB,X data
+    class VLA,REF frozen
+    class ENC train
+    class TOK key
+    class ACT train
+    class EXEC act
+    class HUM data
+    class BUF mem
+    class UPD loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
 ```
 
 ## 物理直觉解释

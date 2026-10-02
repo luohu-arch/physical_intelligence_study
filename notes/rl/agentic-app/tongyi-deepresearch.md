@@ -51,17 +51,57 @@
 整条训练管线与数据策划闭环：
 
 ```mermaid
-graph TD
-    PRE["Qwen3-30B-A3B-Base"] --> CPT1["Agentic CPT stage 1: 32K ctx"]
-    CPT1 --> CPT2["Agentic CPT stage 2: 128K ctx, 64K-128K long trajectories"]
-    CPT2 --> SFT["Agentic SFT cold start: 40K then 128K, ReAct + CM modes"]
-    SFT --> RLS["Agentic RL: strict on-policy GRPO variant, 0/1 reward"]
-    RLS --> CHK{"reward plateau or step budget?"}
-    CHK -- "no" --> RLS
-    CHK -- "yes" --> CUR["Refresh D-prime: drop mastered problems, admit harder ones from checkpoint-mined backup pool"]
-    CUR --> RLS
-    RLS --> MG["Model merging: weighted average of variants"]
-    MG --> HM["Heavy Mode: n parallel agents + report synthesis"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    PRE(["Qwen3-30B-A3B-Base<br/>30.5B 总参 / 每 token 激活 3.3B MoE"]):::data
+    CPT1["Agentic CPT Stage 1: 32K 上下文<br/>合成数据注入 agentic 行为先验"]:::train
+    CPT2["Agentic CPT Stage 2: 128K 上下文<br/>64K-128K 长轨迹 + 少量通用数据防遗忘"]:::train
+    SFTN["SFT 冷启动: 40K -> 128K<br/>ReAct + Context Management 双模式轨迹"]:::train
+    RLS["Agentic RL: 严格 on-policy GRPO 变体<br/>IS 比恒 1.0 + clip-higher + leave-one-out"]:::train
+    OBJ["目标: 纯 0/1 答案正确性, 无格式项<br/>超长未答负样本从损失剔除"]:::loss
+    ENV3["三级环境 (核心): prior world 零成本无限扩 /<br/>simulated 离线 wiki 风洞 / real-world 非平稳终训"]:::key
+    SANDBOX["统一 sandbox: QPS 限速 / 缓存 / 重试 /<br/>降级 / 备份源, 工具调用确定性化"]:::env
+    CM["Context Management: 只看 q + 滚动摘要 S_t +<br/>最近一轮交互, Markovian 状态重建防膨胀"]:::mem
+    TOOLS["5 工具: Search / Visit / Python Interpreter /<br/>Scholar / File Parser, 每任务 <=128 次调用"]:::act
+    CHK{"reward 平台期<br/>或步数预算?"}:::loop
+    CUR["动态数据策划: 剔除全对/全错无信号题<br/>checkpoint 回采补难度适中新题, 刷新 D'"]:::loop
+    MG["模型合并: 同 base 变体参数加权平均"]:::train
+    HM["Heavy Mode: n 个并行 agent 各产压缩报告<br/>综合模型只消费 S_T 合成答案 (test-time scaling)"]:::loop
+    ACC(["7 基准 5 项第一: HLE 32.9 / GAIA 70.9 / xbench 75.0<br/>Heavy Mode 把 BrowseComp 43.4 拉到 58.3"]):::data
+
+    PRE ==> CPT1
+    CPT1 ==> CPT2
+    CPT2 ==> SFTN
+    SFTN ==> RLS
+    OBJ -.->|"目标函数"| RLS
+    ENV3 -.->|"mid-training 用前两级, RL 先风洞后真实"| RLS
+    RLS -.->|"rollout 交互"| TOOLS
+    TOOLS -.->|"经确定性接口"| SANDBOX
+    CM -.->|"S_t 滚动摘要"| RLS
+    RLS ==> CHK
+    CHK -.->|"否: 继续训练"| RLS
+    CHK ==>|"是"| CUR
+    CUR -.->|"刷新训练集"| RLS
+    RLS ==> MG
+    MG ==> HM
+    HM ==> ACC
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 底层原理与数学推导

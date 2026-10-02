@@ -97,13 +97,53 @@ $$\mathcalL_\texttotal = \mathcalL_\textDT + \mathcalL_\textreason + \mathcalL_\
 标注质量评估：81.5% 的间隔判断正确，83.3% 的场景描述合理。
 
 ```mermaid
-graph TD
-    OBS[观测 + 指令] --> VLA[统一 VLA 模型<br/>单模型双模式]
-    VLA --> GATE{决策 Token}
-    GATE -->|推理模式| REASON[显式推理链]
-    GATE -->|执行模式| ACT_MODE[直接动作生成]
-    REASON --> VLA
-    ACT_MODE --> ROBOT[机器人执行]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    OBS[多视角观测 + 语言指令<br/>+ 参考图像 I_ref + 本体状态]:::data
+    VLA[统一 VLA 单模型<br/>pi_0 基座 推理与动作权重共享]:::frozen
+    OBS ==> VLA
+    DT{Decision Token<br/>BOR / BOA 自适应切换}:::key
+    VLA ==> DT
+
+    subgraph MODE2["System 2 推理模式 停顿 2-3 秒"]
+        REASON[显式文本推理<br/>场景 + 计划 + 历史 + 下一步]:::train
+    end
+
+    subgraph MODE1["System 1 动作模式 每 0.2s"]
+        ACTM[flow-matching 动作 chunk<br/>temporal ensemble 平滑]:::act
+    end
+
+    DT ==>|BOR 进入推理| REASON
+    DT ==>|BOA 直接执行| ACTM
+    RCACHE[推理缓存 R + 参考图像 I_ref<br/>推理更新后同步刷新]:::mem
+    REASON ==> RCACHE
+    RCACHE -.推理结果注入上下文.-> VLA
+    ACTM ==> ROBOT([Franka / 双 ARX 机械臂]):::act
+    ROBOT -.每 0.2s 闭环重观测.-> OBS
+    LDT[Decision Token 交叉熵]:::loss
+    LR[推理文本自回归 CE]:::loss
+    LFM[flow matching 动作损失]:::loss
+    LDT -.-> DT
+    LR -.-> REASON
+    LFM -.-> ACTM
+    SYN[合成推理数据 16K<br/>Gemini 2.5 Pro + FLUX 文生图]:::data
+    SYN -.共训.-> REASON
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

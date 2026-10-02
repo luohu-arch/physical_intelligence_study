@@ -34,27 +34,60 @@
 ## 核心技术
 
 ```mermaid
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
 flowchart TD
-    subgraph Inputs
-        A["MoCap object pose OR egocentric depth"] --> B["Distance Field Phi of object"]
-        C["Humanoid link pose x_t and velocity v_t"] --> B
+    subgraph LOOP["人形交互回路"]
+        LINK(["link 位姿 x_t + 速度 v_t"]) --> CTRL["底层全身控制器"]
+        CTRL --> LINK
     end
-    B --> D["Per-link tuple u_t: Phi, grad Phi, v_norm, v_tan"]
-    D --> E["History window I_t over length l"]
-    E --> F["VAE encoder"]
-    F --> G["Interaction latent z_t"]
-    H["Proprioception o_prop"] --> I["Transformer policy"]
-    J["Root trajectory command c_root"] --> I
-    G --> I
-    I --> K["Whole-body joint actions"]
-    K --> L["Low-level whole-body controller"]
-    L --> C
-    subgraph "3-stage training"
-        T1["1. BC pre-train: DAgger distill from teacher pi_mimic = ResMimic"]
-        T2["2. RL post-train: AIP discriminator on z_t + geometry randomization"]
-        T3["3. Visual distill: DAgger from frozen pi_full to depth-only pi_vis"]
+    GEO(["物体几何<br/>MoCap 网格 / 自我中心深度"]) ==> DF["物体距离场 DF: Phi<br/>(连续 / 可微 / O(1) 查询)"]
+    LINK ==> TUP["逐 link DF 四元组 u_t (核心表征)<br/>[Phi, grad Phi, v_norm, v_tan]<br/>法向 = 接近强度, 切向 = 表面滑移<br/>不含全局坐标 -> 位姿 / 尺度不变"]
+    DF ==> TUP
+    TUP ==> WIN["时间窗 I_t (长度 l)"]
+    WIN ==> VAE["VAE 编码器"]
+    VAE ==> Z["交互 latent z_t"]
+    PROP(["本体感知 o_prop"]) --> POL
+    ROOT(["根轨迹命令 c_root<br/>唯一任务输入, 无全身参考"]) --> POL
+    Z ==> POL["Transformer 策略<br/>输入 [o_prop, c_root, z_t] 拼接<br/>单策略连续执行多技能"]
+    POL ==> CTRL
+    TEACH["教师 pi_mimic = ResMimic<br/>(特权全身参考, 仅数据生成器)"] -.->|"DAgger 蒸馏"| T1
+    AIPD["AIP 判别器 (LSGAN)<br/>只判别 DF latent z_t, 不判关节状态<br/>允许为新几何合成全新姿态"] -.->|"交互风格奖励 r_interact(z_t)"| T2
+    subgraph TRAIN["三阶段训练 (同一架构)"]
+        T1["1. BC 预训练<br/>DAgger 蒸馏教师"]
+        T2["2. RL 微调<br/>AIP + 几何随机化"]
+        T3["3. 视觉蒸馏<br/>冻结 pi_full -> 纯深度 pi_vis"]
         T1 --> T2 --> T3
     end
+
+    class LINK,GEO,PROP,ROOT data
+    class DF data
+    class TUP key
+    class WIN mem
+    class VAE train
+    class Z data
+    class POL train
+    class CTRL act
+    class TEACH frozen
+    class AIPD reward
+    class T1,T2,T3 loss
+    class LOOP loop
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
 ```
 
 ![lessmimic 架构图](figures/lessmimic/fig1.png)

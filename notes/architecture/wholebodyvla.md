@@ -46,17 +46,50 @@ WholeBodyVLA 在 AgiBot X2 人形上实现首个大空间端到端 loco-manipula
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    A["Ego video: 300 h locomotion clips"] -->|"locomotion LAM"| C1["discrete code c_loco"]
-    B["AgiBot World manipulation data"] -->|"manipulation LAM"| C2["discrete code c_mani"]
-    C1 --> D["VLA joint prediction from image and language"]
-    C2 --> D
-    D --> E["Lightweight decoder f"]
-    E --> F["upper-body joint angles"]
-    E --> G["locomotion command sx sy sh hstar"]
-    G --> H["LMO RL policy at 50 Hz"]
-    H --> I["lower-body torques"]
-    F --> I
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    EGO(["自采 300h egocentric 行走视频<br/>头戴相机, 无 MoCap / 无遥操作"]) ==> LAM1
+    AGI(["AgiBot World 操作数据<br/>(相机基本静止)"]) ==> LAM2
+    subgraph LAMS["分离式统一潜在学习 (核心)"]
+        LAM1["locomotion LAM (VQ-VAE)<br/>整幅场景变化 -> 离散码 c_loco"]
+        LAM2["manipulation LAM (VQ-VAE)<br/>手臂区域变化 -> 离散码 c_mani"]
+    end
+    LLAM["损失 L_LAM:<br/>DINOv2 特征重建 MSE + VQ 目标"] -.-> LAM1
+    LLAM -.-> LAM2
+    LAM1 ==>|"伪动作标签"| VLA["VLM 主干 (Prismatic-7B 初始化)<br/>联合预测两类 latent token<br/>(约 10Hz@RTX 4090)"]
+    LAM2 ==>|"伪动作标签"| VLA
+    LCE["交叉熵联合监督<br/>min -log pi(c_mani, c_loco | o, l)"] -.-> VLA
+    VLA ==> DEC["轻量 decoder<br/>上身目标 + 移动指令"]
+    DEC ==> UB(["上身 14 关节角"])
+    DEC ==> CMD(["移动指令 s_x, s_y, s_yaw, h*<br/>离散三元 flag + 目标站姿高度"])
+    CMD ==> LMO["LMO RL 控制器 50Hz (板载)<br/>goal-conditioned regulation<br/>tanh 软门控参考整形"]
+    REW["LMO 奖励: 方向保真 J_dir<br/>+ 站姿稳定惩罚"] -.-> LMO
+    UB ==> ROBOT(["AgiBot X2 全身执行<br/>上身关节 + 下身力矩<br/>三任务平均 78.0%"])
+    LMO ==> ROBOT
+    ROBOT -.->|"分层闭环: 10Hz 决策<br/>+ 50Hz 低层控制"| EGO
+
+    class EGO,AGI data
+    class LAM1,LAM2 key
+    class VLA,DEC,LMO train
+    class UB,CMD,ROBOT act
+    class LLAM,LCE loss
+    class REW reward
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ### 1. 潜在动作模型（VQ-VAE 两段式）

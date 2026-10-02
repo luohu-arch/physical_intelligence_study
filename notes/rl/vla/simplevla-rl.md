@@ -95,18 +95,41 @@ $$L^{\text{PPO+Entropy}}(\theta) = L^{\text{CLIP}}(\theta) + \beta \cdot \mathbb
 式中 $\beta$ 为熵系数。熵正则化防止策略过早 collapse 到确定性行为，为 pushcut 现象的发生创造了条件。
 
 ```mermaid
-graph TD
-    VLA2[OpenVLA-OFT 基础模型] --> RL[SimpleVLA-RL 框架<br/>基于 veRL]
-    subgraph RL_Components[RL 训练组件]
-        SAMPLE[VLA 轨迹采样]
-        PARALLEL[可扩展并行化]
-        RENDER[多环境渲染]
-        EXPLORE[探索增强策略]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TB
+    BASE["OpenVLA-OFT 基座 VLA<br/>(全参数 RL 更新)"] ==>|"温度 1.6 + 熵正则探索"| ENV
+    subgraph LOOP["并行仿真 rollout (veRL 框架)"]
+        ENV["LIBERO / RoboTwin 多环境并行<br/>chunk 8 / 25 步闭环交互"] --> TR(["完整轨迹 + 规则自动判定<br/>轨迹级 0/1 奖励"])
+        TR --> ENV
     end
-    RL --> RL_Components
-    RL_Components --> POLICY2[优化后策略]
-    POLICY2 --> DEPLOY2[仿真 + 真机部署]
-    DEPLOY2 -.->|Pushcut 现象<br/>策略涌现新模式| POLICY2
+    TR ==> ADV["组内优势归一化 (核心)<br/>A_i = (R_i - mu_R) / sigma_R<br/>0/1 奖励均匀传播到全部动作 token"]
+    TR -.->|"动态采样: 丢弃全成功 / 全失败组<br/>保住梯度信号"| ADV
+    ADV ==> PPO["PPO clipped 目标<br/>更新全部动作 token"]
+    PPO -.->|"更新 theta"| BASE
+    PPO -.->|"支撑集扩张: supp(p_RL) = supp(p_SFT) 并 supp(explore)"| PUSH["pushcut 涌现现象<br/>长出示教数据中不存在的新动作模式<br/>(LIBERO 91% -> 99%, RoboTwin 38.3% -> 68.8%)"]
+
+    class BASE train
+    class ENV env
+    class TR reward
+    class ADV key
+    class PPO loss
+    class PUSH act
+    class LOOP loop
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
 ```
 
 ## 物理直觉解释

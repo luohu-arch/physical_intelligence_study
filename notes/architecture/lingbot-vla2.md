@@ -46,16 +46,42 @@ LingBot-VLA 2.0 沿三个功能域推进前代：重构数据管线并整理约 
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    A["Raw robot data 90k h / ego pool 20k h"] --> B["Filter: jerk Z-score, static ratio, URDF replay, SLAM"]
-    B --> C["High-quality corpus: 50k h robot x 20 embodiments + 10k h ego"]
-    C --> D["Annotation: Qwen3.6-27B subtask split, 18-action vocab"]
-    D --> E["Unified 55-dim action vector"]
-    E --> F["Action Expert with sparse MoE layers"]
-    G["VLM backbone + visual and text tokens"] --> F
-    F --> H["Relative targets, MeanStd norm, L2 loss"]
-    H --> I["Policy output on head/waist/base/hands/arms"]
-    J["Dual teachers: LingBot-Depth and DINO-Video"] -.->|distill Qt and Qt+T| F
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    RAW(["原始数据池<br/>90K h 真机 + 20K h ego 视频"]) --> FILT["三段清洗: jerk/速度 Z-score<br/>静止占比超 95% 剔除<br/>URDF 投影重放 + SLAM 校验"]
+    FILT --> COR(["高质量语料<br/>50K h x 20 构型 + 10K h ego"])
+    COR --> ANNO["自动标注: Qwen3.6-27B<br/>子任务切分 + 18 类封闭动作词表"]
+    ANNO --> UNI["55 维统一动作向量<br/>臂/末端/夹爪/灵巧手/腰/头/底盘<br/>低维构型补零共享专家"]
+    UNI ==> MOE
+    VLM["VLM backbone<br/>视觉 + 文本 token"] --> QT
+    QT["双 query 预测蒸馏<br/>Q_t 当前观测 + Q_t+T 前瞻 T 步"]
+    QT --> MOE["动作专家: 稀疏 MoE 层<br/>Sigmoid 路由 + 修正偏置只进 Top-K<br/>无辅助损失负载均衡"]
+    DTEA["LingBot-Depth 深度教师<br/>(L1 几何监督)"] -.-> QT
+    VTEA["DINO-Video 因果视频教师<br/>(DINOv3 初始化, Frobenius 范数)"] -.-> QT
+    LREL["相对目标 + MeanStd 归一化<br/>L2 回归损失 (relQpos 方差降 65%)"] -.-> MOE
+    MOE ==> POL(["全身策略输出<br/>头/腰/底盘/灵巧手/双臂<br/>30Hz (R1 系 15Hz)"])
+
+    class RAW,FILT,COR,UNI data
+    class ANNO,DTEA,VTEA frozen
+    class MOE train
+    class QT key
+    class POL act
+    class LREL loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ### 1. 世界系轨迹存储与相机系训练

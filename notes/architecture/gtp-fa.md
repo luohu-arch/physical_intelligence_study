@@ -195,23 +195,51 @@ $$
 7. 真机 300 条轨迹两法同源，但 GTP-FA 的数据重构相当于对 hard 样本过采样：两法的有效训练步数/见样次数是否对齐？一个「π0.5 + 等量均匀过采样」对照可剥离「数据量」与「定向重采样」的贡献。
 
 ```mermaid
-graph TD
-  A[Language instruction tau + Observation o] --> B[GraspNet candidate grasps from point cloud]
-  B --> C[VLM + SoM task prior - preferred / forbidden regions]
-  D[Risk head r_phi - trained from fused diagnosis] --> E[Grasp score = s_base + lambda_s s_prior - beta r_phi]
-  C --> E
-  E --> F[Select single grasp g*]
-  F --> G[Downstream policy - PPO SAC BC DP or pi0.5 LoRA]
-  G --> H[Execute episode]
-  H --> I[Execution summary xi - slip drop collision EE error]
-  I --> J[Failure Attribution Discriminator D --> pD over FM-G1 FM-G2 FM-P]
-  F --> K[Grasp-conditioned embedding e = f_theta x_g]
-  K --> L[kNN bank prior pE - weighted vote, k 25]
-  J --> M[Fusion p_fuse = 1-alpha pD + alpha pE, alpha by D confidence]
-  L --> M
-  M -->|wG high| N[Grasp-side update - task prior + risk penalty]
-  M -->|wP high| O[Plan-side update - hard-P mining top 200 + rho 0.2 resampling + wP weighted loss]
-  N --> E
-  O --> G
-  M -->|attribution labels| D
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    IN(["语言指令 tau + 观测 o<br/>(RGB/RGBD)"]) --> GN["GraspNet 候选抓取<br/>(重建点云几何可行集)"]
+    VLM["VLM + SoM 任务先验<br/>可抓区 / 禁区 / 缓冲区"]
+    RISK["风险头 r_phi<br/>逼近 p(FM-G2 失稳)"]
+    GN --> SCORE["抓取评分<br/>s_base + lambda*s_prior - beta*r_phi"]
+    VLM --> SCORE
+    RISK --> SCORE
+    SCORE ==> GSEL(["选定单一抓取 g*<br/>6-DoF + 夹爪宽度"])
+    GSEL ==> POL["下游策略 (通用接口)<br/>PPO / SAC / BC / DP / pi0.5-LoRA"]
+    GSEL --> EMB["抓取条件嵌入<br/>e = f_theta(x_g)"]
+    POL ==> EXEC(["执行 episode<br/>(抓取固定后开环)"])
+    EXEC -.->|"执行摘要 xi:<br/>slip/drop/碰撞/末端误差"| DIS["失败归因判别器 D<br/>p_D: FM-G1 功能错配<br/>FM-G2 失稳 / FM-P 规划不足"]
+    EMB --> KNN["kNN 诊断库先验 p_E<br/>k=25 相似度加权投票"]
+    DIS --> FUSE{"融合 p_fuse<br/>(1-alpha)*p_D + alpha*p_E<br/>alpha 由 D 置信度决定"}
+    KNN --> FUSE
+    FUSE -.->|"wG 高: 抓取侧接收更新"| GSIDE["抓取侧优化<br/>任务先验强化 + 失稳风险罚"]
+    FUSE -.->|"wP 高: 规划侧接收更新"| PSIDE["规划侧优化<br/>hard-P 挖掘 top-200 + rho=0.2<br/>起始态重塑 + wP 加权损失"]
+    GSIDE -.-> SCORE
+    PSIDE -.-> POL
+    WL(["弱标签: 固定抓取 K=100 次<br/>重复试验成功率 q_end + 阈值规则"]) -.-> DIS
+    LD["损失: L_D 伪标签交叉熵<br/>L_E 监督对比 + 辅助分类头"] -.-> DIS
+
+    class IN,WL data
+    class GN,VLM frozen
+    class POL,RISK,EMB train
+    class DIS,FUSE key
+    class KNN mem
+    class GSEL,EXEC act
+    class GSIDE,PSIDE loop
+    class LD loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```

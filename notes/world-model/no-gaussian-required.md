@@ -94,21 +94,46 @@ $$
 **为什么不能指望 Action-NCE 无条件保留一切状态信息。** 它强调的是能区分不同动作的状态分量。那些"同一个命令执行前后画面几乎没有变化"的变量（未接触前的物体姿态）会被相对欠编码——Push-T 的 probe 分析就是这条局限的直接证据。
 
 ```mermaid
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
 flowchart LR
-    OT[observation o_t] --> EN[encoder, same as LeWM]
-    A[action block a_t] --> FW[forward predictor fwd]
-    EN --> ZT[z_t]
-    ZT --> FW
-    FW --> LH[L_fwd: latent prediction MSE]
-    ZT --> IV[inverse head inv_psi: z_t and z_t+1 to hat a]
-    EN --> ZZ[z_t+1]
-    ZZ --> IV
-    IV --> NC[Action-NCE: identify true a_t among N batch actions]
-    A --> NC
-    LH --> SUM[total = L_fwd + lambda times L_NCE]
+    OT(["观测 o_t"]) ==> EN["编码器 (与 LeWM 相同)"]
+    A(["动作块 a_t"]) ==> FW["前向预测器 fwd"]
+    EN ==> ZT["z_t"]
+    ZT ==> FW
+    FW -.->|"L_fwd: latent 预测 MSE"| LH["前向损失"]
+    ZT ==> IV["逆动力学头 inv_psi (仅训练期)<br/>z_t 与 z_t+1 -> hat a"]
+    EN ==> ZZ["z_t+1"]
+    ZZ ==> IV
+    IV -.->|"batch 内 N 条动作中辨出真 a_t<br/>让坍塌变成必然失败的判别题"| NC["Action-NCE (InfoNCE)<br/>替代 SIGReg 免高斯假设"]
+    A -.-> NC
+    LH --> SUM["总损失 = L_fwd + lambda*L_NCE"]
     NC --> SUM
-    SUM --> DR[discard inverse branch after training]
-    DR --> DP[same encoder + predictor + CEM planner as LeWM]
+    SUM ==> DR["训练后丢弃逆分支"]
+    DR ==> DP["部署: 与 LeWM 同款<br/>encoder + predictor + CEM 规划器<br/>OGBench Scene 80.0 vs SIGReg 58.0"]
+
+    class OT,A data
+    class EN,FW,IV,DR train
+    class ZT,ZZ env
+    class NC key
+    class LH,SUM loss
+    class DP loop
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 ## 物理直觉解释

@@ -185,27 +185,49 @@ $$
 7. RoboTwin Click Bell 99% vs 微调 π0.5 66%，但 Place Shoe 仅 50% vs 93%：哪些任务类别系统性偏向「指位原语」、哪些偏向「连续策略」？建立一个可预测的判据（如接触丰富度、形变自由度）比个案更有迁移价值。
 
 ```mermaid
-graph TD
-  A[User instruction + Image obs + Optional SOP context] --> B[Planner - high level]
-  B --> B1[Long-horizon task decomposition]
-  B --> B2[Next-step planning per subtask]
-  B2 --> C[Grounder - low level]
-  C --> C1[OFG - functional part grounding]
-  C --> C2[REG / RRG - object / region grounding]
-  C --> C3[VTG - 2D or 3D visual trace]
-  C1 --> D[Low-level skill executor + unified motion logic]
-  C2 --> D
-  C3 --> D
-  D --> E[Robot - XArm6 / ARX Lift2s / RM75]
-  E --> F[Corrector - async query]
-  G[Memory - FIFO image buffer + status log] --> F
-  E --> G
-  F -->|SUCCESS / PROCESS| B2
-  F -->|FAIL + error info| B1
-  B1 -->|retry or replan| C
-  H[Embodied-R1.5 - single 8B model serves all three roles] -.-> B
-  H -.-> C
-  H -.-> F
-  I[Optional VLA head - DiT-B flow matching action expert] --> E
-  H --> I
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    USER[语言指令 + 图像观测<br/>可选 SOP 文档]:::data
+
+    subgraph PGC["System 2 - 单模型三角色闭环 PGC"]
+        M[Embodied-R1.5 8B VLM<br/>一个模型分饰三角色]:::key
+        P[Planner 高层规划<br/>任务分解 + next-step 规划]:::train
+        G[Grounder 指位定位<br/>OFG / REG / RRG / VTG]:::train
+        CORR[Corrector 异步轮询<br/>检测-定位-纠错三层]:::train
+        M ==> P
+        M ==> G
+        M ==> CORR
+    end
+
+    USER ==> M
+    P ==> G
+    G ==> EXE[低层技能执行器<br/>统一运动逻辑]:::act
+    EXE ==> ROBOT([机器人 XArm6 / ARX Lift2s / RM75]):::act
+    MEM[FIFO 记忆缓冲<br/>图像帧 + 状态日志]:::mem
+    ROBOT --> MEM
+    MEM --> CORR
+    CORR -.SUCCESS / PROCESS 继续当前子任务.-> P
+    CORR -.FAIL + 错误归因触发重试或重规划.-> P
+    VLA[可选 VLA 动作头<br/>DiT-B flow-matching 专家]:::act
+    M ==> VLA
+    VLA ==> ROBOT
+    SFT[Stage 1 SFT<br/>15B token 因果 LM 交叉熵]:::loss
+    RFT[Stage 2 RFT 多任务均衡 GRPO<br/>批级奖励归一化 + 可验证奖励]:::loss
+    SFT -.监督微调.-> M
+    RFT -.强化训练.-> M
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```

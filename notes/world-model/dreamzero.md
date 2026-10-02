@@ -46,18 +46,45 @@ DreamZero 把一个 14B 的预训练 image-to-video 扩散模型（Wan2.1-I2V-14
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    V["Visual context o0:l through frozen Wan VAE"] --> DIT["Autoregressive DiT 14B, flow matching, shared timestep"]
-    L["Language instruction c"] --> DIT
-    Q["Proprioception q"] --> DIT
-    DIT --> VOUT["Future video latents z_t"]
-    DIT --> AOUT["Action chunk a_t"]
-    VOUT --> DEC["VAE decode future frames"]
-    AOUT --> SMOOTH["Upsample 2x + Savitzky-Golay filter"]
-    SMOOTH --> CTRL["Async motion controller runs chunk at 30 Hz"]
-    CTRL --> OBS["New real observation arrives"]
-    OBS --> KV["Write GT frames into KV cache, drop predicted ones"]
-    KV --> DIT
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    V(["视觉上下文 o_0:l"]) --> VAE["冻结 Wan VAE 编码"]
+    VAE ==> DIT
+    L(["语言指令 c"]) ==> DIT
+    Q(["本体感知 q"]) ==> DIT
+    DIT["自回归 DiT 14B<br/>视频+动作联合 flow-matching 去噪<br/>共享时间步, 解耦噪声调度 38x 加速<br/>端到端拟合 视频预测 x IDM"]
+    DIT ==> VOUT["未来视频 latent z_t<br/>物理一致性想象"]
+    DIT ==> AOUT["动作块 a_t"]
+    VOUT --> DEC["VAE 解码未来帧"]
+    AOUT ==> SMOOTH["上采样 2x + Savitzky-Golay 滤波"]
+    SMOOTH ==> CTRL["异步运动控制器<br/>30Hz 执行 chunk, 约 7Hz 闭环"]
+    CTRL -.-> OBS["新真观测到达"]
+    OBS -.->|"真帧写入 KV 缓存<br/>丢弃预测帧防漂移"| KV["KV 缓存<br/>世界状态滚动更新"]
+    KV ==> DIT
+
+    class V,L,Q data
+    class VAE,DEC frozen
+    class DIT key
+    class VOUT,KV env
+    class AOUT,SMOOTH,CTRL act
+    class OBS loop
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
 ```
 
 **问题分解视角**：论文把"联合预测"写成两个子目标的乘积（式 1）——先预测视觉未来，再从未来状态反求动作：

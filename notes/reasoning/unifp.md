@@ -44,16 +44,49 @@ UniFP 提出首个不依赖力传感器的统一力位控制策略——同一�
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    PROP["本体感知 (关节力矩, IMU)"] --> ENC["State Encoder"]
-    CMD["位置/力指令"] --> ENC
-    ENC --> POLICY["统一策略网络"]
-    POLICY --> POS["位置控制输出"]
-    POLICY --> FORCE["力控制输出"]
-    POS --> EXEC["执行器 (PD 控制器)"]
-    FORCE --> EXEC
-    EXEC --> ROBOT["四足/人形机器人"]
-    ROBOT --> PROP
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    PROP[本体感知<br/>关节力矩 IMU 历史状态]:::data
+    CMD[位置 / 力指令<br/>q_d 与 F_cmd]:::data
+    ENC[状态编码器 MLP]:::train
+    POL[统一策略网络<br/>位置 + 力联合输出 50Hz]:::train
+    FEST[无传感器力估计器<br/>由历史状态与位置偏移推断 F_ext]:::key
+    COMP["柔顺映射 力翻译为位置偏移<br/>x_target = x_cmd + (F_ext + F_cmd - F_react)/K"]:::key
+    PD[PD 位置控制器 + 力前馈]:::act
+    ROBOT([四足 B2-Z1 / 人形 G1]):::env
+
+    PROP ==> ENC
+    CMD ==> ENC
+    ENC ==> POL
+    POL ==> COMP
+    FEST ==> COMP
+    COMP ==> PD
+    PD ==> ROBOT
+    ROBOT -.50Hz 闭环 无模式切换.-> PROP
+    REW[PPO 稠密跟踪奖励<br/>Isaac Gym 域随机化训练]:::reward
+    REW -.强化学习.-> POL
+    GT[仿真接触力真值<br/>仅训练期可得]:::loss
+    GT -.监督力估计器.-> FEST
+    TEACH[力感知示教数据<br/>遥操作执行中自动记录估计力]:::data
+    ROBOT -.记录接触力标签.-> TEACH
+    IL[模仿学习 diffusion policy]:::train
+    TEACH -.自动补力标签 成功率提升约 39.5 个点.-> IL
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 策略输出同时包含位置目标 $q_d$ 和力目标 $F_d$，通过 PD 控制器 + 前馈力实现统一执行。力估计从关节力矩 $\tau$ 通过动力学模型隐式推断接触力，无需外部力传感器。

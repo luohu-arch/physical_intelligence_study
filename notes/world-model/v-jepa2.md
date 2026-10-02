@@ -89,15 +89,40 @@ CEM 初始化为零均值单位方差的高斯序列，取 top-$k$ 轨迹的统�
 **附录 B.4 的坐标轴辨识检验。** 在 200 步随机移动轨迹上求解线性最小二乘 $W^\star=\operatorname{argmin}_{W\in\mathbb R^{2\times2}}\|AW-B\|^2$ 以对齐推断动作与真值动作（$A,B\in\mathbb R^{200\times2}$），发现所有相机方位的平均绝对预测误差约 1.6 cm，但推断出的动作坐标系随相机角度明显旋转——说明模型是隐式地从单目 RGB 推断动作坐标系，缺少显式外参校准时的不稳定来源之一。
 
 ```mermaid
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
 flowchart LR
-    A[Web video: 22M clips / over 1M hours] --> B[V-JEPA pretraining<br/>mask denoising in latent space]
-    B --> C[Frozen ViT-g encoder]
-    C --> D[Probe evals: SSv2, K400, IN1K]
-    C --> E[LLM alignment for video QA]
-    F[Droid robot data: under 62 h unlabeled] --> G[V-JEPA 2-AC predictor training]
-    C --> G
-    G --> H[Plan: minimize latent L1 energy via CEM]
-    H --> I[Zero-shot pick-and-place on 2 Franka arms]
+    A([(互联网视频<br/>22M 片段 / 超 1M 小时)]) ==> B["V-JEPA 预训练<br/>latent 空间掩码去噪<br/>scaling 四要素 84.2->88.2"]
+    B ==> C["冻结 ViT-g 编码器<br/>SSv2 75.3 vs DINOv2 50.7"]
+    C --> D["探针评测<br/>SSv2 / K400 / IN1K"]
+    C --> E["LLM 对齐做视频问答"]
+    F[(Droid 机器人数据<br/>不足 62h 无标注)] ==> G["V-JEPA 2-AC 预测器训练<br/>在冻结 latent 上<br/>动作条件自回归预测"]
+    C ==> G
+    G ==> H["规划: CEM 迭代<br/>最小化 latent L1 能量"]
+    H ==> I["零样本 pick&place<br/>两实验室 Franka 各 10 trials<br/>成功率达 80%"]
+
+    class A,F,D data
+    class B,E train
+    class C frozen
+    class G key
+    class H loop
+    class I act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
 ```
 
 ## 物理直觉解释

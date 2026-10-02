@@ -42,12 +42,44 @@ StateLinFormer 证明序列模型的"健忘"不一定是架构问题，而是训
 ## 底层原理与数学推导
 
 ```mermaid
-graph LR
-    SEG0["Seg 0: (o_1...o_n)"] --> H0["h_0"]
-    H0 --> SEG1["Seg 1: 继承 h_0"]
-    SEG1 --> H1["h_1"]
-    H1 --> SEG2["Seg 2: 继承 h_1"]
-    SEG2 -->|"...continuing"| ACT["Policy(Linear Attn, O(1))"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    OBS[观测 + 顺序指令流<br/>第一人称 RGB 无预告逐个给目标]:::data
+    POL[Linear Attention 策略<br/>核化线性注意力 约 0.2B]:::train
+    MEM["记忆状态 M_t d x d 矩阵<br/>秩 1 增量更新 O(1) 恒容"]:::mem
+    OBS ==> POL
+    POL -.每步秩 1 增量更新 M_t.-> MEM
+    MEM -.读出 h_t 供策略.-> POL
+    ACT([离散导航动作]):::act
+    POL ==> ACT
+    ENV([MAZE / ProcTHOR 连续环境<br/>刻意无 reset]):::env
+    ACT ==> ENV
+    ENV -.下一观测.-> OBS
+    STATE[stateful 训练协议<br/>batch 终止状态 M_T 传给下一 batch 初始 M_0<br/>梯度 batch 内截断]:::key
+    STATE -.训练时对齐部署记忆分布.-> MEM
+    CONTRAST[stateless 对照<br/>每 batch 清零 只会用空白记忆思考]:::loop
+    CONTRAST -.零初始化退化分布.-> MEM
+    LOSS[每步动作负对数似然]:::loss
+    LOSS -.-> POL
+    ICL[涌现上下文学习<br/>同环境交互越长成功率越高 参数不变]:::mem
+    MEM -.支撑.-> ICL
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 线性注意力的记忆状态 $M_t$ 是固定的 $d \times d$ 矩阵，每个时间步做秩 1 增量更新（$\varphi(\cdot)$ 为核特征映射），读出用 query 与记忆的内积：

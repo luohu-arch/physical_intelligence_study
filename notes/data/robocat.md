@@ -105,15 +105,59 @@ $$\mathcal{D}_{\text{next}} = \mathcal{D} \cup \bigcup_{y \in \mathcal{Y}} (\mat
 ```
 
 ```mermaid
-graph TD
-    DEMO[少量示教] --> FINETUNE[少样本微调]
-    FINETUNE --> PRACTICE[自主练习生成轨迹]
-    PRACTICE --> RETRAIN[加入训练集 自我改进]
-    RETRAIN --> FINETUNE
-    subgraph Backbone[Gato 式 Transformer 1.18B]
-        VQGAN[VQ-GAN 视觉编码]
-        DECODER[Decoder-only Transformer]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    subgraph SEED["多任务多本体预训练数据"]
+        PRE[(240 任务变体 / 11 任务族<br/>仿真 RL 专家 + 真机遥操作<br/>3 种本体 36 台真机)]
+        GOAL(["目标图像 g<br/>视觉目标条件<br/>失败轨迹 hindsight 重标注"])
     end
+
+    subgraph BACK["Gato 式跨本体骨干"]
+        VQ["VQ-GAN 图像分词器 (冻结)<br/>压缩为 8x8 token"]
+        BB["Decoder-only Transformer 1.18B<br/>异构本体统一为 token 序列<br/>上下文 1024 token 约 3 步历史"]
+        L["联合损失<br/>动作 token 交叉熵<br/>+ k=5 步图像 token 预测"]
+    end
+
+    PRE --> VQ
+    VQ ==> BB
+    GOAL ==> BB
+    BB -.-> L
+
+    subgraph IMP["自改进循环 (self-improvement)"]
+        DEMO[(新任务人类示教<br/>仅 100-1000 条)]
+        FT["少样本微调<br/>水果插碗 500 条达 84%"]
+        GEN["真机自主收集轨迹<br/>成功检测器筛选 ~90%<br/>策略池互补任务互为 reset"]
+        AGG["数据聚合<br/>专家数据常驻防遗忘"]
+    end
+
+    BB ==> FT
+    DEMO ==> FT
+    FT ==> GEN
+    GEN -.->|"自生成数据入池<br/>一轮自改进全面超纯示教"| AGG
+    AGG -.->|"重训练下一版通用模型"| BB
+    BB ==>|"动作 token 自回归 10-20Hz<br/>闭环逐观测"| ROBOT["机器人执行"]
+
+    class PRE,GOAL,DEMO data
+    class VQ frozen
+    class BB,FT train
+    class L loss
+    class GEN,AGG key
+    class ROBOT act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
 ```
 
 ## 物理直觉解释

@@ -142,14 +142,48 @@ $$\text{prompt} = [\ell; a_z^{\text{prev}}]$$
 该操作在导航任务（R2R）中将 Oracle Success Rate 从 30.6% 提升到 47.1%（+16.5%），在 LIBERO-Long 中从 88.1% 提升到 92.0%。
 
 ```mermaid
-graph TD
-    VIDEO[互联网视频<br/>多 embodiment] --> LAM[潜在动作模型<br/>DINOv2 特征空间]
-    LAM --> LATENT[任务中心潜在动作]
-    ROBOT_OBS[机器人观测] --> ENC[观测编码]
-    ENC --> POLICY[通用 VLA 策略<br/>跨 embodiment]
-    LATENT -->|训练信号| POLICY
-    POLICY --> DECODE[轻量动作解码器<br/>每 embodiment 独立]
-    DECODE --> ACT[机器人动作]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    VIDEO(["互联网视频 + 机器人演示 + Ego4D<br/>多 embodiment, 无动作标注也可用"]) ==> S1
+    subgraph LAM["潜在动作模型: 双阶段 VQ-VAE (DINOv2 特征空间)"]
+        S1["Stage 1: 任务无关潜在动作 a_TI<br/>光照/视角等环境动态<br/>语言 conditioning + codebook 容量约束<br/>自动把任务语义挤出去"]
+        S2["Stage 2: 任务中心潜在动作 a_TC<br/>(冻结 Stage 1, 新增 codebook)<br/>物体被抓起/移动等语义动态"]
+        S1 -->|"冻结后作基座"| S2
+    end
+    LTI["损失 L_TI / L_TC:<br/>DINOv2 特征空间重建 MSE<br/>(非像素, 避开纹理光照噪声)"] -.-> S1
+    LTI -.-> S2
+    S2 ==> LAT(["任务中心潜在动作 a_z<br/>4 个离散 token, 与本体无关"])
+    ROBS(["机器人观测 + 语言指令"]) ==> POL["通用 VLA 策略: Prismatic-7B<br/>(跨 embodiment 共享)"]
+    LAT ==>|"自回归预测的训练信号"| POL
+    LPRE["损失 L_pretrain:<br/>潜在动作自回归负对数似然"] -.-> POL
+    HIST(["上一步 4 个潜在动作 token<br/>注入 prompt (CoT 式上下文)"]) -.->|"长程任务 +3.9 点"| POL
+    POL ==> DEC["轻量动作解码器 10.8M<br/>每个 embodiment 独立 (+ LoRA 约 123M)"]
+    LL1["下游损失: 潜在动作 NLL<br/>+ 低层动作 L1 回归"] -.-> DEC
+    DEC ==> ACT(["各机器人动作<br/>LIBERO 95.2% vs OpenVLA 76.5%<br/>仅 1/20 预训练算力"])
+
+    class VIDEO,ROBS data
+    class HIST mem
+    class S1 frozen
+    class S2,LAT key
+    class POL,DEC train
+    class ACT act
+    class LTI,LPRE,LL1 loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

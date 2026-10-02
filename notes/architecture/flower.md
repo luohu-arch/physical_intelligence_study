@@ -101,13 +101,45 @@ $$\mathcal{L}_{\text{FM}} = \mathbb{E}_{t, a_0, a_1} \left[ \| v_t(\phi_t(a), t)
 其中 $a_1$ 为真实动作，$u_t$ 为条件概率路径。在推理时，从标准高斯采样 $a_0$，通过积分向量场 $v_t$ 逐步变换为动作 $a_1$。
 
 ```mermaid
-graph TD
-    IMG2[视觉输入] --> ENC2[视觉编码器]
-    LANG4[语言指令] --> LLM2[裁剪 LLM<br/>减少 50% 层数]
-    ENC2 --> LLM2
-    LLM2 --> FUSION[中间模态特征]
-    FUSION --> DIT2[扩散头<br/>Global-AdaLN]
-    DIT2 -->|Flow Matching| ACT3[连续动作]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    IMG(["视觉输入 1-2 路 RGB"]) ==> VENC
+    LANG(["语言指令"]) ==> TRIM
+    NOISE(["高斯噪声 a_0"]) ==> HEAD
+    subgraph BASE["Florence-2 VLM 基座 (预训练后微调)"]
+        VENC["视觉编码器"]
+        TRIM["中间模态融合: 裁掉后 50% LLM 层<br/>省下的容量转给动作头"]
+    end
+    VENC --> TRIM
+    TRIM ==>|"中间层表征 h^(k)"| HEAD
+    subgraph FLOWG["Flow Transformer 动作头 (18 层, 共 950M)"]
+        HEAD["扩散头: Global-AdaLN<br/>全层共享调制 + 动作特定残差<br/>(省 20% 扩散头参数)"]
+    end
+    LFM["损失 L_FM: 流匹配<br/>|| v_t - u_t ||^2"] -.-> HEAD
+    HEAD ==>|"Flow Matching 去噪<br/>单臂 4 步 / 双臂 8 步"| ACT(["连续动作"])
+    ACT ==> ROBOT(["机器人执行<br/>推理 311Hz, 延迟 52ms"])
+    ROBOT -.->|"逐 chunk 重观测"| IMG
+
+    class IMG,LANG,NOISE data
+    class VENC train
+    class TRIM,HEAD key
+    class ACT,ROBOT act
+    class LFM loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

@@ -48,25 +48,55 @@ MemBodied（NTU declare-lab + Griffin Labs + École Centrale de Lyon，2026-09-2
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    subgraph MEM["Fixed-size episodic memory"]
-        MS["Associative state M_t<br/>per-layer r x r matrices (r=128)<br/>gated delta-rule write"]
-        ANC["Episode anchor A<br/>first obs, 16x16 to 4x4 pooled<br/>frozen tokens, rank-64 read"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    OBS[当前观测 I_t + 状态 s_t + 语言]:::data
+
+    subgraph MEM["固定容量情节记忆 与 episode 长度解耦"]
+        MS[关联矩阵状态 M_t<br/>动作专家每层 r x r 矩阵 r=128]:::mem
+        ANC[情节锚点 A<br/>首帧冻结 token 16x16 池化到 4x4]:::mem
     end
 
-    OBS["Current obs I_t, state s_t,<br/>language instruction"] --> READ["Read per layer:<br/>q = L2Norm(tanh(W_q h_in))<br/>r_t = S_(t-1) q"]
-    READ --> MTOK["Memory token injection:<br/>x_mem = x_mem + g * (alpha_mem / r) * W_m r_t<br/>g = sigmoid(W_g h_in)"]
-    MTOK --> SUFFIX["Action expert suffix:<br/>[state, memory, H action tokens]<br/>self-attention + flow matching"]
-    OBS --> SUFFIX
-    ANC -->|"cross-attn: z_t queries A"| SUFFIX
-    SUFFIX --> ACT["Action chunk a_t (H=50)"]
-    ACT --> EXEC["Execute in environment"]
-    EXEC --> NEXT["Next obs I_t+1"]
-    NEXT --> WV["Write value y_t =<br/>[state-pooled vision of I_t+1 ;<br/>sum of executed action chunk]"]
-    SUFFIX -->|"cached layer outputs h_out"| GATES["Write key k_t, gates alpha / beta<br/>from [h_out ; y_t]"]
-    WV --> GATES
-    GATES --> DELTA["Gated delta update of S_t<br/>(one layer shown, fixed r x r)"]
-    DELTA --> MS
+    READ["逐层读取<br/>r_t = S_(t-1) q_t"]:::train
+    MTOK[memory token 注入<br/>读出作为上下文内容暴露给动作 token]:::key
+    SUFFIX[动作专家后缀<br/>state + memory + H 个动作 token<br/>flow-matching 去噪]:::act
+    OBS ==> READ
+    MS ==> READ
+    READ ==> MTOK
+    OBS ==> SUFFIX
+    MTOK ==> SUFFIX
+    ANC -.rank-64 交叉注意力选择性检索.-> SUFFIX
+    SUFFIX ==> ACT([动作 chunk H=50]):::act
+    ACT ==> EXEC[环境执行]:::env
+    EXEC ==> NEXT[下一观测 I_t+1]:::data
+    WV[写值构造 y_t<br/>状态 query 池化视觉后果 + 动作 chunk 汇总]:::train
+    NEXT ==> WV
+    GATES[写 key 与保留/写入门<br/>由缓存层输出与 y_t 生成]:::train
+    SUFFIX -.缓存末个去噪步层输出.-> GATES
+    WV ==> GATES
+    DELTA[gated delta 误差修正写入<br/>新值减该 key 已关联旧值]:::key
+    GATES ==> DELTA
+    DELTA -.延迟写 存动作加后果的因果片段.-> MS
+    LOSS[纯动作目标端到端学习<br/>无独立记忆损失]:::loss
+    LOSS -.-> SUFFIX
+    BPTT[序列级 BPTT<br/>梯度穿过全序列]:::loss
+    BPTT -.-> MS
+
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 问题形式化：历史依赖操作任务上，策略以完整情节记忆 $\mathcal{E}_t = (M_t, \mathcal{A})$ 为条件预测动作 chunk（$\mathcal{A}$ 由首帧构建、episode 内不变）：

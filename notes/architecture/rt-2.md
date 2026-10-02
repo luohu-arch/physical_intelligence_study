@@ -65,16 +65,40 @@ $$d_{emb}(e(w'), e(w)) \;\text{小} \;\Rightarrow\; p_\theta(\mathbf{a}\mid w') 
 **权重规模与泛化的关系**。消融显示模型容量的收益集中在泛化轴而非 seen 任务轴：
 
 ```mermaid
-graph TD
-    WEB[WebLI 10B image-text pairs<br/>filtered to 1B] --> COFT[co fine tune<br/>next token prediction]
-    ROBOT[RT-1 robot episodes<br/>130k from 13 robots 17 months] --> COFT
-    COFT --> P1[RT-2 PaLI X 5B / 55B<br/>integer tokens reused]
-    COFT --> P2[RT-2 PaLM E 12B<br/>overwrite 256 rarest tokens]
-    P1 --> OC[output constraint<br/>sample only action tokens]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    WEB(["WebLI 网页图文对<br/>10B 过滤到 1B"]) --> COFT
+    ROBOTD(["RT-1 真机 episode<br/>130k, 13 台机器人 17 个月"]) --> COFT
+    COFT["co-fine-tune: 动作即一门外语 (核心)<br/>动作 token 与 web 数据混采<br/>机器人数据占 50% / 66%, 防遗忘"]
+    LNT["统一 next-token 交叉熵<br/>(等价行为克隆, 零架构改动)"] -.-> COFT
+    COFT --> P1["RT-2 PaLI-X 5B / 55B<br/>1000 内整数 token 直接复用"]
+    COFT --> P2["RT-2 PaLM-E 12B<br/>覆写词表 256 个最低频 token"]
+    P1 --> OC["output constraint 推理约束<br/>机器人 prompt 只在合法动作 token 内采样<br/>普通 VQA 任务仍开放全词表"]
     P2 --> OC
-    OC --> DEQ[de-tokenize 8 bins]
-    DEQ --> CTRL[closed loop 1-3 Hz via TPU cloud]
-    CTRL -.->|robot prompt| OC
+    OC ==> DEQ(["反 token 化 8 个 bin<br/>如: 1 128 91 241 5 101 127"])
+    DEQ ==> CTRL(["云端 TPU 闭环控制<br/>55B: 1-3Hz / 5B: 约 5Hz"])
+    CTRL -.->|"机器人 prompt 触发采样约束"| OC
+
+    class WEB,ROBOTD data
+    class P1,P2 train
+    class COFT,OC key
+    class DEQ,CTRL act
+    class LNT loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

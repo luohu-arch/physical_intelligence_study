@@ -79,13 +79,44 @@ $$
 ### 数据流
 
 ```mermaid
-flowchart TD
-    A["raw demos with mixed action rates"] --> B["Stage 1: train ARM (frozen SigLIP + MLP) on v(a) = L1 norm of chunk"]
-    B --> C["Stage 2: for each sample, search L in [0.5T, 1.5T] minimizing |ARM(o) - v(a_t:t+L)|"]
-    C --> D["interpolate chunk to length T -> debiased target"]
-    D --> E["policy training on debiased chunks (spatial multimodality kept)"]
-    E --> F["GO-1-Pro"]
-    G["spatial multimodality: left / right detour paths"] --> H["kept intact"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    RAW(["原始演示数据<br/>动作速率混杂 (快手/慢手)"])
+    subgraph ARMSTG["Action Rate Model (ARM) 分布去偏"]
+        SL["SigLIP 编码器<br/>(全程冻结)"]
+        ARM["三层 MLP<br/>回归期望动作速率"]
+        SRCH["逐样本搜索最优 chunk 长度 L<br/>min | ARM(o_t) - v(a_t:t+L) |<br/>L 限定在 [0.5T, 1.5T]"]
+        INTERP["时间插值回长度 T<br/>得到去偏目标"]
+    end
+    RAW ==> SL
+    RAW ==> SRCH
+    SL --> ARM --> SRCH --> INTERP
+    LARM["损失 L_ARM: MSE<br/>v = chunk 内 L1 位移总量"] -.-> ARM
+    INTERP ==> PT["策略训练<br/>(预训练 + 微调两阶段一致去偏)"]
+    SPATIAL(["空间多模态<br/>左/右绕行等真实策略差异"]) ==>|"保留不动"| PT
+    PT ==> GO1PRO(["GO-1-Pro<br/>平均 +15% ~= 2.5 倍预训练数据"])
+
+    class RAW,SPATIAL data
+    class SL frozen
+    class ARM,SRCH,INTERP key
+    class PT train
+    class GO1PRO act
+    class LARM loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

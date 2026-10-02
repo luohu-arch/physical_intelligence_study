@@ -44,13 +44,43 @@ FlashSAC 将 scaling law 引入 off-policy RL：用更大模型（2.5M）配合�
 ## 底层原理与数学推导
 
 ```mermaid
-graph LR
-    ENV["环境 (60+ tasks)"] --> BUFFER["Replay Buffer (10^7)"]
-    BUFFER --> SAMPLE["采样 batch 2048"]
-    SAMPLE --> CRITIC["Distributional Critic + 归一化"]
-    CRITIC --> ACTOR["Actor (2.5M params, RMSNorm+BN)"]
-    ACTOR --> NOISE["Temporally Correlated Noise"]
-    NOISE --> ENV
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    subgraph LOOP["GPU 仿真交互回路 (1024 并行环境)"]
+        ENV["仿真环境 IsaacLab<br/>60+ 任务 / 10 仿真器"] --> OBS(["观测: 本体感知向量<br/>+ CENet 历史编码"])
+        OBS --> ENV
+    end
+
+    ACT["Actor: 2.5M 参数 6 层<br/>倒置残差块 + RMSNorm + 预激活 BN"] ==>|"目标关节位置 50 Hz<br/>底层 PD 200 Hz"| ENV
+    NOISE["Zeta 噪声重复探索<br/>一个噪声向量保持 k 步 (P(k) ~ k^-2, 最长 16 步)<br/>近零开销的时间相关探索"] -.->|"连贯探索笔触"| ACT
+    OBS ==> BUF[("回放缓冲 10^7<br/>batch 2048")]
+    BUF ==> CRITIC["分布式 critic<br/>101 bins [-5,5] + 自适应奖励缩放"]
+    STAB["三重范数约束 (核心)<br/>权重 / 特征 / 梯度归一化<br/>压低 critic 条件数, 驯服 bootstrapping"] -.->|"防误差递归放大发散"| CRITIC
+    CRITIC -.->|"低 UTD: 每 1024 步仅 2 次更新<br/>大模型 + 大 batch 的 scaling 配方"| ACT
+
+    class OBS data
+    class ACT train
+    class NOISE loop
+    class BUF mem
+    class CRITIC reward
+    class STAB key
+    class ENV env
+    class LOOP loop
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
+    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
+    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
 ```
 
 与传统 SAC 的核心差异——更新频率：

@@ -72,18 +72,43 @@ $$\tilde{F} = (1+\gamma(e_i)) \odot F + \beta(e_i)$$
 **token 数量对推理成本的影响**：self-attention 计算量随 token 数平方增长，这是 RT-1 架构设计的核心驱动。原始流水线是 $81 \times 6 = 486$ 个视觉 token，经 TokenLearner 压到 $8\times6 = 48$ 个后注意力开销降为原来的约 $(48/486)^2 \approx 1\%$：
 
 ```mermaid
-graph LR
-    IMG[6 x RGB image<br/>300 x 300] --> ENC[Film EfficientNet B3<br/>ImageNet pretrained]
-    TXT[instruction text] --> USE[Universal Sentence<br/>Encoder embedding]
-    USE --> FILM[identity-init FiLM layers]
-    FILM --> ENC
-    ENC --> FLAT[flatten to 81 tokens<br/>per frame]
-    FLAT --> TL[TokenLearner<br/>81 -> 8 tokens]
-    TL --> CAT[concat 6 frames<br/>48 tokens total]
-    CAT --> TR[decoder only Transformer<br/>8 layers 19M params]
-    TR --> ACT[11 action dims<br/>256 bins each]
-    ACT --> DEC[bin center decode]
-    DEC --> ROBOT[3 Hz closed loop control]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart LR
+    IMG(["6 帧 RGB 历史<br/>300 x 300"]) --> ENC
+    TXT(["指令文本"]) --> USE["Universal Sentence Encoder 嵌入<br/>(冻结)"]
+    USE --> FILM["identity-init FiLM 层<br/>零初始化, 初始等价恒等映射"]
+    FILM -.->|"语言早融合调制卷积特征"| ENC["FiLM-EfficientNet-B3<br/>(ImageNet 预训练, 16M)"]
+    ENC --> FLAT["每帧展平为<br/>81 个视觉-语言 token"]
+    FLAT --> TL["TokenLearner 软选择压缩<br/>81 -> 8 token (2.4x 加速)"]
+    TL --> CAT["6 帧拼接共 48 token<br/>(滑窗复用旧帧特征, 1.7x 加速)"]
+    CAT ==> TR["decoder-only Transformer<br/>8 层 19M 参数 (共 35M)"]
+    LCE["损失: 11 维 categorical CE<br/>+ causal masking (等价 BC)"] -.-> TR
+    TR ==> ACT["11 维动作 x 256 bin<br/>非自回归一次前向并行输出"]
+    ACT ==> DEC(["bin 中心反解<br/>量化误差上界半个 bin 宽"])
+    DEC ==> ROBOT(["3Hz 闭环控制<br/>推理仅 15ms"])
+    ROBOT -.->|"每步重观测"| IMG
+
+    class IMG,TXT data
+    class USE frozen
+    class ENC,FILM,TR train
+    class TL,ACT key
+    class DEC,ROBOT act
+    class LCE loss
+    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
+    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
 ```
 
 ## 物理直觉解释

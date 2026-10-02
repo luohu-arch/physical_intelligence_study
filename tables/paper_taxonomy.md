@@ -17,6 +17,7 @@
 **Action Chunking 理论**：why-chunking-works, chunking-exploratory
 **数据多样性**：diversity-is-all-you-need
 **Agentic VLA / 执行中心 VLM**：art-vla-agent, capek05
+**公司论文（甄别入档）**：agibot-world-go1, graspvla
 
 34 篇
 
@@ -46,11 +47,12 @@
 **World Action Model**：lingbot-va, worldvla, dreamzero, egogenesis, tacwam, simdist, rise, wcm, wow
 **评估**：worldarena
 
-31 篇
+33 篇
 
 ---
 **灵巧/视触觉世界模型**追加：dexterous-world-models
 **Ego 世界模型**追加：egoexo-wm
+**公司世界基础平台**：genie-envisioner, wall-wm
 **4D 几何重建**追加：point4d
 
 ## RL（RL 方法）— notes/rl/（物理子目录按子线组织）
@@ -78,7 +80,7 @@
 **状态化训练记忆**：statelinformation
 **世界模型持续学习**：wam-ttt
 
-42 篇
+43 篇
 
 ---
 
@@ -96,7 +98,7 @@
 
 **LiDAR SLAM**：fast-lio2
 
-3 篇
+4 篇
 
 ---
 
@@ -108,6 +110,7 @@
 （大纲卡按 *-brief.md 命名，门禁自动豁免深度检查）
 
 **Action Chunking 方法工作台大纲卡**：action-chunking-brief
+**商业 Demo 线大纲卡**：helix-brief, 1x-world-model-brief, spirit-ai-brief, gen-1, gene-26-5
 1 篇
 
 ---

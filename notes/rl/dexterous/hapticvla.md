@@ -42,12 +42,33 @@ HapticVLA 提出触觉蒸馏 (Tactile Distillation)：两阶段训练——(1) S
 ## 底层原理与数学推导
 
 ```mermaid
-graph TD
-    TEACHER["SA-RWFM Teacher (tactile)"] --> DISTILL["Tactile Distillation"]
-    VISION["Vision + Proprioception"] --> STUDENT["Student VLA"]
-    DISTILL --> STUDENT
-    STUDENT --> TOKEN["Tactile Token (vision-only)"]
-    TOKEN --> ACTION["Contact-rich action"]
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+flowchart TD
+    TAC(["触觉阵列 200 taxels @ 120 Hz<br/>(仅训练期的特权模态)"]) -.->|"安全奖励: 抓取力 / 压力峰值 / 滑移"| TEACHER["SA-RWFM teacher (SmolVLA 0.45B)<br/>safety-aware reward-weighted<br/>flow matching 离线 RL"]
+    DEMO[("真机演示")] ==> TEACHER
+    TEACHER -.->|"蒸馏触觉内部表征 h^T"| TDST["Tactile Distillation (核心)<br/>student 从视觉 + 本体预测<br/>compact tactile token<br/>(预测的手感替代测出的手感)"]
+    VIS(["3 路 RGB + 本体 (部署观测)"]) ==> TDST
+    TDST ==> STUDENT["student VLA<br/>动作目标 = 0.5 * GT demo + 0.5 * teacher<br/>从模仿平滑过渡到跟随 teacher"]
+    STUDENT ==> DEPLOY["纯视觉部署 (无触觉硬件)<br/>Jetson Orin NX 边缘推理<br/>86.7% 反超带触觉 teacher 75%"]
+
+    class TAC,DEMO,VIS data
+    class TEACHER frozen
+    class TDST key
+    class STUDENT train
+    class DEPLOY act
+    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
+    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
+    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
 ```
 
 Flow matching 学习把噪声分布插值到动作分布的 velocity field：给定样本 $x_0 \sim \mathcal{N}(0, I)$ 与目标 $x_1 = a^{GT}$，线性插值路径 $x_t = (1-t)x_0 + t x_1$，训练目标为

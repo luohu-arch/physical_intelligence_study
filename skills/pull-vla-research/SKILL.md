@@ -84,6 +84,44 @@ Use `--deep` for high-priority papers that need detailed technical analysis. Use
 
 **After generating deep templates:** the AI must fill in each section by reading the paper PDF and/or extracting relevant content from `vla.md`. The `--backfill` mode only handles metadata (abstract, authors, PDF paths); the deep technical content requires AI analysis of the paper.
 
+
+## Mermaid House Style（全库图表规范，v2）
+
+所有深度笔记的 mermaid 架构图必须用以下规范绘制（在 GitHub/VS Code 原生渲染）：
+
+**1) 主题头**（每个图开头，必填）：
+
+```
+%%{init: {
+  'theme':'base',
+  'themeVariables':{
+    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
+    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
+    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
+  },
+  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
+}}%%
+```
+
+**2) 语义配色 classDef**（按笔记事实上色，颜色是信息不是装饰）：
+
+| 语义 | classDef | 用途 |
+|---|---|---|
+| data | `fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20` | 输入/数据/观测 |
+| frozen | `fill:#e3f2fd,stroke:#1565c0,color:#0d47a1` | 预训练冻结模块 |
+| train | `fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100` | 可训练模块（加粗描边） |
+| loss | `fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c` | 损失/监督信号（虚线） |
+| act | `fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c` | 动作输出路径 |
+| loop | `fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f` | 闭环/反馈/重规划 |
+| env | `fill:#e0f2f1,stroke:#00695c,color:#004d40` | 环境/世界模型/仿真 |
+| mem | `fill:#fffde7,stroke:#f9a825,color:#f57f17` | 记忆/历史/上下文 |
+| reward | `fill:#fce4ec,stroke:#ad1457,color:#880e4f` | 奖励/评分/critic |
+| key | `fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100` | 本文核心 novelty（金框） |
+
+**3) 结构规范**：`flowchart LR/TD`（管线横排、层级竖排）；subgraph 分组建框（模块/阶段/双系统）；主数据流 `==>` 粗箭头；反馈/监督 `-.->` 虚线并带边标签；端点用体育场形 `([文本])`；数据库形 `[(名称)]` 只用于数据集。
+
+**4) 硬约束**：节点/标签只用中文与 ASCII；禁用希腊字母与数学 Unicode（写 pi/alpha/beta，不写 π/α/β）；数字下标用 x0/x_t 形式。门禁 mermaid-safe 会拦截。
+
 ## Reading Methodology (阅读方法论)
 
 **阅读顺序**（不要从第一页逐字读）：Abstract → Figure 1 → Introduction → Main Results → Experimental Setup → Method Overview → Method Details → Ablation → Failure Cases → Appendix（第一档）→ Related Work。第一遍 10–20 分钟只求填出 Problem→Insight→Mechanism→Evidence 链条；讲不出这四环就不钻公式。
