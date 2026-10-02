@@ -45,7 +45,7 @@ architecture/LingBot-VLA2_2607.06403.pdf	LingBot-VLA 2.0: From Foundation to App
 world-model/RISE_2602.11075.pdf	RISE: Self-Improving Robot Policy with Compositional World Model	https://arxiv.org/pdf/2602.11075	pdf
 architecture/Fabrica_2506.05168.pdf	Fabrica: Dual-Arm Assembly via Integrated Planning and Learning	https://arxiv.org/pdf/2506.05168	pdf
 architecture/ViewInvariant_2510.02268.pdf	View-Invariant Policy Learning with Camera Conditioning	https://arxiv.org/pdf/2510.02268	pdf
-architecture/SimDist_2603.15759.pdf	SimDist: Pretraining World Models in Simulation for Rapid Real-World Adaptation	https://arxiv.org/pdf/2603.15759	pdf
+world-model/SimDist_2603.15759.pdf	SimDist: Pretraining World Models in Simulation for Rapid Real-World Adaptation	https://arxiv.org/pdf/2603.15759	pdf
 architecture/UniFP_2505.20829.pdf	UniFP: Unified Policy for Position and Force Control in Legged Loco-Manipulation	https://arxiv.org/pdf/2505.20829	pdf
 architecture/XR-1_2511.02776.pdf	XR-1: Unified Vision-Motion Codes for General-Purpose VLA	https://arxiv.org/pdf/2511.02776	pdf
 architecture/Green-VLA_2602.00919.pdf	Green-VLA: Staged VLA Model for Generalist Robots	https://arxiv.org/pdf/2602.00919	pdf
@@ -119,3 +119,23 @@ architecture/ChunkingExploratory_2507.09061.pdf	Action Chunking and Exploratory 
 rl/core/QChunking_2507.07969.pdf	Reinforcement Learning with Action Chunking	https://arxiv.org/pdf/2507.07969	pdf
 rl/core/DQC_2512.10926.pdf	Decoupled Q-Chunking	https://arxiv.org/pdf/2512.10926	pdf
 rl/vla/SmoothRL_2608.29768.pdf	SmoothRL: Online Reinforcement Learning During Asynchronous Execution	https://arxiv.org/pdf/2608.29768	pdf
+memory/RoboMemory_2508.01415.pdf	RoboMemory: A Brain-inspired Multi-memory Agentic Framework for Interactive Environmental Learning	https://arxiv.org/pdf/2508.01415	pdf
+memory/EchoVLA_2511.18112.pdf	EchoVLA：面向 VLA 移动操作的协同陈述性记忆（Synergistic Declarative Memory）	https://arxiv.org/pdf/2511.18112	pdf
+memory/MemoryWAM_2606.20562.pdf	MemoryWAM: Efficient World Action Modeling with Persistent Memory	https://arxiv.org/pdf/2606.20562	pdf
+memory/WAM-TTT_2607.06988.pdf	WAM-TTT: Steering World-Action Models by Watching Human Play at Test Time	https://arxiv.org/pdf/2607.06988	pdf
+memory/StateLinFormer_2603.23571.pdf	StateLinFormer: Stateful Training Enhancing Long-term Memory in Navigation	https://arxiv.org/pdf/2603.23571	pdf
+memory/RoboTTT_2607.15275.pdf	RoboTTT: Context Scaling for Robot Policies via Test-Time Training	https://arxiv.org/pdf/2607.15275	pdf
+memory/SERF_2606.12956.pdf	SERF：环境与机器人一体的 4D 神经点时空特征地图	https://arxiv.org/pdf/2606.12956	pdf
+world-model/WCM_2607.29613.pdf	OpenMOSS WCM: A World Critic Model for Vision-Language-Action Reinforcement Learning（世界批判模型）	https://arxiv.org/pdf/2607.29613	pdf
+world-model/SimDist_2603.15759.pdf	SimDist: Simulation Distillation — Pretraining World Models in Simulation for Rapid Real-World Adaptation	https://arxiv.org/pdf/2603.15759	pdf
+rl/vla/Z-1_2606.31846.pdf	Z-1: Efficient RL Post-Training for VLA Models（任务级 GRPO 后训练）	https://arxiv.org/pdf/2606.31846	pdf
+rl/vla/VLAC_2509.15937.pdf	VLAC: A Vision-Language-Action-Critic Model for Real-World Reinforcement Learning	https://arxiv.org/pdf/2509.15937	pdf
+rl/core/RL-100_2510.14830.pdf	RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning	https://arxiv.org/pdf/2510.14830	pdf
+rl/dexterous/Dexora_2605.18722.pdf	Dexora: Open-Source VLA for High-DoF Bimanual Dexterity	https://arxiv.org/pdf/2605.18722	pdf
+rl/dexterous/HapticVLA_2603.15257.pdf	HapticVLA: Contact-Rich Manipulation without Inference-Time Tactile Sensing	https://arxiv.org/pdf/2603.15257	pdf
+rl/dexterous/GRITS_2510.00573.pdf	GRITS: Spillage-Aware Guided Diffusion Policy for Robot Food Scooping	https://arxiv.org/pdf/2510.00573	pdf
+rl/dexterous/TORL-VLA_2606.09337.pdf	TORL-VLA: Tactile Guided Online Reinforcement Learning for Contact-Rich Manipulation	https://arxiv.org/pdf/2606.09337	pdf
+rl/planning/DLO-Routing_2510.19268.pdf	Hierarchical DLO Routing with RL and In-Context VLMs	https://arxiv.org/pdf/2510.19268	pdf
+rl/planning/OmniRetarget_2509.26633.pdf	OmniRetarget: Interaction Mesh for Humanoid Whole-Body Motion Retargeting	https://arxiv.org/pdf/2509.26633	pdf
+rl/sim2real/Phys2Real_2602.09485.pdf	Phys2Real: VLM Priors + Uncertainty-Aware Sim2Real	https://arxiv.org/pdf/2602.09485	pdf
+rl/sim2real/ViserDex_2604.11138.pdf	ViserDex: Visual Sim-to-Real for Robust Dexterous In-hand Reorientation	https://arxiv.org/pdf/2604.11138	pdf
