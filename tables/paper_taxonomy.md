@@ -106,6 +106,7 @@
 
 （大纲卡按 *-brief.md 命名，门禁自动豁免深度检查）
 
+**Action Chunking 方法工作台大纲卡**：action-chunking-brief
 1 篇
 
 ---
