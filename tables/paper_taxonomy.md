@@ -12,10 +12,12 @@
 **高效 VLA**：llada-vla, univla, univla-latent-actions, mos-vla, wholebodyvla
 **3D VLA**：fp3, view-invariant-policy
 **VLA 后训练 + RL**：simplevla-rl, rl-token, rove
+**闭环失败归因**：gtp-fa
+**VLA 推理系统**：oxygen
 **数据多样性**：diversity-is-all-you-need
 **Agentic VLA / 执行中心 VLM**：art-vla-agent, capek05
 
-31 篇
+32 篇
 
 ---
 
@@ -26,8 +28,10 @@
 **视觉前瞻 VLA**：f1-vla, dreamvla
 **符号推理**：symskill, imr-llm
 **人形全身 VLA**：human-as-humanoid, unifp
+**统一具身基础模型**：embodied-r15
+**潜推理 VLA**：last-r1
 
-13 篇
+15 篇
 
 ---
 
@@ -41,9 +45,12 @@
 **World Action Model**：lingbot-va, worldvla, dreamzero, egogenesis, tacwam, simdist, rise, wcm, wow
 **评估**：worldarena
 
-23 篇
+31 篇
 
 ---
+**灵巧/视触觉世界模型**追加：dexterous-world-models
+**Ego 世界模型**追加：egoexo-wm
+**4D 几何重建**追加：point4d
 
 ## RL（RL 方法）— notes/rl/（物理子目录按子线组织）
 
@@ -51,7 +58,7 @@
 **vla/（VLA + RL，5 篇）**：rl-token, simplevla-rl, rove, z-1, vlac
 **sim2real/（2 篇）**：viserdex, phys2real
 **dexterous/（灵巧操作 RL，4 篇）**：dexora, torl-vla, hapticvla, grits
-**planning/（分层/规划 RL，2 篇）**：omniretarget, dlo-routing
+**planning/（分层/规划 RL，3 篇）**：omniretarget, dlo-routing, lessmimic
 **agentic-robot/（机器人侧 agentic 闭环，5 篇）**：harbor, enpire, agentic-robotics-loop, playful-agentic, humanvid-selfimprove
 **agentic-training/（LLM 侧训练系统，5 篇）**：lego-rl, polar, lite-researcher, arlarena, harness-1
 **agentic-algo/（算法与稳定性，5 篇）**：ragen-2, g2po, reasoning-to-agentic, dataprm, coskill
@@ -70,7 +77,7 @@
 **状态化训练记忆**：statelinformation
 **世界模型持续学习**：wam-ttt
 
-7 篇
+39 篇
 
 ---
 
@@ -80,7 +87,7 @@
 **低成本遥操作**：mobile-aloha-act
 **自改进循环**：robocat
 
-3 篇
+8 篇
 
 ---
 
@@ -88,7 +95,7 @@
 
 **LiDAR SLAM**：fast-lio2
 
-1 篇
+3 篇
 
 ---
 
@@ -99,7 +106,7 @@
 
 （大纲卡按 *-brief.md 命名，门禁自动豁免深度检查）
 
-7 篇
+1 篇
 
 ---
 
@@ -107,13 +114,10 @@
 
 | 赛道 | 篇数 | 核心问题 |
 |------|------|---------|
-| Architecture | 30 | 动作怎么表示和生成 |
-| Reasoning | 13 | 长程任务中的时序推理 |
-| World Model | 23 | 如何建模环境动力学 |
-| RL | 38 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
+| Architecture | 32 | 动作怎么表示和生成 |
+| Reasoning | 15 | 长程任务中的时序推理 |
+| World Model | 31 | 如何建模环境动力学 |
+| RL | 39 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
 | Memory | 8 | 如何让机器人不忘记 |
-| Data | 3 | 数据从哪里来 |
-| Perception | 1 | 如何定位和建图 |
-| Briefs | 8 | 综述索引与商业落地简报 |
 
 **演进方向**：动作表示升级（频域/VQ/联合编码）→ 世界模型从被动预测变主动训练环境（WAM）→ RL 从 demo 走向自我改进 → 自我改进再升级为 agentic 闭环（coding agent 驱动 harness 自动化，HARBOR/ENPIRE 线）→ 记忆从外挂变成架构核心 → 3D 几何回归

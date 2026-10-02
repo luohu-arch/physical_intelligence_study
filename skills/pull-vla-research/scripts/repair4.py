@@ -75,10 +75,11 @@ def table_captions(pdf, max_n=10):
             if n in out:
                 continue
             for lab in (f"Table {n}", f"TABLE {n}"):
-                a, sp, txt = find_anchor(page, lab)
-                if a is not None:
-                    out[n] = (page.number + 1, " ".join(txt.split()))
-                    break
+                for strict in (True, False):
+                    a, sp, txt = find_anchor(page, lab, strict)
+                    if a is not None:
+                        out[n] = (page.number + 1, " ".join(txt.split()))
+                        break
     return out
 
 
