@@ -148,7 +148,7 @@ python3 skills/pull-vla-research/scripts/fancy_diagram.py notes/<track>/figures/
 
 spec 是 JSON：title/subtitle/foot、canvas、panels（虚线分组）、nodes（label/sub/icon/cls/x/y/w/h/tag）、edges（from/to/style/label + 锚点 out/in/pos 与偏移 loff 可省略自动判断）、legend。语义类沿用 v2 十类同色系；图标用语义名（brain/lightning/robot/target/db/chart/state/flask/noise…，别名表在脚本 ALIASES）。
 
-**2) 嵌入格式**（替换原 mermaid 块，spec 与 arch.svg/arch.png 存 `notes/<track>/figures/<id>/`）：
+**2) 嵌入格式**（替换原 mermaid 块，spec 与 arch.svg 存 `notes/<track>/figures/<id>/`（PNG 仅按需 `--png` 生成用于目检，不入库））：
 
 ```
 ![<id> 架构图 v3](figures/<id>/arch.svg)
