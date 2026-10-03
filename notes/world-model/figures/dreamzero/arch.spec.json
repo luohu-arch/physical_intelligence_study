@@ -1,0 +1,230 @@
+{
+ "nodes": [
+  {
+   "id": "V",
+   "label": "视觉上下文 o_0:l",
+   "sub": "",
+   "icon": "camera",
+   "cls": "data",
+   "x": 44,
+   "y": 130,
+   "w": 205,
+   "h": 92
+  },
+  {
+   "id": "VAE",
+   "label": "冻结 Wan VAE 编码",
+   "sub": "",
+   "icon": "eye",
+   "cls": "frozen",
+   "x": 210,
+   "y": 282,
+   "w": 217,
+   "h": 92
+  },
+  {
+   "id": "DIT",
+   "label": "自回归 DiT 14B\n视频+动作联合 flow-",
+   "sub": "matching 去噪",
+   "icon": "lightning",
+   "cls": "key",
+   "x": 202,
+   "y": 434,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "L",
+   "label": "语言指令 c",
+   "sub": "",
+   "icon": "chat",
+   "cls": "data",
+   "x": 273,
+   "y": 130,
+   "w": 148,
+   "h": 92
+  },
+  {
+   "id": "Q",
+   "label": "本体感知 q",
+   "sub": "",
+   "icon": "state",
+   "cls": "data",
+   "x": 445,
+   "y": 130,
+   "w": 148,
+   "h": 92
+  },
+  {
+   "id": "VOUT",
+   "label": "未来视频 latent z_\nt",
+   "sub": "物理一致性想象",
+   "icon": "gear",
+   "cls": "env",
+   "x": 118,
+   "y": 620,
+   "w": 227,
+   "h": 126
+  },
+  {
+   "id": "AOUT",
+   "label": "动作块 a_t",
+   "sub": "",
+   "icon": "stack",
+   "cls": "act",
+   "x": 370,
+   "y": 637,
+   "w": 149,
+   "h": 92
+  },
+  {
+   "id": "DEC",
+   "label": "VAE 解码未来帧",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "frozen",
+   "x": 100,
+   "y": 806,
+   "w": 186,
+   "h": 92
+  },
+  {
+   "id": "SMOOTH",
+   "label": "上采样 2x + Savitz\nky-Golay 滤波",
+   "sub": "",
+   "icon": "eye",
+   "cls": "act",
+   "x": 310,
+   "y": 806,
+   "w": 228,
+   "h": 93
+  },
+  {
+   "id": "CTRL",
+   "label": "异步运动控制器\n30Hz 执行 chunk, ",
+   "sub": "约 7Hz 闭环",
+   "icon": "stack",
+   "cls": "act",
+   "x": 208,
+   "y": 959,
+   "w": 220,
+   "h": 126
+  },
+  {
+   "id": "OBS",
+   "label": "新真观测到达",
+   "sub": "",
+   "icon": "state",
+   "cls": "loop",
+   "x": 236,
+   "y": 1145,
+   "w": 164,
+   "h": 92
+  },
+  {
+   "id": "KV",
+   "label": "KV 缓存\n世界状态滚动更新",
+   "sub": "",
+   "icon": "state",
+   "cls": "env",
+   "x": 218,
+   "y": 1297,
+   "w": 200,
+   "h": 93
+  }
+ ],
+ "edges": [
+  {
+   "from": "V",
+   "to": "VAE",
+   "style": "main"
+  },
+  {
+   "from": "VAE",
+   "to": "DIT",
+   "style": "thick"
+  },
+  {
+   "from": "L",
+   "to": "DIT",
+   "style": "thick"
+  },
+  {
+   "from": "Q",
+   "to": "DIT",
+   "style": "thick"
+  },
+  {
+   "from": "DIT",
+   "to": "VOUT",
+   "style": "thick"
+  },
+  {
+   "from": "DIT",
+   "to": "AOUT",
+   "style": "thick"
+  },
+  {
+   "from": "VOUT",
+   "to": "DEC",
+   "style": "main"
+  },
+  {
+   "from": "AOUT",
+   "to": "SMOOTH",
+   "style": "thick"
+  },
+  {
+   "from": "SMOOTH",
+   "to": "CTRL",
+   "style": "thick"
+  },
+  {
+   "from": "CTRL",
+   "to": "OBS",
+   "style": "fb"
+  },
+  {
+   "from": "OBS",
+   "to": "KV",
+   "style": "fb",
+   "label": "\"真帧写入 KV 缓存 丢弃预测帧防漂移\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "KV",
+   "to": "DIT",
+   "style": "thick",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  637,
+  1480
+ ],
+ "legend": [
+  "act",
+  "data",
+  "env",
+  "frozen",
+  "key",
+  "loop"
+ ],
+ "layout_wh": [
+  637,
+  1480
+ ],
+ "title": "dreamzero",
+ "subtitle": "DreamZero 把一个 14B 的预训练 image-to-video 扩散模型（Wan2.1-I2V-14B-480P）直接改造成自回归 World Action Mod",
+ "foot": "dreamzero · arXiv 2602.15922 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    V([\"视觉上下文 o_0:l\"]) --> VAE[\"冻结 Wan VAE 编码\"]\n    VAE ==> DIT\n    L([\"语言指令 c\"]) ==> DIT\n    Q([\"本体感知 q\"]) ==> DIT\n    DIT[\"自回归 DiT 14B<br/>视频+动作联合 flow-matching 去噪<br/>共享时间步, 解耦噪声调度 38x 加速<br/>端到端拟合 视频预测 x IDM\"]\n    DIT ==> VOUT[\"未来视频 latent z_t<br/>物理一致性想象\"]\n    DIT ==> AOUT[\"动作块 a_t\"]\n    VOUT --> DEC[\"VAE 解码未来帧\"]\n    AOUT ==> SMOOTH[\"上采样 2x + Savitzky-Golay 滤波\"]\n    SMOOTH ==> CTRL[\"异步运动控制器<br/>30Hz 执行 chunk, 约 7Hz 闭环\"]\n    CTRL -.-> OBS[\"新真观测到达\"]\n    OBS -.->|\"真帧写入 KV 缓存<br/>丢弃预测帧防漂移\"| KV[\"KV 缓存<br/>世界状态滚动更新\"]\n    KV ==> DIT\n\n    class V,L,Q data\n    class VAE,DEC frozen\n    class DIT key\n    class VOUT,KV env\n    class AOUT,SMOOTH,CTRL act\n    class OBS loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f",
+ "source": "mermaid-auto"
+}

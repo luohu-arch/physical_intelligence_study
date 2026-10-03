@@ -42,46 +42,9 @@
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    CAM(["场景俯视图 + clip zoom-in"]) ==> VLM["VLM 规划器 (GPT-5 + CoT)<br/>进度推理 + 技能选择 + 完成判定<br/>纯 in-context, 不参与梯度训练"]
-    VLM ==> INSERT["Insert: SAC RL 低层<br/>7 参数运动原语, 接触敏感区需闭环<br/>(87% vs heuristic 45%)"]
-    VLM ==> PULL["Pull: 脚本原语<br/>自由空间, 无需学习"]
-    VLM ==> FLAT["Flatten: 自动故障恢复 (核心)<br/>重整线缆释放弯曲势能<br/>把不可插入恢复成可插入"]
-    FLAT -.->|"重整后重试"| INSERT
-    CNT["连续插入失败计数 + step limit"] -.->|"重复失败 -> 触发恢复"| VLM
-    INSERT -.->|"失败反馈"| CNT
-    REW["dense shaped 奖励<br/>rope_in / rope_out + 碰撞惩罚<br/>+ 分段距离 + 前端平直度"] -.->|"SAC 训练信号 (6.2k 步)"| INSERT
-    INSERT ==> ROBOT["Franka + D415 + SAM2 分割<br/>零微调 sim-to-real (62.5%)"]
-    PULL ==> ROBOT
-    FLAT ==> ROBOT
+![dlo-routing 架构图 v3](figures/dlo-routing/arch.svg)
 
-    class CAM data
-    class VLM frozen
-    class INSERT train
-    class PULL act
-    class FLAT key
-    class CNT loop
-    class REW reward
-    class ROBOT env
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-```
+*架构速览：提出分层框架处理可变形线性物体（线缆/绳子）的多夹点路由：高层 VLM (GPT-5, CoT prompting) 做任务进度推理和技能选择，低层 SAC RL 执行 Insert/Pull/Flatten 三种技能。*
 
 低层插入任务建模为 MDP $(S, A, r, \gamma)$：状态 $S$ 由 clip 位姿与 DLO 的 $n$ 个粒子位置 $p_{1:n}$ 组成，动作空间 $A$ 为抓手的 3D 笛卡尔运动 $p^t_g$ 与 1D 旋转 $q^t_g$。SAC 的奖励函数设计是本文低层性能的关键：
 

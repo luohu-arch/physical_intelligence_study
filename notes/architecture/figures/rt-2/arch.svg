@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="953" height="1370" viewBox="0 0 953 1370" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
+<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<defs>
+<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
+<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
+<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
+<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
+<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
+<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
+<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
+<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
+<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
+<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
+<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
+<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
+<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+</defs>
+<rect width="953" height="1370" fill="#ffffff"/>
+<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
+<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">rt-2</text>
+<text x="52" y="74" font-size="13.5" fill="#78909c">RT-2 不设计任何新架构、不加任何动作专用层，只把机器人动作按 RT-1 方式切成整数 token、当作普通文本放进 VLM 的训练目标里 co-fine-tune（PaLI</text>
+<text x="919" y="1352" font-size="11.5" fill="#a0aab4" text-anchor="end">rt-2 · arXiv 2307.15818 · v3 auto</text>
+<path d="M 249.0 176.5 C 369.3 176.5, 213.7 378.0, 334.0 378.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 434.0 223.0 C 434.0 279.3, 476.0 258.7, 476.0 315.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 619.0 176.5 C 534.0 176.5, 703.0 378.0, 618.0 378.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 476.0 441.0 C 476.0 548.5, 312.0 425.5, 312.0 533.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 476.0 441.0 C 476.0 547.5, 637.5 426.5, 637.5 533.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 312.0 659.0 C 312.0 766.9, 477.0 643.1, 477.0 751.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 637.5 659.0 C 637.5 765.0, 477.0 645.0, 477.0 751.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 477.0 877.0 C 477.0 923.0, 477.0 923.0, 477.0 969.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 477.0 1095.0 C 477.0 1141.0, 476.5 1141.0, 476.5 1187.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 420.3 1187.0 C 420.3 1113.0, 491.5 677.0, 491.5 751.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<rect x="46.5" y="133.5" width="205" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="44" y="130" width="205" height="93" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
+<circle cx="146.5" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
+<circle cx="146.5" cy="130" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
+<g transform="translate(133.0,116.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
+<text x="146.5" y="174" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="146.5" dy="0">WebLI 网页图文对</tspan><tspan x="146.5" dy="20">10B 过滤到 1B</tspan></text>
+<rect x="336.5" y="318.5" width="284" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="334" y="315" width="284" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="2.8"/>
+<circle cx="476.0" cy="315" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="476.0" cy="315" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(462.5,301.5) scale(1.1250)">
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</g>
+<text x="476.0" y="359" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="476.0" dy="0">co-fine-tune: 动作即一门</tspan><tspan x="476.0" dy="20">外语 (核心)</tspan></text>
+<text x="476.0" y="389" font-size="12" fill="#5f6b7a" text-anchor="middle">动作 token 与 web 数据混</text>
+<rect x="291.5" y="133.5" width="290" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="289" y="130" width="290" height="93" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
+<circle cx="434.0" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
+<circle cx="434.0" cy="130" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
+<g transform="translate(420.5,116.5) scale(1.1250)">
+  <path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" />
+</g>
+<text x="434.0" y="174" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="434.0" dy="0">RT-1 真机 episode</tspan><tspan x="434.0" dy="20">130k, 13 台机器人 17 个月</tspan></text>
+<rect x="621.5" y="133.5" width="290" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="619" y="130" width="290" height="93" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.6" stroke-dasharray="7 4"/>
+<circle cx="764.0" cy="130" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
+<circle cx="764.0" cy="130" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
+<g transform="translate(750.5,116.5) scale(1.1250)">
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</g>
+<text x="764.0" y="174" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="764.0" dy="0">统一 next-token 交叉熵</tspan><tspan x="764.0" dy="20">(等价行为克隆, 零架构改动)</tspan></text>
+<rect x="173.5" y="536.5" width="282" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="171" y="533" width="282" height="126" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="2.8"/>
+<circle cx="312.0" cy="533" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="312.0" cy="533" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(298.5,519.5) scale(1.1250)">
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</g>
+<text x="312.0" y="577" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="312.0" dy="0">RT-2 PaLI-X 5B / 55B</tspan><tspan x="312.0" dy="20">1000 内整数 token 直接复</tspan></text>
+<text x="312.0" y="607" font-size="12" fill="#5f6b7a" text-anchor="middle">用</text>
+<rect x="495.5" y="536.5" width="289" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="493" y="533" width="289" height="126" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="2.8"/>
+<circle cx="637.5" cy="533" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="637.5" cy="533" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(624.0,519.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
+<text x="637.5" y="577" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="637.5" dy="0">RT-2 PaLM-E 12B</tspan><tspan x="637.5" dy="20">覆写词表 256 个最低频 tok</tspan></text>
+<text x="637.5" y="607" font-size="12" fill="#5f6b7a" text-anchor="middle">en</text>
+<rect x="334.5" y="754.5" width="290" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="332" y="751" width="290" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="2.8"/>
+<circle cx="477.0" cy="751" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="477.0" cy="751" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(463.5,737.5) scale(1.1250)">
+  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+</g>
+<text x="477.0" y="795" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="477.0" dy="0">output constraint 推理约</tspan><tspan x="477.0" dy="20">束</tspan></text>
+<text x="477.0" y="825" font-size="12" fill="#5f6b7a" text-anchor="middle">机器人 prompt 只在合法动作</text>
+<rect x="334.5" y="972.5" width="290" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="332" y="969" width="290" height="126" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.6"/>
+<circle cx="477.0" cy="969" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
+<circle cx="477.0" cy="969" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(463.5,955.5) scale(1.1250)">
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</g>
+<text x="477.0" y="1013" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="477.0" dy="0">反 token 化 8 个 bin</tspan><tspan x="477.0" dy="20">如: 1 128 91 241 5 101 1</tspan></text>
+<text x="477.0" y="1043" font-size="12" fill="#5f6b7a" text-anchor="middle">27</text>
+<rect x="338.5" y="1190.5" width="281" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="336" y="1187" width="281" height="93" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.6"/>
+<circle cx="476.5" cy="1187" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
+<circle cx="476.5" cy="1187" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(463.0,1173.5) scale(1.1250)">
+  <path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" />
+</g>
+<text x="476.5" y="1231" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="476.5" dy="0">云端 TPU 闭环控制</tspan><tspan x="476.5" dy="20">55B: 1-3Hz / 5B: 约 5Hz</tspan></text>
+<g transform="translate(455.9,914.0)"><rect x="-101.0" y="-11" width="202.1" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;机器人 prompt 触发采样约束&quot;</text></g>
+<text x="40" y="1340.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1326" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1337" r="4.2" fill="#6a1b9a"/><text x="110" y="1341" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="1326" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1337" r="4.2" fill="#2e7d32"/><text x="208.76" y="1341" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="1326" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="1337" r="4.2" fill="#ef6c00"/><text x="314.19" y="1341" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="388.95" y="1326" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="401.95" cy="1337" r="4.2" fill="#c62828"/><text x="412.95" y="1341" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
+<g><rect x="494.38" y="1326" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="507.38" cy="1337" r="4.2" fill="#ef6c00"/><text x="518.38" y="1341" font-size="11.5" fill="#b34700">可训练模块</text></g>
+</svg>

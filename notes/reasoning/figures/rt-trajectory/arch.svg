@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2018" height="893" viewBox="0 0 2018 893" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
+<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<defs>
+<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
+<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
+<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
+<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
+<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
+<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
+<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
+<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
+<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
+<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
+<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
+<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
+<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+</defs>
+<rect width="2018" height="893" fill="#ffffff"/>
+<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
+<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">rt-trajectory</text>
+<text x="52" y="74" font-size="13.5" fill="#78909c">RT-Trajectory 提出将粗粒度 2D 轨迹草图画到 RGB 图像上作为策略的条件输入，从而让机器人泛化到训练中从未见过的全新操作任务——这是 VLA 中「任务表征」维</text>
+<text x="1984" y="875" font-size="11.5" fill="#a0aab4" text-anchor="end">rt-trajectory · arXiv 2311.01977 · v3 auto</text>
+<path d="M 271.0 152.0 C 556.6 152.0, 351.4 466.0, 637.0 466.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 571.0 466.5 C 617.0 466.5, 591.0 466.0, 637.0 466.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 785.0 466.0 C 831.0 466.0, 805.0 466.5, 851.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1084.0 466.5 C 1130.0 466.5, 1104.0 466.5, 1150.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1383.0 466.5 C 1429.0 466.5, 1403.0 466.5, 1449.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1676.0 466.5 C 1722.0 466.5, 1696.0 466.5, 1742.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 269.0 278.0 C 380.5 278.0, 234.5 466.5, 346.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 280.0 403.0 C 334.4 403.0, 291.6 466.5, 346.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 275.0 529.5 C 331.3 529.5, 289.7 466.5, 346.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 253.0 781.0 C 761.8 781.0, 641.2 466.5, 1150.0 466.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<rect x="56.5" y="109.5" width="217" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="54" y="106" width="217" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="162.5" cy="106" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="162.5" cy="106" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(149.0,92.5) scale(1.1250)">
+  <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
+  <circle cx="12" cy="13" r="3" />
+</g>
+<text x="162.5" y="157" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">相机 RGB 图像&lt;br/</text>
+<rect x="348.5" y="423.5" width="225" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="346" y="420" width="225" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="458.5" cy="420" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="458.5" cy="420" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(445.0,406.5) scale(1.1250)">
+  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" />
+</g>
+<text x="458.5" y="464" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="458.5" dy="0">2.5D 轨迹草图 3 通</tspan><tspan x="458.5" dy="20">道&lt;br/</tspan></text>
+<rect x="639.5" y="423.5" width="148" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="637" y="420" width="148" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="711.0" cy="420" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="711.0" cy="420" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(697.5,406.5) scale(1.1250)">
+  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" />
+</g>
+<text x="711.0" y="471" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">6 通道拼接</text>
+<rect x="853.5" y="423.5" width="233" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="851" y="420" width="233" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="967.5" cy="420" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="967.5" cy="420" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(954.0,406.5) scale(1.1250)">
+  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" />
+</g>
+<text x="967.5" y="464" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="967.5" dy="0">EfficientNet-B3&lt;br</tspan><tspan x="967.5" dy="20">/</tspan></text>
+<rect x="1152.5" y="423.5" width="233" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1150" y="420" width="233" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="1266.5" cy="420" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="1266.5" cy="420" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1253.0,406.5) scale(1.1250)">
+  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" />
+</g>
+<text x="1266.5" y="464" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1266.5" dy="0">RT-1 Transformer&lt;b</tspan><tspan x="1266.5" dy="20">r/</tspan></text>
+<rect x="1451.5" y="423.5" width="227" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1449" y="420" width="227" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="1562.5" cy="420" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="1562.5" cy="420" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1549.0,406.5) scale(1.1250)">
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</g>
+<text x="1562.5" y="464" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1562.5" dy="0">256 离散动作 token</tspan><tspan x="1562.5" dy="20"> 预测</tspan></text>
+<rect x="1744.5" y="423.5" width="232" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1742" y="420" width="232" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="1858.0" cy="420" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="1858.0" cy="420" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1844.5,406.5) scale(1.1250)">
+  <path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" />
+</g>
+<text x="1858.0" y="464" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1858.0" dy="0">Everyday Robots 移</tspan><tspan x="1858.0" dy="20">动操作臂</tspan></text>
+<rect x="58.5" y="235.5" width="213" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="56" y="232" width="213" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="162.5" cy="232" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="162.5" cy="232" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(149.0,218.5) scale(1.1250)">
+  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" />
+</g>
+<text x="162.5" y="283" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">人工 GUI 手绘草图</text>
+<rect x="46.5" y="360.5" width="236" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="44" y="357" width="236" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="162.0" cy="357" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="162.0" cy="357" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(148.5,343.5) scale(1.1250)">
+  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" />
+</g>
+<text x="162.0" y="408" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">人类示范视频轨迹提取</text>
+<rect x="52.5" y="486.5" width="225" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="50" y="483" width="225" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="162.5" cy="483" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="162.5" cy="483" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(149.0,469.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
+<text x="162.5" y="527" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="162.5" dy="0">LLM 代码生成 3D 路</tspan><tspan x="162.5" dy="20">径点&lt;br/</tspan></text>
+<rect x="62.5" y="612.5" width="204" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="60" y="609" width="204" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="162.0" cy="609" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="162.0" cy="609" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(148.5,595.5) scale(1.1250)">
+  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" />
+</g>
+<text x="162.0" y="660" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">事后轨迹标注&lt;br/</text>
+<rect x="73.5" y="738.5" width="182" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="71" y="735" width="182" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="162.0" cy="735" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="162.0" cy="735" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(148.5,721.5) scale(1.1250)">
+  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" />
+</g>
+<text x="162.0" y="786" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">行为克隆交叉熵</text>
+<text x="40" y="863.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="849" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="860" r="4.2" fill="#546e7a"/><text x="110" y="864" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+</svg>

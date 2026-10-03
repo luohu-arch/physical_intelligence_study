@@ -47,55 +47,9 @@ HARBOR 把机器人 RL 的"周边工程"（装依赖、建任务、写奖励、�
 
 整条工作流可以用一张图概括——每个阶段都在 gate 处停下，失败就地修复而不是向下游传播：
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    REQ(["用户请求: 仿真器代码库 + 任务规格"]):::data
-    MAIN["主 agent<br/>检索经验与 artifact, 分解有界阶段"]:::frozen
-    KNOW["可复用经验库: 模板/参考/人类启发式/历史要点<br/>stack-cube 复用 4h -> 30min"]:::mem
-    SIM["仿真器环境<br/>6 benchmark x 16 任务"]:::env
-    CCDE["CCDE 并行调参: 主 agent 中央决策<br/>N=4 子 agent 隔离 trial 异步执行 (6.3x)"]:::loop
-    ESC(["标记 unresolved, 请人工介入"]):::loop
-    DONE(["可训练策略 + 全程可审计产物<br/>+ 系统辨识/DR 真机迁移栈"]):::data
+![harbor 架构图 v3](figures/harbor/arch.svg)
 
-    subgraph HARNESS["五元组 harness: agents / commands / artifacts / gates / knowledge"]
-        direction TB
-        AG["阶段 agent (有界上下文)<br/>依赖->任务->奖励->RL 集成->DR->调参 六阶段"]:::frozen
-        ART["mutable artifact: task spec / reward 代码 /<br/>曲线 / rollout MP4 / install log"]:::mem
-        GATE{"gate: 硬接口 + 软语义检查<br/>import / reset / obs-act 形状 / 渲染"}:::key
-        AG ==>|"标准化命令修改/创建 artifact"| ART
-        ART ==> GATE
-        GATE -.->|"失败: 结构化摘要回传就地修复"| AG
-    end
-
-    REQ ==> MAIN
-    MAIN ==> AG
-    KNOW -.->|"按 simulator/task/算法标签阶段匹配检索"| AG
-    GATE ==>|"通过: 提交 artifact + 摘要写回"| KNOW
-    ART -.->|"短训练 / rollout / 渲染可执行反馈"| SIM
-    SIM -.->|"学习曲线与视频供 gate 与 agent 诊断"| ART
-    AG -.->|"重试预算耗尽"| ESC
-    MAIN -.->|"迭代密集阶段"| CCDE
-    CCDE -.->|"聚合决策写回首 agent"| MAIN
-    GATE ==> NEXT{"还有下一阶段?"}
-    NEXT -.->|"是: 推进下一有界阶段"| MAIN
-    NEXT ==>|"否"| DONE
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：HARBOR 把机器人 RL 的"周边工程"（装依赖、建任务、写奖励、配 DR、接算法、调超参）整体当作一个 harness engineering 问题：主 agent 把自然语言请求分解成有界阶段，专职 agent *
 
 ## 底层原理与数学推导
 

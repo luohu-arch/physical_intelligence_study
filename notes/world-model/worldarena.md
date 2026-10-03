@@ -43,46 +43,9 @@ WorldArena 的核心主张是：**视觉保真度不等于具身可用性**。�
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    DATA[(RoboTwin 2.0<br/>50 任务 2500 视频<br/>2000 训练 + 500 测试)] ==> WM["14 个世界模型<br/>同一数据后训练"]
-    WM ==> P["感知评测: 6 维度 16 指标"]
-    WM ==> F1["数据引擎角色<br/>WM + IDM 生成配对数据<br/>训练 pi0.5"]
-    WM ==> F2["策略评估器角色<br/>带策略动作 rollout<br/>成功率对齐仿真器"]
-    WM ==> F3["动作规划器角色<br/>WM 预测帧 -> IDM 提取动作<br/>仿真器执行"]
-    P --> NORM["百分位上下界<br/>归一化到 0-100"]
-    NORM --> EWM["EWMScore = 算术平均"]
-    EWM --> CORR["与人评及三功能分做相关<br/>人评 r=0.825 / 数据引擎 r=0.600<br/>规划仅 r=0.360 保真不保证效用"]
-    F1 -.-> CORR
-    F2 -.-> CORR
-    F3 -.-> CORR
+![worldarena 架构图 v3](figures/worldarena/arch.svg)
 
-    class DATA data
-    class WM train
-    class P,NORM,EWM loss
-    class F1 data
-    class F2 loop
-    class F3 act
-    class CORR key
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：WorldArena 的核心主张是：**视觉保真度不等于具身可用性**。它对 14 个代表性世界模型（通用视频生成模型 CogvideoX/Wan 2.2/Wan 2.6/Veo 3.1、文本条件具身模型 Genie E*
 
 **EWMScore 的构造**：设某模型在第 $i$ 个指标上的原始分为 $s_i$，该指标在全体模型上的分布上界为 $b_i^{99}$、下界为 $b_i^1$，则归一化为
 

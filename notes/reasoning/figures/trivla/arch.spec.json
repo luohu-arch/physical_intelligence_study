@@ -1,0 +1,237 @@
+{
+ "nodes": [
+  {
+   "id": "IMG",
+   "label": "双视角 RGB 观测<br/",
+   "sub": "",
+   "icon": "camera",
+   "cls": "loop",
+   "x": 44,
+   "y": 362,
+   "w": 235,
+   "h": 92
+  },
+  {
+   "id": "LANG",
+   "label": "语言指令",
+   "sub": "",
+   "icon": "chat",
+   "cls": "loop",
+   "x": 92,
+   "y": 111,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "STATE",
+   "label": "机器人状态",
+   "sub": "",
+   "icon": "state",
+   "cls": "loop",
+   "x": 88,
+   "y": 236,
+   "w": 146,
+   "h": 92
+  },
+  {
+   "id": "VLM",
+   "label": "Eagle-2 VLM<br/",
+   "sub": "",
+   "icon": "brain",
+   "cls": "loop",
+   "x": 358,
+   "y": 304,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "SVD",
+   "label": "微调 Stable Video \nDiffusion<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 345,
+   "y": 420,
+   "w": 230,
+   "h": 93
+  },
+  {
+   "id": "DIT",
+   "label": "DiT 流匹配策略<br/",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "loop",
+   "x": 1237,
+   "y": 362,
+   "w": 225,
+   "h": 92
+  },
+  {
+   "id": "QVL",
+   "label": "语义特征 Q_vl + 状\n态 token Q_s",
+   "sub": "",
+   "icon": "stack",
+   "cls": "loop",
+   "x": 644,
+   "y": 303,
+   "w": 225,
+   "h": 93
+  },
+  {
+   "id": "FP",
+   "label": "预测性时序特征 F_p<\nbr/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 641,
+   "y": 420,
+   "w": 231,
+   "h": 93
+  },
+  {
+   "id": "COMP",
+   "label": "可学习 token 时空注\n意力压缩<br/",
+   "sub": "",
+   "icon": "stack",
+   "cls": "loop",
+   "x": 938,
+   "y": 362,
+   "w": 233,
+   "h": 93
+  },
+  {
+   "id": "ROBOT",
+   "label": "KINOVA 机器人 约 3\n6Hz 动作",
+   "sub": "",
+   "icon": "robot",
+   "cls": "loop",
+   "x": 1528,
+   "y": 362,
+   "w": 227,
+   "h": 93
+  },
+  {
+   "id": "LD",
+   "label": "扩散重建损失<br/",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 60,
+   "y": 488,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "LFM",
+   "label": "流匹配动作损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 70,
+   "y": 613,
+   "w": 182,
+   "h": 92
+  }
+ ],
+ "edges": [
+  {
+   "from": "IMG",
+   "to": "VLM",
+   "style": "thick"
+  },
+  {
+   "from": "LANG",
+   "to": "VLM",
+   "style": "thick"
+  },
+  {
+   "from": "STATE",
+   "to": "VLM",
+   "style": "thick"
+  },
+  {
+   "from": "IMG",
+   "to": "SVD",
+   "style": "thick"
+  },
+  {
+   "from": "VLM",
+   "to": "QVL",
+   "style": "thick"
+  },
+  {
+   "from": "SVD",
+   "to": "FP",
+   "style": "thick"
+  },
+  {
+   "from": "FP",
+   "to": "COMP",
+   "style": "thick"
+  },
+  {
+   "from": "QVL",
+   "to": "DIT",
+   "style": "thick"
+  },
+  {
+   "from": "COMP",
+   "to": "DIT",
+   "style": "thick"
+  },
+  {
+   "from": "DIT",
+   "to": "ROBOT",
+   "style": "thick"
+  },
+  {
+   "from": "LD",
+   "to": "SVD",
+   "style": "fb"
+  },
+  {
+   "from": "LFM",
+   "to": "DIT",
+   "style": "fb"
+  }
+ ],
+ "panels": [
+  {
+   "label": "System 2 语义接地 27.5ms",
+   "x": 334,
+   "y": 260,
+   "w": 252,
+   "h": 156
+  },
+  {
+   "label": "System 3 时序动态感知 85.9ms",
+   "x": 321,
+   "y": 376,
+   "w": 278,
+   "h": 157
+  },
+  {
+   "label": "System 1 动作生成",
+   "x": 1213,
+   "y": 318,
+   "w": 273,
+   "h": 156
+  }
+ ],
+ "canvas": [
+  1799,
+  776
+ ],
+ "legend": [
+  "loop"
+ ],
+ "layout_wh": [
+  1799,
+  776
+ ],
+ "title": "trivla",
+ "subtitle": "TriVLA 受认知神经科学的「情景记忆」理论启发，提出首个 VLA 中的三元系统架构——VLM（System 2）负责语义接地、视频扩散模型（System 3）负责时序动态感",
+ "foot": "trivla · arXiv 2507.01424 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    IMG[双视角 RGB 观测<br/>第三人称 + 腕载 D455]:::data\n    LANG[语言指令]:::data\n    STATE[机器人状态]:::data\n\n    subgraph SYS2[\"System 2 语义接地 27.5ms\"]\n        VLM[Eagle-2 VLM<br/>第 12 层嵌入 预训练冻结]:::frozen\n    end\n\n    subgraph SYS3[\"System 3 时序动态感知 85.9ms\"]\n        SVD[微调 Stable Video Diffusion<br/>当前帧加噪后单步前向]:::key\n    end\n\n    subgraph SYS1[\"System 1 动作生成\"]\n        DIT[DiT 流匹配策略<br/>10 步动作块]:::act\n    end\n\n    IMG ==> VLM\n    LANG ==> VLM\n    STATE ==> VLM\n    IMG ==> SVD\n    QVL[语义特征 Q_vl + 状态 token Q_s]\n    VLM ==> QVL\n    FP[预测性时序特征 F_p<br/>多尺度上采样层聚合]:::env\n    SVD ==> FP\n    COMP[可学习 token 时空注意力压缩<br/>输出 Q_p]:::train\n    FP ==> COMP\n    QVL ==> DIT\n    COMP ==> DIT\n    DIT ==> ROBOT([KINOVA 机器人 约 36Hz 动作]):::act\n    LD[扩散重建损失<br/>SVD 微调]:::loss\n    LFM[流匹配动作损失]:::loss\n    LD -.-> SVD\n    LFM -.-> DIT\n    ROBOT -.每 10 步 chunk 滚窗重前向.-> IMG\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

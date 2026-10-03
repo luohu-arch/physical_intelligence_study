@@ -44,49 +44,9 @@ Fabrica 是一个端到端双臂装配系统：从 CAD 模型出发，通过层�
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    CAD(["CAD 模型<br/>多零件装配体"]) ==> PREC
-    subgraph PLAN["层级规划栈 (宏观离散决策, 无需训练)"]
-        PREC["装配优先级推理"] --> SEQP["装配序列规划<br/>序列 + 抓取 + 运动 联合优化"]
-        SEQP --> GRASP["抓取规划<br/>+ 自动夹具生成"]
-        GRASP --> MOT["运动规划<br/>双臂协调"]
-    end
-    MOT ==>|"转运段: 开环跟踪规划轨迹"| EXEC(["双 Franka 执行装配步"])
-    MOT -->|"开环参考轨迹 a_t^ol"| RL["SE(3) 等变 RL 策略<br/>~2M 参数, 输出残差修正<br/>a_t = a_t^ol + pi_theta(o_t)"]
-    RL ==>|"接触丰富的插接步<br/>TSI 阻抗控制"| EXEC
-    EQ["SE(3) 等变结构<br/>零样本 sim-to-real 保证"] -.-> RL
-    REW["插接奖励 r = -||p - p*||_2<br/>零件到目标的负 L2 距离"] -.-> RL
-    SIM["Isaac Gym 仿真训练<br/>域随机化 3mm 姿态噪声"] -.->|"零样本迁移"| RL
-    EXEC ==> DONE(["装配完成<br/>step-level 80% 无干预"])
-    DONE -.->|"状态检测失败<br/>每步最多重试 3 次"| EXEC
+![fabrica 架构图 v3](figures/fabrica/arch.svg)
 
-    class CAD data
-    class PREC,SEQP,GRASP,MOT frozen
-    class RL train
-    class EQ key
-    class EXEC,DONE act
-    class SIM env
-    class REW reward
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：Fabrica 是一个端到端双臂装配系统：从 CAD 模型出发，通过层级规划（装配顺序→抓取→运动规划+自动夹具生成）+ 轻量 SE(3) 等变 RL 策略完成接触-rich 插接步，零样本 sim-to-real 迁移*
 
 层级规划的每一层解耦不同时间尺度的决策——从宏观（装配顺序）到微观（插入动作的力控）。
 

@@ -39,57 +39,9 @@ Tool-R0 用 zero-data self-play RL 把同一个 instruction-tuned 基座初始�
 
 **双角色迭代结构**。训练跑 $K=3$ 个 self-play iteration，每轮三段：(1) 冻结 Solver，用 GRPO 训 Generator 50 步（2,000 个自生成样本）；(2) 冻结 Generator，采样 10,000 个候选任务，经去重、Solver cross-verification、难度分桶后筛到 2,000 条；(3) Solver 在这批课程数据上训 50 步，进入下一轮。Solver 的成功率统计反过来决定 Generator 的难度奖励，闭环由此咬合。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    A(["同一 instruction-tuned 基座<br/>Qwen2.5-1.5B 初始化双角色, 零人工数据"]):::data
-    GEN["Generator pi_theta (被 RL)<br/>按规格合成可验证任务"]:::train
-    SOL["Solver pi_phi (被 RL)<br/>学习执行真实工具调用"]:::train
-    S["任务规格 s = (32 域, 形态,<br/>菜单规模, gold 调用数)"]:::data
-    T["task = question + 工具菜单 + gold calls<br/>参数值必须在问题里逐字出现 (value grounding)"]:::data
-    RD["带通难度奖励 (核心): r_diff 在 p_succ [0.25, 0.75] 平台<br/>+ 高斯衰减; K=8 蒙特卡洛探测, 零命中归零"]:::key
-    CHK["r_fmt + r_valid 机检<br/>菜单存在/schema 齐全/参数有出处"]:::reward
-    F["Generator 奖励 = r_fmt + r_valid + r_curr<br/>(按 Solver 能力边界领奖励)"]:::reward
-    G["GRPO 更新 Generator, 50 步"]:::loss
-    H["冻结 Generator, 采 10,000 候选"]:::loop
-    I["三段过滤: 去重 -> Solver 交叉验证 -> 难度分桶<br/>10,000 选 2,000 (20% 存活)"]:::data
-    J["2,000 条课程数据<br/>batch 级 easy -> hard 排布"]:::data
-    K["Solver GRPO: r_fmt + 稠密 r_acc<br/>(name 0.2 + key F1 0.3 + value 0.5 - 多余调用罚)"]:::loss
-    ACC(["Qwen2.5-1.5B 平均 24.85 -> 47.84 (+92.52%)<br/>零数据超 4k-210k 人工数据基线 (最强 ToolRL 46.06)"]):::data
+![tool-r0 架构图 v3](figures/tool-r0/arch.svg)
 
-    A ==> GEN
-    A ==> SOL
-    S ==> GEN
-    GEN ==> T
-    SOL -.->|"冻结做 K=8 探测 p_succ"| RD
-    T ==> RD
-    T ==> CHK
-    RD ==> F
-    CHK ==> F
-    F ==> G
-    G ==> H
-    H ==> I
-    I ==> J
-    J ==> K
-    K ==> SOL
-    K ==> ACC
-    SOL -.->|"下一迭代: 能力上移带动难度锚上移"| RD
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：Tool-R0 用 zero-data self-play RL 把同一个 instruction-tuned 基座初始化成 Generator（合成"问题 + 工具菜单 + gold tool-call"三件套的可验证*
 
 **Grounded Task Specification（防 mode collapse）**。直接让 Generator 自由发挥会塌缩到少数高似然模板，所以每条任务都绑定规格 $s = (d, c, m, n)$：任务域 $d$ 从 32 个类别（finance、healthcare、scheduling、web_search 等）按均匀权重 0.03125 采样；交互形态 $c$ 以 0.9 概率 single-turn、0.1 概率 multi-turn；gold 调用数 $n$ 在 single-turn 下以 0.8 概率取 1、0.2 概率取 2（multi-turn 固定 $n=1$）；菜单规模 $m$ 按 $n$ 分桶（$n>1$ 时取 {3,4,5}，$n=1$ 时取 2–4 或 5–8 工具）。规格作为 meta-prompt 注入，得到条件化分布 $q \sim \pi_\theta(\cdot \mid s)$，同时保证每个生成实例都能自动验证。
 

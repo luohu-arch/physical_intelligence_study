@@ -1,0 +1,277 @@
+{
+ "nodes": [
+  {
+   "id": "DSET",
+   "label": "60 个异构数据集<br/",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 44,
+   "y": 164,
+   "w": 233,
+   "h": 92
+  },
+  {
+   "id": "RLDS",
+   "label": "RLDS tfrecord 容器\n统一 dataloader",
+   "sub": "",
+   "icon": "spark",
+   "cls": "key",
+   "x": 343,
+   "y": 222,
+   "w": 230,
+   "h": 93
+  },
+  {
+   "id": "ALIGN",
+   "label": "canonical 相机视角\n统一分辨率",
+   "sub": "",
+   "icon": "camera",
+   "cls": "key",
+   "x": 639,
+   "y": 222,
+   "w": 227,
+   "h": 93
+  },
+  {
+   "id": "EE",
+   "label": "转 7 维末端执行器\n保留各家绝对/相对语",
+   "sub": "义",
+   "icon": "robot",
+   "cls": "key",
+   "x": 932,
+   "y": 205,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "NORM",
+   "label": "逐数据集 min-max 归\n一化",
+   "sub": "参数随数据存档",
+   "icon": "db",
+   "cls": "key",
+   "x": 1226,
+   "y": 205,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "DISC",
+   "label": "离散化 256 bins x \n8 维",
+   "sub": "第 8 维为终止位",
+   "icon": "stack",
+   "cls": "key",
+   "x": 1527,
+   "y": 205,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "MIX",
+   "label": "9 种操纵臂混合分布\n场景线索隐式判别机体",
+   "sub": "",
+   "icon": "target",
+   "cls": "train",
+   "x": 1821,
+   "y": 222,
+   "w": 236,
+   "h": 93
+  },
+  {
+   "id": "R1X",
+   "label": "RT-1-X 35M\nFiLM EfficientNet",
+   "sub": "15 帧历史",
+   "icon": "db",
+   "cls": "train",
+   "x": 2128,
+   "y": 130,
+   "w": 224,
+   "h": 126
+  },
+  {
+   "id": "R2X",
+   "label": "RT-2-X 55B PaLI-X\n动作写成文本 token",
+   "sub": "web 数据约 1:1 共训",
+   "icon": "chat",
+   "cls": "train",
+   "x": 2123,
+   "y": 280,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "WEB",
+   "label": "VLM web 预训练数据",
+   "sub": "",
+   "icon": "brain",
+   "cls": "data",
+   "x": 48,
+   "y": 280,
+   "w": 225,
+   "h": 92
+  },
+  {
+   "id": "L",
+   "label": "模仿损失\ncategorical CE",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 2444,
+   "y": 146,
+   "w": 194,
+   "h": 93
+  },
+  {
+   "id": "DENORM",
+   "label": "按机型反解归一化\n同一 token 不同物理",
+   "sub": "量",
+   "icon": "gear",
+   "cls": "act",
+   "x": 2424,
+   "y": 264,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "RUN",
+   "label": "6 种机器人真机部署\n3-10Hz 闭环出动作",
+   "sub": "",
+   "icon": "robot",
+   "cls": "act",
+   "x": 2723,
+   "y": 222,
+   "w": 220,
+   "h": 93
+  }
+ ],
+ "edges": [
+  {
+   "from": "WEB",
+   "to": "MIX",
+   "style": "fb",
+   "label": "\"co-fine-tune 底线 from sc",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "DSET",
+   "to": "RLDS",
+   "style": "thick"
+  },
+  {
+   "from": "RLDS",
+   "to": "ALIGN",
+   "style": "thick"
+  },
+  {
+   "from": "ALIGN",
+   "to": "EE",
+   "style": "thick"
+  },
+  {
+   "from": "EE",
+   "to": "NORM",
+   "style": "thick"
+  },
+  {
+   "from": "NORM",
+   "to": "DISC",
+   "style": "thick"
+  },
+  {
+   "from": "DISC",
+   "to": "MIX",
+   "style": "thick"
+  },
+  {
+   "from": "MIX",
+   "to": "R1X",
+   "style": "thick"
+  },
+  {
+   "from": "MIX",
+   "to": "R2X",
+   "style": "thick"
+  },
+  {
+   "from": "R1X",
+   "to": "L",
+   "style": "fb",
+   "label": "\"交叉熵拟合动作 token 35M 大域欠拟合",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "R2X",
+   "to": "L",
+   "style": "fb",
+   "label": "\"55B 解锁容量门槛 emergent 75.",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "R1X",
+   "to": "DENORM",
+   "style": "thick"
+  },
+  {
+   "from": "R2X",
+   "to": "DENORM",
+   "style": "thick"
+  },
+  {
+   "from": "DENORM",
+   "to": "RUN",
+   "style": "thick"
+  }
+ ],
+ "panels": [
+  {
+   "label": "60 个源数据集 / 22 种具身 / 21 机构",
+   "x": 20,
+   "y": 120,
+   "w": 281,
+   "h": 156
+  },
+  {
+   "label": "粗对齐管线（刻意零对齐机制）",
+   "x": 319,
+   "y": 161,
+   "w": 1460,
+   "h": 190
+  },
+  {
+   "label": "直接混合训练（无本体条件化/无翻译器）",
+   "x": 1797,
+   "y": 86,
+   "w": 585,
+   "h": 340
+  }
+ ],
+ "canvas": [
+  2987,
+  496
+ ],
+ "legend": [
+  "act",
+  "data",
+  "key",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  2987,
+  496
+ ],
+ "title": "open-x-embodiment",
+ "subtitle": "OXE 把全球 21 个机构的 60 个数据集统一成 RLDS 格式，拼出 100 万+ 真机轨迹、22 种机器人形态、527 种技能（160266 任务实例）的数据底座，并用",
+ "foot": "open-x-embodiment · arXiv 2310.08864 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph SRC[\"60 个源数据集 / 22 种具身 / 21 机构\"]\n        DSET[(60 个异构数据集<br/>1M+ 真机轨迹)]\n    end\n\n    subgraph PIPE[\"粗对齐管线（刻意零对齐机制）\"]\n        RLDS[\"RLDS tfrecord 容器<br/>统一 dataloader\"]\n        ALIGN[\"canonical 相机视角<br/>统一分辨率\"]\n        EE[\"转 7 维末端执行器<br/>保留各家绝对/相对语义\"]\n        NORM[\"逐数据集 min-max 归一化<br/>参数随数据存档\"]\n        DISC[\"离散化 256 bins x 8 维<br/>第 8 维为终止位\"]\n    end\n\n    subgraph MIXG[\"直接混合训练（无本体条件化/无翻译器）\"]\n        MIX{\"9 种操纵臂混合分布<br/>场景线索隐式判别机体\"}\n        R1X[\"RT-1-X 35M<br/>FiLM EfficientNet<br/>15 帧历史\"]\n        R2X[\"RT-2-X 55B PaLI-X<br/>动作写成文本 token<br/>web 数据约 1:1 共训\"]\n    end\n\n    WEB[(VLM web 预训练数据)] -.->|\"co-fine-tune 底线<br/>from scratch 0%\"| MIX\n    DSET ==> RLDS ==> ALIGN ==> EE ==> NORM ==> DISC ==> MIX\n    MIX ==> R1X\n    MIX ==> R2X\n    R1X -.->|\"交叉熵拟合动作 token<br/>35M 大域欠拟合 92%->73%\"| L[\"模仿损失<br/>categorical CE\"]\n    R2X -.->|\"55B 解锁容量门槛<br/>emergent 75.8%\"| L\n    R1X ==> DENORM[\"按机型反解归一化<br/>同一 token 不同物理量\"]\n    R2X ==> DENORM\n    DENORM ==> RUN[\"6 种机器人真机部署<br/>3-10Hz 闭环出动作\"]\n\n    class DSET,WEB data\n    class RLDS,ALIGN,EE,NORM,DISC key\n    class MIX train\n    class R1X train\n    class R2X train\n    class L loss\n    class DENORM,RUN act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3",
+ "source": "mermaid-auto"
+}

@@ -106,78 +106,9 @@ $$
 f'=\mathcal{M}(\mathcal{O}-o_{int})\,f,\qquad f'=T\,f
 $$
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    PLAY[无标注无分段 play 数据<br/>每任务 5-10 条示教]:::data
+![symskill 架构图 v3](figures/symskill/arch.svg)
 
-    subgraph OFFLINE["离线 - 符号与技能共同发明"]
-        SEG[速度变点切分<br/>premotion / motion 片段]:::train
-        VLM[离线 Gemini-2.5-Pro<br/>选静止参考物一次询问]:::frozen
-        PRED[谓词发明<br/>相对位姿端点高斯聚类]:::key
-        OPR[操作符归纳<br/>pre / eff / maintain 交集]:::key
-        SKILLLIB["SE(3) LPV-DS 技能库<br/>全局渐近稳定反馈场"]:::train
-    end
-
-    PLAY ==> SEG
-    VLM -.限定场景物体集合抑制幻觉.-> SEG
-    SEG ==> PRED
-    SEG ==> OPR
-    PRED ==> OPR
-    SEG ==> SKILLLIB
-
-    X[连续状态 x<br/>全物体 6D 位姿]:::data
-    ABS[抽象为符号状态 s<br/>马氏距离双阈值判定]:::train
-    GOAL[目标谓词合取式]:::data
-    X ==> ABS
-    PRED -.谓词库供状态判定.-> ABS
-    PLAN[A* 符号规划<br/>计划时间低于 100ms]
-    OPR -.操作符库.-> PLAN
-    GOAL ==> PLAN
-    ABS ==> PLAN
-    RUN[执行当前操作符技能<br/>LPV-DS 收敛速度场]:::act
-    SKILLLIB ==> RUN
-    PLAN ==> RUN
-    IMP["被动阻抗控制<br/>F = G - D 乘 v_ee 减 f"]:::act
-    OBSAVOID["调制矩阵避障<br/>f' = M f"]:::act
-    RUN ==> IMP
-    IMP ==> OBSAVOID
-    C1{maintain 条件仍成立?}:::loop
-    OBSAVOID ==> C1
-    REPLAN[标记操作符失败重规划<br/>上限 20 次]:::loop
-    C1 -.否.-> REPLAN
-    REPLAN -.-> PLAN
-    C2{速度近零 技能完成?}:::loop
-    C1 ==> C2
-    C2 -.否 继续收敛.-> RUN
-    C3{预期效果满足?}:::loop
-    C2 ==> C3
-    FAILMEM[失败记忆 failmem<br/>从效果高斯重采吸引子]:::mem
-    C3 -.否 写入失败记忆.-> FAILMEM
-    FAILMEM -.重定位吸引子换落点.-> RUN
-    NEXT[推进到下一操作符]
-    C3 ==> NEXT
-    STOP{目标合取式达成?}:::loop
-    NEXT ==> STOP
-    STOP -.否.-> RUN
-    STOP ==> DONE([任务完成]):::act
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：SymSkill 把模仿学习与经典 TAMP 各取一半拼起来：离线阶段只给「5 条左右示教」就能自动切分出 premotion/motion 片段、用相对位姿聚类发明谓词、跟踪谓词跃迁归纳操作符、再为每个操作符拟合一条全*
 
 ## 物理直觉解释
 

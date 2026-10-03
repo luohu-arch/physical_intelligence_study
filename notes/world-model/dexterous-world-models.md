@@ -81,54 +81,9 @@ $$
 
 **动作评估（式 9–11）。** 对候选动作逐一模拟出 $V^{(i)}_{1:F}$ 后，文本目标用 VideoCLIP 余弦相似度 $s^{(i)}_{\text{text}} = \text{sim}_{VC}(V^{(i)}_{1:F}, g_{\text{text}})$，图像目标用 $s^{(i)}_{\text{img}} = -\text{LPIPS}(I^{(i)}_F, I_{\text{goal}})$，取 $A^* = \arg\max_i s^{(i)}$——把「世界模型当模拟器」落地为免奖励、免真机试错的目标驱动动作选择。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    S0(["静态 3D 场景 S_0<br/>数字孪生只出静态部分"]) -->|"沿相机轨迹 C_1:F 渲染"| B["静态场景视频<br/>固定相机时=首帧复制"]
-    HM(["手部运动 H_1:F<br/>SMPL-X 手部 mesh"]) -->|"沿同一 C_1:F 渲染"| D["手部 mesh 视频<br/>含位置+姿态+接触几何"]
-    E(["文本提示"]) --> F["文本编码器"]
-    B ==> G["VAE 编码 -> c_s"]
-    D ==> H2["VAE 编码 -> c_h"]
-    subgraph DITG["CogVideoX-Fun-5B-InP DiT<br/>底座冻结, LoRA r=64 微调"]
-        I["inpainting 先验只学残差动态<br/>消融: mesh 渲染条件 PSNR 24.15<br/>优于 AdaLN 21.96"]
-    end
-    G ==> I
-    H2 ==> I
-    F ==> I
-    J(["噪声 latent z_t"]) --> I
-    I -.->|"flow-matching 去噪损失"| LOSS["训练目标"]
-    I ==>|"去噪"| K["VAE 解码器"]
-    K ==> L["模拟 ego 交互视频<br/>720x480 x 49 帧<br/>世界模型当模拟器用"]
-    L -.-> M["动作评估: 逐候选模拟<br/>VideoCLIP 文本分 or -LPIPS 图像分<br/>argmax 选动作, 免真机试错"]
-    N[(训练数据三元组)] ==> I
-    N2(["TRUMANS 合成三元组"]) --> N
-    N3(["TASTE-Rob 固定相机真机<br/>第 0 帧重复 + HaMeR"]) --> N
+![dexterous-world-models 架构图 v3](figures/dexterous-world-models/arch.svg)
 
-    class S0,HM,E,J,N2,N3,N data
-    class B,D key
-    class F,G,H2,K frozen
-    class I train
-    class LOSS loss
-    class L act
-    class M reward
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-```
+*架构速览：静态 3D 数字孪生只会「看」不会「动」的问题，被 DWM 用「把静态场景渲染当输入、只学动作诱导的残差动态」的方式解决：以 CogVideoX-Fun-5B-InP（全遮罩下近似恒等映射的视频修复模型）为初始化，用 L*
 
 ## 物理直觉解释
 

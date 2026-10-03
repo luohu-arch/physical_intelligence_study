@@ -1,0 +1,197 @@
+{
+ "nodes": [
+  {
+   "id": "OBS",
+   "label": "当前观测 o_t",
+   "sub": "",
+   "icon": "state",
+   "cls": "loop",
+   "x": 76,
+   "y": 106,
+   "w": 167,
+   "h": 92
+  },
+  {
+   "id": "LANG",
+   "label": "语言指令 l",
+   "sub": "",
+   "icon": "chat",
+   "cls": "loop",
+   "x": 86,
+   "y": 232,
+   "w": 148,
+   "h": 92
+  },
+  {
+   "id": "PERC",
+   "label": "感知专家<br/",
+   "sub": "",
+   "icon": "eye",
+   "cls": "loop",
+   "x": 341,
+   "y": 420,
+   "w": 167,
+   "h": 92
+  },
+  {
+   "id": "GEN",
+   "label": "前瞻生成专家<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 574,
+   "y": 420,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "CTRL",
+   "label": "控制专家<br/",
+   "sub": "",
+   "icon": "robot",
+   "cls": "loop",
+   "x": 1114,
+   "y": 420,
+   "w": 167,
+   "h": 92
+  },
+  {
+   "id": "TGT",
+   "label": "未来视觉状态<br/",
+   "sub": "",
+   "icon": "camera",
+   "cls": "loop",
+   "x": 844,
+   "y": 420,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "ROBOT",
+   "label": "机器人动作序列 a_t \n至 a_t+T",
+   "sub": "",
+   "icon": "robot",
+   "cls": "loop",
+   "x": 1347,
+   "y": 420,
+   "w": 231,
+   "h": 93
+  },
+  {
+   "id": "BASE",
+   "label": "pi_0 预训练权重基座",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 44,
+   "y": 357,
+   "w": 231,
+   "h": 92
+  },
+  {
+   "id": "LF",
+   "label": "前瞻生成损失<br/",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 58,
+   "y": 483,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "LA",
+   "label": "动作负对数似然损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 50,
+   "y": 608,
+   "w": 218,
+   "h": 92
+  },
+  {
+   "id": "LJ",
+   "label": "三阶段训练<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 66,
+   "y": 734,
+   "w": 186,
+   "h": 92
+  }
+ ],
+ "edges": [
+  {
+   "from": "OBS",
+   "to": "PERC",
+   "style": "thick"
+  },
+  {
+   "from": "LANG",
+   "to": "PERC",
+   "style": "thick"
+  },
+  {
+   "from": "PERC",
+   "to": "GEN",
+   "style": "thick"
+  },
+  {
+   "from": "GEN",
+   "to": "TGT",
+   "style": "thick"
+  },
+  {
+   "from": "TGT",
+   "to": "CTRL",
+   "style": "thick"
+  },
+  {
+   "from": "OBS",
+   "to": "CTRL",
+   "style": "thick"
+  },
+  {
+   "from": "CTRL",
+   "to": "ROBOT",
+   "style": "thick"
+  },
+  {
+   "from": "LF",
+   "to": "GEN",
+   "style": "fb"
+  },
+  {
+   "from": "LA",
+   "to": "CTRL",
+   "style": "fb"
+  }
+ ],
+ "panels": [
+  {
+   "label": "Mixture-of-Transformer 三专家",
+   "x": 317,
+   "y": 376,
+   "w": 988,
+   "h": 156
+  }
+ ],
+ "canvas": [
+  1622,
+  892
+ ],
+ "legend": [
+  "loop"
+ ],
+ "layout_wh": [
+  1622,
+  892
+ ],
+ "title": "f1-vla",
+ "subtitle": "F1-VLA 在 VLA 决策流程中引入显式视觉前瞻（visual foresight）生成——先预测「目标状态应该长什么样」，再通过逆向动力学将前瞻转化为动作，相比传统 VL",
+ "foot": "f1-vla · arXiv 2509.06951 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    OBS[当前观测 o_t]:::data\n    LANG[语言指令 l]:::data\n\n    subgraph MOT[\"Mixture-of-Transformer 三专家\"]\n        PERC[感知专家<br/>多模态 Transformer 编码]:::frozen\n        GEN[前瞻生成专家<br/>下一尺度预测 逐尺度残差精修]:::key\n        CTRL[控制专家<br/>前瞻引导逆动力学]:::act\n    end\n\n    OBS ==> PERC\n    LANG ==> PERC\n    PERC ==> GEN\n    GEN ==> TGT[未来视觉状态<br/>t+tau 步目标画面]:::env\n    TGT ==> CTRL\n    OBS ==> CTRL\n    CTRL ==> ROBOT([机器人动作序列 a_t 至 a_t+T]):::act\n    BASE[pi_0 预训练权重基座]:::frozen -.初始化.-> PERC\n    LF[前瞻生成损失<br/>与真实未来帧 L2]:::loss\n    LA[动作负对数似然损失]:::loss\n    LF -.-> GEN\n    LA -.-> CTRL\n    LJ[三阶段训练<br/>对齐预训练 - 联合预训练 - 平台微调]:::loss\n    LJ -.alpha/beta 加权联合优化.-> GEN\n    ROBOT -.每 action chunk 执行完重新生成前瞻.-> OBS\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

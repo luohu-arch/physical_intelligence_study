@@ -1,0 +1,205 @@
+{
+ "nodes": [
+  {
+   "id": "IMG",
+   "label": "相机 RGB 图像<br/",
+   "sub": "",
+   "icon": "camera",
+   "cls": "loop",
+   "x": 54,
+   "y": 106,
+   "w": 217,
+   "h": 92
+  },
+  {
+   "id": "SKETCH",
+   "label": "2.5D 轨迹草图 3 通\n道<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 346,
+   "y": 420,
+   "w": 225,
+   "h": 93
+  },
+  {
+   "id": "CONCAT",
+   "label": "6 通道拼接",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 637,
+   "y": 420,
+   "w": 148,
+   "h": 92
+  },
+  {
+   "id": "ENC",
+   "label": "EfficientNet-B3<br\n/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 851,
+   "y": 420,
+   "w": 233,
+   "h": 93
+  },
+  {
+   "id": "TRANS",
+   "label": "RT-1 Transformer<b\nr/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 1150,
+   "y": 420,
+   "w": 233,
+   "h": 93
+  },
+  {
+   "id": "ACT",
+   "label": "256 离散动作 token\n 预测",
+   "sub": "",
+   "icon": "stack",
+   "cls": "loop",
+   "x": 1449,
+   "y": 420,
+   "w": 227,
+   "h": 93
+  },
+  {
+   "id": "ROBOT",
+   "label": "Everyday Robots 移\n动操作臂",
+   "sub": "",
+   "icon": "robot",
+   "cls": "loop",
+   "x": 1742,
+   "y": 420,
+   "w": 232,
+   "h": 93
+  },
+  {
+   "id": "HUMAN",
+   "label": "人工 GUI 手绘草图",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 56,
+   "y": 232,
+   "w": 213,
+   "h": 92
+  },
+  {
+   "id": "VIDEO",
+   "label": "人类示范视频轨迹提取",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 44,
+   "y": 357,
+   "w": 236,
+   "h": 92
+  },
+  {
+   "id": "LLMG",
+   "label": "LLM 代码生成 3D 路\n径点<br/",
+   "sub": "",
+   "icon": "brain",
+   "cls": "loop",
+   "x": 50,
+   "y": 483,
+   "w": 225,
+   "h": 93
+  },
+  {
+   "id": "HINDSIGHT",
+   "label": "事后轨迹标注<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 60,
+   "y": 609,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "BC",
+   "label": "行为克隆交叉熵",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 71,
+   "y": 735,
+   "w": 182,
+   "h": 92
+  }
+ ],
+ "edges": [
+  {
+   "from": "IMG",
+   "to": "CONCAT",
+   "style": "thick"
+  },
+  {
+   "from": "SKETCH",
+   "to": "CONCAT",
+   "style": "thick"
+  },
+  {
+   "from": "CONCAT",
+   "to": "ENC",
+   "style": "thick"
+  },
+  {
+   "from": "ENC",
+   "to": "TRANS",
+   "style": "thick"
+  },
+  {
+   "from": "TRANS",
+   "to": "ACT",
+   "style": "thick"
+  },
+  {
+   "from": "ACT",
+   "to": "ROBOT",
+   "style": "thick"
+  },
+  {
+   "from": "HUMAN",
+   "to": "SKETCH",
+   "style": "thick"
+  },
+  {
+   "from": "VIDEO",
+   "to": "SKETCH",
+   "style": "thick"
+  },
+  {
+   "from": "LLMG",
+   "to": "SKETCH",
+   "style": "thick"
+  },
+  {
+   "from": "BC",
+   "to": "TRANS",
+   "style": "fb"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  2018,
+  893
+ ],
+ "legend": [
+  "loop"
+ ],
+ "layout_wh": [
+  2018,
+  893
+ ],
+ "title": "rt-trajectory",
+ "subtitle": "RT-Trajectory 提出将粗粒度 2D 轨迹草图画到 RGB 图像上作为策略的条件输入，从而让机器人泛化到训练中从未见过的全新操作任务——这是 VLA 中「任务表征」维",
+ "foot": "rt-trajectory · arXiv 2311.01977 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    IMG[相机 RGB 图像<br/>3 通道 6 帧历史]:::data\n    SKETCH[2.5D 轨迹草图 3 通道<br/>红色编码时间 绿色编码高度 交互圆圈标记]:::key\n    CONCAT[6 通道拼接]:::key\n    IMG ==> CONCAT\n    SKETCH ==> CONCAT\n    CONCAT ==> ENC[EfficientNet-B3<br/>ImageNet 预训练 首层扩至 6 通道]:::frozen\n    ENC ==> TRANS[RT-1 Transformer<br/>移除语言 FiLM 条件层]:::train\n    TRANS ==> ACT([256 离散动作 token 预测]):::act\n    ACT ==> ROBOT([Everyday Robots 移动操作臂]):::env\n    ROBOT -.逐观测闭环重规划.-> IMG\n    HUMAN[人工 GUI 手绘草图]:::data\n    VIDEO[人类示范视频轨迹提取]:::data\n    LLMG[LLM 代码生成 3D 路径点<br/>经相机内外参投影]:::data\n    HINDSIGHT[事后轨迹标注<br/>示教末端真值位置投影]:::data\n    HUMAN ==> SKETCH\n    VIDEO ==> SKETCH\n    LLMG ==> SKETCH\n    HINDSIGHT -.免人工训练标签.-> SKETCH\n    BC[行为克隆交叉熵]:::loss\n    BC -.-> TRANS\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

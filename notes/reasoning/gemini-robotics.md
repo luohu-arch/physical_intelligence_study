@@ -86,48 +86,9 @@ $$\tau_i = \{(p_1^{\text{obj}}, p_1^{\text{ee}}), (p_2^{\text{obj}}, p_2^{\text{
 - 涵盖数千种多样化的操作技能、物体、难度、长时程和灵巧度要求
 - 非动作数据：web 文档、代码、多模态内容（图像、音频、视频）、具身推理数据、VQA 数据
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    IMG[多视角 RGB + 语言指令<br/>+ 机器人状态]:::data
-    GEM[Gemini 2.0 多模态基座<br/>互联网规模预训练]:::frozen
+![gemini-robotics 架构图 v3](figures/gemini-robotics/arch.svg)
 
-    subgraph DUAL["双模型解耦 - 推理与动作分离"]
-        ER[Gemini Robotics-ER<br/>具身推理 空间理解]:::train
-        RB[云侧动作骨干<br/>ER 蒸馏版 延迟低于 160ms]:::train
-        DEC[本地动作 decoder<br/>chunking 补偿延迟达 50Hz]:::key
-    end
-
-    IMG ==> GEM
-    GEM ==> ER
-    ER ==> EROUT[检测 / 指向 / 抓取位姿 /<br/>2D 轨迹 / 3D 边界框]:::env
-    ER ==> RB
-    RB ==> DEC
-    DEC ==> ROBOT([ALOHA 2 机器人 50Hz 动作块]):::act
-    PRE[12 个月车队遥操作数据<br/>数千小时 ALOHA 2]:::data -.预训练.-> RB
-    FT[少样本微调<br/>约 100 条示范]:::loss -.-> RB
-    ICL[ICL 上下文示范<br/>位姿文本序列化 10 条]:::data -.-> ER
-    CODE[零样本代码生成模式<br/>拍摄-生成-执行-反馈]:::loop
-    CODE -.每步重规划.-> ER
-    ROBOT -.chunk 执行完重新预测.-> IMG
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：Gemini Robotics 是 Google DeepMind 基于 Gemini 2.0 构建的双模型 VLA 家族——Gemini Robotics 直接输出机器人动作，Gemini Robotics-ER 专注*
 
 ## 物理直觉解释
 

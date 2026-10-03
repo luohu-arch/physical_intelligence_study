@@ -45,47 +45,9 @@
 4. **部署即插即用**：真机侧 VLA 产出名义动作与真实 token 表征，真实 latent 直接 mean-pool 喂残差策略——mapper 不上线、无真机 RL、无在线适应；所有模型部署时全冻结。
 5. **归因验证**：集成梯度显示 VLM latent 对残差动作范数的归因在 Flower 上 72.1–89.7%、GR00T 上 84.0–90.9%，且物理输入贡献随任务切换（推块力归因升、叠杯本体归因升）——残差策略确实在按任务需要组合语义与物理信号。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    DEMO[("32 条真机 demo / 任务<br/>3D 鼠标遥操作")] ==> FT["微调后冻结 VLA<br/>Flower (1024 维) / GR00T N1.7 (2048 维)"]
-    DEMO ==> TWIN["数字孪生重建<br/>FoundationPose + MuJoCo"]
-    TWIN ==> SIMZ["仿真侧 VLM latents Z_sim"]
-    DEMO ==> REALZ["真实侧 VLM latents Z_real"]
-    SIMZ ==> MAP["Sinkhorn OT mapper (核心)<br/>4 层 Transformer + 零初始化残差<br/>分布级对齐: sim latent 拉向 real 分布<br/>轨迹进度正则, 不需帧级对齐"]
-    REALZ -.->|"对齐目标分布"| MAP
-    MAP ==> RL["TD3 残差策略 (train, 仅仿真 60k 步)<br/>输入: pool 后 latent + 名义动作 + 本体 + 腕力"]
-    FT ==> NOM["名义动作 a_vla (冻结动作头)"]
-    DEMO -.->|"demo 残差目标<br/>(a_demo - a_vla)/0.10 作正则"| RL
-    RL ==> CRITIC["双 critic (非对称)<br/>额外吃仿真特权任务状态"]
-    PRIV["仿真特权任务状态<br/>(仅训练期)"] -.->|"asymmetric critic 输入"| CRITIC
-    NOM ==> SUM(["执行动作 a = a_vla + 0.10 * a_rl"])
-    RL ==> SUM
-    SUM ==> DEPLOY["Franka 真机零样本部署<br/>原始 real latent 直入, mapper 不上线<br/>零真机 RL, 零在线适应"]
+![vlarl 架构图 v3](figures/vlarl/arch.svg)
 
-    class DEMO,SIMZ,REALZ data
-    class FT,NOM,PRIV frozen
-    class TWIN env
-    class MAP key
-    class RL train
-    class CRITIC reward
-    class SUM,DEPLOY act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-```
+*架构速览：冻结 VLA（Flower / GR00T N1.7 两个骨干），把其内部 VLM token 表征（mean-pool 后 Flower 1024 维、GR00T 2048 维）同时作为残差策略的输入和 sim-to-*
 
 ## 底层原理与数学推导
 

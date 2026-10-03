@@ -49,51 +49,9 @@ LEGO-RL（LegoX 技术报告，华为 + 港中文，**无同行评审**）解决
 
 训练基建的数据流如下——只有沙箱层是 harness 专属的，其余管线跨 agent 共享：
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    POOL(["任务池: OpenSWE 36,884 -> 策略相对难度筛 2,699<br/>4 条 rollout 解出 1-3 次的难度带"]):::data
-    SB["隔离沙箱: Docker / K8s / Nydus lazy-pull<br/>分级防作弊: 特权 sidecar 防火墙 + 隐藏 git 历史 + 评分前扣住测试"]:::env
-    HARNESS["原生 harness (当环境的一部分, 不改控制流)<br/>OpenHands / Claude Code / OpenCode"]:::loop
-    PROXY["进程内 LLM 代理: serving 边界捕获<br/>token + log-prob + mask + MoE 路由 (R3 重放)"]:::key
-    INF["推理服务器 vLLM<br/>承载被训策略 Qwen3.5-35B-A3B 稀疏 MoE"]:::train
-    VER["沙箱内可执行 verifier<br/>二值 0/1 奖励"]:::reward
-    BUF["Data buffer: 轨迹 + 奖励<br/>全异步 rollout + 部分轨迹恢复"]:::mem
-    FIL["终止感知准入: 基础设施失败轨迹<br/>权重置零, 不进组相对优势"]:::loop
-    TR["Trainer: verl + GSPO<br/>序列级几何平均比率 + 非对称 clip"]:::loss
-    UI["Live UI: 终止原因 / 任务网格 /<br/>rollout-training 一致性面板"]:::loop
-    ACC(["SWE-bench Verified: OpenHands 64.0% -> 70.4%<br/>Claude Code 62.4% -> 68.2%, 相关性保持 >0.99"]):::data
+![lego-rl 架构图 v3](figures/lego-rl/arch.svg)
 
-    POOL ==> SB
-    SB ==> HARNESS
-    HARNESS -.->|"每次模型 API 调用"| PROXY
-    PROXY -.->|"sticky routing, 训练时重放同批专家"| INF
-    HARNESS ==>|"执行后评分"| VER
-    PROXY ==>|"忠实捕获的 token 序列"| BUF
-    VER -.->|"0/1 终局奖励"| BUF
-    BUF ==> FIL
-    FIL ==> TR
-    TR -.->|"weight sync, staleness <= 1"| INF
-    TR ==> UI
-    TR ==> ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：LEGO-RL（LegoX 技术报告，华为 + 港中文，**无同行评审**）解决的是"原生 coding-agent harness 与策略梯度训练天生不对齐"的问题：harness 侧的上下文压缩与历史重写让重构出的轨*
 
 **问题形式化**。任务实例 $x = (q_x, R_x, V_x)$ 把问题陈述 $q_x$ 与初始化好的仓库环境 $R_x$ 配上一个任务专属可执行 verifier $V_x$。在第 $t$ 轮，harness 把交互与仓库状态映射为上下文：
 

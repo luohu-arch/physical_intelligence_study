@@ -1,0 +1,197 @@
+{
+ "nodes": [
+  {
+   "id": "O",
+   "label": "原始像素 o_1:T + 动\n作 a_1:T",
+   "sub": "",
+   "icon": "camera",
+   "cls": "data",
+   "x": 84,
+   "y": 130,
+   "w": 235,
+   "h": 93
+  },
+  {
+   "id": "E2",
+   "label": "ViT-tiny 编码器 + \nBN 投影头",
+   "sub": "仅 15M 参数",
+   "icon": "eye",
+   "cls": "train",
+   "x": 170,
+   "y": 283,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "Z",
+   "label": "latent z_t",
+   "sub": "",
+   "icon": "noise",
+   "cls": "env",
+   "x": 206,
+   "y": 469,
+   "w": 155,
+   "h": 92
+  },
+  {
+   "id": "P",
+   "label": "预测器\nAdaLN 动作条件注入",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "train",
+   "x": 44,
+   "y": 638,
+   "w": 223,
+   "h": 93
+  },
+  {
+   "id": "A",
+   "label": "动作 a_t",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "data",
+   "x": 344,
+   "y": 130,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "ZH",
+   "label": "预测 hat z_t+1",
+   "sub": "",
+   "icon": "gear",
+   "cls": "env",
+   "x": 188,
+   "y": 807,
+   "w": 191,
+   "h": 92
+  },
+  {
+   "id": "L1",
+   "label": "预测损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 214,
+   "y": 959,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "SR",
+   "label": "SIGReg 正则\nlatent 边缘各向同性",
+   "sub": "高斯",
+   "icon": "noise",
+   "cls": "key",
+   "x": 291,
+   "y": 621,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "TL",
+   "label": "总损失 = L_pred + \nlambda*SIGReg",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 170,
+   "y": 1111,
+   "w": 228,
+   "h": 93
+  },
+  {
+   "id": "Q",
+   "label": "梯度流过一切\n无 stop-grad 无 EM",
+   "sub": "A 目标",
+   "icon": "spark",
+   "cls": "key",
+   "x": 169,
+   "y": 1264,
+   "w": 230,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "O",
+   "to": "E2",
+   "style": "thick"
+  },
+  {
+   "from": "E2",
+   "to": "Z",
+   "style": "thick"
+  },
+  {
+   "from": "Z",
+   "to": "P",
+   "style": "thick"
+  },
+  {
+   "from": "A",
+   "to": "P",
+   "style": "thick"
+  },
+  {
+   "from": "P",
+   "to": "ZH",
+   "style": "thick"
+  },
+  {
+   "from": "ZH",
+   "to": "L1",
+   "style": "fb",
+   "label": "\"L_pred: 到真实 z_t+1 的 MSE",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "Z",
+   "to": "SR",
+   "style": "fb",
+   "label": "\"投影到 M 个随机单位向量 逐 1 维边缘做 ",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "L1",
+   "to": "TL",
+   "style": "main"
+  },
+  {
+   "from": "SR",
+   "to": "TL",
+   "style": "main"
+  },
+  {
+   "from": "TL",
+   "to": "Q",
+   "style": "thick"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  568,
+  1480
+ ],
+ "legend": [
+  "data",
+  "env",
+  "key",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  568,
+  1480
+ ],
+ "title": "leworldmodel",
+ "subtitle": "把 JEPA 世界模型的防坍塌机制从\"EMA target + stop-gradient\"或\"7-term VICReg\"压缩为一项 SIGReg 正则（强制 latent ",
+ "foot": "leworldmodel · arXiv 2603.19312 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    O([\"原始像素 o_1:T + 动作 a_1:T\"]) ==> E2[\"ViT-tiny 编码器 + BN 投影头<br/>仅 15M 参数\"]\n    E2 ==> Z[\"latent z_t\"]\n    Z ==> P[\"预测器<br/>AdaLN 动作条件注入\"]\n    A([\"动作 a_t\"]) ==> P\n    P ==> ZH[\"预测 hat z_t+1\"]\n    ZH -.->|\"L_pred: 到真实 z_t+1 的 MSE\"| L1[\"预测损失\"]\n    Z -.->|\"投影到 M 个随机单位向量<br/>逐 1 维边缘做 Epps-Pulley 检验\"| SR[\"SIGReg 正则<br/>latent 边缘各向同性高斯<br/>唯一防坍塌项 替代 EMA/VICReg 7 项\"]\n    L1 --> TL[\"总损失 = L_pred + lambda*SIGReg\"]\n    SR --> TL\n    TL ==> Q[\"梯度流过一切<br/>无 stop-grad 无 EMA 目标<br/>端到端训稳, 规划快最多 48x\"]\n\n    class O,A data\n    class E2,P train\n    class Z,ZH env\n    class SR,Q key\n    class L1,TL loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17",
+ "source": "mermaid-auto"
+}

@@ -41,40 +41,9 @@ WEAVER 是多视角 world model，同时优化预测保真度（ρ=0.870）、�
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OBS(["多视角观测<br/>稀疏记忆 + 短程历史"]) ==> ENC["Latent 编码器<br/>预训练 SD3 VAE (冻结)"]
-    ENC ==> FM["多视角 Flow Matching<br/>latent 空间联合预测<br/>FID 10.20 vs 像素 26.09 约快 3x"]
-    FM ==> FUTURE["未来 latent 预测<br/>可解码回像素 也可在 latent 评估任意策略"]
-    FM ==> REWARD["奖励预测<br/>latent reward + critic head<br/>评估/改进/规划三应用共同支点"]
-    FUTURE ==> POLICY["策略评估 / 改进 / 规划<br/>优势过滤离线蒸馏 pi0.5 +38%"]
-    REWARD ==> POLICY
+![weaver 架构图 v3](figures/weaver/arch.svg)
 
-    class OBS data
-    class ENC frozen
-    class FM key
-    class FUTURE env
-    class REWARD reward
-    class POLICY loop
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：WEAVER 是多视角 world model，同时优化预测保真度（ρ=0.870）、长程一致性、推理效率（5-10× Ctrl-World）。离策略改进无需真机交互即提升 π0.5 38% 成功率。融合 JEPA + *
 
 给定稀疏记忆 $z^{mem}_t$（每隔 k 步的 latent）与短程历史 $z^{hist}_t$（最近 m 步）以及 h 步动作块 $a_t$，世界模型预测未来 latent：
 

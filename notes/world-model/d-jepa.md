@@ -49,54 +49,9 @@ D-JEPA 抓住了 JEPA 潜空间世界模型一个被忽视的失效模式——*
 
 整体信息流：冻结的预测骨干产出候选未来 → 关系算子在集合层面读出决策结构 → 学到的结构经表征提升写回未来潜变量 → 部署时用原生潜距离规划，无需额外打分头。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    subgraph IN["输入"]
-        direction TB
-        CTX(["上下文 x + 目标 g"])
-        CAND(["K=63 候选动作序列<br/>只重排序不生成新候选"])
-    end
+![d-jepa 架构图 v3](figures/d-jepa/arch.svg)
 
-    WM["冻结预测骨干<br/>LeWM + TD-JEPA<br/>(可选 JEPA-WM / DINO-WM)"]
-    CTX ==> WM
-    CAND ==> WM
-    WM ==> DESC["目标相对描述符 d_i<br/>每条 192 维 + 序数排名 r_i"]
-    DESC ==> TOKEN["token v_i = concat(dL, dT, rL, rT)<br/>386 维"]
-    TOKEN ==> SET["置换等变集合 Transformer<br/>2 层 4 头"]
-    SET ==> HEAD["零初始化 rank-8 修正头<br/>有界输出 eps=0.2"]
-    BASE["序数基础分<br/>b_i = alpha*rL + (1-alpha)*rT"] --> SCORE["对齐分数<br/>s_i = b_i + delta_i"]
-    HEAD ==> SCORE
-    SCORE ==> GATE{"校准门控<br/>关系胜者 vs 可塑提案"}
-    GATE ==> LIFT["表征提升回写<br/>时序传输 + 精确序数实现"]
-    LIFT ==> PLAN["原生潜距离规划<br/>argmin 到目标 latent 距离"]
-    PLAN ==> EXEC["执行选中的 25 步控制序列"]
-    EXEC -.->|"执行结果监督关系对齐<br/>消融 +10.16pp 最大干预"| SET
-
-    class CTX,CAND data
-    class WM frozen
-    class DESC,TOKEN env
-    class SET,HEAD,GATE,LIFT key
-    class BASE,SCORE reward
-    class PLAN,EXEC act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-```
+*架构速览：D-JEPA 抓住了 JEPA 潜空间世界模型一个被忽视的失效模式——**决策局部预测鸿沟**：LeWM 对 63 个候选的全集排序与真实结果的 within-start Spearman 相关高达 0.90，但收窄到真*
 
 **决策监督的完整目标**。对候选 $i$，softmax 概率 $p_i=\exp(-s_i/T)/\sum_j\exp(-s_j/T)$，关系损失为
 

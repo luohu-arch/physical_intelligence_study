@@ -60,60 +60,9 @@ $$\mathcal{L}(\theta) = -\,\mathbb{E}_{d \sim p(\mathcal{M})}\,\mathbb{E}_{(o^{(
 
 **第三层：容量决定吸收上限。** 论文用 Table I 揭示了一个非平凡的规律：在数据量大的域（Bridge、RT-1 数据），35M 的 RT-1-X 反而欠拟合（Google Robot 上 73% vs 单机 RT-1 的 92%）；换成 55B 的 RT-2-X 后恢复超越（91%）。直觉是：混合分布在同一观测流形上叠加了多套动作映射，参数量不足时模型只能折中到一个「平均策略」，恰好是离散化表达力本来要避免的那个陷阱——这与 RT-1 消融中连续高斯头崩塌是同一个机制的两面。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    subgraph SRC["60 个源数据集 / 22 种具身 / 21 机构"]
-        DSET[(60 个异构数据集<br/>1M+ 真机轨迹)]
-    end
+![open-x-embodiment 架构图 v3](figures/open-x-embodiment/arch.svg)
 
-    subgraph PIPE["粗对齐管线（刻意零对齐机制）"]
-        RLDS["RLDS tfrecord 容器<br/>统一 dataloader"]
-        ALIGN["canonical 相机视角<br/>统一分辨率"]
-        EE["转 7 维末端执行器<br/>保留各家绝对/相对语义"]
-        NORM["逐数据集 min-max 归一化<br/>参数随数据存档"]
-        DISC["离散化 256 bins x 8 维<br/>第 8 维为终止位"]
-    end
-
-    subgraph MIXG["直接混合训练（无本体条件化/无翻译器）"]
-        MIX{"9 种操纵臂混合分布<br/>场景线索隐式判别机体"}
-        R1X["RT-1-X 35M<br/>FiLM EfficientNet<br/>15 帧历史"]
-        R2X["RT-2-X 55B PaLI-X<br/>动作写成文本 token<br/>web 数据约 1:1 共训"]
-    end
-
-    WEB[(VLM web 预训练数据)] -.->|"co-fine-tune 底线<br/>from scratch 0%"| MIX
-    DSET ==> RLDS ==> ALIGN ==> EE ==> NORM ==> DISC ==> MIX
-    MIX ==> R1X
-    MIX ==> R2X
-    R1X -.->|"交叉熵拟合动作 token<br/>35M 大域欠拟合 92%->73%"| L["模仿损失<br/>categorical CE"]
-    R2X -.->|"55B 解锁容量门槛<br/>emergent 75.8%"| L
-    R1X ==> DENORM["按机型反解归一化<br/>同一 token 不同物理量"]
-    R2X ==> DENORM
-    DENORM ==> RUN["6 种机器人真机部署<br/>3-10Hz 闭环出动作"]
-
-    class DSET,WEB data
-    class RLDS,ALIGN,EE,NORM,DISC key
-    class MIX train
-    class R1X train
-    class R2X train
-    class L loss
-    class DENORM,RUN act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-```
+*架构速览：OXE 把全球 21 个机构的 60 个数据集统一成 RLDS 格式，拼出 100 万+ 真机轨迹、22 种机器人形态、527 种技能（160266 任务实例）的数据底座，并用最小改动的 RT-1-X 与 RT-2-X *
 
 ## 物理直觉解释
 

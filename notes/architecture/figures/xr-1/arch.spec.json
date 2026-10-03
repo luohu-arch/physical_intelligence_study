@@ -1,0 +1,232 @@
+{
+ "nodes": [
+  {
+   "id": "HVIDEO",
+   "label": "人类视频 Ego4D\n(无动作标签)",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "data",
+   "x": 25,
+   "y": 146,
+   "w": 187,
+   "h": 93
+  },
+  {
+   "id": "VENC",
+   "label": "视觉分支编码器\n编码场景动态",
+   "sub": "",
+   "icon": "camera",
+   "cls": "key",
+   "x": 461,
+   "y": 316,
+   "w": 182,
+   "h": 93
+  },
+  {
+   "id": "RDATA",
+   "label": "机器人数据 RoboMIND\n / OXE",
+   "sub": "(带动作标注)",
+   "icon": "robot",
+   "cls": "data",
+   "x": 515,
+   "y": 130,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "MENC",
+   "label": "运动分支编码器\n编码机器人动作",
+   "sub": "",
+   "icon": "eye",
+   "cls": "key",
+   "x": 667,
+   "y": 316,
+   "w": 182,
+   "h": 93
+  },
+  {
+   "id": "CB",
+   "label": "共享离散 codebook \n约 8192",
+   "sub": "具身无关: 同一码 = ",
+   "icon": "stack",
+   "cls": "key",
+   "x": 540,
+   "y": 469,
+   "w": 231,
+   "h": 126
+  },
+  {
+   "id": "KL",
+   "label": "KL 对齐损失 D_KL(q\n_vis || q_mot)",
+   "sub": "强制视觉分布靠拢运动",
+   "icon": "camera",
+   "cls": "loss",
+   "x": 245,
+   "y": 130,
+   "w": 236,
+   "h": 126
+  },
+  {
+   "id": "LUVMC",
+   "label": "Stage 1 损失: 双分\n支重建 L1 + VQ 目标",
+   "sub": "+ beta * KL 对齐",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 784,
+   "y": 130,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "UVMC",
+   "label": "UVMC token\n视觉动态与运动模式的",
+   "sub": "翻译层",
+   "icon": "camera",
+   "cls": "key",
+   "x": 537,
+   "y": 655,
+   "w": 236,
+   "h": 126
+  },
+  {
+   "id": "VLM",
+   "label": "VLM backbone\n(SigLIP 约 400M + ",
+   "sub": "LLM)",
+   "icon": "brain",
+   "cls": "train",
+   "x": 539,
+   "y": 841,
+   "w": 232,
+   "h": 126
+  },
+  {
+   "id": "LMSE",
+   "label": "Stage 2 损失: UVMC\n token 回归 MSE",
+   "sub": "+ 动作头 MSE 并行回",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 1052,
+   "y": 130,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "FT",
+   "label": "Stage 3: 任务适配 \npost-training",
+   "sub": "新任务仅 20 demos",
+   "icon": "db",
+   "cls": "train",
+   "x": 542,
+   "y": 1027,
+   "w": 227,
+   "h": 126
+  },
+  {
+   "id": "ACT",
+   "label": "动作预测\n6 具身 120+ 任务 1",
+   "sub": "4000+ 真机 rollout",
+   "icon": "lightning",
+   "cls": "act",
+   "x": 540,
+   "y": 1213,
+   "w": 230,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "HVIDEO",
+   "to": "VENC",
+   "style": "thick"
+  },
+  {
+   "from": "RDATA",
+   "to": "VENC",
+   "style": "thick"
+  },
+  {
+   "from": "RDATA",
+   "to": "MENC",
+   "style": "thick"
+  },
+  {
+   "from": "VENC",
+   "to": "CB",
+   "style": "main"
+  },
+  {
+   "from": "MENC",
+   "to": "CB",
+   "style": "main"
+  },
+  {
+   "from": "KL",
+   "to": "VENC",
+   "style": "fb"
+  },
+  {
+   "from": "LUVMC",
+   "to": "CB",
+   "style": "fb"
+  },
+  {
+   "from": "CB",
+   "to": "UVMC",
+   "style": "thick"
+  },
+  {
+   "from": "UVMC",
+   "to": "VLM",
+   "style": "loss",
+   "label": "\"Stage 2: 辅助监督注入\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "LMSE",
+   "to": "VLM",
+   "style": "fb"
+  },
+  {
+   "from": "VLM",
+   "to": "FT",
+   "style": "thick"
+  },
+  {
+   "from": "FT",
+   "to": "ACT",
+   "style": "thick"
+  }
+ ],
+ "panels": [
+  {
+   "label": "UVMC: 统一视动编码 (核心)<br/>双分支 VQ-V",
+   "x": 437,
+   "y": 272,
+   "w": 436,
+   "h": 343
+  }
+ ],
+ "canvas": [
+  1310,
+  1429
+ ],
+ "legend": [
+  "act",
+  "data",
+  "key",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  1310,
+  1429
+ ],
+ "title": "xr-1",
+ "subtitle": "XR-1 提出 Unified Vision-Motion Codes (UVMC)：用双分支 VQ-VAE 将视觉动态和机器人运动联合编码到共享离散 latent 空间。三阶",
+ "foot": "xr-1 · arXiv 2511.02776 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    HVIDEO([\"人类视频 Ego4D<br/>(无动作标签)\"]) ==> VENC\n    RDATA([\"机器人数据 RoboMIND / OXE<br/>(带动作标注)\"]) ==> VENC\n    RDATA ==> MENC\n    subgraph UVMCG[\"UVMC: 统一视动编码 (核心)<br/>双分支 VQ-VAE, 共享离散空间\"]\n        VENC[\"视觉分支编码器<br/>编码场景动态\"]\n        MENC[\"运动分支编码器<br/>编码机器人动作\"]\n        CB[\"共享离散 codebook 约 8192<br/>具身无关: 同一码 = 抓取<br/>(UR5 与人形共用)\"]\n    end\n    VENC --> CB\n    MENC --> CB\n    KL[\"KL 对齐损失 D_KL(q_vis || q_mot)<br/>强制视觉分布靠拢运动分布<br/>(去 KL: 66.7% -> 48.3%)\"] -.-> VENC\n    LUVMC[\"Stage 1 损失: 双分支重建 L1 + VQ 目标<br/>+ beta * KL 对齐\"] -.-> CB\n    CB ==> UVMC([\"UVMC token<br/>视觉动态与运动模式的翻译层\"])\n    UVMC ==>|\"Stage 2: 辅助监督注入\"| VLM[\"VLM backbone<br/>(SigLIP 约 400M + LLM)\"]\n    LMSE[\"Stage 2 损失: UVMC token 回归 MSE<br/>+ 动作头 MSE 并行回归\"] -.-> VLM\n    VLM ==> FT[\"Stage 3: 任务适配 post-training<br/>新任务仅 20 demos\"]\n    FT ==> ACT([\"动作预测<br/>6 具身 120+ 任务 14000+ 真机 rollouts<br/>平均 72.0% (pi0.5 为 41.0%)\"])\n\n    class HVIDEO,RDATA data\n    class VENC,MENC,CB,UVMC key\n    class VLM,FT train\n    class ACT act\n    class KL,LUVMC,LMSE loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

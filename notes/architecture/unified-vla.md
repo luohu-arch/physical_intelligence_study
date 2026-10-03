@@ -117,45 +117,9 @@ $$\Delta S(d) = S_{\text{UniVLA}}(d) - S_{\pi_0\text{-FAST}}(d)$$
 
 当 $d$ 较大时，π0-FAST 的能力因子 $\lambda_{\pi_0\text{-FAST}}(d)$ 衰减更快，因为没有世界模型带来的因果理解，无法处理需要多步推理和因果预测的长程任务。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    VIS(["视觉 (2-3 路 RGB)"]) --> TOK
-    LANG(["语言指令"]) --> TOK
-    ACTIN(["动作示教"]) --> TOK
-    TOK["统一 token 化 (核心)<br/>VQ 视觉 token + FAST 动作 token (1024 词表)<br/>共享离散词表, 无模态特定分支"]
-    TOK ==> AR["自回归 Transformer<br/>(Emu3 初始化)<br/>单一 next-token 目标联合建模"]
-    VD(["622K 机器人操作视频<br/>(无语言/动作标注)"]) ==> WM["世界模型后训练<br/>仅监督 vision token<br/>预测下一帧学因果动态"]
-    WM -.->|"因果先验注入权重<br/>(长程任务的关键)"| AR
-    LAR["损失 L_AR: 统一 next-token NLL<br/>模态权重 1 : 1 : 2"] -.-> AR
-    LWM["损失 L_WM: 下一帧 vision token 预测"] -.-> WM
-    AR ==> POL["下游策略学习<br/>各基准 8k-20k 步任务微调"]
-    POL ==> ACT(["动作 token 预测<br/>LIBERO 95.5% vs pi0-FAST 85.5%"])
-    ACT -.->|"逐 chunk 重观测<br/>(LIBERO/CALVIN 为 10, SimplerEnv 为 5)"| VIS
+![unified-vla 架构图 v3](figures/unified-vla/arch.svg)
 
-    class VIS,LANG,ACTIN,VD data
-    class TOK key
-    class AR,POL train
-    class WM env
-    class ACT act
-    class LAR,LWM loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：UniVLA 将视觉、语言、动作信号全部统一为离散 token 序列，用自回归 Transformer 进行联合建模，在 post-training 阶段引入世界模型学习视频中的因果动态，在 LIBERO 上以 95.5*
 
 ## 物理直觉解释
 

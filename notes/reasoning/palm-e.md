@@ -69,55 +69,9 @@ $$x_i^{img} = \psi\big(\tilde{\phi}_{ViT}(I)_i\big) \in \mathbb{R}^k$$
 
 **object-centric 掩码分解。** 有真值掩码时可以把全局 ViT 表征切成逐物体切片 $x^j_{1:m} = \phi_{ViT}(M_j \circ I)$，把「静态网格」重构为「实例集合」，与 LLM 预训练的符号归纳偏置对齐。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    IMG[RGB 图像 I]:::data
-    STATE[状态估计 s]:::data
-    OSRTIN[多视角图像序列]:::data
-    TEXT[文本 token 序列]:::data
+![palm-e 架构图 v3](figures/palm-e/arch.svg)
 
-    subgraph EMB["观测编码与嵌入空间对齐"]
-        VIT[ViT-4B / 22B<br/>图像分类预训练]:::frozen
-        MLP[状态向量 MLP 编码]:::train
-        OSRTE[OSRT 3D 场景表征<br/>object slots 无需真值掩码]:::frozen
-        INJ[多模态句子注入<br/>仿射投影 psi 对齐维度<br/>向量可插入任意位置]:::key
-    end
-
-    IMG ==> VIT
-    STATE ==> MLP
-    OSRTIN ==> OSRTE
-    VIT ==> INJ
-    MLP ==> INJ
-    OSRTE ==> INJ
-    PALM[PaLM LLM 8B / 62B / 540B<br/>微调或冻结两版对照]:::train
-    INJ ==> PALM
-    TEXT ==> PALM
-    PALM ==> PLAN[自然语言计划<br/>含 entity referral 物体指代 token]:::act
-    PLAN ==> RT1[低层技能策略<br/>RT-1 等现成策略]:::act
-    RT1 ==> ROBOT([移动操作机器人 5Hz 执行]):::env
-    ROBOT -.每 4s 基于新观测重规划.-> IMG
-    L[前缀后文本 token 交叉熵]:::loss
-    L -.-> PALM
-    MIX["full mixture 共训<br/>Webli 52.4 百分比 + 具身数据 8.9 百分比"]:::data
-    MIX -.共训正迁移.-> PALM
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：PaLM-E 用「多模态句子」把图像、状态估计、神经 3D 场景表征（OSRT）以向量形式直接插入 PaLM（8B/62B/540B）的语言 token 流中端到端训练——最大版本 PaLM-E-562B 是当时已报道最*
 
 ## 物理直觉解释
 

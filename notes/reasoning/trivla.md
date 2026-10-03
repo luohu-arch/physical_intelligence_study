@@ -43,60 +43,9 @@ TriVLA 受认知神经科学的「情景记忆」理论启发，提出首个 VLA
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    IMG[双视角 RGB 观测<br/>第三人称 + 腕载 D455]:::data
-    LANG[语言指令]:::data
-    STATE[机器人状态]:::data
+![trivla 架构图 v3](figures/trivla/arch.svg)
 
-    subgraph SYS2["System 2 语义接地 27.5ms"]
-        VLM[Eagle-2 VLM<br/>第 12 层嵌入 预训练冻结]:::frozen
-    end
-
-    subgraph SYS3["System 3 时序动态感知 85.9ms"]
-        SVD[微调 Stable Video Diffusion<br/>当前帧加噪后单步前向]:::key
-    end
-
-    subgraph SYS1["System 1 动作生成"]
-        DIT[DiT 流匹配策略<br/>10 步动作块]:::act
-    end
-
-    IMG ==> VLM
-    LANG ==> VLM
-    STATE ==> VLM
-    IMG ==> SVD
-    QVL[语义特征 Q_vl + 状态 token Q_s]
-    VLM ==> QVL
-    FP[预测性时序特征 F_p<br/>多尺度上采样层聚合]:::env
-    SVD ==> FP
-    COMP[可学习 token 时空注意力压缩<br/>输出 Q_p]:::train
-    FP ==> COMP
-    QVL ==> DIT
-    COMP ==> DIT
-    DIT ==> ROBOT([KINOVA 机器人 约 36Hz 动作]):::act
-    LD[扩散重建损失<br/>SVD 微调]:::loss
-    LFM[流匹配动作损失]:::loss
-    LD -.-> SVD
-    LFM -.-> DIT
-    ROBOT -.每 10 步 chunk 滚窗重前向.-> IMG
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：TriVLA 受认知神经科学的「情景记忆」理论启发，提出首个 VLA 中的三元系统架构——VLM（System 2）负责语义接地、视频扩散模型（System 3）负责时序动态感知、流匹配策略（System 1）负责动作生*
 
 TriVLA 的核心创新在于将「情景记忆」（episodic memory）这一认知神经科学概念引入 VLA 架构。人类的大脑不会每次从零开始规划动作，而是回忆过去类似情景的经验，结合对未来的预测来指导当前行为。TriVLA 用三个系统模拟这一过程。
 

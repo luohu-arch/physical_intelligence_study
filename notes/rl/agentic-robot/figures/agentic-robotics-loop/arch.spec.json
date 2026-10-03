@@ -1,0 +1,356 @@
+{
+ "nodes": [
+  {
+   "id": "OBJ",
+   "label": "不可变 objective\n指标 + 方向 + 阈值 ",
+   "sub": "+ 评测命令 + run 目",
+   "icon": "chat",
+   "cls": "loop",
+   "x": 15,
+   "y": 130,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "CTRL",
+   "label": "LLM 主 agent 控制\n器",
+   "sub": "有限上下文只花在决策",
+   "icon": "brain",
+   "cls": "loop",
+   "x": 284,
+   "y": 130,
+   "w": 236,
+   "h": 126
+  },
+  {
+   "id": "NOTE",
+   "label": "共享 notebook 跨 r\nun 记忆",
+   "sub": "每轮一行 did/learn",
+   "icon": "db",
+   "cls": "loop",
+   "x": 553,
+   "y": 130,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "REG",
+   "label": "能力注册表: 质量五\n态梯 + Wilson 下界",
+   "sub": "排序",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 680,
+   "y": 1452,
+   "w": 227,
+   "h": 126
+  },
+  {
+   "id": "BIND",
+   "label": "Bind\n绑定 objective",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 803,
+   "y": 316,
+   "w": 191,
+   "h": 93
+  },
+  {
+   "id": "ANA",
+   "label": "Analyze\nworker 分析账本与历",
+   "sub": "史轮次",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 782,
+   "y": 469,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "ACT",
+   "label": "Act\n经 skill 调用 tool",
+   "sub": "",
+   "icon": "tree",
+   "cls": "loop",
+   "x": 784,
+   "y": 655,
+   "w": 228,
+   "h": 93
+  },
+  {
+   "id": "MEA",
+   "label": "Measure\n控制器自持解析评测输",
+   "sub": "出",
+   "icon": "robot",
+   "cls": "loop",
+   "x": 780,
+   "y": 960,
+   "w": 236,
+   "h": 126
+  },
+  {
+   "id": "SCO",
+   "label": "Score\nstagnation 计数",
+   "sub": "",
+   "icon": "reward",
+   "cls": "loop",
+   "x": 798,
+   "y": 1146,
+   "w": 200,
+   "h": 93
+  },
+  {
+   "id": "COM",
+   "label": "Commit\n原子落账",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 828,
+   "y": 1299,
+   "w": 140,
+   "h": 93
+  },
+  {
+   "id": "POL",
+   "label": "训好的 policy",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "loop",
+   "x": 815,
+   "y": 147,
+   "w": 179,
+   "h": 92
+  },
+  {
+   "id": "TRA",
+   "label": "trainer 训练流水线",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 1028,
+   "y": 147,
+   "w": 225,
+   "h": 92
+  },
+  {
+   "id": "EVAL",
+   "label": "evaluator 评测命令",
+   "sub": "",
+   "icon": "chat",
+   "cls": "loop",
+   "x": 1286,
+   "y": 147,
+   "w": 227,
+   "h": 92
+  },
+  {
+   "id": "GATE",
+   "label": "晋升统计门: Agresti\n-Caffo 半宽",
+   "sub": "delta >= 1.5w 直接",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 1547,
+   "y": 130,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "EXIT",
+   "label": "exit 条件满足?",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 930,
+   "y": 1469,
+   "w": 187,
+   "h": 92
+  },
+  {
+   "id": "ACC",
+   "label": "locked acceptance \nholdout",
+   "sub": "退出时只读一次",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 782,
+   "y": 1638,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "TOOLS",
+   "label": "TOOLS",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 828,
+   "y": 808,
+   "w": 140,
+   "h": 92
+  }
+ ],
+ "edges": [
+  {
+   "from": "BIND",
+   "to": "ANA",
+   "style": "thick"
+  },
+  {
+   "from": "ANA",
+   "to": "ACT",
+   "style": "thick"
+  },
+  {
+   "from": "ACT",
+   "to": "MEA",
+   "style": "thick"
+  },
+  {
+   "from": "MEA",
+   "to": "SCO",
+   "style": "thick"
+  },
+  {
+   "from": "SCO",
+   "to": "COM",
+   "style": "thick"
+  },
+  {
+   "from": "OBJ",
+   "to": "BIND",
+   "style": "thick"
+  },
+  {
+   "from": "CTRL",
+   "to": "BIND",
+   "style": "fb",
+   "label": "\"十一不变式约束下的管环决策\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "NOTE",
+   "to": "BIND",
+   "style": "fb",
+   "label": "\"bind 时读, 不作指令\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "ACT",
+   "to": "TOOLS",
+   "style": "thick",
+   "label": "\"skill 决定怎么做, tool 真正干活\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "TOOLS",
+   "to": "MEA",
+   "style": "fb",
+   "label": "\"结果信封回传: 失败与超时也是结果\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "GATE",
+   "to": "SCO",
+   "style": "fb",
+   "label": "\"拦截错误晋升: 假晋升率 0.001/run\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "REG",
+   "to": "ACT",
+   "style": "fb",
+   "label": "\"unvalidated 或 stale 禁入无",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "COM",
+   "to": "REG",
+   "style": "thick",
+   "label": "\"质量按 benchmark 分 key 更新\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "COM",
+   "to": "EXIT",
+   "style": "thick"
+  },
+  {
+   "from": "EXIT",
+   "to": "ANA",
+   "style": "fb",
+   "label": "\"否: 停滞强制切换策略类\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "EXIT",
+   "to": "ACC",
+   "style": "thick",
+   "label": "\"是\""
+  }
+ ],
+ "panels": [
+  {
+   "label": "轮次事务 harness: commit-keyed, 崩溃恢复",
+   "x": 756,
+   "y": 272,
+   "w": 284,
+   "h": 1140
+  },
+  {
+   "label": "工具边界: 世界执行皆工具 (MCP 调用面, back",
+   "x": 791,
+   "y": 103,
+   "w": 746,
+   "h": 156
+  }
+ ],
+ "canvas": [
+  1797,
+  1854
+ ],
+ "legend": [
+  "loop"
+ ],
+ "layout_wh": [
+  1797,
+  1854
+ ],
+ "title": "agentic-robotics-loop",
+ "subtitle": "AgenticRobotics 把 Claude Code/Codex 式的\"主 agent 管环 + 子 agent 执行 + 工具干活\"架构搬到机器人策略改进的外层研究循环",
+ "foot": "agentic-robotics-loop · arXiv 2608.07555 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBJ([\"不可变 objective<br/>指标 + 方向 + 阈值 + 评测命令 + run 目录\"]):::data\n    CTRL[\"LLM 主 agent 控制器<br/>有限上下文只花在决策, 从不触碰物理\"]:::frozen\n    NOTE[\"共享 notebook 跨 run 记忆<br/>每轮一行 did/learned/source, 数据非指令\"]:::mem\n    REG[\"能力注册表: 质量五态梯 + Wilson 下界排序<br/>测量绑定 artifact 版本, 重训练即自动 stale\"]:::key\n\n    subgraph TX[\"轮次事务 harness: commit-keyed, 崩溃恢复只补齐缺失阶段\"]\n        direction TB\n        BIND[\"Bind<br/>绑定 objective\"]:::loop ==> ANA[\"Analyze<br/>worker 分析账本与历史轮次\"]:::loop\n        ANA ==> ACT[\"Act<br/>经 skill 调用 tool\"]:::loop\n        ACT ==> MEA[\"Measure<br/>控制器自持解析评测输出\"]:::loop\n        MEA ==> SCO[\"Score<br/>stagnation 计数\"]:::loop\n        SCO ==> COM[\"Commit<br/>原子落账\"]:::loop\n    end\n\n    subgraph TOOLS[\"工具边界: 世界执行皆工具 (MCP 调用面, backend 无关)\"]\n        direction LR\n        POL[\"训好的 policy\"]:::env\n        TRA[\"trainer 训练流水线\"]:::env\n        EVAL[\"evaluator 评测命令\"]:::env\n    end\n\n    GATE[\"晋升统计门: Agresti-Caffo 半宽<br/>delta >= 1.5w 直接晋升, 小正差触发确认检验\"]:::reward\n    EXIT{\"exit 条件满足?\"}\n    ACC([\"locked acceptance holdout<br/>退出时只读一次\"]):::data\n\n    OBJ ==> BIND\n    CTRL -.->|\"十一不变式约束下的管环决策\"| BIND\n    NOTE -.->|\"bind 时读, 不作指令\"| BIND\n    ACT ==>|\"skill 决定怎么做, tool 真正干活\"| TOOLS\n    TOOLS -.->|\"结果信封回传: 失败与超时也是结果\"| MEA\n    GATE -.->|\"拦截错误晋升: 假晋升率 0.001/run\"| SCO\n    REG -.->|\"unvalidated 或 stale 禁入无人值守动作集\"| ACT\n    COM ==>|\"质量按 benchmark 分 key 更新\"| REG\n    COM ==> EXIT\n    EXIT -.->|\"否: 停滞强制切换策略类\"| ANA\n    EXIT ==>|\"是\"| ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

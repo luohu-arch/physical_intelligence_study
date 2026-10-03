@@ -47,62 +47,9 @@ AgenticRobotics 把 Claude Code/Codex 式的"主 agent 管环 + 子 agent 执行
 
 一轮实验事务的完整闭环如下——每个危险决策（晋升、中断、能力信任、测量）都由一个独立机制治理：
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OBJ(["不可变 objective<br/>指标 + 方向 + 阈值 + 评测命令 + run 目录"]):::data
-    CTRL["LLM 主 agent 控制器<br/>有限上下文只花在决策, 从不触碰物理"]:::frozen
-    NOTE["共享 notebook 跨 run 记忆<br/>每轮一行 did/learned/source, 数据非指令"]:::mem
-    REG["能力注册表: 质量五态梯 + Wilson 下界排序<br/>测量绑定 artifact 版本, 重训练即自动 stale"]:::key
+![agentic-robotics-loop 架构图 v3](figures/agentic-robotics-loop/arch.svg)
 
-    subgraph TX["轮次事务 harness: commit-keyed, 崩溃恢复只补齐缺失阶段"]
-        direction TB
-        BIND["Bind<br/>绑定 objective"]:::loop ==> ANA["Analyze<br/>worker 分析账本与历史轮次"]:::loop
-        ANA ==> ACT["Act<br/>经 skill 调用 tool"]:::loop
-        ACT ==> MEA["Measure<br/>控制器自持解析评测输出"]:::loop
-        MEA ==> SCO["Score<br/>stagnation 计数"]:::loop
-        SCO ==> COM["Commit<br/>原子落账"]:::loop
-    end
-
-    subgraph TOOLS["工具边界: 世界执行皆工具 (MCP 调用面, backend 无关)"]
-        direction LR
-        POL["训好的 policy"]:::env
-        TRA["trainer 训练流水线"]:::env
-        EVAL["evaluator 评测命令"]:::env
-    end
-
-    GATE["晋升统计门: Agresti-Caffo 半宽<br/>delta >= 1.5w 直接晋升, 小正差触发确认检验"]:::reward
-    EXIT{"exit 条件满足?"}
-    ACC(["locked acceptance holdout<br/>退出时只读一次"]):::data
-
-    OBJ ==> BIND
-    CTRL -.->|"十一不变式约束下的管环决策"| BIND
-    NOTE -.->|"bind 时读, 不作指令"| BIND
-    ACT ==>|"skill 决定怎么做, tool 真正干活"| TOOLS
-    TOOLS -.->|"结果信封回传: 失败与超时也是结果"| MEA
-    GATE -.->|"拦截错误晋升: 假晋升率 0.001/run"| SCO
-    REG -.->|"unvalidated 或 stale 禁入无人值守动作集"| ACT
-    COM ==>|"质量按 benchmark 分 key 更新"| REG
-    COM ==> EXIT
-    EXIT -.->|"否: 停滞强制切换策略类"| ANA
-    EXIT ==>|"是"| ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：AgenticRobotics 把 Claude Code/Codex 式的"主 agent 管环 + 子 agent 执行 + 工具干活"架构搬到机器人策略改进的外层研究循环上，核心差异只有一条：机器人工具（训好的策略*
 
 ## 底层原理与数学推导
 

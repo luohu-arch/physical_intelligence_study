@@ -48,53 +48,9 @@ DexTacWAM 把 TacWAM 一系的视触觉世界建模从平行夹爪推进到 22-D
 
 架构是两块 Transformer：世界模型 Transformer（×N）融合视觉与双手触觉 token（模态内自注意力 + 共享跨模态自注意力）产出预测 latent 构成联合世界状态；动作模型（×N）以本体感觉状态 token 为条件交叉注意力到世界模型 latent 上预测力、动作与下一状态。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    subgraph TACT["触觉压缩器 (5:1 压缩, 保 89.4% 接触召回)"]
-        FING(["十指指尖触觉图<br/>单通道"]) --> ADAPT["1x1 灰度转 RGB 适配器<br/>初始化为恒等拷贝"]
-        ADAPT --> VAE["冻结 LTX 视觉 VAE 编码器<br/>十指共享权重"]
-        VAE --> FIV["每手 5 指各一份 latent 网格"]
-        FIV --> ADD["加可学习手指身份嵌入"]
-        POSE(["手部位姿 q_t"]) --> PE["位姿编码器<br/>零初始化增益 alpha_q"]
-        ADD --> POOL["逐格 6-token 集合自注意力<br/>手查询 + 5 指 token, 保留手查询"]
-        PE --> POOL
-        POOL --> ST["分治时空注意力<br/>覆盖 T_lat 与 H x W 网格"]
-        ST --> TLAT["每手触觉 latent<br/>128 x T_lat x 6 x 8<br/>作为额外一个视角"]
-    end
+![dextacwam 架构图 v3](figures/dextacwam/arch.svg)
 
-    VIS(["头部 + 腕部 RGB 视角"]) --> LAT["视觉 latent"]
-    LAT ==> DIT["视频扩散 DiT<br/>V = V_v + V_tau 视角联合去噪<br/>分模态加权 flow-matching 损失"]
-    TLAT ==> DIT
-    DIT ==> S["视触觉联合世界状态 s_t<br/>触觉接触演化被显式预测"]
-    S ==> ACT["动作专家<br/>共享交叉注意力<br/>逐模态 K/V RMS 归一化(硬依赖)"]
-    PROP(["本体状态 token"]) ==> ACT
-    ACT ==> OUT["194 维动作<br/>60 维指尖力 + 臂 EEF 位姿<br/>+ 手目标 + 本体"]
-
-    class FING,POSE,VIS,PROP data
-    class VAE frozen
-    class ADAPT,ADD,PE,ST,DIT,ACT train
-    class FIV,LAT,S env
-    class POOL,TLAT key
-    class OUT act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-```
+*架构速览：DexTacWAM 把 TacWAM 一系的视触觉世界建模从平行夹爪推进到 22-DoF 双灵巧手：核心主张是**触觉接触演化本身要作为被预测世界状态的一部分**（$s_t=\{z^v_t,\hat{z}^{\tau,L*
 
 **模态分裂去噪目标**（式 3）：干净联合 latent $s_{\text{clean}}=[z^v\Vert\hat{z}^\tau]$，采样噪声水平 $\sigma\in(0,1]$ 与高斯噪声 $\epsilon$，训练 DiT 预测 flow-matching 速度 $v_\theta(s_\sigma,\sigma)\approx\epsilon-s_{\text{clean}}$，损失分模态加权：
 

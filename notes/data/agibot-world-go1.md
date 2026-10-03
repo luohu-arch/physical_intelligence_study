@@ -167,63 +167,6 @@ $A_t = [a_t, \dots, a_{t+H}]$，$H=30$；$\epsilon_\theta$ 以视觉、指令、
 6. π0 对照（camera-ready 新增）是否获得与 GO-1 等价的 beta 预训练 + 任务微调，还是仅开源权重直接评测？π0 专有的灵巧动作数据是否被排除？
 7. failure-recovery 数据（~1%）论文只讲「可用于对齐/反思」却无任何实验——它是数据集卖点还是真实增益？
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TB
-    subgraph DATA["预训练数据混合"]
-        WEB(["网络人类视频 Ego4D"])
-        VL(["网络图文"])
-        ROB(["跨本体机器人数据"])
-        AGI[("AgiBot World<br/>1M+ 真机轨迹")]
-    end
+![agibot-world-go1 架构图 v3](figures/agibot-world-go1/arch.svg)
 
-    subgraph S1["Stage 1: LAM 潜动作模块 (离线)"]
-        ENC["逆动力学 ST-Transformer<br/>编码器"]
-        VQ["VQ-VAE 码本<br/>每轨迹 k=4 个 latent token"]
-        DEC["正动力学解码器"]
-        ENC ==> VQ ==> DEC
-    end
-
-    subgraph S2["Stage 2: ViLLA 策略主干"]
-        DIJ["DiJepa 视觉编码器"]
-        QW2["Qwen2.5-VL 7B<br/>(MoE 路由专家)"]
-        HEAD["动作专家头"]
-    end
-
-    WEB --> ENC
-    ROB --> ENC
-    AGI --> ENC
-    ENC -.->|"latent 动作条件"| DIJ
-    VL ==> QW2
-    DIJ ==> QW2
-    QW2 ==> HEAD
-    HEAD ==>|"连续动作 chunk"| CTRL["G1 真机执行"]
-    CTRL -.->|"新观测"| DIJ
-    VQ -.->|"L_rec + L_dynamics"| ENC
-
-    class WEB,VL,ROB data
-    class AGI data
-    class VQ key
-    class ENC,DEC train
-    class DIJ,QW2 frozen
-    class HEAD train
-    class CTRL act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：机器人操作缺高质量大规模数据（Problem），AgiBot 用 4000 m² 场地、100+ 台同构 G1 人形、标准化采集 + 人为环校验造出 1,001,552 条轨迹 / 2976.4 小时 / 217 任务 *

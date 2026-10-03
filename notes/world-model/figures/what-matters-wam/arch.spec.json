@@ -1,0 +1,217 @@
+{
+ "nodes": [
+  {
+   "id": "Q",
+   "label": "WAM 设计空间: 同一基座\n单变量替换 逐轴受控消融",
+   "sub": "",
+   "icon": "spark",
+   "cls": "key",
+   "x": 430,
+   "y": 130,
+   "w": 264,
+   "h": 93
+  },
+  {
+   "id": "AXIS1",
+   "label": "轴 1: 6 种视频-动作因果结\n构",
+   "sub": "框架 = Fast-WAM",
+   "icon": "lightning",
+   "cls": "train",
+   "x": 108,
+   "y": 315,
+   "w": 287,
+   "h": 126
+  },
+  {
+   "id": "AXIS2",
+   "label": "轴 2: 4 族 8 种潜表征\n框架 = LDA-1B",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 434,
+   "y": 332,
+   "w": 253,
+   "h": 93
+  },
+  {
+   "id": "AXIS3",
+   "label": "轴 3: 4 种训练目标 BC/IDM\n/FDM/VG",
+   "sub": "框架 = LDA-1B",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 728,
+   "y": 315,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "ID1",
+   "label": "RoboCasa-GR1\n分布内 ID",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 44,
+   "y": 550,
+   "w": 174,
+   "h": 93
+  },
+  {
+   "id": "OOD1",
+   "label": "LIBERO / LIBERO-Plus\n七类受控扰动 OOD",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 258,
+   "y": 550,
+   "w": 253,
+   "h": 93
+  },
+  {
+   "id": "PROBE",
+   "label": "Block 0/7/15 线性探针\n预测专家动作, held-out R^",
+   "sub": "2",
+   "icon": "lightning",
+   "cls": "loss",
+   "x": 551,
+   "y": 533,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "GRAD",
+   "label": "成对梯度余弦对齐\n+ 逐维目标散度",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 881,
+   "y": 550,
+   "w": 200,
+   "h": 93
+  },
+  {
+   "id": "INTERV",
+   "label": "策略内干预生成未来:\n内容腐蚀 0.10/0.25/0.50",
+   "sub": "去噪末端 25/50/100% 时序",
+   "icon": "robot",
+   "cls": "loss",
+   "x": 586,
+   "y": 751,
+   "w": 282,
+   "h": 126
+  },
+  {
+   "id": "DROID",
+   "label": "DROID 离线动作预测 200K \n步",
+   "sub": "MSE / L1 / Acc@0.1 / Acc",
+   "icon": "lightning",
+   "cls": "loss",
+   "x": 256,
+   "y": 751,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "FIND",
+   "label": "共同因子: 时间组织通道\n时序反转 OOD 掉 24-32%",
+   "sub": "最强内容腐蚀仅 <1%",
+   "icon": "spark",
+   "cls": "key",
+   "x": 430,
+   "y": 969,
+   "w": 264,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "Q",
+   "to": "AXIS1",
+   "style": "main"
+  },
+  {
+   "from": "Q",
+   "to": "AXIS2",
+   "style": "main"
+  },
+  {
+   "from": "Q",
+   "to": "AXIS3",
+   "style": "main"
+  },
+  {
+   "from": "AXIS1",
+   "to": "ID1",
+   "style": "main"
+  },
+  {
+   "from": "AXIS1",
+   "to": "OOD1",
+   "style": "main"
+  },
+  {
+   "from": "AXIS2",
+   "to": "PROBE",
+   "style": "main"
+  },
+  {
+   "from": "AXIS3",
+   "to": "GRAD",
+   "style": "main"
+  },
+  {
+   "from": "AXIS1",
+   "to": "INTERV",
+   "style": "main"
+  },
+  {
+   "from": "OOD1",
+   "to": "INTERV",
+   "style": "main"
+  },
+  {
+   "from": "ID1",
+   "to": "DROID",
+   "style": "main"
+  },
+  {
+   "from": "OOD1",
+   "to": "DROID",
+   "style": "main"
+  },
+  {
+   "from": "PROBE",
+   "to": "FIND",
+   "style": "main"
+  },
+  {
+   "from": "GRAD",
+   "to": "FIND",
+   "style": "main"
+  },
+  {
+   "from": "INTERV",
+   "to": "FIND",
+   "style": "main"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  1125,
+  1185
+ ],
+ "legend": [
+  "data",
+  "key",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  1125,
+  1185
+ ],
+ "title": "what-matters-wam",
+ "subtitle": "这篇来自 Samsung Robotics eXperience 等机构的论文不做新系统、专做**受控消融**——把 WAM（世界-动作模型）的设计空间拆成三个正交轴（6 种视",
+ "foot": "what-matters-wam · arXiv 2609.24048 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    Q[\"WAM 设计空间: 同一基座<br/>单变量替换 逐轴受控消融\"] --> AXIS1[\"轴 1: 6 种视频-动作因果结构<br/>框架 = Fast-WAM\"]\n    Q --> AXIS2[\"轴 2: 4 族 8 种潜表征<br/>框架 = LDA-1B\"]\n    Q --> AXIS3[\"轴 3: 4 种训练目标 BC/IDM/FDM/VG<br/>框架 = LDA-1B\"]\n    AXIS1 --> ID1[\"RoboCasa-GR1<br/>分布内 ID\"]\n    AXIS1 --> OOD1[\"LIBERO / LIBERO-Plus<br/>七类受控扰动 OOD\"]\n    AXIS2 --> PROBE[\"Block 0/7/15 线性探针<br/>预测专家动作, held-out R^2\"]\n    AXIS3 --> GRAD[\"成对梯度余弦对齐<br/>+ 逐维目标散度\"]\n    AXIS1 --> INTERV[\"策略内干预生成未来:<br/>内容腐蚀 0.10/0.25/0.50<br/>去噪末端 25/50/100% 时序反转\"]\n    OOD1 --> INTERV\n    ID1 --> DROID[\"DROID 离线动作预测 200K 步<br/>MSE / L1 / Acc@0.1 / Acc@0.5\"]\n    OOD1 --> DROID\n    PROBE --> FIND[\"共同因子: 时间组织通道<br/>时序反转 OOD 掉 24-32%<br/>最强内容腐蚀仅 <1%<br/>在哪建模时序决定 ID 增益 vs OOD 鲁棒\"]\n    GRAD --> FIND\n    INTERV --> FIND\n\n    class Q,FIND key\n    class AXIS1,AXIS2,AXIS3 train\n    class ID1,OOD1 data\n    class PROBE,GRAD,DROID,INTERV loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17",
+ "source": "mermaid-auto"
+}

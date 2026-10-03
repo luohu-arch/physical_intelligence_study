@@ -79,54 +79,9 @@ $$
 
 评的是「预测的 rollout 末态与目标的接近度」——论文特别提醒：规划成败最终取决于 WM rollout 的准确度，这正是 Table 1（预测质量）与 Table 2（规划质量）同向改善的因果链。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    subgraph EXO["互联网 exo 视频转化为 ego 母语"]
-        A[(Exo 互联网视频<br/>HowTo100M / CrossTask / 100DaysOfHands)] --> B["SAM-Body4D 人体姿态<br/>MHR -> SMPL-X<br/>视角无关的动作坐标系"]
-        A --> C["ViPE 4D 场景重建"]
-        B ==> D["EgoX-Body 转换器<br/>骨架叠加 + ego 手部先验<br/>Wan DiT + LoRA"]
-        C ==> D
-        D ==>|"合成 ego 视频"| E["时域降采样 16->8Hz<br/>裁剪 85%, resize 224"]
-        E ==> G["冻结 DINOv3-L 编码器<br/>z_t patch tokens"]
-    end
+![egoexo-wm 架构图 v3](figures/egoexo-wm/arch.svg)
 
-    B ==>|"69 维动作 a_t<br/>一份数据两用"| F["世界模型 f_theta<br/>CDiT-L/2, 可训练"]
-    G ==> F
-    H[(Nymeria 真实 ego 数据<br/>190h + Xsens 动捕)] ==> F
-    F -.->|"L_latent + L_wrist<br/>腕部 heatmap 当缰绳"| LOSS["预测损失"]
-    F ==> I["预测的下一 latent"]
-    I ==> J["UniEgoMotion 采样<br/>N=4 候选, 视野 8 帧<br/>运动先验负责提议"]
-    J ==> K["想象 rollout 2s<br/>取到目标 latent L2 最小者<br/>WM 只当裁判不开车"]
-
-    class A,H data
-    class B,D key
-    class C train
-    class G frozen
-    class E data
-    class F train
-    class LOSS loss
-    class I env
-    class J act
-    class K loop
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-```
+*架构速览：ego 世界模型被「ego 数据稀缺 + ego 视角身体大部分不可见（动作标注难）」双重卡死的问题，被 EgoExo-WM 用「3D 人体姿态当桥」解决：从海量第三方视角视频中恢复 3D 人体运动作为动作空间，再用带人*
 
 ## 物理直觉解释
 

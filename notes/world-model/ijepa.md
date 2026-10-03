@@ -63,43 +63,9 @@ $$
 
 同一张图先整体过 target-encoder 得到 $s_y = f_{\bar\theta}(y) = \{s_{y_1},...,s_{y_N}\}$，再从其 patch 表征中切块得到目标；而不是先遮挡输入再编码。若反过来（在输入端遮挡后分别前向每个目标区域），patch 缺少全图上下文，其表征退化为低语义局部特征。消融见表 11：output masking 67.3 对 input masking 56.1（ViT-H/16，ImageNet-1%）。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TB
-    IMG(["输入图像 y, N 个 patch<br/>无任何视图增强"]) --> TENC["目标编码器 f_theta_bar<br/>theta 的 EMA, 无梯度分支"]
-    IMG --> CSAMP["multi-block 采样上下文块<br/>scale 0.85-1.0, 去重叠<br/>消融 54.2 vs 随机 17.6"]
-    TENC ==> TP["输出端掩码: M=4 目标块<br/>scale 0.15-0.2<br/>全图上下文后切块"]
-    CSAMP ==> CENC["上下文编码器 f_theta<br/>梯度更新"]
-    CENC ==> PRED["窄预测器 g_phi<br/>384 维, 潜空间回归<br/>不重建像素省 5x 迭代"]
-    MT(["可学习 mask token + 位置"]) ==> PRED
-    PRED -.->|"L2 只算表征空间<br/>潜目标 66.9 vs 像素目标 40.7"| L["损失"]
-    TP -.-> L
-    L -.->|"梯度更新 theta/phi<br/>theta_bar 走 EMA"| UPD["参数更新"]
+![ijepa 架构图 v3](figures/ijepa/arch.svg)
 
-    class IMG,MT data
-    class TENC frozen
-    class CENC,UPD train
-    class TP env
-    class CSAMP,PRED key
-    class L loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：I-JEPA 用一张图的少量上下文 patch 去预测同图中若干大块目标区域的 EMA target-encoder 表征（L2 损失只算在表征空间），配合"多块 + 大目标块 + 信息充分的上下文块"的掩码策略，在不使*
 
 ### 3. 为什么"L2 回归到好的目标"能消除平凡解
 

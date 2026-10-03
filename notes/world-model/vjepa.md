@@ -64,43 +64,9 @@ $$
 
 其中 $M$ 是被掩码的 token 数（$N+M=L=1568$）。梯度只回传给 $\theta$ 与 $\phi$，target 权重 $\bar\theta$ 由 Polyak 平均缓慢跟随。这与 BYOL 的坍塌防护同源，论文还引用了 Tian et al. 2021 的理论工作作为支撑。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TB
-    CLIP(["输入片段 16 帧 224 分辨率"]) ==> TOK["3D 卷积 patchify<br/>1568 个 token, 16x16x2"]
-    TOK ==> DROP["丢弃可见补集 token<br/>multi-block 掩码率约 90%<br/>short-range + long-range 组合"]
-    DROP ==> XENC["x-编码器 E_theta<br/>只处理可见 token z_N"]
-    TOK ==> YENC["y-编码器 E_theta_bar<br/>EMA 目标分支, 处理完整片段"]
-    YENC ==> OUT["输出端掩码取目标 patch s_M<br/>stop-gradient"]
-    MSKT(["可学习 mask token + 位置嵌入<br/>填充 Delta_y"]) ==> PRED
-    XENC ==> PRED["窄预测器 P_phi<br/>12 层 384 维<br/>特征 L1 目标 K400 73.7 vs 像素 68.6"]
-    PRED -.-> LOSS["预测与目标表征的平均 L1"]
-    OUT -.-> LOSS
-    LOSS -.-> OPT["AdamW 更新 theta/phi<br/>theta_bar 走 EMA 0.998 渐升到 1.0"]
+![vjepa 架构图 v3](figures/vjepa/arch.svg)
 
-    class CLIP,MSKT data
-    class YENC frozen
-    class TOK,XENC,OPT train
-    class DROP,PRED key
-    class OUT,LOSS loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：V-JEPA 把 I-JEPA 的 "EMA target 表征回归" 目标搬到时空 token 上（损失换成更稳的 L1），配合覆盖约 90% token 的 short-range + long-range 多块掩码*
 
 ### 2. 为什么用 L1：条件中位数梯度理论
 

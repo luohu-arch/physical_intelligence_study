@@ -115,47 +115,9 @@ DDIM 采样会收敛到全局极小 $a = -Ks$。而当 $T_p > 1$ 时，最优 de
 
 ### 多模态来源与推理流程
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    OBS(["观测 O_t<br/>最近 T_o 帧多视角 RGB + 低维状态"]) --> VENC
-    NOISE(["初始噪声 A_t^K<br/>~ N(0, I)"]) --> EPS
-    subgraph DENOISE["条件去噪循环 (训练 100 步, DDIM 推理 10-16 步)"]
-        VENC["视觉编码器 ResNet-18<br/>只编码一次, 全部去噪步共享"]
-        EPS["噪声预测网络 eps_theta(O_t, A_t^k, k)<br/>CNN + FiLM 或 Transformer"]
-        STEP["去噪一步<br/>alpha*(A - gamma*eps) + noise"]
-        KCHK{"k == 0 ?"}
-        VENC --> EPS
-        EPS --> STEP --> KCHK
-        KCHK -.->|"否, k 递减"| EPS
-    end
-    KCHK ==>|"是"| OUT["去噪结果 A_t^0<br/>T_p 步动作序列"]
-    OUT ==>|"receding horizon<br/>只执行前 T_a 步"| ACT(["机器人执行 T_a 步<br/>10Hz 预测插值到 125Hz"])
-    ACT -.->|"新观测, 重新规划"| OBS
-    LMSE["损失 L: 去噪 MSE<br/>(eps 预测 vs 真噪声, cosine 调度)"] -.-> EPS
+![diffusion-policy 架构图 v3](figures/diffusion-policy/arch.svg)
 
-    class OBS,NOISE data
-    class VENC,STEP train
-    class EPS key
-    class OUT,ACT act
-    class KCHK loop
-    class LMSE loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：把机器人策略写成条件 DDPM：以视觉观测 $O_t$ 为条件，从高斯噪声出发迭代去噪出一段长度为 $T_p$ 的动作序列，配合 receding horizon control 只执行前 $T_a$ 步；在 4 个 b*
 
 多模态的两个来源：(1) 初始噪声 $A_t^K$ 的随机性决定落入哪个吸引盆；(2) 迭代过程中的随机扰动允许样本在盆间移动或最终收敛，因此同一次 rollout 内部会"承诺"一个模式，不会像 BET 那样来回跳模态。
 

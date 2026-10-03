@@ -74,51 +74,9 @@ $$a_t \sim P(a_t \mid o_t, \tau_0^r), \qquad a_t = a_t^{\pi_0} + \varepsilon, \q
 
 直觉上这相当于把"打开门需要先压下手把"这类常识从 LLM 迁移给探索过程，让绝大多数采样都落在与任务物体有实质接触的状态附近。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    L[自由语言指令 L]:::data
-    RGBD[双 Kinect RGB-D 观测<br/>20Hz 回传]:::data
-    GPT4[GPT-4 两级 LMP 编排<br/>planner 拆子任务 composer 调度]:::frozen
-    PERC[开放词汇感知管线<br/>OWL-ViT 检测 + SAM 分割 + XMem 追踪]:::frozen
-    ENT[实体点云几何<br/>中心 / 占据栅格 / 法向量]:::data
-    VMAP[100^3 体素价值图<br/>affordance 高值吸引 avoidance 排斥]:::key
-    COST["规划代价 -(2*aff + 1*avo)<br/>距离变换致密化 + 高斯平滑"]:::env
-    PLAN[greedy search 运动规划<br/>合成 6-DoF 末端航点]:::act
-    ROT[旋转 / 速度 / 夹爪图<br/>逐航点补齐参数]:::act
-    OSC[OSC 阻抗控制器]:::act
-    ROBOT([Franka Panda 执行]):::env
+![voxposer 架构图 v3](figures/voxposer/arch.svg)
 
-    L ==> GPT4
-    RGBD ==> PERC
-    PERC ==> ENT
-    GPT4 ==>|写 Python 代码调感知 API 与 NumPy 赋值| VMAP
-    ENT ==> VMAP
-    VMAP ==> COST
-    COST ==> PLAN
-    VMAP -.五类图同源生成.-> ROT
-    PLAN ==> OSC
-    ROT ==> OSC
-    OSC ==> ROBOT
-    ROBOT -.每航点 5Hz 新观测重规划.-> RGBD
-    ONLINE[在线动力学学习扩展<br/>零样本轨迹作探索先验]:::train
-    ONLINE -.数分钟学会接触密集任务.-> PLAN
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：VoxPoser 让 GPT-4 以 Python 代码调用开放词汇检测（OWL-ViT）、分割（Segment Anything）与追踪（XMem），再把指令蕴含的 affordance 和 constraint 直接*
 
 ## 物理直觉解释
 

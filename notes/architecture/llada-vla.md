@@ -44,42 +44,9 @@ LLaDA-VLA 是首个基于预训练扩散 VLM（扩散 VLM）而非自回归 VLM 
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    VIS(["视觉<br/>单路第三人称 RGB"]) --> DVLM
-    LANG(["语言指令"]) --> DVLM
-    DVLM["LLaDA-V 预训练扩散 VLM<br/>掩码扩散, 非自回归并行生成<br/>+ SigLIP-2 视觉编码"]
-    MASK(["完全掩码的动作序列<br/>K x D token (K=5, D=7)"]) ==> LSC
-    DVLM ==> LSC["LSC 局部特殊 token 分类<br/>仅在 32 个动作 bin token 上分类<br/>不在约 32k 全词表"]
-    LSC --> HAD["HAD 层次化动作解码<br/>动作级置信度排序 remask<br/>+ 选中动作内 token 级精炼"]
-    HAD -.->|"低置信度重掩码<br/>迭代去噪约 10 步"| LSC
-    LSCM["损失: 掩码预测交叉熵<br/>L_token 只算动作 token"] -.-> LSC
-    HAD ==> ACT(["动作序列<br/>delta 动作, 固定长度无 EOS"])
-    ACT ==> ROBOT(["机器人执行"])
-    ROBOT -.->|"逐动作块重新观测"| VIS
+![llada-vla 架构图 v3](figures/llada-vla/arch.svg)
 
-    class VIS,LANG,MASK data
-    class DVLM train
-    class LSC,HAD key
-    class ACT,ROBOT act
-    class LSCM loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：LLaDA-VLA 是首个基于预训练扩散 VLM（扩散 VLM）而非自回归 VLM 构建的 VLA 模型，通过局部特殊 token 分类（LSC）将连续动作映射为 32 个离散 bin 并仅预测动作 token 而非全词*
 
 LLaDA-VLA 的核心创新在于用扩散语言模型（类 BERT 的掩码扩散范式）取代自回归语言模型（类 GPT 的下一个 token 预测范式）作为 VLA 骨干。这改变了动作生成的方式：从「逐个 token 依次生成」变为「并行预测 + 迭代精炼」。
 

@@ -47,44 +47,9 @@
 
 方法选型决策树的骨架：
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    Q{"任务设定?"}:::loop
-    CARD["CA-ID Card 声明契约 (核心): 六字段 = credit 单位与估计量 /<br/>有效状态 / 干预来源 / 下游协议 / 支撑与不确定性 / 优化接口"]:::key
-    EVID["四层证据分级: restored-interventional > observational-causal<br/>> model-relative > predictive; text-only 历史连符号都不可识别"]:::reward
-    VER(["6 个已知 (task, method) 对回溯验证 6/6 命中<br/>阈值是粗路由启发式, 叶节点非跨论文性能排名"]):::data
+![reasoning-to-agentic 架构图 v3](figures/reasoning-to-agentic/arch.svg)
 
-    Q ==>|"token 级 MDP, CoT 可验证"| RS["Reasoning RL"]:::data
-    Q ==>|"turn 级 POMDP, 稀疏终端奖励"| AG["Agentic RL"]:::data
-    Q ==>|"团队奖励, 跨智能体 credit"| MA["Multi-Agent"]:::data
-
-    RS ==> RS1["CoT <= 5K token:<br/>GRPO / PURE / SPO / SPRO"]:::loss
-    RS ==> RS2["CoT > 5K token:<br/>HICRA / CAPO / SPRO / GRPO-lambda"]:::loss
-    RS ==> RS3["算力充裕:<br/>VinePPO / SCAR / GRAIL"]:::loss
-    AG ==> AG1["<= 30 轮, 无辅助模型:<br/>GiGPO / CARL / iStar / POAD"]:::loss
-    AG ==> AG2["<= 30 轮, 可用辅助模型:<br/>AgentPRM / SWEET-RL"]:::loss
-    AG ==> AG3["> 30 轮:<br/>C3 / CCPO / HCAPO / IGPO / CRAFT / APPO"]:::loss
-    MA ==> MA1["M-GRPO / SHARP / MAPPA / Dr.MAS"]:::loss
-
-    CARD -.->|"任何选型的 credit 声明不得超出证据层级"| Q
-    EVID -.-> CARD
-    Q ==> VER
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：独立作者的分析型综述（50 页，arXiv v3 2026-08，单作者、无同行评审信息）：把 credit assignment（CA）设为审视 LLM RL 的中心透镜，冻结 2026-07-31 的语料——92 条*
 
 ## 底层原理与数学推导
 

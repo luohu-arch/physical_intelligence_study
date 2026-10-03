@@ -43,56 +43,9 @@ RoboMemory 提出脑启发四模块并行记忆架构：空间记忆（动态 KG
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OBS[多模态观测 RGB + 深度]:::data
-    THAL[信息预处理器<br/>Step Summarizer + Query Generator 两个 VLM]:::frozen
+![robomemory 架构图 v3](figures/robomemory/arch.svg)
 
-    subgraph BRAIN["四模块并行记忆 更新与检索互不阻塞"]
-        KG["空间记忆 动态 KG<br/>检索式增量更新 O(DK)"]:::key
-        TEMP[时间记忆 FIFO 缓冲<br/>VLM 摘要压缩旧条目]:::mem
-        EPIS[情景记忆 RAG<br/>任务交互历史 vector DB]:::mem
-        SEM[语义记忆 RAG<br/>行动级与任务级经验摘要]:::mem
-    end
-
-    OBS ==> THAL
-    THAL ==>|逐步摘要与检索 query 并行下发| KG
-    THAL ==> TEMP
-    THAL ==> EPIS
-    THAL ==> SEM
-
-    subgraph FCX["前额叶 Critic-Planner 闭环"]
-        PLANNER[Planner 生成动作计划]:::frozen
-        CRITIC[Critic 评估<br/>视觉反馈与记忆一致性 第一步豁免]:::loop
-    end
-
-    KG ==>|并行检索| PLANNER
-    TEMP ==> PLANNER
-    EPIS ==> PLANNER
-    SEM ==> PLANNER
-    PLANNER ==>|计划送评估| CRITIC
-    CRITIC -.不通过触发重规划.-> PLANNER
-    PLANNER ==> EXEC[低层执行器 小脑<br/>LoRA 微调 pi_0 VLA + SLAM]:::act
-    EXEC ==> ROBOT([厨房场景机器人执行]):::env
-    ROBOT -.新观测回流 终身学习不清理记忆.-> OBS
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：RoboMemory 提出脑启发四模块并行记忆架构：空间记忆（动态 KG，检索式增量更新）、时间记忆（FIFO buffer + VLM 摘要压缩）、情景记忆（RAG 任务交互历史）、语义记忆（RAG 经验总结）。四模块*
 
 记忆系统的统一更新-检索接口（L 个模块并行执行），其中 $s_t$ 是当前步摘要、$q_t$ 是预处理器生成的检索 query：
 

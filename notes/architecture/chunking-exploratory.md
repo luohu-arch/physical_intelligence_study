@@ -187,45 +187,6 @@ $$
 6. 与 why-chunking-works 的 RDE 对话：RDE 每步重算但用旧观测——在本文框架下这等效于变相 chunk 吗？RDE 在开环不稳定系统（HalfCheetah）上是否同样灾难性失效？
 7. 人类示教的"天然噪声"折算：人类操作自带 ~2-10Hz 带宽的抖动，等效于多大的 σ_u 注入？能否解释为什么人类示教训练的策略有时比脚本专家数据更鲁棒？
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    Q{"动力学 f 是否开环 EISS?<br/>(如 EE 位置控制 + 高频底层跟踪)"}
-    Q -->|"是"| P1["Practice 1: 动作 chunking"]
-    Q -->|"否"| P2["Practice 2: 噪声注入采集"]
-    P1 --> C1["开环执行长度 l 的动作块<br/>每 l 步才重观测一次"]
-    C1 --> C2["块长只需对数级<br/>l > log(1/rho)^-1 * log poly(L_pi, C_ISS)"]
-    C2 --> S1["诱导出闭环 EISS<br/>(C_tilde, rho^(1/2))"]
-    S1 --> R1["J_TRAJ <= O(1) * J_DEMO<br/>horizon-free 误差界 (Thm 1)"]
-    P2 --> N1["执行 u* + sigma_u * z<br/>但记录干净标签 u*"]
-    N1 --> N2["与干净专家轨迹混合<br/>(gamma = 0.5)"]
-    N2 --> G["等向白噪声激励<br/>可控性 Gramian W_u"]
-    G --> G2["大特征方向 =<br/>误差复合最快的方向"]
-    G2 --> R2["J_TRAJ <= O*(T) * J_DEMO<br/>混合分布上的界 (Thm 2)"]
-    R1 ==> OK(["指数复合误差下界被绕开<br/>单次采集即可, 无需 DAgger 迭代"])
-    R2 ==> OK
-    Q -.->|"否却硬用朴素 chunking"| BAD["块内发散<br/>(开环不稳定: HalfCheetah 反例)"]
+![chunking-exploratory 架构图 v3](figures/chunking-exploratory/arch.svg)
 
-    class Q,S1 env
-    class P1,P2 key
-    class C1,C2,N1 train
-    class N2,G,G2 data
-    class OK act
-    class BAD loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：Problem：连续控制 IL 存在指数复合误差下界（Simchowitz et al. 2025：即使动力学与专家均稳定，任何平滑马尔可夫学习器都逃不掉 C^T 放大）*

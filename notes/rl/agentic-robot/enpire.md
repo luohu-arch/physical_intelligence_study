@@ -71,66 +71,9 @@ $$\mathrm{MRU} = \frac{1}{N}\sum_{i=1}^{N} \frac{T_i^{\mathrm{robot\text{-}activ
 
 **(4) 为什么 EN 必须先于 PIRE 固化**。真机 autoresearch 的每个 trial 都要花机器人和人的时间，所以闭环的「反馈通道」必须先做到无人在环且低方差：安全约束给出截断信号、验证器给出标量反馈、重置把状态分布拉回初值——三者合起来才把物理世界拟合进 Gym 抽象（论文引用 OpenAI Gym），之后的 PIRE 才能套用数字世界里成熟的「改代码 → 跑实验 → 读日志」循环。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    HUMAN(["人: 任务目标 + 几分钟成功/失败演示<br/>一次性投入, 被后续摊薄"]):::data
+![enpire 架构图 v3](figures/enpire/arch.svg)
 
-    subgraph EN["Stage 1 EN: 人引导一次性搭真机环境"]
-        direction LR
-        SAFE["硬安全约束<br/>越界即任务失败 + 自动重置"]:::env
-        VER["自动验证: agent 合成二值奖励<br/>SAM3 + 本体感知 + 力, 延迟 <=150 ms"]:::reward
-        RES["自动重置: modular skills<br/>复位到最难阶段起点"]:::env
-    end
-
-    API["不可变 Gym API + Rollout 模块 R<br/>30 Hz 策略, 单 rollout 8 次重试内计成功"]:::key
-
-    subgraph PIRE["Stage 2 PIRE: 完全无人的 autoresearch"]
-        direction TB
-        AGT["N 个 coding agent<br/>每站一分支异步试假设"]:::frozen
-        PI["改训练代码: BC / 在线-离线 RL /<br/>启发式 / code-as-policy 自由组合"]:::act
-        POL["被训练的策略<br/>BC 正则单项 +10.8pp 最大增益"]:::train
-        GIT["共享 Git 仓库 = Evolution 模块<br/>cherry-pick/copy/merge 正增益配方"]:::mem
-    end
-
-    ROBOT["8 站双臂 YAM 真机 fleet<br/>每站 RTX 5090, 无跨站共享算力"]:::env
-    LOG["rollout 日志: 轨迹 / 视频 / 奖励信号 /<br/>逐动作来源标签"]:::data
-    EXP["跨任务经验: markdown 配方演化摘要<br/>pin -> GPU insertion 迁移"]:::mem
-    ACC(["四接触任务 99% 真机成功率策略<br/>MRU / MTU 度量物理 autoresearch"]):::data
-
-    HUMAN ==> EN
-    EN ==>|"离线验证后固化"| API
-    API ==>|"释放全自主"| PIRE
-    AGT ==> PI
-    PI ==> POL
-    POL ==>|"提交动作目标"| ROBOT
-    API -.->|"reset-execute-verify 每集即时判成败"| ROBOT
-    ROBOT ==> LOG
-    LOG -.->|"失败信号驱动 hill-climb"| AGT
-    AGT -.->|"提交配方分支"| GIT
-    GIT -.->|"Git 历史是单一事实来源, 吸收队友正增益"| AGT
-    AGT -.->|"任务结束写经验摘要"| EXP
-    EXP -.->|"注入新任务 autoresearch"| AGT
-    POL ==> ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：NVIDIA + CMU + UC Berkeley 把「reset → execute → verify → refine」做成 coding agent 可直接调用的真机闭环 harness：Stage 1 由人少量*
 
 ## 物理直觉解释
 

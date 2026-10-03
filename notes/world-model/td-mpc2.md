@@ -70,46 +70,9 @@ $$
 
 梯度只流向 $p$。$\alpha,\beta$ 的相对尺度决定探索强度，且随数据集与训练阶段漂移——为免过早熵坍塌，TD-MPC2 用移动统计量自动调 $\alpha$（等价做法还有按熵目标调 $\beta$，作者称实验上两者差异不大）。熵只在有效动作维度上计算，这是多动作空间不出错的关键细节。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TB
-    S(["状态 s"]) ==> ENC["编码器 h"]
-    E["可学习任务嵌入 e<br/>单 agent 跨域共享 317M"] ==> ENC
-    ENC ==> Z["latent z<br/>SimNorm 单纯形 softmax<br/>消融 46.8->51.0"]
-    Z ==> DYN["动力学 d: 预测下一 latent<br/>免解码器的隐式世界模型"]
-    Z ==> RW["奖励头 R"]
-    Z ==> QN["5 x Q 集成 + dropout<br/>Q-ensemble 提至 57.0"]
-    Z ==> PP["策略先验 p 最大熵<br/>熵只在有效动作维计算<br/>(多动作空间关键细节)"]
-    DYN ==> PLAN["MPPI 规划器<br/>horizon 3, 迭代 6, 种群 512"]
-    PP ==> PLAN
-    PLAN ==> ACT["执行首动作随即重规划<br/>80 任务 normalized 70.6"]
-    ACT -.-> BUF["回放缓冲 B"]
-    BUF ==> TR["全部头联合训练<br/>JEP + 奖励 CE + 价值 CE"]
+![td-mpc2 架构图 v3](figures/td-mpc2/arch.svg)
 
-    class S data
-    class ENC,DYN,PP,TR train
-    class Z,E key
-    class RW,QN reward
-    class PLAN,ACT loop
-    class BUF mem
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：TD-MPC2 在一个不含解码器的隐式（joint-embedding）世界模型上做局部轨迹优化：encoder 把观测压成 SimNorm 归一化的 latent，latent dynamics、reward、term*
 
 ### 3. 规划目标：bootstrapped 局部轨迹优化
 

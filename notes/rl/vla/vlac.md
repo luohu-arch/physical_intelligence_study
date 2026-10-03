@@ -43,49 +43,9 @@ VLAC 提出统一 actor-critic 自回归架构：基于 InternVL 多模态模型
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    subgraph LOOP["异步分布式采样 (8 台 AGILE PiPER, ZeroMQ + Ray)"]
-        ROB["真实机器人 x 8<br/>7-DoF EE delta pose 逐步控制"] --> PR(["pair 输入<br/>当前帧 + 历史帧 (o_t, o_prev) + 指令"])
+![vlac 架构图 v3](figures/vlac/arch.svg)
 
-        PR --> ROB
-    end
-    PR ==> VLMB["InternVL 多模态主干<br/>40M 样本预训练<br/>prompt 切换双模式"]
-    VLMB ==> ACT["actor 模式 (2B)<br/>semantic delta EE pose"]
-    VLMB ==> KEY["critic 模式 (8B): pair-wise 进度 (核心)<br/>两帧对比输出连续 progress delta<br/>正 = 前进, 负 = 倒退"]
-    KEY ==> REW["dense 进度奖励 r 在 [-1, 1]<br/>替代稀疏 0/1 (瓶颈是 reward 不是算法)"]
-    REW ==> PPO["PPO 更新 (clipped surrogate)<br/>优势 A_t 由进度 delta 累积"]
-    PPO -.->|"更新 actor"| ACT
-    ACT ==> ROB
-    HGE["人类引导探索 HGE<br/>(困难任务辅助, +10pp)"] -.->|"引导 rollout"| ROB
-
-    class PR data
-    class VLMB frozen
-    class ACT train
-    class KEY key
-    class REW reward
-    class PPO loss
-    class ROB env
-    class HGE data
-    class LOOP loop
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-```
+*架构速览：VLAC 提出统一 actor-critic 自回归架构：基于 InternVL 多模态模型，通过 pair-wise progress understanding 输入两张观测图+语言指令，同时输出动作 (actor)*
 
 统一自回归模型在同一序列上建模两类 token：动作 token 与进度 token。给定观测对 $(o_t, o_{t-\tau})$ 与语言指令 $L$，critic 输出进度 delta：
 

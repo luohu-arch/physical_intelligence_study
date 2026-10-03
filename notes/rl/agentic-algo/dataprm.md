@@ -45,63 +45,9 @@
 6. **知识增强逐步标注**：Qwen3-235B 初标注 + AutoManual 框架合并相似错误类别 → 人工专家核验各类别 rationale 并作为结构化 few-shot 注回标注 prompt → DeepSeek-V3.2 按三元策略打终分。质检：过滤超时/文件损坏等非分析型错误；100 例人工抽检 86.0% raw accuracy、二次加权 Cohen's $\kappa = 0.83$。
 7. **两种消费场景**：TTS（Best-of-N、Beam Search、DVTS 下按步分聚合选轨迹）与 RL（GRPO + clip-higher + token-level loss，PRM 分数与 outcome 奖励加权混合，终步不一致时以 outcome 覆写）。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    CRAWL["AutoSDT GitHub 抓取任务与文件<br/>+ 人类专家修订"]:::data
-    QUERY["DeepSeek-V3.2 合成推理型查询"]:::frozen
-    SAMP["policy Qwen3-235B 每查询并行采 K=4 条轨迹"]:::frozen
-    JUDGE{"4 条终答全一致?"}:::reward
-    SPLIT["步级切分 + Qwen3-235B 初标注"]:::frozen
-    MERGE["AutoManual 合并错误类别<br/>人工核验 (86.0%, kappa=0.83) 注回 few-shot"]:::mem
-    TAG["DeepSeek-V3.2 打三元分<br/>1 严格正确 / 0.5 可修正试错 / 0 不可恢复"]:::reward
-    SFT["SFT 训 DataPRM 4B (ms-swift)<br/>7K+ 边界样本"]:::loss
+![dataprm 架构图 v3](figures/dataprm/arch.svg)
 
-    PRM["DataPRM 4B (核心): environment-aware 生成式 PRM<br/>与 policy 同 ReAct 范式, 验证反馈元组跨步拼接"]:::key
-    SANDBOX["代码解释器 + 隔离文件系统沙箱<br/>主动跑探查代码核对中间状态 (抓 silent error)"]:::env
-    TOOL["query_document / query_image 工具<br/>补长文档与多模态感知"]:::act
-    POL["数据分析 policy (ReAct 写代码)<br/>BoN 场景 235B / RL 场景 Qwen2.5-Coder-7B"]:::train
-    TTS["TTS 消费: Best-of-N / Beam / DVTS<br/>按步分聚合选轨迹, 保护先试错后收敛"]:::loop
-    RL["RL 消费: GRPO + clip-higher<br/>r_total = (1-beta)*outcome + beta*PRM 均值, 终步覆写"]:::loss
-    ACC(["BoN: DABStep 40.89@N=16 唯一单调升, 4B 压 32B/72B<br/>RL: DABench 78.73%, 训练熵 0.18 不塌缩"]):::data
-
-    CRAWL ==> QUERY ==> SAMP ==> JUDGE
-    JUDGE -.->|"全一致: 无判别信号, 丢弃重采"| SAMP
-    JUDGE ==>|"多样: 保留边界样本"| SPLIT
-    SPLIT ==> MERGE ==> TAG ==> SFT
-    SFT ==> PRM
-    POL ==>|"完整轨迹 h_t + 当前步"| PRM
-    PRM -.->|"写取证代码 (均值 0.87 次工具调用/步)"| SANDBOX
-    SANDBOX -.->|"中间执行状态观测"| PRM
-    PRM -.->|"查询手册 / 图像"| TOOL
-    TOOL -.-> PRM
-    PRM ==>|"三元步分 + rationale"| TTS
-    POL -.->|"N 候选轨迹"| TTS
-    PRM -.->|"过程奖励注入"| RL
-    POL -.->|"rollout"| RL
-    RL -.->|"更新 policy"| POL
-    TTS ==> ACC
-    RL ==> ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：用先导实验证明通用域 PRM 监督不了数据分析 agent——静态 PRM 抓不住"解释器不报错但结果错误"的 silent error，还会把必要的试错探索（grounding error，如猜错列名触发 KeyErr*
 
 ## 底层原理与数学推导
 

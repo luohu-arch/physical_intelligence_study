@@ -1,0 +1,352 @@
+{
+ "nodes": [
+  {
+   "id": "IF",
+   "label": "干净首帧 I_0",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 25,
+   "y": 130,
+   "w": 167,
+   "h": 92
+  },
+  {
+   "id": "ANCHOR",
+   "label": "锚槽 M_a = E3D(I_0\n)",
+   "sub": "永久冻结的定妆照",
+   "icon": "spark",
+   "cls": "key",
+   "x": 340,
+   "y": 283,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "REC",
+   "label": "最近状态槽 M_r\n随手贴的便利贴",
+   "sub": "",
+   "icon": "state",
+   "cls": "key",
+   "x": 225,
+   "y": 130,
+   "w": 186,
+   "h": 93
+  },
+  {
+   "id": "ENC",
+   "label": "SceneEncode 编码 M\n_a 拼接 M_r",
+   "sub": "",
+   "icon": "eye",
+   "cls": "train",
+   "x": 340,
+   "y": 486,
+   "w": 230,
+   "h": 93
+  },
+  {
+   "id": "MEM",
+   "label": "记忆库 M_b: 3D pat\nch token",
+   "sub": "带米制坐标与置信度",
+   "icon": "db",
+   "cls": "mem",
+   "x": 470,
+   "y": 655,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "SKEL",
+   "label": "骨架/EE 轨迹 S_b\n统一关键点格式",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 445,
+   "y": 130,
+   "w": 207,
+   "h": 93
+  },
+  {
+   "id": "UNSUP",
+   "label": "栅格化到视频网格\n取被支撑的 patch I_",
+   "sub": "b",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 594,
+   "y": 283,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "XY",
+   "label": "反投影到锚帧米制坐标\n X_b",
+   "sub": "A3D-RoPE: 只对 I_b",
+   "icon": "spark",
+   "cls": "key",
+   "x": 594,
+   "y": 469,
+   "w": 236,
+   "h": 126
+  },
+  {
+   "id": "NOISE",
+   "label": "噪声块 Z_tb + 时间\n嵌入",
+   "sub": "",
+   "icon": "noise",
+   "cls": "data",
+   "x": 686,
+   "y": 130,
+   "w": 225,
+   "h": 93
+  },
+  {
+   "id": "DIT",
+   "label": "DiT 堆栈\n因果 KV 缓存, 块级",
+   "sub": "自回归",
+   "icon": "stack",
+   "cls": "train",
+   "x": 473,
+   "y": 841,
+   "w": 223,
+   "h": 126
+  },
+  {
+   "id": "TXT",
+   "label": "文本与图像编码器\n(冻结)",
+   "sub": "",
+   "icon": "camera",
+   "cls": "data",
+   "x": 944,
+   "y": 130,
+   "w": 200,
+   "h": 93
+  },
+  {
+   "id": "FLOW",
+   "label": "流匹配积分到 t=0",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 482,
+   "y": 1027,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "COMMIT",
+   "label": "Z_b 写入因果缓存 K",
+   "sub": "",
+   "icon": "db",
+   "cls": "mem",
+   "x": 473,
+   "y": 1179,
+   "w": 223,
+   "h": 92
+  },
+  {
+   "id": "REF",
+   "label": "REF",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 514,
+   "y": 1331,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "0",
+   "label": "0",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 287,
+   "y": 1500,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "SNAP",
+   "label": "解码可见前缀取最新 \nRGB 帧",
+   "sub": "重编码并整体替换 M_",
+   "icon": "camera",
+   "cls": "loop",
+   "x": 451,
+   "y": 1483,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "KEEP",
+   "label": "保持 M_r 不变",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 705,
+   "y": 1500,
+   "w": 177,
+   "h": 92
+  },
+  {
+   "id": "NEXT",
+   "label": "生成下一自回归块",
+   "sub": "",
+   "icon": "stack",
+   "cls": "loop",
+   "x": 484,
+   "y": 1669,
+   "w": 200,
+   "h": 92
+  },
+  {
+   "id": "OUT",
+   "label": "块级自回归视频输出\n增广数据: 下游 OOD ",
+   "sub": "77->84% / 53->70%",
+   "icon": "stack",
+   "cls": "act",
+   "x": 468,
+   "y": 1821,
+   "w": 233,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "IF",
+   "to": "ANCHOR",
+   "style": "main"
+  },
+  {
+   "from": "ANCHOR",
+   "to": "ENC",
+   "style": "thick"
+  },
+  {
+   "from": "REC",
+   "to": "ENC",
+   "style": "thick"
+  },
+  {
+   "from": "ENC",
+   "to": "MEM",
+   "style": "thick"
+  },
+  {
+   "from": "SKEL",
+   "to": "UNSUP",
+   "style": "main"
+  },
+  {
+   "from": "UNSUP",
+   "to": "XY",
+   "style": "thick"
+  },
+  {
+   "from": "NOISE",
+   "to": "DIT",
+   "style": "thick"
+  },
+  {
+   "from": "TXT",
+   "to": "DIT",
+   "style": "thick"
+  },
+  {
+   "from": "MEM",
+   "to": "DIT",
+   "style": "fb",
+   "label": "\"门控交叉注意力读取\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "XY",
+   "to": "DIT",
+   "style": "fb",
+   "label": "\"只在接触区注入几何\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "DIT",
+   "to": "FLOW",
+   "style": "thick"
+  },
+  {
+   "from": "FLOW",
+   "to": "COMMIT",
+   "style": "thick"
+  },
+  {
+   "from": "COMMIT",
+   "to": "REF",
+   "style": "thick"
+  },
+  {
+   "from": "REF",
+   "to": "0",
+   "style": "thick"
+  },
+  {
+   "from": "REF",
+   "to": "SNAP",
+   "style": "thick",
+   "label": "\"是\""
+  },
+  {
+   "from": "REF",
+   "to": "KEEP",
+   "style": "thick",
+   "label": "\"否\""
+  },
+  {
+   "from": "SNAP",
+   "to": "NEXT",
+   "style": "thick"
+  },
+  {
+   "from": "KEEP",
+   "to": "NEXT",
+   "style": "thick"
+  },
+  {
+   "from": "NEXT",
+   "to": "OUT",
+   "style": "thick"
+  }
+ ],
+ "panels": [
+  {
+   "label": "OAPM 锚定记忆 (抗漂移核心)",
+   "x": 1,
+   "y": 86,
+   "w": 722,
+   "h": 715
+  }
+ ],
+ "canvas": [
+  1169,
+  2037
+ ],
+ "legend": [
+  "act",
+  "data",
+  "key",
+  "loop",
+  "mem",
+  "train"
+ ],
+ "layout_wh": [
+  1169,
+  2037
+ ],
+ "title": "egogenesis",
+ "subtitle": "EgoGenesis 把 Wan2.2-5B-Control 改造成块级自回归的第一人称操控视频生成器：OAPM（Online Anchored Projective Memo",
+ "foot": "egogenesis · arXiv 2607.28243 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    subgraph OAPM[\"OAPM 锚定记忆 (抗漂移核心)\"]\n        IF([\"干净首帧 I_0\"]) --> ANCHOR[\"锚槽 M_a = E3D(I_0)<br/>永久冻结的定妆照\"]\n        REC[\"最近状态槽 M_r<br/>随手贴的便利贴\"]\n        ANCHOR ==> ENC[\"SceneEncode 编码 M_a 拼接 M_r\"]\n        REC ==> ENC\n        ENC ==> MEM[\"记忆库 M_b: 3D patch token<br/>带米制坐标与置信度\"]\n    end\n\n    SKEL([\"骨架/EE 轨迹 S_b<br/>统一关键点格式\"]) --> UNSUP[\"栅格化到视频网格<br/>取被支撑的 patch I_b\"]\n    UNSUP ==> XY[\"反投影到锚帧米制坐标 X_b<br/>A3D-RoPE: 只对 I_b 旋转 Q/K<br/>像经纬度海拔替换楼层号\"]\n    NOISE([\"噪声块 Z_tb + 时间嵌入\"]) ==> DIT\n    TXT([\"文本与图像编码器<br/>(冻结)\"]) ==> DIT\n    DIT[\"DiT 堆栈<br/>因果 KV 缓存, 块级自回归\"]\n    MEM -.->|\"门控交叉注意力读取\"| DIT\n    XY -.->|\"只在接触区注入几何\"| DIT\n    DIT ==> FLOW[\"流匹配积分到 t=0\"]\n    FLOW ==> COMMIT[\"Z_b 写入因果缓存 K\"]\n    COMMIT ==> REF{\"b mod s_r == 0 ?\"}\n    REF ==>|\"是\"| SNAP[\"解码可见前缀取最新 RGB 帧<br/>重编码并整体替换 M_r\"]\n    REF ==>|\"否\"| KEEP[\"保持 M_r 不变\"]\n    SNAP ==> NEXT[\"生成下一自回归块\"]\n    KEEP ==> NEXT\n    NEXT ==> OUT[\"块级自回归视频输出<br/>增广数据: 下游 OOD 77->84% / 53->70%\"]\n\n    class IF,SKEL,NOISE,TXT data\n    class ANCHOR,REC,XY key\n    class ENC,DIT,FLOW train\n    class MEM,COMMIT mem\n    class REF,SNAP,KEEP,NEXT loop\n    class OUT act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17",
+ "source": "mermaid-auto"
+}

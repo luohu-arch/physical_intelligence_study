@@ -1,0 +1,182 @@
+{
+ "nodes": [
+  {
+   "id": "IMG",
+   "label": "输入图像 y, N 个 patch\n无任何视图增强",
+   "sub": "",
+   "icon": "camera",
+   "cls": "data",
+   "x": 52,
+   "y": 130,
+   "w": 264,
+   "h": 93
+  },
+  {
+   "id": "TENC",
+   "label": "目标编码器 f_theta_bar\ntheta 的 EMA, 无梯度分支",
+   "sub": "",
+   "icon": "eye",
+   "cls": "frozen",
+   "x": 44,
+   "y": 332,
+   "w": 282,
+   "h": 93
+  },
+  {
+   "id": "CSAMP",
+   "label": "multi-block 采样上下文块\nscale 0.85-1.0, 去重叠",
+   "sub": "消融 54.2 vs 随机 17.6",
+   "icon": "db",
+   "cls": "key",
+   "x": 366,
+   "y": 315,
+   "w": 282,
+   "h": 126
+  },
+  {
+   "id": "TP",
+   "label": "输出端掩码: M=4 目标块\nscale 0.15-0.2",
+   "sub": "全图上下文后切块",
+   "icon": "db",
+   "cls": "env",
+   "x": 75,
+   "y": 533,
+   "w": 259,
+   "h": 126
+  },
+  {
+   "id": "CENC",
+   "label": "上下文编码器 f_theta\n梯度更新",
+   "sub": "",
+   "icon": "eye",
+   "cls": "train",
+   "x": 374,
+   "y": 550,
+   "w": 243,
+   "h": 93
+  },
+  {
+   "id": "PRED",
+   "label": "窄预测器 g_phi\n384 维, 潜空间回归",
+   "sub": "不重建像素省 5x 迭代",
+   "icon": "camera",
+   "cls": "key",
+   "x": 226,
+   "y": 751,
+   "w": 240,
+   "h": 126
+  },
+  {
+   "id": "MT",
+   "label": "可学习 mask token + 位置",
+   "sub": "",
+   "icon": "stack",
+   "cls": "data",
+   "x": 356,
+   "y": 130,
+   "w": 284,
+   "h": 92
+  },
+  {
+   "id": "L",
+   "label": "损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 276,
+   "y": 969,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "UPD",
+   "label": "参数更新",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 276,
+   "y": 1153,
+   "w": 140,
+   "h": 92
+  }
+ ],
+ "edges": [
+  {
+   "from": "IMG",
+   "to": "TENC",
+   "style": "main"
+  },
+  {
+   "from": "IMG",
+   "to": "CSAMP",
+   "style": "main"
+  },
+  {
+   "from": "TENC",
+   "to": "TP",
+   "style": "thick"
+  },
+  {
+   "from": "CSAMP",
+   "to": "CENC",
+   "style": "thick"
+  },
+  {
+   "from": "CENC",
+   "to": "PRED",
+   "style": "thick"
+  },
+  {
+   "from": "MT",
+   "to": "PRED",
+   "style": "thick"
+  },
+  {
+   "from": "PRED",
+   "to": "L",
+   "style": "fb",
+   "label": "\"L2 只算表征空间 潜目标 66.9 vs 像",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "TP",
+   "to": "L",
+   "style": "fb"
+  },
+  {
+   "from": "L",
+   "to": "UPD",
+   "style": "loss",
+   "label": "\"梯度更新 theta/phi theta_ba",
+   "loff": [
+    0,
+    -18
+   ]
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  692,
+  1335
+ ],
+ "legend": [
+  "data",
+  "env",
+  "frozen",
+  "key",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  692,
+  1335
+ ],
+ "title": "ijepa",
+ "subtitle": "I-JEPA 用一张图的少量上下文 patch 去预测同图中若干大块目标区域的 EMA target-encoder 表征（L2 损失只算在表征空间），配合\"多块 + 大目标块",
+ "foot": "ijepa · arXiv 2301.08243 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TB\n    IMG([\"输入图像 y, N 个 patch<br/>无任何视图增强\"]) --> TENC[\"目标编码器 f_theta_bar<br/>theta 的 EMA, 无梯度分支\"]\n    IMG --> CSAMP[\"multi-block 采样上下文块<br/>scale 0.85-1.0, 去重叠<br/>消融 54.2 vs 随机 17.6\"]\n    TENC ==> TP[\"输出端掩码: M=4 目标块<br/>scale 0.15-0.2<br/>全图上下文后切块\"]\n    CSAMP ==> CENC[\"上下文编码器 f_theta<br/>梯度更新\"]\n    CENC ==> PRED[\"窄预测器 g_phi<br/>384 维, 潜空间回归<br/>不重建像素省 5x 迭代\"]\n    MT([\"可学习 mask token + 位置\"]) ==> PRED\n    PRED -.->|\"L2 只算表征空间<br/>潜目标 66.9 vs 像素目标 40.7\"| L[\"损失\"]\n    TP -.-> L\n    L -.->|\"梯度更新 theta/phi<br/>theta_bar 走 EMA\"| UPD[\"参数更新\"]\n\n    class IMG,MT data\n    class TENC frozen\n    class CENC,UPD train\n    class TP env\n    class CSAMP,PRED key\n    class L loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17",
+ "source": "mermaid-auto"
+}

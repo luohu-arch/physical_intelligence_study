@@ -66,7 +66,7 @@ def esc(s):
 
 def tw(s, fs):
     """估算文本宽度: CJK 全宽, 其余约 0.55em。"""
-    return sum(fs * (1.02 if ord(ch) > 0x2E80 else 0.55) for ch in str(s))
+    return sum(fs * (1.06 if ord(ch) > 0x2E80 else 0.58) for ch in str(s))
 
 
 ALIASES = {  # 语义名 -> 候选(按优先级), 逐个尝试 duotone(d-)/lucide/phosphor/tabler
@@ -96,6 +96,15 @@ ALIASES = {  # 语义名 -> 候选(按优先级), 逐个尝试 duotone(d-)/lucid
     "stack": ["d-stack", "layers"],
     "puzzle": ["d-puzzle-piece", "puzzle"],
     "cross": ["d-x-circle", "x"],
+    "refresh": ["d-arrows-clockwise", "refresh-cw"],
+    "box": ["box", "boxes"],
+    "circuit": ["d-circuitry", "circuit-board"],
+    "trophy": ["d-trophy", "trophy"],
+    "video": ["d-video-camera", "video"],
+    "users": ["d-users-three", "users"],
+    "atom": ["d-atom", "atom"],
+    "cube": ["d-cube", "box"],
+    "gauge": ["d-clock-countdown", "gauge"],
 }
 
 

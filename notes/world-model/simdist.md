@@ -39,46 +39,9 @@ SimDist 提出仿真蒸馏框架：在仿真中预训练完整世界模型管线
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    SIM(["仿真环境 (丰富动力学)<br/>特权专家产数据"]) ==> PRETRAIN["预训练完整 latent 世界模型"]
-    PRETRAIN ==> ENC["编码器 (冻结, 零迁移)"]
-    PRETRAIN ==> REW["奖励模型 (冻结, 零样本迁移)"]
-    PRETRAIN ==> VAL["价值模型 (冻结, 零样本迁移)"]
-    PRETRAIN ==> DYN["动力学模型 (唯一可微调项)<br/>gap 集中在 dynamics 的假设"]
-    REAL(["真实机器人 15-30 分钟数据"]) ==> FINETUNE["仅微调 latent dynamics<br/>等价于系统辨识<br/>加像素重构损失反掉到 0.32"]
-    FINETUNE ==> DYN
-    ENC ==> PLANNER["在线 Planner"]
-    REW ==> PLANNER
-    VAL ==> PLANNER
-    DYN ==> PLANNER
-    PLANNER ==> ACTION["动作输出<br/>Peg Insertion 0.90<br/>真机吞吐提升 1.5-2x"]
+![simdist 架构图 v3](figures/simdist/arch.svg)
 
-    class SIM,REAL data
-    class ENC,REW,VAL frozen
-    class PRETRAIN,FINETUNE train
-    class DYN key
-    class PLANNER loop
-    class ACTION act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：SimDist 提出仿真蒸馏框架：在仿真中预训练完整世界模型管线（编码器 + 动力学 + 奖励 + 价值），将结构化先验蒸馏到 latent world model。真实部署时仅用 15-30 分钟数据微调 latent*
 
 核心洞察：真实世界适应的瓶颈是动力学建模（仿真和物理的 gap），不是奖励设计或价值估计。只需在真实数据上做短视程系统辨识，无需端到端 RL。真实适应阶段的优化目标即为最小化真实数据上的 latent 预测误差：
 

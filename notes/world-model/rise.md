@@ -108,75 +108,9 @@ $$
 
 无条件的参考先验 $\pi_{ref}$ 被抵消，策略改进退化为"给定'我要变好'这个条件下采样动作"。工程实现即优势条件化训练：策略输入离散化后的优势 bin（式中的正则指数由多项分布上的 RWR 推导支撑），推理时可指定 bin 10 生成高分动作。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OFF(["Warm-up 离线数据集"]) ==> ROLL["Rollout 阶段"]
+![rise 架构图 v3](figures/rise/arch.svg)
 
-    subgraph IMAG["想象环境闭环 (每帧最多复用 2 次, 零真机风险)"]
-        OBS(["当前多视角观测 O_t"])
-        POLR["rollout 策略 pi_rollout<br/>行为策略的 EMA"]
-        ADV1["提示最优 advantage=1<br/>即我要变好条件"]
-        ACT["动作块 hat a"]
-        DYN["动力学模型 D<br/>可控多视角视频扩散世界模型<br/>充当组合环境"]
-        FUT["想象帧 hat o_(t+1..t+H)"]
-        VAL["价值模型 V<br/>进度 + TD"]
-        AEV["评估优势 A 离散 10 bins"]
-        OBS2["下一想象观测"]
-        ADV1 -.-> POLR
-        POLR ==> ACT
-        ACT ==> DYN
-        OBS ==> DYN
-        DYN ==> FUT
-        FUT ==> VAL
-        VAL ==> AEV
-        FUT ==> OBS2
-        OBS2 -.-> POLR
-    end
-
-    subgraph TRA["训练阶段"]
-        BUF["(o, hat a, A) 缓冲"]
-        BEH["行为策略 pi<br/>VLA pi_0.5 底座"]
-        TRAIN["策略训练"]
-        LOSS["flow matching 损失<br/>优势条件加权"]
-        OUT["更新后策略部署<br/>零世界模型开销"]
-    end
-
-    ROLL ==> POLR
-    ROLL ==> BUF
-    AEV ==> BUF
-    BEH ==> TRAIN
-    BUF ==> TRAIN
-    TRAIN -.-> LOSS
-    LOSS ==> OUT
-
-    class OFF,OBS data
-    class ADV1,VAL,AEV reward
-    class DYN key
-    class FUT,OBS2 env
-    class POLR,BEH,TRAIN train
-    class ACT,OUT act
-    class LOSS loss
-    class ROLL loop
-    class BUF mem
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：RISE 用一个「组合世界模型」替换真实环境来做 on-policy RL：可控多视角视频扩散模型（由 Genie Envisioner GE-Base 改造）负责"这个动作会产生什么未来画面"，从 $\pi_{0.5}*
 
 ## 物理直觉解释
 

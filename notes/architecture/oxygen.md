@@ -33,46 +33,9 @@
 
 ## 核心技术
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OBS(["新观测 o_t<br/>(多路 RGB + 语言)"]) --> PRE["共享 VLM 只 prefill 一次<br/>(pi0.5 权重完全冻结, 零训练)"]
-    PRE --> KT["K_t: 模态无关 KV cache<br/>只编码观测本身, 两类专家共享"]
-    KT --> AEX["动作专家: 只读 K_t<br/>S = 10 步去噪 -> 动作块 A_t"]
-    KT --> SIGMA["语言可恢复状态<br/>sigma_t = (K_t, y_t, delta_t)"]
-    INFLIGHT(["历史帧在飞语言请求<br/>t-1, t-2, ... 的 sigma"]) --> M
-    SIGMA --> M
-    M["统一 KV cache 管理器 M<br/>Store / Retrieve / Update / Remove"]
-    M --> BATCH["Retrieve + Batch<br/>m 个活跃状态沿 batch 维堆成 sigma_hat"]
-    BATCH --> DECODE["跨帧连续批解码<br/>每帧为全部请求解 k 个 token<br/>(k 按帧率与硬件离线校准)"]
-    DECODE --> UNB["UnBatch: 完成则 Remove (delta=1)<br/>未完成则 Update 持久化到下一帧"]
-    UNB -.->|"断点续传, 跨帧无损续跑"| M
-    AEX ==> ACT(["机器人动作 60-70 Hz<br/>关键路径 198 ms < 333 ms 执行窗口"])
-    DECODE ==> LANGOUT(["语言 token 200+ tok/s<br/>藏在动作执行窗口之后"])
+![oxygen 架构图 v3](figures/oxygen/arch.svg)
 
-    class OBS,INFLIGHT data
-    class PRE,AEX frozen
-    class KT,SIGMA mem
-    class M,BATCH,DECODE key
-    class UNB loop
-    class ACT,LANGOUT act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：问题**：MoT 结构 VLA（如 π0.5）架构上支持动作+语言多任务并行，但现有推理系统孤立执行——同一观测被每个任务重复 prefill、语言解码阻塞动作硬实时，端侧单 GPU 上动作频率与语言吞吐此消彼长；**洞*
 
 ![oxygen 架构图](figures/oxygen/fig1.png)
 

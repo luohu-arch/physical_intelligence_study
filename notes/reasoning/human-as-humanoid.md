@@ -42,48 +42,9 @@ Human-as-Humanoid 提出硬件-软件联合设计：设计 PrimeU 人形使其�
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    EGO[Egocentric 视频<br/>头戴相机]:::data
-    EXO[Exocentric 视频<br/>外视角]:::data
-    TRACK[人体跟踪 + Mesh 重建<br/>预训练感知模型]:::frozen
-    IK[Staged IK 分阶段重映射<br/>先臂 7-DoF 后手 20-DoF]:::train
-    CHUNK[60-DoF 动作块标签<br/>每块 40 个未来状态]:::act
+![human-as-humanoid 架构图 v3](figures/human-as-humanoid/arch.svg)
 
-    subgraph PRIMEU["PrimeU 比例对齐人形"]
-        HW[硬件身体比例对齐<br/>肩宽比 0.97 臂长比 1.02 手长比 1.00]:::key
-    end
-
-    EGO ==> TRACK
-    EXO ==> TRACK
-    TRACK ==> IK
-    IK ==> CHUNK
-    POL[PhysDex VLA 策略<br/>flow-matching DiT]:::train
-    CHUNK -.模仿监督 1500 小时人类视频预训练.-> POL
-    DSL[DS-HKC 双空间损失<br/>关节空间 + FK 任务空间]:::loss
-    DSL -.-> POL
-    HW -.比例对齐使迁移退化为 IK 求解.-> IK
-    EGOD[部署期 Ego 观测<br/>头戴 + 腕部相机]:::data
-    EGOD ==> POL
-    POL ==> ROBOT([PrimeU 上身 60-DoF 动作]):::act
-    ROBOT -.闭环滚动重观测.-> EGOD
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：Human-as-Humanoid 提出硬件-软件联合设计：设计 PrimeU 人形使其身体比例对齐人类，配合 ego-exo 双视角视频→60-DoF 动作 pipeline，实现零样本迁移——无需任何机器人演示数据。*
 
 分阶段 IK: 先求解臂部 7-DoF IK 使腕部位姿匹配人类腕部，再求解手部 20-DoF IK 使指尖位置匹配。DS-HKC loss 同时约束关节角度和末端位姿。
 

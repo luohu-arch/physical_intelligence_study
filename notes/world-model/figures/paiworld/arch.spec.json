@@ -1,0 +1,163 @@
+{
+ "nodes": [
+  {
+   "id": "VIEW1",
+   "label": "视角 1 tokens",
+   "sub": "",
+   "icon": "stack",
+   "cls": "data",
+   "x": 126,
+   "y": 130,
+   "w": 181,
+   "h": 92
+  },
+  {
+   "id": "VIEW2",
+   "label": "视角 2 tokens",
+   "sub": "",
+   "icon": "stack",
+   "cls": "data",
+   "x": 348,
+   "y": 130,
+   "w": 181,
+   "h": 92
+  },
+  {
+   "id": "GEOATTN",
+   "label": "Geo-RoPE 跨视角 Attention\nray 子空间 + pose 子空间",
+   "sub": "给单视角骨干开通信通路 仅",
+   "icon": "spark",
+   "cls": "key",
+   "x": 182,
+   "y": 314,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "DIT",
+   "label": "DiT 骨干\nCosmos-Predict2.5 14B",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 196,
+   "y": 532,
+   "w": 263,
+   "h": 93
+  },
+  {
+   "id": "MID",
+   "label": "中间特征",
+   "sub": "",
+   "icon": "gear",
+   "cls": "env",
+   "x": 258,
+   "y": 717,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "REPA",
+   "label": "Latent 3D-REPA 蒸馏\n冻结 Depth Anything 3 老",
+   "sub": "师 仅此 +0.72",
+   "icon": "noise",
+   "cls": "key",
+   "x": 44,
+   "y": 901,
+   "w": 287,
+   "h": 126
+  },
+  {
+   "id": "PRED",
+   "label": "未来帧预测\n多视角 3D 一致不漂移",
+   "sub": "",
+   "icon": "camera",
+   "cls": "env",
+   "x": 371,
+   "y": 918,
+   "w": 240,
+   "h": 93
+  },
+  {
+   "id": "LOSS",
+   "label": "3D 一致性损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 240,
+   "y": 1119,
+   "w": 176,
+   "h": 92
+  }
+ ],
+ "edges": [
+  {
+   "from": "VIEW1",
+   "to": "GEOATTN",
+   "style": "thick"
+  },
+  {
+   "from": "VIEW2",
+   "to": "GEOATTN",
+   "style": "thick"
+  },
+  {
+   "from": "GEOATTN",
+   "to": "DIT",
+   "style": "thick"
+  },
+  {
+   "from": "DIT",
+   "to": "MID",
+   "style": "thick"
+  },
+  {
+   "from": "MID",
+   "to": "REPA",
+   "style": "thick"
+  },
+  {
+   "from": "MID",
+   "to": "PRED",
+   "style": "thick"
+  },
+  {
+   "from": "REPA",
+   "to": "LOSS",
+   "style": "fb",
+   "label": "\"联合 +2.64 超加性 两个耦合缺一不可\"",
+   "loff": [
+    0,
+    -18
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "label": "多视角输入 (相机内外参标定已知)",
+   "x": 102,
+   "y": 86,
+   "w": 450,
+   "h": 156
+  }
+ ],
+ "canvas": [
+  655,
+  1301
+ ],
+ "legend": [
+  "data",
+  "env",
+  "key",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  655,
+  1301
+ ],
+ "title": "paiworld",
+ "subtitle": "PAIWorld 解决世界模型的多视角 3D 不一致问题——Geo-RoPE 几何旋转位置编码 + Latent 3D-REPA 3D 蒸馏，在 DiT backbone 上同",
+ "foot": "paiworld · arXiv 2606.18375 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    subgraph VIEWS[\"多视角输入 (相机内外参标定已知)\"]\n        direction TB\n        VIEW1([\"视角 1 tokens\"])\n        VIEW2([\"视角 2 tokens\"])\n    end\n\n    GEOATTN[\"Geo-RoPE 跨视角 Attention<br/>ray 子空间 + pose 子空间<br/>给单视角骨干开通信通路 仅此 +0.93\"]\n    VIEW1 ==> GEOATTN\n    VIEW2 ==> GEOATTN\n    GEOATTN ==> DIT[\"DiT 骨干<br/>Cosmos-Predict2.5 14B\"]\n    DIT ==> MID[\"中间特征\"]\n    MID ==> REPA[\"Latent 3D-REPA 蒸馏<br/>冻结 Depth Anything 3 老师 仅此 +0.72\"]\n    MID ==> PRED[\"未来帧预测<br/>多视角 3D 一致不漂移\"]\n    REPA -.->|\"联合 +2.64 超加性<br/>两个耦合缺一不可\"| LOSS[\"3D 一致性损失\"]\n\n    class VIEW1,VIEW2 data\n    class GEOATTN,REPA key\n    class DIT train\n    class MID,PRED env\n    class LOSS loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17",
+ "source": "mermaid-auto"
+}

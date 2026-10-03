@@ -41,39 +41,9 @@ WCM 把世界模型从"旁观评估器"升级为"策略的条件信号源"：LeJ
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OBS(["观测 (RGB + 状态)<br/>多帧历史: 补时序盲区<br/>单帧 critic 会撞桌/堵转"]) ==> ENC["LeJEPA 共享表征编码器 E<br/>-> latent z"]
-    ENC ==> VAL["价值头 V(z)<br/>任务成功概率估计"]
-    ENC ==> DYN["动力学头 D(z, a)<br/>预测未来表征<br/>dense 预测误差让 critic 更懂环境"]
-    VAL ==> COND["条件引导信号<br/>训练期引导 RECAP 式策略更新"]
-    DYN ==> COND
-    COND -.->|"即插即用"| POL["VLA 策略<br/>pi0 / pi0.5 / OpenVLA-OFT<br/>IND 84.4% vs SFT 38.4%"]
+![wcm 架构图 v3](figures/wcm/arch.svg)
 
-    class OBS data
-    class ENC train
-    class VAL,DYN key
-    class COND reward
-    class POL act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：WCM 把世界模型从"旁观评估器"升级为"策略的条件信号源"：LeJEPA 世界批判模型同时挂 value head（预测任务成功概率）与 dynamics head（预测未来状态），两者的预测结果直接拼入 π0/π0.*
 
 世界模型在 latent 空间学习两个映射。编码器把观测映射到抽象表征：$z_t = E(o_t)$。value head 输出任务成功概率的估计：
 

@@ -45,53 +45,9 @@ InstructVLA 回答「VLA 微调是否必然摧毁 VLM 的多模态推理」这�
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    IMG(["多视角 RGB<br/>VLM 448 / 专家 224 双分辨率"]) --> SL
-    TXT(["指令<br/>(可先做 test-time thinking 文字分析)"]) --> BB
-    PROP(["本体状态 (可选)"]) --> EXP
-    subgraph VIS["双视觉通路"]
-        SL["SigLIP 编码"]
-        DINO["DINOv2 ViT + FiLM 调制"]
-    end
-    BB["Eagle2-2B 主干<br/>(冻结, 保住多模态能力)"]
-    SL --> BB
-    BB --> MOE
-    MOE["MoE 适配: 双 LoRA adapter<br/>+ scalar gate 逐 token 切换<br/>(Stage 2 仅 220M 可训练)"]
-    MOE --> LANGOUT["文本回答<br/>(MMStar 56.2 近无损)"]
-    MOE --> LAT["N = 64 latent action query<br/>从冻结主干抽取任务意图 C"]
-    DINO --> EXP["动作专家 134M transformer"]
-    LAT --> EXP
-    PROP --> EXP
-    EXP --> FM["flow matching 解码<br/>10 步 Euler 积分"]
-    FM ==> ACT(["动作 chunk H x 7<br/>只执行 1 步即重观测"])
-    ACT -.->|"激进闭环<br/>2.51-4.96 Hz (A100)"| IMG
-    LLMM["损失 L = L_LM + L_FM<br/>(1:1 相加)"] -.-> MOE
-    LMOT["language motion 监督<br/>位移三值化 {-1,0,1}^6 -> 运动口令"] -.-> BB
+![instructvla 架构图 v3](figures/instructvla/arch.svg)
 
-    class IMG,TXT,PROP data
-    class BB,SL frozen
-    class MOE,LAT key
-    class DINO,EXP,FM train
-    class ACT act
-    class LLMM,LMOT loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：InstructVLA 回答「VLA 微调是否必然摧毁 VLM 的多模态推理」这一开放问题：它在 Eagle2-2B 主干上加 $N{=}64$ 个可学习 latent action query 作为「动作输出轴」，用两*
 
 ### 1. 语言运动码的构造（附录 D.1）
 

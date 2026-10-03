@@ -47,67 +47,9 @@
 
 **GiGPO 联合优化。** 两个角色的轨迹按 rollout 索引配对成各自的 batch，用同一个 GiGPO（episode 级相对优势 + step 级相对优势）目标更新共享 actor；episode 级对比在推理侧是同任务完整尝试回报、在编辑侧是同任务同基础技能的 $\Delta^{skill}$；step 级锚点推理用 $(x, o_t)$、编辑用 $(x, o_t, Z^{step}_t)$；两个角色的统计量各自归一化，避免任务回报与技能验证回报的量纲互相泄漏。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OFF["离线初始化: 外部 LLM 采每组 8 条 rollout<br/>反思生成 1 任务技能 + 1-8 有出处步骤技能"]:::frozen
-    LIB["层级技能库 (mem): 任务技能 -> 步骤技能两级<br/>ALFWorld 300+1625 / WebShop 300+1406"]:::mem
-    RT["两级检索: 先指令嵌入选任务束<br/>再只在束内选步骤技能"]:::mem
-    RA["Reasoning Agent (被 RL 的共享骨干)<br/>Qwen2.5-7B, 执行环境动作"]:::train
-    ENV["文本环境: ALFWorld / WebShop<br/>秒级免费重置"]:::env
-    MS["Meta-Skill Agent (核心 novelty): 同一共享骨干<br/>每个推理转移后提议一次库编辑"]:::key
-    ST["暂存编辑提议: INSERT / UPDATE / DELETE / KEEP<br/>先不写回, 防坏编辑污染库"]:::act
-    PB["回合结束: 暂存编辑应用到束的私有副本"]:::mem
-    VE["post-edit 验证: 同任务重置<br/>带私有副本重跑 M=1 次"]:::env
-    DW["技能奖励 delta_skill = 验证均值 - 基线回报<br/>跨回合延迟信用分配"]:::reward
-    PM{"编辑有效且非平凡<br/>且验证胜过基线?"}:::reward
-    TOPK["组内晋升 top-2, 容量 300 每 5 步驱逐<br/>原始束保留维持谱系"]:::mem
-    DRB["D_R: 推理转移轨迹<br/>保留自己的环境回报"]:::data
-    DSB["D_S: 编辑轨迹<br/>奖励 = delta_skill"]:::data
-    GG["GiGPO 联合更新共享策略: episode + step 双层优势<br/>推理锚 (x, o_t), 编辑锚 (x, o_t, Z_step)"]:::loss
-    ACC(["ALFWorld 98.4% (六类中五类 100%), WebShop 90.6%<br/>超闭源编辑器版 D2Skill 7.8pp"]):::data
+![coskill 架构图 v3](figures/coskill/arch.svg)
 
-    OFF ==> LIB
-    LIB ==> RT
-    RT ==>|"技能进上下文"| RA
-    RA ==>|"环境动作"| ENV
-    ENV -.->|"下一观测 / 奖励 / 反馈"| RA
-    ENV -.->|"同一转移: 观测+活动技能+推理动作+反馈"| MS
-    MS ==> ST
-    ST ==>|"回合结束"| PB
-    PB ==> VE
-    VE ==> DW
-    DW ==> PM
-    PM ==>|"是"| TOPK
-    PM -.->|"否: 拒绝写回, 原束保留"| LIB
-    TOPK ==> LIB
-    RA ==> DRB
-    MS ==> DSB
-    DW -.->|"延迟奖励"| DSB
-    DRB ==> GG
-    DSB ==> GG
-    GG -.->|"同一套权重更新两个角色"| RA
-    GG -.-> MS
-    GG ==> ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：数字域对照工作（ALFWorld 文本家庭任务 + WebShop 模拟电商，LLM agent，全文无任何真机或机器人控制实验）：把"技能库的编辑者"从一个固定工作流（反思提示、SKILL.md 规则、多智能体流水线）*
 
 ## 底层原理与数学推导
 

@@ -72,48 +72,9 @@ $$
 - $A$ 和 $B$ 为可学习的低秩矩阵，秩为 $r$，远小于权重矩阵的原始维度；
 - $\alpha_{lora}$ 为缩放系数，用于平衡微调的更新幅度，避免破坏预训练权重。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    IMG(["RGB 图像 224x224<br/>(单路, 无本体感知)"]) --> SIG & DINO
-    LANG(["语言指令"]) ==> LLAMA
-    subgraph DUAL["双视觉编码器 (互补)"]
-        SIG["SigLIP 语义特征<br/>(这是什么)"]
-        DINO["DINOv2 空间几何特征<br/>(在哪里)"]
-        FUSE["特征融合<br/>语义 + 空间双通道"]
-    end
-    SIG --> FUSE
-    DINO --> FUSE
-    FUSE ==> LLAMA["Llama 2 7B 主干<br/>(970k OpenX 轨迹预训练, 微调时冻结)"]
-    LORA["LoRA 低秩适配<br/>注意力层插入, 仅约 0.1% 参数<br/>单张 24G GPU 可微调"] -.-> LLAMA
-    LLAMA ==> HEAD["动作输出头: 256 bin 离散化<br/>7 维动作自回归逐 token 生成"]
-    LCE["损失: next-token 交叉熵"] -.-> HEAD
-    HEAD ==> ACT(["解码回连续动作执行<br/>H = 1, 无 chunking"])
-    ACT ==> ROBOT(["机器人执行<br/>未优化 6Hz@RTX 4090"])
-    ROBOT -.->|"每步重观测重规划"| IMG
+![openvla 架构图 v3](figures/openvla/arch.svg)
 
-    class IMG,LANG data
-    class SIG,DINO,LLAMA frozen
-    class FUSE key
-    class LORA train
-    class ACT,ROBOT act
-    class LCE loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：OpenVLA 是首个完全开源、可商用、性能比肩闭源 RT-2 的 7B 级端到端 VLA 模型，基于双视觉编码器（DINOv2+SigLIP）和 Llama 2 7B 骨干，在 Open X-Embodiment 97*
 
 **OpenVLA 的双视觉编码器就像人类的两套视觉系统**：SigLIP 像大脑的"这是什么"通路（腹侧视觉通路），识别物体的类别和功能——这是一个杯子、可以用来喝水；DINOv2 像大脑的"它在哪"通路（背侧视觉通路），精准判断物体的位置和姿态——杯子在桌子右上角、杯把朝左。两套系统协同工作，既知道"拿什么"，也知道"怎么拿"。消融实测印证了这一分工：去掉 DINOv2 后成功率从 45.6% 跌到 40.6%，而完全去掉 OpenX 大规模预训练则从 76.3% 暴跌到 45.6%——语义与空间信息缺一不可。
 

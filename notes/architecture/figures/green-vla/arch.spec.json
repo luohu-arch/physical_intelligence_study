@@ -1,0 +1,207 @@
+{
+ "nodes": [
+  {
+   "id": "L0",
+   "label": "L0: VLM 预训练\n互联网规模图文",
+   "sub": "",
+   "icon": "brain",
+   "cls": "train",
+   "x": 67,
+   "y": 130,
+   "w": 189,
+   "h": 93
+  },
+  {
+   "id": "L1",
+   "label": "L1: 多模态 Groundi\nng",
+   "sub": "24M web 样本",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 345,
+   "y": 338,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "R0",
+   "label": "R0: 跨具身预训练\n184M 样本, DataQA ",
+   "sub": "四维过滤",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 639,
+   "y": 338,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "R1",
+   "label": "R1: 具身特定微调",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 935,
+   "y": 356,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "R2",
+   "label": "R2: RL 策略对齐\n小 actor 学习新噪声",
+   "sub": "源分布 p_0'",
+   "icon": "noise",
+   "cls": "key",
+   "x": 1205,
+   "y": 338,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "SPACE",
+   "label": "64 维统一动作空间\n语义 slot + embodi",
+   "sub": "ment mask",
+   "icon": "lightning",
+   "cls": "key",
+   "x": 46,
+   "y": 247,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "LBC",
+   "label": "BC 损失 L_BC\n(R0/R1 基础, 随数据",
+   "sub": "饱和)",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 44,
+   "y": 397,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "IQL",
+   "label": "IQL Q 函数 (稀疏奖\n励)",
+   "sub": "保守探索, 不直接改",
+   "icon": "medal",
+   "cls": "reward",
+   "x": 49,
+   "y": 547,
+   "w": 225,
+   "h": 126
+  },
+  {
+   "id": "DEPLOY",
+   "label": "单模型异构部署\n人形 12Hz / 底层 5",
+   "sub": "0Hz",
+   "icon": "lightning",
+   "cls": "act",
+   "x": 1504,
+   "y": 338,
+   "w": 227,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "L0",
+   "to": "L1",
+   "style": "thick"
+  },
+  {
+   "from": "L1",
+   "to": "R0",
+   "style": "thick"
+  },
+  {
+   "from": "R0",
+   "to": "R1",
+   "style": "thick"
+  },
+  {
+   "from": "R1",
+   "to": "R2",
+   "style": "thick"
+  },
+  {
+   "from": "SPACE",
+   "to": "R0",
+   "style": "fb",
+   "label": "\"跨具身共享训练\""
+  },
+  {
+   "from": "LBC",
+   "to": "R0",
+   "style": "fb"
+  },
+  {
+   "from": "LBC",
+   "to": "R1",
+   "style": "fb"
+  },
+  {
+   "from": "IQL",
+   "to": "R2",
+   "style": "fb"
+  },
+  {
+   "from": "R2",
+   "to": "DEPLOY",
+   "style": "thick",
+   "label": "\"超越 BC 上限 (Simpler 55.2 ",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "DEPLOY",
+   "to": "R0",
+   "style": "fb",
+   "label": "\"逐 chunk 重观测 高层 planner ",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "label": "语言与感知先验阶段",
+   "x": 43,
+   "y": 86,
+   "w": 554,
+   "h": 398
+  },
+  {
+   "label": "机器人阶段 (3000h 异构数据)",
+   "x": 615,
+   "y": 294,
+   "w": 847,
+   "h": 190
+  }
+ ],
+ "canvas": [
+  1775,
+  763
+ ],
+ "legend": [
+  "act",
+  "key",
+  "loss",
+  "reward",
+  "train"
+ ],
+ "layout_wh": [
+  1775,
+  763
+ ],
+ "title": "green-vla",
+ "subtitle": "Green-VLA 提出五阶段训练范式（L0 VLM 预训练→L1 多模态 grounding→R0 跨具身预训练→R1 微调→R2 RL 对齐），64 维统一动作空间 + 具",
+ "foot": "green-vla · arXiv 2602.00919 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph LANG[\"语言与感知先验阶段\"]\n        L0[\"L0: VLM 预训练<br/>互联网规模图文\"]\n        L1[\"L1: 多模态 Grounding<br/>24M web 样本\"]\n    end\n    subgraph ROBO[\"机器人阶段 (3000h 异构数据)\"]\n        R0[\"R0: 跨具身预训练<br/>184M 样本, DataQA 四维过滤\"]\n        R1[\"R1: 具身特定微调\"]\n        R2[\"R2: RL 策略对齐<br/>小 actor 学习新噪声源分布 p_0'\"]\n    end\n    L0 ==> L1 ==> R0 ==> R1 ==> R2\n    SPACE[\"64 维统一动作空间<br/>语义 slot + embodiment mask\"] -.->|\"跨具身共享训练\"| R0\n    LBC[\"BC 损失 L_BC<br/>(R0/R1 基础, 随数据饱和)\"] -.-> R0\n    LBC -.-> R1\n    IQL[\"IQL Q 函数 (稀疏奖励)<br/>保守探索, 不直接改策略权重\"] -.-> R2\n    R2 ==>|\"超越 BC 上限<br/>(Simpler 55.2 -> 79.1)\"| DEPLOY([\"单模型异构部署<br/>人形 12Hz / 底层 50Hz\"])\n    DEPLOY -.->|\"逐 chunk 重观测<br/>高层 planner 逐 subtask replan<br/>+ EEP/OOD 安全终止\"| R0\n\n    class L0,L1,R0,R1 train\n    class R2,SPACE key\n    class DEPLOY act\n    class IQL reward\n    class LBC loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

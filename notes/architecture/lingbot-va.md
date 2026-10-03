@@ -47,51 +47,9 @@ LingBot-VA 提出首个开源自回归视频-动作世界模型：用 Mixture-of
 
 ### 架构
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OBS(["真实观测 O_t<br/>(RGB 视频流)"]) --> VAE["因果视频 VAE<br/>压缩到约 256 token/帧"]
-    VAE --> VT["视频 token"]
-    NOISE(["噪声动作起点<br/>(flow matching)"]) --> SEQ
-    VT --> SEQ["因果自回归序列<br/>视频 + 动作 token 交替<br/>因果 mask: 动作只看过去"]
-    SEQ --> MoT["Mixture-of-Transformers<br/>双流非对称架构"]
-    MoT --> VEX["视频 expert 约 7B<br/>(视频生成预训练初始化)"]
-    MoT --> AEX["动作 expert 约 300M<br/>(轻量解码动作)"]
-    VEX --> FUT["预测未来 K 帧视频 latent<br/>(K 在 1-8, 部署可调)"]
-    FUT -.->|"部分去噪中间状态直接解码<br/>不等视频完全生成"| AEX
-    FUT --> SEQ
-    AEX ==> ACTION(["动作 chunk 50 步"])
-    ACTION ==> EXEC(["机器人异步执行<br/>约 2Hz, 与预测并行"])
-    EXEC -.->|"新观测经 KV cache 注入<br/>recalibrate 过期预测"| SEQ
-    KV["KV cache 持久时序记忆<br/>(真实交互历史)"] -.-> SEQ
-    LFM["损失: flow matching 模仿<br/>+ 逆动力学损失 (lambda = 1)"] -.-> MoT
+![lingbot-va 架构图 v3](figures/lingbot-va/arch.svg)
 
-    class OBS,NOISE data
-    class VAE frozen
-    class SEQ key
-    class VEX env
-    class AEX train
-    class ACTION,EXEC act
-    class KV mem
-    class LFM loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：LingBot-VA 提出首个开源自回归视频-动作世界模型：用 Mixture-of-Transformers (MoT) 架构将视频帧预测和动作推理统一到一个因果序列中，先预测"世界会怎么变"再解码"应该做什么"。50*
 
 ### Flow Matching 在连续 latent 空间
 

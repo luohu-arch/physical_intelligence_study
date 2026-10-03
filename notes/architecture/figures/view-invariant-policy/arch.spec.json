@@ -1,0 +1,252 @@
+{
+ "nodes": [
+  {
+   "id": "RGB",
+   "label": "RGB 图像 [H,W,3]",
+   "sub": "",
+   "icon": "camera",
+   "cls": "data",
+   "x": 432,
+   "y": 333,
+   "w": 210,
+   "h": 92
+  },
+  {
+   "id": "FUSION",
+   "label": "Fusion 方式",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 328,
+   "y": 655,
+   "w": 161,
+   "h": 92
+  },
+  {
+   "id": "CAM",
+   "label": "相机外参 (R, t)\n(AprilTags / 标定 ",
+   "sub": "/ 元数据)",
+   "icon": "camera",
+   "cls": "data",
+   "x": 44,
+   "y": 130,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "PL",
+   "label": "Plucker Ray 编码 (\n核心)",
+   "sub": "d = R * K^-1 * [u,",
+   "icon": "eye",
+   "cls": "key",
+   "x": 176,
+   "y": 316,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "PLM",
+   "label": "Plucker map [H,W,6\n]",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 292,
+   "y": 502,
+   "w": 233,
+   "h": 93
+  },
+  {
+   "id": "CROP",
+   "label": "图像与 Plucker map\n 联合随机裁剪",
+   "sub": "(相同空间裁剪, 防背",
+   "icon": "camera",
+   "cls": "data",
+   "x": 298,
+   "y": 130,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "CONCAT",
+   "label": "channel-wise 拼接\n成 [H,W,9] 输入",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 171,
+   "y": 807,
+   "w": 220,
+   "h": 93
+  },
+  {
+   "id": "LATE",
+   "label": "late fusion 小 CNN\n(不污染预训练权重)",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 415,
+   "y": 807,
+   "w": 232,
+   "h": 93
+  },
+  {
+   "id": "ENC",
+   "label": "Vision Encoder",
+   "sub": "",
+   "icon": "eye",
+   "cls": "frozen",
+   "x": 312,
+   "y": 960,
+   "w": 194,
+   "h": 92
+  },
+  {
+   "id": "MERGE",
+   "label": "与预训练特征合并",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 309,
+   "y": 1112,
+   "w": 200,
+   "h": 92
+  },
+  {
+   "id": "POL",
+   "label": "Action Policy\n(ACT / DP / SmolVL",
+   "sub": "A)",
+   "icon": "lightning",
+   "cls": "train",
+   "x": 292,
+   "y": 1264,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "LBC",
+   "label": "各基线自身 BC 损失\n(ACT CVAE / DP 扩",
+   "sub": "散 / SmolVLA)",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 552,
+   "y": 130,
+   "w": 222,
+   "h": 126
+  },
+  {
+   "id": "ACTOUT",
+   "label": "动作输出: 相机移动\n后策略不失效",
+   "sub": "3 架构 6 任务全部正",
+   "icon": "camera",
+   "cls": "act",
+   "x": 294,
+   "y": 1450,
+   "w": 231,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "RGB",
+   "to": "FUSION",
+   "style": "main"
+  },
+  {
+   "from": "CAM",
+   "to": "PL",
+   "style": "main"
+  },
+  {
+   "from": "PL",
+   "to": "PLM",
+   "style": "main"
+  },
+  {
+   "from": "CROP",
+   "to": "RGB",
+   "style": "fb"
+  },
+  {
+   "from": "CROP",
+   "to": "PLM",
+   "style": "fb"
+  },
+  {
+   "from": "PLM",
+   "to": "FUSION",
+   "style": "main"
+  },
+  {
+   "from": "FUSION",
+   "to": "CONCAT",
+   "style": "main",
+   "label": "\"非预训练 encoder\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "FUSION",
+   "to": "LATE",
+   "style": "main",
+   "label": "\"预训练 encoder\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "CONCAT",
+   "to": "ENC",
+   "style": "main"
+  },
+  {
+   "from": "LATE",
+   "to": "MERGE",
+   "style": "main"
+  },
+  {
+   "from": "ENC",
+   "to": "MERGE",
+   "style": "main"
+  },
+  {
+   "from": "MERGE",
+   "to": "POL",
+   "style": "thick"
+  },
+  {
+   "from": "LBC",
+   "to": "POL",
+   "style": "fb"
+  },
+  {
+   "from": "POL",
+   "to": "ACTOUT",
+   "style": "thick"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  818,
+  1666
+ ],
+ "legend": [
+  "act",
+  "data",
+  "frozen",
+  "key",
+  "loop",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  818,
+  1666
+ ],
+ "title": "view-invariant-policy",
+ "subtitle": "当相机被移动或重新定位后，现有模仿学习策略大概率失效。这篇论文提出将策略条件化到相机外参（用 Plücker ray 编码每个像素的 3D 射线），使策略天然对相机视角鲁棒，在",
+ "foot": "view-invariant-policy · arXiv 2510.02268 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    RGB([\"RGB 图像 [H,W,3]\"]) --> FUSION\n    CAM([\"相机外参 (R, t)<br/>(AprilTags / 标定 / 元数据)\"]) --> PL\n    PL[\"Plucker Ray 编码 (核心)<br/>d = R * K^-1 * [u,v,1]^T, m = t x d<br/>(每像素 6 维: 方向 + 矩)<br/>对相机位姿等变\"]\n    PL --> PLM([\"Plucker map [H,W,6]\"])\n    CROP[\"图像与 Plucker map 联合随机裁剪<br/>(相同空间裁剪, 防背景泄露相机位姿)\"] -.-> RGB\n    CROP -.-> PLM\n    PLM --> FUSION{\"Fusion 方式\"}\n    FUSION -->|\"非预训练 encoder\"| CONCAT[\"channel-wise 拼接<br/>成 [H,W,9] 输入\"]\n    FUSION -->|\"预训练 encoder\"| LATE[\"late fusion 小 CNN<br/>(不污染预训练权重)\"]\n    CONCAT --> ENC[\"Vision Encoder\"]\n    LATE --> MERGE[\"与预训练特征合并\"]\n    ENC --> MERGE\n    MERGE ==> POL[\"Action Policy<br/>(ACT / DP / SmolVLA)\"]\n    LBC[\"各基线自身 BC 损失<br/>(ACT CVAE / DP 扩散 / SmolVLA)\"] -.-> POL\n    POL ==> ACTOUT([\"动作输出: 相机移动后策略不失效<br/>3 架构 6 任务全部正增益<br/>(SmolVLA Lift 19.6 -> 54.4)\"])\n\n    class RGB,CAM,PLM,CROP data\n    class PL key\n    class ENC frozen\n    class CONCAT,LATE,MERGE,POL train\n    class ACTOUT act\n    class LBC loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

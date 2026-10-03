@@ -1,0 +1,204 @@
+{
+ "nodes": [
+  {
+   "id": "OBS",
+   "label": "当前与历史观测\no_t, o_t-1, ...",
+   "sub": "",
+   "icon": "state",
+   "cls": "data",
+   "x": 12,
+   "y": 146,
+   "w": 204,
+   "h": 93
+  },
+  {
+   "id": "PI",
+   "label": "训练好的 chunk 策略 pi_ha\nt_k (k = 20)",
+   "sub": "同一动作被 k 种条件重复监",
+   "icon": "stack",
+   "cls": "train",
+   "x": 318,
+   "y": 348,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "DEMO",
+   "label": "人类示教\n(决策边界处停顿, 非马尔可",
+   "sub": "夫)",
+   "icon": "db",
+   "cls": "data",
+   "x": 272,
+   "y": 130,
+   "w": 284,
+   "h": 126
+  },
+  {
+   "id": "AC",
+   "label": "AC(k): 开环 chunk 执行\n每 k 步才查询一次观测",
+   "sub": "预测 a_0 ... a_k-1 整段开",
+   "icon": "state",
+   "cls": "loop",
+   "x": 648,
+   "y": 566,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "DELAY",
+   "label": "Delay(d): 每步重算\n但条件于 d 步前的旧观测 o_",
+   "sub": "t-d",
+   "icon": "state",
+   "cls": "loop",
+   "x": 648,
+   "y": 348,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "RDE",
+   "label": "RDE(n): 每步采样 i ~ unif\n{0..n-1}",
+   "sub": "随机抽一个延迟成员执行",
+   "icon": "robot",
+   "cls": "key",
+   "x": 978,
+   "y": 348,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "ENV",
+   "label": "环境 / 机器人 15-20Hz\n500Hz 底层跟踪",
+   "sub": "",
+   "icon": "gear",
+   "cls": "env",
+   "x": 666,
+   "y": 784,
+   "w": 255,
+   "h": 93
+  },
+  {
+   "id": "TE",
+   "label": "TE 时间集成: 预测线性平均\n压掉集成效应 (Tool Hang ",
+   "sub": "仅 42.2",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 944,
+   "y": 130,
+   "w": 285,
+   "h": 126
+  },
+  {
+   "id": "ENS",
+   "label": "显式集成: m 个独立 pi_hat\n_20",
+   "sub": "Transport 12.6 -> 41.5 (",
+   "icon": "spark",
+   "cls": "key",
+   "x": 1285,
+   "y": 130,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "LBCL",
+   "label": "BC 损失 (chunk 内逐步\n以 k 种延迟条件重复监督)",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 612,
+   "y": 146,
+   "w": 276,
+   "h": 93
+  }
+ ],
+ "edges": [
+  {
+   "from": "OBS",
+   "to": "PI",
+   "style": "main"
+  },
+  {
+   "from": "DEMO",
+   "to": "PI",
+   "style": "fb",
+   "label": "\"BC 训练\""
+  },
+  {
+   "from": "PI",
+   "to": "AC",
+   "style": "thick"
+  },
+  {
+   "from": "AC",
+   "to": "ENV",
+   "style": "thick"
+  },
+  {
+   "from": "DELAY",
+   "to": "ENV",
+   "style": "thick"
+  },
+  {
+   "from": "RDE",
+   "to": "ENV",
+   "style": "thick"
+  },
+  {
+   "from": "ENV",
+   "to": "OBS",
+   "style": "fb",
+   "label": "\"新观测反馈\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  },
+  {
+   "from": "TE",
+   "to": "DELAY",
+   "style": "fb"
+  },
+  {
+   "from": "ENS",
+   "to": "RDE",
+   "style": "fb",
+   "label": "\"放大隐式集成\""
+  },
+  {
+   "from": "LBCL",
+   "to": "PI",
+   "style": "fb"
+  }
+ ],
+ "panels": [
+  {
+   "label": "同一 pi_hat_20 的三种部署方式 (机制隔离对",
+   "x": 624,
+   "y": 304,
+   "w": 668,
+   "h": 408
+  }
+ ],
+ "canvas": [
+  1587,
+  967
+ ],
+ "legend": [
+  "data",
+  "env",
+  "key",
+  "loop",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  1587,
+  967
+ ],
+ "title": "why-chunking-works",
+ "subtitle": "Problem**：action chunking 是现代 BC 的标配但其收益机制不明（时序一致性/horizon 缩减/表征学习三大流行假设均无法解释）；**Insight",
+ "foot": "why-chunking-works · arXiv 2608.02547 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS([\"当前与历史观测<br/>o_t, o_t-1, ...\"]) --> PI\n    DEMO([\"人类示教<br/>(决策边界处停顿, 非马尔可夫)\"]) -.->|\"BC 训练\"| PI\n    PI[\"训练好的 chunk 策略 pi_hat_k (k = 20)<br/>同一动作被 k 种条件重复监督:<br/>a_t | o_t, o_t-1, ..., o_t-k+1<br/>(隐式集成 k 个延迟成员)\"]\n    subgraph DEPLOY[\"同一 pi_hat_20 的三种部署方式 (机制隔离对照)\"]\n        AC[\"AC(k): 开环 chunk 执行<br/>每 k 步才查询一次观测<br/>预测 a_0 ... a_k-1 整段开环执行\"]\n        DELAY[\"Delay(d): 每步重算<br/>但条件于 d 步前的旧观测 o_t-d<br/>(延迟条件预测, 可复制 chunking)\"]\n        RDE[\"RDE(n): 每步采样 i ~ unif{0..n-1}<br/>随机抽一个延迟成员执行<br/>9/9 设置匹配 AC, 无需 chunk 执行\"]\n    end\n    PI ==> AC & DELAY & RDE\n    AC ==> ENV([\"环境 / 机器人 15-20Hz<br/>500Hz 底层跟踪\"])\n    DELAY ==> ENV\n    RDE ==> ENV\n    ENV -.->|\"新观测反馈\"| OBS\n    TE[\"TE 时间集成: 预测线性平均<br/>压掉集成效应 (Tool Hang 仅 42.2<br/>vs RDE 71.8)\"] -.-> DELAY\n    ENS([\"显式集成: m 个独立 pi_hat_20<br/>Transport 12.6 -> 41.5 (+28.9 点)<br/>Tool Hang 75.2 -> 87.6\"]) -.->|\"放大隐式集成\"| RDE\n    LBCL[\"BC 损失 (chunk 内逐步<br/>以 k 种延迟条件重复监督)\"] -.-> PI\n\n    class OBS,DEMO data\n    class PI train\n    class AC,DELAY loop\n    class RDE,ENS key\n    class ENV env\n    class TE,LBCL loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

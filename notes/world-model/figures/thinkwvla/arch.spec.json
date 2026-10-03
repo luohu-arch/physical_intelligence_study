@@ -1,0 +1,200 @@
+{
+ "nodes": [
+  {
+   "id": "TRAIN",
+   "label": "训练帧 (全部相机视\n角)",
+   "sub": "",
+   "icon": "camera",
+   "cls": "data",
+   "x": 86,
+   "y": 146,
+   "w": 220,
+   "h": 93
+  },
+  {
+   "id": "TPRE",
+   "label": "离线教师预计算\nCosmos3-Nano 理解",
+   "sub": "塔 第 24 层",
+   "icon": "brain",
+   "cls": "frozen",
+   "x": 44,
+   "y": 316,
+   "w": 220,
+   "h": 126
+  },
+  {
+   "id": "CACHE",
+   "label": "内存映射教师特征缓存\n每视角一个池化向量",
+   "sub": "按轨迹 id + 帧索引",
+   "icon": "db",
+   "cls": "mem",
+   "x": 162,
+   "y": 502,
+   "w": 236,
+   "h": 126
+  },
+  {
+   "id": "SUB",
+   "label": "学生训练\nQwen3.5-VL 骨干",
+   "sub": "+ flow-matching 动",
+   "icon": "brain",
+   "cls": "train",
+   "x": 330,
+   "y": 130,
+   "w": 232,
+   "h": 126
+  },
+  {
+   "id": "POOL",
+   "label": "学生图像 token 隐状\n态",
+   "sub": "逐视角均值池化",
+   "icon": "camera",
+   "cls": "train",
+   "x": 288,
+   "y": 316,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "COS",
+   "label": "余弦对齐损失 (stop-\ngradient)",
+   "sub": "lambda=0.5",
+   "icon": "sigma",
+   "cls": "key",
+   "x": 293,
+   "y": 688,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "PROJ",
+   "label": "两层 MLP 投影器\n自动适配 D_s 与 D_t",
+   "sub": "训练后即丢弃",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 422,
+   "y": 502,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "DEMO",
+   "label": "演示动作块",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 586,
+   "y": 147,
+   "w": 146,
+   "h": 92
+  },
+  {
+   "id": "ACT",
+   "label": "flow-matching 速度\n回归 L_act",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "loss",
+   "x": 545,
+   "y": 332,
+   "w": 230,
+   "h": 93
+  },
+  {
+   "id": "TOT",
+   "label": "总损失 L_act + lam\nbda*L_align",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 296,
+   "y": 874,
+   "w": 228,
+   "h": 93
+  },
+  {
+   "id": "DEPLOY",
+   "label": "部署策略与未蒸馏基线\n同构",
+   "sub": "1 prefill + 4 flow",
+   "icon": "flask",
+   "cls": "act",
+   "x": 292,
+   "y": 1027,
+   "w": 236,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "TRAIN",
+   "to": "TPRE",
+   "style": "main"
+  },
+  {
+   "from": "TPRE",
+   "to": "CACHE",
+   "style": "main"
+  },
+  {
+   "from": "SUB",
+   "to": "POOL",
+   "style": "thick"
+  },
+  {
+   "from": "CACHE",
+   "to": "COS",
+   "style": "fb"
+  },
+  {
+   "from": "POOL",
+   "to": "PROJ",
+   "style": "thick"
+  },
+  {
+   "from": "PROJ",
+   "to": "COS",
+   "style": "fb"
+  },
+  {
+   "from": "DEMO",
+   "to": "ACT",
+   "style": "thick"
+  },
+  {
+   "from": "COS",
+   "to": "TOT",
+   "style": "main"
+  },
+  {
+   "from": "ACT",
+   "to": "TOT",
+   "style": "main"
+  },
+  {
+   "from": "TOT",
+   "to": "DEPLOY",
+   "style": "thick"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  819,
+  1243
+ ],
+ "legend": [
+  "act",
+  "data",
+  "frozen",
+  "key",
+  "loss",
+  "mem",
+  "train"
+ ],
+ "layout_wh": [
+  819,
+  1243
+ ],
+ "title": "thinkwvla",
+ "subtitle": "ThinkWVLA 的核心洞察是把世界模型的两种资产拆开：**关于物理场景的知识在其内部特征里，生成未来只是产出这些特征的目标函数**——于是可以在训练期向一个冻结世界模型（C",
+ "foot": "thinkwvla · arXiv 2609.24682 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    TRAIN([\"训练帧 (全部相机视角)\"]) --> TPRE[\"离线教师预计算<br/>Cosmos3-Nano 理解塔 第 24 层<br/>逐视角池化 (教师冻结)\"]\n    TPRE --> CACHE[\"内存映射教师特征缓存<br/>每视角一个池化向量<br/>按轨迹 id + 帧索引寻址\"]\n    SUB[\"学生训练<br/>Qwen3.5-VL 骨干<br/>+ flow-matching 动作专家\"] ==> POOL[\"学生图像 token 隐状态<br/>逐视角均值池化\"]\n    CACHE -.-> COS[\"余弦对齐损失 (stop-gradient)<br/>lambda=0.5<br/>特征蒸馏免生成: 3s/45.9GB -> 32ms\"]\n    POOL ==> PROJ[\"两层 MLP 投影器<br/>自动适配 D_s 与 D_t<br/>训练后即丢弃\"]\n    PROJ -.-> COS\n    DEMO([\"演示动作块\"]) ==> ACT[\"flow-matching 速度回归 L_act\"]\n    COS --> TOT[\"总损失 L_act + lambda*L_align\"]\n    ACT --> TOT\n    TOT ==> DEPLOY[\"部署策略与未蒸馏基线同构<br/>1 prefill + 4 flow 步<br/>32ms / 1.86GB @ RTX 5090<br/>LIBERO 95.3->97.9, 真机鸡蛋 46.7->60.0\"]\n\n    class TRAIN,DEMO data\n    class TPRE frozen\n    class CACHE mem\n    class SUB,POOL,PROJ train\n    class COS key\n    class ACT,TOT loss\n    class DEPLOY act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17",
+ "source": "mermaid-auto"
+}

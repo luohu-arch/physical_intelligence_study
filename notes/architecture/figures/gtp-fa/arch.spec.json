@@ -1,0 +1,321 @@
+{
+ "nodes": [
+  {
+   "id": "IN",
+   "label": "语言指令 tau + 观测\n o",
+   "sub": "(RGB/RGBD)",
+   "icon": "camera",
+   "cls": "data",
+   "x": 25,
+   "y": 130,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "GN",
+   "label": "GraspNet 候选抓取\n(重建点云几何可行集",
+   "sub": ")",
+   "icon": "brain",
+   "cls": "frozen",
+   "x": 554,
+   "y": 316,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "VLM",
+   "label": "VLM + SoM 任务先验\n可抓区 / 禁区 / 缓",
+   "sub": "冲区",
+   "icon": "brain",
+   "cls": "frozen",
+   "x": 291,
+   "y": 130,
+   "w": 227,
+   "h": 126
+  },
+  {
+   "id": "RISK",
+   "label": "风险头 r_phi\n逼近 p(FM-G2 失稳)",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 552,
+   "y": 146,
+   "w": 227,
+   "h": 93
+  },
+  {
+   "id": "SCORE",
+   "label": "抓取评分\ns_base + lambda*s_",
+   "sub": "prior - beta*r_phi",
+   "icon": "reward",
+   "cls": "loop",
+   "x": 551,
+   "y": 502,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "GSEL",
+   "label": "选定单一抓取 g*\n6-DoF + 夹爪宽度",
+   "sub": "",
+   "icon": "robot",
+   "cls": "act",
+   "x": 564,
+   "y": 688,
+   "w": 207,
+   "h": 93
+  },
+  {
+   "id": "POL",
+   "label": "下游策略 (通用接口)\nPPO / SAC / BC / D",
+   "sub": "P / pi0.5-LoRA",
+   "icon": "lightning",
+   "cls": "train",
+   "x": 432,
+   "y": 841,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "EMB",
+   "label": "抓取条件嵌入\ne = f_theta(x_g)",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 689,
+   "y": 858,
+   "w": 214,
+   "h": 93
+  },
+  {
+   "id": "EXEC",
+   "label": "执行 episode\n(抓取固定后开环)",
+   "sub": "",
+   "icon": "robot",
+   "cls": "act",
+   "x": 439,
+   "y": 1027,
+   "w": 202,
+   "h": 93
+  },
+  {
+   "id": "DIS",
+   "label": "失败归因判别器 D\np_D: FM-G1 功能错",
+   "sub": "配",
+   "icon": "target",
+   "cls": "key",
+   "x": 558,
+   "y": 1180,
+   "w": 218,
+   "h": 126
+  },
+  {
+   "id": "KNN",
+   "label": "kNN 诊断库先验 p_E\nk=25 相似度加权投票",
+   "sub": "",
+   "icon": "noise",
+   "cls": "mem",
+   "x": 665,
+   "y": 1027,
+   "w": 231,
+   "h": 93
+  },
+  {
+   "id": "FUSE",
+   "label": "融合 p_fuse\n(1-alpha)*p_D + al",
+   "sub": "pha*p_E",
+   "icon": "spark",
+   "cls": "key",
+   "x": 551,
+   "y": 1366,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "GSIDE",
+   "label": "抓取侧优化\n任务先验强化 + 失稳",
+   "sub": "风险罚",
+   "icon": "noise",
+   "cls": "loop",
+   "x": 426,
+   "y": 1552,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "PSIDE",
+   "label": "规划侧优化\nhard-P 挖掘 top-20",
+   "sub": "0 + rho=0.2",
+   "icon": "tree",
+   "cls": "loop",
+   "x": 680,
+   "y": 1552,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "WL",
+   "label": "弱标签: 固定抓取 K=\n100 次",
+   "sub": "重复试验成功率 q_en",
+   "icon": "check",
+   "cls": "data",
+   "x": 813,
+   "y": 130,
+   "w": 231,
+   "h": 126
+  },
+  {
+   "id": "LD",
+   "label": "损失: L_D 伪标签交\n叉熵",
+   "sub": "L_E 监督对比 + 辅助",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 1077,
+   "y": 130,
+   "w": 233,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "IN",
+   "to": "GN",
+   "style": "main"
+  },
+  {
+   "from": "GN",
+   "to": "SCORE",
+   "style": "main"
+  },
+  {
+   "from": "VLM",
+   "to": "SCORE",
+   "style": "main"
+  },
+  {
+   "from": "RISK",
+   "to": "SCORE",
+   "style": "main"
+  },
+  {
+   "from": "SCORE",
+   "to": "GSEL",
+   "style": "thick"
+  },
+  {
+   "from": "GSEL",
+   "to": "POL",
+   "style": "thick"
+  },
+  {
+   "from": "GSEL",
+   "to": "EMB",
+   "style": "main"
+  },
+  {
+   "from": "POL",
+   "to": "EXEC",
+   "style": "thick"
+  },
+  {
+   "from": "EXEC",
+   "to": "DIS",
+   "style": "fb",
+   "label": "\"执行摘要 xi: slip/drop/碰撞/末",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "EMB",
+   "to": "KNN",
+   "style": "main"
+  },
+  {
+   "from": "DIS",
+   "to": "FUSE",
+   "style": "main"
+  },
+  {
+   "from": "KNN",
+   "to": "FUSE",
+   "style": "main"
+  },
+  {
+   "from": "FUSE",
+   "to": "GSIDE",
+   "style": "fb",
+   "label": "\"wG 高: 抓取侧接收更新\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "FUSE",
+   "to": "PSIDE",
+   "style": "fb",
+   "label": "\"wP 高: 规划侧接收更新\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "GSIDE",
+   "to": "SCORE",
+   "style": "fb",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  },
+  {
+   "from": "PSIDE",
+   "to": "POL",
+   "style": "fb",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  },
+  {
+   "from": "WL",
+   "to": "DIS",
+   "style": "fb"
+  },
+  {
+   "from": "LD",
+   "to": "DIS",
+   "style": "fb"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  1335,
+  1768
+ ],
+ "legend": [
+  "act",
+  "data",
+  "frozen",
+  "key",
+  "loop",
+  "loss",
+  "mem",
+  "train"
+ ],
+ "layout_wh": [
+  1335,
+  1768
+ ],
+ "title": "gtp-fa",
+ "subtitle": "（Problem）抓取与下游规划强耦合，同一表面失败可能是抓错部位、抓不稳或策略不足，端到端微调把抓取错误错记在策略头上、污染训练数据 →（Insight）先用「固定抓取条件重",
+ "foot": "gtp-fa · arXiv 2606.03385 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    IN([\"语言指令 tau + 观测 o<br/>(RGB/RGBD)\"]) --> GN[\"GraspNet 候选抓取<br/>(重建点云几何可行集)\"]\n    VLM[\"VLM + SoM 任务先验<br/>可抓区 / 禁区 / 缓冲区\"]\n    RISK[\"风险头 r_phi<br/>逼近 p(FM-G2 失稳)\"]\n    GN --> SCORE[\"抓取评分<br/>s_base + lambda*s_prior - beta*r_phi\"]\n    VLM --> SCORE\n    RISK --> SCORE\n    SCORE ==> GSEL([\"选定单一抓取 g*<br/>6-DoF + 夹爪宽度\"])\n    GSEL ==> POL[\"下游策略 (通用接口)<br/>PPO / SAC / BC / DP / pi0.5-LoRA\"]\n    GSEL --> EMB[\"抓取条件嵌入<br/>e = f_theta(x_g)\"]\n    POL ==> EXEC([\"执行 episode<br/>(抓取固定后开环)\"])\n    EXEC -.->|\"执行摘要 xi:<br/>slip/drop/碰撞/末端误差\"| DIS[\"失败归因判别器 D<br/>p_D: FM-G1 功能错配<br/>FM-G2 失稳 / FM-P 规划不足\"]\n    EMB --> KNN[\"kNN 诊断库先验 p_E<br/>k=25 相似度加权投票\"]\n    DIS --> FUSE{\"融合 p_fuse<br/>(1-alpha)*p_D + alpha*p_E<br/>alpha 由 D 置信度决定\"}\n    KNN --> FUSE\n    FUSE -.->|\"wG 高: 抓取侧接收更新\"| GSIDE[\"抓取侧优化<br/>任务先验强化 + 失稳风险罚\"]\n    FUSE -.->|\"wP 高: 规划侧接收更新\"| PSIDE[\"规划侧优化<br/>hard-P 挖掘 top-200 + rho=0.2<br/>起始态重塑 + wP 加权损失\"]\n    GSIDE -.-> SCORE\n    PSIDE -.-> POL\n    WL([\"弱标签: 固定抓取 K=100 次<br/>重复试验成功率 q_end + 阈值规则\"]) -.-> DIS\n    LD[\"损失: L_D 伪标签交叉熵<br/>L_E 监督对比 + 辅助分类头\"] -.-> DIS\n\n    class IN,WL data\n    class GN,VLM frozen\n    class POL,RISK,EMB train\n    class DIS,FUSE key\n    class KNN mem\n    class GSEL,EXEC act\n    class GSIDE,PSIDE loop\n    class LD loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

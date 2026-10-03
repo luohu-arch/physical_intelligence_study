@@ -44,49 +44,9 @@ MINT 提出模仿学习应模仿"行为意图"而非"轨迹细节"。用 DCT 将
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    AC(["动作 chunk (时域)"]) ==> DCT["DCT 频谱分解"]
-    DCT --> LOW(["低频系数<br/>整段动作的宏观趋势"])
-    DCT --> HIGH(["高频系数<br/>执行残差 / 局部抖动"])
-    subgraph SDAT["频谱解耦动作 tokenizer (多尺度 VQ-VAE)"]
-        VQ1["Scale 1: Intent Token<br/>最粗尺度仅 1 个 token"]
-        VQK["Scale 2..k: Execution Tokens<br/>逐级捕获残差"]
-        RECON["渐进重建 S1 -> Sk<br/>(i) 仅 S1 (ii) S1+S2 (iii) S1+S2+S3 ..."]
-    end
-    LOW ==> VQ1
-    HIGH ==> VQK
-    VQ1 --> RECON
-    VQK --> RECON
-    LFREQ["Scale-Wise 频域重建损失<br/>(强制频谱分离)"] -.-> RECON
-    VQ1 ==>|"next-scale 自回归<br/>先意图后执行"| POL["策略解码<br/>300M decoder-only Transformer"]
-    VQK ==> POL
-    POL ==> ROBOT(["机器人执行<br/>延迟比标准 VLA 低 43%"])
-    ROBOT -.->|"重叠 chunk 滑窗<br/>意图 ensemble 仲裁聚合"| AC
-    ONESHOT(["one-shot 迁移: 从单次演示<br/>提取 Intent token 固定注入"]) -.->|"意图复用, 迁移 +60%"| VQ1
+![mint 架构图 v3](figures/mint/arch.svg)
 
-    class AC,LOW,HIGH,ONESHOT data
-    class DCT,VQ1 key
-    class VQK,RECON,POL train
-    class ROBOT act
-    class LFREQ loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：MINT 提出模仿学习应模仿"行为意图"而非"轨迹细节"。用 DCT 将 action chunk 分解为低频 Intent Token 和高频 Execution Tokens，多尺度 VQ-VAE 强制频谱分离。on*
 
 **1. DCT 频域分解**：将 action chunk 沿时间维做离散余弦变换，每个动作维度 $d$ 的系数为
 

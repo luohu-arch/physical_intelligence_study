@@ -1,0 +1,234 @@
+{
+ "nodes": [
+  {
+   "id": "A",
+   "label": "单目长视频\n200-500 帧",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 64,
+   "y": 206,
+   "w": 153,
+   "h": 93
+  },
+  {
+   "id": "B",
+   "label": "切成 48 帧的块\n8 帧重叠",
+   "sub": "",
+   "icon": "stack",
+   "cls": "train",
+   "x": 328,
+   "y": 130,
+   "w": 186,
+   "h": 93
+  },
+  {
+   "id": "C",
+   "label": "编码器 E: DA3 初始\n化 ViT",
+   "sub": "场景表征 F + 深度 D",
+   "icon": "eye",
+   "cls": "train",
+   "x": 605,
+   "y": 247,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "A2",
+   "label": "第 0 帧查询像素",
+   "sub": "",
+   "icon": "camera",
+   "cls": "data",
+   "x": 44,
+   "y": 322,
+   "w": 194,
+   "h": 92
+  },
+  {
+   "id": "Q",
+   "label": "3D query p = (x,y,\nz)",
+   "sub": "query 3D 点而非像素",
+   "icon": "camera",
+   "cls": "key",
+   "x": 304,
+   "y": 247,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "S",
+   "label": "视觉描述子 S\n跨所有块复用",
+   "sub": "",
+   "icon": "camera",
+   "cls": "mem",
+   "x": 338,
+   "y": 397,
+   "w": 166,
+   "h": 93
+  },
+  {
+   "id": "D",
+   "label": "交叉注意力解码器\nq = PE(p) + 相机 t",
+   "sub": "oken + 时间 token ",
+   "icon": "camera",
+   "cls": "train",
+   "x": 904,
+   "y": 247,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "E2",
+   "label": "每块 3D 轨迹",
+   "sub": "",
+   "icon": "stack",
+   "cls": "env",
+   "x": 1200,
+   "y": 264,
+   "w": 167,
+   "h": 92
+  },
+  {
+   "id": "F",
+   "label": "Sim(3) 对齐: 用重叠\n帧深度",
+   "sub": "Umeyama 求变换",
+   "icon": "gear",
+   "cls": "key",
+   "x": 1433,
+   "y": 247,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "Q2",
+   "label": "下一块重查询\n无重投影无匹配",
+   "sub": "遮挡/出画不断链",
+   "icon": "stack",
+   "cls": "loop",
+   "x": 1749,
+   "y": 172,
+   "w": 192,
+   "h": 126
+  },
+  {
+   "id": "G",
+   "label": "全局系长程稠密 3D \n轨迹",
+   "sub": "200 帧三基准平均第",
+   "icon": "gear",
+   "cls": "env",
+   "x": 1734,
+   "y": 322,
+   "w": 222,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "A",
+   "to": "B",
+   "style": "main"
+  },
+  {
+   "from": "B",
+   "to": "C",
+   "style": "thick"
+  },
+  {
+   "from": "A2",
+   "to": "Q",
+   "style": "main",
+   "label": "\"用 D_0 反投影\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "A2",
+   "to": "S",
+   "style": "main",
+   "label": "\"取首次可见帧的 patch\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "C",
+   "to": "D",
+   "style": "thick"
+  },
+  {
+   "from": "Q",
+   "to": "D",
+   "style": "thick"
+  },
+  {
+   "from": "S",
+   "to": "D",
+   "style": "thick"
+  },
+  {
+   "from": "D",
+   "to": "E2",
+   "style": "thick",
+   "label": "\"块内扫 t_tgt\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "E2",
+   "to": "F",
+   "style": "thick"
+  },
+  {
+   "from": "F",
+   "to": "Q2",
+   "style": "thick",
+   "label": "\"直接变换 3D 端点\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "Q2",
+   "to": "D",
+   "style": "fb",
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  },
+  {
+   "from": "F",
+   "to": "G",
+   "style": "thick"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  2000,
+  580
+ ],
+ "legend": [
+  "data",
+  "env",
+  "key",
+  "loop",
+  "mem",
+  "train"
+ ],
+ "layout_wh": [
+  2000,
+  580
+ ],
+ "title": "point4d",
+ "subtitle": "前馈式 4D 重建只能吃几打帧的短窗口、且遮挡点无法跨块续接的问题，被 Point4D 用「查 3D 点、不查 2D 像素」解决：把 D4RT 的 2D 像素 query 换成",
+ "foot": "point4d · arXiv 2609.09145 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    A([\"单目长视频<br/>200-500 帧\"]) --> B[\"切成 48 帧的块<br/>8 帧重叠\"]\n    B ==> C[\"编码器 E: DA3 初始化 ViT<br/>场景表征 F + 深度 D + 位姿 P\"]\n    A2([\"第 0 帧查询像素\"]) -->|\"用 D_0 反投影\"| Q[\"3D query p = (x,y,z)<br/>query 3D 点而非像素<br/>坐标不依赖可见性<br/>消融 Survival 0.283->0.514\"]\n    A2 -->|\"取首次可见帧的 patch\"| S[\"视觉描述子 S<br/>跨所有块复用\"]\n    C ==> D[\"交叉注意力解码器<br/>q = PE(p) + 相机 token + 时间 token + emb(S)\"]\n    Q ==> D\n    S ==> D\n    D ==>|\"块内扫 t_tgt\"| E2[\"每块 3D 轨迹\"]\n    E2 ==> F[\"Sim(3) 对齐: 用重叠帧深度<br/>Umeyama 求变换<br/>交棒误差从乘性放大变加性缓增\"]\n    F ==>|\"直接变换 3D 端点\"| Q2[\"下一块重查询<br/>无重投影无匹配<br/>遮挡/出画不断链\"]\n    Q2 -.-> D\n    F ==> G[\"全局系长程稠密 3D 轨迹<br/>200 帧三基准平均第一<br/>可作世界模型稠密运动监督\"]\n\n    class A,A2 data\n    class B,C,D train\n    class Q,F key\n    class S mem\n    class Q2 loop\n    class E2,G env\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17",
+ "source": "mermaid-auto"
+}

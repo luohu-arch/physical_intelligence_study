@@ -204,43 +204,6 @@ QC-FQL 取 D=W2：FQL 证明 BC 蒸馏 loss 是 W2² 的上界，故 actor loss�
 6. QC 的 critic ensemble K=10 有提升——chunked Q 的过估计来源是"对未见 chunk 的外推"还是"reward 稀疏导致的方差"？分布回归（distributional chunked critic）是否更对症？
 7. 从探索角度，chunk 行为约束与 HRL 技能空间、skill prior（SUPE）的本质区别是"连续技能空间 + 单目标优化"；能否量化：在同等先验数据下，连续 chunk 空间的探索覆盖效率何时优于离散技能库？
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    D[("离线 play 数据集 D<br/>OGBench / robomimic")] --> FB["flow 行为策略 f_beta<br/>预测 h 步 chunk, 捕获非马尔可夫时序结构<br/>(QC: best-of-N 隐式提取 / QC-FQL: 显式 actor + W2 约束)"]
-    D --> BUF[("回放缓冲 + 离线数据")]
-    subgraph LOOP["在线交互回路 (每 h = 5 步重规划)"]
-        ENV["环境 (MuJoCo)"] --> EXE(["开环执行 chunk<br/>每步仍写单步转移"])
-        EXE --> ENV
-    end
-    FB ==>|"采样 N 个 chunk (N = 16-64)"| BON["best-of-N 选择<br/>a* = argmax Q, KL 上界 log N"]
-    KEYQ["chunked critic Q_theta (核心)<br/>Q(s_t, a_t:t+h)<br/>TD backup = 无偏 n-step return"] ==>|"为 chunk 排序"| BON
-    BON ==>|"选中的 chunk 块内开环执行"| EXE
-    ENV ==>|"(s_t, a*_t, s_t+1, r_t)"| BUF
-    BUF ==>|"高层转移 w = (s_t, a_t:t+h, s_t+h, R^h)"| KEYQ
-    BUF -.->|"flow-matching 损失"| FB
-    KEYQ -.->|"TD: Q <- R^h + gamma^h * Q_bar(s_t+h, 下一 chunk)"| KEYQ
+![q-chunking 架构图 v3](figures/q-chunking/arch.svg)
 
-    class D data
-    class FB train
-    class BUF mem
-    class ENV env
-    class EXE,BON act
-    class KEYQ key
-    class LOOP loop
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-```
+*架构速览：Problem：offline-to-online RL 在长程稀疏奖励任务上卡在两件事——1-step TD 值传播慢（有效 horizon H=1/(1-γ) 内每步只回传 1 格）+ 在线探索动作时间不连贯（离线数*

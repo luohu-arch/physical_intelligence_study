@@ -1,0 +1,267 @@
+{
+ "nodes": [
+  {
+   "id": "SYN",
+   "label": "SynGrasp-1B\n1B 帧 / 10M 轨迹",
+   "sub": "160x4090 x10 天",
+   "icon": "db",
+   "cls": "data",
+   "x": 44,
+   "y": 130,
+   "w": 209,
+   "h": 126
+  },
+  {
+   "id": "WEBD",
+   "label": "互联网 grounding\nGRIT 语义数据",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 519,
+   "y": 146,
+   "w": 209,
+   "h": 93
+  },
+  {
+   "id": "OBJ",
+   "label": "Objaverse LVIS\n240 类 10680 物体",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 277,
+   "y": 146,
+   "w": 218,
+   "h": 93
+  },
+  {
+   "id": "DROP",
+   "label": "物理合理布局",
+   "sub": "",
+   "icon": "gear",
+   "cls": "loop",
+   "x": 304,
+   "y": 316,
+   "w": 164,
+   "h": 92
+  },
+  {
+   "id": "GS",
+   "label": "反趾抓取合成\n力闭合 mu=0.15",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 292,
+   "y": 468,
+   "w": 189,
+   "h": 93
+  },
+  {
+   "id": "CU",
+   "label": "CuRobo 单步运动规划",
+   "sub": "",
+   "icon": "tree",
+   "cls": "loop",
+   "x": 270,
+   "y": 621,
+   "w": 233,
+   "h": 92
+  },
+  {
+   "id": "MJ",
+   "label": "MuJoCo 提起验证",
+   "sub": "",
+   "icon": "gear",
+   "cls": "loop",
+   "x": 288,
+   "y": 773,
+   "w": 197,
+   "h": 92
+  },
+  {
+   "id": "RDR",
+   "label": "域随机化\n材质/光照/背景/相机",
+   "sub": "/桌高",
+   "icon": "camera",
+   "cls": "env",
+   "x": 271,
+   "y": 925,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "S2",
+   "label": "System 2: 自回归感\n知 CoT",
+   "sub": "(抓取点 + 语义推理)",
+   "icon": "brain",
+   "cls": "frozen",
+   "x": 270,
+   "y": 1111,
+   "w": 231,
+   "h": 126
+  },
+  {
+   "id": "S1",
+   "label": "System 1: Flow Mat\nching",
+   "sub": "动作生成 10Hz",
+   "icon": "lightning",
+   "cls": "train",
+   "x": 270,
+   "y": 1297,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "CTRL",
+   "label": "真机零样本抓取",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "act",
+   "x": 295,
+   "y": 1483,
+   "w": 182,
+   "h": 92
+  }
+ ],
+ "edges": [
+  {
+   "from": "OBJ",
+   "to": "DROP",
+   "style": "thick"
+  },
+  {
+   "from": "DROP",
+   "to": "GS",
+   "style": "thick"
+  },
+  {
+   "from": "GS",
+   "to": "CU",
+   "style": "thick"
+  },
+  {
+   "from": "CU",
+   "to": "MJ",
+   "style": "thick"
+  },
+  {
+   "from": "MJ",
+   "to": "RDR",
+   "style": "thick"
+  },
+  {
+   "from": "OBJ",
+   "to": "DROP",
+   "style": "thick"
+  },
+  {
+   "from": "RDR",
+   "to": "S2",
+   "style": "thick"
+  },
+  {
+   "from": "WEBD",
+   "to": "S2",
+   "style": "thick"
+  },
+  {
+   "from": "S2",
+   "to": "S2",
+   "style": "loss",
+   "label": "\"L_S2 指示函数 CoT 损失\"",
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.25,
+   "pos_in": 0.75,
+   "k": 52,
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "S2",
+   "to": "S1",
+   "style": "thick"
+  },
+  {
+   "from": "S1",
+   "to": "S1",
+   "style": "loss",
+   "label": "\"L_S1 流匹配损失\"",
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.25,
+   "pos_in": 0.75,
+   "k": 52,
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "S1",
+   "to": "CTRL",
+   "style": "thick",
+   "label": "\"SE(3) 抓取动作\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "CTRL",
+   "to": "S2",
+   "style": "fb",
+   "label": "\"视觉反馈\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  }
+ ],
+ "panels": [
+  {
+   "label": "数据源",
+   "x": 20,
+   "y": 86,
+   "w": 732,
+   "h": 190
+  },
+  {
+   "label": "合成生成管线 (Isaac Sim)",
+   "x": 246,
+   "y": 102,
+   "w": 281,
+   "h": 968
+  },
+  {
+   "label": "CoT 统一架构",
+   "x": 246,
+   "y": 1067,
+   "w": 281,
+   "h": 376
+  }
+ ],
+ "canvas": [
+  772,
+  1665
+ ],
+ "legend": [
+  "act",
+  "data",
+  "env",
+  "frozen",
+  "loop",
+  "train"
+ ],
+ "layout_wh": [
+  772,
+  1665
+ ],
+ "title": "graspvla",
+ "subtitle": "VLA 全押真机数据、采集又贵又慢（Problem：单个操作员一天只能采 ~1000 条轨迹），而合成数据的潜力从未被系统验证（Bottleneck）；GraspVLA 用「全",
+ "foot": "graspvla · arXiv 2505.03233 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TB\n    subgraph SRC[\"数据源\"]\n        SYN[(\"SynGrasp-1B<br/>1B 帧 / 10M 轨迹<br/>160x4090 x10 天\")]\n        WEBD([\"互联网 grounding<br/>GRIT 语义数据\"])\n    end\n\n    subgraph PIPE[\"合成生成管线 (Isaac Sim)\"]\n        OBJ([\"Objaverse LVIS<br/>240 类 10680 物体\"]) ==> DROP[\"物理合理布局\"]\n        DROP ==> GS[\"反趾抓取合成<br/>力闭合 mu=0.15\"]\n        GS ==> CU[\"CuRobo 单步运动规划\"]\n        CU ==> MJ[\"MuJoCo 提起验证\"]\n        MJ ==> RDR[\"域随机化<br/>材质/光照/背景/相机/桌高\"]\n    end\n\n    subgraph MODEL[\"CoT 统一架构\"]\n        S2[\"System 2: 自回归感知 CoT<br/>(抓取点 + 语义推理)\"]\n        S1[\"System 1: Flow Matching<br/>动作生成 10Hz\"]\n    end\n\n    OBJ ==> DROP\n    RDR ==> S2\n    WEBD ==> S2\n    S2 -.->|\"L_S2 指示函数 CoT 损失\"| S2\n    S2 ==> S1\n    S1 -.->|\"L_S1 流匹配损失\"| S1\n    S1 ==>|\"SE(3) 抓取动作\"| CTRL[\"真机零样本抓取\"]\n    CTRL -.->|\"视觉反馈\"| S2\n\n    class SYN,WEBD,OBJ data\n    class RDR env\n    class S2 frozen\n    class S1 train\n    class CTRL act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

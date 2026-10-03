@@ -1,0 +1,205 @@
+{
+ "nodes": [
+  {
+   "id": "OBS",
+   "label": "图像观测 三相机 + \n语言指令",
+   "sub": "",
+   "icon": "camera",
+   "cls": "loop",
+   "x": 44,
+   "y": 130,
+   "w": 222,
+   "h": 93
+  },
+  {
+   "id": "VIS",
+   "label": "SigLIP2-Large 视觉\n编码<br/",
+   "sub": "",
+   "icon": "camera",
+   "cls": "loop",
+   "x": 283,
+   "y": 283,
+   "w": 230,
+   "h": 93
+  },
+  {
+   "id": "LLM",
+   "label": "Qwen3-VL-4B 骨干<b\nr/",
+   "sub": "",
+   "icon": "brain",
+   "cls": "loop",
+   "x": 410,
+   "y": 436,
+   "w": 230,
+   "h": 93
+  },
+  {
+   "id": "LCOT",
+   "label": "自回归潜 CoT<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 422,
+   "y": 589,
+   "w": 207,
+   "h": 92
+  },
+  {
+   "id": "END",
+   "label": "latent_end 概率",
+   "sub": "",
+   "icon": "noise",
+   "cls": "loop",
+   "x": 426,
+   "y": 741,
+   "w": 200,
+   "h": 92
+  },
+  {
+   "id": "VH",
+   "label": "价值头 4 层 MLP<br\n/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 298,
+   "y": 893,
+   "w": 227,
+   "h": 93
+  },
+  {
+   "id": "AD",
+   "label": "并行动作解码<br/",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "loop",
+   "x": 549,
+   "y": 894,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "ROBOT",
+   "label": "Franka Research 3 \n单/双臂",
+   "sub": "",
+   "icon": "robot",
+   "cls": "loop",
+   "x": 409,
+   "y": 1046,
+   "w": 233,
+   "h": 93
+  },
+  {
+   "id": "DINO",
+   "label": "DINOv3 CLS top-k \n潜 GT 目标<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 290,
+   "y": 130,
+   "w": 224,
+   "h": 93
+  },
+  {
+   "id": "LS",
+   "label": "潜余弦相似度 SFT 损\n失",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 537,
+   "y": 283,
+   "w": 231,
+   "h": 93
+  },
+  {
+   "id": "LAPO",
+   "label": "LAPO 在线 RL<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 538,
+   "y": 130,
+   "w": 210,
+   "h": 92
+  },
+  {
+   "id": "PRE",
+   "label": "预训练 400K 轨迹<br\n/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 772,
+   "y": 130,
+   "w": 235,
+   "h": 93
+  }
+ ],
+ "edges": [
+  {
+   "from": "OBS",
+   "to": "VIS",
+   "style": "thick"
+  },
+  {
+   "from": "VIS",
+   "to": "LLM",
+   "style": "thick"
+  },
+  {
+   "from": "LLM",
+   "to": "LCOT",
+   "style": "thick"
+  },
+  {
+   "from": "LCOT",
+   "to": "END",
+   "style": "thick"
+  },
+  {
+   "from": "END",
+   "to": "VH",
+   "style": "thick"
+  },
+  {
+   "from": "END",
+   "to": "AD",
+   "style": "thick"
+  },
+  {
+   "from": "AD",
+   "to": "ROBOT",
+   "style": "thick"
+  },
+  {
+   "from": "DINO",
+   "to": "LS",
+   "style": "fb"
+  },
+  {
+   "from": "LS",
+   "to": "LCOT",
+   "style": "fb"
+  },
+  {
+   "from": "PRE",
+   "to": "LLM",
+   "style": "fb"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  1051,
+  1229
+ ],
+ "legend": [
+  "loop"
+ ],
+ "layout_wh": [
+  1051,
+  1229
+ ],
+ "title": "last-r1",
+ "subtitle": "（Problem）潜推理 VLA 全被困在静态模仿学习，而现有 VLA 在线 RL 只优化动作 token、跳过内部物理推理过程 →（Insight）把潜 CoT 嵌入显式当作",
+ "foot": "last-r1 · arXiv 2604.28192 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS[图像观测 三相机 + 语言指令]:::data\n    VIS[SigLIP2-Large 视觉编码<br/>2D-RoPE]:::train\n    LLM[Qwen3-VL-4B 骨干<br/>真机 RL 阶段仅更新 LoRA r=32]:::train\n    OBS ==> VIS\n    VIS ==> LLM\n    LCOT[自回归潜 CoT<br/>最长 8 个潜 token]:::key\n    LLM ==> LCOT\n    END{latent_end 概率 >= 0.99<br/>自适应早退}:::loop\n    LCOT ==> END\n    END -.未终止继续生成.-> LCOT\n    VH[价值头 4 层 MLP<br/>估计状态价值 v_t]:::reward\n    END ==> VH\n    AD[并行动作解码<br/>8 步 chunk 56 token 双向注意力复用 KV cache]:::act\n    END ==> AD\n    AD ==> ROBOT([Franka Research 3 单/双臂]):::act\n    ROBOT -.下一观测.-> OBS\n    DINO[DINOv3 CLS top-k 潜 GT 目标<br/>离线预计算 始终冻结]:::frozen\n    LS[潜余弦相似度 SFT 损失]:::loss\n    DINO -.-> LS\n    LS -.-> LCOT\n    LAPO[LAPO 在线 RL<br/>潜比率 r_z + 动作比率 r_a 联合裁剪代理]:::loss\n    ROBOT -.transition + 人工干预 buffer.-> LAPO\n    LCOT -.潜似然比.-> LAPO\n    AD -.动作似然比.-> LAPO\n    VH -.价值估计.-> LAPO\n    LAPO -.奖励同时重塑推理与动作空间.-> LLM\n    PRE[预训练 400K 轨迹<br/>OXE + DROID + RoboMIND]:::data\n    PRE -.-> LLM\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

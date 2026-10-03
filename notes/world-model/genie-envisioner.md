@@ -184,55 +184,6 @@ Genie Envisioner 是「视频世界模型即平台」立场最完整的公司级
 6. 状态输入在通用视频表征上引发「捷径学习」——这是否意味着视频 DiT 与动作头之间缺一层本体对齐模块？跨本体时这层捷径风险如何规避？
 7. EWMBench 上 Kling/Hailuo 是 API 黑盒还是开源权重？通用视频模型没有任何机器人微调就对比，是否只是验证了「域内微调有用」这一平凡结论？
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TB
-    subgraph GE["GE-Base: 多视角视频 DiT 2B (世界基础)"]
-        IN0(["初始观测 x0<br/>三视角"]) --> E1["共享视频编码器<br/>Stage2 冻结"]
-        MEMV(["稀疏记忆 4 帧"]) --> E1
-        TXT(["指令 q<br/>冻结 T5-XXL"]) --> CA
-        E1 ==> DIT["DiT 块<br/>跨视角注意力 (alpha 比例)"]
-        CA -.-> DIT
-        NZ(["逐视角噪声 z<br/>+ RoPE + 视角嵌入"]) ==> DIT
-        DIT ==> VC["下一视频 chunk<br/>(自回归滚动)"]
-    end
+![genie-envisioner 架构图 v3](figures/genie-envisioner/arch.svg)
 
-    subgraph GEA["GE-Act: 160M 动作分支"]
-        AZ(["噪声初始化动作 token"]) ==> ADIT["动作 DiT<br/>5 步去噪"]
-        ADIT -.->|"每层跨注意力读 v_i"| DIT
-    end
-
-    subgraph LOOP["GE-Sim 闭环 (宣称, 实验未验证迁移)"]
-        SIM["仿真 rollout<br/>生成轨迹回灌"]
-    end
-
-    VC ==> ACTOUT["动作输出<br/>1 小时适配跨本体"]
-    ADIT ==> ACTOUT
-    SIM -.->|"rollout 数据"| VC
-    SIM -.->|"域内 benchmark 争议"| VC
-
-    class IN0,MEMV,TXT,NZ,AZ data
-    class E1,CA frozen
-    class DIT,VC key
-    class ADIT train
-    class ACTOUT act
-    class SIM loop
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：机器人策略学习、评测、仿真被割裂在三套基建上（Problem），主流 VLA 走语言中心表征、丢失时空细节且真机评测慢贵（Bottleneck）；Genie Envisioner 主张「视频生成空间就是机器人的统一视觉空*

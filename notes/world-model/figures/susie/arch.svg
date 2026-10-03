@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="416" height="1184" viewBox="0 0 416 1184" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
+<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<defs>
+<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
+<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
+<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
+<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
+<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
+<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
+<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
+<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
+<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
+<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
+<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
+<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
+<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+</defs>
+<rect width="416" height="1184" fill="#ffffff"/>
+<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
+<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">susie</text>
+<text x="52" y="74" font-size="13.5" fill="#78909c">SuSIE 把预训练的 InstructPix2Pix 图像编辑扩散模型在「当前帧 + 语言指令 → 未来子目标帧」三元组上微调，作为高层规划器；再用一个语言无关的目标条件扩散</text>
+<text x="382" y="1166" font-size="11.5" fill="#a0aab4" text-anchor="end">susie · arXiv 2310.10639 · v3 auto</text>
+<path d="M 114.0 222.0 C 114.0 300.1, 208.0 235.9, 208.0 314.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 298.0 222.0 C 298.0 298.4, 208.0 237.6, 208.0 314.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 208.0 440.0 C 208.0 486.0, 208.0 486.0, 208.0 532.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 208.0 658.0 C 208.0 704.0, 208.0 704.0, 208.0 750.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 208.0 876.0 C 208.0 922.0, 208.0 922.0, 208.0 968.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 156.0 968.0 C 156.0 894.0, 121.0 56.0, 121.0 130.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<rect x="46.5" y="133.5" width="140" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="44" y="130" width="140" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
+<circle cx="114.0" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
+<circle cx="114.0" cy="130" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
+<g transform="translate(100.5,116.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
+<text x="114.0" y="181" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">观测 s_t</text>
+<rect x="81.5" y="317.5" width="258" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="79" y="314" width="258" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="2.8"/>
+<circle cx="208.0" cy="314" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="208.0" cy="314" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(194.5,300.5) scale(1.1250)">
+  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+  <path d="M20 2v4" />
+  <path d="M22 4h-4" />
+  <circle cx="4" cy="20" r="2" />
+</g>
+<text x="208.0" y="358" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="208.0" dy="0">子目标生成器 p_theta</tspan><tspan x="208.0" dy="20">InstructPix2Pix 微调</tspan></text>
+<text x="208.0" y="388" font-size="12" fill="#5f6b7a" text-anchor="middle">只生成下一子目标帧 b_s</text>
+<rect x="226.5" y="133.5" width="148" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="224" y="130" width="148" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
+<circle cx="298.0" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
+<circle cx="298.0" cy="130" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
+<g transform="translate(284.5,116.5) scale(1.1250)">
+  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+</g>
+<text x="298.0" y="181" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">语言指令 l</text>
+<rect x="65.5" y="535.5" width="290" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="63" y="532" width="290" height="126" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="2.8"/>
+<circle cx="208.0" cy="532" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="208.0" cy="532" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(194.5,518.5) scale(1.1250)">
+  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+</g>
+<text x="208.0" y="576" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="208.0" dy="0">低层策略 pi_phi(a|s_t, b_</tspan><tspan x="208.0" dy="20">s)</tspan></text>
+<text x="208.0" y="606" font-size="12" fill="#5f6b7a" text-anchor="middle">语言无关扩散策略</text>
+<rect x="68.5" y="753.5" width="284" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="66" y="750" width="284" height="126" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.6"/>
+<circle cx="208.0" cy="750" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
+<circle cx="208.0" cy="750" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(194.5,736.5) scale(1.1250)">
+  <path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" />
+</g>
+<text x="208.0" y="794" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="208.0" dy="0">时间平均</tspan><tspan x="208.0" dy="20">执行最近 4 次预测的逐维均</tspan></text>
+<text x="208.0" y="824" font-size="12" fill="#5f6b7a" text-anchor="middle">值</text>
+<rect x="80.5" y="971.5" width="260" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="78" y="968" width="260" height="126" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.6"/>
+<circle cx="208.0" cy="968" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
+<circle cx="208.0" cy="968" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(194.5,954.5) scale(1.1250)">
+  <path d="M12 8V4H8" />
+  <rect width="16" height="12" x="4" y="8" rx="2" />
+  <path d="M2 14h2" />
+  <path d="M20 14h2" />
+  <path d="M15 13v2" />
+  <path d="M9 13v2" />
+</g>
+<text x="208.0" y="1012" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="208.0" dy="0">机器人执行</tspan><tspan x="208.0" dy="20">CALVIN 五连 0.26 SOTA</tspan></text>
+<text x="208.0" y="1042" font-size="12" fill="#5f6b7a" text-anchor="middle">胜过真值目标图 Oracle</text>
+<g transform="translate(138.5,512.0)"><rect x="-47.8" y="-11" width="95.5" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;闭环重观测&quot;</text></g>
+<text x="40" y="1154.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1140" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1151" r="4.2" fill="#6a1b9a"/><text x="110" y="1155" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="1140" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1151" r="4.2" fill="#2e7d32"/><text x="208.76" y="1155" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="1140" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="1151" r="4.2" fill="#ef6c00"/><text x="314.19" y="1155" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="388.95" y="1140" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="401.95" cy="1151" r="4.2" fill="#ef6c00"/><text x="412.95" y="1155" font-size="11.5" fill="#b34700">可训练模块</text></g>
+</svg>

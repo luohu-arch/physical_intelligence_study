@@ -105,39 +105,9 @@ $$
 
 **CEM 求解器的继承细节。** planner 不变，但 cost 结构被拆成三部分。full-z 规划 vs decomposition 规划的差异是 ±4 pp 量级（App. D），最大增益出现在 Reacher k=8 时 +3.3 pp。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    Z["latent z_t, 维度 D"] ==> SP["固定正交分解 (不可学习)<br/>P = 前 k 维, Q = 其余<br/>两类防坍塌力的梯度支撑集正交"]
-    SP ==> ZP["z_prog: k 维<br/>进展几何 (2-8 维子空间)"]
-    SP ==> ZC["z_cont: D-k 维<br/>内容几何"]
-    ZC -.->|"各向同性高斯匹配<br/>只作用 z_cont"| SR["SIGReg 正则<br/>梯度只活在 col Q"]
-    ZP -.->|"余弦间隔 triplet<br/>沿轨迹排序 latent"| TR["进展排序损失<br/>梯度只活在 col P"]
-    SR --> ORTH["col P 垂直 col Q<br/>两种力不可互相补偿<br/>加性组合 Push-T 96->97.3"]
-    TR --> ORTH
-    ZP ==> TH["theta_t = atan2(前两维)<br/>任务相位罗盘<br/>事件定位 AUROC +0.176"]
+![sd-jepa 架构图 v3](figures/sd-jepa/arch.svg)
 
-    class Z,ZP,ZC,TH env
-    class SP,ORTH key
-    class SR,TR loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：在 LeWM 的 encoder-predictor + SIGReg 框架上插入一次固定的正交分解 $z_t = P z^{\text{prog}}_t + Q z^{\text{cont}}_t$，让 SIGReg *
 
 ## 物理直觉解释
 

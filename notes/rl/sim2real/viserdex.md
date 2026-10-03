@@ -42,41 +42,9 @@ ViserDex 实现仅用单目 RGB（无深度、无物体 pose 真值）的灵巧�
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    SCAN(["物体 3D 扫描<br/>Polycam + SAM2 微调分割"]) ==> GS["3D Gaussian Splatting"]
-    GS ==> AUG["pre-rasterization 增强 (核心)<br/>渲染前扰动 SH 系数<br/>= 光源层面物理一致的光照变化<br/>保真 (3DGS) + 多样性 (SH 扰动) 兼得"]
-    AUG ==> RENDER["仿真渲染管线<br/>比光线追踪快 1.6x, 仅 12GB 显存"]
-    TEACHER["特权教师 (PPO)<br/>吃全状态: 物体速度 / 指尖接触力<br/>(24,576 并行 env 训练 26h)"] -.->|"BC 蒸馏 + 状态重建"| STUDENT
-    RENDER ==> BELIEF["recurrent belief encoder<br/>GRU 时序滤波估物体 pose<br/>拒掉 180 度翻转类灾难错误"]
-    BELIEF ==> STUDENT["recurrent student 策略<br/>仅单目 RGB + 本体 (无深度 / 无 pose 真值)<br/>4,096 env 蒸馏 16h"]
-    STUDENT ==> DEPLOY["Allegro 16-DoF 零样本部署<br/>30 Hz 推理 + 300 Hz 关节 PD<br/>平均 25+ 连续成功"]
+![viserdex 架构图 v3](figures/viserdex/arch.svg)
 
-    class SCAN data
-    class GS data
-    class AUG key
-    class RENDER env
-    class TEACHER frozen
-    class BELIEF mem
-    class STUDENT train
-    class DEPLOY act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-```
+*架构速览：ViserDex 实现仅用单目 RGB（无深度、无物体 pose 真值）的灵巧手在操作零样本 Sim2Real。核心创新：3DGS 渲染替代昂贵光线追踪，在 Gaussian 空间做物理一致的 pre-rasteriza*
 
 3DGS 中每个 Gaussian blob 携带球谐（SH）系数，决定其颜色与亮度：$c(\mathbf{d}) = \sum_{l} c_l \cdot SH_l(\mathbf{d})$（$c_l$ 为第 $l$ 阶系数，$\mathbf{d}$ 为观察方向）。pre-rasterization augmentation 在渲染管线前对系数做扰动 $\tilde{c}_l = c_l + \delta_l$，$\delta_l$ 按空间簇/全局簇采样——这等价于**在光源层面**改变场景，而不是在图像层面改像素。扰动后渲染的图像 $I' = R(\tilde{c})$ 与扰动前 $I = R(c)$ 的关系是物理一致的：同一光源变化下，阴影方向、强度、反射全部联动变化。
 

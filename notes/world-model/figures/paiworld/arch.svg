@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="655" height="1301" viewBox="0 0 655 1301" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
+<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<defs>
+<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
+<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
+<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
+<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
+<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
+<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
+<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
+<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
+<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
+<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
+<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
+<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
+<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+</defs>
+<rect width="655" height="1301" fill="#ffffff"/>
+<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
+<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">paiworld</text>
+<text x="52" y="74" font-size="13.5" fill="#78909c">PAIWorld 解决世界模型的多视角 3D 不一致问题——Geo-RoPE 几何旋转位置编码 + Latent 3D-REPA 3D 蒸馏，在 DiT backbone 上同</text>
+<text x="621" y="1283" font-size="11.5" fill="#a0aab4" text-anchor="end">paiworld · arXiv 2606.18375 · v3 auto</text>
+<rect x="102" y="86" width="450" height="156" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
+<rect x="118" y="99" width="231.25" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
+<text x="129" y="116" font-size="12.5" fill="#4a6579">多视角输入 (相机内外参标定已知)</text>
+<path d="M 216.5 222.0 C 216.5 307.1, 327.0 228.9, 327.0 314.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 438.5 222.0 C 438.5 307.5, 327.0 228.5, 327.0 314.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 327.0 440.0 C 327.0 486.0, 327.5 486.0, 327.5 532.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 327.5 625.0 C 327.5 671.0, 328.0 671.0, 328.0 717.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 328.0 809.0 C 328.0 906.6, 187.5 803.4, 187.5 901.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 328.0 809.0 C 328.0 923.2, 491.0 803.8, 491.0 918.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 187.5 1027.0 C 187.5 1124.7, 328.0 1021.4, 328.0 1119.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<rect x="128.5" y="133.5" width="181" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="126" y="130" width="181" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
+<circle cx="216.5" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
+<circle cx="216.5" cy="130" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
+<g transform="translate(203.0,116.5) scale(1.1250)">
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</g>
+<text x="216.5" y="181" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">视角 1 tokens</text>
+<rect x="350.5" y="133.5" width="181" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="348" y="130" width="181" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
+<circle cx="438.5" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
+<circle cx="438.5" cy="130" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
+<g transform="translate(425.0,116.5) scale(1.1250)">
+  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+</g>
+<text x="438.5" y="181" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">视角 2 tokens</text>
+<rect x="184.5" y="317.5" width="290" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="182" y="314" width="290" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="2.8"/>
+<circle cx="327.0" cy="314" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="327.0" cy="314" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(313.5,300.5) scale(1.1250)">
+  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+  <path d="M20 2v4" />
+  <path d="M22 4h-4" />
+  <circle cx="4" cy="20" r="2" />
+</g>
+<text x="327.0" y="358" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="327.0" dy="0">Geo-RoPE 跨视角 Attention</tspan><tspan x="327.0" dy="20">ray 子空间 + pose 子空间</tspan></text>
+<text x="327.0" y="388" font-size="12" fill="#5f6b7a" text-anchor="middle">给单视角骨干开通信通路 仅</text>
+<rect x="198.5" y="535.5" width="263" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="196" y="532" width="263" height="93" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="2.8"/>
+<circle cx="327.5" cy="532" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="327.5" cy="532" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(314.0,518.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
+<text x="327.5" y="576" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="327.5" dy="0">DiT 骨干</tspan><tspan x="327.5" dy="20">Cosmos-Predict2.5 14B</tspan></text>
+<rect x="260.5" y="720.5" width="140" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="258" y="717" width="140" height="92" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="1.6"/>
+<circle cx="328.0" cy="717" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
+<circle cx="328.0" cy="717" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
+<g transform="translate(314.5,703.5) scale(1.1250)">
+  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+  <circle cx="12" cy="12" r="3" />
+</g>
+<text x="328.0" y="768" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">中间特征</text>
+<rect x="46.5" y="904.5" width="287" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="44" y="901" width="287" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="2.8"/>
+<circle cx="187.5" cy="901" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="187.5" cy="901" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(174.0,887.5) scale(1.1250)">
+  <path d="m18 14 4 4-4 4" />
+  <path d="m18 2 4 4-4 4" />
+  <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" />
+  <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
+  <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
+</g>
+<text x="187.5" y="945" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="187.5" dy="0">Latent 3D-REPA 蒸馏</tspan><tspan x="187.5" dy="20">冻结 Depth Anything 3 老</tspan></text>
+<text x="187.5" y="975" font-size="12" fill="#5f6b7a" text-anchor="middle">师 仅此 +0.72</text>
+<rect x="373.5" y="921.5" width="240" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="371" y="918" width="240" height="93" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="1.6"/>
+<circle cx="491.0" cy="918" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
+<circle cx="491.0" cy="918" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
+<g transform="translate(477.5,904.5) scale(1.1250)">
+  <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
+  <circle cx="12" cy="13" r="3" />
+</g>
+<text x="491.0" y="962" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="491.0" dy="0">未来帧预测</tspan><tspan x="491.0" dy="20">多视角 3D 一致不漂移</tspan></text>
+<rect x="242.5" y="1122.5" width="176" height="92" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="240" y="1119" width="176" height="92" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.6" stroke-dasharray="7 4"/>
+<circle cx="328.0" cy="1119" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
+<circle cx="328.0" cy="1119" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
+<g transform="translate(314.5,1105.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
+<text x="328.0" y="1170" font-size="16" class="lbl" fill="#b71c1c" text-anchor="middle">3D 一致性损失</text>
+<g transform="translate(257.8,1055.0)"><rect x="-126.5" y="-11" width="253.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;联合 +2.64 超加性 两个耦合缺一不可&quot;</text></g>
+<text x="40" y="1271.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1257" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1268" r="4.2" fill="#2e7d32"/><text x="110" y="1272" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="191.43" y="1257" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="1268" r="4.2" fill="#00695c"/><text x="215.43" y="1272" font-size="11.5" fill="#004d40">环境</text></g>
+<g><rect x="265.81" y="1257" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="278.81" cy="1268" r="4.2" fill="#ef6c00"/><text x="289.81" y="1272" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="364.57" y="1257" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="377.57" cy="1268" r="4.2" fill="#c62828"/><text x="388.57" y="1272" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
+<g><rect x="470.0" y="1257" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="483.0" cy="1268" r="4.2" fill="#ef6c00"/><text x="494.0" y="1272" font-size="11.5" fill="#b34700">可训练模块</text></g>
+</svg>

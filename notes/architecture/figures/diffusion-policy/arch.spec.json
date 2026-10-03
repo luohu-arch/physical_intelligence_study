@@ -1,0 +1,223 @@
+{
+ "nodes": [
+  {
+   "id": "OBS",
+   "label": "观测 O_t\n最近 T_o 帧多视角 R",
+   "sub": "GB + 低维状态",
+   "icon": "camera",
+   "cls": "data",
+   "x": 45,
+   "y": 130,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "VENC",
+   "label": "视觉编码器 ResNet-1\n8",
+   "sub": "只编码一次, 全部去",
+   "icon": "camera",
+   "cls": "train",
+   "x": 345,
+   "y": 264,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "NOISE",
+   "label": "初始噪声 A_t^K\n~ N(0, I)",
+   "sub": "",
+   "icon": "noise",
+   "cls": "data",
+   "x": 68,
+   "y": 280,
+   "w": 187,
+   "h": 93
+  },
+  {
+   "id": "EPS",
+   "label": "噪声预测网络 eps_th\neta(O_t, A_t^k, k)",
+   "sub": "CNN + FiLM 或 Tran",
+   "icon": "noise",
+   "cls": "key",
+   "x": 646,
+   "y": 264,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "STEP",
+   "label": "去噪一步\nalpha*(A - gamma*e",
+   "sub": "ps) + noise",
+   "icon": "noise",
+   "cls": "train",
+   "x": 945,
+   "y": 264,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "KCHK",
+   "label": "KCHK",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 1244,
+   "y": 280,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "0",
+   "label": "0",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 1474,
+   "y": 222,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "OUT",
+   "label": "去噪结果 A_t^0\nT_p 步动作序列",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "act",
+   "x": 1450,
+   "y": 338,
+   "w": 187,
+   "h": 93
+  },
+  {
+   "id": "ACT",
+   "label": "机器人执行 T_a 步\n10Hz 预测插值到 125",
+   "sub": "Hz",
+   "icon": "robot",
+   "cls": "act",
+   "x": 1703,
+   "y": 264,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "LMSE",
+   "label": "损失 L: 去噪 MSE\n(eps 预测 vs 真噪声",
+   "sub": ", cosine 调度)",
+   "icon": "noise",
+   "cls": "loss",
+   "x": 44,
+   "y": 397,
+   "w": 235,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "OBS",
+   "to": "VENC",
+   "style": "main"
+  },
+  {
+   "from": "NOISE",
+   "to": "EPS",
+   "style": "main"
+  },
+  {
+   "from": "KCHK",
+   "to": "0",
+   "style": "thick"
+  },
+  {
+   "from": "VENC",
+   "to": "EPS",
+   "style": "main"
+  },
+  {
+   "from": "EPS",
+   "to": "STEP",
+   "style": "main"
+  },
+  {
+   "from": "STEP",
+   "to": "KCHK",
+   "style": "main"
+  },
+  {
+   "from": "KCHK",
+   "to": "EPS",
+   "style": "fb",
+   "label": "\"否, k 递减\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  },
+  {
+   "from": "KCHK",
+   "to": "OUT",
+   "style": "thick",
+   "label": "\"是\""
+  },
+  {
+   "from": "OUT",
+   "to": "ACT",
+   "style": "thick",
+   "label": "\"receding horizon 只执行前 T",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "ACT",
+   "to": "OBS",
+   "style": "fb",
+   "label": "\"新观测, 重新规划\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "LMSE",
+   "to": "EPS",
+   "style": "fb"
+  }
+ ],
+ "panels": [
+  {
+   "label": "条件去噪循环 (训练 100 步, DDIM 推理 10-1",
+   "x": 321,
+   "y": 178,
+   "w": 1316,
+   "h": 232
+  }
+ ],
+ "canvas": [
+  1982,
+  613
+ ],
+ "legend": [
+  "act",
+  "data",
+  "key",
+  "loop",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  1982,
+  613
+ ],
+ "title": "diffusion-policy",
+ "subtitle": "把机器人策略写成条件 DDPM：以视觉观测 $O_t$ 为条件，从高斯噪声出发迭代去噪出一段长度为 $T_p$ 的动作序列，配合 receding horizon contro",
+ "foot": "diffusion-policy · arXiv 2303.04137 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    OBS([\"观测 O_t<br/>最近 T_o 帧多视角 RGB + 低维状态\"]) --> VENC\n    NOISE([\"初始噪声 A_t^K<br/>~ N(0, I)\"]) --> EPS\n    subgraph DENOISE[\"条件去噪循环 (训练 100 步, DDIM 推理 10-16 步)\"]\n        VENC[\"视觉编码器 ResNet-18<br/>只编码一次, 全部去噪步共享\"]\n        EPS[\"噪声预测网络 eps_theta(O_t, A_t^k, k)<br/>CNN + FiLM 或 Transformer\"]\n        STEP[\"去噪一步<br/>alpha*(A - gamma*eps) + noise\"]\n        KCHK{\"k == 0 ?\"}\n        VENC --> EPS\n        EPS --> STEP --> KCHK\n        KCHK -.->|\"否, k 递减\"| EPS\n    end\n    KCHK ==>|\"是\"| OUT[\"去噪结果 A_t^0<br/>T_p 步动作序列\"]\n    OUT ==>|\"receding horizon<br/>只执行前 T_a 步\"| ACT([\"机器人执行 T_a 步<br/>10Hz 预测插值到 125Hz\"])\n    ACT -.->|\"新观测, 重新规划\"| OBS\n    LMSE[\"损失 L: 去噪 MSE<br/>(eps 预测 vs 真噪声, cosine 调度)\"] -.-> EPS\n\n    class OBS,NOISE data\n    class VENC,STEP train\n    class EPS key\n    class OUT,ACT act\n    class KCHK loop\n    class LMSE loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

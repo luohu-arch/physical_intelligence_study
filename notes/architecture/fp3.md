@@ -93,54 +93,9 @@ $$
 
 ### 架构数据流
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    PC1(["第三人称点云<br/>世界系 1m box, FPS 4000 点"]) ==> U1
-    PC2(["腕部点云<br/>4000 点带颜色"]) ==> U2
-    LANG(["语言指令"]) ==> CLIP
-    PROP(["本体状态 q_t"]) ==> MLPQ
-    subgraph ENC["多模态编码 (总参 1.3B)"]
-        U1["Uni3D ViT-L 编码器 300M<br/>(DROID 预训练后微调, 不冻结)"]
-        U2["Uni3D ViT-L 编码器<br/>(腕部独立一套)"]
-        CLIP["CLIP 文本编码器<br/>(冻结)"]
-        MLPQ["2 层 MLP"]
-        TENC["Transformer Encoder<br/>融合多模态 embedding"]
-    end
-    U1 --> TENC
-    U2 --> TENC
-    CLIP --> TENC
-    MLPQ --> TENC
-    NOISE(["噪声动作 chunk"]) ==> DIT
-    TENC ==>|"adaLN 条件注入"| DIT["DiT decoder (causal mask)<br/>动作 token 只看自身及之前"]
-    LDDPM["损失 L_ddpm: 噪声回归 MSE"] -.-> DIT
-    LORA["post-training: LoRA rank 32<br/>80 条示教/任务, 单卡 2 小时"] -.->|"只训低秩增量"| DIT
-    DIT ==>|"DDIM 16 步去噪"| OUT(["去噪动作 chunk H = 16"])
-    OUT ==>|"receding horizon<br/>执行前 8 步"| ROBOT(["机器人执行 15Hz Cartesian 控制"])
-    ROBOT -.->|"重观测 (obs 2 帧历史)"| PC1
+![fp3 架构图 v3](figures/fp3/arch.svg)
 
-    class PC1,PC2,LANG,PROP,NOISE data
-    class CLIP frozen
-    class U1,U2,MLPQ,TENC,LORA train
-    class DIT key
-    class OUT,ROBOT act
-    class LDDPM loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：FP3 用 Uni3D ViT-L 编码点云（每视角 4000 点、带颜色）、CLIP 编码语言、MLP 编码本体状态，经 Transformer Encoder 融合成 latent token，再由带 causal *
 
 ## 物理直觉解释
 

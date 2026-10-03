@@ -70,48 +70,9 @@ $$
 
 两个方向的 KL 各带一个 stop-gradient（$\mathrm{sg}$）：$L_{\text{dyn}}$ 只更新序列模型让先验追后验，$L_{\text{rep}}$ 只让后验变得可预测。$\max(1,\cdot)$ 就是 free bits——当某一项已经压到 1 nat（约 1.44 bits）以下时其梯度关闭，学习压力集中到 prediction loss 上。v3 用 $1{:}0.1$ 的不对称权重实现 KL 平衡（v2 使用的是 0.8 型权重系数，DayDreamer 继承了 0.8 方案），从而在复杂 3D 场景（需要强正则压掉无关细节）与像素决定成败的静态背景游戏之间不再需要换超参。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TB
-    X(["观测 x_t"]) --> ENC["编码器 q_phi<br/>离散化 32 类 x 16 向量"]
-    ENC ==> Z["离散隐变量 z_t"]
-    A(["动作 a_t-1"]) ==> SM["序列模型 f_phi<br/>GRU 循环状态 h_t"]
-    ZP(["z_t-1"]) ==> SM
-    SM --> DP["动力学预测器 p_phi<br/>先验 z 分布"]
-    SM --> RP["奖励头 r_t<br/>symlog 两值回归"]
-    SM --> CP["continue 头 c_t<br/>二分类"]
-    SM --> DEC["解码器<br/>重建 x_hat_t<br/>去掉重建梯度几乎无影响"]
-    Z -.->|"KL 平衡: dyn 1.0 vs rep 0.1<br/>free bits 1 nat 关闭小梯度"| KLQ["世界模型损失<br/>免调参核心之一"]
-    DP -.-> KLQ
-    S["模型状态 s_t = h_t 拼接 z_t"] ==> AC["想象 rollout H=15<br/>批 50% 批量 16 序列"]
-    AC --> ACT["actor<br/>Reinforce + 熵正则<br/>切断 value 梯度"]
-    AC --> CRIT["critic<br/>twohot lambda-return<br/>symlog 编码目标"]
+![dreamer-v3 架构图 v3](figures/dreamer-v3/arch.svg)
 
-    class X,A,ZP data
-    class ENC,SM,DP,DEC,ACT train
-    class Z,S env
-    class KLQ key
-    class AC loop
-    class RP,CP,CRIT reward
-    class ACT act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-```
+*架构速览：Dreamer v3 用一组固定超参数（归一化、KL 平衡 + free bits、symlog 变换三大类鲁棒技术）在 Atari、ProcGen、DMLab、DMControl、BSuite、Minecraft 等 *
 
 ### 2. Symlog 与 symexp twohot
 

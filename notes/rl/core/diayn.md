@@ -104,47 +104,9 @@ $$
 
 选用 M-projection（而非 I-projection）保证检索到的技能覆盖专家访问的全部状态。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TB
-    subgraph LOOP["技能 rollout 回路 (MuJoCo 5 环境)"]
-        S(["状态 s_t"]) --> ENV["环境转移"]
-        ENV --> S
-    end
+![diayn 架构图 v3](figures/diayn/arch.svg)
 
-    Z["技能 z: 固定均匀先验 p(z)<br/>(每回合采样一次, 不学 p(z) 防 Matthew Effect)"] --> PI["技能策略 pi(a | s, z)<br/>SAC 最大熵, 熵系数 alpha = 0.1<br/>z 直接拼接到状态后输入"]
-    S --> PI
-    PI ==>|"动作 a_t (块内高熵探索)"| ENV
-
-    S --> DIS["判别器 q_phi(z | s)<br/>从状态反推技能 (状态判别而非动作判别)"]
-    DIS ==> KEY["伪奖励 (核心)<br/>r = log q_phi(z|s) - log p(z)<br/>互信息下界的逐时刻形式"]
-    KEY ==> UPD["SAC actor-critic 更新<br/>无监督目标退化为普通 off-policy RL"]
-    UPD -.->|"更新策略 theta"| PI
-    DISL["判别器 SGD 分类损失<br/>max log q_phi(z|s)"] -.->|"更新 phi (合作博弈, 非对抗)"| DIS
-
-    class S,Z data
-    class PI train
-    class DIS reward
-    class KEY key
-    class UPD,DISL loss
-    class ENV env
-    class LOOP loop
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-```
+*架构速览：不给出任何任务奖励，只用一个信息论目标——最大化技能与状态的互信息 $I(S;Z)$、同时压低给定状态下技能与动作的互信息 $I(A;Z|S)$、再加上最大熵正则——就能让 SAC 训出一套"从状态能反推出是哪个技能"的*
 
 训练循环里两条腿各自爬升：策略想让 $\log q_\phi(z|s)$ 变大，判别器想把分类做对，合力使互信息估计单调上升；训练曲线显示熵正则项很快平台化而判别项持续增长（图 12）。
 

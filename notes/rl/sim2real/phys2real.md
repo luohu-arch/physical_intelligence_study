@@ -42,42 +42,9 @@ Phys2Real 提出 Real-to-Sim-to-Real 三阶段管道：3D Gaussian Splatting 重
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    RGB(["真实 RGB 图像"]) ==> GS["3DGS 重建<br/>SAM-2 分割 + SuGaR 网格提取"]
-    GS ==> SIM["IsaacLab 仿真资产<br/>(real-to-sim)"]
-    RGB ==> VLMP["VLM 先验 (GPT-5, 冻结)<br/>多视角多次查询取均值<br/>CoM 估计 + 自报不确定度"]
-    GT["仿真真值物理参数<br/>(Phase 1 GT / Phase 1.5 带噪)"] -.->|"特权条件化训练"| PPO["PPO 策略 (asymmetric actor-critic)<br/>显式条件化于物理参数 theta<br/>Phase 2 冻结策略训 ensemble"]
-    SIM ==> PPO
-    INTER(["在线交互<br/>state-action 历史"]) ==> RMA["RMA ensemble x 10<br/>认知 + 偶然不确定性分解"]
-    VLMP ==> FUSE["逆方差加权融合 (核心)<br/>theta_hat = (theta_vlm/sigma_vlm^2 + theta_rma/sigma_rma^2)<br/>/ (1/sigma_vlm^2 + 1/sigma_rma^2)"]
-    RMA ==> FUSE
-    PPO ==> DEPLOY["真机部署 (sim-to-real)<br/>sigma_rma 小 -> 信交互估计<br/>sigma_rma 大 -> 回退 VLM 先验"]
-    FUSE ==>|"融合估计实时条件化策略"| DEPLOY
+![phys2real 架构图 v3](figures/phys2real/arch.svg)
 
-    class RGB,INTER data
-    class GS data
-    class SIM env
-    class VLMP,GT frozen
-    class PPO,RMA train
-    class FUSE key
-    class DEPLOY act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-```
+*架构速览：Phys2Real 提出 Real-to-Sim-to-Real 三阶段管道：3D Gaussian Splatting 重建真实场景，VLM 从 RGB 图像估计物理参数先验（如质心 CoM），RL 策略以物理参数为条*
 
 不确定性分解：ensemble 方差捕获**认知不确定性（epistemic）**，各成员用 Gaussian NLL 训练输出均值/方差捕获**偶然不确定性（aleatoric）**。融合公式为逆方差加权（即两个独立无偏估计下的最优线性无偏估计 BLUE）：
 

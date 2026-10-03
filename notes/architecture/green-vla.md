@@ -44,48 +44,9 @@ Green-VLA 提出五阶段训练范式（L0 VLM 预训练→L1 多模态 groundin
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    subgraph LANG["语言与感知先验阶段"]
-        L0["L0: VLM 预训练<br/>互联网规模图文"]
-        L1["L1: 多模态 Grounding<br/>24M web 样本"]
-    end
-    subgraph ROBO["机器人阶段 (3000h 异构数据)"]
-        R0["R0: 跨具身预训练<br/>184M 样本, DataQA 四维过滤"]
-        R1["R1: 具身特定微调"]
-        R2["R2: RL 策略对齐<br/>小 actor 学习新噪声源分布 p_0'"]
-    end
-    L0 ==> L1 ==> R0 ==> R1 ==> R2
-    SPACE["64 维统一动作空间<br/>语义 slot + embodiment mask"] -.->|"跨具身共享训练"| R0
-    LBC["BC 损失 L_BC<br/>(R0/R1 基础, 随数据饱和)"] -.-> R0
-    LBC -.-> R1
-    IQL["IQL Q 函数 (稀疏奖励)<br/>保守探索, 不直接改策略权重"] -.-> R2
-    R2 ==>|"超越 BC 上限<br/>(Simpler 55.2 -> 79.1)"| DEPLOY(["单模型异构部署<br/>人形 12Hz / 底层 50Hz"])
-    DEPLOY -.->|"逐 chunk 重观测<br/>高层 planner 逐 subtask replan<br/>+ EEP/OOD 安全终止"| R0
+![green-vla 架构图 v3](figures/green-vla/arch.svg)
 
-    class L0,L1,R0,R1 train
-    class R2,SPACE key
-    class DEPLOY act
-    class IQL reward
-    class LBC loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：Green-VLA 提出五阶段训练范式（L0 VLM 预训练→L1 多模态 grounding→R0 跨具身预训练→R1 微调→R2 RL 对齐），64 维统一动作空间 + 具身特定 mask。CALVIN 4.62, *
 
 基于 Qwen3-VL-4B 或 PaliGemma 3B backbone + Flow Matching action expert + FAST tokenizer。五阶段训练每阶段有明确目标和数据配比，64D 统一动作空间覆盖人形/移动操作/固定臂。数学上各阶段的目标函数如下：
 

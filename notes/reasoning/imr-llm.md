@@ -42,48 +42,9 @@ IMR-LLM 用 LLM 做"翻译器"——LLM 将自然语言任务转为析取图(dis
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    NL[自然语言任务描述]:::data
-    CFG[产线配置<br/>机器人数量 / 类型 / 工作空间]:::data
-    LLM1[LLM 翻译器<br/>任务分解 + 机器人分派]:::frozen
-    GRAPH[析取图<br/>工序节点 + 优先约束 / 互斥边]:::key
-    SOLVER[OR 求解器<br/>Johnson / 遗传算法]:::key
-    SCHED[无死锁最优调度方案<br/>数学保证全局最优]
-    PT[Process Tree 操作路径库<br/>人工预先构建]:::mem
-    LLM2[LLM 代码生成<br/>沿过程树选路径填空]:::frozen
+![imr-llm 架构图 v3](figures/imr-llm/arch.svg)
 
-    NL ==> LLM1
-    CFG ==> LLM1
-    LLM1 ==> GRAPH
-    GRAPH ==> SOLVER
-    SOLVER ==> SCHED
-    SCHED ==> LLM2
-    PT --> LLM2
-    LLM2 ==> CODE([可执行 Python 代码]):::act
-    CODE ==> LINE([3 机器人产线执行]):::env
-    CHK[符号状态检查<br/>工件位置 + 已执行工序]:::loop
-    LINE -.执行状态反馈.-> CHK
-    CHK -.约束冲突暴露翻译错误.-> LLM2
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：IMR-LLM 用 LLM 做"翻译器"——LLM 将自然语言任务转为析取图(disjunctive graph)，由确定性求解器产生无死锁调度；LLM 再从 process tree 选路径生成可执行代码。23 工业场*
 
 析取图: 节点=操作工序, 边=优先约束+资源冲突。LLM 生成图的节点和边结构，经典 Johnson 或遗传算法在图上求解最优调度。
 

@@ -122,11 +122,11 @@ Use `--deep` for high-priority papers that need detailed technical analysis. Use
 
 **4) 硬约束**：节点/标签只用中文与 ASCII；禁用希腊字母与数学 Unicode（写 pi/alpha/beta，不写 π/α/β）；数字下标用 x0/x_t 形式。门禁 mermaid-safe 会拦截。
 
-## v3 SVG 架构图（旗舰笔记升级版）
+## v3 SVG 架构图（全库默认，2026-10 起全量铺开）
 
-mermaid v2 仍是**默认**（快速、纯文本可 diff）；对旗舰/重点笔记，用 v3 SVG 手绘图替换架构图（图标 + 渐变 + 阴影，观感接近论文原图）。
+深度笔记的架构图一律用 v3 SVG（图标 + 渐变 + 阴影，观感接近论文原图）；mermaid v2 只用于 briefs 大纲卡与快速草图。全库已由 `scripts/mermaid_to_spec.py` 从 v2 mermaid 自动转换完成（每篇的 `figures/<id>/arch.spec.json` 含布局 spec 与原始 mermaid 备份，可手调后用 fancy_diagram 重渲染）。
 
-**1) 工具链**：`scripts/fancy_diagram.py` + 图标库 `assets/ml-paper-icons/`（512 个 SVG，ISC 许可，duotone/lucide/phosphor/tabler 四族，已 vendor 含 LICENSE）。写 spec → 出图：
+**1) 工具链**：`scripts/mermaid_to_spec.py`（mermaid→spec 自动转换+分层布局+图标分配，`--dry`/`--all`）+ `scripts/fancy_diagram.py`（spec→SVG，手调用）+ 图标库 `assets/ml-paper-icons/`（512 个 SVG，ISC 许可，duotone/lucide/phosphor/tabler 四族，已 vendor 含 LICENSE）。自动转换：
 
 ```bash
 python3 skills/pull-vla-research/scripts/fancy_diagram.py notes/<track>/figures/<id>/arch.spec.json --png
@@ -146,7 +146,7 @@ spec 是 JSON：title/subtitle/foot、canvas、panels（虚线分组）、nodes�
 
 **3) 验证流程**（必须全过再嵌入）：`xml.etree` 解析过 → `qlmanage -t -s 1600` 或本地 http 服务 + 浏览器截图（GitHub 渲染的 ground truth 是浏览器）→ 视觉模型只问 BAD（文字溢出/箭头穿卡/图标缺失/布局空洞）。soffice 对部分 SVG 加载失败，不要用它做 SVG 校验。
 
-**4) 布局经验**：列间距 ≥80px（放标签药丸）；长反馈回路用 out bottom/in bottom + k≥70 压底走线；标签药丸放不进缝隙时用 loff 挪到通道外侧；同通道双向边（如 Q⇄蒸馏）错开 pos_out/pos_in。
+**4) 布局经验**：列间距 ≥100px（箭头通道，防"穿卡"观感）；长反馈回路用 out bottom/in bottom + k≥70 压底走线；标签药丸放不进缝隙时用 loff 挪到通道外侧；同通道双向边（如 Q⇄蒸馏）错开 pos_out/pos_in；CJK 宽度系数 1.06（粗体实测）；同行节点 ≥5 个时间距 ×1.4。
 
 **5) 外部画图 skill 路线图**（2026-10 评估结论）：
 - K-Dense `pptx-posters`：强门禁 manifest 审批工作流，面向**印刷级会议海报**（打印/无障碍/包安全检查），不适合笔记内嵌图；真要做 poster 时再启用。

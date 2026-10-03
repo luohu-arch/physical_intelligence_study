@@ -1,0 +1,183 @@
+{
+ "nodes": [
+  {
+   "id": "ROLLOUT",
+   "label": "VLA 自主 rollout\n执行 chunk H = 16",
+   "sub": "",
+   "icon": "stack",
+   "cls": "act",
+   "x": 44,
+   "y": 146,
+   "w": 220,
+   "h": 93
+  },
+  {
+   "id": "CHK",
+   "label": "失败 / 需要帮助?",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 179,
+   "y": 316,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "IV",
+   "label": "人类遥操作干预\n含犹豫 / 错误 / 重",
+   "sub": "映射噪声",
+   "icon": "noise",
+   "cls": "data",
+   "x": 170,
+   "y": 468,
+   "w": 223,
+   "h": 126
+  },
+  {
+   "id": "BUF",
+   "label": "混合质量数据 buffer\nrollout + adaptati",
+   "sub": "on + recovery 三段",
+   "icon": "db",
+   "cls": "mem",
+   "x": 164,
+   "y": 654,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "HUMVID",
+   "label": "跨具身人类视频\n(无动作对齐, 软特权",
+   "sub": "监督)",
+   "icon": "sigma",
+   "cls": "data",
+   "x": 288,
+   "y": 130,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "CRITIC",
+   "label": "critic 价值头\n标出正 / 负优势区",
+   "sub": "(擦黑板 45.0% -> 8",
+   "icon": "target",
+   "cls": "reward",
+   "x": 167,
+   "y": 1026,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "OVE",
+   "label": "OVE 乐观价值估计 (\n核心)",
+   "sub": "H 步 TD bootstrap ",
+   "icon": "sigma",
+   "cls": "key",
+   "x": 165,
+   "y": 840,
+   "w": 232,
+   "h": 126
+  },
+  {
+   "id": "ACT",
+   "label": "优势条件化 actor 更\n新",
+   "sub": "冻结 VLM 主干, 只训",
+   "icon": "brain",
+   "cls": "train",
+   "x": 164,
+   "y": 1212,
+   "w": 233,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "ROLLOUT",
+   "to": "CHK",
+   "style": "main"
+  },
+  {
+   "from": "CHK",
+   "to": "IV",
+   "style": "main",
+   "label": "\"是\""
+  },
+  {
+   "from": "CHK",
+   "to": "BUF",
+   "style": "main",
+   "label": "\"否\""
+  },
+  {
+   "from": "IV",
+   "to": "BUF",
+   "style": "main"
+  },
+  {
+   "from": "HUMVID",
+   "to": "CRITIC",
+   "style": "loss",
+   "label": "\"补长尾中间状态的值监督\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "BUF",
+   "to": "OVE",
+   "style": "thick"
+  },
+  {
+   "from": "OVE",
+   "to": "CRITIC",
+   "style": "thick"
+  },
+  {
+   "from": "CRITIC",
+   "to": "ACT",
+   "style": "thick"
+  },
+  {
+   "from": "ACT",
+   "to": "ROLLOUT",
+   "style": "fb",
+   "label": "\"下一轮迭代\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  }
+ ],
+ "panels": [
+  {
+   "label": "部署迭代回路 (小鹏人形, 3 轮)",
+   "x": 20,
+   "y": 102,
+   "w": 402,
+   "h": 698
+  }
+ ],
+ "canvas": [
+  562,
+  1428
+ ],
+ "legend": [
+  "act",
+  "data",
+  "key",
+  "loop",
+  "mem",
+  "reward",
+  "train"
+ ],
+ "layout_wh": [
+  562,
+  1428
+ ],
+ "title": "rove",
+ "subtitle": "ROVE 解决人形机器人 VLA 部署后的核心痛点：人类遥操作干预数据本身是不完美的（犹豫、错误、重映射噪声）。提出乐观价值估计（OVE）——用 expectile regre",
+ "foot": "rove · arXiv 2606.17011 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TB\n    subgraph LOOP[\"部署迭代回路 (小鹏人形, 3 轮)\"]\n        ROLLOUT[\"VLA 自主 rollout<br/>执行 chunk H = 16\"] --> CHK{\"失败 / 需要帮助?\"}\n        CHK -->|\"是\"| IV[\"人类遥操作干预<br/>含犹豫 / 错误 / 重映射噪声\"]\n        CHK -->|\"否\"| BUF[(\"混合质量数据 buffer<br/>rollout + adaptation + recovery 三段\")]\n        IV --> BUF\n    end\n    HUMVID[\"跨具身人类视频<br/>(无动作对齐, 软特权监督)\"] -.->|\"补长尾中间状态的值监督\"| CRITIC\n    BUF ==> OVE[\"OVE 乐观价值估计 (核心)<br/>H 步 TD bootstrap + expectile 回归 (tau = 0.7)<br/>自动筛出高价值恢复段, 过滤犹豫与错误\"]\n    OVE ==> CRITIC[\"critic 价值头<br/>标出正 / 负优势区<br/>(擦黑板 45.0% -> 80.0%)\"]\n    CRITIC ==> ACT[\"优势条件化 actor 更新<br/>冻结 VLM 主干, 只训价值头 / 动作头\"]\n    ACT -.->|\"下一轮迭代\"| ROLLOUT\n\n    class ROLLOUT act\n    class IV data\n    class BUF mem\n    class HUMVID data\n    class OVE key\n    class CRITIC reward\n    class ACT train\n    class LOOP loop\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f",
+ "source": "mermaid-auto"
+}

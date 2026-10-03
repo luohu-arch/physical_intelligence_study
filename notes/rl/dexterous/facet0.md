@@ -46,47 +46,9 @@ PaliGemma 视觉-语言骨干 + flow-matching 动作专家联合生成 50 步 Ca
 
 系统全貌（动作被执行，wrench 保持预测性）：
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    RGB(["3 路 RGB + 指令"]) --> VL["PaliGemma VL 编码器"]
-    WH(["wrench 历史 K = 10<br/>+ 13 维状态 (位姿/夹爪/wrench)"]) --> FUSE["语义-接触表征 h_c<br/>结构化注意力防目标泄漏"]
-    VL --> FUSE
-    FUSE ==> FM["flow-matching 动作专家<br/>(约 1000h ManuFacet-1K 训练)"]
-    FM ==> Y["联合块 Y (核心)<br/>50 步动作 + 预期诱发 wrench 按行配对<br/>(一步错位的因果约定)<br/>动作被执行, wrench 始终是预测量"]
-    Y ==> CRITIC["分布式 Action-Wrench Critic<br/>区分几何进度相同但接触结局不同的运动<br/>(干净插入 vs 卡死) + 4 辅助头"]
-    CRITIC ==> CREDIT["contact-selective credit<br/>无折扣短视野 delta^(N)<br/>按接触 regime 分桶取 top 分位"]
-    CREDIT -.->|"tagged instruction 加权 flow 损失"| FM
-    FUSE --> EZ["冻结瓶颈编码器 E_z<br/>-> FACET token (1024 维)"]
-    EZ ==> ACTOR["有界局部 actor (TD3+BC)<br/>tanh 映射到任务盒 [a_min, a_max]<br/>只更新 6.6% 参数 (新零件适配)"]
-    Y ==> SAFETY["安全算子 S_task<br/>夹剪工作空间 + 单步位移上限"]
-    ACTOR ==> SAFETY
-    SAFETY ==> CTRL["200 Hz 柔顺控制器<br/>闭在实测腕部 F/T 上"]
+![facet0 架构图 v3](figures/facet0/arch.svg)
 
-    class RGB,WH data
-    class VL,EZ frozen
-    class FUSE data
-    class FM,ACTOR train
-    class Y key
-    class CRITIC reward
-    class CREDIT loss
-    class SAFETY,CTRL act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-```
+*架构速览：PaliGemma 视觉-语言骨干 + flow-matching 动作专家联合生成 50 步 Cartesian 动作块与"该动作预期诱发的腕部 wrench"（$Y\in\mathbb{R}^{50\times13}*
 
 ## 底层原理与数学推导
 

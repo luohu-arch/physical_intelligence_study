@@ -1,0 +1,187 @@
+{
+ "nodes": [
+  {
+   "id": "CLIP",
+   "label": "输入片段 16 帧 224 \n分辨率",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 45,
+   "y": 146,
+   "w": 235,
+   "h": 93
+  },
+  {
+   "id": "TOK",
+   "label": "3D 卷积 patchify\n1568 个 token, 16x",
+   "sub": "16x2",
+   "icon": "stack",
+   "cls": "train",
+   "x": 172,
+   "y": 316,
+   "w": 232,
+   "h": 126
+  },
+  {
+   "id": "DROP",
+   "label": "丢弃可见补集 token\nmulti-block 掩码率",
+   "sub": "约 90%",
+   "icon": "stack",
+   "cls": "key",
+   "x": 48,
+   "y": 502,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "XENC",
+   "label": "x-编码器 E_theta\n只处理可见 token z_",
+   "sub": "N",
+   "icon": "eye",
+   "cls": "train",
+   "x": 44,
+   "y": 688,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "YENC",
+   "label": "y-编码器 E_theta_b\nar",
+   "sub": "EMA 目标分支, 处理",
+   "icon": "eye",
+   "cls": "frozen",
+   "x": 300,
+   "y": 502,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "OUT",
+   "label": "输出端掩码取目标 pa\ntch s_M",
+   "sub": "stop-gradient",
+   "icon": "lightning",
+   "cls": "loss",
+   "x": 303,
+   "y": 688,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "MSKT",
+   "label": "可学习 mask token \n+ 位置嵌入",
+   "sub": "填充 Delta_y",
+   "icon": "stack",
+   "cls": "data",
+   "x": 304,
+   "y": 130,
+   "w": 228,
+   "h": 126
+  },
+  {
+   "id": "PRED",
+   "label": "窄预测器 P_phi\n12 层 384 维",
+   "sub": "特征 L1 目标 K400 ",
+   "icon": "spark",
+   "cls": "key",
+   "x": 175,
+   "y": 874,
+   "w": 227,
+   "h": 126
+  },
+  {
+   "id": "LOSS",
+   "label": "预测与目标表征的平均\n L1",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loss",
+   "x": 170,
+   "y": 1060,
+   "w": 236,
+   "h": 93
+  },
+  {
+   "id": "OPT",
+   "label": "AdamW 更新 theta/p\nhi",
+   "sub": "theta_bar 走 EMA 0",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 172,
+   "y": 1213,
+   "w": 232,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "CLIP",
+   "to": "TOK",
+   "style": "thick"
+  },
+  {
+   "from": "TOK",
+   "to": "DROP",
+   "style": "thick"
+  },
+  {
+   "from": "DROP",
+   "to": "XENC",
+   "style": "thick"
+  },
+  {
+   "from": "TOK",
+   "to": "YENC",
+   "style": "thick"
+  },
+  {
+   "from": "YENC",
+   "to": "OUT",
+   "style": "thick"
+  },
+  {
+   "from": "MSKT",
+   "to": "PRED",
+   "style": "thick"
+  },
+  {
+   "from": "XENC",
+   "to": "PRED",
+   "style": "thick"
+  },
+  {
+   "from": "PRED",
+   "to": "LOSS",
+   "style": "fb"
+  },
+  {
+   "from": "OUT",
+   "to": "LOSS",
+   "style": "fb"
+  },
+  {
+   "from": "LOSS",
+   "to": "OPT",
+   "style": "fb"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  577,
+  1429
+ ],
+ "legend": [
+  "data",
+  "frozen",
+  "key",
+  "loss",
+  "train"
+ ],
+ "layout_wh": [
+  577,
+  1429
+ ],
+ "title": "vjepa",
+ "subtitle": "V-JEPA 把 I-JEPA 的 \"EMA target 表征回归\" 目标搬到时空 token 上（损失换成更稳的 L1），配合覆盖约 90% token 的 short-r",
+ "foot": "vjepa · arXiv 2404.08471 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TB\n    CLIP([\"输入片段 16 帧 224 分辨率\"]) ==> TOK[\"3D 卷积 patchify<br/>1568 个 token, 16x16x2\"]\n    TOK ==> DROP[\"丢弃可见补集 token<br/>multi-block 掩码率约 90%<br/>short-range + long-range 组合\"]\n    DROP ==> XENC[\"x-编码器 E_theta<br/>只处理可见 token z_N\"]\n    TOK ==> YENC[\"y-编码器 E_theta_bar<br/>EMA 目标分支, 处理完整片段\"]\n    YENC ==> OUT[\"输出端掩码取目标 patch s_M<br/>stop-gradient\"]\n    MSKT([\"可学习 mask token + 位置嵌入<br/>填充 Delta_y\"]) ==> PRED\n    XENC ==> PRED[\"窄预测器 P_phi<br/>12 层 384 维<br/>特征 L1 目标 K400 73.7 vs 像素 68.6\"]\n    PRED -.-> LOSS[\"预测与目标表征的平均 L1\"]\n    OUT -.-> LOSS\n    LOSS -.-> OPT[\"AdamW 更新 theta/phi<br/>theta_bar 走 EMA 0.998 渐升到 1.0\"]\n\n    class CLIP,MSKT data\n    class YENC frozen\n    class TOK,XENC,OPT train\n    class DROP,PRED key\n    class OUT,LOSS loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17",
+ "source": "mermaid-auto"
+}

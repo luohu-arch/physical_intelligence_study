@@ -1,0 +1,297 @@
+{
+ "nodes": [
+  {
+   "id": "LIDAR",
+   "label": "LiDAR 原始点流\n10-100Hz 无特征提取",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 148,
+   "y": 130,
+   "w": 235,
+   "h": 93
+  },
+  {
+   "id": "ACCUM",
+   "label": "点累积 10-100ms\n成一帧 Scan",
+   "sub": "",
+   "icon": "db",
+   "cls": "mem",
+   "x": 132,
+   "y": 283,
+   "w": 199,
+   "h": 93
+  },
+  {
+   "id": "IMU",
+   "label": "IMU 测量\n100-1000Hz",
+   "sub": "",
+   "icon": "db",
+   "cls": "data",
+   "x": 406,
+   "y": 130,
+   "w": 155,
+   "h": 93
+  },
+  {
+   "id": "FORWARD",
+   "label": "前向传播\nIMU 运动学状态预测",
+   "sub": "",
+   "icon": "state",
+   "cls": "train",
+   "x": 355,
+   "y": 283,
+   "w": 222,
+   "h": 93
+  },
+  {
+   "id": "BACKWARD",
+   "label": "反向传播\n逐点运动畸变补偿",
+   "sub": "",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 254,
+   "y": 436,
+   "w": 200,
+   "h": 93
+  },
+  {
+   "id": "IKD",
+   "label": "ikd-Tree 增量全局地\n图",
+   "sub": "插入 O(log n) / 框",
+   "icon": "spark",
+   "cls": "key",
+   "x": 237,
+   "y": 1453,
+   "w": 235,
+   "h": 126
+  },
+  {
+   "id": "KNN",
+   "label": "kNN 搜索\n最近平面与法向量",
+   "sub": "",
+   "icon": "tree",
+   "cls": "loop",
+   "x": 44,
+   "y": 1656,
+   "w": 200,
+   "h": 93
+  },
+  {
+   "id": "RESIDUAL",
+   "label": "点到平面残差\n直接配准 免调参",
+   "sub": "",
+   "icon": "spark",
+   "cls": "key",
+   "x": 258,
+   "y": 589,
+   "w": 192,
+   "h": 93
+  },
+  {
+   "id": "UPDATE",
+   "label": "IEKF 迭代状态更新\n等价 Kalman 增益",
+   "sub": "O(m^3) 降为 O(d^3)",
+   "icon": "state",
+   "cls": "train",
+   "x": 240,
+   "y": 742,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "CONV",
+   "label": "收敛?\n3-5 次迭代",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 280,
+   "y": 928,
+   "w": 149,
+   "h": 93
+  },
+  {
+   "id": "POSE",
+   "label": "里程计输出\n位姿/速度/bias/外参",
+   "sub": " 10-100Hz",
+   "icon": "lightning",
+   "cls": "act",
+   "x": 238,
+   "y": 1081,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "MAP",
+   "label": "建图: 新点插入 ikd-\nTree",
+   "sub": "树上降采样",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 238,
+   "y": 1267,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "DELETE",
+   "label": "框式删除\n超 2000m 历史点防误",
+   "sub": "匹配",
+   "icon": "db",
+   "cls": "env",
+   "x": 432,
+   "y": 1639,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "REBALANCE",
+   "label": "子树失衡?",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 268,
+   "y": 1656,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "REBUILD",
+   "label": "并行重建子树\n主线程不卡顿",
+   "sub": "",
+   "icon": "gear",
+   "cls": "env",
+   "x": 272,
+   "y": 1825,
+   "w": 164,
+   "h": 93
+  }
+ ],
+ "edges": [
+  {
+   "from": "LIDAR",
+   "to": "ACCUM",
+   "style": "main"
+  },
+  {
+   "from": "IMU",
+   "to": "FORWARD",
+   "style": "main"
+  },
+  {
+   "from": "FORWARD",
+   "to": "BACKWARD",
+   "style": "main"
+  },
+  {
+   "from": "ACCUM",
+   "to": "BACKWARD",
+   "style": "main"
+  },
+  {
+   "from": "IKD",
+   "to": "KNN",
+   "style": "main"
+  },
+  {
+   "from": "KNN",
+   "to": "RESIDUAL",
+   "style": "main",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  },
+  {
+   "from": "BACKWARD",
+   "to": "RESIDUAL",
+   "style": "main"
+  },
+  {
+   "from": "RESIDUAL",
+   "to": "UPDATE",
+   "style": "main"
+  },
+  {
+   "from": "UPDATE",
+   "to": "CONV",
+   "style": "main"
+  },
+  {
+   "from": "CONV",
+   "to": "RESIDUAL",
+   "style": "main",
+   "label": "\"否\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  },
+  {
+   "from": "CONV",
+   "to": "POSE",
+   "style": "main",
+   "label": "\"是\""
+  },
+  {
+   "from": "POSE",
+   "to": "MAP",
+   "style": "main"
+  },
+  {
+   "from": "MAP",
+   "to": "IKD",
+   "style": "main"
+  },
+  {
+   "from": "IKD",
+   "to": "DELETE",
+   "style": "main"
+  },
+  {
+   "from": "IKD",
+   "to": "REBALANCE",
+   "style": "main"
+  },
+  {
+   "from": "REBALANCE",
+   "to": "REBUILD",
+   "style": "main",
+   "label": "\"是\""
+  },
+  {
+   "from": "REBUILD",
+   "to": "IKD",
+   "style": "main",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  709,
+  2008
+ ],
+ "legend": [
+  "act",
+  "data",
+  "env",
+  "key",
+  "loop",
+  "mem",
+  "train"
+ ],
+ "layout_wh": [
+  709,
+  2008
+ ],
+ "title": "fast-lio2",
+ "subtitle": "FAST-LIO2 提出了一种快速、鲁棒的 LiDAR-inertial 里程计框架。相比传统方法提取特征点再配准，它直接将原始点云注册到地图上（direct method），",
+ "foot": "fast-lio2 · arXiv 2107.06829 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    LIDAR([\"LiDAR 原始点流<br/>10-100Hz 无特征提取\"]) --> ACCUM[\"点累积 10-100ms<br/>成一帧 Scan\"]\n    IMU([\"IMU 测量<br/>100-1000Hz\"]) --> FORWARD[\"前向传播<br/>IMU 运动学状态预测\"]\n    FORWARD --> BACKWARD[\"反向传播<br/>逐点运动畸变补偿\"]\n    ACCUM --> BACKWARD\n    IKD[\"ikd-Tree 增量全局地图<br/>插入 O(log n) / 框式删除 / 动态重平衡\"] --> KNN[\"kNN 搜索<br/>最近平面与法向量\"]\n    KNN --> RESIDUAL[\"点到平面残差<br/>直接配准 免调参\"]\n    BACKWARD --> RESIDUAL\n    RESIDUAL --> UPDATE[\"IEKF 迭代状态更新<br/>等价 Kalman 增益<br/>O(m^3) 降为 O(d^3), d=18\"]\n    UPDATE --> CONV{\"收敛?<br/>3-5 次迭代\"}\n    CONV -->|\"否\"| RESIDUAL\n    CONV -->|\"是\"| POSE[\"里程计输出<br/>位姿/速度/bias/外参 10-100Hz\"]\n    POSE --> MAP[\"建图: 新点插入 ikd-Tree<br/>树上降采样\"]\n    MAP --> IKD\n    IKD --> DELETE[\"框式删除<br/>超 2000m 历史点防误匹配\"]\n    IKD --> REBALANCE{\"子树失衡?\"}\n    REBALANCE -->|\"是\"| REBUILD[\"并行重建子树<br/>主线程不卡顿\"]\n    REBUILD --> IKD\n\n    class LIDAR,IMU data\n    class RESIDUAL,IKD key\n    class FORWARD,BACKWARD,UPDATE train\n    class ACCUM mem\n    class POSE act\n    class KNN,MAP,CONV,REBALANCE loop\n    class DELETE,REBUILD env\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17",
+ "source": "mermaid-auto"
+}

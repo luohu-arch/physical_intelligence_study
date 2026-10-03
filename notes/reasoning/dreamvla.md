@@ -42,59 +42,9 @@ DreamVLA 不直接预测未来图像（计算量大、冗余信息多），而�
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OBS[双相机 RGB 观测]:::data
-    LANG[语言指令]:::data
-    STATE[机器人状态 s_t]:::data
+![dreamvla 架构图 v3](figures/dreamvla/arch.svg)
 
-    subgraph DREAM["世界知识预测 - 前瞻做梦"]
-        LLM[多模态 Transformer<br/>dream 查询 token]:::frozen
-        BLOCK[块状结构化注意力<br/>三类子查询互相屏蔽]:::key
-        DYN[动态区域预测<br/>二值运动掩码]:::env
-        DEP[空间深度预测<br/>单目深度]:::env
-        SEM[高层语义预测<br/>SAM 特征]:::env
-        LLM ==> BLOCK
-        BLOCK -.类型间注意力屏蔽.-> DYN
-        BLOCK -.类型间注意力屏蔽.-> DEP
-        BLOCK -.类型间注意力屏蔽.-> SEM
-    end
-
-    OBS ==> LLM
-    LANG ==> LLM
-    STATE ==> LLM
-
-    LDYN[dVAE 动态区域重建损失]:::loss
-    LDEP[尺度对齐深度 MSE 损失]:::loss
-    LSEM[InfoNCE 对比语义损失]:::loss
-    DYN -.-> LDYN
-    DEP -.-> LDEP
-    SEM -.-> LSEM
-
-    BLOCK ==> LATENT[解耦隐含特征]:::key
-    LATENT ==> DIT[扩散 Transformer<br/>动作去噪解码]:::act
-    LDIT[扩散去噪 L2 动作损失]:::loss
-    DIT -.-> LDIT
-    DIT ==> ROBOT([机器人连续动作序列]):::act
-    ROBOT -.每 3 帧闭环重观测.-> OBS
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：DreamVLA 不直接预测未来图像（计算量大、冗余信息多），而是通过块状结构化注意力分离地预测三类紧凑世界知识（动态区域、深度、语义），再用扩散 Transformer 将解耦的隐含特征解码为动作序列，在真机任务达 7*
 
 DreamVLA 的核心设计理念是「预测-动作」循环（perception-prediction-action loop）：模型先理解当前观测，预测未来世界的紧凑知识表示，再依据这些知识预测逆动力学（inverse dynamics）生成动作。
 

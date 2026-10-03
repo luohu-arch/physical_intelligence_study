@@ -49,57 +49,9 @@
 
 **多回合策略梯度分解**。K 回合轨迹 $\tau$ 被切成单回合样本，每回合内仍是标准 PPO 式代理目标，但蒸馏分支替换了奖励来源：
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    subgraph Clients["Client 侧: 任意 agent 框架即数据源"]
-        direction TB
-        A(["个人 Agent 用户终端<br/>用户回复 / 工具输出"]):::data
-        C["Terminal / GUI / SWE / Tool-call<br/>云环境 128/64/64/32 并行"]:::env
-    end
+![openclaw-rl 架构图 v3](figures/openclaw-rl/arch.svg)
 
-    subgraph RLServer["RL Server: slime 异步四组件解耦"]
-        direction TB
-        B["Policy Server (被训策略挂载)<br/>SGLang 无状态 completion API"]:::train
-        D["主线/侧线分流: 主线回合可训练<br/>侧线 (记忆/辅助查询) 只转发"]:::loop
-        E["PRM Server (核心): 下一状态信号就地提取<br/>用户回复/工具输出/状态变化 = 免费裁判"]:::key
-        EVAL["评价性: 标量 PRM 多数投票<br/>r_t in {+1, -1, 0}"]:::reward
-        HINT["指导性: 下一状态含修正时<br/>蒸馏 [HINT] 包裹的 token 级 hint"]:::reward
-        G["PRM Actor (teacher log-prob)<br/>overlap 选 hint + Delta clip 锁比率"]:::frozen
-        F["Megatron 训练引擎<br/>混合目标 L = w_RL*L_GRPO + w_OPD*L_OPD"]:::loss
-    end
-
-    ACC(["偏好对齐 10.3 会话 vs GRPO 14.1 / Mem0 14.5<br/>部署中在线学习: 被使用就在变强"]):::data
-
-    A ==>|"HTTP API + session id"| B
-    C ==>|"交互流"| B
-    B ==> D
-    D ==> E
-    E ==> EVAL
-    E ==> HINT
-    EVAL -.->|"稠密但薄的标量优势"| F
-    HINT ==> G
-    G -.->|"稀疏但厚的 token 级优势"| F
-    F -.->|"同步边界推权重, 零服务中断"| B
-    F ==> ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：把 agent 每次交互自然产生的**下一状态信号**（next-state signal：用户回复、工具输出、终端或 GUI 状态变化）就地转化为两类互补训练信号——评价性（标量 PRM 投票）与指导性（token 级*
 
 $$
 \mathcal{L}^{OPD}_i = \sum_{v \in S_i} \max\left(-A_v \rho_v,\; -A_v \, \mathrm{clip}(\rho_v, 1-\varepsilon_{lo}, 1+\varepsilon_{hi})\right)

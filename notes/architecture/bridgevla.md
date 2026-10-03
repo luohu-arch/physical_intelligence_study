@@ -45,55 +45,9 @@ BridgeVLA 主张 3D VLA 的瓶颈不在「要不要 3D 信息」，而在「输�
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    subgraph IN["输入对齐 (3D 压回 2D)"]
-        PC(["RGB-D 点云"]) --> PRJ["正交投影<br/>top / front / right 三视图"]
-        LANG(["语言指令"])
-    end
-    subgraph VLM["PaliGemma 主干 (3B)"]
-        SL["SigLip 视觉编码器<br/>(全程冻结)"]
-        GM["Gemma 语言主干<br/>(微调更新)"]
-    end
-    PRJ ==> SL
-    LANG ==> GM
-    SL --> TOK
-    GM --> TOK["多模态 token<br/>重排为 patch 网格"]
-    TOK --> UPS["凸上采样<br/>(可学习逐像素插值)"]
-    UPS --> HTM["每视角一张 2D 热图<br/>(与输入同坐标系)"]
-    HTM --> BP["反投影到工作区 3D 点网格<br/>取三视角均分最高点"]
-    BP ==> TRANS(["末端平移目标"])
-    TOK --> POOL["逐视角 max-pool<br/>+ 峰值 token"]
-    POOL --> MLP["MLP 头"]
-    MLP ==> ROT(["72-bin 旋转<br/>+ 夹爪 + 碰撞旗标"])
-    ZOOM["以粗位置为中心<br/>裁剪放大长方体点云"] -.->|"第二次前向精化<br/>(coarse-to-fine)"| PC
-    BP --> ZOOM
-    LHM["损失 L_trans<br/>高斯热图交叉熵"] -.-> HTM
-    LMISC["损失 L_rot / L_gripper / L_collision<br/>bin 分类 CE + BCE"] -.-> MLP
+![bridgevla 架构图 v3](figures/bridgevla/arch.svg)
 
-    class PC,LANG data
-    class SL frozen
-    class GM,UPS,POOL,MLP train
-    class HTM,BP key
-    class TRANS,ROT act
-    class ZOOM loop
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：BridgeVLA 主张 3D VLA 的瓶颈不在「要不要 3D 信息」，而在「输入输出是否与 VLM 预训练分布对齐」：它先用 120K 目标检测数据（RoboPoint）把 PaliGemma 预训练成「按文字要求在*
 
 ### 1. 任务形式化
 

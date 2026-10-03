@@ -103,53 +103,9 @@ $$\mathcal{L} = \mathcal{L}_{\text{fm}} + \lambda \cdot \mathcal{L}_{\text{det}}
 
 其中 $\mathcal{L}_{\text{det}}$ 为 VLM 输出特征 $\phi_t$ 通过额外线性层预测的 2D 中心坐标与 OWL-v2 检测结果的 MSE 损失。$\lambda$ 为平衡权重。这一损失强制 VLM 在训练过程中显式关注目标物体的空间位置，提升空间推理能力。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    IMG[多视角 RGB 224x224<br/>历史帧堆叠]:::data
-    LANG[语言指令]:::data
-    STATE[本体关节状态 q_t]:::data
+![gr00t-n1 架构图 v3](figures/gr00t-n1/arch.svg)
 
-    subgraph SYS2["System 2 慢思考 10Hz"]
-        VIS[SigLIP-2 视觉编码]:::frozen
-        VLM[Eagle-2 VLM<br/>SmolLM2 取第 12 层特征]:::frozen
-    end
-
-    subgraph SYS1["System 1 快控制 120Hz"]
-        DIT[DiT + Flow Matching<br/>K=4 去噪 H=16 动作块]:::train
-    end
-
-    IMG ==> VIS
-    LANG ==> VLM
-    VIS ==> VLM
-    XATT[交叉注意力注入<br/>双系统耦合 每 100ms 刷新]:::key
-    VLM ==> XATT
-    XATT ==> DIT
-    STATE ==> DIT
-    DIT ==> ROBOT([人形机器人 120Hz 连续动作]):::act
-    LFM[Flow Matching 向量场损失]:::loss
-    LDET[OWL-v2 目标检测辅助损失]:::loss
-    LFM -.-> DIT
-    LDET -.-> VLM
-    PYRAMID[数据金字塔 592.9M 帧<br/>人类视频+神经轨迹+仿真+真实]:::data
-    PYRAMID -.异构数据共训.-> DIT
-    ROBOT -.每 8ms 高频重规划.-> IMG
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：GR00T N1 是首个开源（CC BY 4.0）2.2B 参数人形机器人基础模型，采用 System 2（Eagle-2 VLM, 10Hz）+ System 1（DiT + Flow Matching, 120Hz）*
 
 ## 物理直觉解释
 

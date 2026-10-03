@@ -46,69 +46,9 @@
 7. **三条可训练性要求**：论文明确一个"富 harness"不自动等于"可训练环境"，需要 (a) warm-started curation（auto-seed）、(b) 紧凑派生状态渲染（标签/证据图/验证记录）、(c) 保持多样性的奖励塑形（否则 RL 走最易奖励通路塌缩成 search-only）。
 8. **训练管线与统一接口**：GPT-5.4 作为 live teacher 在完整 harness 内生成轨迹（turn 级引导 search→curate 节奏、verify-before-promote、回溯与提前终止；recall $\ge 0.10$ 过滤后余 899 条），逐 turn 展开为约 26K 样本；gpt-oss-20b LoRA rank 32 训 3 epoch 取 step-550；RL 用 on-policy CISPO（clip [0,5]）+ 组内优势归一化，SEC 单域、仅终局奖励、40 turn 上限、无 KL 锚、恒奖励组丢弃梯度。teacher/SFT replay/RL rollout/评测四个阶段用同一个状态渲染器与预算构造器，无 train-test 接口漂移。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    Q(["query 查询"]):::data
-    WM["WORKINGMEMORY 七槽位渲染: 候选池 / curated 集(容量30) /<br/>重要性 / 证据图 / 验证缓存 / 历史 / 预算标记 — 状态外化归 harness"]:::key
-    POLICY["策略 gpt-oss-20b + LoRA<br/>只做语义决策: 搜什么/留什么/验什么/何时停"]:::train
-    ACT{"动作类型<br/>动作即状态编辑"}:::loop
-    RET["检索三件: fan_out_search / search_corpus / grep_corpus<br/>句级 BM25 压缩 + 两级去重 + 首搜 auto-seed"]:::act
-    READ["记忆检查: read_document / review_docs<br/>零 corpus 调用"]:::act
-    CUR["curate: 增/删/四级重要性标签<br/>满员按 rank 驱逐最劣"]:::act
-    VER["verify: 对 claim 逐文档 LLM 蕴含判定<br/>写入验证缓存 V, 过关才升格"]:::reward
-    CORPUS["本地语料库约 3200 万页<br/>BM25 + dense + rerank"]:::env
-    STORE["外层全文库 D: 全部取回 chunk<br/>回看不占 prompt"]:::mem
-    OUT(["end_search: 提交按重要性排序的 curated 集"]):::data
-    NUDGE["程序化结果摘要 + 条件 nudge<br/>[WARN]/[TIP]/[ACTION REQUIRED], 无 LLM 调用"]:::loop
-    BUD{"上下文预算 30720?"}:::loop
-    DEG["5-pass 渐进截断<br/>curated set 最后被裁"]:::loop
-    TCH["教师 GPT-5.4 在同一 harness 内跑 899 条轨迹<br/>约 26K turn 样本 (SFT 教接口操作)"]:::frozen
-    RWD["终局组合奖励: F2 + 轨迹/答案 recall + 工具多样性<br/>- 漏答罚 - turn 罚, 发现与选择分开记账"]:::reward
-    ACC(["8 基准平均 curated recall 0.730, 超 Tongyi 30B 11.4 分<br/>held-out 增益 +17.0 是源域 2.2 倍"]):::data
+![harness-1 架构图 v3](figures/harness-1/arch.svg)
 
-    Q ==> WM
-    WM ==> POLICY
-    POLICY -.->|"emit 一个结构化动作"| ACT
-    ACT -.->|"搜索类"| RET
-    ACT -.->|"记忆检查"| READ
-    ACT -.->|"curation"| CUR
-    ACT -.->|"验证"| VER
-    ACT ==>|"终止"| OUT
-    CORPUS ==>|"混合检索取回"| RET
-    STORE ==> READ
-    RET ==> STORE
-    RET ==>|"更新候选池 + auto-seed 初稿"| NUDGE
-    READ ==> NUDGE
-    CUR ==>|"更新 curated 集与重要性"| NUDGE
-    VER ==>|"写验证记录"| NUDGE
-    NUDGE ==> BUD
-    BUD ==>|"是"| WM
-    BUD -.->|"否"| DEG
-    DEG ==> WM
-    OUT ==> RWD
-    RWD -.->|"on-policy CISPO, SEC 单域 3453 查询, 80 步"| POLICY
-    TCH -.->|"SFT 初始化"| POLICY
-    OUT ==> ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：把多轮搜索 agent 里"可恢复的记账"从策略上下文搬进环境侧：Harness-1 是基于 gpt-oss-20b 的 20B 检索 subagent（UIUC + UC Berkeley + Chroma），在一个 *
 
 ## 底层原理与数学推导
 

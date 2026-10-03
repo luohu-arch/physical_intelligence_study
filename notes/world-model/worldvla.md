@@ -44,49 +44,9 @@ WorldVLA 把 VLA 动作模型与视频世界模型塞进同一个 Chameleon 式�
 
 ## 底层原理与数学推导
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    subgraph UNI["Chameleon 式离散 token 统一骨干 (两分支混训共享参数, 互为正则)"]
-        ACT["策略分支<br/>预测 7 个离散动作 token<br/>动作成功率 62.8->67.2%"]
-        WM["世界分支<br/>预测下一帧 token<br/>50 帧 FVD 718.6->674.1"]
-        MASK["动作注意力掩码<br/>屏蔽已生成动作防误差暴露<br/>收回 4-23pp"]
-    end
+![worldvla 架构图 v3](figures/worldvla/arch.svg)
 
-    IMG(["当前帧 (VQ-GAN 编码)"]) ==> ACT
-    TXT(["指令 token (BPE)"]) ==> ACT
-    IMG ==> WM
-    ACTW(["当前动作 token"]) ==> WM
-    ACT ==> MASK
-    MASK ==> OUT["K 个动作并行解码<br/>(串行生成会掉 10-50%)"]
-    ACT -.->|"L_action 交叉熵"| LOSSA["动作损失"]
-    WM -.->|"alpha*L_world 交叉熵"| LOSSW["世界损失"]
-    LOSSA --> TOT["联合训练 共享权重"]
-    LOSSW --> TOT
-
-    class IMG,TXT,ACTW data
-    class ACT,WM train
-    class MASK key
-    class OUT act
-    class LOSSA,LOSSW,TOT loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：WorldVLA 把 VLA 动作模型与视频世界模型塞进同一个 Chameleon 式离散 token 自回归骨干：动作模型吃图像+语言出 7 个离散动作 token，世界模型吃当前帧+当前动作预测下一帧 token 序*
 
 **两个子模型的形式化定义**（式 1-3）：策略 $\pi_\theta$ 与世界模型 $f_\phi$ 分别是
 

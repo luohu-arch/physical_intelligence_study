@@ -95,43 +95,9 @@ S_{\text{straight}} = \frac{1}{B(T-2)}\sum_{i=1}^B\sum_{t=1}^{T-2}
 $$
 LeWM 在 Push-T 上 $S_{\text{straight}}$ 随训练上升——没有任何显式 straightening loss 的前提下接近 PLDM 配合专用 smoothness 项的水平。作者解释：SIGReg 只作用在单步边缘分布、不约束时间轴，时间维上的"松弛"留给了模型自发朝直线解收敛的空间。这是一个非常干净的解释性观察。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    O(["原始像素 o_1:T + 动作 a_1:T"]) ==> E2["ViT-tiny 编码器 + BN 投影头<br/>仅 15M 参数"]
-    E2 ==> Z["latent z_t"]
-    Z ==> P["预测器<br/>AdaLN 动作条件注入"]
-    A(["动作 a_t"]) ==> P
-    P ==> ZH["预测 hat z_t+1"]
-    ZH -.->|"L_pred: 到真实 z_t+1 的 MSE"| L1["预测损失"]
-    Z -.->|"投影到 M 个随机单位向量<br/>逐 1 维边缘做 Epps-Pulley 检验"| SR["SIGReg 正则<br/>latent 边缘各向同性高斯<br/>唯一防坍塌项 替代 EMA/VICReg 7 项"]
-    L1 --> TL["总损失 = L_pred + lambda*SIGReg"]
-    SR --> TL
-    TL ==> Q["梯度流过一切<br/>无 stop-grad 无 EMA 目标<br/>端到端训稳, 规划快最多 48x"]
+![leworldmodel 架构图 v3](figures/leworldmodel/arch.svg)
 
-    class O,A data
-    class E2,P train
-    class Z,ZH env
-    class SR,Q key
-    class L1,TL loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：把 JEPA 世界模型的防坍塌机制从"EMA target + stop-gradient"或"7-term VICReg"压缩为一项 SIGReg 正则（强制 latent 边缘分布为各向同性高斯），与 next-em*
 
 ## 物理直觉解释
 

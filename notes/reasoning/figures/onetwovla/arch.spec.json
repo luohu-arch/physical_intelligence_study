@@ -1,0 +1,206 @@
+{
+ "nodes": [
+  {
+   "id": "OBS",
+   "label": "多视角观测 + 语言指令<br/",
+   "sub": "",
+   "icon": "camera",
+   "cls": "loop",
+   "x": 12,
+   "y": 130,
+   "w": 287,
+   "h": 92
+  },
+  {
+   "id": "VLA",
+   "label": "统一 VLA 单模型<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 640,
+   "y": 314,
+   "w": 235,
+   "h": 92
+  },
+  {
+   "id": "DT",
+   "label": "Decision Token<br/",
+   "sub": "",
+   "icon": "stack",
+   "cls": "loop",
+   "x": 640,
+   "y": 498,
+   "w": 233,
+   "h": 92
+  },
+  {
+   "id": "REASON",
+   "label": "显式文本推理<br/",
+   "sub": "",
+   "icon": "chat",
+   "cls": "loop",
+   "x": 490,
+   "y": 682,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "ACTM",
+   "label": "flow-matching 动作 chunk\n<br/",
+   "sub": "",
+   "icon": "stack",
+   "cls": "loop",
+   "x": 734,
+   "y": 682,
+   "w": 289,
+   "h": 93
+  },
+  {
+   "id": "RCACHE",
+   "label": "推理缓存 R + 参考图像 I_r\nef<br/",
+   "sub": "",
+   "icon": "camera",
+   "cls": "loop",
+   "x": 460,
+   "y": 867,
+   "w": 289,
+   "h": 93
+  },
+  {
+   "id": "ROBOT",
+   "label": "Franka / 双 ARX 机械臂",
+   "sub": "",
+   "icon": "robot",
+   "cls": "loop",
+   "x": 788,
+   "y": 868,
+   "w": 266,
+   "h": 92
+  },
+  {
+   "id": "LDT",
+   "label": "Decision Token 交叉熵",
+   "sub": "",
+   "icon": "stack",
+   "cls": "loop",
+   "x": 355,
+   "y": 130,
+   "w": 258,
+   "h": 92
+  },
+  {
+   "id": "LR",
+   "label": "推理文本自回归 CE",
+   "sub": "",
+   "icon": "chat",
+   "cls": "loop",
+   "x": 669,
+   "y": 130,
+   "w": 212,
+   "h": 92
+  },
+  {
+   "id": "LFM",
+   "label": "flow matching 动作损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 937,
+   "y": 130,
+   "w": 266,
+   "h": 92
+  },
+  {
+   "id": "SYN",
+   "label": "合成推理数据 16K<br/",
+   "sub": "",
+   "icon": "brain",
+   "cls": "loop",
+   "x": 1259,
+   "y": 130,
+   "w": 243,
+   "h": 92
+  }
+ ],
+ "edges": [
+  {
+   "from": "OBS",
+   "to": "VLA",
+   "style": "thick"
+  },
+  {
+   "from": "VLA",
+   "to": "DT",
+   "style": "thick"
+  },
+  {
+   "from": "DT",
+   "to": "REASON",
+   "style": "thick",
+   "label": "BOR 进入推理"
+  },
+  {
+   "from": "DT",
+   "to": "ACTM",
+   "style": "thick",
+   "label": "BOA 直接执行"
+  },
+  {
+   "from": "REASON",
+   "to": "RCACHE",
+   "style": "thick"
+  },
+  {
+   "from": "ACTM",
+   "to": "ROBOT",
+   "style": "thick"
+  },
+  {
+   "from": "LDT",
+   "to": "DT",
+   "style": "fb"
+  },
+  {
+   "from": "LR",
+   "to": "REASON",
+   "style": "fb"
+  },
+  {
+   "from": "LFM",
+   "to": "ACTM",
+   "style": "fb"
+  }
+ ],
+ "panels": [
+  {
+   "label": "System 2 推理模式 停顿 2-3 秒",
+   "x": 466,
+   "y": 638,
+   "w": 252,
+   "h": 156
+  },
+  {
+   "label": "System 1 动作模式 每 0.2s",
+   "x": 710,
+   "y": 638,
+   "w": 337,
+   "h": 157
+  }
+ ],
+ "canvas": [
+  1514,
+  1050
+ ],
+ "legend": [
+  "loop"
+ ],
+ "layout_wh": [
+  1514,
+  1050
+ ],
+ "title": "onetwovla",
+ "subtitle": "OneTwoVLA 将 System 1（快速动作执行）和 System 2（显式推理）融合到单个 VLA 模型内，通过 Decision Token 机制自适应地在推理模式与",
+ "foot": "onetwovla · arXiv 2505.11917 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS[多视角观测 + 语言指令<br/>+ 参考图像 I_ref + 本体状态]:::data\n    VLA[统一 VLA 单模型<br/>pi_0 基座 推理与动作权重共享]:::frozen\n    OBS ==> VLA\n    DT{Decision Token<br/>BOR / BOA 自适应切换}:::key\n    VLA ==> DT\n\n    subgraph MODE2[\"System 2 推理模式 停顿 2-3 秒\"]\n        REASON[显式文本推理<br/>场景 + 计划 + 历史 + 下一步]:::train\n    end\n\n    subgraph MODE1[\"System 1 动作模式 每 0.2s\"]\n        ACTM[flow-matching 动作 chunk<br/>temporal ensemble 平滑]:::act\n    end\n\n    DT ==>|BOR 进入推理| REASON\n    DT ==>|BOA 直接执行| ACTM\n    RCACHE[推理缓存 R + 参考图像 I_ref<br/>推理更新后同步刷新]:::mem\n    REASON ==> RCACHE\n    RCACHE -.推理结果注入上下文.-> VLA\n    ACTM ==> ROBOT([Franka / 双 ARX 机械臂]):::act\n    ROBOT -.每 0.2s 闭环重观测.-> OBS\n    LDT[Decision Token 交叉熵]:::loss\n    LR[推理文本自回归 CE]:::loss\n    LFM[flow matching 动作损失]:::loss\n    LDT -.-> DT\n    LR -.-> REASON\n    LFM -.-> ACTM\n    SYN[合成推理数据 16K<br/>Gemini 2.5 Pro + FLUX 文生图]:::data\n    SYN -.共训.-> REASON\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

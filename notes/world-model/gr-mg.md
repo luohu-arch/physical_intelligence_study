@@ -79,57 +79,9 @@ $$
 
 两模块的训练彼此独立（生成器用真值时间步算进度，策略用轨迹真值帧当目标图），论文明确将联合训练留作 future work。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    subgraph GENP["目标图生成器 (吃有文本无动作的数据)"]
-        TXT(["文本指令 l"]) --> ENC["T5-Base 编码器<br/>文本 + 预测进度 p"]
-        OBS(["当前观测 o_c"]) ==> GEN["InstructPix2Pix 式目标图模型<br/>InstructPix2Pix 编辑出可达成目标"]
-        ENC ==> GEN
-        GEN ==> GOAL["生成的目标图 g"]
-    end
+![gr-mg 架构图 v3](figures/gr-mg/arch.svg)
 
-    subgraph POLP["多模态 GPT 式策略 (吃有动作无文本的数据)"]
-        TOK["目标图 MAE token 前置"]
-        POL["GPT 式 Transformer 策略"]
-        ACTN["cVAE 解码器<br/>输出 k 步动作块"]
-        PROGT["[PROG] token<br/>回归任务进度"]
-    end
-
-    GOAL ==> TOK
-    TOK ==> POL
-    LANG(["语言条件 l<br/>(始终保留)"]) ==> POL
-    OBSH(["观测历史 o_(t-h..t) 与状态"]) ==> POL
-    POL ==> ACTN
-    POL ==> PROGT
-    PROGT -.->|"进度反馈: 每 n<N 步<br/>刷新目标图生成"| LOOP["闭环重规划"] -.-> GEN
-    ACTN ==> ROBOT["机器人执行<br/>CALVIN ABC->D 41.2->64.4"]
-
-    class TXT,OBS,LANG,OBSH data
-    class ENC frozen
-    class GEN,GOAL,TOK,POL,ACTN train
-    class GEN,PROGT key
-    class PROGT reward
-    class ACTN,ROBOT act
-    class LOOP loop
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-```
+*架构速览：GR-MG 由两个模块构成：一个把任务进度注入 InstructPix2Pix 式图像编辑的「progress-guided 目标图生成模型」，和一个同时条件于文本与目标图的 GPT-style transformer *
 
 ## 物理直觉解释
 

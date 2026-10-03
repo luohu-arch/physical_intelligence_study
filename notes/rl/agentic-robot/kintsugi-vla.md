@@ -47,48 +47,9 @@
 6. **数据效率度量**：$R_q=B_{uniform}(q)/B_{targeted}(q)$，$B_v(q)=\inf\{B:S_v(B)\ge q\}$；34% 恢复水平下 $R_q=1.44$（演示轴）、37% 下 1.51（帧轴）。
 7. **诊断条件化扩展**：oracle 失败诊断把难度匹配恢复从 34.6% 抬到 37.4%，预测诊断 34.3%——语义诊断是可选增强而非必需。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    FAIL(["失败 rollouts 200 条<br/>33 教师 + 167 VLA"]):::data
-    EXPERT["固定特权专家: PPO 教师 (seed 42)<br/>43 维特权仿真观测, 永不暴露给 VLA"]:::frozen
-    RESTORE["restore-and-branch: 仿真精确状态恢复<br/>容差 2e-5, 5 步 warm-up, 逐 checkpoint 分支重跑"]:::env
-    LADDER["自适应蒙特卡洛阶梯 5 -> 15 -> 30 次<br/>Wilson 区间相对阈值三分, 只细化未定槽"]:::loop
-    CURVE["可恢复性曲线 p_rec(t)<br/>教师相对量 (rho 低至 0.103), 均值 3.37 次穿阈"]:::reward
-    ISLAND["75.6% 非单调, 70.9% 含恢复岛屿<br/>首次穿阈会漏掉后面的可恢复区"]:::loop
-    FRONTIER["终段低可恢复性边界 t_f<br/>60.6% episode 有稳定边界, 中位归一深度 0.856"]:::key
-    DEPTH["目标深度采样: t_dev 到 t_f 之间<br/>归一深度 0.15 / 0.50 / 0.85"]:::key
-    DEMO["专家成功续跑 = 合成恢复演示<br/>(难度匹配 + 帧预算匹配对照)"]:::data
-    SFT["SmolVLA 变体 V0 -> V3 SFT<br/>V2 同窗口均匀 / V3 目标深度"]:::train
-    ACC(["恢复 SR 34.6% / 38.4%, 比均匀采样 +5.8/+6.7pp<br/>省 30.6% 演示 / 33.7% 帧; 干净任务 -2.1pp"]):::data
+![kintsugi-vla 架构图 v3](figures/kintsugi-vla/arch.svg)
 
-    FAIL ==> RESTORE
-    EXPERT -.->|"在预算 H 内续跑原任务, 数成功"| RESTORE
-    RESTORE ==>|"逐点成功计数"| LADDER
-    LADDER ==> CURVE
-    CURVE -.->|"曲线结构"| ISLAND
-    CURVE ==> FRONTIER
-    FRONTIER ==> DEPTH
-    DEPTH ==> DEMO
-    DEMO ==> SFT
-    SFT ==> ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：利用仿真器的精确状态恢复与分支能力，对失败轨迹上的每个 checkpoint 反复交给固定特权专家续跑，用自适应蒙特卡洛阶梯（5→15→30 次 + 逐点 Wilson 区间）估计"干预式可恢复性" $p^{E}_{re*
 
 ## 底层原理与数学推导
 

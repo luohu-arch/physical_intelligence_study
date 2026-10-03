@@ -1,0 +1,171 @@
+{
+ "nodes": [
+  {
+   "id": "DEMO",
+   "label": "一次人类示范\nOMOMO / LAFAN1 / ",
+   "sub": "自采 MoCap",
+   "icon": "db",
+   "cls": "data",
+   "x": 48,
+   "y": 130,
+   "w": 224,
+   "h": 126
+  },
+  {
+   "id": "MESH",
+   "label": "交互网格 Interacti\non Mesh (核心)",
+   "sub": "节点 = 人体 + 物体 ",
+   "icon": "lightning",
+   "cls": "key",
+   "x": 343,
+   "y": 280,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "RET",
+   "label": "重定向求解\nLaplacian 形变最小",
+   "sub": "化 + 运动学硬约束",
+   "icon": "db",
+   "cls": "data",
+   "x": 642,
+   "y": 280,
+   "w": 227,
+   "h": 126
+  },
+  {
+   "id": "SPEC",
+   "label": "多本体规格\nG1 / H1 / Booster ",
+   "sub": "T1",
+   "icon": "state",
+   "cls": "data",
+   "x": 44,
+   "y": 280,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "AUG",
+   "label": "增强数据 8+ 小时\n多本体 x 地形 x 物",
+   "sub": "体组合",
+   "icon": "state",
+   "cls": "data",
+   "x": 935,
+   "y": 280,
+   "w": 223,
+   "h": 126
+  },
+  {
+   "id": "RL",
+   "label": "RL 训练 (仿真)\n纯本体感知观测 + 域",
+   "sub": "随机化",
+   "icon": "state",
+   "cls": "train",
+   "x": 1224,
+   "y": 280,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "REW",
+   "label": "5 项共享奖励\nBody / Object Trac",
+   "sub": "king + Action Rate",
+   "icon": "reward",
+   "cls": "reward",
+   "x": 44,
+   "y": 430,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "POL",
+   "label": "全身 loco-manipula\ntion 策略",
+   "sub": "成功率 > 82% (naiv",
+   "icon": "check",
+   "cls": "train",
+   "x": 1520,
+   "y": 280,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "G1",
+   "label": "Unitree G1 零样本\n部署",
+   "sub": "wall-flip 5/5 / 动",
+   "icon": "gear",
+   "cls": "env",
+   "x": 1816,
+   "y": 280,
+   "w": 232,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "DEMO",
+   "to": "MESH",
+   "style": "thick"
+  },
+  {
+   "from": "MESH",
+   "to": "RET",
+   "style": "thick"
+  },
+  {
+   "from": "SPEC",
+   "to": "RET",
+   "style": "thick"
+  },
+  {
+   "from": "RET",
+   "to": "AUG",
+   "style": "thick"
+  },
+  {
+   "from": "AUG",
+   "to": "RL",
+   "style": "thick"
+  },
+  {
+   "from": "REW",
+   "to": "RL",
+   "style": "fb",
+   "label": "\"避免逐任务手写 reward\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "RL",
+   "to": "POL",
+   "style": "thick"
+  },
+  {
+   "from": "POL",
+   "to": "G1",
+   "style": "thick"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  2092,
+  646
+ ],
+ "legend": [
+  "data",
+  "env",
+  "key",
+  "reward",
+  "train"
+ ],
+ "layout_wh": [
+  2092,
+  646
+ ],
+ "title": "omniretarget",
+ "subtitle": "OmniRetarget 提出交互网格（Interaction Mesh）数据生成引擎：把一次人类示范编码为\"人-物-环境\"三元交互的 mesh graph，再自动适配到不同本",
+ "foot": "omniretarget · arXiv 2509.26633 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    DEMO([\"一次人类示范<br/>OMOMO / LAFAN1 / 自采 MoCap\"]) ==> MESH[\"交互网格 Interaction Mesh (核心)<br/>节点 = 人体 + 物体 + 地形关键点<br/>边 = 必须保持的相对几何关系<br/>(语义藏在相对关系而非骨骼角里)\"]\n    MESH ==> RET[\"重定向求解<br/>Laplacian 形变最小化 + 运动学硬约束<br/>sequential SOCP 逐段求解\"]\n    SPEC([\"多本体规格<br/>G1 / H1 / Booster T1<br/>骨骼长度 / 关节限位\"]) ==> RET\n    RET ==> AUG[(\"增强数据 8+ 小时<br/>多本体 x 地形 x 物体组合\")]\n    AUG ==> RL[\"RL 训练 (仿真)<br/>纯本体感知观测 + 域随机化\"]\n    REW[\"5 项共享奖励<br/>Body / Object Tracking + Action Rate<br/>+ Soft Joint Limit + Self-Collision<br/>(权重沿用不调参)\"] -.->|\"避免逐任务手写 reward\"| RL\n    RL ==> POL[\"全身 loco-manipulation 策略<br/>成功率 > 82% (naive 重定向 50-70%)\"]\n    POL ==> G1[\"Unitree G1 零样本部署<br/>wall-flip 5/5 / 动态攀 0.9m 平台\"]\n\n    class DEMO,SPEC data\n    class MESH key\n    class RET data\n    class AUG data\n    class RL train\n    class REW reward\n    class POL train\n    class G1 env\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40",
+ "source": "mermaid-auto"
+}

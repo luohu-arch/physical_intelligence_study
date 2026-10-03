@@ -58,81 +58,9 @@
 
 **优势条件化策略更新。** 在 $\mathcal D_{succ} \cup \mathcal D_{repair}$ 上估计块级优势（Eq. 1），按 CFGRL 的 policy-extraction 视角做优势条件化提取，改进阈值 $\epsilon$ 取经验优势分布的 70 分位。这是全流程里唯一的策略梯度式更新，且明确不求解正则化 RL 目标。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    HV(["人类视频约 100 万样本<br/>HOI4D / Arti4D / EgoDex"]):::data
-    REP["具身无关表征<br/>动作 = 6-DoF 腕位姿 + 手部闭合标量<br/>状态 = DINO-v3 token + 短时程 3D 点流"]:::data
+![humanvid-selfimprove 架构图 v3](figures/humanvid-selfimprove/arch.svg)
 
-    subgraph PRE["人类视频联合预训练 (flow matching, 250k iters)"]
-        direction LR
-        POL0["policy<br/>动作块生成"]:::train
-        DYN["dynamics 模型<br/>预测未来世界状态"]:::env
-        VAL["value 模型<br/>稀疏终局折扣回报"]:::reward
-    end
-
-    VLM["VLM (GPT-4o)<br/>提原子交互指令"]:::frozen
-    GND["自主接地: 冻结人类预训练 policy 真机滚动<br/>约 400 回合 / 约 3 小时, 专门见自然失败"]:::env
-    TEL["每任务 25 条遥操作演示"]:::data
-    POL["任务 policy (骨干可换: 自建 / pi0.5)"]:::train
-
-    subgraph SI["迭代自改进循环: 2 轮 x 20 回合"]
-        direction TB
-        ROL["真机 rollout 采集<br/>当前策略诱导状态分布"]:::env
-        SPLIT{"按结局划分<br/>(人工标注)"}:::loop
-        DS["D_succ 成功集"]:::data
-        DF["D_fail 失败集"]:::data
-        DGAC["DGAC 免训练修复 (核心): 检索成功参考 -> 速度场组合 N 候选<br/>-> 动力学想象 -> value 排序择优 -> 重标记; 门控放弃不可恢复失败"]:::key
-        DR["D_repair 修复集"]:::data
-        ADV["块级优势: 块内奖励 + 块尾价值差<br/>cutoff 取 70 分位"]:::reward
-        UPD["优势条件化策略提取 (CFGRL)<br/>全流程唯一策略梯度式更新"]:::loss
-        POL ==> ROL
-        ROL ==> SPLIT
-        SPLIT ==>|"成功"| DS
-        SPLIT ==>|"失败"| DF
-        DF ==> DGAC
-        DGAC ==> DR
-    end
-
-    ACC(["Stretch 3 五任务 41.3% -> 85.3%<br/>pi0.5 62.7% -> 88.0%, Franka 36.7% -> 70.0%"]):::data
-
-    HV ==> REP
-    REP ==> PRE
-    VLM -.->|"提指令"| GND
-    POL0 -.->|"冻结执行 + VidBot affordance 开环"| GND
-    GND ==>|"接地到机器人本体分布"| DYN
-    GND ==> VAL
-    POL0 ==>|"预训练权重迁移"| POL
-    TEL ==>|"初始化任务 policy"| POL
-    DS -.->|"两阶段检索参考"| DGAC
-    DYN -.->|"想象 rollout 4 Hz"| DGAC
-    VAL -.->|"排序: 比 VLM 选高 21.3pp"| DGAC
-    DS ==> ADV
-    DR ==> ADV
-    VAL -.->|"价值差"| ADV
-    ADV ==> UPD
-    UPD ==> POL
-    UPD -.->|"每轮微调跟上分布"| DYN
-    UPD -.-> VAL
-    POL ==> ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：把人类视频的用途从"策略初始化燃料"升级为"自我改进的预测基座"：在 HOI4D/Arti4D/EgoDex 约 100 万条人类视频样本上联合预训练三个具身无关模型——policy（动作 = 6-DoF 腕部位姿 + *
 
 ## 底层原理与数学推导
 

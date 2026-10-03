@@ -77,68 +77,9 @@ $$\mathcal{L}_{\mathrm{action}}=\mathbb{E}\big[\|\,v_\psi(\mathcal{A}^\alpha_\ta
 
 推导层面最关键的一条设计判断藏在第 3 节开头一句：**语义是慢变量，位置是快变量**。于是把"这个点是什么"压进冻结的特征里（由对比学习保证跨场景稳定），把"这个点现在在哪"交给闭式几何（SE(3)/FK 精确解析求解）。两件事用了完全不同的工具——前者用大模型蒸馏，后者用经典几何——各自只做自己擅长的那半，避开了端到端学到两头都糊的问题。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart LR
-    OBS[RGB-D 观测 + 相机位姿]:::data
-    LIFT[反投影 patch 中心到世界系]:::train
-    REG[0.02m 体素化<br/>新占据体素注册 neural point 进哈希表]:::train
-    SEG[实例标签<br/>仿真器特权 / SAM 2]:::data
-    OFF[离线建图学习<br/>重建 + 类间/类内对比损失]:::loss
-    FEAT[latent 特征 64 维<br/>执行期完全冻结 身份证不换]:::frozen
-    TRK[仅跟踪可动实例<br/>Shi-Tomasi 角点 + CoTracker3]:::loop
-    EST["物体 SE(3) 估计<br/>FGR 初始化 + ICP 精化<br/>质心位移小于 0.015m 跳过"]:::train
-    MOVE[整组刚体搬移环境点<br/>只动坐标不动特征 语义慢变量位置快变量]:::key
-    PROP[本体状态 s_tau]:::data
-    FK[URDF 正运动学<br/>机器人表面点入世界系 永远精确]:::key
-    MAP[SERF 4D 神经点地图<br/>语义特征固定 坐标随时间移动]:::mem
-    FILT[按 BDDL 任务过滤<br/>机器人 + 任务相关物体 采 25000 点]:::train
-    TOK[Point Transformer 共享骨干<br/>+ 8 分支头 attention pooling]:::train
-    TK8[8 个 map token 各 2048 维<br/>base x3 半径 夹爪 x2 robot-only env-only global]:::train
-    PI05[pi_0.5 VLM + action expert<br/>主干冻结 仅插 LoRA]:::frozen
-    IMG[当前图像经 vision encoder]:::data
+![serf 架构图 v3](figures/serf/arch.svg)
 
-    OBS ==> LIFT
-    LIFT ==> REG
-    SEG --> REG
-    OFF -.-> FEAT
-    FEAT ==> MAP
-    SEG ==> TRK
-    TRK ==> EST
-    EST ==> MOVE
-    MOVE ==> MAP
-    PROP ==> FK
-    FK ==> MAP
-    REG ==> MAP
-    MAP ==> FILT
-    FILT ==> TOK
-    TOK ==> TK8
-    TK8 ==> PI05
-    IMG ==> PI05
-    ACT([flow matching 20 步 Euler 积分<br/>30 步动作块]):::act
-    PI05 ==> ACT
-    ROBOT([BEHAVIOR-1K 机器人执行]):::env
-    ACT ==> ROBOT
-    ROBOT -.每 query 重算 map token.-> OBS
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：把工作空间表示成一堆带可学习 latent 特征的 neural points：离线学好的特征在执行期完全冻结，只靠 object-level SE(3) 跟踪挪环境点、靠 forward kinematics 摆机器人*
 
 ## 物理直觉解释
 

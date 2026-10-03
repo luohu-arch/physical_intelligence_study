@@ -1,0 +1,236 @@
+{
+ "nodes": [
+  {
+   "id": "RGB",
+   "label": "3 路 RGB + 指令",
+   "sub": "",
+   "icon": "camera",
+   "cls": "data",
+   "x": 62,
+   "y": 147,
+   "w": 199,
+   "h": 92
+  },
+  {
+   "id": "VL",
+   "label": "PaliGemma VL 编码\n器",
+   "sub": "",
+   "icon": "brain",
+   "cls": "frozen",
+   "x": 179,
+   "y": 316,
+   "w": 220,
+   "h": 93
+  },
+  {
+   "id": "WH",
+   "label": "wrench 历史 K = 10\n+ 13 维状态 (位姿/",
+   "sub": "夹爪/wrench)",
+   "icon": "state",
+   "cls": "data",
+   "x": 286,
+   "y": 130,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "FUSE",
+   "label": "语义-接触表征 h_c\n结构化注意力防目标泄",
+   "sub": "漏",
+   "icon": "db",
+   "cls": "data",
+   "x": 171,
+   "y": 469,
+   "w": 236,
+   "h": 126
+  },
+  {
+   "id": "FM",
+   "label": "flow-matching 动作\n专家",
+   "sub": "(约 1000h ManuFace",
+   "icon": "lightning",
+   "cls": "train",
+   "x": 44,
+   "y": 655,
+   "w": 232,
+   "h": 126
+  },
+  {
+   "id": "Y",
+   "label": "联合块 Y (核心)\n50 步动作 + 预期诱",
+   "sub": "发 wrench 按行配对",
+   "icon": "stack",
+   "cls": "key",
+   "x": 48,
+   "y": 841,
+   "w": 225,
+   "h": 126
+  },
+  {
+   "id": "CRITIC",
+   "label": "分布式 Action-Wren\nch Critic",
+   "sub": "区分几何进度相同但接",
+   "icon": "target",
+   "cls": "reward",
+   "x": 44,
+   "y": 1027,
+   "w": 236,
+   "h": 126
+  },
+  {
+   "id": "CREDIT",
+   "label": "contact-selective \ncredit",
+   "sub": "无折扣短视野 delta^",
+   "icon": "lightning",
+   "cls": "loss",
+   "x": 45,
+   "y": 1213,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "EZ",
+   "label": "冻结瓶颈编码器 E_z\n-> FACET token (10",
+   "sub": "24 维)",
+   "icon": "eye",
+   "cls": "frozen",
+   "x": 300,
+   "y": 655,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "ACTOR",
+   "label": "有界局部 actor (TD\n3+BC)",
+   "sub": "tanh 映射到任务盒 [",
+   "icon": "sigma",
+   "cls": "train",
+   "x": 297,
+   "y": 841,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "SAFETY",
+   "label": "安全算子 S_task\n夹剪工作空间 + 单步",
+   "sub": "位移上限",
+   "icon": "lightning",
+   "cls": "act",
+   "x": 304,
+   "y": 1027,
+   "w": 230,
+   "h": 126
+  },
+  {
+   "id": "CTRL",
+   "label": "200 Hz 柔顺控制器\n闭在实测腕部 F/T 上",
+   "sub": "",
+   "icon": "robot",
+   "cls": "act",
+   "x": 302,
+   "y": 1230,
+   "w": 231,
+   "h": 93
+  }
+ ],
+ "edges": [
+  {
+   "from": "RGB",
+   "to": "VL",
+   "style": "main"
+  },
+  {
+   "from": "WH",
+   "to": "FUSE",
+   "style": "main"
+  },
+  {
+   "from": "VL",
+   "to": "FUSE",
+   "style": "main"
+  },
+  {
+   "from": "FUSE",
+   "to": "FM",
+   "style": "thick"
+  },
+  {
+   "from": "FM",
+   "to": "Y",
+   "style": "thick"
+  },
+  {
+   "from": "Y",
+   "to": "CRITIC",
+   "style": "thick"
+  },
+  {
+   "from": "CRITIC",
+   "to": "CREDIT",
+   "style": "thick"
+  },
+  {
+   "from": "CREDIT",
+   "to": "FM",
+   "style": "fb",
+   "label": "\"tagged instruction 加权 f",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "FUSE",
+   "to": "EZ",
+   "style": "main"
+  },
+  {
+   "from": "EZ",
+   "to": "ACTOR",
+   "style": "thick"
+  },
+  {
+   "from": "Y",
+   "to": "SAFETY",
+   "style": "thick"
+  },
+  {
+   "from": "ACTOR",
+   "to": "SAFETY",
+   "style": "thick"
+  },
+  {
+   "from": "SAFETY",
+   "to": "CTRL",
+   "style": "thick"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  578,
+  1429
+ ],
+ "legend": [
+  "act",
+  "data",
+  "frozen",
+  "key",
+  "loss",
+  "reward",
+  "train"
+ ],
+ "layout_wh": [
+  578,
+  1429
+ ],
+ "title": "facet0",
+ "subtitle": "PaliGemma 视觉-语言骨干 + flow-matching 动作专家联合生成 50 步 Cartesian 动作块与\"该动作预期诱发的腕部 wrench\"（$Y\\in\\",
+ "foot": "facet0 · arXiv 2609.01596 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    RGB([\"3 路 RGB + 指令\"]) --> VL[\"PaliGemma VL 编码器\"]\n    WH([\"wrench 历史 K = 10<br/>+ 13 维状态 (位姿/夹爪/wrench)\"]) --> FUSE[\"语义-接触表征 h_c<br/>结构化注意力防目标泄漏\"]\n    VL --> FUSE\n    FUSE ==> FM[\"flow-matching 动作专家<br/>(约 1000h ManuFacet-1K 训练)\"]\n    FM ==> Y[\"联合块 Y (核心)<br/>50 步动作 + 预期诱发 wrench 按行配对<br/>(一步错位的因果约定)<br/>动作被执行, wrench 始终是预测量\"]\n    Y ==> CRITIC[\"分布式 Action-Wrench Critic<br/>区分几何进度相同但接触结局不同的运动<br/>(干净插入 vs 卡死) + 4 辅助头\"]\n    CRITIC ==> CREDIT[\"contact-selective credit<br/>无折扣短视野 delta^(N)<br/>按接触 regime 分桶取 top 分位\"]\n    CREDIT -.->|\"tagged instruction 加权 flow 损失\"| FM\n    FUSE --> EZ[\"冻结瓶颈编码器 E_z<br/>-> FACET token (1024 维)\"]\n    EZ ==> ACTOR[\"有界局部 actor (TD3+BC)<br/>tanh 映射到任务盒 [a_min, a_max]<br/>只更新 6.6% 参数 (新零件适配)\"]\n    Y ==> SAFETY[\"安全算子 S_task<br/>夹剪工作空间 + 单步位移上限\"]\n    ACTOR ==> SAFETY\n    SAFETY ==> CTRL[\"200 Hz 柔顺控制器<br/>闭在实测腕部 F/T 上\"]\n\n    class RGB,WH data\n    class VL,EZ frozen\n    class FUSE data\n    class FM,ACTOR train\n    class Y key\n    class CRITIC reward\n    class CREDIT loss\n    class SAFETY,CTRL act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c",
+ "source": "mermaid-auto"
+}

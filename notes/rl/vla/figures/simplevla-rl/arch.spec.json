@@ -1,0 +1,168 @@
+{
+ "nodes": [
+  {
+   "id": "BASE",
+   "label": "OpenVLA-OFT 基座 VLA\n(全参数 RL 更新)",
+   "sub": "",
+   "icon": "gear",
+   "cls": "train",
+   "x": 64,
+   "y": 130,
+   "w": 250,
+   "h": 93
+  },
+  {
+   "id": "ENV",
+   "label": "LIBERO / RoboTwin 多环境\n并行",
+   "sub": "chunk 8 / 25 步闭环交互",
+   "icon": "gear",
+   "cls": "env",
+   "x": 46,
+   "y": 315,
+   "w": 287,
+   "h": 126
+  },
+  {
+   "id": "TR",
+   "label": "完整轨迹 + 规则自动判定\n轨迹级 0/1 奖励",
+   "sub": "",
+   "icon": "reward",
+   "cls": "reward",
+   "x": 56,
+   "y": 533,
+   "w": 266,
+   "h": 93
+  },
+  {
+   "id": "ADV",
+   "label": "组内优势归一化 (核心)\nA_i = (R_i - mu_R) / sig",
+   "sub": "ma_R",
+   "icon": "spark",
+   "cls": "key",
+   "x": 44,
+   "y": 718,
+   "w": 290,
+   "h": 126
+  },
+  {
+   "id": "PPO",
+   "label": "PPO clipped 目标\n更新全部动作 token",
+   "sub": "",
+   "icon": "eye",
+   "cls": "loss",
+   "x": 78,
+   "y": 936,
+   "w": 223,
+   "h": 93
+  },
+  {
+   "id": "PUSH",
+   "label": "pushcut 涌现现象\n长出示教数据中不存在的新动",
+   "sub": "作模式",
+   "icon": "lightning",
+   "cls": "act",
+   "x": 44,
+   "y": 1121,
+   "w": 290,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "BASE",
+   "to": "ENV",
+   "style": "thick",
+   "label": "\"温度 1.6 + 熵正则探索\"",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "ENV",
+   "to": "TR",
+   "style": "main"
+  },
+  {
+   "from": "TR",
+   "to": "ENV",
+   "style": "main",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  },
+  {
+   "from": "TR",
+   "to": "ADV",
+   "style": "thick"
+  },
+  {
+   "from": "TR",
+   "to": "ADV",
+   "style": "loss",
+   "label": "\"动态采样: 丢弃全成功 / 全失败组 保住梯度",
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "ADV",
+   "to": "PPO",
+   "style": "thick"
+  },
+  {
+   "from": "PPO",
+   "to": "BASE",
+   "style": "fb",
+   "label": "\"更新 theta\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
+  },
+  {
+   "from": "PPO",
+   "to": "PUSH",
+   "style": "fb",
+   "label": "\"支撑集扩张: supp(p_RL) = sup",
+   "loff": [
+    0,
+    -18
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "label": "并行仿真 rollout (veRL 框架)",
+   "x": 22,
+   "y": 271,
+   "w": 335,
+   "h": 375
+  }
+ ],
+ "canvas": [
+  378,
+  1337
+ ],
+ "legend": [
+  "act",
+  "env",
+  "key",
+  "loss",
+  "reward",
+  "train"
+ ],
+ "layout_wh": [
+  378,
+  1337
+ ],
+ "title": "simplevla-rl",
+ "subtitle": "SimpleVLA-RL 构建了基于 veRL 的强化学习框架用于 VLA 模型后训练，以 OpenVLA-OFT 为基座，在 LIBERO 上达到 SOTA，在 RoboTw",
+ "foot": "simplevla-rl · arXiv 2509.09674 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TB\n    BASE[\"OpenVLA-OFT 基座 VLA<br/>(全参数 RL 更新)\"] ==>|\"温度 1.6 + 熵正则探索\"| ENV\n    subgraph LOOP[\"并行仿真 rollout (veRL 框架)\"]\n        ENV[\"LIBERO / RoboTwin 多环境并行<br/>chunk 8 / 25 步闭环交互\"] --> TR([\"完整轨迹 + 规则自动判定<br/>轨迹级 0/1 奖励\"])\n        TR --> ENV\n    end\n    TR ==> ADV[\"组内优势归一化 (核心)<br/>A_i = (R_i - mu_R) / sigma_R<br/>0/1 奖励均匀传播到全部动作 token\"]\n    TR -.->|\"动态采样: 丢弃全成功 / 全失败组<br/>保住梯度信号\"| ADV\n    ADV ==> PPO[\"PPO clipped 目标<br/>更新全部动作 token\"]\n    PPO -.->|\"更新 theta\"| BASE\n    PPO -.->|\"支撑集扩张: supp(p_RL) = supp(p_SFT) 并 supp(explore)\"| PUSH[\"pushcut 涌现现象<br/>长出示教数据中不存在的新动作模式<br/>(LIBERO 91% -> 99%, RoboTwin 38.3% -> 68.8%)\"]\n\n    class BASE train\n    class ENV env\n    class TR reward\n    class ADV key\n    class PPO loss\n    class PUSH act\n    class LOOP loop\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f",
+ "source": "mermaid-auto"
+}

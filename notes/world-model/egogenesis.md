@@ -119,57 +119,9 @@ $$
 
 最后连同补丁射线反投影到参考相机系：$X_{tp}=\big[V_{ref}V_t^{-1}\,(d_{tp}K_t^{-1}\tilde{u}_p,1)\big]_{1:3}$。没有有效骨架支撑的补丁被排除出 A3D-RoPE 注意力——这是"只在接触区域附近注入几何约束"的实现基础。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    subgraph OAPM["OAPM 锚定记忆 (抗漂移核心)"]
-        IF(["干净首帧 I_0"]) --> ANCHOR["锚槽 M_a = E3D(I_0)<br/>永久冻结的定妆照"]
-        REC["最近状态槽 M_r<br/>随手贴的便利贴"]
-        ANCHOR ==> ENC["SceneEncode 编码 M_a 拼接 M_r"]
-        REC ==> ENC
-        ENC ==> MEM["记忆库 M_b: 3D patch token<br/>带米制坐标与置信度"]
-    end
+![egogenesis 架构图 v3](figures/egogenesis/arch.svg)
 
-    SKEL(["骨架/EE 轨迹 S_b<br/>统一关键点格式"]) --> UNSUP["栅格化到视频网格<br/>取被支撑的 patch I_b"]
-    UNSUP ==> XY["反投影到锚帧米制坐标 X_b<br/>A3D-RoPE: 只对 I_b 旋转 Q/K<br/>像经纬度海拔替换楼层号"]
-    NOISE(["噪声块 Z_tb + 时间嵌入"]) ==> DIT
-    TXT(["文本与图像编码器<br/>(冻结)"]) ==> DIT
-    DIT["DiT 堆栈<br/>因果 KV 缓存, 块级自回归"]
-    MEM -.->|"门控交叉注意力读取"| DIT
-    XY -.->|"只在接触区注入几何"| DIT
-    DIT ==> FLOW["流匹配积分到 t=0"]
-    FLOW ==> COMMIT["Z_b 写入因果缓存 K"]
-    COMMIT ==> REF{"b mod s_r == 0 ?"}
-    REF ==>|"是"| SNAP["解码可见前缀取最新 RGB 帧<br/>重编码并整体替换 M_r"]
-    REF ==>|"否"| KEEP["保持 M_r 不变"]
-    SNAP ==> NEXT["生成下一自回归块"]
-    KEEP ==> NEXT
-    NEXT ==> OUT["块级自回归视频输出<br/>增广数据: 下游 OOD 77->84% / 53->70%"]
-
-    class IF,SKEL,NOISE,TXT data
-    class ANCHOR,REC,XY key
-    class ENC,DIT,FLOW train
-    class MEM,COMMIT mem
-    class REF,SNAP,KEEP,NEXT loop
-    class OUT act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：EgoGenesis 把 Wan2.2-5B-Control 改造成块级自回归的第一人称操控视频生成器：OAPM（Online Anchored Projective Memory）用一个冻结的首帧 3D 场景锚槽 + *
 
 ## 物理直觉解释
 

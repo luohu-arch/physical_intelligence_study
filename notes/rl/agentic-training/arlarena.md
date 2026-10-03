@@ -43,49 +43,9 @@ ICML 2026 的 agentic RL 稳定性系统研究：先把多回合 ARL 训练拆�
 
 **Agentic 策略梯度**。K 回合交互 $\tau$ 逐回合切开，得到式 (3)：
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    POL["被 RL 的策略: Qwen3-4B<br/>BC 冷启动 + 格式惩罚 + k3 KL 正则测试床"]:::train
-    ENV["文本环境: ALFWorld / WebShop / Sokoban / TIR Math<br/>累积多轮历史, 逐轮返回转移与终局奖励"]:::env
-    TRAJ["多回合轨迹, 逐 turn 切分成单回合样本"]:::data
-    PG["agentic 策略梯度<br/>IS 权重 x log-prob x advantage"]:::loss
+![arlarena 架构图 v3](figures/arlarena/arch.svg)
 
-    PG ==> D1["维度 1 损失聚合<br/>seq-mean vs token-mean<br/>token-mean 稳, seq-mean -15.0%"]:::loss
-    PG ==> D2["维度 2 IS 裁剪<br/>token 级 / 容错 / 序列级<br/>序列级 +13.3%, 容错 ~130 步崩溃"]:::loss
-    PG ==> D3["维度 3 轨迹过滤重采样<br/>DAPO 动态采样<br/>配 GIGPO +11.0%, 配 GRPO -7.6%"]:::loss
-    PG ==> D4["维度 4 优势设计<br/>全局 / 步级 / 熵调制<br/>细粒度 +3.4%"]:::loss
-
-    CRASH["崩溃根因诊断: 负优势 + 低 IS 比率序列累积<br/>序列掩码一招把 CISPO/SAPO 拉回 78.88/76.92"]:::loop
-    SAMPO["SAMPO 三合一: 序列级 s_i 裁剪 +<br/>步级优势 A' + 动态过滤"]:::key
-    ACC(["四任务平均 60.21, 比 GRPO +25.2%<br/>ALFWorld 92.72% 反超 GPT-5.2 的 51.56%"]):::data
-
-    POL -.->|"rollout 交互"| ENV
-    ENV ==> TRAJ
-    TRAJ ==> PG
-    D1 ==> SAMPO
-    D2 ==> SAMPO
-    D3 ==> SAMPO
-    D4 ==> SAMPO
-    CRASH -.->|"八组 KL 贡献分解锁定"| D2
-    SAMPO ==> ACC
-    PG -.->|"梯度更新"| POL
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：ICML 2026 的 agentic RL 稳定性系统研究：先把多回合 ARL 训练拆成四个正交设计维度（损失聚合、IS 裁剪、轨迹过滤重采样、优势设计），在标准化测试床上逐一隔离评测，定位出崩溃主因——容错裁剪带来短*
 
 $$
 \nabla_\theta \mathcal{L}(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta_{old}}} \left[ \sum_{k=1}^{K} \sum_{t=0}^{T_k} \underbrace{w_t(y^{(k)})}_{\text{IS}} \underbrace{\nabla_\theta \log \pi_\theta\left(y^{(k)}_t | x^{(k)}, y^{(k)}_{<t}\right)}_{\text{log-prob}} \underbrace{A(x^{(k)}, y^{(k)})}_{\text{advantage}} \right]

@@ -173,57 +173,6 @@ GraspVLA 是「合成数据优先」路线在 VLA 时代的第一个大规模正
 6. 抓取位姿标签是开环目标（闭合前用规划位姿、闭合后用下一步位姿），闭环执行时位姿步的语义是什么——计划还是状态估计？策略闭环修正与开环标签之间的分布偏移如何消化？
 7. 3 次尝试内成功 + trial 内不重置的协议下，93.3% 的绝对数字对单次尝试成功率意味着什么（重试挽救了多少失败）？论文未报告首试成功率——是否被 3-attempt 口径美化？
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TB
-    subgraph SRC["数据源"]
-        SYN[("SynGrasp-1B<br/>1B 帧 / 10M 轨迹<br/>160x4090 x10 天")]
-        WEBD(["互联网 grounding<br/>GRIT 语义数据"])
-    end
+![graspvla 架构图 v3](figures/graspvla/arch.svg)
 
-    subgraph PIPE["合成生成管线 (Isaac Sim)"]
-        OBJ(["Objaverse LVIS<br/>240 类 10680 物体"]) ==> DROP["物理合理布局"]
-        DROP ==> GS["反趾抓取合成<br/>力闭合 mu=0.15"]
-        GS ==> CU["CuRobo 单步运动规划"]
-        CU ==> MJ["MuJoCo 提起验证"]
-        MJ ==> RDR["域随机化<br/>材质/光照/背景/相机/桌高"]
-    end
-
-    subgraph MODEL["CoT 统一架构"]
-        S2["System 2: 自回归感知 CoT<br/>(抓取点 + 语义推理)"]
-        S1["System 1: Flow Matching<br/>动作生成 10Hz"]
-    end
-
-    OBJ ==> DROP
-    RDR ==> S2
-    WEBD ==> S2
-    S2 -.->|"L_S2 指示函数 CoT 损失"| S2
-    S2 ==> S1
-    S1 -.->|"L_S1 流匹配损失"| S1
-    S1 ==>|"SE(3) 抓取动作"| CTRL["真机零样本抓取"]
-    CTRL -.->|"视觉反馈"| S2
-
-    class SYN,WEBD,OBJ data
-    class RDR env
-    class S2 frozen
-    class S1 train
-    class CTRL act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：VLA 全押真机数据、采集又贵又慢（Problem：单个操作员一天只能采 ~1000 条轨迹），而合成数据的潜力从未被系统验证（Bottleneck）；GraspVLA 用「全合成动作数据 + 互联网语义数据」双源共训打*

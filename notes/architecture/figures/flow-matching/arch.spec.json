@@ -1,0 +1,165 @@
+{
+ "nodes": [
+  {
+   "id": "NOISE",
+   "label": "高斯噪声 x_0 ~ N(0\n, I)",
+   "sub": "",
+   "icon": "noise",
+   "cls": "data",
+   "x": 47,
+   "y": 130,
+   "w": 227,
+   "h": 93
+  },
+  {
+   "id": "PATH",
+   "label": "OT 线性概率路径 (核\n心)",
+   "sub": "x_t = t*x_1 + (1-t",
+   "icon": "spark",
+   "cls": "key",
+   "x": 343,
+   "y": 246,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "DATA",
+   "label": "真实动作数据 x_1",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "data",
+   "x": 58,
+   "y": 247,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "VF",
+   "label": "速度场预测网络 v_th\neta(x_t, t)",
+   "sub": "回归条件速度场, 免",
+   "icon": "cpu",
+   "cls": "train",
+   "x": 642,
+   "y": 246,
+   "w": 231,
+   "h": 126
+  },
+  {
+   "id": "LCFM",
+   "label": "损失 L_CFM\n|| v_theta - (x_1 ",
+   "sub": "- x_0) ||^2",
+   "icon": "noise",
+   "cls": "key",
+   "x": 44,
+   "y": 363,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "RK4",
+   "label": "RK4 高阶积分\n仅 10 步, 截断误差 ",
+   "sub": "O(dt^4)",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 939,
+   "y": 246,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "ACT",
+   "label": "连续动作 x_1\n平滑无台阶",
+   "sub": "",
+   "icon": "lightning",
+   "cls": "act",
+   "x": 1238,
+   "y": 263,
+   "w": 167,
+   "h": 93
+  },
+  {
+   "id": "ROBOT",
+   "label": "机器人执行\n(pi0 动作专家同款机",
+   "sub": "制)",
+   "icon": "robot",
+   "cls": "act",
+   "x": 1471,
+   "y": 246,
+   "w": 231,
+   "h": 126
+  }
+ ],
+ "edges": [
+  {
+   "from": "NOISE",
+   "to": "PATH",
+   "style": "thick"
+  },
+  {
+   "from": "DATA",
+   "to": "PATH",
+   "style": "thick"
+  },
+  {
+   "from": "PATH",
+   "to": "VF",
+   "style": "main"
+  },
+  {
+   "from": "LCFM",
+   "to": "VF",
+   "style": "fb"
+  },
+  {
+   "from": "VF",
+   "to": "RK4",
+   "style": "thick"
+  },
+  {
+   "from": "RK4",
+   "to": "VF",
+   "style": "fb",
+   "label": "\"每步 4 次速度场求值\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
+  },
+  {
+   "from": "RK4",
+   "to": "ACT",
+   "style": "thick"
+  },
+  {
+   "from": "ACT",
+   "to": "ROBOT",
+   "style": "thick"
+  }
+ ],
+ "panels": [],
+ "canvas": [
+  1746,
+  579
+ ],
+ "legend": [
+  "act",
+  "data",
+  "key",
+  "loop",
+  "train"
+ ],
+ "layout_wh": [
+  1746,
+  579
+ ],
+ "title": "flow-matching",
+ "subtitle": "Flow Matching 提出了一种无需模拟（simulation-free）的连续归一化流（CNF）训练框架，通过直接回归条件概率路径的速度场，避免了传统 CNF 的昂贵 ",
+ "foot": "flow-matching · arXiv 2210.02747 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    NOISE([\"高斯噪声 x_0 ~ N(0, I)\"]) ==> PATH\n    DATA([\"真实动作数据 x_1\"]) ==> PATH\n    PATH[\"OT 线性概率路径 (核心)<br/>x_t = t*x_1 + (1-t)*x_0<br/>粒子沿直线匀速运动, 路径更直\"]\n    PATH --> VF[\"速度场预测网络 v_theta(x_t, t)<br/>回归条件速度场, 免模拟训练\"]\n    LCFM[\"损失 L_CFM<br/>|| v_theta - (x_1 - x_0) ||^2<br/>无需模拟 ODE, 与 L_FM 梯度等价\"] -.-> VF\n    VF ==> RK4[\"RK4 高阶积分<br/>仅 10 步, 截断误差 O(dt^4)\"]\n    RK4 -.->|\"每步 4 次速度场求值\"| VF\n    RK4 ==> ACT([\"连续动作 x_1<br/>平滑无台阶\"])\n    ACT ==> ROBOT([\"机器人执行<br/>(pi0 动作专家同款机制)\"])\n\n    class NOISE,DATA data\n    class VF train\n    class PATH,LCFM key\n    class RK4 loop\n    class ACT,ROBOT act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

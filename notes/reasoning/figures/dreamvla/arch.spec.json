@@ -1,0 +1,251 @@
+{
+ "nodes": [
+  {
+   "id": "OBS",
+   "label": "双相机 RGB 观测",
+   "sub": "",
+   "icon": "camera",
+   "cls": "loop",
+   "x": 4,
+   "y": 130,
+   "w": 195,
+   "h": 92
+  },
+  {
+   "id": "LANG",
+   "label": "语言指令",
+   "sub": "",
+   "icon": "chat",
+   "cls": "loop",
+   "x": 255,
+   "y": 130,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "STATE",
+   "label": "机器人状态 s_t",
+   "sub": "",
+   "icon": "state",
+   "cls": "loop",
+   "x": 451,
+   "y": 130,
+   "w": 186,
+   "h": 92
+  },
+  {
+   "id": "LLM",
+   "label": "多模态 Transformer<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 146,
+   "y": 314,
+   "w": 268,
+   "h": 92
+  },
+  {
+   "id": "BLOCK",
+   "label": "块状结构化注意力<br/",
+   "sub": "",
+   "icon": "stack",
+   "cls": "loop",
+   "x": 590,
+   "y": 498,
+   "w": 240,
+   "h": 92
+  },
+  {
+   "id": "DYN",
+   "label": "动态区域预测<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 693,
+   "y": 130,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "DEP",
+   "label": "空间深度预测<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 953,
+   "y": 130,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "SEM",
+   "label": "高层语义预测<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 1213,
+   "y": 130,
+   "w": 204,
+   "h": 92
+  },
+  {
+   "id": "LDYN",
+   "label": "dVAE 动态区域重建损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 454,
+   "y": 314,
+   "w": 249,
+   "h": 92
+  },
+  {
+   "id": "LDEP",
+   "label": "尺度对齐深度 MSE 损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 743,
+   "y": 314,
+   "w": 249,
+   "h": 92
+  },
+  {
+   "id": "LSEM",
+   "label": "InfoNCE 对比语义损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 1032,
+   "y": 314,
+   "w": 243,
+   "h": 92
+  },
+  {
+   "id": "LATENT",
+   "label": "解耦隐含特征",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 628,
+   "y": 682,
+   "w": 164,
+   "h": 92
+  },
+  {
+   "id": "DIT",
+   "label": "扩散 Transformer<br/",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 586,
+   "y": 866,
+   "w": 250,
+   "h": 92
+  },
+  {
+   "id": "LDIT",
+   "label": "扩散去噪 L2 动作损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 462,
+   "y": 1050,
+   "w": 240,
+   "h": 92
+  },
+  {
+   "id": "ROBOT",
+   "label": "机器人连续动作序列",
+   "sub": "",
+   "icon": "robot",
+   "cls": "loop",
+   "x": 742,
+   "y": 1050,
+   "w": 218,
+   "h": 92
+  }
+ ],
+ "edges": [
+  {
+   "from": "LLM",
+   "to": "BLOCK",
+   "style": "thick"
+  },
+  {
+   "from": "OBS",
+   "to": "LLM",
+   "style": "thick"
+  },
+  {
+   "from": "LANG",
+   "to": "LLM",
+   "style": "thick"
+  },
+  {
+   "from": "STATE",
+   "to": "LLM",
+   "style": "thick"
+  },
+  {
+   "from": "DYN",
+   "to": "LDYN",
+   "style": "fb"
+  },
+  {
+   "from": "DEP",
+   "to": "LDEP",
+   "style": "fb"
+  },
+  {
+   "from": "SEM",
+   "to": "LSEM",
+   "style": "fb"
+  },
+  {
+   "from": "BLOCK",
+   "to": "LATENT",
+   "style": "thick"
+  },
+  {
+   "from": "LATENT",
+   "to": "DIT",
+   "style": "thick"
+  },
+  {
+   "from": "DIT",
+   "to": "LDIT",
+   "style": "fb"
+  },
+  {
+   "from": "DIT",
+   "to": "ROBOT",
+   "style": "thick"
+  }
+ ],
+ "panels": [
+  {
+   "label": "世界知识预测 - 前瞻做梦",
+   "x": 122,
+   "y": 86,
+   "w": 1319,
+   "h": 524
+  }
+ ],
+ "canvas": [
+  1421,
+  1232
+ ],
+ "legend": [
+  "loop"
+ ],
+ "layout_wh": [
+  1421,
+  1232
+ ],
+ "title": "dreamvla",
+ "subtitle": "DreamVLA 不直接预测未来图像（计算量大、冗余信息多），而是通过块状结构化注意力分离地预测三类紧凑世界知识（动态区域、深度、语义），再用扩散 Transformer 将解",
+ "foot": "dreamvla · arXiv 2507.04447 · v3 auto",
+ "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS[双相机 RGB 观测]:::data\n    LANG[语言指令]:::data\n    STATE[机器人状态 s_t]:::data\n\n    subgraph DREAM[\"世界知识预测 - 前瞻做梦\"]\n        LLM[多模态 Transformer<br/>dream 查询 token]:::frozen\n        BLOCK[块状结构化注意力<br/>三类子查询互相屏蔽]:::key\n        DYN[动态区域预测<br/>二值运动掩码]:::env\n        DEP[空间深度预测<br/>单目深度]:::env\n        SEM[高层语义预测<br/>SAM 特征]:::env\n        LLM ==> BLOCK\n        BLOCK -.类型间注意力屏蔽.-> DYN\n        BLOCK -.类型间注意力屏蔽.-> DEP\n        BLOCK -.类型间注意力屏蔽.-> SEM\n    end\n\n    OBS ==> LLM\n    LANG ==> LLM\n    STATE ==> LLM\n\n    LDYN[dVAE 动态区域重建损失]:::loss\n    LDEP[尺度对齐深度 MSE 损失]:::loss\n    LSEM[InfoNCE 对比语义损失]:::loss\n    DYN -.-> LDYN\n    DEP -.-> LDEP\n    SEM -.-> LSEM\n\n    BLOCK ==> LATENT[解耦隐含特征]:::key\n    LATENT ==> DIT[扩散 Transformer<br/>动作去噪解码]:::act\n    LDIT[扩散去噪 L2 动作损失]:::loss\n    DIT -.-> LDIT\n    DIT ==> ROBOT([机器人连续动作序列]):::act\n    ROBOT -.每 3 帧闭环重观测.-> OBS\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100",
+ "source": "mermaid-auto"
+}

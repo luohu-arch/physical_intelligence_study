@@ -48,45 +48,9 @@ ThinkWVLA 的核心洞察是把世界模型的两种资产拆开：**关于物�
 
 方法的全部数学内容是"一个 flow-matching 动作损失 + 一个余弦对齐损失"，其力量来自教师特征承载的物理接地先验。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    TRAIN(["训练帧 (全部相机视角)"]) --> TPRE["离线教师预计算<br/>Cosmos3-Nano 理解塔 第 24 层<br/>逐视角池化 (教师冻结)"]
-    TPRE --> CACHE["内存映射教师特征缓存<br/>每视角一个池化向量<br/>按轨迹 id + 帧索引寻址"]
-    SUB["学生训练<br/>Qwen3.5-VL 骨干<br/>+ flow-matching 动作专家"] ==> POOL["学生图像 token 隐状态<br/>逐视角均值池化"]
-    CACHE -.-> COS["余弦对齐损失 (stop-gradient)<br/>lambda=0.5<br/>特征蒸馏免生成: 3s/45.9GB -> 32ms"]
-    POOL ==> PROJ["两层 MLP 投影器<br/>自动适配 D_s 与 D_t<br/>训练后即丢弃"]
-    PROJ -.-> COS
-    DEMO(["演示动作块"]) ==> ACT["flow-matching 速度回归 L_act"]
-    COS --> TOT["总损失 L_act + lambda*L_align"]
-    ACT --> TOT
-    TOT ==> DEPLOY["部署策略与未蒸馏基线同构<br/>1 prefill + 4 flow 步<br/>32ms / 1.86GB @ RTX 5090<br/>LIBERO 95.3->97.9, 真机鸡蛋 46.7->60.0"]
+![thinkwvla 架构图 v3](figures/thinkwvla/arch.svg)
 
-    class TRAIN,DEMO data
-    class TPRE frozen
-    class CACHE mem
-    class SUB,POOL,PROJ train
-    class COS key
-    class ACT,TOT loss
-    class DEPLOY act
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：ThinkWVLA 的核心洞察是把世界模型的两种资产拆开：**关于物理场景的知识在其内部特征里，生成未来只是产出这些特征的目标函数**——于是可以在训练期向一个冻结世界模型（Cosmos3-Nano 理解塔，8B）的特征*
 
 **动作目标**（式 1）：动作专家以速度回归沿 flow 路径去噪。设噪声 $\epsilon\sim\mathcal{N}(0,I)$、flow 时间 $\tau\in[0,1]$、线性插值 $a_\tau=\tau\epsilon+(1-\tau)a_{t:t+K}$，专家回归路径速度 $\mathrm{d}a_\tau/\mathrm{d}\tau=\epsilon-a_{t:t+K}$：
 

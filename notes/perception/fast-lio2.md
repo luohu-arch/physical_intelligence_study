@@ -45,52 +45,9 @@ FAST-LIO2 提出了一种快速、鲁棒的 LiDAR-inertial 里程计框架。相
 
 ### 系统架构
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    LIDAR(["LiDAR 原始点流<br/>10-100Hz 无特征提取"]) --> ACCUM["点累积 10-100ms<br/>成一帧 Scan"]
-    IMU(["IMU 测量<br/>100-1000Hz"]) --> FORWARD["前向传播<br/>IMU 运动学状态预测"]
-    FORWARD --> BACKWARD["反向传播<br/>逐点运动畸变补偿"]
-    ACCUM --> BACKWARD
-    IKD["ikd-Tree 增量全局地图<br/>插入 O(log n) / 框式删除 / 动态重平衡"] --> KNN["kNN 搜索<br/>最近平面与法向量"]
-    KNN --> RESIDUAL["点到平面残差<br/>直接配准 免调参"]
-    BACKWARD --> RESIDUAL
-    RESIDUAL --> UPDATE["IEKF 迭代状态更新<br/>等价 Kalman 增益<br/>O(m^3) 降为 O(d^3), d=18"]
-    UPDATE --> CONV{"收敛?<br/>3-5 次迭代"}
-    CONV -->|"否"| RESIDUAL
-    CONV -->|"是"| POSE["里程计输出<br/>位姿/速度/bias/外参 10-100Hz"]
-    POSE --> MAP["建图: 新点插入 ikd-Tree<br/>树上降采样"]
-    MAP --> IKD
-    IKD --> DELETE["框式删除<br/>超 2000m 历史点防误匹配"]
-    IKD --> REBALANCE{"子树失衡?"}
-    REBALANCE -->|"是"| REBUILD["并行重建子树<br/>主线程不卡顿"]
-    REBUILD --> IKD
+![fast-lio2 架构图 v3](figures/fast-lio2/arch.svg)
 
-    class LIDAR,IMU data
-    class RESIDUAL,IKD key
-    class FORWARD,BACKWARD,UPDATE train
-    class ACCUM mem
-    class POSE act
-    class KNN,MAP,CONV,REBALANCE loop
-    class DELETE,REBUILD env
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17
-```
+*架构速览：FAST-LIO2 提出了一种快速、鲁棒的 LiDAR-inertial 里程计框架。相比传统方法提取特征点再配准，它直接将原始点云注册到地图上（direct method），配合增量 k-d 树（ikd-Tree）实现*
 
 ### 状态估计
 

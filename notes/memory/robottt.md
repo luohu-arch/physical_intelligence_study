@@ -64,64 +64,9 @@ $$\mathcal{L}_{\text{fm}}(\theta, W_0, \eta, \theta_{Q,K,V}) = \frac{1}{T}\sum_{
 
 ### 2. 系统架构
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OBS[观测 o_t 3 路 RealSense]:::data
-    VLM[VLM 骨干 GR00T N1.7<br/>冻结]:::frozen
-    REG[16 个 register token<br/>代理 VL token 进 TTT]:::train
-    PROPR[本体状态 q_t]:::data
-    ENC[状态编码器]:::train
-    NOISE[加噪动作 A_t^tau]:::act
-    ATTN[单步内 self / cross-attention<br/>处理空间 token 交互]:::train
+![robottt 架构图 v3](figures/robottt/arch.svg)
 
-    subgraph TTT["跨时间 TTT 层 x 16 - 记忆存于参数空间"]
-        FLAT[沿时间展平<br/>R_t + q_t + 加噪动作序列]:::train
-        TTTU["TTT 内循环梯度写入<br/>W_t = W_(t-1) - eta * grad L_FW"]:::key
-        FW[快速权重 W<br/>8K 步历史 约 5 分钟 160M 参数]:::mem
-    end
-
-    OBS ==> VLM
-    VLM ==> REG
-    PROPR ==> ENC
-    ENC ==> ATTN
-    REG ==> ATTN
-    NOISE ==> ATTN
-    ATTN ==> FLAT
-    FLAT ==> TTTU
-    TTTU -.每步一次梯度更新 常数开销.-> FW
-    FW -.读取输出 O_t.-> TTTU
-    GATE["tanh(alpha) 门控<br/>alpha 初始 0.001 保护预训练"]:::key
-    TTTU ==> GATE
-    ATTN -.残差.-> GATE
-    DEC[DiT 解码器 flow-matching]:::act
-    GATE ==> DEC
-    ACTOUT([动作 chunk H=16 30Hz 恒定延迟]):::act
-    DEC ==> ACTOUT
-    LFW[内循环 MSE 自监督 L_FW]:::loss
-    LFM[外循环 flow-matching 动作损失]:::loss
-    LFW -.-> TTTU
-    LFM -.-> DEC
-    MODES[三种记忆写入模式<br/>序列动作强制 / 视频 one-shot / DAgger 蒸馏]:::loss
-    MODES -.同一 TTT 框架 仅数据与 loss mask 不同.-> TTTU
-    ACTOUT -.新观测闭环.-> OBS
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：RoboTTT 将 Test-Time Training 引入 VLA 基础模型：在 GR00T N1.7 的 DiT 动作头的 attention 层后插入 16 个 TTT 层，每观测一帧机器人数据就在内循环中做一步*
 
 **关键设计选择**：
 

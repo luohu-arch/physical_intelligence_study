@@ -47,59 +47,9 @@
 6. **工具调用轨迹即监督**：学生的 SFT 目标就是 next tool call 预测（观测、测量请求、运动前证据都在同一 token 流里），与 VLM 原生 next-token 目标完全对齐——这是 107 条 episode 足以训出泛化能力的关键假设。
 7. **抓取可见性打分**：沿接近路径取 5 个插值位置投影稀疏指爪探针，$s_{vis}=f_{free}-2f_{near}-0.25f_{unknown}$ 排序、1.5 cm/20 度内近重复抑制；后端分数对 agent 透明隐藏。
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TD
-    OBS(["观测: 多视角 RGB + TCP 位姿 + 夹爪状态"]):::data
-    VLM["冻结 VLM agent<br/>Gemini 3.7 Flash / GPT-6 Astra, 约 35 次调用/episode"]:::frozen
-    CTX["运行上下文 c: 工具回执 + 决策注记<br/>+ N=8 文本 + K=1 图像记忆 + search_history"]:::mem
+![robo-harness-k1 架构图 v3](figures/robo-harness-k1/arch.svg)
 
-    subgraph TOOLS["感知即工具四族: 深度与标定躲在接口后"]
-        direction TB
-        T1["find_regions / inspect_region<br/>SAM 3 分区 + 持久掩码 ID"]:::act
-        T2["measure_depth / fit_geometry<br/>标定反投影米制坐标 + TCP 相对位移"]:::act
-        T3["track_features: TAPNext++ 点跟踪<br/>持久锚点 + 世界位移 + lost_remeasure 旗"]:::act
-        T4["grasp_candidates: GraspGen<br/>抓取位姿提案, 最多呈现 3 个"]:::act
-    end
-
-    RCPT["工具回执 + 参考线叠加回 RGB<br/>(绿轮廓/橙主轴/紫连线): 度量证据, 非深度数组"]:::key
-    MOT["有界运动语法: move_relative 每轴<=3cm<br/>rotate_toward<=15 度 / move_toward 直达长移"]:::act
-    ENV["机器人 + embodiment 适配层<br/>LIBERO / RoboSuite / RoboTwin 全仿真"]:::env
-    TRAJ["教师工具调用轨迹: 139 条成功 episodes<br/>32 条留出 -> 107 条训练"]:::data
-    SFT["SFT 目标 = next tool call 交叉熵<br/>与 VLM 原生 next-token 目标对齐"]:::loss
-    STU["Qwen3.5-9B 学生 + 语言 LoRA<br/>冻结视觉编码器, 43.3M 可训练参数"]:::train
-    ACC(["LIBERO-PRO 77.8% 超 RGB-only GPT-6 61.1%<br/>Astra 加 K1 抬到 88.9%; 学生新任务 13.9% 唯一非零"]):::data
-
-    OBS ==> VLM
-    VLM -.->|"推理步: 查询感知证据"| TOOLS
-    TOOLS ==> RCPT
-    RCPT ==> CTX
-    CTX -.->|"回执进上下文, 状态不变"| VLM
-    VLM -.->|"动作步: 结构化运动命令"| MOT
-    MOT ==> ENV
-    ENV -.->|"新 RGB + 实际运动 + 残差误差"| VLM
-    VLM ==> TRAJ
-    TRAJ ==> SFT
-    SFT ==> STU
-    STU ==> ACC
-
-    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40
-    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17
-    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100
-```
+*架构速览：不给 VLM 加动作头、也不重训深度编码器，而是把"标定深度反投影、持久视觉锚点、投影到 RGB 的抓取假设"做成 VLM 可调用的工具（SAM 3 分区 + TAPNext++ 点跟踪 + GraspGen 抓取提案）*
 
 ## 底层原理与数学推导
 
