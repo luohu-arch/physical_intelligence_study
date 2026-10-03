@@ -110,9 +110,9 @@
 </g>
 <text x="1617.5" y="382" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="1617.5" dy="0">单模型异构部署</tspan><tspan x="1617.5" dy="20">人形 12Hz / 底层 5</tspan></text>
 <text x="1617.5" y="412" font-size="12" fill="#5f6b7a" text-anchor="middle">0Hz</text>
-<g transform="translate(412.0,401.0)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;跨具身共享训练&quot;</text></g>
-<g transform="translate(1471.0,383.0)"><rect x="-104.0" y="-11" width="208.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;超越 BC 上限 (Simpler 55.2 </text></g>
-<g transform="translate(1168.8,246.0)"><rect x="-109.8" y="-11" width="219.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;逐 chunk 重观测 高层 planner </text></g>
+<g transform="translate(412.0,317.0)"><rect x="-61.5" y="-11" width="123.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;跨具身共享训练&quot;</text></g>
+<g transform="translate(1471.0,299.0)"><rect x="-105.0" y="-11" width="210.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;超越 BC 上限 (Simpler 55.2 </text></g>
+<g transform="translate(1168.8,246.0)"><rect x="-110.8" y="-11" width="221.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;逐 chunk 重观测 高层 planner </text></g>
 <text x="40" y="711.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="697" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="708" r="4.2" fill="#6a1b9a"/><text x="110" y="712" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="697" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="197.76" cy="708" r="4.2" fill="#ef6c00"/><text x="208.76" y="712" font-size="11.5" fill="#9a4d00">关键组件</text></g>

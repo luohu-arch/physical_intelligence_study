@@ -32,7 +32,7 @@
 <path d="M 134.0 239.0 L 134.0 801.5 L 773.0 801.5 L 773.0 1364.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
 <path d="M 736.6 1364.0 L 736.6 72.0 L 145.4 72.0 L 145.4 146.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
 <path d="M 517.0 193.0 L 533.0 193.0 L 533.0 379.0 L 549.0 379.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 248.0 192.5 L 270.0 192.5 L 270.0 565.0 L 542.0 565.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 248.0 192.5 L 395.0 192.5 L 395.0 565.0 L 542.0 565.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 662.5 442.0 L 658.5 502.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 658.5 628.0 L 647.5 705.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 647.5 797.0 L 647.5 835.5 L 772.5 835.5 L 772.5 874.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
@@ -178,8 +178,8 @@
 </g>
 <text x="902.0" y="732" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="902.0" dy="0">3. 视觉蒸馏</tspan><tspan x="902.0" dy="20">冻结 pi_full -&gt; 纯</tspan></text>
 <text x="902.0" y="762" font-size="12" fill="#5f6b7a" text-anchor="middle">深度 pi_vis</text>
-<g transform="translate(781.8,276.0)"><rect x="-53.0" y="-11" width="106.1" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;DAgger 蒸馏&quot;</text></g>
-<g transform="translate(1032.0,241.8)"><rect x="-109.8" y="-11" width="219.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;交互风格奖励 r_interact(z_t)&quot;</text></g>
+<g transform="translate(781.8,276.0)"><rect x="-54.0" y="-11" width="108.1" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;DAgger 蒸馏&quot;</text></g>
+<g transform="translate(1032.0,297.8)"><rect x="-110.8" y="-11" width="221.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;交互风格奖励 r_interact(z_t)&quot;</text></g>
 <text x="40" y="1494.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1480" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1491" r="4.2" fill="#6a1b9a"/><text x="110" y="1495" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="1480" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1491" r="4.2" fill="#2e7d32"/><text x="208.76" y="1495" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

@@ -171,9 +171,9 @@
   <circle cx="12" cy="12" r="3" />
 </g>
 <text x="354.0" y="1869" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="354.0" dy="0">并行重建子树</tspan><tspan x="354.0" dy="20">主线程不卡顿</tspan></text>
-<g transform="translate(324.7,665.0)"><rect x="-22.3" y="-11" width="44.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;否&quot;</text></g>
-<g transform="translate(354.5,1051.0)"><rect x="-22.3" y="-11" width="44.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;是&quot;</text></g>
-<g transform="translate(346.0,1786.5)"><rect x="-22.3" y="-11" width="44.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;是&quot;</text></g>
+<g transform="translate(324.7,721.0)"><rect x="-23.3" y="-11" width="46.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;否&quot;</text></g>
+<g transform="translate(354.5,1051.0)"><rect x="-23.3" y="-11" width="46.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;是&quot;</text></g>
+<g transform="translate(346.0,1786.5)"><rect x="-23.3" y="-11" width="46.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;是&quot;</text></g>
 <text x="40" y="1956.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1942" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1953" r="4.2" fill="#6a1b9a"/><text x="110" y="1957" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="1942" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1953" r="4.2" fill="#2e7d32"/><text x="208.76" y="1957" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

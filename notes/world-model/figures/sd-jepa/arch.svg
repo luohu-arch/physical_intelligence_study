@@ -107,8 +107,8 @@
 </g>
 <text x="673.0" y="761" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="673.0" dy="0">theta_t = atan2(前两维)</tspan><tspan x="673.0" dy="20">任务相位罗盘</tspan></text>
 <text x="673.0" y="791" font-size="12" fill="#5f6b7a" text-anchor="middle">事件定位 AUROC +0.176</text>
-<g transform="translate(486.8,661.5)"><rect x="-113.8" y="-11" width="227.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;各向同性高斯匹配 只作用 z_cont&quot;</text></g>
-<g transform="translate(229.5,661.5)"><rect x="-118.4" y="-11" width="236.9" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;余弦间隔 triplet 沿轨迹排序 late</text></g>
+<g transform="translate(486.8,661.5)"><rect x="-114.8" y="-11" width="229.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;各向同性高斯匹配 只作用 z_cont&quot;</text></g>
+<g transform="translate(229.5,661.5)"><rect x="-119.4" y="-11" width="238.9" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;余弦间隔 triplet 沿轨迹排序 late</text></g>
 <text x="40" y="1099.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1085" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="99" cy="1096" r="4.2" fill="#00695c"/><text x="110" y="1100" font-size="11.5" fill="#004d40">环境</text></g>
 <g><rect x="160.38" y="1085" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="173.38" cy="1096" r="4.2" fill="#ef6c00"/><text x="184.38" y="1100" font-size="11.5" fill="#9a4d00">关键组件</text></g>

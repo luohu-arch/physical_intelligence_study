@@ -124,10 +124,10 @@
   <path d="M9 13v2" />
 </g>
 <text x="1603.5" y="399" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="1603.5" dy="0">移动操作机器人 50Hz</tspan><tspan x="1603.5" dy="20">PD 控制器跟踪</tspan></text>
-<g transform="translate(310.5,412.5)"><rect x="-102.2" y="-11" width="204.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;co-training 多层次知识迁移&quot;</text></g>
-<g transform="translate(611.0,401.2)"><rect x="-47.8" y="-11" width="95.5" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;每步先预测&quot;</text></g>
-<g transform="translate(863.0,383.2)"><rect x="-76.2" y="-11" width="152.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;子任务作 condition&quot;</text></g>
-<g transform="translate(977.8,38.0)"><rect x="-114.8" y="-11" width="229.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;闭环重观测 高层子任务逐步重预测&quot;</text></g>
+<g transform="translate(310.5,356.5)"><rect x="-103.2" y="-11" width="206.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;co-training 多层次知识迁移&quot;</text></g>
+<g transform="translate(611.0,317.2)"><rect x="-48.8" y="-11" width="97.5" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;每步先预测&quot;</text></g>
+<g transform="translate(863.0,299.2)"><rect x="-77.2" y="-11" width="154.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;子任务作 condition&quot;</text></g>
+<g transform="translate(977.8,122.0)"><rect x="-115.8" y="-11" width="231.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;闭环重观测 高层子任务逐步重预测&quot;</text></g>
 <text x="40" y="711.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="697" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="708" r="4.2" fill="#6a1b9a"/><text x="110" y="712" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="697" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="708" r="4.2" fill="#2e7d32"/><text x="208.76" y="712" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

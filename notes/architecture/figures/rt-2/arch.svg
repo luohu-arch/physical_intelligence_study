@@ -124,7 +124,7 @@
   <path d="M9 13v2" />
 </g>
 <text x="476.5" y="1231" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="476.5" dy="0">云端 TPU 闭环控制</tspan><tspan x="476.5" dy="20">55B: 1-3Hz / 5B: 约 5Hz</tspan></text>
-<g transform="translate(420.3,841.4)"><rect x="-101.0" y="-11" width="202.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;机器人 prompt 触发采样约束&quot;</text></g>
+<g transform="translate(420.3,897.4)"><rect x="-102.0" y="-11" width="204.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;机器人 prompt 触发采样约束&quot;</text></g>
 <text x="40" y="1318.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1304" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1315" r="4.2" fill="#6a1b9a"/><text x="110" y="1319" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="1304" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1315" r="4.2" fill="#2e7d32"/><text x="208.76" y="1319" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

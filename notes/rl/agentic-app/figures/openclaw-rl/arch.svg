@@ -133,11 +133,11 @@
 </g>
 <text x="2244.5" y="249" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="2244.5" dy="0">偏好对齐 10.3 会话 </tspan><tspan x="2244.5" dy="20">vs GRPO 14.1 / Mem</tspan></text>
 <text x="2244.5" y="279" font-size="12" fill="#5f6b7a" text-anchor="middle">0 14.5</text>
-<g transform="translate(310.0,212.2)"><rect x="-89.0" y="-11" width="178.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;HTTP API + session id&quot;</text></g>
-<g transform="translate(310.0,297.5)"><rect x="-35.0" y="-11" width="70.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;交互流&quot;</text></g>
-<g transform="translate(1608.5,250.0)"><rect x="-73.2" y="-11" width="146.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;稠密但薄的标量优势&quot;</text></g>
-<g transform="translate(1796.0,250.0)"><rect x="-91.2" y="-11" width="182.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;稀疏但厚的 token 级优势&quot;</text></g>
-<g transform="translate(1183.7,387.0)"><rect x="-99.2" y="-11" width="198.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;同步边界推权重, 零服务中断&quot;</text></g>
+<g transform="translate(310.0,128.2)"><rect x="-90.0" y="-11" width="180.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;HTTP API + session id&quot;</text></g>
+<g transform="translate(310.0,409.5)"><rect x="-36.0" y="-11" width="72.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;交互流&quot;</text></g>
+<g transform="translate(1608.5,166.0)"><rect x="-74.2" y="-11" width="148.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;稠密但薄的标量优势&quot;</text></g>
+<g transform="translate(1796.0,166.0)"><rect x="-92.2" y="-11" width="184.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;稀疏但厚的 token 级优势&quot;</text></g>
+<g transform="translate(1183.7,443.0)"><rect x="-100.2" y="-11" width="200.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;同步边界推权重, 零服务中断&quot;</text></g>
 <text x="40" y="444.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="430" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="441" r="4.2" fill="#546e7a"/><text x="110" y="445" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 <text x="40" y="484" font-size="11.5" fill="#78909c">线型</text>

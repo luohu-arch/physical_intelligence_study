@@ -129,9 +129,9 @@
   <path d="M9 13v2" />
 </g>
 <text x="789.0" y="819" font-size="16" class="lbl" fill="#4a148c" text-anchor="middle">机器人执行</text>
-<g transform="translate(484.8,1123.0)"><rect x="-133.9" y="-11" width="267.8" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;自生成数据入池 一轮自改进全面超纯示教&quot;</text></g>
-<g transform="translate(441.4,739.0)"><rect x="-79.6" y="-11" width="159.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;重训练下一版通用模型&quot;</text></g>
-<g transform="translate(673.0,687.0)"><rect x="-112.7" y="-11" width="225.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;动作 token 自回归 10-20Hz 闭环</text></g>
+<g transform="translate(484.8,1151.0)"><rect x="-134.9" y="-11" width="269.8" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;自生成数据入池 一轮自改进全面超纯示教&quot;</text></g>
+<g transform="translate(441.4,711.0)"><rect x="-80.6" y="-11" width="161.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;重训练下一版通用模型&quot;</text></g>
+<g transform="translate(673.0,687.0)"><rect x="-113.7" y="-11" width="227.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;动作 token 自回归 10-20Hz 闭环</text></g>
 <text x="40" y="1318.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1304" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1315" r="4.2" fill="#6a1b9a"/><text x="110" y="1319" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="1304" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1315" r="4.2" fill="#2e7d32"/><text x="208.76" y="1319" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

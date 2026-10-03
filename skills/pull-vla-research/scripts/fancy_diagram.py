@@ -197,12 +197,18 @@ def edge_path(sa, na, sb, nb, k=None, rects=()):
                 pts = [sa, sb]
             else:
                 mx = _avoid_v((sa[0] + sb[0]) / 2, sa[1], sb[1], rects)
+                lo, hi = min(sa[0], sb[0]) + 24, max(sa[0], sb[0]) - 24
+                if hi <= lo or not (lo <= mx <= hi):
+                    mx = (sa[0] + sb[0]) / 2   # 绕行走廊放不下: 回中
                 pts = [sa, (mx, sa[1]), (mx, sb[1]), sb]
         else:
             if abs(sa[0] - sb[0]) < 16:
                 pts = [sa, sb]
             else:
                 my = _avoid_h((sa[1] + sb[1]) / 2, sa[0], sb[0], rects)
+                lo, hi = min(sa[1], sb[1]) + 24, max(sa[1], sb[1]) - 24
+                if hi <= lo or not (lo <= my <= hi):
+                    my = (sa[1] + sb[1]) / 2
                 pts = [sa, (sa[0], my), (sb[0], my), sb]
     elif na == nb:                                      # 同侧 U 形环绕
         if na == "bottom":
@@ -235,6 +241,51 @@ def edge_path(sa, na, sb, nb, k=None, rects=()):
             break
         acc += L
     return d, mid
+
+
+def resolve_and_render_pills(jobs, nodes, W, H):
+    """标签药丸避障: 依次取第一个不压卡片/已放药丸/两端锚点禁区的候选偏移。"""
+    placed = []
+    node_rects = [(n["x"] - 2, n["y"] - 2, n["x"] + n["w"] + 2, n["y"] + n["h"] + 2) for n in nodes]
+    CAND = [(0, 0), (0, -28), (0, 28), (0, -56), (0, 56), (26, -28), (-26, -28),
+            (26, 28), (-26, 28), (0, -84), (0, 84), (0, -112), (0, 112),
+            (64, 0), (-64, 0), (64, -28), (-64, -28), (64, 28), (-64, 28)]
+    out = []
+
+    def _find(j, wl, allow_node):
+        for dx, dy in CAND:
+            cx, cy = j["cx"] + dx, j["cy"] + dy
+            r = (cx - wl / 2, cy - 12, cx + wl / 2, cy + 12)
+            if r[0] < 6 or r[2] > W - 6 or r[1] < 96 or r[3] > H - 24:
+                continue
+            if not allow_node and any(r[0] < nr[2] and nr[0] < r[2] and r[1] < nr[3] and nr[1] < r[3]
+                                      for nr in node_rects):
+                continue
+            if any(r[0] < pr[2] + 4 and pr[0] - 4 < r[2] and r[1] < pr[3] + 2 and pr[1] - 2 < r[3]
+                   for pr in placed):
+                continue
+            if any(abs(cx - ax) < wl / 2 + 18 and abs(cy - ay) < 30
+                   for ax, ay in ((j["ax"], j["ay"]), (j["bx"], j["by"]))):
+                continue
+            return cx, cy, r
+        return None
+
+    for j in jobs:
+        wl = tw(j["text"], 12) + 20
+        best = _find(j, wl, allow_node=False)
+        if best is None:   # 全躲失败: 宁可压卡也不压别的药丸/箭头
+            best = _find(j, wl, allow_node=True)
+        if best is None:   # 仍失败: 就地放
+            best = (j["cx"], j["cy"], (j["cx"] - wl / 2, j["cy"] - 12, j["cx"] + wl / 2, j["cy"] + 12))
+        cx, cy, r = best
+        placed.append(r)
+        t = esc(j["text"])
+        out.append(f'<g transform="translate({cx:.1f},{cy:.1f})">'
+                   f'<rect x="{-wl / 2:.1f}" y="-11" width="{wl:.1f}" height="22" rx="11" '
+                   f'fill="#ffffff" stroke="{j["color"]}" stroke-width="1.2"/>'
+                   f'<text y="4" font-size="12" fill="{j["color"]}" font-weight="600" '
+                   f'text-anchor="middle">{t}</text></g>')
+    return out
 
 
 def render(spec):
@@ -278,7 +329,7 @@ def render(spec):
     nodes = {n["id"]: n for n in spec["nodes"]}
 
     # 边(先画, 压在卡片下; 标签最后)
-    labels, paths = [], []
+    pill_jobs, paths = [], []
     for e in spec.get("edges", []):
         a, b = nodes[e["from"]], nodes[e["to"]]
         sa_, sb_ = auto_sides(a, b)
@@ -294,16 +345,10 @@ def render(spec):
         paths.append(f'<path d="{d}" fill="none" stroke="{c}" stroke-width="{w}"{dash_a} '
                      f'marker-end="url(#arr-{st})" opacity="0.92"/>')
         if e.get("label"):
-            t = esc(e["label"])
-            wl = tw(e["label"], 12) + 18
-            lx, ly = mid[0], mid[1]
             off = e.get("loff", (0, 0))
-            lc = EDGE_STYLE[st][0]
-            labels.append(f'<g transform="translate({lx + off[0]:.1f},{ly + off[1]:.1f})">'
-                          f'<rect x="{-wl / 2:.1f}" y="-11" width="{wl:.1f}" height="22" rx="11" '
-                          f'fill="#ffffff" stroke="{lc}" stroke-width="1.2"/>'
-                          f'<text y="4" font-size="12" fill="{lc}" font-weight="600" '
-                          f'text-anchor="middle">{t}</text></g>')
+            pill_jobs.append({"text": e["label"], "cx": mid[0] + off[0], "cy": mid[1] + off[1],
+                              "color": EDGE_STYLE[st][0], "ax": sa[0], "ay": sa[1],
+                              "bx": sb[0], "by": sb[1]})
     out += paths
 
     # 节点卡片
@@ -353,7 +398,7 @@ def render(spec):
                        f'fill="{s}" opacity="0.14"/>'
                        f'<text x="{x + w - tw_ / 2 - 8:.1f}" y="{y + 22.5}" font-size="11.5" font-weight="700" '
                        f'fill="{ink}" text-anchor="middle">{t}</text></g>')
-    out += labels
+    out += resolve_and_render_pills(pill_jobs, spec["nodes"], W, H)
 
     # 图例
     legend = spec.get("legend")

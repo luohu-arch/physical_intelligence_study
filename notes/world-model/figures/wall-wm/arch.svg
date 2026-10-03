@@ -213,10 +213,10 @@
   <path d="M8.5 2h7" />
 </g>
 <text x="1646.0" y="416" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="1646.0" dy="0">机器人执行</tspan><tspan x="1646.0" dy="20">蒸馏 + FP8 后 10Hz</tspan></text>
-<g transform="translate(1199.0,295.8)"><rect x="-135.7" y="-11" width="271.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;锚定 s*=45 的视频特征 作交叉注意力键值</text></g>
-<g transform="translate(2623.5,221.0)"><rect x="-90.0" y="-11" width="180.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;下一事件描述 + 剩余时间&quot;</text></g>
-<g transform="translate(1497.5,333.5)"><rect x="-68.0" y="-11" width="136.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;末端轨迹 ae 变长&quot;</text></g>
-<g transform="translate(1794.0,380.5)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;新观测闭环反馈&quot;</text></g>
+<g transform="translate(1199.0,211.8)"><rect x="-136.7" y="-11" width="273.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;锚定 s*=45 的视频特征 作交叉注意力键值</text></g>
+<g transform="translate(2623.5,109.0)"><rect x="-91.0" y="-11" width="182.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;下一事件描述 + 剩余时间&quot;</text></g>
+<g transform="translate(1497.5,333.5)"><rect x="-69.0" y="-11" width="138.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;末端轨迹 ae 变长&quot;</text></g>
+<g transform="translate(1794.0,492.5)"><rect x="-61.5" y="-11" width="123.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;新观测闭环反馈&quot;</text></g>
 <text x="40" y="594.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="580" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="591" r="4.2" fill="#6a1b9a"/><text x="110" y="595" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="580" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="591" r="4.2" fill="#2e7d32"/><text x="208.76" y="595" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

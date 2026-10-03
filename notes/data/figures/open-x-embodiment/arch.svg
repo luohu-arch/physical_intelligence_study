@@ -161,9 +161,9 @@
   <path d="M9 13v2" />
 </g>
 <text x="2833.0" y="266" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="2833.0" dy="0">6 种机器人真机部署</tspan><tspan x="2833.0" dy="20">3-10Hz 闭环出动作</tspan></text>
-<g transform="translate(1075.8,308.0)"><rect x="-98.3" y="-11" width="196.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;co-fine-tune 底线 from sc</text></g>
-<g transform="translate(2398.0,174.8)"><rect x="-127.1" y="-11" width="254.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;交叉熵拟合动作 token 35M 大域欠拟合</text></g>
-<g transform="translate(2401.0,249.8)"><rect x="-109.8" y="-11" width="219.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;55B 解锁容量门槛 emergent 75.</text></g>
+<g transform="translate(1075.8,364.0)"><rect x="-99.3" y="-11" width="198.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;co-fine-tune 底线 from sc</text></g>
+<g transform="translate(2398.0,146.8)"><rect x="-128.1" y="-11" width="256.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;交叉熵拟合动作 token 35M 大域欠拟合</text></g>
+<g transform="translate(2401.0,249.8)"><rect x="-110.8" y="-11" width="221.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;55B 解锁容量门槛 emergent 75.</text></g>
 <text x="40" y="444.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="430" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="441" r="4.2" fill="#6a1b9a"/><text x="110" y="445" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="430" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="441" r="4.2" fill="#2e7d32"/><text x="208.76" y="445" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

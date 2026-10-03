@@ -26,10 +26,10 @@
 <rect x="397" y="272" width="538" height="190" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="413" y="285" width="191.5" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="424" y="302" font-size="12.5" fill="#4a6579">分离式统一潜在学习 (核心)</text>
-<path d="M 260.0 193.0 L 281.0 193.0 L 281.0 379.0 L 421.0 379.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 260.0 193.0 L 340.5 193.0 L 340.5 379.0 L 421.0 379.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 664.0 256.0 L 664.0 286.0 L 794.5 286.0 L 794.5 316.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 406.5 256.0 L 406.5 286.0 L 537.5 286.0 L 537.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 520.0 193.0 L 786.0 193.0 L 786.0 379.0 L 678.0 379.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 520.0 193.0 L 599.0 193.0 L 599.0 379.0 L 678.0 379.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
 <path d="M 537.5 442.0 L 537.5 472.0 L 666.5 472.0 L 666.5 502.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 794.5 442.0 L 794.5 472.0 L 666.5 472.0 L 666.5 502.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 924.5 256.0 L 924.5 454.0 L 666.5 454.0 L 666.5 502.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
@@ -164,9 +164,9 @@
 </g>
 <text x="666.0" y="1257" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="666.0" dy="0">AgiBot X2 全身执行</tspan><tspan x="666.0" dy="20">上身关节 + 下身力矩</tspan></text>
 <text x="666.0" y="1287" font-size="12" fill="#5f6b7a" text-anchor="middle">三任务平均 78.0%</text>
-<g transform="translate(602.0,472.0)"><rect x="-47.8" y="-11" width="95.5" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;伪动作标签&quot;</text></g>
-<g transform="translate(730.5,472.0)"><rect x="-47.8" y="-11" width="95.5" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;伪动作标签&quot;</text></g>
-<g transform="translate(620.0,346.6)"><rect x="-115.6" y="-11" width="231.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;分层闭环: 10Hz 决策 + 50Hz 低层</text></g>
+<g transform="translate(602.0,472.0)"><rect x="-48.8" y="-11" width="97.5" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;伪动作标签&quot;</text></g>
+<g transform="translate(730.5,472.0)"><rect x="-48.8" y="-11" width="97.5" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;伪动作标签&quot;</text></g>
+<g transform="translate(620.0,290.6)"><rect x="-116.6" y="-11" width="233.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;分层闭环: 10Hz 决策 + 50Hz 低层</text></g>
 <text x="40" y="1377.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1363" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1374" r="4.2" fill="#6a1b9a"/><text x="110" y="1378" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="1363" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1374" r="4.2" fill="#2e7d32"/><text x="208.76" y="1378" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

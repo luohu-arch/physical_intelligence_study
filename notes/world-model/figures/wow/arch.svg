@@ -127,9 +127,9 @@
 </g>
 <text x="205.0" y="1562" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="205.0" dy="0">真机执行: 成功率/位</tspan><tspan x="205.0" dy="20">置误差</tspan></text>
 <text x="205.0" y="1592" font-size="12" fill="#5f6b7a" text-anchor="middle">/力矩稳定/能耗</text>
-<g transform="translate(158.3,516.5)"><rect x="-150.1" y="-11" width="300.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;不通过: 文字反馈退回重抽 对分布筛样本而非修</text></g>
-<g transform="translate(204.5,1149.0)"><rect x="-28.7" y="-11" width="57.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;通过&quot;</text></g>
-<g transform="translate(159.0,949.1)"><rect x="-71.5" y="-11" width="143.0" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;GRPO 奖励信号回传&quot;</text></g>
+<g transform="translate(158.3,432.5)"><rect x="-151.1" y="-11" width="302.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;不通过: 文字反馈退回重抽 对分布筛样本而非修</text></g>
+<g transform="translate(204.5,1149.0)"><rect x="-29.7" y="-11" width="59.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;通过&quot;</text></g>
+<g transform="translate(159.0,949.1)"><rect x="-72.5" y="-11" width="145.0" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;GRPO 奖励信号回传&quot;</text></g>
 <text x="40" y="1682.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1668" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1679" r="4.2" fill="#6a1b9a"/><text x="110" y="1683" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="1668" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1679" r="4.2" fill="#2e7d32"/><text x="208.76" y="1683" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

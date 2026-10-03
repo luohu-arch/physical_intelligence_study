@@ -117,8 +117,8 @@
   <path d="M9 13v2" />
 </g>
 <text x="1605.0" y="389" font-size="16" class="lbl" fill="#4a148c" text-anchor="middle">机器人执行</text>
-<g transform="translate(893.6,230.0)"><rect x="-116.0" y="-11" width="232.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;低置信度重掩码 迭代去噪约 10 步&quot;</text></g>
-<g transform="translate(977.0,56.0)"><rect x="-66.8" y="-11" width="133.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;逐动作块重新观测&quot;</text></g>
+<g transform="translate(893.6,230.0)"><rect x="-117.0" y="-11" width="234.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;低置信度重掩码 迭代去噪约 10 步&quot;</text></g>
+<g transform="translate(977.0,112.0)"><rect x="-67.8" y="-11" width="135.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;逐动作块重新观测&quot;</text></g>
 <text x="40" y="677.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="663" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="674" r="4.2" fill="#6a1b9a"/><text x="110" y="678" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="663" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="674" r="4.2" fill="#2e7d32"/><text x="208.76" y="678" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

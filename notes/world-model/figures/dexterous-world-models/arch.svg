@@ -187,10 +187,10 @@
 </g>
 <text x="161.5" y="780" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="161.5" dy="0">TASTE-Rob 固定相机</tspan><tspan x="161.5" dy="20">真机</tspan></text>
 <text x="161.5" y="810" font-size="12" fill="#5f6b7a" text-anchor="middle">第 0 帧重复 + HaMe</text>
-<g transform="translate(313.0,204.5)"><rect x="-84.8" y="-11" width="169.7" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;沿相机轨迹 C_1:F 渲染&quot;</text></g>
-<g transform="translate(308.5,335.2)"><rect x="-72.1" y="-11" width="144.2" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;沿同一 C_1:F 渲染&quot;</text></g>
-<g transform="translate(1174.5,437.0)"><rect x="-90.1" y="-11" width="180.2" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;flow-matching 去噪损失&quot;</text></g>
-<g transform="translate(1172.0,513.0)"><rect x="-28.7" y="-11" width="57.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;去噪&quot;</text></g>
+<g transform="translate(377.0,204.5)"><rect x="-85.8" y="-11" width="171.7" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;沿相机轨迹 C_1:F 渲染&quot;</text></g>
+<g transform="translate(308.5,335.2)"><rect x="-73.1" y="-11" width="146.2" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;沿同一 C_1:F 渲染&quot;</text></g>
+<g transform="translate(1174.5,353.0)"><rect x="-91.1" y="-11" width="182.2" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;flow-matching 去噪损失&quot;</text></g>
+<g transform="translate(1172.0,429.0)"><rect x="-29.7" y="-11" width="59.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;去噪&quot;</text></g>
 <text x="40" y="876.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="862" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="873" r="4.2" fill="#6a1b9a"/><text x="110" y="877" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="862" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="873" r="4.2" fill="#2e7d32"/><text x="208.76" y="877" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
