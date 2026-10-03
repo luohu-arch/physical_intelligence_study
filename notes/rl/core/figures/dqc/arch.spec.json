@@ -1,0 +1,27 @@
+{
+  "title": "DQC：解耦 Q-Chunking",
+  "subtitle": "Actor 短 chunk 保在线反应 × Critic 大 chunk 保信用分配 —— chunk 长度解耦的 POMDP 修正（ICLR 2026）",
+  "foot": "DQC · arXiv 2512.10926 · Levine 组",
+  "canvas": [1260, 660],
+  "panels": [
+    {"label": "DQC 解耦核心", "x": 330, "y": 132, "w": 600, "h": 352},
+    {"label": "OGBench 长程操作", "x": 950, "y": 132, "w": 274, "h": 352}
+  ],
+  "nodes": [
+    {"id": "S", "label": "状态 s_t", "sub": "部分可观测环境", "icon": "state", "cls": "data", "x": 50, "y": 300, "w": 212, "h": 96},
+    {"id": "POL", "label": "chunk 策略 π", "sub": "动作块长度 4\n在线执行，不等 critic", "icon": "lightning", "cls": "train", "x": 368, "y": 178, "w": 242, "h": 112, "tag": "h_a=4"},
+    {"id": "Q", "label": "部分可观测 Q", "sub": "子序列长度 16\n只看 o(t..t+16) 的 Q", "icon": "target", "cls": "frozen", "x": 650, "y": 178, "w": 242, "h": 112, "tag": "h_c=16"},
+    {"id": "PART", "label": "partial critic 蒸馏", "sub": "expectile 乐观回归", "icon": "flask", "cls": "loss", "x": 508, "y": 366, "w": 252, "h": 100},
+    {"id": "TRANS", "label": "环境转移", "sub": "执行 a(t..t+4)", "icon": "gear", "cls": "env", "x": 986, "y": 300, "w": 200, "h": 96}
+  ],
+  "edges": [
+    {"from": "S", "to": "POL", "style": "main", "label": "观测 s_t", "pos_in": 0.4},
+    {"from": "S", "to": "Q", "style": "thin", "label": "子序列观测", "pos_in": 0.4, "loff": [0, 26]},
+    {"from": "POL", "to": "TRANS", "style": "thick", "label": "短块 ×4 执行", "out": "bottom", "in": "left", "pos_out": 0.78, "pos_in": 0.5, "k": 70},
+    {"from": "TRANS", "to": "S", "style": "fb", "label": "下一状态", "out": "left", "in": "right", "pos_out": 0.62, "pos_in": 0.5, "k": 60},
+    {"from": "Q", "to": "POL", "style": "loss", "label": "TD 信号（无偏 n-step）", "out": "left", "in": "right", "loff": [0, -34], "k": 60},
+    {"from": "Q", "to": "PART", "style": "loss", "label": "expectile 优化", "out": "bottom", "in": "top", "pos_out": 0.22, "pos_in": 0.28, "k": 40, "loff": [-72, 4]},
+    {"from": "PART", "to": "Q", "style": "loss", "label": "部分-Q 蒸馏", "out": "top", "in": "bottom", "pos_out": 0.78, "pos_in": 0.85, "k": 40, "loff": [78, 4]}
+  ],
+  "legend": ["data", "train", "frozen", "loss", "env"]
+}

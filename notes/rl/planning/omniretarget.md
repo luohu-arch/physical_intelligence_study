@@ -29,7 +29,6 @@ OmniRetarget 提出交互网格（Interaction Mesh）数据生成引擎：把一
 | Correction | 无显式重规划；跟踪偏差超阈值或物体偏离 >1.0m/45° 即终止（训练期终止条件即成功判据） |
 | Deployment | OMOMO/LAFAN1/自采 MoCap 重定向生成 8+ 小时数据仿真训练 → Unitree G1 零样本 sim-to-real（支持 H1/Booster T1 重定向） |
 
-
 ## 核心技术
 
 1. **Interaction Mesh** — 将人-物-环境交互编码为 mesh graph：节点 = 人体关键点 ∪ 物体关键点 ∪ 地形锚点，边 = 保持相对几何关系的拓扑连接；重定向 = 在保持 mesh 拓扑（相对位姿语义）的前提下求解新本体的运动

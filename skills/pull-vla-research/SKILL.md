@@ -122,6 +122,38 @@ Use `--deep` for high-priority papers that need detailed technical analysis. Use
 
 **4) 硬约束**：节点/标签只用中文与 ASCII；禁用希腊字母与数学 Unicode（写 pi/alpha/beta，不写 π/α/β）；数字下标用 x0/x_t 形式。门禁 mermaid-safe 会拦截。
 
+## v3 SVG 架构图（旗舰笔记升级版）
+
+mermaid v2 仍是**默认**（快速、纯文本可 diff）；对旗舰/重点笔记，用 v3 SVG 手绘图替换架构图（图标 + 渐变 + 阴影，观感接近论文原图）。
+
+**1) 工具链**：`scripts/fancy_diagram.py` + 图标库 `assets/ml-paper-icons/`（512 个 SVG，ISC 许可，duotone/lucide/phosphor/tabler 四族，已 vendor 含 LICENSE）。写 spec → 出图：
+
+```bash
+python3 skills/pull-vla-research/scripts/fancy_diagram.py notes/<track>/figures/<id>/arch.spec.json --png
+```
+
+spec 是 JSON：title/subtitle/foot、canvas、panels（虚线分组）、nodes（label/sub/icon/cls/x/y/w/h/tag）、edges（from/to/style/label + 锚点 out/in/pos 与偏移 loff 可省略自动判断）、legend。语义类沿用 v2 十类同色系；图标用语义名（brain/lightning/robot/target/db/chart/state/flask/noise…，别名表在脚本 ALIASES）。
+
+**2) 嵌入格式**（替换原 mermaid 块，spec 与 arch.svg/arch.png 存 `notes/<track>/figures/<id>/`）：
+
+```
+![<id> 架构图 v3](figures/<id>/arch.svg)
+
+*架构速览：<一句话，主数据流 + 关键机制>*
+```
+
+门禁 diagram 检查已接受 mermaid 或 v3 SVG 两者之一；文本层面 SVG 同样可 diff。
+
+**3) 验证流程**（必须全过再嵌入）：`xml.etree` 解析过 → `qlmanage -t -s 1600` 或本地 http 服务 + 浏览器截图（GitHub 渲染的 ground truth 是浏览器）→ 视觉模型只问 BAD（文字溢出/箭头穿卡/图标缺失/布局空洞）。soffice 对部分 SVG 加载失败，不要用它做 SVG 校验。
+
+**4) 布局经验**：列间距 ≥80px（放标签药丸）；长反馈回路用 out bottom/in bottom + k≥70 压底走线；标签药丸放不进缝隙时用 loff 挪到通道外侧；同通道双向边（如 Q⇄蒸馏）错开 pos_out/pos_in。
+
+**5) 外部画图 skill 路线图**（2026-10 评估结论）：
+- K-Dense `pptx-posters`：强门禁 manifest 审批工作流，面向**印刷级会议海报**（打印/无障碍/包安全检查），不适合笔记内嵌图；真要做 poster 时再启用。
+- 本机 `presentations:pptx`（python-pptx）+ `soffice` 转 PNG：适合做汇报 slide / 求职材料里的框架图，不做笔记。
+- 本机 `tikz-figure-code` / `thesis-figure-skill`：写论文时的 TikZ 路线。
+- 笔记内嵌图一律 mermaid v2（默认）或 v3 SVG（旗舰），不引入 PPT/图片依赖。
+
 ## Reading Methodology (阅读方法论)
 
 **阅读顺序**（不要从第一页逐字读）：Abstract → Figure 1 → Introduction → Main Results → Experimental Setup → Method Overview → Method Details → Ablation → Failure Cases → Appendix（第一档）→ Related Work。第一遍 10–20 分钟只求填出 Problem→Insight→Mechanism→Evidence 链条；讲不出这四环就不钻公式。

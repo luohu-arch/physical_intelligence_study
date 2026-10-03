@@ -29,7 +29,6 @@ WCM 把世界模型从"旁观评估器"升级为"策略的条件信号源"：LeJ
 | Correction | 训练期失败轨迹人工纠错后回灌（大负奖励标注失败点）；策略本身靠 critic 值曲线规避碰撞 |
 | Deployment | 世界批判纯仿真训练；真机 WidowX-250S 7 任务零微调条件化，推理 RTX5090 本地工作站 |
 
-
 ## 核心技术
 
 ![wcm 架构图](figures/wcm/fig1.png)

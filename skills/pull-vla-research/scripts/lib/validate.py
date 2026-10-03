@@ -77,11 +77,13 @@ def validate_notes(workspace: Path, notes_dir: str | None = None) -> tuple[int, 
         checks.append(("math", True,  # never blocks — informative only
                        f"{math_count} LaTeX markers" if has_math else "no LaTeX found (info)"))
 
-        # 4. Diagram presence
-        has_diagram = "mermaid" in text or is_no_paper
+        # 4. Diagram presence (v2 mermaid 或 v3 SVG 内嵌图标图均可)
+        has_v3_svg = bool(re.search(r"!\[[^\]]*\]\(figures/[^)]+/arch\.svg\)", text))
+        has_diagram = "mermaid" in text or has_v3_svg or is_no_paper
         checks.append(("diagram", has_diagram,
-                       "mermaid present" if "mermaid" in text else
-                       ("skipped (non-paper)" if is_no_paper else "no mermaid diagram")))
+                       "v3 svg present" if has_v3_svg else
+                       ("mermaid present" if "mermaid" in text else
+                        ("skipped (non-paper)" if is_no_paper else "no mermaid diagram"))))
 
         # 4.5 Mermaid sanitization (no Unicode math that breaks rendering)
         MERMAID_UNSAFE = re.compile(

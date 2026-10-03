@@ -2,7 +2,7 @@
 
 - arXiv: https://arxiv.org/abs/2507.09061
 - Source: Thomas T. Zhang (UPenn), Daniel Pfrommer (MIT), Chaoyi Pan (CMU), Nikolai Matni (UPenn), Max Simchowitz (CMU)；v5 (2025-11-26) 正式标题为 "...Yield Exponential Improvements in Behavior Cloning for Continuous Control"
-- Project: 
+- Project:
 - Local PDF: `papers/architecture/ChunkingExploratory_2507.09061.pdf`
 - Year: 2025
 - Category: action chunking theory

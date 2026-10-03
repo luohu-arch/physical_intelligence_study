@@ -204,51 +204,6 @@ DQC 是 Q-chunking 这条线的"理论补全 + 结构修正"之作，也是 chun
 6. best-of-N 与 quantile κ_b 的对应关系（(N-1)/N 分位）在行为策略训练不充分时如何失效？能否用 ensemble Q^P 替代 quantile V 做备份？
 7. DQC 的 partial critic 蒸馏与 VLA 的 residual 微调（RL Token/SmoothRL 的 attached actor）结构同构——能否把 DQC 的"h_a=1 保反应性"直接用作 VLA 在线 RL 的策略提取层，替代 TD3 式 actor？
 
-```mermaid
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-flowchart TB
-    subgraph ENV["环境 (OGBench 长程操作)"]
-        S(["状态 s_t"]) --> TRANS["转移<br/>执行 a_t"]
-        TRANS --> S
-    end
+![dqc 架构图 v3](figures/dqc/arch.svg)
 
-    subgraph DEC["DQC 解耦设计 (核心)"]
-        direction LR
-        subgraph ACT_SIDE["Actor 侧: 短 chunk 保反应"]
-            POL["chunk 策略 pi<br/>h_a = 4"]
-        end
-        subgraph CRI_SIDE["Critic 侧: 大 chunk 保估计"]
-            Q["部分可观测 Q<br/>h_c = 16, 只见子序列"]
-        end
-    end
-
-    subgraph AUX["蒸馏目标"]
-        PART["partial critic 蒸馏<br/>expectile 乐观回归"]
-    end
-
-    S --> POL
-    S --> Q
-    POL ==>|"短动作块 a_t:t+4"| TRANS
-    Q -.->|"TD 信号 (无偏 n-step)"| POL
-    Q -.-> PART
-    PART -.->|"部分-Q 蒸馏"| Q
-
-    class S,TRANS data
-    class POL train
-    class Q,ACT_SIDE,CRI_SIDE frozen
-    class PART loss
-    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
-    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100
-    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3
-    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c
-    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3
-```
+*架构速览：Actor 用短 chunk（h=4）保在线反应速度，Critic 用大 chunk（h=16）的部分可观测 Q 保信用分配；expectile 乐观回归蒸馏 partial critic，TD 信号无偏回传策略。*

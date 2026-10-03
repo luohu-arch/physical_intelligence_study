@@ -181,6 +181,7 @@ SimDist 代表了 "world model + sim-to-real" 路线的最佳实践——证明�
 - **RLPD / IQL** — offline-to-online RL baseline，SimDist 在数据效率维度上显著超越（基线在线微调崩溃或无实质进展）
 - **SGFT-SAC** — 仅迁移仿真价值函数的模型无关基线，验证"完整世界模型适应 > 纯价值迁移"
 - **TD-MPC** — SimDist 直接复用其 MPPI 实现做在线规划，属基础设施层依赖
+
 ## 精读问题
 
 1. 仿真和真实之间的 dynamics gap 在哪些维度最大（摩擦、刚度、延迟）？只微调动力学能否覆盖所有维度，还是某些维度需要重训 encoder？

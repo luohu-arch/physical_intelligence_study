@@ -2,7 +2,7 @@
 
 - arXiv: https://arxiv.org/abs/2603.14371
 - Source: https://arxiv.org/abs/2603.14371
-- Project: 
+- Project:
 - Local PDF: `/Users/luogu/physical_intelligence/papers/architecture/OxyGen_2603.14371.pdf`
 - Year: 2026
 - Category: VLA inference systems / KV cache
