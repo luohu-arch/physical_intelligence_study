@@ -51,11 +51,11 @@ CLS_CN = {"data": "数据/输入", "frozen": "冻结模块", "train": "可训练
           "act": "动作生成", "loop": "循环/反馈", "env": "环境", "mem": "记忆",
           "reward": "奖励", "key": "关键组件"}
 EDGE_STYLE = {  # style -> (stroke, width, dash); 实线=前向数据流, 虚线=非数据流信号
-    "main":  ("#546e7a", 2.4, ""),
-    "thick": ("#263238", 3.4, ""),
-    "thin":  ("#9fb0bb", 1.6, ""),
-    "fb":    ("#1565c0", 2.2, "9 5"),          # 长虚线: 闭环反馈
-    "loss":  ("#c62828", 2.2, "2 3.5 8 3.5"),  # 点划线: 损失/监督/蒸馏
+    "main":  ("#546e7a", 3.2, ""),
+    "thick": ("#263238", 4.4, ""),
+    "thin":  ("#9fb0bb", 2.2, ""),
+    "fb":    ("#1565c0", 2.8, "12 7"),           # 长虚线: 闭环反馈
+    "loss":  ("#c62828", 2.8, "3 4.5 11 4.5"),   # 点划线: 损失/监督/蒸馏
 }
 EDGE_CN = {"thick": "主数据流", "main": "信息流", "thin": "弱关联", "fb": "闭环反馈", "loss": "损失/监督"}
 FONT = "'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif"
@@ -156,14 +156,85 @@ def auto_sides(a, b):
 NORM = {"top": (0, -1), "bottom": (0, 1), "left": (-1, 0), "right": (1, 0)}
 
 
-def edge_path(sa, na, sb, nb, k=None):
-    k = k if k is not None else max(46, (abs(sb[0] - sa[0]) + abs(sb[1] - sa[1])) * 0.42)
-    (u1, v1), (u2, v2) = NORM[na], NORM[nb]
-    c1 = (sa[0] + u1 * k, sa[1] + v1 * k)
-    c2 = (sb[0] + u2 * k, sb[1] + v2 * k)
-    return (f"M {sa[0]:.1f} {sa[1]:.1f} C {c1[0]:.1f} {c1[1]:.1f}, "
-            f"{c2[0]:.1f} {c2[1]:.1f}, {sb[0]:.1f} {sb[1]:.1f}",
-            ((sa[0] + c1[0] + c2[0] + sb[0]) / 4, (sa[1] + c1[1] + c2[1] + sb[1]) / 4))
+def _avoid_v(x, y0, y1, rects):
+    """垂直转折段 x 若穿卡, 平移到卡侧空位。"""
+    lo, hi = min(y0, y1), max(y0, y1)
+    for _ in range(2):
+        hit = None
+        for r in rects:
+            if r[0] + 10 < x < r[2] - 10 and hi > r[1] + 8 and lo < r[3] - 8:
+                hit = r
+                break
+        if not hit:
+            break
+        cands = sorted([hit[2] + 18, hit[0] - 18], key=lambda c: abs(c - x))
+        x = cands[0]
+    return x
+
+
+def _avoid_h(y, x0, x1, rects):
+    lo, hi = min(x0, x1), max(x0, x1)
+    for _ in range(2):
+        hit = None
+        for r in rects:
+            if r[1] + 10 < y < r[3] - 10 and hi > r[0] + 8 and lo < r[2] - 8:
+                hit = r
+                break
+        if not hit:
+            break
+        cands = sorted([hit[3] + 18, hit[1] - 18], key=lambda c: abs(c - y))
+        y = cands[0]
+    return y
+
+
+def edge_path(sa, na, sb, nb, k=None, rects=()):
+    """直角折线路由: 对向=直线/肘形, 同侧=U 形环绕, 相邻侧=L 形。"""
+    k = k if k is not None else 60
+    opp = {"left": "right", "right": "left", "top": "bottom", "bottom": "top"}
+    if nb == opp[na]:                                   # 对向
+        if na in ("left", "right"):
+            if abs(sa[1] - sb[1]) < 16:
+                pts = [sa, sb]
+            else:
+                mx = _avoid_v((sa[0] + sb[0]) / 2, sa[1], sb[1], rects)
+                pts = [sa, (mx, sa[1]), (mx, sb[1]), sb]
+        else:
+            if abs(sa[0] - sb[0]) < 16:
+                pts = [sa, sb]
+            else:
+                my = _avoid_h((sa[1] + sb[1]) / 2, sa[0], sb[0], rects)
+                pts = [sa, (sa[0], my), (sb[0], my), sb]
+    elif na == nb:                                      # 同侧 U 形环绕
+        if na == "bottom":
+            ly = max(sa[1], sb[1]) + k
+            pts = [sa, (sa[0], ly), (sb[0], ly), sb]
+        elif na == "top":
+            ly = min(sa[1], sb[1]) - k
+            pts = [sa, (sa[0], ly), (sb[0], ly), sb]
+        elif na == "right":
+            lx = max(sa[0], sb[0]) + k
+            pts = [sa, (lx, sa[1]), (lx, sb[1]), sb]
+        else:
+            lx = min(sa[0], sb[0]) - k
+            pts = [sa, (lx, sa[1]), (lx, sb[1]), sb]
+    else:                                               # 相邻侧 L 形
+        if na in ("left", "right"):
+            corner = (sb[0], sa[1])
+        else:
+            corner = (sa[0], sb[1])
+        pts = [sa, corner, sb]
+    d = f"M {pts[0][0]:.1f} {pts[0][1]:.1f}" + "".join(f" L {q[0]:.1f} {q[1]:.1f}" for q in pts[1:])
+    lens = [((pts[i + 1][0] - pts[i][0]) ** 2 + (pts[i + 1][1] - pts[i][1]) ** 2) ** .5
+            for i in range(len(pts) - 1)]
+    half, acc, mid = sum(lens) / 2, 0.0, pts[-1]
+    for i, L in enumerate(lens):
+        if acc + L >= half and L > 0:
+            t = (half - acc) / L
+            mid = (pts[i][0] + (pts[i + 1][0] - pts[i][0]) * t,
+                   pts[i][1] + (pts[i + 1][1] - pts[i][1]) * t)
+            break
+        acc += L
+    return d, mid
 
 
 def render(spec):
@@ -178,8 +249,9 @@ def render(spec):
     out.append('<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0">'
                '<stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>')
     for st, (c, _, _) in EDGE_STYLE.items():
-        out.append(f'<marker id="arr-{st}" viewBox="0 0 10 10" refX="9" refY="5" '
-                   f'markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">'
+        out.append(f'<marker id="arr-{st}" viewBox="0 0 10 10" refX="8.5" refY="5" '
+                   f'markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" '
+                   f'orient="auto-start-reverse">'
                    f'<path d="M0 0 L10 5 L0 10 z" fill="{c}"/></marker>')
     out.append("</defs>")
     out.append(f'<rect width="{W}" height="{H}" fill="#ffffff"/>')
@@ -213,7 +285,9 @@ def render(spec):
         na, nb = e.get("out", sa_), e.get("in", sb_)
         sa = anchor_pt(a, na, e.get("pos_out", 0.5))
         sb = anchor_pt(b, nb, e.get("pos_in", 0.5))
-        d, mid = edge_path(sa, na, sb, nb, e.get("k"))
+        rects = [(n2["x"] + 6, n2["y"] + 6, n2["x"] + n2["w"] - 6, n2["y"] + n2["h"] - 6)
+                 for n2 in spec["nodes"]]
+        d, mid = edge_path(sa, na, sb, nb, e.get("k"), rects)
         st = e.get("style", "main")
         c, w, dash = EDGE_STYLE[st]
         dash_a = f' stroke-dasharray="{dash}"' if dash else ""
@@ -237,7 +311,7 @@ def render(spec):
         cls = n.get("cls", "loop")
         a, b, s, ink = PALETTE[cls]
         x, y, w, h = n["x"], n["y"], n["w"], n["h"]
-        bw = 2.8 if cls in ("key", "train") else 1.6
+        bw = 3.2 if cls in ("key", "train") else 2.0
         dash = ' stroke-dasharray="7 4"' if cls == "loss" else ""
         out.append(f'<rect x="{x + 2.5}" y="{y + 3.5}" width="{w}" height="{h}" rx="14" '
                    f'fill="#37474f" opacity="0.13"/>')
@@ -311,7 +385,7 @@ def render(spec):
                 c, w, dash = EDGE_STYLE[st]
                 dash_a = f' stroke-dasharray="{dash}"' if dash else ""
                 label = EDGE_CN[st]
-                seg = 34
+                seg = 44
                 out.append(f'<g><path d="M {lx} {ly2} h {seg}" stroke="{c}" stroke-width="{w}"'
                            f'{dash_a} marker-end="url(#arr-{st})"/>'
                            f'<text x="{lx + seg + 8}" y="{ly2 + 4}" font-size="11.5" '

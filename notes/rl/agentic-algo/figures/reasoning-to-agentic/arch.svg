@@ -12,32 +12,32 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
-<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
-<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-fb" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
+<marker id="arr-loss" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
 <rect width="1863" height="1056" fill="#ffffff"/>
 <rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">reasoning-to-agentic</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">独立作者的分析型综述（50 页，arXiv v3 2026-08，单作者、无同行评审信息）：把 credit assignment（CA）设为审视 LLM RL 的中心透镜，冻</text>
 <text x="1829" y="1038" font-size="11.5" fill="#a0aab4" text-anchor="end">reasoning-to-agentic · arXiv 2604.09459 · v3 auto</text>
-<path d="M 932.0 594.0 C 932.0 649.4, 877.0 615.6, 877.0 671.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 932.0 594.0 C 932.0 682.4, 1065.5 582.6, 1065.5 671.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1002.0 548.0 C 1142.7 548.0, 1027.3 717.0, 1168.0 717.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 790.0 717.0 C 484.2 717.0, 553.8 903.0, 248.0 903.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 790.0 717.0 C 596.4 717.0, 708.6 903.0, 515.0 903.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 877.0 763.0 C 877.0 884.6, 664.5 718.4, 664.5 840.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1065.5 763.0 C 1065.5 851.6, 931.5 751.4, 931.5 840.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1065.5 763.0 C 1065.5 851.2, 1198.5 751.8, 1198.5 840.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1143.0 717.0 C 1307.2 717.0, 1183.8 903.0, 1348.0 903.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1332.0 717.0 C 1528.8 717.0, 1418.2 902.5, 1615.0 902.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 931.5 442.0 C 931.5 488.0, 932.0 456.0, 932.0 502.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 931.5 256.0 C 931.5 302.0, 931.5 270.0, 931.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 862.0 548.0 C 751.1 548.0, 877.9 717.0, 767.0 717.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 932.0 594.0 L 932.0 632.5 L 877.0 632.5 L 877.0 671.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 932.0 594.0 L 932.0 632.5 L 1065.5 632.5 L 1065.5 671.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1002.0 548.0 L 1155.0 548.0 L 1155.0 717.0 L 1168.0 717.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 790.0 717.0 L 519.0 717.0 L 519.0 903.0 L 248.0 903.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 790.0 717.0 L 779.0 717.0 L 779.0 903.0 L 515.0 903.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 877.0 763.0 L 877.0 801.5 L 664.5 801.5 L 664.5 840.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1065.5 763.0 L 1065.5 801.5 L 931.5 801.5 L 931.5 840.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1065.5 763.0 L 1065.5 801.5 L 1198.5 801.5 L 1198.5 840.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1143.0 717.0 L 1070.0 717.0 L 1070.0 903.0 L 1348.0 903.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1332.0 717.0 L 1593.0 717.0 L 1593.0 902.5 L 1615.0 902.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 931.5 442.0 L 932.0 502.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 931.5 256.0 L 931.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 862.0 548.0 L 778.0 548.0 L 778.0 717.0 L 767.0 717.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="864.5" y="505.5" width="140" height="92" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="862" y="502" width="140" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="862" y="502" width="140" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="932.0" cy="502" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="932.0" cy="502" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(918.5,488.5) scale(1.1250)">
@@ -48,7 +48,7 @@
 </g>
 <text x="932.0" y="553" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">任务设定?</text>
 <rect x="817.5" y="319.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="815" y="316" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="815" y="316" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="931.5" cy="316" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="931.5" cy="316" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(918.0,302.5) scale(1.1250)">
@@ -60,7 +60,7 @@
 <text x="931.5" y="360" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="931.5" dy="0">CA-ID Card 声明契</tspan><tspan x="931.5" dy="20">约 (核心): 六字段 =</tspan></text>
 <text x="931.5" y="390" font-size="12" fill="#5f6b7a" text-anchor="middle"> credit 单位与估计</text>
 <rect x="817.5" y="133.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="815" y="130" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="815" y="130" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="931.5" cy="130" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="931.5" cy="130" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(918.0,116.5) scale(1.1250)">
@@ -70,7 +70,7 @@
 <text x="931.5" y="174" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="931.5" dy="0">四层证据分级: resto</tspan><tspan x="931.5" dy="20">red-interventional</tspan></text>
 <text x="931.5" y="204" font-size="12" fill="#5f6b7a" text-anchor="middle"> &gt; observational-c</text>
 <rect x="534.5" y="657.5" width="235" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="532" y="654" width="235" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="532" y="654" width="235" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="649.5" cy="654" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="649.5" cy="654" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(636.0,640.5) scale(1.1250)">
@@ -82,13 +82,13 @@
 <text x="649.5" y="698" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="649.5" dy="0">6 个已知 (task, me</tspan><tspan x="649.5" dy="20">thod) 对回溯验证 6/</tspan></text>
 <text x="649.5" y="728" font-size="12" fill="#5f6b7a" text-anchor="middle">6 命中</text>
 <rect x="792.5" y="674.5" width="174" height="92" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="790" y="671" width="174" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="790" y="671" width="174" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="877.0" cy="671" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="877.0" cy="671" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(863.5,657.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
 <text x="877.0" y="722" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Reasoning RL</text>
 <rect x="990.5" y="674.5" width="155" height="92" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="988" y="671" width="155" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="988" y="671" width="155" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1065.5" cy="671" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1065.5" cy="671" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1052.0,657.5) scale(1.1250)">
@@ -99,7 +99,7 @@
 </g>
 <text x="1065.5" y="722" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Agentic RL</text>
 <rect x="1170.5" y="674.5" width="164" height="92" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1168" y="671" width="164" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="1168" y="671" width="164" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1250.0" cy="671" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1250.0" cy="671" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1236.5,657.5) scale(1.1250)">
@@ -110,7 +110,7 @@
 </g>
 <text x="1250.0" y="722" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Multi-Agent</text>
 <rect x="17.5" y="843.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="15" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="15" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="131.5" cy="840" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="131.5" cy="840" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(118.0,826.5) scale(1.1250)">
@@ -121,7 +121,7 @@
 <text x="131.5" y="884" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="131.5" dy="0">CoT &lt;= 5K token:</tspan><tspan x="131.5" dy="20">GRPO / PURE / SPO </tspan></text>
 <text x="131.5" y="914" font-size="12" fill="#5f6b7a" text-anchor="middle">/ SPRO</text>
 <rect x="284.5" y="843.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="282" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="282" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="398.5" cy="840" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="398.5" cy="840" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(385.0,826.5) scale(1.1250)">
@@ -132,7 +132,7 @@
 <text x="398.5" y="884" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="398.5" dy="0">CoT &gt; 5K token:</tspan><tspan x="398.5" dy="20">HICRA / CAPO / SPR</tspan></text>
 <text x="398.5" y="914" font-size="12" fill="#5f6b7a" text-anchor="middle">O / GRPO-lambda</text>
 <rect x="550.5" y="843.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="548" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="548" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="664.5" cy="840" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="664.5" cy="840" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(651.0,826.5) scale(1.1250)">
@@ -144,7 +144,7 @@
 <text x="664.5" y="884" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="664.5" dy="0">算力充裕:</tspan><tspan x="664.5" dy="20">VinePPO / SCAR / G</tspan></text>
 <text x="664.5" y="914" font-size="12" fill="#5f6b7a" text-anchor="middle">RAIL</text>
 <rect x="817.5" y="843.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="815" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="815" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="931.5" cy="840" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="931.5" cy="840" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(918.0,826.5) scale(1.1250)">
@@ -156,7 +156,7 @@
 <text x="931.5" y="884" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="931.5" dy="0">&lt;= 30 轮, 无辅助模</tspan><tspan x="931.5" dy="20">型:</tspan></text>
 <text x="931.5" y="914" font-size="12" fill="#5f6b7a" text-anchor="middle">GiGPO / CARL / iSt</text>
 <rect x="1084.5" y="843.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1082" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="1082" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1198.5" cy="840" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1198.5" cy="840" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1185.0,826.5) scale(1.1250)">
@@ -168,7 +168,7 @@
 <text x="1198.5" y="884" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1198.5" dy="0">&lt;= 30 轮, 可用辅助</tspan><tspan x="1198.5" dy="20">模型:</tspan></text>
 <text x="1198.5" y="914" font-size="12" fill="#5f6b7a" text-anchor="middle">AgentPRM / SWEET-R</text>
 <rect x="1350.5" y="843.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1348" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="1348" y="840" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1464.5" cy="840" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1464.5" cy="840" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1451.0,826.5) scale(1.1250)">
@@ -180,7 +180,7 @@
 <text x="1464.5" y="884" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1464.5" dy="0">&gt; 30 轮:</tspan><tspan x="1464.5" dy="20">C3 / CCPO / HCAPO </tspan></text>
 <text x="1464.5" y="914" font-size="12" fill="#5f6b7a" text-anchor="middle">/ IGPO / CRAFT / A</text>
 <rect x="1617.5" y="859.5" width="233" height="93" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1615" y="856" width="233" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<rect x="1615" y="856" width="233" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1731.5" cy="856" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1731.5" cy="856" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1718.0,842.5) scale(1.1250)">
@@ -192,11 +192,11 @@
 <text x="1731.5" y="900" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1731.5" dy="0">M-GRPO / SHARP / M</tspan><tspan x="1731.5" dy="20">APPA / Dr.MAS</tspan></text>
 <g transform="translate(904.5,614.5)"><rect x="-97.1" y="-11" width="194.2" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;token 级 MDP, CoT 可验证&quot;</text></g>
 <g transform="translate(998.8,614.5)"><rect x="-105.7" y="-11" width="211.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;turn 级 POMDP, 稀疏终端奖励&quot;</text></g>
-<g transform="translate(1085.0,614.5)"><rect x="-98.2" y="-11" width="196.3" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;团队奖励, 跨智能体 credit&quot;</text></g>
+<g transform="translate(1155.0,544.5)"><rect x="-98.2" y="-11" width="196.3" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;团队奖励, 跨智能体 credit&quot;</text></g>
 <g transform="translate(931.8,454.0)"><rect x="-135.7" y="-11" width="271.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;任何选型的 credit 声明不得超出证据层级</text></g>
 <text x="40" y="1004.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="990" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1001" r="4.2" fill="#546e7a"/><text x="110" y="1005" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 <text x="40" y="1044" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1040 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1044" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 1040 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="1044" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g><path d="M 80 1040 h 44" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)"/><text x="132" y="1044" font-size="11.5" fill="#263238">主数据流</text></g>
+<g><path d="M 212.76 1040 h 44" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)"/><text x="264.76" y="1044" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
 </svg>
