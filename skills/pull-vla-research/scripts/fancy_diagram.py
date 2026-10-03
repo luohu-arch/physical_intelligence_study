@@ -261,7 +261,7 @@ def resolve_and_render_pills(jobs, nodes, W, H):
             if not allow_node and any(r[0] < nr[2] and nr[0] < r[2] and r[1] < nr[3] and nr[1] < r[3]
                                       for nr in node_rects):
                 continue
-            if any(r[0] < pr[2] + 4 and pr[0] - 4 < r[2] and r[1] < pr[3] + 2 and pr[1] - 2 < r[3]
+            if any(r[0] < pr[2] + 10 and pr[0] - 10 < r[2] and r[1] < pr[3] + 8 and pr[1] - 8 < r[3]
                    for pr in placed):
                 continue
             if any(abs(cx - ax) < wl / 2 + 18 and abs(cy - ay) < 30
