@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -26,21 +26,21 @@
 <rect x="21" y="444" width="509" height="219" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="37" y="457" width="90.25" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="48" y="474" font-size="12.5" fill="#4a6579">双视觉通路</text>
-<path d="M 161.0 232.0 C 161.0 450.6, 425.5 269.4, 425.5 488.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 276.0 329.0 C 486.8 329.0, 361.2 535.0, 572.0 535.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 258.0 471.0 C 792.9 471.0, 933.1 534.5, 1468.0 534.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 506.0 534.0 C 552.0 534.0, 526.0 535.0, 572.0 535.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 802.0 535.0 C 848.0 535.0, 822.0 535.0, 868.0 535.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1100.0 535.0 C 1163.0 535.0, 1111.0 459.0, 1174.0 459.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1100.0 535.0 C 1158.8 535.0, 1107.2 609.0, 1166.0 609.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 278.0 597.5 C 804.3 597.5, 941.7 534.5, 1468.0 534.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1402.0 609.0 C 1461.0 609.0, 1409.0 534.5, 1468.0 534.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 258.0 471.0 C 792.9 471.0, 933.1 534.5, 1468.0 534.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1695.0 534.5 C 1741.0 534.5, 1715.0 534.5, 1761.0 534.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1991.0 534.5 C 2037.0 534.5, 2011.0 534.5, 2057.0 534.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 2126.0 488.0 C 2126.0 414.0, 172.5 32.0, 172.5 106.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 276.0 740.0 C 610.7 740.0, 533.3 535.0, 868.0 535.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 279.0 900.0 C 555.4 900.0, 295.6 535.0, 572.0 535.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 161.0 232.0 C 161.0 450.6, 425.5 269.4, 425.5 488.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 276.0 329.0 C 486.8 329.0, 361.2 535.0, 572.0 535.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 258.0 471.0 C 792.9 471.0, 933.1 534.5, 1468.0 534.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 506.0 534.0 C 552.0 534.0, 526.0 535.0, 572.0 535.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 802.0 535.0 C 848.0 535.0, 822.0 535.0, 868.0 535.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1100.0 535.0 C 1163.0 535.0, 1111.0 459.0, 1174.0 459.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1100.0 535.0 C 1158.8 535.0, 1107.2 609.0, 1166.0 609.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 278.0 597.5 C 804.3 597.5, 941.7 534.5, 1468.0 534.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1402.0 609.0 C 1461.0 609.0, 1409.0 534.5, 1468.0 534.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 258.0 471.0 C 792.9 471.0, 933.1 534.5, 1468.0 534.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1695.0 534.5 C 1741.0 534.5, 1715.0 534.5, 1761.0 534.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1991.0 534.5 C 2037.0 534.5, 2011.0 534.5, 2057.0 534.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 2126.0 488.0 C 2126.0 414.0, 172.5 32.0, 172.5 106.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 276.0 740.0 C 610.7 740.0, 533.3 535.0, 868.0 535.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 279.0 900.0 C 555.4 900.0, 295.6 535.0, 572.0 535.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="48.5" y="109.5" width="230" height="126" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="46" y="106" width="230" height="126" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="161.0" cy="106" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -149,13 +149,17 @@
 <g transform="translate(148.0,823.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
 <text x="161.5" y="881" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="161.5" dy="0">language motion 监</tspan><tspan x="161.5" dy="20">督</tspan></text>
 <text x="161.5" y="911" font-size="12" fill="#5f6b7a" text-anchor="middle">位移三值化 {-1,0,1}</text>
-<g transform="translate(1149.2,242.0)"><rect x="-104.0" y="-11" width="208.1" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;激进闭环 2.51-4.96 Hz (A100</text></g>
-<text x="40" y="999.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="985" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="996" r="4.2" fill="#6a1b9a"/><text x="110" y="1000" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="184.76" y="985" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="996" r="4.2" fill="#2e7d32"/><text x="208.76" y="1000" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="290.19" y="985" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="303.19" cy="996" r="4.2" fill="#1565c0"/><text x="314.19" y="1000" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
-<g><rect x="388.95" y="985" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="401.95" cy="996" r="4.2" fill="#ef6c00"/><text x="412.95" y="1000" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="487.71" y="985" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="500.71" cy="996" r="4.2" fill="#546e7a"/><text x="511.71" y="1000" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<g><rect x="593.14" y="985" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="606.14" cy="996" r="4.2" fill="#c62828"/><text x="617.14" y="1000" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
-<g><rect x="698.5699999999999" y="985" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="711.5699999999999" cy="996" r="4.2" fill="#ef6c00"/><text x="722.5699999999999" y="1000" font-size="11.5" fill="#b34700">可训练模块</text></g>
+<g transform="translate(1149.2,242.0)"><rect x="-104.0" y="-11" width="208.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;激进闭环 2.51-4.96 Hz (A100</text></g>
+<text x="40" y="977.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="963" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="974" r="4.2" fill="#6a1b9a"/><text x="110" y="978" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="963" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="974" r="4.2" fill="#2e7d32"/><text x="208.76" y="978" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="963" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="303.19" cy="974" r="4.2" fill="#1565c0"/><text x="314.19" y="978" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
+<g><rect x="388.95" y="963" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="401.95" cy="974" r="4.2" fill="#ef6c00"/><text x="412.95" y="978" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="487.71" y="963" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="500.71" cy="974" r="4.2" fill="#546e7a"/><text x="511.71" y="978" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g><rect x="593.14" y="963" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="606.14" cy="974" r="4.2" fill="#c62828"/><text x="617.14" y="978" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
+<g><rect x="698.5699999999999" y="963" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="711.5699999999999" cy="974" r="4.2" fill="#ef6c00"/><text x="722.5699999999999" y="978" font-size="11.5" fill="#b34700">可训练模块</text></g>
+<text x="40" y="1017" font-size="11.5" fill="#78909c">线型</text>
+<g><path d="M 80 1013 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="122" y="1017" font-size="11.5" fill="#546e7a">信息流</text></g>
+<g><path d="M 190.57 1013 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="232.57" y="1017" font-size="11.5" fill="#263238">主数据流</text></g>
+<g><path d="M 313.33 1013 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="355.33" y="1017" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
 </svg>

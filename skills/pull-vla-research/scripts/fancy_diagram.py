@@ -50,13 +50,14 @@ PALETTE = {
 CLS_CN = {"data": "数据/输入", "frozen": "冻结模块", "train": "可训练模块", "loss": "损失/监督",
           "act": "动作生成", "loop": "循环/反馈", "env": "环境", "mem": "记忆",
           "reward": "奖励", "key": "关键组件"}
-EDGE_STYLE = {  # style -> (stroke, width, dash)
-    "main":  ("#607d8b", 2.4, ""),
-    "thick": ("#37474f", 3.2, ""),
-    "thin":  ("#90a4ae", 1.8, ""),
-    "fb":    ("#1565c0", 2.2, "7 5"),
-    "loss":  ("#c62828", 2.2, "6 4"),
+EDGE_STYLE = {  # style -> (stroke, width, dash); 实线=前向数据流, 虚线=非数据流信号
+    "main":  ("#546e7a", 2.4, ""),
+    "thick": ("#263238", 3.4, ""),
+    "thin":  ("#9fb0bb", 1.6, ""),
+    "fb":    ("#1565c0", 2.2, "9 5"),          # 长虚线: 闭环反馈
+    "loss":  ("#c62828", 2.2, "2 3.5 8 3.5"),  # 点划线: 损失/监督/蒸馏
 }
+EDGE_CN = {"thick": "主数据流", "main": "信息流", "thin": "弱关联", "fb": "闭环反馈", "loss": "损失/监督"}
 FONT = "'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif"
 
 
@@ -223,10 +224,12 @@ def render(spec):
             wl = tw(e["label"], 12) + 18
             lx, ly = mid[0], mid[1]
             off = e.get("loff", (0, 0))
+            lc = EDGE_STYLE[st][0]
             labels.append(f'<g transform="translate({lx + off[0]:.1f},{ly + off[1]:.1f})">'
                           f'<rect x="{-wl / 2:.1f}" y="-11" width="{wl:.1f}" height="22" rx="11" '
-                          f'fill="#ffffff" stroke="#cfd8dc"/>'
-                          f'<text y="4" font-size="12" fill="#455a64" text-anchor="middle">{t}</text></g>')
+                          f'fill="#ffffff" stroke="{lc}" stroke-width="1.2"/>'
+                          f'<text y="4" font-size="12" fill="{lc}" font-weight="600" '
+                          f'text-anchor="middle">{t}</text></g>')
     out += paths
 
     # 节点卡片
@@ -280,19 +283,40 @@ def render(spec):
 
     # 图例
     legend = spec.get("legend")
-    if legend:
-        lx, ly = 40, H - 34
-        out.append(f'<text x="{lx}" y="{ly + 4.5}" font-size="12" fill="#78909c">图例</text>')
-        lx += 46
-        for cls in legend:
-            a, b, s, ink = PALETTE[cls]
-            label = CLS_CN[cls]
-            wch = tw(label, 11.5) + 38
-            out.append(f'<g><rect x="{lx}" y="{ly - 10}" width="{wch}" height="22" rx="11" '
-                       f'fill="url(#g-{cls})" stroke="{s}" stroke-width="1.3"/>'
-                       f'<circle cx="{lx + 13}" cy="{ly + 1}" r="4.2" fill="{s}"/>'
-                       f'<text x="{lx + 24}" y="{ly + 5}" font-size="11.5" fill="{ink}">{esc(label)}</text></g>')
-            lx += wch + 12
+    used_styles = []
+    for e in spec.get("edges", []):
+        st = e.get("style", "main")
+        if st not in used_styles:
+            used_styles.append(st)
+    if legend or used_styles:
+        ly = H - 56 if (legend and used_styles) else H - 34
+        if legend:
+            lx = 40
+            out.append(f'<text x="{lx}" y="{ly + 4.5}" font-size="12" fill="#78909c">图例</text>')
+            lx += 46
+            for cls in legend:
+                a, b, s_, ink = PALETTE[cls]
+                label = CLS_CN[cls]
+                wch = tw(label, 11.5) + 38
+                out.append(f'<g><rect x="{lx}" y="{ly - 10}" width="{wch}" height="22" rx="11" '
+                           f'fill="url(#g-{cls})" stroke="{s_}" stroke-width="1.3"/>'
+                           f'<circle cx="{lx + 13}" cy="{ly + 1}" r="4.2" fill="{s_}"/>'
+                           f'<text x="{lx + 24}" y="{ly + 5}" font-size="11.5" fill="{ink}">{esc(label)}</text></g>')
+                lx += wch + 12
+        if used_styles:
+            lx, ly2 = 40, H - 16
+            out.append(f'<text x="{lx}" y="{ly2 + 4}" font-size="11.5" fill="#78909c">线型</text>')
+            lx += 40
+            for st in used_styles:
+                c, w, dash = EDGE_STYLE[st]
+                dash_a = f' stroke-dasharray="{dash}"' if dash else ""
+                label = EDGE_CN[st]
+                seg = 34
+                out.append(f'<g><path d="M {lx} {ly2} h {seg}" stroke="{c}" stroke-width="{w}"'
+                           f'{dash_a} marker-end="url(#arr-{st})"/>'
+                           f'<text x="{lx + seg + 8}" y="{ly2 + 4}" font-size="11.5" '
+                           f'fill="{c}">{esc(label)}</text></g>')
+                lx += seg + 14 + tw(label, 11.5) + 26
     out.append("</svg>")
     return "\n".join(out)
 

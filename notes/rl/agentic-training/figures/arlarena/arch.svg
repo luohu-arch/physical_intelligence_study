@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,20 +23,20 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">arlarena</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">ICML 2026 的 agentic RL 稳定性系统研究：先把多回合 ARL 训练拆成四个正交设计维度（损失聚合、IS 裁剪、轨迹过滤重采样、优势设计），在标准化测试床上逐</text>
 <text x="1040" y="1411" font-size="11.5" fill="#a0aab4" text-anchor="end">arlarena · arXiv 2602.21534 · v3 auto</text>
-<path d="M 422.0 718.0 C 283.0 718.0, 416.0 904.0, 277.0 904.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 537.0 781.0 C 537.0 857.4, 415.0 764.6, 415.0 841.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 537.0 781.0 C 537.0 861.2, 668.0 760.8, 668.0 841.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 652.0 718.0 C 795.2 718.0, 663.8 904.0, 807.0 904.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 408.5 256.0 C 408.5 335.0, 536.5 237.0, 536.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 536.5 442.0 C 536.5 488.0, 536.5 456.0, 536.5 502.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 536.5 595.0 C 536.5 641.0, 537.0 609.0, 537.0 655.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 277.0 904.0 C 416.9 904.0, 284.1 1090.0, 424.0 1090.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 415.0 967.0 C 415.0 1043.2, 536.5 950.8, 536.5 1027.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 668.0 967.0 C 668.0 1047.4, 536.5 946.6, 536.5 1027.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 807.0 904.0 C 662.5 904.0, 793.5 1090.0, 649.0 1090.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 662.5 256.0 C 662.5 605.6, 415.0 491.4, 415.0 841.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 536.5 1153.0 C 536.5 1199.0, 537.0 1167.0, 537.0 1213.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 491.0 655.0 C 491.0 581.0, 419.9 56.0, 419.9 130.0" fill="none" stroke="#c62828" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arr-loss)" opacity="0.92"/>
+<path d="M 422.0 718.0 C 283.0 718.0, 416.0 904.0, 277.0 904.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 537.0 781.0 C 537.0 857.4, 415.0 764.6, 415.0 841.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 537.0 781.0 C 537.0 861.2, 668.0 760.8, 668.0 841.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 652.0 718.0 C 795.2 718.0, 663.8 904.0, 807.0 904.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 408.5 256.0 C 408.5 335.0, 536.5 237.0, 536.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 536.5 442.0 C 536.5 488.0, 536.5 456.0, 536.5 502.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 536.5 595.0 C 536.5 641.0, 537.0 609.0, 537.0 655.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 277.0 904.0 C 416.9 904.0, 284.1 1090.0, 424.0 1090.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 415.0 967.0 C 415.0 1043.2, 536.5 950.8, 536.5 1027.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 668.0 967.0 C 668.0 1047.4, 536.5 946.6, 536.5 1027.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 807.0 904.0 C 662.5 904.0, 793.5 1090.0, 649.0 1090.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 662.5 256.0 C 662.5 605.6, 415.0 491.4, 415.0 841.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 536.5 1153.0 C 536.5 1199.0, 537.0 1167.0, 537.0 1213.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 491.0 655.0 C 491.0 581.0, 419.9 56.0, 419.9 130.0" fill="none" stroke="#c62828" stroke-width="2.2" stroke-dasharray="2 3.5 8 3.5" marker-end="url(#arr-loss)" opacity="0.92"/>
 <rect x="297.5" y="133.5" width="227" height="126" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="295" y="130" width="227" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
 <circle cx="408.5" cy="130" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -151,9 +151,13 @@
 </g>
 <text x="537.0" y="1257" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="537.0" dy="0">四任务平均 60.21, </tspan><tspan x="537.0" dy="20">比 GRPO +25.2%</tspan></text>
 <text x="537.0" y="1287" font-size="12" fill="#5f6b7a" text-anchor="middle">ALFWorld 92.72% 反</text>
-<g transform="translate(472.5,268.0)"><rect x="-56.5" y="-11" width="113.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;rollout 交互&quot;</text></g>
-<g transform="translate(538.8,530.5)"><rect x="-80.8" y="-11" width="161.5" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;八组 KL 贡献分解锁定&quot;</text></g>
-<g transform="translate(455.4,355.5)"><rect x="-41.4" y="-11" width="82.8" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;梯度更新&quot;</text></g>
-<text x="40" y="1399.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1385" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1396" r="4.2" fill="#546e7a"/><text x="110" y="1400" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g transform="translate(472.5,268.0)"><rect x="-56.5" y="-11" width="113.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;rollout 交互&quot;</text></g>
+<g transform="translate(538.8,530.5)"><rect x="-80.8" y="-11" width="161.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;八组 KL 贡献分解锁定&quot;</text></g>
+<g transform="translate(455.4,355.5)"><rect x="-41.4" y="-11" width="82.8" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;梯度更新&quot;</text></g>
+<text x="40" y="1377.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1363" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1374" r="4.2" fill="#546e7a"/><text x="110" y="1378" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<text x="40" y="1417" font-size="11.5" fill="#78909c">线型</text>
+<g><path d="M 80 1413 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1417" font-size="11.5" fill="#263238">主数据流</text></g>
+<g><path d="M 202.76 1413 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="1417" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g><path d="M 325.52 1413 h 34" stroke="#c62828" stroke-width="2.2" stroke-dasharray="2 3.5 8 3.5" marker-end="url(#arr-loss)"/><text x="367.52" y="1417" font-size="11.5" fill="#c62828">损失/监督</text></g>
 </svg>

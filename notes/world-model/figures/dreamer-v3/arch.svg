@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,19 +23,19 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">dreamer-v3</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">Dreamer v3 用一组固定超参数（归一化、KL 平衡 + free bits、symlog 变换三大类鲁棒技术）在 Atari、ProcGen、DMLab、DMContr</text>
 <text x="1703" y="820" font-size="11.5" fill="#a0aab4" text-anchor="end">dreamer-v3 · arXiv 2301.04104 · v3 auto</text>
-<path d="M 574.0 222.0 C 574.0 268.4, 623.5 236.6, 623.5 283.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 510.0 346.0 C 302.1 346.0, 408.9 532.0, 201.0 532.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 743.5 222.0 C 743.5 305.6, 864.5 216.4, 864.5 300.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 912.0 222.0 C 912.0 274.7, 864.5 247.3, 864.5 300.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 761.0 346.5 C 555.6 346.5, 663.4 532.5, 458.0 532.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 761.0 346.5 C 652.2 346.5, 796.8 532.5, 688.0 532.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 864.5 393.0 C 864.5 449.5, 823.0 429.5, 823.0 486.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 864.5 393.0 C 864.5 513.8, 1076.0 348.2, 1076.0 469.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 201.0 532.0 C 514.5 532.0, 464.5 701.5, 778.0 701.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 458.0 532.5 C 663.4 532.5, 572.6 701.5, 778.0 701.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1119.5 223.0 C 1119.5 269.0, 1109.5 254.0, 1109.5 300.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1109.5 393.0 C 1109.5 522.1, 1341.0 339.9, 1341.0 469.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1227.0 346.5 C 1415.0 346.5, 1301.0 532.0, 1489.0 532.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 574.0 222.0 C 574.0 268.4, 623.5 236.6, 623.5 283.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 510.0 346.0 C 302.1 346.0, 408.9 532.0, 201.0 532.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 743.5 222.0 C 743.5 305.6, 864.5 216.4, 864.5 300.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 912.0 222.0 C 912.0 274.7, 864.5 247.3, 864.5 300.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 761.0 346.5 C 555.6 346.5, 663.4 532.5, 458.0 532.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 761.0 346.5 C 652.2 346.5, 796.8 532.5, 688.0 532.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 864.5 393.0 C 864.5 449.5, 823.0 429.5, 823.0 486.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 864.5 393.0 C 864.5 513.8, 1076.0 348.2, 1076.0 469.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 201.0 532.0 C 514.5 532.0, 464.5 701.5, 778.0 701.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 458.0 532.5 C 663.4 532.5, 572.6 701.5, 778.0 701.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1119.5 223.0 C 1119.5 269.0, 1109.5 254.0, 1109.5 300.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1109.5 393.0 C 1109.5 522.1, 1341.0 339.9, 1341.0 469.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1227.0 346.5 C 1415.0 346.5, 1301.0 532.0, 1489.0 532.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
 <rect x="506.5" y="133.5" width="140" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="504" y="130" width="140" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="574.0" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -157,13 +157,17 @@
 <g transform="translate(1592.0,455.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
 <text x="1605.5" y="513" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="1605.5" dy="0">critic</tspan><tspan x="1605.5" dy="20">twohot lambda-retu</tspan></text>
 <text x="1605.5" y="543" font-size="12" fill="#5f6b7a" text-anchor="middle">rn</text>
-<g transform="translate(489.5,598.8)"><rect x="-98.3" y="-11" width="196.6" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;KL 平衡: dyn 1.0 vs rep 0</text></g>
-<text x="40" y="808.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="794" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="805" r="4.2" fill="#6a1b9a"/><text x="110" y="809" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="184.76" y="794" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="805" r="4.2" fill="#2e7d32"/><text x="208.76" y="809" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="290.19" y="794" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="303.19" cy="805" r="4.2" fill="#00695c"/><text x="314.19" y="809" font-size="11.5" fill="#004d40">环境</text></g>
-<g><rect x="364.57" y="794" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="377.57" cy="805" r="4.2" fill="#ef6c00"/><text x="388.57" y="809" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="463.33" y="794" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="476.33" cy="805" r="4.2" fill="#546e7a"/><text x="487.33" y="809" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<g><rect x="568.76" y="794" width="62.38" height="22" rx="11" fill="url(#g-reward)" stroke="#ad1457" stroke-width="1.3"/><circle cx="581.76" cy="805" r="4.2" fill="#ad1457"/><text x="592.76" y="809" font-size="11.5" fill="#880e4f">奖励</text></g>
-<g><rect x="643.14" y="794" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="656.14" cy="805" r="4.2" fill="#ef6c00"/><text x="667.14" y="809" font-size="11.5" fill="#b34700">可训练模块</text></g>
+<g transform="translate(489.5,598.8)"><rect x="-98.3" y="-11" width="196.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;KL 平衡: dyn 1.0 vs rep 0</text></g>
+<text x="40" y="786.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="772" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="783" r="4.2" fill="#6a1b9a"/><text x="110" y="787" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="772" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="783" r="4.2" fill="#2e7d32"/><text x="208.76" y="787" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="772" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="303.19" cy="783" r="4.2" fill="#00695c"/><text x="314.19" y="787" font-size="11.5" fill="#004d40">环境</text></g>
+<g><rect x="364.57" y="772" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="377.57" cy="783" r="4.2" fill="#ef6c00"/><text x="388.57" y="787" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="463.33" y="772" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="476.33" cy="783" r="4.2" fill="#546e7a"/><text x="487.33" y="787" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g><rect x="568.76" y="772" width="62.38" height="22" rx="11" fill="url(#g-reward)" stroke="#ad1457" stroke-width="1.3"/><circle cx="581.76" cy="783" r="4.2" fill="#ad1457"/><text x="592.76" y="787" font-size="11.5" fill="#880e4f">奖励</text></g>
+<g><rect x="643.14" y="772" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="656.14" cy="783" r="4.2" fill="#ef6c00"/><text x="667.14" y="787" font-size="11.5" fill="#b34700">可训练模块</text></g>
+<text x="40" y="826" font-size="11.5" fill="#78909c">线型</text>
+<g><path d="M 80 822 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="122" y="826" font-size="11.5" fill="#546e7a">信息流</text></g>
+<g><path d="M 190.57 822 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="232.57" y="826" font-size="11.5" fill="#263238">主数据流</text></g>
+<g><path d="M 313.33 822 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="355.33" y="826" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
 </svg>

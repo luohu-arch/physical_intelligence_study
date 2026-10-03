@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,16 +23,16 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">phys2real</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">Phys2Real 提出 Real-to-Sim-to-Real 三阶段管道：3D Gaussian Splatting 重建真实场景，VLM 从 RGB 图像估计物理参数先验</text>
 <text x="959" y="1200" font-size="11.5" fill="#a0aab4" text-anchor="end">phys2real · arXiv 2510.11689 · v3 auto</text>
-<path d="M 201.5 239.0 C 201.5 290.0, 189.0 297.0, 189.0 348.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 189.0 474.0 C 189.0 579.2, 331.5 476.8, 331.5 582.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 290.0 193.0 C 416.8 193.0, 247.2 411.0, 374.0 411.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 475.0 256.0 C 475.0 487.0, 497.0 553.0, 497.0 784.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 331.5 675.0 C 331.5 790.3, 497.0 668.7, 497.0 784.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 770.0 239.0 C 770.0 310.8, 816.0 292.2, 816.0 364.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 508.5 474.0 C 508.5 561.6, 625.0 478.4, 625.0 566.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 816.0 457.0 C 816.0 583.0, 625.0 440.0, 625.0 566.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 497.0 910.0 C 497.0 956.0, 496.0 956.0, 496.0 1002.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 625.0 692.0 C 625.0 876.4, 496.0 817.6, 496.0 1002.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 201.5 239.0 C 201.5 290.0, 189.0 297.0, 189.0 348.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 189.0 474.0 C 189.0 579.2, 331.5 476.8, 331.5 582.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 290.0 193.0 C 416.8 193.0, 247.2 411.0, 374.0 411.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 475.0 256.0 C 475.0 487.0, 497.0 553.0, 497.0 784.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 331.5 675.0 C 331.5 790.3, 497.0 668.7, 497.0 784.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 770.0 239.0 C 770.0 310.8, 816.0 292.2, 816.0 364.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 508.5 474.0 C 508.5 561.6, 625.0 478.4, 625.0 566.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 816.0 457.0 C 816.0 583.0, 625.0 440.0, 625.0 566.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 497.0 910.0 C 497.0 956.0, 496.0 956.0, 496.0 1002.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 625.0 692.0 C 625.0 876.4, 496.0 817.6, 496.0 1002.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="115.5" y="150.5" width="177" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="113" y="147" width="177" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="201.5" cy="147" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -114,13 +114,16 @@
 </g>
 <text x="496.0" y="1046" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="496.0" dy="0">真机部署 (sim-to-real)</tspan><tspan x="496.0" dy="20">sigma_rma 小 -&gt; 信交互估</tspan></text>
 <text x="496.0" y="1076" font-size="12" fill="#5f6b7a" text-anchor="middle">计</text>
-<g transform="translate(486.0,520.0)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;特权条件化训练&quot;</text></g>
-<g transform="translate(560.5,829.0)"><rect x="-85.9" y="-11" width="171.8" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;融合估计实时条件化策略&quot;</text></g>
-<text x="40" y="1188.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1174" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1185" r="4.2" fill="#6a1b9a"/><text x="110" y="1189" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="184.76" y="1174" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1185" r="4.2" fill="#2e7d32"/><text x="208.76" y="1189" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="290.19" y="1174" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="303.19" cy="1185" r="4.2" fill="#00695c"/><text x="314.19" y="1189" font-size="11.5" fill="#004d40">环境</text></g>
-<g><rect x="364.57" y="1174" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="377.57" cy="1185" r="4.2" fill="#1565c0"/><text x="388.57" y="1189" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
-<g><rect x="463.33" y="1174" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="476.33" cy="1185" r="4.2" fill="#ef6c00"/><text x="487.33" y="1189" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="562.09" y="1174" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="575.09" cy="1185" r="4.2" fill="#ef6c00"/><text x="586.09" y="1189" font-size="11.5" fill="#b34700">可训练模块</text></g>
+<g transform="translate(486.0,520.0)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;特权条件化训练&quot;</text></g>
+<g transform="translate(560.5,829.0)"><rect x="-85.9" y="-11" width="171.8" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;融合估计实时条件化策略&quot;</text></g>
+<text x="40" y="1166.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1152" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1163" r="4.2" fill="#6a1b9a"/><text x="110" y="1167" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="1152" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1163" r="4.2" fill="#2e7d32"/><text x="208.76" y="1167" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="1152" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="303.19" cy="1163" r="4.2" fill="#00695c"/><text x="314.19" y="1167" font-size="11.5" fill="#004d40">环境</text></g>
+<g><rect x="364.57" y="1152" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="377.57" cy="1163" r="4.2" fill="#1565c0"/><text x="388.57" y="1167" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
+<g><rect x="463.33" y="1152" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="476.33" cy="1163" r="4.2" fill="#ef6c00"/><text x="487.33" y="1167" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="562.09" y="1152" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="575.09" cy="1163" r="4.2" fill="#ef6c00"/><text x="586.09" y="1167" font-size="11.5" fill="#b34700">可训练模块</text></g>
+<text x="40" y="1206" font-size="11.5" fill="#78909c">线型</text>
+<g><path d="M 80 1202 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1206" font-size="11.5" fill="#263238">主数据流</text></g>
+<g><path d="M 202.76 1202 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="1206" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
 </svg>

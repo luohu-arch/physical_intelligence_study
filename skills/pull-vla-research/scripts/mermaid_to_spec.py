@@ -407,7 +407,7 @@ def layout(parsed, tight=False):
             continue
         st = ARROW_STYLE.get(e["arrow"], "main")
         lab = e["label"][:24] if e["label"] else ""
-        if re.search(r"蒸馏|损失|TD|监督|梯度|优化", lab or ""):
+        if re.search(r"蒸馏|损失|TD|监督|梯度|优化|反传|学习信号|expectile|n-step|回传", lab or "", re.I):
             st = "loss"
         se = {"from": a, "to": b, "style": st}
         if lab:

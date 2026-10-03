@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -29,31 +29,31 @@
 <rect x="201" y="611" width="524" height="1358" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="217" y="624" width="229.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="228" y="641" font-size="12.5" fill="#4a6579">迭代自改进循环: 2 轮 x 20 回合</text>
-<path d="M 466.0 1411.5 C 392.9 1411.5, 534.1 1580.5, 461.0 1580.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 343.0 1627.0 C 343.0 1713.5, 472.0 1617.5, 472.0 1704.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 472.0 1797.0 C 472.0 1865.2, 369.5 1788.8, 369.5 1857.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 472.0 1797.0 C 472.0 1864.8, 573.5 1789.2, 573.5 1857.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 537.7 1857.0 C 537.7 1783.0, 483.1 581.0, 483.1 655.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 471.5 781.0 C 471.5 827.0, 471.5 795.0, 471.5 841.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 160.5 256.0 C 160.5 359.7, 347.5 212.3, 347.5 316.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 347.5 442.0 C 347.5 488.0, 360.0 456.0, 360.0 502.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 562.0 239.0 C 562.0 287.5, 600.5 267.5, 600.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 374.0 239.0 C 374.0 366.5, 600.5 188.5, 600.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 600.5 442.0 C 600.5 488.0, 554.0 456.0, 554.0 502.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 600.5 442.0 C 600.5 938.2, 342.0 868.8, 342.0 1365.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 374.0 239.0 C 374.0 799.9, 583.5 804.1, 583.5 1365.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 788.0 239.0 C 788.0 797.8, 583.5 806.2, 583.5 1365.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 333.7 1857.0 C 333.7 1783.0, 483.1 581.0, 483.1 655.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 554.0 595.0 C 554.0 654.9, 471.5 595.1, 471.5 655.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 302.0 1365.0 C 302.0 1291.0, 483.1 581.0, 483.1 655.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 333.7 1857.0 C 333.7 1783.0, 482.5 919.0, 482.5 993.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 471.5 933.0 C 471.5 979.0, 471.0 947.0, 471.0 993.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 302.0 1365.0 C 302.0 1291.0, 482.5 919.0, 482.5 993.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 471.0 1119.0 C 471.0 1165.0, 472.0 1133.0, 472.0 1179.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 472.0 1305.0 C 472.0 1377.0, 583.5 1293.0, 583.5 1365.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 424.8 1179.0 C 424.8 1105.0, 564.0 428.0, 564.0 502.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 472.0 1305.0 C 472.0 1384.8, 342.0 1285.2, 342.0 1365.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 583.5 1458.0 C 583.5 1504.0, 601.5 1472.0, 601.5 1518.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 466.0 1411.5 C 392.9 1411.5, 534.1 1580.5, 461.0 1580.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 343.0 1627.0 C 343.0 1713.5, 472.0 1617.5, 472.0 1704.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 472.0 1797.0 C 472.0 1865.2, 369.5 1788.8, 369.5 1857.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 472.0 1797.0 C 472.0 1864.8, 573.5 1789.2, 573.5 1857.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 537.7 1857.0 C 537.7 1783.0, 483.1 581.0, 483.1 655.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 471.5 781.0 C 471.5 827.0, 471.5 795.0, 471.5 841.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 160.5 256.0 C 160.5 359.7, 347.5 212.3, 347.5 316.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 347.5 442.0 C 347.5 488.0, 360.0 456.0, 360.0 502.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 562.0 239.0 C 562.0 287.5, 600.5 267.5, 600.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 374.0 239.0 C 374.0 366.5, 600.5 188.5, 600.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 600.5 442.0 C 600.5 488.0, 554.0 456.0, 554.0 502.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 600.5 442.0 C 600.5 938.2, 342.0 868.8, 342.0 1365.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 374.0 239.0 C 374.0 799.9, 583.5 804.1, 583.5 1365.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 788.0 239.0 C 788.0 797.8, 583.5 806.2, 583.5 1365.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 333.7 1857.0 C 333.7 1783.0, 483.1 581.0, 483.1 655.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 554.0 595.0 C 554.0 654.9, 471.5 595.1, 471.5 655.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 302.0 1365.0 C 302.0 1291.0, 483.1 581.0, 483.1 655.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 333.7 1857.0 C 333.7 1783.0, 482.5 919.0, 482.5 993.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 471.5 933.0 C 471.5 979.0, 471.0 947.0, 471.0 993.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 302.0 1365.0 C 302.0 1291.0, 482.5 919.0, 482.5 993.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 471.0 1119.0 C 471.0 1165.0, 472.0 1133.0, 472.0 1179.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 472.0 1305.0 C 472.0 1377.0, 583.5 1293.0, 583.5 1365.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 424.8 1179.0 C 424.8 1105.0, 564.0 428.0, 564.0 502.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 472.0 1305.0 C 472.0 1384.8, 342.0 1285.2, 342.0 1365.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 583.5 1458.0 C 583.5 1504.0, 601.5 1472.0, 601.5 1518.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="46.5" y="133.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="44" y="130" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
 <circle cx="160.5" cy="130" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -224,18 +224,21 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="360.0" y="553" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">PRE</text>
-<g transform="translate(420.8,1827.0)"><rect x="-28.7" y="-11" width="57.4" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;成功&quot;</text></g>
-<g transform="translate(522.8,1827.0)"><rect x="-28.7" y="-11" width="57.4" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;失败&quot;</text></g>
-<g transform="translate(581.2,277.5)"><rect x="-35.0" y="-11" width="70.1" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;提指令&quot;</text></g>
-<g transform="translate(487.2,259.5)"><rect x="-104.0" y="-11" width="208.1" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;冻结执行 + VidBot affordanc</text></g>
-<g transform="translate(577.2,454.0)"><rect x="-79.6" y="-11" width="159.1" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;接地到机器人本体分布&quot;</text></g>
-<g transform="translate(478.8,802.0)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;预训练权重迁移&quot;</text></g>
-<g transform="translate(685.8,784.0)"><rect x="-72.1" y="-11" width="144.2" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;初始化任务 policy&quot;</text></g>
-<g transform="translate(408.4,1219.0)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;两阶段检索参考&quot;</text></g>
-<g transform="translate(512.8,607.0)"><rect x="-73.9" y="-11" width="147.8" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;想象 rollout 4 Hz&quot;</text></g>
-<g transform="translate(392.6,955.0)"><rect x="-96.5" y="-11" width="193.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;排序: 比 VLM 选高 21.3pp&quot;</text></g>
-<g transform="translate(392.2,1142.0)"><rect x="-35.0" y="-11" width="70.1" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;价值差&quot;</text></g>
-<g transform="translate(494.4,803.5)"><rect x="-66.8" y="-11" width="133.7" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;每轮微调跟上分布&quot;</text></g>
-<text x="40" y="2009.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1995" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="2006" r="4.2" fill="#546e7a"/><text x="110" y="2010" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g transform="translate(420.8,1827.0)"><rect x="-28.7" y="-11" width="57.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;成功&quot;</text></g>
+<g transform="translate(522.8,1827.0)"><rect x="-28.7" y="-11" width="57.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;失败&quot;</text></g>
+<g transform="translate(581.2,277.5)"><rect x="-35.0" y="-11" width="70.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;提指令&quot;</text></g>
+<g transform="translate(487.2,259.5)"><rect x="-104.0" y="-11" width="208.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;冻结执行 + VidBot affordanc</text></g>
+<g transform="translate(577.2,454.0)"><rect x="-79.6" y="-11" width="159.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;接地到机器人本体分布&quot;</text></g>
+<g transform="translate(478.8,802.0)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;预训练权重迁移&quot;</text></g>
+<g transform="translate(685.8,784.0)"><rect x="-72.1" y="-11" width="144.2" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;初始化任务 policy&quot;</text></g>
+<g transform="translate(408.4,1219.0)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;两阶段检索参考&quot;</text></g>
+<g transform="translate(512.8,607.0)"><rect x="-73.9" y="-11" width="147.8" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;想象 rollout 4 Hz&quot;</text></g>
+<g transform="translate(392.6,955.0)"><rect x="-96.5" y="-11" width="193.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;排序: 比 VLM 选高 21.3pp&quot;</text></g>
+<g transform="translate(392.2,1142.0)"><rect x="-35.0" y="-11" width="70.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;价值差&quot;</text></g>
+<g transform="translate(494.4,803.5)"><rect x="-66.8" y="-11" width="133.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;每轮微调跟上分布&quot;</text></g>
+<text x="40" y="1987.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1973" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1984" r="4.2" fill="#546e7a"/><text x="110" y="1988" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<text x="40" y="2027" font-size="11.5" fill="#78909c">线型</text>
+<g><path d="M 80 2023 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="2027" font-size="11.5" fill="#263238">主数据流</text></g>
+<g><path d="M 202.76 2023 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="2027" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
 </svg>
