@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 64,
-   "y": 111,
-   "w": 187,
-   "h": 93
+   "x": 46,
+   "y": 46,
+   "w": 185,
+   "h": 95
   },
   {
    "id": "TOK",
-   "label": "灵活 Tokenizer\n每视角独立 token 序",
-   "sub": "列",
+   "label": "灵活 Tokenizer\n每视角独立 token 序列",
+   "sub": "",
    "icon": "stack",
    "cls": "key",
-   "x": 337,
-   "y": 347,
-   "w": 233,
-   "h": 126
+   "x": 518,
+   "y": 237,
+   "w": 249,
+   "h": 95
   },
   {
    "id": "C2",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 48,
-   "y": 237,
-   "w": 220,
-   "h": 93
+   "x": 269,
+   "y": 46,
+   "w": 218,
+   "h": 95
   },
   {
    "id": "LANG",
@@ -39,43 +39,43 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 56,
-   "y": 364,
-   "w": 202,
-   "h": 93
+   "x": 525,
+   "y": 46,
+   "w": 200,
+   "h": 95
   },
   {
    "id": "TRANS",
-   "label": "Transformer 骨干\nSmall 27M / Base 9",
-   "sub": "3M",
+   "label": "Transformer 骨干\nSmall 27M / Base 93M",
+   "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 636,
-   "y": 347,
-   "w": 233,
-   "h": 126
+   "x": 518,
+   "y": 428,
+   "w": 251,
+   "h": 95
   },
   {
    "id": "NOISE",
-   "label": "噪声动作 x_K ~ N(0\n, I)",
+   "label": "噪声动作 x_K ~ N(0, I)",
    "sub": "",
    "icon": "noise",
    "cls": "data",
-   "x": 44,
-   "y": 491,
-   "w": 227,
-   "h": 93
+   "x": 763,
+   "y": 46,
+   "w": 264,
+   "h": 94
   },
   {
    "id": "DDPM",
-   "label": "DDPM 扩散头 (3 层 \nMLP)",
-   "sub": "10 步去噪, cosine ",
+   "label": "DDPM 扩散头 (3 层 MLP)\n10 步去噪, cosine 调度",
+   "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 935,
-   "y": 347,
-   "w": 228,
-   "h": 126
+   "x": 511,
+   "y": 619,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "LDDPM",
@@ -83,21 +83,21 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 69,
-   "y": 617,
-   "w": 177,
-   "h": 92
+   "x": 1065,
+   "y": 46,
+   "w": 175,
+   "h": 94
   },
   {
    "id": "ACT",
-   "label": "连续动作输出\n多峰分布, 83% vs M",
-   "sub": "SE 35% vs 离散 18%",
+   "label": "连续动作输出\n多峰分布, 83% vs MSE 3",
+   "sub": "5% vs 离散 18%",
    "icon": "stack",
    "cls": "act",
-   "x": 1229,
-   "y": 347,
-   "w": 230,
-   "h": 126
+   "x": 511,
+   "y": 810,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "ROBOT",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 1525,
-   "y": 364,
-   "w": 222,
-   "h": 93
+   "x": 533,
+   "y": 1034,
+   "w": 220,
+   "h": 95
   }
  ],
  "edges": [
@@ -162,22 +162,18 @@
    "from": "ROBOT",
    "to": "C1",
    "style": "fb",
-   "label": "\"receding horizon 执行 chu",
-   "out": "top",
-   "in": "top",
+   "label": "\"receding horizon 执行 c",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 1072
   }
  ],
  "panels": [],
  "canvas": [
-  1791,
-  780
+  1286,
+  1311
  ],
  "legend": [
   "act",
@@ -186,13 +182,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  1791,
-  780
- ],
  "title": "octo",
  "subtitle": "Octo 是开源社区最成熟的扩散策略 VLA 模型，在 Open X-Embodiment 数据上预训练，采用 Transformer 骨干加扩散输出头实现连续动作生成，以极小",
  "foot": "octo · arXiv 2405.12213 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    C1([\"相机视角 1 RGB<br/>(+2 帧历史)\"]) --> TOK\n    C2([\"相机视角 2<br/>(推理时可随意增删)\"]) --> TOK\n    LANG([\"语言指令<br/>(或目标图像条件)\"]) --> TOK\n    TOK[\"灵活 Tokenizer<br/>每视角独立 token 序列\"] ==> TRANS[\"Transformer 骨干<br/>Small 27M / Base 93M\"]\n    NOISE([\"噪声动作 x_K ~ N(0, I)\"]) ==> DDPM\n    TRANS ==>|\"动作读出嵌入 e\"| DDPM[\"DDPM 扩散头 (3 层 MLP)<br/>10 步去噪, cosine 调度\"]\n    LDDPM[\"DDPM 扩散损失\"] -.-> DDPM\n    DDPM ==> ACT([\"连续动作输出<br/>多峰分布, 83% vs MSE 35% vs 离散 18%\"])\n    ACT ==> ROBOT([\"机器人执行<br/>4090 上 13 it/sec\"])\n    ROBOT -.->|\"receding horizon<br/>执行 chunk 前缀后重规划\"| C1\n\n    class C1,C2,LANG,NOISE data\n    class TOK,DDPM key\n    class TRANS train\n    class ACT,ROBOT act\n    class LDDPM loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

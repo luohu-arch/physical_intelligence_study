@@ -6,9 +6,9 @@
    "sub": "",
    "icon": "stack",
    "cls": "data",
-   "x": 50,
-   "y": 130,
-   "w": 217,
+   "x": 64,
+   "y": 407,
+   "w": 200,
    "h": 92
   },
   {
@@ -17,9 +17,9 @@
    "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 340,
-   "y": 280,
-   "w": 167,
+   "x": 360,
+   "y": 407,
+   "w": 160,
    "h": 92
   },
   {
@@ -28,8 +28,8 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 579,
-   "y": 221,
+   "x": 560,
+   "y": 256,
    "w": 218,
    "h": 93
   },
@@ -39,9 +39,9 @@
    "sub": "",
    "icon": "robot",
    "cls": "data",
-   "x": 573,
-   "y": 338,
-   "w": 230,
+   "x": 576,
+   "y": 610,
+   "w": 210,
    "h": 93
   },
   {
@@ -50,9 +50,9 @@
    "sub": "最粗尺度仅 1 个 tok",
    "icon": "spark",
    "cls": "key",
-   "x": 869,
-   "y": 188,
-   "w": 233,
+   "x": 880,
+   "y": 240,
+   "w": 205,
    "h": 126
   },
   {
@@ -61,9 +61,9 @@
    "sub": "逐级捕获残差",
    "icon": "stack",
    "cls": "train",
-   "x": 869,
-   "y": 338,
-   "w": 233,
+   "x": 895,
+   "y": 540,
+   "w": 205,
    "h": 126
   },
   {
@@ -72,9 +72,9 @@
    "sub": "S2 (iii) S1+S2+S3 ",
    "icon": "cpu",
    "cls": "train",
-   "x": 1168,
-   "y": 188,
-   "w": 233,
+   "x": 1190,
+   "y": 396,
+   "w": 205,
    "h": 126
   },
   {
@@ -83,8 +83,8 @@
    "sub": "(强制频谱分离)",
    "icon": "sigma",
    "cls": "loss",
-   "x": 50,
-   "y": 246,
+   "x": 64,
+   "y": 560,
    "w": 218,
    "h": 126
   },
@@ -94,9 +94,9 @@
    "sub": "Transformer",
    "icon": "lightning",
    "cls": "train",
-   "x": 1168,
-   "y": 338,
-   "w": 233,
+   "x": 1490,
+   "y": 540,
+   "w": 185,
    "h": 126
   },
   {
@@ -105,9 +105,9 @@
    "sub": "3%",
    "icon": "robot",
    "cls": "act",
-   "x": 1467,
-   "y": 263,
-   "w": 233,
+   "x": 1500,
+   "y": 240,
+   "w": 180,
    "h": 126
   },
   {
@@ -116,8 +116,8 @@
    "sub": "提取 Intent token ",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 396,
+   "x": 310,
+   "y": 590,
    "w": 230,
    "h": 126
   }
@@ -126,42 +126,75 @@
   {
    "from": "AC",
    "to": "DCT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "DCT",
    "to": "LOW",
-   "style": "main"
+   "style": "main",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "DCT",
    "to": "HIGH",
-   "style": "main"
+   "style": "main",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "LOW",
    "to": "VQ1",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "HIGH",
    "to": "VQK",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "VQ1",
    "to": "RECON",
-   "style": "main"
+   "style": "main",
+   "out": "right",
+   "pos_out": 0.3,
+   "in": "left",
+   "pos_in": 0.2
   },
   {
    "from": "VQK",
    "to": "RECON",
-   "style": "main"
+   "style": "main",
+   "out": "right",
+   "pos_out": 0.7,
+   "in": "left",
+   "pos_in": 0.7
   },
   {
    "from": "LFREQ",
    "to": "RECON",
-   "style": "fb"
+   "style": "fb",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "bottom",
+   "pos_in": 0.5,
+   "k": 50
   },
   {
    "from": "VQ1",
@@ -169,19 +202,31 @@
    "style": "thick",
    "label": "\"next-scale 自回归 先意图后执行\"",
    "loff": [
-    0,
-    -18
-   ]
+    -64,
+    0
+   ],
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.0
   },
   {
    "from": "VQK",
    "to": "POL",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "POL",
    "to": "ROBOT",
-   "style": "thick"
+   "style": "thick",
+   "out": "top",
+   "pos_out": 0.35,
+   "in": "bottom",
+   "pos_in": 0.5
   },
   {
    "from": "ROBOT",
@@ -190,9 +235,9 @@
    "label": "\"重叠 chunk 滑窗 意图 ensemble",
    "out": "top",
    "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
+   "pos_out": 0.5,
+   "pos_in": 0.5,
+   "k": 60,
    "loff": [
     0,
     -18
@@ -204,23 +249,27 @@
    "style": "fb",
    "label": "\"意图复用, 迁移 +60%\"",
    "loff": [
-    0,
-    -18
-   ]
+    -64,
+    0
+   ],
+   "out": "right",
+   "pos_out": 0.02,
+   "in": "bottom",
+   "pos_in": 0.03
   }
  ],
  "panels": [
   {
    "label": "频谱解耦动作 tokenizer (多尺度 VQ-VAE)",
-   "x": 845,
-   "y": 144,
-   "w": 580,
-   "h": 340
+   "x": 856,
+   "y": 214,
+   "w": 564,
+   "h": 476
   }
  ],
  "canvas": [
-  1744,
-  612
+  1700,
+  820
  ],
  "legend": [
   "act",
@@ -230,8 +279,8 @@
   "train"
  ],
  "layout_wh": [
-  1744,
-  612
+  1700,
+  820
  ],
  "title": "mint",
  "subtitle": "MINT 提出模仿学习应模仿\"行为意图\"而非\"轨迹细节\"。用 DCT 将 action chunk 分解为低频 Intent Token 和高频 Execution Token",

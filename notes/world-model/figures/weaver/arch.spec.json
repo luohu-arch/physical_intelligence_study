@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 239,
-   "y": 130,
-   "w": 230,
-   "h": 93
+   "x": 214,
+   "y": 46,
+   "w": 228,
+   "h": 95
   },
   {
    "id": "ENC",
@@ -17,54 +17,54 @@
    "sub": "",
    "icon": "eye",
    "cls": "frozen",
-   "x": 226,
-   "y": 315,
-   "w": 255,
-   "h": 93
+   "x": 202,
+   "y": 237,
+   "w": 253,
+   "h": 95
   },
   {
    "id": "FM",
    "label": "多视角 Flow Matching\nlatent 空间联合预测",
-   "sub": "FID 10.20 vs 像素 26.09 ",
+   "sub": "FID 10.20 vs 像素 26.0",
    "icon": "camera",
    "cls": "key",
-   "x": 210,
-   "y": 500,
-   "w": 289,
-   "h": 126
+   "x": 194,
+   "y": 428,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "FUTURE",
-   "label": "未来 latent 预测\n可解码回像素 也可在 latent",
-   "sub": " 评估任意策略",
+   "label": "未来 latent 预测\n可解码回像素 也可在 lat",
+   "sub": "ent 评估任意策略",
    "icon": "camera",
    "cls": "env",
-   "x": 44,
-   "y": 718,
-   "w": 290,
-   "h": 126
+   "x": 345,
+   "y": 652,
+   "w": 265,
+   "h": 128
   },
   {
    "id": "REWARD",
-   "label": "奖励预测\nlatent reward + critic h",
-   "sub": "ead",
-   "icon": "target",
+   "label": "奖励预测\nlatent reward + criti",
+   "sub": "c head",
+   "icon": "reward",
    "cls": "reward",
-   "x": 374,
-   "y": 718,
-   "w": 290,
-   "h": 126
+   "x": 46,
+   "y": 652,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "POLICY",
-   "label": "策略评估 / 改进 / 规划\n优势过滤离线蒸馏 pi0.5 +3",
-   "sub": "8%",
+   "label": "策略评估 / 改进 / 规划\n优势过滤离线蒸馏 pi0.5 ",
+   "sub": "+38%",
    "icon": "target",
    "cls": "loop",
-   "x": 210,
-   "y": 936,
-   "w": 289,
-   "h": 126
+   "x": 194,
+   "y": 876,
+   "w": 267,
+   "h": 128
   }
  ],
  "edges": [
@@ -101,8 +101,8 @@
  ],
  "panels": [],
  "canvas": [
-  708,
-  1152
+  656,
+  1186
  ],
  "legend": [
   "data",
@@ -112,13 +112,9 @@
   "loop",
   "reward"
  ],
- "layout_wh": [
-  708,
-  1152
- ],
  "title": "weaver",
  "subtitle": "WEAVER 是多视角 world model，同时优化预测保真度（ρ=0.870）、长程一致性、推理效率（5-10× Ctrl-World）。离策略改进无需真机交互即提升 π",
  "foot": "weaver · arXiv 2606.13672 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS([\"多视角观测<br/>稀疏记忆 + 短程历史\"]) ==> ENC[\"Latent 编码器<br/>预训练 SD3 VAE (冻结)\"]\n    ENC ==> FM[\"多视角 Flow Matching<br/>latent 空间联合预测<br/>FID 10.20 vs 像素 26.09 约快 3x\"]\n    FM ==> FUTURE[\"未来 latent 预测<br/>可解码回像素 也可在 latent 评估任意策略\"]\n    FM ==> REWARD[\"奖励预测<br/>latent reward + critic head<br/>评估/改进/规划三应用共同支点\"]\n    FUTURE ==> POLICY[\"策略评估 / 改进 / 规划<br/>优势过滤离线蒸馏 pi0.5 +38%\"]\n    REWARD ==> POLICY\n\n    class OBS data\n    class ENC frozen\n    class FM key\n    class FUTURE env\n    class REWARD reward\n    class POLICY loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

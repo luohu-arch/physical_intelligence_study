@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 44,
-   "y": 130,
+   "x": 391,
+   "y": 116,
    "w": 230,
-   "h": 93
+   "h": 90
   },
   {
    "id": "M",
@@ -17,8 +17,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 282,
-   "y": 283,
+   "x": 250,
+   "y": 315,
    "w": 233,
    "h": 93
   },
@@ -28,8 +28,8 @@
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 156,
-   "y": 436,
+   "x": 255,
+   "y": 460,
    "w": 227,
    "h": 93
   },
@@ -39,8 +39,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 286,
-   "y": 589,
+   "x": 255,
+   "y": 605,
    "w": 227,
    "h": 93
   },
@@ -50,8 +50,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 286,
-   "y": 1199,
+   "x": 560,
+   "y": 460,
    "w": 227,
    "h": 93
   },
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 288,
-   "y": 742,
+   "x": 790,
+   "y": 605,
    "w": 222,
-   "h": 92
+   "h": 93
   },
   {
    "id": "ROBOT",
@@ -72,9 +72,9 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 285,
-   "y": 894,
-   "w": 228,
+   "x": 770,
+   "y": 740,
+   "w": 260,
    "h": 93
   },
   {
@@ -83,8 +83,8 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 290,
-   "y": 1047,
+   "x": 420,
+   "y": 880,
    "w": 217,
    "h": 92
   },
@@ -94,8 +94,8 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 407,
-   "y": 436,
+   "x": 790,
+   "y": 315,
    "w": 235,
    "h": 92
   },
@@ -105,8 +105,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 298,
-   "y": 130,
+   "x": 770,
+   "y": 155,
    "w": 204,
    "h": 92
   },
@@ -116,8 +116,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 526,
-   "y": 130,
+   "x": 1015,
+   "y": 155,
    "w": 228,
    "h": 93
   }
@@ -126,71 +126,124 @@
   {
    "from": "M",
    "to": "P",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "M",
    "to": "G",
-   "style": "thick"
+   "style": "thick",
+   "out": "left",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5,
+   "k": 60
   },
   {
    "from": "M",
    "to": "CORR",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.85,
+   "in": "top",
+   "pos_in": 0.3
   },
   {
    "from": "USER",
    "to": "M",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "P",
    "to": "G",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "G",
    "to": "EXE",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "EXE",
    "to": "ROBOT",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "ROBOT",
    "to": "MEM",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "right",
+   "pos_in": 0.5
   },
   {
    "from": "MEM",
    "to": "CORR",
-   "style": "main"
+   "style": "main",
+   "out": "top",
+   "pos_out": 0.5,
+   "in": "bottom",
+   "pos_in": 0.5
   },
   {
    "from": "M",
    "to": "VLA",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "VLA",
    "to": "ROBOT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "right",
+   "pos_in": 0.5,
+   "k": 60
   }
  ],
  "panels": [
   {
    "label": "System 2 - 单模型三角色闭环 PGC",
-   "x": 132,
-   "y": 239,
-   "w": 408,
-   "h": 1073
+   "x": 110,
+   "y": 240,
+   "w": 705,
+   "h": 495
+  },
+  {
+   "label": "两阶段训练配方",
+   "x": 745,
+   "y": 104,
+   "w": 530,
+   "h": 160
   }
  ],
  "canvas": [
-  798,
-  1382
+  1300,
+  1060
  ],
  "legend": [
   "loop"

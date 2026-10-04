@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "ROB",
-   "label": "真实机器人 x 8\n7-DoF EE delta pos",
-   "sub": "e 逐步控制",
+   "label": "真实机器人 x 8\n7-DoF EE delta pose ",
+   "sub": "逐步控制",
    "icon": "robot",
    "cls": "env",
-   "x": 343,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 55,
+   "y": 237,
+   "w": 251,
+   "h": 128
   },
   {
    "id": "PR",
-   "label": "pair 输入\n当前帧 + 历史帧 (o_",
-   "sub": "t, o_prev) + 指令",
+   "label": "pair 输入\n当前帧 + 历史帧 (o_t, ",
+   "sub": "o_prev) + 指令",
    "icon": "chat",
    "cls": "data",
-   "x": 642,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 50,
+   "y": 461,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "VLMB",
@@ -28,65 +28,65 @@
    "sub": "prompt 切换双模式",
    "icon": "chat",
    "cls": "frozen",
-   "x": 941,
-   "y": 130,
-   "w": 235,
-   "h": 126
+   "x": 64,
+   "y": 685,
+   "w": 233,
+   "h": 128
   },
   {
    "id": "ACT",
-   "label": "actor 模式 (2B)\nsemantic delta EE ",
-   "sub": "pose",
+   "label": "actor 模式 (2B)\nsemantic delta EE pos",
+   "sub": "e",
    "icon": "lightning",
    "cls": "train",
-   "x": 2140,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 50,
+   "y": 1581,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "KEY",
-   "label": "critic 模式 (8B): \npair-wise 进度 (核",
-   "sub": "心)",
+   "label": "critic 模式 (8B): pair\n-wise 进度 (核心)",
+   "sub": "两帧对比输出连续 progre",
    "icon": "target",
    "cls": "key",
-   "x": 1242,
-   "y": 130,
-   "w": 230,
-   "h": 126
+   "x": 47,
+   "y": 909,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "REW",
-   "label": "dense 进度奖励 r 在\n [-1, 1]",
-   "sub": "替代稀疏 0/1 (瓶颈",
+   "label": "dense 进度奖励 r 在 [-\n1, 1]",
+   "sub": "替代稀疏 0/1 (瓶颈是 re",
    "icon": "reward",
    "cls": "reward",
-   "x": 1538,
-   "y": 130,
-   "w": 235,
-   "h": 126
+   "x": 46,
+   "y": 1133,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "PPO",
-   "label": "PPO 更新 (clipped \nsurrogate)",
-   "sub": "优势 A_t 由进度 del",
+   "label": "PPO 更新 (clipped surr\nogate)",
+   "sub": "优势 A_t 由进度 delta ",
    "icon": "eye",
    "cls": "loss",
-   "x": 1839,
-   "y": 130,
-   "w": 235,
-   "h": 126
+   "x": 47,
+   "y": 1357,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "HGE",
-   "label": "人类引导探索 HGE\n(困难任务辅助, +10p",
-   "sub": "p)",
+   "label": "人类引导探索 HGE\n(困难任务辅助, +10pp)",
+   "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 55,
+   "y": 46,
+   "w": 251,
+   "h": 95
   }
  ],
  "edges": [
@@ -102,8 +102,8 @@
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 1428
   },
   {
    "from": "PR",
@@ -143,32 +143,28 @@
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 1428
   },
   {
    "from": "HGE",
    "to": "ROB",
    "style": "fb",
-   "label": "\"引导 rollout\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"引导 rollout\""
   }
  ],
  "panels": [
   {
-   "label": "异步分布式采样 (8 台 AGILE PiPER, ZeroMQ ",
-   "x": 319,
-   "y": 86,
-   "w": 580,
-   "h": 190
+   "label": "异步分布式采样 (8 台 AGILE PiPER, Zer",
+   "x": 24,
+   "y": 191,
+   "w": 313,
+   "h": 420
   }
  ],
  "canvas": [
-  2417,
-  346
+  361,
+  1891
  ],
  "legend": [
   "data",
@@ -179,13 +175,9 @@
   "reward",
   "train"
  ],
- "layout_wh": [
-  2417,
-  346
- ],
  "title": "vlac",
  "subtitle": "VLAC 提出统一 actor-critic 自回归架构：基于 InternVL 多模态模型，通过 pair-wise progress understanding 输入两张观",
  "foot": "vlac · arXiv 2509.15937 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph LOOP[\"异步分布式采样 (8 台 AGILE PiPER, ZeroMQ + Ray)\"]\n        ROB[\"真实机器人 x 8<br/>7-DoF EE delta pose 逐步控制\"] --> PR([\"pair 输入<br/>当前帧 + 历史帧 (o_t, o_prev) + 指令\"])\n\n        PR --> ROB\n    end\n    PR ==> VLMB[\"InternVL 多模态主干<br/>40M 样本预训练<br/>prompt 切换双模式\"]\n    VLMB ==> ACT[\"actor 模式 (2B)<br/>semantic delta EE pose\"]\n    VLMB ==> KEY[\"critic 模式 (8B): pair-wise 进度 (核心)<br/>两帧对比输出连续 progress delta<br/>正 = 前进, 负 = 倒退\"]\n    KEY ==> REW[\"dense 进度奖励 r 在 [-1, 1]<br/>替代稀疏 0/1 (瓶颈是 reward 不是算法)\"]\n    REW ==> PPO[\"PPO 更新 (clipped surrogate)<br/>优势 A_t 由进度 delta 累积\"]\n    PPO -.->|\"更新 actor\"| ACT\n    ACT ==> ROB\n    HGE[\"人类引导探索 HGE<br/>(困难任务辅助, +10pp)\"] -.->|\"引导 rollout\"| ROB\n\n    class PR data\n    class VLMB frozen\n    class ACT train\n    class KEY key\n    class REW reward\n    class PPO loss\n    class ROB env\n    class HGE data\n    class LOOP loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f"
 }

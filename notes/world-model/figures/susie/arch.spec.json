@@ -6,8 +6,8 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 44,
-   "y": 130,
+   "x": 40,
+   "y": 290,
    "w": 140,
    "h": 92
   },
@@ -17,8 +17,8 @@
    "sub": "只生成下一子目标帧 b_s",
    "icon": "spark",
    "cls": "key",
-   "x": 79,
-   "y": 314,
+   "x": 260,
+   "y": 400,
    "w": 258,
    "h": 126
   },
@@ -28,8 +28,8 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 224,
-   "y": 130,
+   "x": 40,
+   "y": 520,
    "w": 148,
    "h": 92
   },
@@ -39,8 +39,8 @@
    "sub": "语言无关扩散策略",
    "icon": "chat",
    "cls": "train",
-   "x": 63,
-   "y": 532,
+   "x": 590,
+   "y": 400,
    "w": 290,
    "h": 126
   },
@@ -50,8 +50,8 @@
    "sub": "值",
    "icon": "robot",
    "cls": "act",
-   "x": 66,
-   "y": 750,
+   "x": 952,
+   "y": 400,
    "w": 284,
    "h": 126
   },
@@ -61,8 +61,8 @@
    "sub": "胜过真值目标图 Oracle",
    "icon": "robot",
    "cls": "act",
-   "x": 78,
-   "y": 968,
+   "x": 1308,
+   "y": 400,
    "w": 260,
    "h": 126
   }
@@ -71,27 +71,41 @@
   {
    "from": "OBS",
    "to": "GEN",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.2
   },
   {
    "from": "CMD",
    "to": "GEN",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.8
   },
   {
    "from": "GEN",
    "to": "LOW",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "LOW",
    "to": "AVG",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "AVG",
    "to": "ROBOT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "ROBOT",
@@ -100,15 +114,15 @@
    "label": "\"闭环重观测\"",
    "out": "top",
    "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_out": 0.5,
+   "pos_in": 0.5,
+   "k": 120
   }
  ],
  "panels": [],
  "canvas": [
-  416,
-  1184
+  1612,
+  690
  ],
  "legend": [
   "act",
@@ -117,8 +131,8 @@
   "train"
  ],
  "layout_wh": [
-  416,
-  1184
+  1612,
+  690
  ],
  "title": "susie",
  "subtitle": "SuSIE 把预训练的 InstructPix2Pix 图像编辑扩散模型在「当前帧 + 语言指令 → 未来子目标帧」三元组上微调，作为高层规划器；再用一个语言无关的目标条件扩散",

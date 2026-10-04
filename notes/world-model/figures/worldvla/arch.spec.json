@@ -6,21 +6,21 @@
    "sub": "动作成功率 62.8->67.2%",
    "icon": "stack",
    "cls": "train",
-   "x": 114,
-   "y": 314,
-   "w": 271,
-   "h": 126
+   "x": 416,
+   "y": 236,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "WM",
    "label": "世界分支\n预测下一帧 token",
-   "sub": "50 帧 FVD 718.6->674.1",
+   "sub": "50 帧 FVD 718.6->674.",
    "icon": "stack",
    "cls": "train",
-   "x": 425,
-   "y": 314,
-   "w": 271,
-   "h": 126
+   "x": 119,
+   "y": 236,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "MASK",
@@ -28,10 +28,10 @@
    "sub": "收回 4-23pp",
    "icon": "lightning",
    "cls": "key",
-   "x": 89,
-   "y": 532,
-   "w": 272,
-   "h": 126
+   "x": 267,
+   "y": 460,
+   "w": 270,
+   "h": 128
   },
   {
    "id": "IMG",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "eye",
    "cls": "data",
-   "x": 294,
-   "y": 130,
-   "w": 245,
-   "h": 92
+   "x": 269,
+   "y": 46,
+   "w": 243,
+   "h": 94
   },
   {
    "id": "TXT",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 44,
-   "y": 130,
-   "w": 210,
-   "h": 92
+   "x": 550,
+   "y": 46,
+   "w": 208,
+   "h": 94
   },
   {
    "id": "ACTW",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "data",
-   "x": 579,
-   "y": 130,
-   "w": 187,
-   "h": 92
+   "x": 46,
+   "y": 46,
+   "w": 185,
+   "h": 94
   },
   {
    "id": "OUT",
@@ -73,9 +73,9 @@
    "icon": "lightning",
    "cls": "act",
    "x": 154,
-   "y": 750,
-   "w": 253,
-   "h": 93
+   "y": 684,
+   "w": 251,
+   "h": 95
   },
   {
    "id": "LOSSA",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 401,
-   "y": 549,
-   "w": 140,
-   "h": 92
+   "x": 575,
+   "y": 477,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "LOSSW",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 581,
-   "y": 549,
-   "w": 140,
-   "h": 92
+   "x": 79,
+   "y": 477,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "TOT",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 446,
-   "y": 750,
-   "w": 210,
-   "h": 92
+   "x": 442,
+   "y": 684,
+   "w": 208,
+   "h": 94
   }
  ],
  "edges": [
@@ -146,21 +146,13 @@
    "from": "ACT",
    "to": "LOSSA",
    "style": "fb",
-   "label": "\"L_action 交叉熵\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"L_action 交叉熵\""
   },
   {
    "from": "WM",
    "to": "LOSSW",
    "style": "fb",
-   "label": "\"alpha*L_world 交叉熵\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"alpha*L_world 交叉熵\""
   },
   {
    "from": "LOSSA",
@@ -175,16 +167,16 @@
  ],
  "panels": [
   {
-   "label": "Chameleon 式离散 token 统一骨干 (两分支混",
-   "x": 65,
-   "y": 270,
-   "w": 655,
-   "h": 408
+   "label": "Chameleon 式离散 token 统一骨干 (两分",
+   "x": 93,
+   "y": 190,
+   "w": 618,
+   "h": 420
   }
  ],
  "canvas": [
-  810,
-  933
+  804,
+  961
  ],
  "legend": [
   "act",
@@ -193,13 +185,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  810,
-  933
- ],
  "title": "worldvla",
  "subtitle": "WorldVLA 把 VLA 动作模型与视频世界模型塞进同一个 Chameleon 式离散 token 自回归骨干：动作模型吃图像+语言出 7 个离散动作 token，世界模型",
  "foot": "worldvla · arXiv 2506.21539 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    subgraph UNI[\"Chameleon 式离散 token 统一骨干 (两分支混训共享参数, 互为正则)\"]\n        ACT[\"策略分支<br/>预测 7 个离散动作 token<br/>动作成功率 62.8->67.2%\"]\n        WM[\"世界分支<br/>预测下一帧 token<br/>50 帧 FVD 718.6->674.1\"]\n        MASK[\"动作注意力掩码<br/>屏蔽已生成动作防误差暴露<br/>收回 4-23pp\"]\n    end\n\n    IMG([\"当前帧 (VQ-GAN 编码)\"]) ==> ACT\n    TXT([\"指令 token (BPE)\"]) ==> ACT\n    IMG ==> WM\n    ACTW([\"当前动作 token\"]) ==> WM\n    ACT ==> MASK\n    MASK ==> OUT[\"K 个动作并行解码<br/>(串行生成会掉 10-50%)\"]\n    ACT -.->|\"L_action 交叉熵\"| LOSSA[\"动作损失\"]\n    WM -.->|\"alpha*L_world 交叉熵\"| LOSSW[\"世界损失\"]\n    LOSSA --> TOT[\"联合训练 共享权重\"]\n    LOSSW --> TOT\n\n    class IMG,TXT,ACTW data\n    class ACT,WM train\n    class MASK key\n    class OUT act\n    class LOSSA,LOSSW,TOT loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

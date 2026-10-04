@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 50,
-   "y": 111,
-   "w": 222,
-   "h": 93
+   "x": 46,
+   "y": 62,
+   "w": 220,
+   "h": 95
   },
   {
    "id": "SIG",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "eye",
    "cls": "frozen",
-   "x": 343,
-   "y": 380,
-   "w": 197,
-   "h": 93
+   "x": 586,
+   "y": 270,
+   "w": 195,
+   "h": 95
   },
   {
    "id": "LANG",
@@ -28,21 +28,21 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 90,
-   "y": 237,
-   "w": 140,
-   "h": 92
+   "x": 304,
+   "y": 63,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "LLAMA",
-   "label": "Llama 2 7B 主干\n(970k OpenX 轨迹预",
-   "sub": "训练, 微调时冻结)",
+   "label": "Llama 2 7B 主干\n(970k OpenX 轨迹预训练",
+   "sub": ", 微调时冻结)",
    "icon": "brain",
    "cls": "frozen",
-   "x": 884,
-   "y": 364,
-   "w": 228,
-   "h": 126
+   "x": 552,
+   "y": 652,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "DINO",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "brain",
    "cls": "frozen",
-   "x": 44,
-   "y": 363,
-   "w": 233,
-   "h": 93
+   "x": 492,
+   "y": 62,
+   "w": 231,
+   "h": 95
   },
   {
    "id": "FUSE",
@@ -61,43 +61,43 @@
    "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 606,
-   "y": 380,
-   "w": 212,
-   "h": 93
+   "x": 578,
+   "y": 461,
+   "w": 210,
+   "h": 95
   },
   {
    "id": "LORA",
-   "label": "LoRA 低秩适配\n注意力层插入, 仅约 ",
-   "sub": "0.1% 参数",
+   "label": "LoRA 低秩适配\n注意力层插入, 仅约 0.1%",
+   "sub": " 参数",
    "icon": "cpu",
    "cls": "train",
-   "x": 46,
-   "y": 490,
-   "w": 230,
-   "h": 126
+   "x": 761,
+   "y": 46,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "HEAD",
-   "label": "动作输出头: 256 bin\n 离散化",
-   "sub": "7 维动作自回归逐 to",
+   "label": "动作输出头: 256 bin 离\n散化",
+   "sub": "7 维动作自回归逐 token ",
    "icon": "stack",
    "cls": "loop",
-   "x": 1178,
-   "y": 364,
-   "w": 235,
-   "h": 126
+   "x": 548,
+   "y": 876,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "LCE",
-   "label": "损失: next-token \n交叉熵",
+   "label": "损失: next-token 交叉\n熵",
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 50,
-   "y": 649,
-   "w": 220,
-   "h": 93
+   "x": 1066,
+   "y": 62,
+   "w": 254,
+   "h": 95
   },
   {
    "id": "ACT",
@@ -105,21 +105,21 @@
    "sub": "",
    "icon": "stack",
    "cls": "act",
-   "x": 1479,
-   "y": 380,
-   "w": 232,
-   "h": 93
+   "x": 568,
+   "y": 1100,
+   "w": 230,
+   "h": 95
   },
   {
    "id": "ROBOT",
-   "label": "机器人执行\n未优化 6Hz@RTX 409",
-   "sub": "0",
+   "label": "机器人执行\n未优化 6Hz@RTX 4090",
+   "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 1777,
-   "y": 364,
-   "w": 228,
-   "h": 126
+   "x": 565,
+   "y": 1291,
+   "w": 236,
+   "h": 95
   }
  ],
  "edges": [
@@ -178,25 +178,25 @@
    "to": "IMG",
    "style": "fb",
    "label": "\"每步重观测重规划\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 1312
   }
  ],
  "panels": [
   {
    "label": "双视觉编码器 (互补)",
-   "x": 20,
-   "y": 319,
-   "w": 822,
-   "h": 174
+   "x": 466,
+   "y": 16,
+   "w": 348,
+   "h": 562
   }
  ],
  "canvas": [
-  2049,
-  813
+  1366,
+  1568
  ],
  "legend": [
   "act",
@@ -207,13 +207,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  2049,
-  813
- ],
  "title": "openvla",
  "subtitle": "OpenVLA 是首个完全开源、可商用、性能比肩闭源 RT-2 的 7B 级端到端 VLA 模型，基于双视觉编码器（DINOv2+SigLIP）和 Llama 2 7B 骨干，",
  "foot": "openvla · arXiv 2406.09246 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    IMG([\"RGB 图像 224x224<br/>(单路, 无本体感知)\"]) --> SIG & DINO\n    LANG([\"语言指令\"]) ==> LLAMA\n    subgraph DUAL[\"双视觉编码器 (互补)\"]\n        SIG[\"SigLIP 语义特征<br/>(这是什么)\"]\n        DINO[\"DINOv2 空间几何特征<br/>(在哪里)\"]\n        FUSE[\"特征融合<br/>语义 + 空间双通道\"]\n    end\n    SIG --> FUSE\n    DINO --> FUSE\n    FUSE ==> LLAMA[\"Llama 2 7B 主干<br/>(970k OpenX 轨迹预训练, 微调时冻结)\"]\n    LORA[\"LoRA 低秩适配<br/>注意力层插入, 仅约 0.1% 参数<br/>单张 24G GPU 可微调\"] -.-> LLAMA\n    LLAMA ==> HEAD[\"动作输出头: 256 bin 离散化<br/>7 维动作自回归逐 token 生成\"]\n    LCE[\"损失: next-token 交叉熵\"] -.-> HEAD\n    HEAD ==> ACT([\"解码回连续动作执行<br/>H = 1, 无 chunking\"])\n    ACT ==> ROBOT([\"机器人执行<br/>未优化 6Hz@RTX 4090\"])\n    ROBOT -.->|\"每步重观测重规划\"| IMG\n\n    class IMG,LANG data\n    class SIG,DINO,LLAMA frozen\n    class FUSE key\n    class LORA train\n    class ACT,ROBOT act\n    class LCE loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

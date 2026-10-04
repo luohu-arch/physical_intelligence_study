@@ -2,146 +2,146 @@
  "nodes": [
   {
    "id": "RS",
-   "label": "Rollout server: Ta\nskRequest 展开成 s",
-   "sub": "essions",
+   "label": "Rollout server: TaskR\nequest 展开成 sessions",
+   "sub": "rollout-as-a-service",
    "icon": "refresh",
    "cls": "loop",
-   "x": 44,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 353,
+   "y": 46,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "GW",
-   "label": "Gateway node: sess\nion 全生命周期",
+   "label": "Gateway node: session\n 全生命周期",
    "sub": "+ 同置托管代理端点",
    "icon": "refresh",
    "cls": "loop",
-   "x": 343,
-   "y": 205,
-   "w": 233,
-   "h": 126
+   "x": 202,
+   "y": 270,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "INIT",
-   "label": "INIT 池: 起 runtim\ne, 备 harness",
-   "sub": "Docker / rootless ",
+   "label": "INIT 池: 起 runtime, \n备 harness",
+   "sub": "Docker / rootless App",
    "icon": "refresh",
    "cls": "loop",
-   "x": 642,
-   "y": 205,
-   "w": 233,
-   "h": 126
+   "x": 202,
+   "y": 494,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "RDY",
-   "label": "READY 有界缓冲\n囤初始化好的 runtim",
-   "sub": "e",
+   "label": "READY 有界缓冲\n囤初始化好的 runtime",
+   "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 941,
-   "y": 205,
-   "w": 233,
-   "h": 126
+   "x": 212,
+   "y": 718,
+   "w": 241,
+   "h": 95
   },
   {
    "id": "RUN",
-   "label": "RUNNING 池: 原生 h\narness 零改动执行 (",
-   "sub": "黑箱)",
+   "label": "RUNNING 池: 原生 harne\nss 零改动执行 (黑箱)",
+   "sub": "codex / claude_code /",
    "icon": "robot",
    "cls": "loop",
-   "x": 1240,
-   "y": 205,
-   "w": 235,
-   "h": 126
+   "x": 200,
+   "y": 909,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "PX",
-   "label": "Gateway 代理 (核心\n): 模型 API 边界窃",
-   "sub": "听",
+   "label": "Gateway 代理 (核心): \n模型 API 边界窃听",
+   "sub": "检测四协议 -> 归一化 ->",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1541,
-   "y": 205,
-   "w": 227,
-   "h": 126
+   "x": 199,
+   "y": 1133,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "INF",
-   "label": "本地推理服务器 (Ope\nnAI Chat 形状)",
-   "sub": "承载被训策略 Qwen3.",
+   "label": "本地推理服务器 (OpenAI \nChat 形状)",
+   "sub": "承载被训策略 Qwen3.5-4",
    "icon": "brain",
    "cls": "loop",
-   "x": 3024,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 348,
+   "y": 2253,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "REC",
-   "label": "Completion record \n缓存:",
-   "sub": "prompt ids + 采样 ",
+   "label": "Completion record 缓存\n:",
+   "sub": "prompt ids + 采样 ids ",
    "icon": "chat",
    "cls": "loop",
-   "x": 1834,
-   "y": 205,
-   "w": 233,
-   "h": 126
+   "x": 199,
+   "y": 1357,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "BLD",
-   "label": "prefix merging 轨\n迹重构: append-onl",
-   "sub": "y 链合并",
+   "label": "prefix merging 轨迹重\n构: append-only 链合并",
+   "sub": "harness 塞的 interstit",
    "icon": "refresh",
    "cls": "loop",
-   "x": 2133,
-   "y": 205,
-   "w": 228,
-   "h": 126
+   "x": 199,
+   "y": 1581,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "EVAL",
-   "label": "evaluator registry\n: SWE-bench 官方测",
-   "sub": "试",
+   "label": "evaluator registry: S\nWE-bench 官方测试",
+   "sub": "二值 0/1, 可刷新干净 ru",
    "icon": "refresh",
    "cls": "loop",
-   "x": 44,
-   "y": 280,
-   "w": 233,
-   "h": 126
+   "x": 46,
+   "y": 46,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "CB",
-   "label": "POSTRUN: 建轨迹 + \n评测 + 回调",
-   "sub": "超时 session 恢复部",
+   "label": "POSTRUN: 建轨迹 + 评测\n + 回调",
+   "sub": "超时 session 恢复部分轨",
    "icon": "check",
    "cls": "loop",
-   "x": 2427,
-   "y": 205,
-   "w": 235,
-   "h": 126
+   "x": 198,
+   "y": 1805,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "TR",
-   "label": "异步 trainer (Slim\ne GRPO)",
+   "label": "异步 trainer (Slime GR\nPO)",
    "sub": "训练框架/算法均解耦",
    "icon": "refresh",
    "cls": "loop",
-   "x": 2728,
-   "y": 205,
-   "w": 230,
-   "h": 126
+   "x": 199,
+   "y": 2029,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "ACC",
-   "label": "SWE-Bench Verified\n: Codex +22.6 / Cl",
-   "sub": "aude Code +4.8",
+   "label": "SWE-Bench Verified: C\nodex +22.6 / Claude C",
+   "sub": "ode +4.8",
    "icon": "refresh",
    "cls": "loop",
-   "x": 3024,
-   "y": 280,
-   "w": 233,
-   "h": 126
+   "x": 48,
+   "y": 2253,
+   "w": 261,
+   "h": 128
   }
  ],
  "edges": [
@@ -170,11 +170,7 @@
    "from": "RUN",
    "to": "PX",
    "style": "fb",
-   "label": "\"每次模型 API 调用\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"每次模型 API 调用\""
   },
   {
    "from": "PX",
@@ -205,11 +201,7 @@
    "from": "EVAL",
    "to": "CB",
    "style": "fb",
-   "label": "\"按 trace 分配 (outcome 广播会",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"按 trace 分配 (outcome 广"
   },
   {
    "from": "CB",
@@ -220,11 +212,7 @@
    "from": "TR",
    "to": "INF",
    "style": "fb",
-   "label": "\"weight sync\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"weight sync\""
   },
   {
    "from": "TR",
@@ -234,19 +222,15 @@
  ],
  "panels": [],
  "canvas": [
-  3301,
-  496
+  665,
+  2563
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  3301,
-  496
- ],
  "title": "polar",
  "subtitle": "NVIDIA 的 Polar（重写自其前作 ProRL Agent Server，已注册为 NeMo Gym 环境之一）回答一个系统层问题：**能否不打开黑箱就给任意 agen",
  "foot": "polar · arXiv 2605.24220 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    RS[\"Rollout server: TaskRequest 展开成 sessions<br/>rollout-as-a-service\"]:::loop\n    GW[\"Gateway node: session 全生命周期<br/>+ 同置托管代理端点\"]:::loop\n    INIT[\"INIT 池: 起 runtime, 备 harness<br/>Docker / rootless Apptainer\"]:::loop\n    RDY[\"READY 有界缓冲<br/>囤初始化好的 runtime\"]:::loop\n    RUN[\"RUNNING 池: 原生 harness 零改动执行 (黑箱)<br/>codex / claude_code / qwen_code / pi\"]:::loop\n    PX[\"Gateway 代理 (核心): 模型 API 边界窃听<br/>检测四协议 -> 归一化 -> 捕获 token+logprobs -> 转回\"]:::key\n    INF[\"本地推理服务器 (OpenAI Chat 形状)<br/>承载被训策略 Qwen3.5-4B\"]:::train\n    REC[\"Completion record 缓存:<br/>prompt ids + 采样 ids + logprobs\"]:::mem\n    BLD[\"prefix merging 轨迹重构: append-only 链合并<br/>harness 塞的 interstitial token loss mask 置 0\"]:::key\n    EVAL[\"evaluator registry: SWE-bench 官方测试<br/>二值 0/1, 可刷新干净 runtime\"]:::reward\n    CB[\"POSTRUN: 建轨迹 + 评测 + 回调<br/>超时 session 恢复部分轨迹\"]:::loop\n    TR[\"异步 trainer (Slime GRPO)<br/>训练框架/算法均解耦\"]:::loss\n    ACC([\"SWE-Bench Verified: Codex +22.6 / Claude Code +4.8<br/>Qwen Code +0.6 / Pi +6.2; 3 步墙钟 189.5 -> 35.2 分钟\"]):::data\n\n    RS ==>|\"dispatch\"| GW\n    GW ==> INIT\n    INIT ==> RDY\n    RDY ==> RUN\n    RUN -.->|\"每次模型 API 调用\"| PX\n    PX ==> INF\n    PX ==> REC\n    RUN ==> CB\n    REC ==> BLD\n    BLD ==> CB\n    EVAL -.->|\"按 trace 分配 (outcome 广播会 reward hacking)\"| CB\n    CB ==> TR\n    TR -.->|\"weight sync\"| INF\n    TR ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

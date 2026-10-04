@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "IMG",
-   "label": "多视角 RGB\nVLM 448 / 专家 224",
-   "sub": " 双分辨率",
+   "label": "多视角 RGB\nVLM 448 / 专家 224 双",
+   "sub": "分辨率",
    "icon": "camera",
    "cls": "data",
    "x": 46,
-   "y": 106,
-   "w": 230,
-   "h": 126
+   "y": 46,
+   "w": 256,
+   "h": 128
   },
   {
    "id": "SL",
@@ -17,32 +17,32 @@
    "sub": "",
    "icon": "eye",
    "cls": "frozen",
-   "x": 345,
-   "y": 488,
-   "w": 161,
-   "h": 92
+   "x": 807,
+   "y": 270,
+   "w": 159,
+   "h": 94
   },
   {
    "id": "TXT",
-   "label": "指令\n(可先做 test-time ",
-   "sub": "thinking 文字分析)",
+   "label": "指令\n(可先做 test-time thin",
+   "sub": "king 文字分析)",
    "icon": "chat",
    "cls": "data",
-   "x": 48,
-   "y": 266,
-   "w": 228,
-   "h": 126
+   "x": 570,
+   "y": 46,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "BB",
-   "label": "Eagle2-2B 主干\n(冻结, 保住多模态能",
-   "sub": "力)",
+   "label": "Eagle2-2B 主干\n(冻结, 保住多模态能力)",
+   "sub": "",
    "icon": "brain",
    "cls": "frozen",
-   "x": 572,
-   "y": 472,
-   "w": 230,
-   "h": 126
+   "x": 758,
+   "y": 460,
+   "w": 256,
+   "h": 95
   },
   {
    "id": "PROP",
@@ -50,65 +50,65 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 64,
-   "y": 425,
-   "w": 194,
-   "h": 92
+   "x": 340,
+   "y": 63,
+   "w": 192,
+   "h": 94
   },
   {
    "id": "EXP",
-   "label": "动作专家 134M tran\nsformer",
+   "label": "动作专家 134M transfor\nmer",
    "sub": "",
    "icon": "lightning",
    "cls": "train",
-   "x": 1468,
-   "y": 488,
-   "w": 227,
-   "h": 93
+   "x": 754,
+   "y": 1099,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "DINO",
-   "label": "DINOv2 ViT + FiLM \n调制",
+   "label": "DINOv2 ViT + FiLM 调制",
    "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 45,
-   "y": 551,
-   "w": 233,
-   "h": 93
+   "x": 874,
+   "y": 63,
+   "w": 267,
+   "h": 94
   },
   {
    "id": "MOE",
-   "label": "MoE 适配: 双 LoRA \nadapter",
-   "sub": "+ scalar gate 逐 t",
+   "label": "MoE 适配: 双 LoRA adap\nter",
+   "sub": "+ scalar gate 逐 toke",
    "icon": "spark",
    "cls": "key",
-   "x": 868,
-   "y": 472,
-   "w": 232,
-   "h": 126
+   "x": 754,
+   "y": 651,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "LANGOUT",
-   "label": "文本回答\n(MMStar 56.2 近无",
-   "sub": "损)",
+   "label": "文本回答\n(MMStar 56.2 近无损)",
+   "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 1174,
-   "y": 396,
-   "w": 220,
-   "h": 126
+   "x": 914,
+   "y": 892,
+   "w": 246,
+   "h": 95
   },
   {
    "id": "LAT",
-   "label": "N = 64 latent acti\non query",
-   "sub": "从冻结主干抽取任务意",
+   "label": "N = 64 latent action \nquery",
+   "sub": "从冻结主干抽取任务意图 ",
    "icon": "brain",
    "cls": "key",
-   "x": 1166,
-   "y": 546,
-   "w": 236,
-   "h": 126
+   "x": 614,
+   "y": 875,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "FM",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "train",
-   "x": 1761,
-   "y": 488,
-   "w": 230,
-   "h": 93
+   "x": 772,
+   "y": 1290,
+   "w": 228,
+   "h": 95
   },
   {
    "id": "ACT",
@@ -127,32 +127,32 @@
    "sub": "",
    "icon": "state",
    "cls": "act",
-   "x": 2057,
-   "y": 488,
-   "w": 230,
-   "h": 93
+   "x": 772,
+   "y": 1481,
+   "w": 228,
+   "h": 95
   },
   {
    "id": "LLMM",
-   "label": "损失 L = L_LM + L_\nFM",
-   "sub": "(1:1 相加)",
+   "label": "损失 L = L_LM + L_FM\n(1:1 相加)",
+   "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 46,
-   "y": 677,
-   "w": 230,
-   "h": 126
+   "x": 1179,
+   "y": 62,
+   "w": 248,
+   "h": 95
   },
   {
    "id": "LMOT",
-   "label": "language motion 监\n督",
-   "sub": "位移三值化 {-1,0,1}",
+   "label": "language motion 监督\n位移三值化 {-1,0,1}^6 ",
+   "sub": "-> 运动口令",
    "icon": "sigma",
    "cls": "loss",
-   "x": 44,
-   "y": 837,
-   "w": 235,
-   "h": 126
+   "x": 1465,
+   "y": 46,
+   "w": 262,
+   "h": 128
   }
  ],
  "edges": [
@@ -220,16 +220,12 @@
    "from": "ACT",
    "to": "IMG",
    "style": "fb",
-   "label": "\"激进闭环 2.51-4.96 Hz (A100",
-   "out": "top",
-   "in": "top",
+   "label": "\"激进闭环 2.51-4.96 Hz (A1",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 1486
   },
   {
    "from": "LLMM",
@@ -245,15 +241,15 @@
  "panels": [
   {
    "label": "双视觉通路",
-   "x": 21,
-   "y": 444,
-   "w": 509,
-   "h": 219
+   "x": 781,
+   "y": 17,
+   "w": 386,
+   "h": 369
   }
  ],
  "canvas": [
-  2331,
-  1029
+  1773,
+  1758
  ],
  "legend": [
   "act",
@@ -264,13 +260,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  2331,
-  1029
- ],
  "title": "instructvla",
  "subtitle": "InstructVLA 回答「VLA 微调是否必然摧毁 VLM 的多模态推理」这一开放问题：它在 Eagle2-2B 主干上加 $N{=}64$ 个可学习 latent act",
  "foot": "instructvla · arXiv 2507.17520 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    IMG([\"多视角 RGB<br/>VLM 448 / 专家 224 双分辨率\"]) --> SL\n    TXT([\"指令<br/>(可先做 test-time thinking 文字分析)\"]) --> BB\n    PROP([\"本体状态 (可选)\"]) --> EXP\n    subgraph VIS[\"双视觉通路\"]\n        SL[\"SigLIP 编码\"]\n        DINO[\"DINOv2 ViT + FiLM 调制\"]\n    end\n    BB[\"Eagle2-2B 主干<br/>(冻结, 保住多模态能力)\"]\n    SL --> BB\n    BB --> MOE\n    MOE[\"MoE 适配: 双 LoRA adapter<br/>+ scalar gate 逐 token 切换<br/>(Stage 2 仅 220M 可训练)\"]\n    MOE --> LANGOUT[\"文本回答<br/>(MMStar 56.2 近无损)\"]\n    MOE --> LAT[\"N = 64 latent action query<br/>从冻结主干抽取任务意图 C\"]\n    DINO --> EXP[\"动作专家 134M transformer\"]\n    LAT --> EXP\n    PROP --> EXP\n    EXP --> FM[\"flow matching 解码<br/>10 步 Euler 积分\"]\n    FM ==> ACT([\"动作 chunk H x 7<br/>只执行 1 步即重观测\"])\n    ACT -.->|\"激进闭环<br/>2.51-4.96 Hz (A100)\"| IMG\n    LLMM[\"损失 L = L_LM + L_FM<br/>(1:1 相加)\"] -.-> MOE\n    LMOT[\"language motion 监督<br/>位移三值化 {-1,0,1}^6 -> 运动口令\"] -.-> BB\n\n    class IMG,TXT,PROP data\n    class BB,SL frozen\n    class MOE,LAT key\n    class DINO,EXP,FM train\n    class ACT act\n    class LLMM,LMOT loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

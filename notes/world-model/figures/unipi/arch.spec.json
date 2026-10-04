@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 130,
-   "w": 149,
-   "h": 92
+   "x": 46,
+   "y": 46,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "DIFFUSE",
-   "label": "视频扩散模型 (即策\n略本身)",
-   "sub": "文本 + 首帧条件生成",
+   "label": "视频扩散模型 (即策略本\n身)",
+   "sub": "文本 + 首帧条件生成计划",
    "icon": "chat",
    "cls": "key",
-   "x": 259,
-   "y": 171,
-   "w": 230,
-   "h": 126
+   "x": 83,
+   "y": 236,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "TEXT",
@@ -28,21 +28,21 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 44,
-   "y": 246,
-   "w": 148,
-   "h": 92
+   "x": 234,
+   "y": 46,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "VIDPLAN",
-   "label": "生成的未来帧序列\n视频即计划, 组合泛",
-   "sub": "化来自",
+   "label": "生成的未来帧序列\n视频即计划, 组合泛化来",
+   "sub": "自",
    "icon": "gear",
    "cls": "env",
-   "x": 555,
-   "y": 171,
-   "w": 220,
-   "h": 126
+   "x": 88,
+   "y": 460,
+   "w": 254,
+   "h": 128
   },
   {
    "id": "SR",
@@ -50,10 +50,10 @@
    "sub": "补足控制频率",
    "icon": "robot",
    "cls": "env",
-   "x": 841,
-   "y": 171,
-   "w": 182,
-   "h": 126
+   "x": 125,
+   "y": 684,
+   "w": 180,
+   "h": 128
   },
   {
    "id": "INVDYN",
@@ -61,21 +61,21 @@
    "sub": "",
    "icon": "gear",
    "cls": "train",
-   "x": 1089,
-   "y": 188,
-   "w": 236,
-   "h": 93
+   "x": 98,
+   "y": 908,
+   "w": 234,
+   "h": 95
   },
   {
    "id": "ACTION",
-   "label": "底层控制动作 a_t\n组合泛化 59.1/53.2",
-   "sub": "/60.1/46.1",
+   "label": "底层控制动作 a_t\n组合泛化 59.1/53.2/60.",
+   "sub": "1/46.1",
    "icon": "robot",
    "cls": "act",
-   "x": 1391,
-   "y": 171,
-   "w": 227,
-   "h": 126
+   "x": 83,
+   "y": 1099,
+   "w": 264,
+   "h": 128
   }
  ],
  "edges": [
@@ -112,8 +112,8 @@
  ],
  "panels": [],
  "canvas": [
-  1662,
-  428
+  430,
+  1409
  ],
  "legend": [
   "act",
@@ -122,13 +122,9 @@
   "key",
   "train"
  ],
- "layout_wh": [
-  1662,
-  428
- ],
  "title": "unipi",
  "subtitle": "UniPi 将序列决策重定义为文本条件视频生成问题：扩散模型先合成展示任务完成的未来视频帧（规划），再通过逆动力学模型提取底层控制动作。视频和文本作为通用接口，使策略能跨环境、",
  "foot": "unipi · arXiv 2302.00111 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    IMG([\"当前帧 o_1\"]) ==> DIFFUSE[\"视频扩散模型 (即策略本身)<br/>文本 + 首帧条件生成计划<br/>视频作为通用接口\"]\n    TEXT([\"文本目标 g\"]) ==> DIFFUSE\n    DIFFUSE ==> VIDPLAN[\"生成的未来帧序列<br/>视频即计划, 组合泛化来自<br/>互联网视频预训练\"]\n    VIDPLAN ==> SR[\"时序超分增稠<br/>粗到细分层规划<br/>补足控制频率\"]\n    SR ==> INVDYN[\"逆动力学模型 IDM<br/>把视频计划翻译成动作\"]\n    INVDYN ==> ACTION[\"底层控制动作 a_t<br/>组合泛化 59.1/53.2/60.1/46.1<br/>vs 基线 19.4/12.8/13.2/9.6\"]\n\n    class IMG,TEXT data\n    class DIFFUSE key\n    class VIDPLAN,SR env\n    class INVDYN train\n    class ACTION act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

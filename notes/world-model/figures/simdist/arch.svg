@@ -24,16 +24,16 @@
 <text x="52" y="74" font-size="13.5" fill="#78909c">SimDist 提出仿真蒸馏框架：在仿真中预训练完整世界模型管线（编码器 + 动力学 + 奖励 + 价值），将结构化先验蒸馏到 latent world model。真实部署时</text>
 <text x="1287" y="1133" font-size="11.5" fill="#a0aab4" text-anchor="end">simdist · arXiv 2603.15759 · v3 auto</text>
 <path d="M 497.0 223.0 L 498.0 332.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 353.0 378.0 L 323.0 378.0 L 323.0 596.0 L 293.0 596.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 498.0 424.0 L 498.0 487.0 L 478.0 487.0 L 478.0 550.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 643.0 378.0 L 653.0 378.0 L 653.0 596.5 L 663.0 596.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 643.0 378.0 L 965.0 378.0 L 965.0 596.0 L 993.0 596.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 804.5 222.0 L 804.5 268.5 L 825.5 268.5 L 825.5 315.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 968.0 378.0 L 980.5 378.0 L 980.5 596.0 L 993.0 596.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 293.0 596.0 L 321.0 596.0 L 321.0 797.0 L 575.0 797.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 367.5 424.0 L 367.5 487.0 L 168.5 487.0 L 168.5 550.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 498.0 424.0 L 498.3 550.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 570.5 424.0 L 570.5 487.0 L 808.0 487.0 L 808.0 550.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 643.0 424.0 L 643.0 487.0 L 1073.2 487.0 L 1073.2 550.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 804.5 222.0 L 803.5 315.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 946.0 352.8 L 1158.4 352.8 L 1158.4 550.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 168.5 642.0 L 168.5 797.0 L 575.0 797.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 478.0 643.0 L 478.0 697.0 L 660.5 697.0 L 660.5 751.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 808.0 643.0 L 808.0 697.0 L 660.5 697.0 L 660.5 751.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 993.0 596.0 L 965.0 596.0 L 965.0 797.0 L 746.0 797.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 808.0 643.0 L 808.0 697.0 L 694.7 697.0 L 694.7 751.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1130.0 676.0 L 1130.0 713.5 L 728.9 713.5 L 728.9 751.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 660.5 843.0 L 660.5 935.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="375.5" y="133.5" width="248" height="93" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="373" y="130" width="248" height="93" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
@@ -75,16 +75,16 @@
 <circle cx="808.0" cy="550" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
 <g transform="translate(794.5,536.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
 <text x="808.0" y="594" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="808.0" dy="0">价值模型 (冻结, 零样本迁移</tspan><tspan x="808.0" dy="20">)</tspan></text>
-<rect x="995.5" y="536.5" width="284" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="993" y="533" width="284" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="1135.0" cy="533" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="1135.0" cy="533" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(1121.5,519.5) scale(1.1250)">
+<rect x="990.5" y="553.5" width="284" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="988" y="550" width="284" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="1130.0" cy="550" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="1130.0" cy="550" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1116.5,536.5) scale(1.1250)">
   <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
   <circle cx="12" cy="12" r="3" />
 </g>
-<text x="1135.0" y="577" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="1135.0" dy="0">动力学模型 (唯一可微调项)</tspan><tspan x="1135.0" dy="20">gap 集中在 dynamics 的假</tspan></text>
-<text x="1135.0" y="607" font-size="12" fill="#5f6b7a" text-anchor="middle">设</text>
+<text x="1130.0" y="594" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="1130.0" dy="0">动力学模型 (唯一可微调项)</tspan><tspan x="1130.0" dy="20">gap 集中在 dynamics 的假</tspan></text>
+<text x="1130.0" y="624" font-size="12" fill="#5f6b7a" text-anchor="middle">设</text>
 <rect x="663.5" y="133.5" width="287" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="661" y="130" width="287" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="804.5" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -98,16 +98,16 @@
   <path d="M9 13v2" />
 </g>
 <text x="804.5" y="181" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">真实机器人 15-30 分钟数据</text>
-<rect x="685.5" y="318.5" width="285" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="683" y="315" width="285" height="126" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="825.5" cy="315" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="825.5" cy="315" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(812.0,301.5) scale(1.1250)">
+<rect x="663.5" y="318.5" width="285" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="661" y="315" width="285" height="126" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="803.5" cy="315" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="803.5" cy="315" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(790.0,301.5) scale(1.1250)">
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="825.5" y="359" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="825.5" dy="0">仅微调 latent dynamics</tspan><tspan x="825.5" dy="20">等价于系统辨识</tspan></text>
-<text x="825.5" y="389" font-size="12" fill="#5f6b7a" text-anchor="middle">加像素重构损失反掉到 0.32</text>
+<text x="803.5" y="359" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="803.5" dy="0">仅微调 latent dynamics</tspan><tspan x="803.5" dy="20">等价于系统辨识</tspan></text>
+<text x="803.5" y="389" font-size="12" fill="#5f6b7a" text-anchor="middle">加像素重构损失反掉到 0.32</text>
 <rect x="577.5" y="754.5" width="171" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="575" y="751" width="171" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="660.5" cy="751" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>

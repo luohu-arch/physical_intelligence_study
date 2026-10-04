@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 71,
-   "y": 130,
-   "w": 179,
-   "h": 93
+   "x": 46,
+   "y": 62,
+   "w": 177,
+   "h": 95
   },
   {
    "id": "ENC",
-   "label": "FiLM-EfficientNet-\nB3",
-   "sub": "(ImageNet 预训练, ",
+   "label": "FiLM-EfficientNet-B3\n(ImageNet 预训练, 16M)",
+   "sub": "",
    "icon": "camera",
    "cls": "train",
-   "x": 941,
-   "y": 246,
-   "w": 233,
-   "h": 126
+   "x": 248,
+   "y": 718,
+   "w": 266,
+   "h": 95
   },
   {
    "id": "TXT",
@@ -28,109 +28,109 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 90,
-   "y": 247,
-   "w": 140,
-   "h": 92
+   "x": 261,
+   "y": 63,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "USE",
-   "label": "Universal Sentence\n Encoder 嵌入",
+   "label": "Universal Sentence En\ncoder 嵌入",
    "sub": "(冻结)",
-   "icon": "eye",
+   "icon": "brain",
    "cls": "frozen",
-   "x": 343,
-   "y": 246,
-   "w": 233,
-   "h": 126
+   "x": 250,
+   "y": 270,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "FILM",
-   "label": "identity-init FiLM\n 层",
-   "sub": "零初始化, 初始等价",
+   "label": "identity-init FiLM 层\n零初始化, 初始等价恒等",
+   "sub": "映射",
    "icon": "cpu",
    "cls": "train",
-   "x": 642,
-   "y": 246,
-   "w": 233,
-   "h": 126
+   "x": 252,
+   "y": 494,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "FLAT",
-   "label": "每帧展平为\n81 个视觉-语言 toke",
-   "sub": "n",
+   "label": "每帧展平为\n81 个视觉-语言 token",
+   "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 1240,
-   "y": 246,
-   "w": 235,
-   "h": 126
+   "x": 260,
+   "y": 909,
+   "w": 243,
+   "h": 95
   },
   {
    "id": "TL",
-   "label": "TokenLearner 软选\n择压缩",
-   "sub": "81 -> 8 token (2.4",
+   "label": "TokenLearner 软选择压\n缩",
+   "sub": "81 -> 8 token (2.4x ",
    "icon": "stack",
    "cls": "key",
-   "x": 1541,
-   "y": 246,
-   "w": 233,
-   "h": 126
+   "x": 254,
+   "y": 1100,
+   "w": 254,
+   "h": 128
   },
   {
    "id": "CAT",
-   "label": "6 帧拼接共 48 toke\nn",
-   "sub": "(滑窗复用旧帧特征, ",
-   "icon": "refresh",
+   "label": "6 帧拼接共 48 token\n(滑窗复用旧帧特征, 1.7x",
+   "sub": " 加速)",
+   "icon": "stack",
    "cls": "loop",
-   "x": 1840,
-   "y": 246,
-   "w": 230,
-   "h": 126
+   "x": 248,
+   "y": 1324,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "TR",
-   "label": "decoder-only Trans\nformer",
-   "sub": "8 层 19M 参数 (共 ",
+   "label": "decoder-only Transfor\nmer",
+   "sub": "8 层 19M 参数 (共 35M)",
    "icon": "lightning",
    "cls": "train",
-   "x": 2136,
-   "y": 246,
-   "w": 233,
-   "h": 126
+   "x": 249,
+   "y": 1548,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "LCE",
-   "label": "损失: 11 维 catego\nrical CE",
-   "sub": "+ causal masking (",
+   "label": "损失: 11 维 categorica\nl CE",
+   "sub": "+ causal masking (等价",
    "icon": "sigma",
    "cls": "loss",
-   "x": 44,
-   "y": 363,
-   "w": 233,
-   "h": 126
+   "x": 449,
+   "y": 46,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "ACT",
-   "label": "11 维动作 x 256 bi\nn",
-   "sub": "非自回归一次前向并行",
+   "label": "11 维动作 x 256 bin\n非自回归一次前向并行输出",
+   "sub": "",
    "icon": "lightning",
    "cls": "key",
-   "x": 2435,
-   "y": 246,
-   "w": 236,
-   "h": 126
+   "x": 246,
+   "y": 1772,
+   "w": 270,
+   "h": 95
   },
   {
    "id": "DEC",
-   "label": "bin 中心反解\n量化误差上界半个 bi",
-   "sub": "n 宽",
+   "label": "bin 中心反解\n量化误差上界半个 bin 宽",
+   "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 2737,
-   "y": 246,
-   "w": 230,
-   "h": 126
+   "x": 248,
+   "y": 1963,
+   "w": 265,
+   "h": 95
   },
   {
    "id": "ROBOT",
@@ -138,10 +138,10 @@
    "sub": "",
    "icon": "brain",
    "cls": "act",
-   "x": 3033,
-   "y": 263,
-   "w": 167,
-   "h": 93
+   "x": 298,
+   "y": 2154,
+   "w": 165,
+   "h": 95
   }
  ],
  "edges": [
@@ -164,11 +164,7 @@
    "from": "FILM",
    "to": "ENC",
    "style": "fb",
-   "label": "\"语言早融合调制卷积特征\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"语言早融合调制卷积特征\""
   },
   {
    "from": "ENC",
@@ -215,17 +211,17 @@
    "to": "IMG",
    "style": "fb",
    "label": "\"每步重观测\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 2176
   }
  ],
  "panels": [],
  "canvas": [
-  3244,
-  579
+  762,
+  2431
  ],
  "legend": [
   "act",
@@ -236,13 +232,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  3244,
-  579
- ],
  "title": "rt-1",
  "subtitle": "RT-1 把语言指令、图像和连续机器人动作全部编码为紧凑 token，用一个 35M 参数的 Transformer 在 130k 条真机示教（13 台机器人、17 个月、70",
  "foot": "rt-1 · arXiv 2212.06817 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    IMG([\"6 帧 RGB 历史<br/>300 x 300\"]) --> ENC\n    TXT([\"指令文本\"]) --> USE[\"Universal Sentence Encoder 嵌入<br/>(冻结)\"]\n    USE --> FILM[\"identity-init FiLM 层<br/>零初始化, 初始等价恒等映射\"]\n    FILM -.->|\"语言早融合调制卷积特征\"| ENC[\"FiLM-EfficientNet-B3<br/>(ImageNet 预训练, 16M)\"]\n    ENC --> FLAT[\"每帧展平为<br/>81 个视觉-语言 token\"]\n    FLAT --> TL[\"TokenLearner 软选择压缩<br/>81 -> 8 token (2.4x 加速)\"]\n    TL --> CAT[\"6 帧拼接共 48 token<br/>(滑窗复用旧帧特征, 1.7x 加速)\"]\n    CAT ==> TR[\"decoder-only Transformer<br/>8 层 19M 参数 (共 35M)\"]\n    LCE[\"损失: 11 维 categorical CE<br/>+ causal masking (等价 BC)\"] -.-> TR\n    TR ==> ACT[\"11 维动作 x 256 bin<br/>非自回归一次前向并行输出\"]\n    ACT ==> DEC([\"bin 中心反解<br/>量化误差上界半个 bin 宽\"])\n    DEC ==> ROBOT([\"3Hz 闭环控制<br/>推理仅 15ms\"])\n    ROBOT -.->|\"每步重观测\"| IMG\n\n    class IMG,TXT data\n    class USE frozen\n    class ENC,FILM,TR train\n    class TL,ACT key\n    class DEC,ROBOT act\n    class LCE loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

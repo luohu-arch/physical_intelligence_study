@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 113,
-   "y": 147,
-   "w": 177,
-   "h": 92
+   "x": 368,
+   "y": 63,
+   "w": 175,
+   "h": 94
   },
   {
    "id": "GS",
-   "label": "3DGS 重建\nSAM-2 分割 + SuGaR 网格提",
-   "sub": "取",
+   "label": "3DGS 重建\nSAM-2 分割 + SuGaR 网",
+   "sub": "格提取",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 348,
-   "w": 290,
-   "h": 126
+   "x": 348,
+   "y": 270,
+   "w": 256,
+   "h": 128
   },
   {
    "id": "SIM",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 223,
-   "y": 582,
-   "w": 217,
-   "h": 93
+   "x": 520,
+   "y": 510,
+   "w": 215,
+   "h": 95
   },
   {
    "id": "VLMP",
@@ -39,32 +39,32 @@
    "sub": "CoM 估计 + 自报不确定度",
    "icon": "camera",
    "cls": "frozen",
-   "x": 374,
-   "y": 348,
-   "w": 269,
-   "h": 126
+   "x": 642,
+   "y": 270,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "GT",
-   "label": "仿真真值物理参数\n(Phase 1 GT / Phase 1.5 ",
-   "sub": "带噪)",
+   "label": "仿真真值物理参数\n(Phase 1 GT / Phase 1",
+   "sub": ".5 带噪)",
    "icon": "gear",
    "cls": "frozen",
-   "x": 330,
-   "y": 130,
-   "w": 290,
-   "h": 126
+   "x": 582,
+   "y": 46,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "PPO",
-   "label": "PPO 策略 (asymmetric act\nor-critic)",
-   "sub": "显式条件化于物理参数 theta",
+   "label": "PPO 策略 (asymmetric a\nctor-critic)",
+   "sub": "显式条件化于物理参数 th",
    "icon": "target",
    "cls": "train",
-   "x": 352,
-   "y": 784,
-   "w": 290,
-   "h": 126
+   "x": 344,
+   "y": 718,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "INTER",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 660,
-   "y": 146,
-   "w": 220,
-   "h": 93
+   "x": 112,
+   "y": 62,
+   "w": 218,
+   "h": 95
   },
   {
    "id": "RMA",
@@ -83,32 +83,32 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 683,
-   "y": 364,
-   "w": 266,
-   "h": 93
+   "x": 46,
+   "y": 286,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "FUSE",
-   "label": "逆方差加权融合 (核心)\ntheta_hat = (theta_vlm/s",
-   "sub": "igma_vlm^2 + theta_rma/s",
+   "label": "逆方差加权融合 (核心)\ntheta_hat = (theta_vl",
+   "sub": "m/sigma_vlm^2 + theta",
    "icon": "brain",
    "cls": "key",
-   "x": 480,
-   "y": 566,
-   "w": 290,
-   "h": 126
+   "x": 220,
+   "y": 494,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "DEPLOY",
-   "label": "真机部署 (sim-to-real)\nsigma_rma 小 -> 信交互估",
-   "sub": "计",
+   "label": "真机部署 (sim-to-real)\nsigma_rma 小 -> 信交互",
+   "sub": "估计",
    "icon": "gear",
    "cls": "act",
-   "x": 354,
-   "y": 1002,
-   "w": 284,
-   "h": 126
+   "x": 346,
+   "y": 942,
+   "w": 264,
+   "h": 128
   }
  ],
  "edges": [
@@ -162,17 +162,13 @@
    "from": "FUSE",
    "to": "DEPLOY",
    "style": "thick",
-   "label": "\"融合估计实时条件化策略\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"融合估计实时条件化策略\""
   }
  ],
  "panels": [],
  "canvas": [
-  993,
-  1218
+  955,
+  1252
  ],
  "legend": [
   "act",
@@ -182,13 +178,9 @@
   "key",
   "train"
  ],
- "layout_wh": [
-  993,
-  1218
- ],
  "title": "phys2real",
  "subtitle": "Phys2Real 提出 Real-to-Sim-to-Real 三阶段管道：3D Gaussian Splatting 重建真实场景，VLM 从 RGB 图像估计物理参数先验",
  "foot": "phys2real · arXiv 2510.11689 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    RGB([\"真实 RGB 图像\"]) ==> GS[\"3DGS 重建<br/>SAM-2 分割 + SuGaR 网格提取\"]\n    GS ==> SIM[\"IsaacLab 仿真资产<br/>(real-to-sim)\"]\n    RGB ==> VLMP[\"VLM 先验 (GPT-5, 冻结)<br/>多视角多次查询取均值<br/>CoM 估计 + 自报不确定度\"]\n    GT[\"仿真真值物理参数<br/>(Phase 1 GT / Phase 1.5 带噪)\"] -.->|\"特权条件化训练\"| PPO[\"PPO 策略 (asymmetric actor-critic)<br/>显式条件化于物理参数 theta<br/>Phase 2 冻结策略训 ensemble\"]\n    SIM ==> PPO\n    INTER([\"在线交互<br/>state-action 历史\"]) ==> RMA[\"RMA ensemble x 10<br/>认知 + 偶然不确定性分解\"]\n    VLMP ==> FUSE[\"逆方差加权融合 (核心)<br/>theta_hat = (theta_vlm/sigma_vlm^2 + theta_rma/sigma_rma^2)<br/>/ (1/sigma_vlm^2 + 1/sigma_rma^2)\"]\n    RMA ==> FUSE\n    PPO ==> DEPLOY[\"真机部署 (sim-to-real)<br/>sigma_rma 小 -> 信交互估计<br/>sigma_rma 大 -> 回退 VLM 先验\"]\n    FUSE ==>|\"融合估计实时条件化策略\"| DEPLOY\n\n    class RGB,INTER data\n    class GS data\n    class SIM env\n    class VLMP,GT frozen\n    class PPO,RMA train\n    class FUSE key\n    class DEPLOY act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c"
 }

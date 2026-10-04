@@ -6,8 +6,8 @@
    "sub": "+ 评测命令 + run 目",
    "icon": "chat",
    "cls": "loop",
-   "x": 15,
-   "y": 130,
+   "x": 40,
+   "y": 112,
    "w": 235,
    "h": 126
   },
@@ -17,8 +17,8 @@
    "sub": "有限上下文只花在决策",
    "icon": "brain",
    "cls": "loop",
-   "x": 284,
-   "y": 130,
+   "x": 340,
+   "y": 112,
    "w": 236,
    "h": 126
   },
@@ -28,8 +28,8 @@
    "sub": "每轮一行 did/learn",
    "icon": "db",
    "cls": "loop",
-   "x": 553,
-   "y": 130,
+   "x": 660,
+   "y": 112,
    "w": 228,
    "h": 126
   },
@@ -39,8 +39,8 @@
    "sub": "排序",
    "icon": "refresh",
    "cls": "loop",
-   "x": 680,
-   "y": 1452,
+   "x": 140,
+   "y": 1180,
    "w": 227,
    "h": 126
   },
@@ -50,8 +50,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 803,
-   "y": 316,
+   "x": 140,
+   "y": 290,
    "w": 191,
    "h": 93
   },
@@ -61,8 +61,8 @@
    "sub": "史轮次",
    "icon": "refresh",
    "cls": "loop",
-   "x": 782,
-   "y": 469,
+   "x": 140,
+   "y": 425,
    "w": 233,
    "h": 126
   },
@@ -72,8 +72,8 @@
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 784,
-   "y": 655,
+   "x": 140,
+   "y": 590,
    "w": 228,
    "h": 93
   },
@@ -83,8 +83,8 @@
    "sub": "出",
    "icon": "robot",
    "cls": "loop",
-   "x": 780,
-   "y": 960,
+   "x": 140,
+   "y": 740,
    "w": 236,
    "h": 126
   },
@@ -94,8 +94,8 @@
    "sub": "",
    "icon": "reward",
    "cls": "loop",
-   "x": 798,
-   "y": 1146,
+   "x": 140,
+   "y": 900,
    "w": 200,
    "h": 93
   },
@@ -105,8 +105,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 828,
-   "y": 1299,
+   "x": 140,
+   "y": 1040,
    "w": 140,
    "h": 93
   },
@@ -116,8 +116,8 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 815,
-   "y": 147,
+   "x": 1230,
+   "y": 165,
    "w": 179,
    "h": 92
   },
@@ -127,8 +127,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1028,
-   "y": 147,
+   "x": 1230,
+   "y": 297,
    "w": 225,
    "h": 92
   },
@@ -138,8 +138,8 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 1286,
-   "y": 147,
+   "x": 1230,
+   "y": 429,
    "w": 227,
    "h": 92
   },
@@ -149,8 +149,8 @@
    "sub": "delta >= 1.5w 直接",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1547,
-   "y": 130,
+   "x": 1000,
+   "y": 970,
    "w": 235,
    "h": 126
   },
@@ -160,8 +160,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 930,
-   "y": 1469,
+   "x": 560,
+   "y": 1180,
    "w": 187,
    "h": 92
   },
@@ -171,8 +171,8 @@
    "sub": "退出时只读一次",
    "icon": "refresh",
    "cls": "loop",
-   "x": 782,
-   "y": 1638,
+   "x": 1230,
+   "y": 1180,
    "w": 233,
    "h": 126
   },
@@ -182,8 +182,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 828,
-   "y": 808,
+   "x": 560,
+   "y": 690,
    "w": 140,
    "h": 92
   }
@@ -217,7 +217,11 @@
   {
    "from": "OBJ",
    "to": "BIND",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.3
   },
   {
    "from": "CTRL",
@@ -225,9 +229,13 @@
    "style": "fb",
    "label": "\"十一不变式约束下的管环决策\"",
    "loff": [
-    0,
-    -18
-   ]
+    -16,
+    -14
+   ],
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.62
   },
   {
    "from": "NOTE",
@@ -235,9 +243,13 @@
    "style": "fb",
    "label": "\"bind 时读, 不作指令\"",
    "loff": [
-    0,
-    -18
-   ]
+    20,
+    -14
+   ],
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "right",
+   "pos_in": 0.35
   },
   {
    "from": "ACT",
@@ -245,9 +257,13 @@
    "style": "thick",
    "label": "\"skill 决定怎么做, tool 真正干活\"",
    "loff": [
-    0,
-    -18
-   ]
+    4,
+    -14
+   ],
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.3
   },
   {
    "from": "TOOLS",
@@ -255,9 +271,13 @@
    "style": "loss",
    "label": "\"结果信封回传: 失败与超时也是结果\"",
    "loff": [
-    0,
-    -18
-   ]
+    4,
+    -14
+   ],
+   "out": "bottom",
+   "pos_out": 0.3,
+   "in": "right",
+   "pos_in": 0.35
   },
   {
    "from": "GATE",
@@ -265,24 +285,28 @@
    "style": "fb",
    "label": "\"拦截错误晋升: 假晋升率 0.001/run\"",
    "loff": [
-    0,
-    -18
-   ]
+    6,
+    -14
+   ],
+   "out": "left",
+   "pos_out": 0.7,
+   "in": "right",
+   "pos_in": 0.5
   },
   {
    "from": "REG",
    "to": "ACT",
    "style": "fb",
    "label": "\"unvalidated 或 stale 禁入无",
-   "out": "top",
-   "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
+   "out": "left",
+   "in": "left",
+   "pos_out": 0.5,
+   "pos_in": 0.5,
    "loff": [
-    0,
-    -18
-   ]
+    -16,
+    0
+   ],
+   "k": 60
   },
   {
    "from": "COM",
@@ -290,63 +314,79 @@
    "style": "thick",
    "label": "\"质量按 benchmark 分 key 更新\"",
    "loff": [
-    0,
-    -18
-   ]
+    6,
+    -14
+   ],
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "COM",
    "to": "EXIT",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.62,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "EXIT",
    "to": "ANA",
    "style": "fb",
    "label": "\"否: 停滞强制切换策略类\"",
-   "out": "top",
-   "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
+   "out": "right",
+   "in": "right",
+   "pos_out": 0.5,
+   "pos_in": 0.5,
+   "k": 80,
    "loff": [
-    0,
-    -18
+    30,
+    0
    ]
   },
   {
    "from": "EXIT",
    "to": "ACC",
    "style": "thick",
-   "label": "\"是\""
+   "label": "\"是\"",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5,
+   "loff": [
+    12,
+    -14
+   ]
   }
  ],
  "panels": [
   {
    "label": "轮次事务 harness: commit-keyed, 崩溃恢复",
-   "x": 756,
-   "y": 272,
-   "w": 284,
-   "h": 1140
+   "x": 100,
+   "y": 252,
+   "w": 330,
+   "h": 908
   },
   {
    "label": "工具边界: 世界执行皆工具 (MCP 调用面, back",
-   "x": 791,
-   "y": 103,
-   "w": 746,
-   "h": 156
+   "x": 1200,
+   "y": 104,
+   "w": 340,
+   "h": 435
   }
  ],
  "canvas": [
-  1797,
-  1854
+  1600,
+  1420
  ],
  "legend": [
   "loop"
  ],
  "layout_wh": [
-  1797,
-  1854
+  1600,
+  1420
  ],
  "title": "agentic-robotics-loop",
  "subtitle": "AgenticRobotics 把 Claude Code/Codex 式的\"主 agent 管环 + 子 agent 执行 + 工具干活\"架构搬到机器人策略改进的外层研究循环",

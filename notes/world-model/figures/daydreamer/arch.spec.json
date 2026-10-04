@@ -6,8 +6,8 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 44,
-   "y": 222,
+   "x": 50,
+   "y": 170,
    "w": 230,
    "h": 93
   },
@@ -17,8 +17,8 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 340,
-   "y": 280,
+   "x": 380,
+   "y": 170,
    "w": 236,
    "h": 93
   },
@@ -28,8 +28,8 @@
    "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 2021,
-   "y": 280,
+   "x": 1120,
+   "y": 170,
    "w": 230,
    "h": 93
   },
@@ -39,8 +39,8 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 2317,
-   "y": 280,
+   "x": 1490,
+   "y": 170,
    "w": 182,
    "h": 92
   },
@@ -50,9 +50,9 @@
    "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 642,
-   "y": 280,
-   "w": 222,
+   "x": 50,
+   "y": 570,
+   "w": 195,
    "h": 92
   },
   {
@@ -61,9 +61,9 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 1145,
-   "y": 280,
-   "w": 217,
+   "x": 585,
+   "y": 570,
+   "w": 205,
    "h": 92
   },
   {
@@ -72,9 +72,9 @@
    "sub": "行为学习阶段不调用",
    "icon": "state",
    "cls": "train",
-   "x": 1434,
-   "y": 130,
-   "w": 218,
+   "x": 790,
+   "y": 395,
+   "w": 210,
    "h": 126
   },
   {
@@ -83,8 +83,8 @@
    "sub": "",
    "icon": "reward",
    "cls": "reward",
-   "x": 1470,
-   "y": 430,
+   "x": 480,
+   "y": 405,
    "w": 146,
    "h": 92
   },
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "graph",
    "cls": "train",
-   "x": 2565,
-   "y": 280,
-   "w": 200,
-   "h": 92
+   "x": 1480,
+   "y": 570,
+   "w": 190,
+   "h": 93
   },
   {
    "id": "Z",
@@ -105,9 +105,9 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 930,
-   "y": 280,
-   "w": 149,
+   "x": 345,
+   "y": 570,
+   "w": 140,
    "h": 92
   },
   {
@@ -116,8 +116,8 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 89,
-   "y": 338,
+   "x": 640,
+   "y": 405,
    "w": 140,
    "h": 92
   },
@@ -127,9 +127,9 @@
    "sub": "无需环境步进",
    "icon": "gear",
    "cls": "key",
-   "x": 1428,
-   "y": 280,
-   "w": 231,
+   "x": 890,
+   "y": 570,
+   "w": 200,
    "h": 126
   },
   {
@@ -138,9 +138,9 @@
    "sub": "纯潜空间更新",
    "icon": "lightning",
    "cls": "act",
-   "x": 1726,
-   "y": 204,
-   "w": 228,
+   "x": 1190,
+   "y": 570,
+   "w": 200,
    "h": 126
   },
   {
@@ -149,8 +149,8 @@
    "sub": "",
    "icon": "target",
    "cls": "reward",
-   "x": 1725,
-   "y": 354,
+   "x": 1040,
+   "y": 405,
    "w": 230,
    "h": 93
   }
@@ -159,99 +159,141 @@
   {
    "from": "SENS",
    "to": "ENC",
-   "style": "main"
+   "style": "main",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "POLICY",
    "to": "S0",
    "style": "fb",
-   "label": "\"新真机经验入池\""
+   "label": "\"新真机经验入池\"",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "ENC",
    "to": "ENC2",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.15,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "ENC2",
    "to": "Z",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "A",
    "to": "WM",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.6
   },
   {
    "from": "Z",
    "to": "WM",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "WM",
    "to": "DEC",
-   "style": "main"
+   "style": "main",
+   "out": "top",
+   "pos_out": 0.85,
+   "in": "bottom",
+   "pos_in": 0.25
   },
   {
    "from": "WM",
    "to": "RWD",
-   "style": "main"
+   "style": "main",
+   "out": "top",
+   "pos_out": 0.1,
+   "in": "bottom",
+   "pos_in": 0.5
   },
   {
    "from": "S0",
    "to": "TRAIN",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.53
   },
   {
    "from": "TRAIN",
    "to": "IMAG",
    "style": "thick",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 45
   },
   {
    "from": "WM",
    "to": "IMAG",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "IMAG",
    "to": "ACT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "IMAG",
    "to": "CRIT",
-   "style": "thick"
+   "style": "thick",
+   "out": "top",
+   "pos_out": 0.6,
+   "in": "bottom",
+   "pos_in": 0.5
   },
   {
    "from": "ACT",
    "to": "POLICY",
-   "style": "thick"
+   "style": "thick",
+   "out": "top",
+   "pos_out": 0.5,
+   "in": "bottom",
+   "pos_in": 0.74
   }
  ],
  "panels": [
   {
    "label": "真机物理世界 (4 平台同一组超参)",
-   "x": 20,
-   "y": 178,
-   "w": 2503,
-   "h": 215
+   "x": 30,
+   "y": 130,
+   "w": 1660,
+   "h": 172
   },
   {
    "label": "RSSM 世界模型 (单 GPU 训练)",
-   "x": 618,
-   "y": 86,
-   "w": 2171,
-   "h": 456
+   "x": 30,
+   "y": 352,
+   "w": 1660,
+   "h": 374
   }
  ],
  "canvas": [
-  2809,
-  612
+  1700,
+  830
  ],
  "legend": [
   "act",

@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "mem",
-   "x": 53,
-   "y": 106,
-   "w": 217,
-   "h": 93
+   "x": 1106,
+   "y": 62,
+   "w": 215,
+   "h": 95
   },
   {
    "id": "EMB",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 44,
-   "y": 233,
-   "w": 235,
-   "h": 92
+   "x": 46,
+   "y": 63,
+   "w": 233,
+   "h": 94
   },
   {
    "id": "INS",
@@ -28,21 +28,21 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 92,
-   "y": 358,
-   "w": 140,
-   "h": 92
+   "x": 317,
+   "y": 63,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "PROP",
-   "label": "本体状态连续 embedd\ning",
+   "label": "本体状态连续 embedding",
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 45,
-   "y": 484,
-   "w": 233,
-   "h": 93
+   "x": 505,
+   "y": 63,
+   "w": 261,
+   "h": 94
   },
   {
    "id": "EOC",
@@ -50,21 +50,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 345,
-   "y": 397,
-   "w": 149,
-   "h": 92
+   "x": 760,
+   "y": 270,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "COT",
-   "label": "可选原生 CoT\nSubtask / BBox / T",
-   "sub": "race / ActionHint",
+   "label": "可选原生 CoT\nSubtask / BBox / Trac",
+   "sub": "e / ActionHint",
    "icon": "lightning",
    "cls": "key",
-   "x": 560,
-   "y": 438,
-   "w": 233,
-   "h": 126
+   "x": 705,
+   "y": 460,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "EOV",
@@ -72,109 +72,98 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 859,
-   "y": 455,
-   "w": 149,
-   "h": 92
+   "x": 760,
+   "y": 684,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "R1N",
-   "label": "left_control 部件\n标记 + 8 个 RVQ 码",
+   "label": "left_control 部件标记 \n+ 8 个 RVQ 码",
    "sub": "",
    "icon": "stack",
    "cls": "key",
-   "x": 1074,
-   "y": 454,
-   "w": 227,
-   "h": 93
+   "x": 704,
+   "y": 874,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "R2N",
-   "label": "right_control 部件\n标记 + 8 个 RVQ 码",
+   "label": "right_control 部件标记\n + 8 个 RVQ 码",
    "sub": "",
    "icon": "stack",
    "cls": "key",
-   "x": 1367,
-   "y": 454,
-   "w": 230,
-   "h": 93
+   "x": 704,
+   "y": 1065,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "R3N",
-   "label": "left_gripper 部件\n标记 + 8 个 RVQ 码",
+   "label": "left_gripper 部件标记 \n+ 8 个 RVQ 码",
    "sub": "",
    "icon": "stack",
    "cls": "key",
-   "x": 1663,
-   "y": 454,
-   "w": 227,
-   "h": 93
+   "x": 704,
+   "y": 1256,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "RR",
-   "label": "共 R 轮展开\nidle 部件整组跳过不",
-   "sub": "出 token",
-   "icon": "stack",
+   "label": "共 R 轮展开\nidle 部件整组跳过不出 t",
+   "sub": "oken",
+   "icon": "spark",
    "cls": "key",
-   "x": 1956,
-   "y": 438,
-   "w": 231,
-   "h": 126
+   "x": 702,
+   "y": 1447,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "DEC",
-   "label": "Qwen3.5 2B decoder\n(视觉塔不冻结, 全参",
-   "sub": "训练)",
+   "label": "Qwen3.5 2B decoder\n(视觉塔不冻结, 全参训练",
+   "sub": ")",
    "icon": "camera",
    "cls": "train",
-   "x": 45,
-   "y": 610,
-   "w": 233,
-   "h": 126
-  },
-  {
-   "id": "AR",
-   "label": "AR",
-   "sub": "",
-   "icon": "refresh",
-   "cls": "loop",
-   "x": 350,
-   "y": 513,
-   "w": 140,
-   "h": 92
+   "x": 804,
+   "y": 46,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "LCE",
-   "label": "唯一损失: generati\nve 段",
-   "sub": "next-token 交叉熵 ",
+   "label": "唯一损失: generative \n段",
+   "sub": "next-token 交叉熵 (Eq.",
    "icon": "sigma",
    "cls": "loss",
-   "x": 48,
-   "y": 770,
-   "w": 228,
-   "h": 126
+   "x": 1359,
+   "y": 46,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "DECODE",
-   "label": "ActionCodec 解码\nRVQ 反量化回 27 维",
-   "sub": "统一动作",
+   "label": "ActionCodec 解码\nRVQ 反量化回 27 维统一",
+   "sub": "动作",
    "icon": "stack",
    "cls": "key",
-   "x": 2253,
-   "y": 438,
-   "w": 225,
-   "h": 126
+   "x": 706,
+   "y": 1671,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "ACT",
-   "label": "机器人执行\n下一轮动作块前重新 ",
-   "sub": "conditioning",
+   "label": "机器人执行\n下一轮动作块前重新 cond",
+   "sub": "itioning",
    "icon": "stack",
    "cls": "act",
-   "x": 2544,
-   "y": 438,
-   "w": 228,
-   "h": 126
+   "x": 703,
+   "y": 1895,
+   "w": 265,
+   "h": 128
   }
  ],
  "edges": [
@@ -230,13 +219,9 @@
   },
   {
    "from": "DEC",
-   "to": "AR",
+   "to": "EOC",
    "style": "fb",
-   "label": "\"一次前向同流生成 推理 token 与动作码\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"一次前向同流生成 推理 token 与动作"
   },
   {
    "from": "LCE",
@@ -258,32 +243,32 @@
    "to": "IMG",
    "style": "fb",
    "label": "\"重观测 + 状态\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 1950
   }
  ],
  "panels": [
   {
    "label": "conditioning 段 (用户 token)",
    "x": 20,
-   "y": 62,
-   "w": 283,
-   "h": 535
+   "y": 16,
+   "w": 1327,
+   "h": 163
   },
   {
-   "label": "单一自回归 token 流 (Qwen3.5 2B 单 decode",
-   "x": 321,
-   "y": 353,
-   "w": 1890,
-   "h": 231
+   "label": "单一自回归 token 流 (Qwen3.5 2B 单 de",
+   "x": 676,
+   "y": 224,
+   "w": 319,
+   "h": 1373
   }
  ],
  "canvas": [
-  2816,
-  962
+  1671,
+  2205
  ],
  "legend": [
   "act",
@@ -294,13 +279,9 @@
   "mem",
   "train"
  ],
- "layout_wh": [
-  2816,
-  962
- ],
  "title": "g05",
  "subtitle": "G0.5 以 Qwen3.5 2B 为底座，用单一 next-token cross-entropy 目标在同一个 token 流里生成 CoT（Subtask/BBox/Tr",
  "foot": "g05 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph COND[\"conditioning 段 (用户 token)\"]\n        IMG([\"多视角 RGB x 6 帧<br/>约 5 秒视觉记忆\"])\n        EMB([\"本体 id (14 种本体)\"])\n        INS([\"任务指令\"])\n        PROP([\"本体状态连续 embedding\"])\n    end\n    subgraph AR[\"单一自回归 token 流 (Qwen3.5 2B 单 decoder)\"]\n        EOC[\"EOC 结束符\"]\n        COT[\"可选原生 CoT<br/>Subtask / BBox / Trace / ActionHint<br/>(8 种组合加权采样, 可开关)\"]\n        EOV[\"EOV 结束符\"]\n        R1N[\"left_control 部件标记 + 8 个 RVQ 码\"]\n        R2N[\"right_control 部件标记 + 8 个 RVQ 码\"]\n        R3N[\"left_gripper 部件标记 + 8 个 RVQ 码\"]\n        RR[\"共 R 轮展开<br/>idle 部件整组跳过不出 token\"]\n    end\n    IMG --> EOC\n    EMB --> EOC\n    INS --> EOC\n    PROP --> EOC\n    EOC ==> COT ==> EOV ==> R1N ==> R2N ==> R3N ==> RR\n    DEC[\"Qwen3.5 2B decoder<br/>(视觉塔不冻结, 全参训练)\"] -.->|\"一次前向同流生成<br/>推理 token 与动作码\"| AR\n    LCE[\"唯一损失: generative 段<br/>next-token 交叉熵 (Eq.1)\"] -.-> COT\n    RR ==> DECODE[\"ActionCodec 解码<br/>RVQ 反量化回 27 维统一动作\"]\n    DECODE ==> ACT([\"机器人执行<br/>下一轮动作块前重新 conditioning\"])\n    ACT -.->|\"重观测 + 状态\"| IMG\n\n    class IMG mem\n    class EMB,INS,PROP data\n    class DEC train\n    class COT,R1N,R2N,R3N,RR,DECODE key\n    class ACT act\n    class LCE loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

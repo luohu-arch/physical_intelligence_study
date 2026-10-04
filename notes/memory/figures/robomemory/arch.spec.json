@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 438,
-   "y": 130,
-   "w": 251,
-   "h": 92
+   "x": 434,
+   "y": 46,
+   "w": 249,
+   "h": 94
   },
   {
    "id": "THAL",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 461,
-   "y": 314,
-   "w": 204,
-   "h": 92
+   "x": 457,
+   "y": 236,
+   "w": 202,
+   "h": 94
   },
   {
    "id": "KG",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 44,
-   "y": 498,
-   "w": 241,
-   "h": 93
+   "x": 289,
+   "y": 426,
+   "w": 239,
+   "h": 95
   },
   {
    "id": "TEMP",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 325,
-   "y": 498,
-   "w": 263,
-   "h": 92
+   "x": 809,
+   "y": 426,
+   "w": 261,
+   "h": 94
   },
   {
    "id": "EPIS",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 628,
-   "y": 498,
-   "w": 207,
-   "h": 92
+   "x": 46,
+   "y": 426,
+   "w": 205,
+   "h": 94
   },
   {
    "id": "SEM",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 875,
-   "y": 498,
-   "w": 207,
-   "h": 92
+   "x": 566,
+   "y": 426,
+   "w": 205,
+   "h": 94
   },
   {
    "id": "PLANNER",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 442,
-   "y": 683,
-   "w": 243,
-   "h": 92
+   "x": 438,
+   "y": 617,
+   "w": 241,
+   "h": 94
   },
   {
    "id": "CRITIC",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "target",
    "cls": "loop",
-   "x": 328,
-   "y": 867,
-   "w": 200,
-   "h": 92
+   "x": 326,
+   "y": 807,
+   "w": 198,
+   "h": 94
   },
   {
    "id": "EXEC",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 568,
-   "y": 867,
-   "w": 231,
-   "h": 92
+   "x": 562,
+   "y": 807,
+   "w": 229,
+   "h": 94
   },
   {
    "id": "ROBOT",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 454,
-   "y": 1051,
-   "w": 218,
-   "h": 92
+   "x": 450,
+   "y": 997,
+   "w": 216,
+   "h": 94
   }
  ],
  "edges": [
@@ -121,11 +121,7 @@
    "from": "THAL",
    "to": "KG",
    "style": "thick",
-   "label": "逐步摘要与检索 query 并行下发",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "逐步摘要与检索 query 并行下发"
   },
   {
    "from": "THAL",
@@ -184,32 +180,28 @@
   {
    "label": "四模块并行记忆 更新与检索互不阻塞",
    "x": 20,
-   "y": 454,
-   "w": 1086,
-   "h": 157
+   "y": 380,
+   "w": 1076,
+   "h": 163
   },
   {
    "label": "前额叶 Critic-Planner 闭环",
-   "x": 304,
-   "y": 639,
+   "x": 300,
+   "y": 571,
    "w": 405,
-   "h": 340
+   "h": 352
   }
  ],
  "canvas": [
-  1126,
-  1233
+  1116,
+  1273
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  1126,
-  1233
- ],
  "title": "robomemory",
  "subtitle": "RoboMemory 提出脑启发四模块并行记忆架构：空间记忆（动态 KG，检索式增量更新）、时间记忆（FIFO buffer + VLM 摘要压缩）、情景记忆（RAG 任务交互",
  "foot": "robomemory · arXiv 2508.01415 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS[多模态观测 RGB + 深度]:::data\n    THAL[信息预处理器<br/>Step Summarizer + Query Generator 两个 VLM]:::frozen\n\n    subgraph BRAIN[\"四模块并行记忆 更新与检索互不阻塞\"]\n        KG[\"空间记忆 动态 KG<br/>检索式增量更新 O(DK)\"]:::key\n        TEMP[时间记忆 FIFO 缓冲<br/>VLM 摘要压缩旧条目]:::mem\n        EPIS[情景记忆 RAG<br/>任务交互历史 vector DB]:::mem\n        SEM[语义记忆 RAG<br/>行动级与任务级经验摘要]:::mem\n    end\n\n    OBS ==> THAL\n    THAL ==>|逐步摘要与检索 query 并行下发| KG\n    THAL ==> TEMP\n    THAL ==> EPIS\n    THAL ==> SEM\n\n    subgraph FCX[\"前额叶 Critic-Planner 闭环\"]\n        PLANNER[Planner 生成动作计划]:::frozen\n        CRITIC[Critic 评估<br/>视觉反馈与记忆一致性 第一步豁免]:::loop\n    end\n\n    KG ==>|并行检索| PLANNER\n    TEMP ==> PLANNER\n    EPIS ==> PLANNER\n    SEM ==> PLANNER\n    PLANNER ==>|计划送评估| CRITIC\n    CRITIC -.不通过触发重规划.-> PLANNER\n    PLANNER ==> EXEC[低层执行器 小脑<br/>LoRA 微调 pi_0 VLA + SLAM]:::act\n    EXEC ==> ROBOT([厨房场景机器人执行]):::env\n    ROBOT -.新观测回流 终身学习不清理记忆.-> OBS\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

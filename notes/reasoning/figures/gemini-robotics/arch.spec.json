@@ -6,8 +6,8 @@
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 12,
-   "y": 130,
+   "x": 60,
+   "y": 150,
    "w": 290,
    "h": 92
   },
@@ -17,8 +17,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 602,
-   "y": 314,
+   "x": 430,
+   "y": 150,
    "w": 290,
    "h": 92
   },
@@ -28,8 +28,8 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 610,
-   "y": 498,
+   "x": 850,
+   "y": 150,
    "w": 273,
    "h": 92
   },
@@ -39,8 +39,8 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 480,
-   "y": 682,
+   "x": 850,
+   "y": 340,
    "w": 204,
    "h": 92
   },
@@ -50,8 +50,8 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 624,
-   "y": 867,
+   "x": 850,
+   "y": 530,
    "w": 246,
    "h": 92
   },
@@ -61,8 +61,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 724,
-   "y": 682,
+   "x": 1220,
+   "y": 150,
    "w": 289,
    "h": 93
   },
@@ -72,8 +72,8 @@
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 605,
-   "y": 1051,
+   "x": 1220,
+   "y": 530,
    "w": 284,
    "h": 93
   },
@@ -83,8 +83,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 358,
-   "y": 130,
+   "x": 60,
+   "y": 330,
    "w": 287,
    "h": 92
   },
@@ -94,8 +94,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 701,
-   "y": 130,
+   "x": 90,
+   "y": 480,
    "w": 186,
    "h": 92
   },
@@ -105,8 +105,8 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 943,
-   "y": 130,
+   "x": 1220,
+   "y": 340,
    "w": 225,
    "h": 92
   },
@@ -116,8 +116,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1224,
-   "y": 130,
+   "x": 60,
+   "y": 630,
    "w": 258,
    "h": 92
   }
@@ -126,56 +126,95 @@
   {
    "from": "IMG",
    "to": "GEM",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "GEM",
    "to": "ER",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "ER",
    "to": "EROUT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "ER",
    "to": "RB",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "RB",
    "to": "DEC",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "DEC",
    "to": "ROBOT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "FT",
    "to": "RB",
-   "style": "fb"
+   "style": "fb",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "ICL",
    "to": "ER",
-   "style": "fb"
+   "style": "fb",
+   "out": "top",
+   "pos_out": 0.3,
+   "in": "bottom",
+   "pos_in": 0.12
   }
  ],
  "panels": [
   {
    "label": "双模型解耦 - 推理与动作分离",
-   "x": 456,
-   "y": 454,
-   "w": 451,
-   "h": 525
+   "x": 800,
+   "y": 110,
+   "w": 330,
+   "h": 600
+  },
+  {
+   "label": "数据与适配",
+   "x": 40,
+   "y": 300,
+   "w": 330,
+   "h": 460
   }
  ],
  "canvas": [
-  1494,
-  1234
+  1560,
+  880
  ],
  "legend": [
   "loop"

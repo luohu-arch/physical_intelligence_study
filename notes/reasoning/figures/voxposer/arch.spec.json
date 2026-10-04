@@ -6,43 +6,43 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 67,
-   "y": 130,
-   "w": 184,
-   "h": 92
+   "x": 46,
+   "y": 46,
+   "w": 182,
+   "h": 94
   },
   {
    "id": "RGBD",
-   "label": "双 Kinect RGB-D 观\n测<br/",
+   "label": "双 Kinect RGB-D 观测<b\nr/",
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 44,
-   "y": 246,
-   "w": 230,
-   "h": 93
+   "x": 560,
+   "y": 46,
+   "w": 266,
+   "h": 95
   },
   {
    "id": "GPT4",
-   "label": "GPT-4 两级 LMP 编\n排<br/",
+   "label": "GPT-4 两级 LMP 编排<br\n/",
    "sub": "",
    "icon": "brain",
    "cls": "loop",
-   "x": 346,
-   "y": 246,
-   "w": 218,
-   "h": 93
+   "x": 320,
+   "y": 237,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "PERC",
-   "label": "开放词汇感知管线<br\n/",
+   "label": "开放词汇感知管线<br/",
    "sub": "",
    "icon": "eye",
    "cls": "loop",
-   "x": 340,
-   "y": 364,
-   "w": 230,
-   "h": 93
+   "x": 622,
+   "y": 238,
+   "w": 238,
+   "h": 94
   },
   {
    "id": "ENT",
@@ -50,54 +50,54 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 636,
-   "y": 306,
-   "w": 204,
-   "h": 92
+   "x": 488,
+   "y": 428,
+   "w": 202,
+   "h": 94
   },
   {
    "id": "VMAP",
-   "label": "100^3 体素价值图<br\n/",
+   "label": "100^3 体素价值图<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 906,
-   "y": 305,
-   "w": 235,
-   "h": 93
+   "x": 468,
+   "y": 618,
+   "w": 243,
+   "h": 94
   },
   {
    "id": "COST",
-   "label": "规划代价 -(2*aff +\n 1*avo)",
-   "sub": "距离变换致密化 + 高",
+   "label": "规划代价 -(2*aff + 1*a\nvo)",
+   "sub": "距离变换致密化 + 高斯平",
    "icon": "tree",
    "cls": "loop",
-   "x": 1207,
-   "y": 288,
-   "w": 230,
-   "h": 126
+   "x": 458,
+   "y": 808,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "PLAN",
-   "label": "greedy search 运动\n规划<br/",
+   "label": "greedy search 运动规划\n<br/",
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 1503,
-   "y": 305,
-   "w": 230,
-   "h": 93
+   "x": 458,
+   "y": 1032,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "ROT",
-   "label": "旋转 / 速度 / 夹爪\n图<br/",
+   "label": "旋转 / 速度 / 夹爪图<br\n/",
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 48,
-   "y": 363,
-   "w": 223,
-   "h": 93
+   "x": 864,
+   "y": 46,
+   "w": 269,
+   "h": 95
   },
   {
    "id": "OSC",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 1799,
-   "y": 306,
-   "w": 186,
-   "h": 92
+   "x": 498,
+   "y": 1223,
+   "w": 184,
+   "h": 94
   },
   {
    "id": "ROBOT",
@@ -116,21 +116,21 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 2051,
-   "y": 306,
-   "w": 220,
-   "h": 92
+   "x": 480,
+   "y": 1413,
+   "w": 218,
+   "h": 94
   },
   {
    "id": "ONLINE",
-   "label": "在线动力学学习扩展<\nbr/",
+   "label": "在线动力学学习扩展<br/",
    "sub": "",
    "icon": "gear",
    "cls": "loop",
-   "x": 45,
-   "y": 480,
-   "w": 228,
-   "h": 93
+   "x": 266,
+   "y": 46,
+   "w": 256,
+   "h": 94
   }
  ],
  "edges": [
@@ -153,11 +153,7 @@
    "from": "GPT4",
    "to": "VMAP",
    "style": "thick",
-   "label": "写 Python 代码调感知 API 与 Num",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "写 Python 代码调感知 API 与 N"
   },
   {
    "from": "ENT",
@@ -192,19 +188,15 @@
  ],
  "panels": [],
  "canvas": [
-  2315,
-  663
+  1179,
+  1689
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  2315,
-  663
- ],
  "title": "voxposer",
  "subtitle": "VoxPoser 让 GPT-4 以 Python 代码调用开放词汇检测（OWL-ViT）、分割（Segment Anything）与追踪（XMem），再把指令蕴含的 affo",
  "foot": "voxposer · arXiv 2307.05973 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    L[自由语言指令 L]:::data\n    RGBD[双 Kinect RGB-D 观测<br/>20Hz 回传]:::data\n    GPT4[GPT-4 两级 LMP 编排<br/>planner 拆子任务 composer 调度]:::frozen\n    PERC[开放词汇感知管线<br/>OWL-ViT 检测 + SAM 分割 + XMem 追踪]:::frozen\n    ENT[实体点云几何<br/>中心 / 占据栅格 / 法向量]:::data\n    VMAP[100^3 体素价值图<br/>affordance 高值吸引 avoidance 排斥]:::key\n    COST[\"规划代价 -(2*aff + 1*avo)<br/>距离变换致密化 + 高斯平滑\"]:::env\n    PLAN[greedy search 运动规划<br/>合成 6-DoF 末端航点]:::act\n    ROT[旋转 / 速度 / 夹爪图<br/>逐航点补齐参数]:::act\n    OSC[OSC 阻抗控制器]:::act\n    ROBOT([Franka Panda 执行]):::env\n\n    L ==> GPT4\n    RGBD ==> PERC\n    PERC ==> ENT\n    GPT4 ==>|写 Python 代码调感知 API 与 NumPy 赋值| VMAP\n    ENT ==> VMAP\n    VMAP ==> COST\n    COST ==> PLAN\n    VMAP -.五类图同源生成.-> ROT\n    PLAN ==> OSC\n    ROT ==> OSC\n    OSC ==> ROBOT\n    ROBOT -.每航点 5Hz 新观测重规划.-> RGBD\n    ONLINE[在线动力学学习扩展<br/>零样本轨迹作探索先验]:::train\n    ONLINE -.数分钟学会接触密集任务.-> PLAN\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

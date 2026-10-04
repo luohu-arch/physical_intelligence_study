@@ -2,135 +2,135 @@
  "nodes": [
   {
    "id": "VIDEO",
-   "label": "互联网视频 + 机器人\n演示 + Ego4D",
-   "sub": "多 embodiment, 无",
+   "label": "互联网视频 + 机器人演示\n + Ego4D",
+   "sub": "多 embodiment, 无动作",
    "icon": "db",
    "cls": "data",
-   "x": 20,
-   "y": 130,
-   "w": 230,
-   "h": 126
+   "x": 330,
+   "y": 46,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "S1",
-   "label": "Stage 1: 任务无关潜\n在动作 a_TI",
+   "label": "Stage 1: 任务无关潜在动\n作 a_TI",
    "sub": "光照/视角等环境动态",
    "icon": "gear",
    "cls": "frozen",
-   "x": 681,
-   "y": 316,
-   "w": 235,
-   "h": 126
+   "x": 789,
+   "y": 270,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "S2",
-   "label": "Stage 2: 任务中心潜\n在动作 a_TC",
-   "sub": "(冻结 Stage 1, 新",
-   "icon": "lightning",
+   "label": "Stage 2: 任务中心潜在动\n作 a_TC",
+   "sub": "(冻结 Stage 1, 新增 co",
+   "icon": "spark",
    "cls": "key",
-   "x": 681,
-   "y": 502,
-   "w": 235,
-   "h": 126
+   "x": 789,
+   "y": 494,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "LTI",
-   "label": "损失 L_TI / L_TC:\nDINOv2 特征空间重建",
-   "sub": " MSE",
+   "label": "损失 L_TI / L_TC:\nDINOv2 特征空间重建 MS",
+   "sub": "E",
    "icon": "sigma",
    "cls": "loss",
-   "x": 284,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 1540,
+   "y": 46,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "LAT",
-   "label": "任务中心潜在动作 a_\nz",
-   "sub": "4 个离散 token, 与",
-   "icon": "stack",
+   "label": "任务中心潜在动作 a_z\n4 个离散 token, 与本体",
+   "sub": "无关",
+   "icon": "state",
    "cls": "key",
-   "x": 684,
-   "y": 688,
-   "w": 230,
-   "h": 126
+   "x": 793,
+   "y": 718,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "ROBS",
-   "label": "机器人观测 + 语言指\n令",
+   "label": "机器人观测 + 语言指令",
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 550,
-   "y": 146,
-   "w": 230,
-   "h": 93
+   "x": 46,
+   "y": 63,
+   "w": 246,
+   "h": 94
   },
   {
    "id": "POL",
-   "label": "通用 VLA 策略: Pri\nsmatic-7B",
-   "sub": "(跨 embodiment 共",
+   "label": "通用 VLA 策略: Prismat\nic-7B",
+   "sub": "(跨 embodiment 共享)",
    "icon": "lightning",
    "cls": "train",
-   "x": 685,
-   "y": 874,
-   "w": 227,
-   "h": 126
+   "x": 792,
+   "y": 942,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "LPRE",
-   "label": "损失 L_pretrain:\n潜在动作自回归负对数",
-   "sub": "似然",
+   "label": "损失 L_pretrain:\n潜在动作自回归负对数似然",
+   "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 814,
-   "y": 130,
-   "w": 236,
-   "h": 126
+   "x": 1232,
+   "y": 62,
+   "w": 270,
+   "h": 95
   },
   {
    "id": "HIST",
-   "label": "上一步 4 个潜在动作\n token",
-   "sub": "注入 prompt (CoT ",
+   "label": "上一步 4 个潜在动作 tok\nen",
+   "sub": "注入 prompt (CoT 式上",
    "icon": "chat",
    "cls": "mem",
-   "x": 1083,
-   "y": 130,
-   "w": 230,
-   "h": 126
+   "x": 632,
+   "y": 46,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "DEC",
-   "label": "轻量动作解码器 10.8\nM",
-   "sub": "每个 embodiment 独",
+   "label": "轻量动作解码器 10.8M\n每个 embodiment 独立 (",
+   "sub": "+ LoRA 约 123M)",
    "icon": "lightning",
    "cls": "train",
-   "x": 683,
-   "y": 1060,
-   "w": 231,
-   "h": 126
+   "x": 792,
+   "y": 1166,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "LL1",
-   "label": "下游损失: 潜在动作 \nNLL",
-   "sub": "+ 低层动作 L1 回归",
+   "label": "下游损失: 潜在动作 NLL\n+ 低层动作 L1 回归",
+   "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 1347,
-   "y": 130,
-   "w": 230,
-   "h": 126
+   "x": 937,
+   "y": 62,
+   "w": 257,
+   "h": 95
   },
   {
    "id": "ACT",
-   "label": "各机器人动作\nLIBERO 95.2% vs Op",
-   "sub": "enVLA 76.5%",
+   "label": "各机器人动作\nLIBERO 95.2% vs OpenV",
+   "sub": "LA 76.5%",
    "icon": "gear",
    "cls": "act",
-   "x": 682,
-   "y": 1246,
-   "w": 233,
-   "h": 126
+   "x": 793,
+   "y": 1390,
+   "w": 261,
+   "h": 128
   }
  ],
  "edges": [
@@ -169,11 +169,7 @@
    "from": "LAT",
    "to": "POL",
    "style": "thick",
-   "label": "\"自回归预测的训练信号\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"自回归预测的训练信号\""
   },
   {
    "from": "LPRE",
@@ -184,11 +180,7 @@
    "from": "HIST",
    "to": "POL",
    "style": "fb",
-   "label": "\"长程任务 +3.9 点\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"长程任务 +3.9 点\""
   },
   {
    "from": "POL",
@@ -208,16 +200,16 @@
  ],
  "panels": [
   {
-   "label": "潜在动作模型: 双阶段 VQ-VAE (DINOv2 特征空",
-   "x": 657,
-   "y": 272,
-   "w": 283,
-   "h": 376
+   "label": "潜在动作模型: 双阶段 VQ-VAE (DINOv2 特",
+   "x": 763,
+   "y": 224,
+   "w": 321,
+   "h": 420
   }
  ],
  "canvas": [
-  1597,
-  1462
+  1847,
+  1700
  ],
  "legend": [
   "act",
@@ -228,13 +220,9 @@
   "mem",
   "train"
  ],
- "layout_wh": [
-  1597,
-  1462
- ],
  "title": "univla-latent-actions",
  "subtitle": "UniVLA 在 DINOv2 特征空间中学习与具体机器人无关的任务中心潜在动作表示，通过双阶段 VQ-VAE 分离任务相关/无关动态，仅用 OpenVLA 1/20 预训练算",
  "foot": "univla-latent-actions · arXiv 2505.06111 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    VIDEO([\"互联网视频 + 机器人演示 + Ego4D<br/>多 embodiment, 无动作标注也可用\"]) ==> S1\n    subgraph LAM[\"潜在动作模型: 双阶段 VQ-VAE (DINOv2 特征空间)\"]\n        S1[\"Stage 1: 任务无关潜在动作 a_TI<br/>光照/视角等环境动态<br/>语言 conditioning + codebook 容量约束<br/>自动把任务语义挤出去\"]\n        S2[\"Stage 2: 任务中心潜在动作 a_TC<br/>(冻结 Stage 1, 新增 codebook)<br/>物体被抓起/移动等语义动态\"]\n        S1 -->|\"冻结后作基座\"| S2\n    end\n    LTI[\"损失 L_TI / L_TC:<br/>DINOv2 特征空间重建 MSE<br/>(非像素, 避开纹理光照噪声)\"] -.-> S1\n    LTI -.-> S2\n    S2 ==> LAT([\"任务中心潜在动作 a_z<br/>4 个离散 token, 与本体无关\"])\n    ROBS([\"机器人观测 + 语言指令\"]) ==> POL[\"通用 VLA 策略: Prismatic-7B<br/>(跨 embodiment 共享)\"]\n    LAT ==>|\"自回归预测的训练信号\"| POL\n    LPRE[\"损失 L_pretrain:<br/>潜在动作自回归负对数似然\"] -.-> POL\n    HIST([\"上一步 4 个潜在动作 token<br/>注入 prompt (CoT 式上下文)\"]) -.->|\"长程任务 +3.9 点\"| POL\n    POL ==> DEC[\"轻量动作解码器 10.8M<br/>每个 embodiment 独立 (+ LoRA 约 123M)\"]\n    LL1[\"下游损失: 潜在动作 NLL<br/>+ 低层动作 L1 回归\"] -.-> DEC\n    DEC ==> ACT([\"各机器人动作<br/>LIBERO 95.2% vs OpenVLA 76.5%<br/>仅 1/20 预训练算力\"])\n\n    class VIDEO,ROBS data\n    class HIST mem\n    class S1 frozen\n    class S2,LAT key\n    class POL,DEC train\n    class ACT act\n    class LTI,LPRE,LL1 loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

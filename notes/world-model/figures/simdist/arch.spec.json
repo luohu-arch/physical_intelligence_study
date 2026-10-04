@@ -61,8 +61,8 @@
    "sub": "设",
    "icon": "gear",
    "cls": "key",
-   "x": 993,
-   "y": 533,
+   "x": 988,
+   "y": 550,
    "w": 284,
    "h": 126
   },
@@ -83,7 +83,7 @@
    "sub": "加像素重构损失反掉到 0.32",
    "icon": "camera",
    "cls": "train",
-   "x": 683,
+   "x": 661,
    "y": 315,
    "w": 285,
    "h": 126
@@ -115,62 +115,101 @@
   {
    "from": "SIM",
    "to": "PRETRAIN",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "PRETRAIN",
    "to": "ENC",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.05,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "PRETRAIN",
    "to": "REW",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.57
   },
   {
    "from": "PRETRAIN",
    "to": "VAL",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.75,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "PRETRAIN",
    "to": "DYN",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 1.0,
+   "in": "top",
+   "pos_in": 0.3
   },
   {
    "from": "REAL",
    "to": "FINETUNE",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "FINETUNE",
    "to": "DYN",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.3,
+   "in": "top",
+   "pos_in": 0.6
   },
   {
    "from": "ENC",
    "to": "PLANNER",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "REW",
    "to": "PLANNER",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "VAL",
    "to": "PLANNER",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top",
+   "pos_in": 0.7
   },
   {
    "from": "DYN",
    "to": "PLANNER",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top",
+   "pos_in": 0.9
   },
   {
    "from": "PLANNER",
    "to": "ACTION",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   }
  ],
  "panels": [],

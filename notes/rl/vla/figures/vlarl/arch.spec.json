@@ -2,102 +2,102 @@
  "nodes": [
   {
    "id": "DEMO",
-   "label": "32 条真机 demo / \n任务",
-   "sub": "3D 鼠标遥操作",
+   "label": "32 条真机 demo / 任务\n3D 鼠标遥操作",
+   "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 194,
-   "y": 130,
-   "w": 218,
-   "h": 126
+   "x": 232,
+   "y": 46,
+   "w": 253,
+   "h": 95
   },
   {
    "id": "FT",
-   "label": "微调后冻结 VLA\nFlower (1024 维) /",
-   "sub": " GR00T N1.7 (2048 ",
+   "label": "微调后冻结 VLA\nFlower (1024 维) / GR",
+   "sub": "00T N1.7 (2048 维)",
    "icon": "brain",
    "cls": "frozen",
-   "x": 44,
-   "y": 316,
-   "w": 233,
-   "h": 126
+   "x": 350,
+   "y": 237,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "TWIN",
-   "label": "数字孪生重建\nFoundationPose + M",
-   "sub": "uJoCo",
+   "label": "数字孪生重建\nFoundationPose + MuJo",
+   "sub": "Co",
    "icon": "gear",
    "cls": "env",
-   "x": 301,
-   "y": 316,
-   "w": 233,
-   "h": 126
+   "x": 647,
+   "y": 237,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "SIMZ",
-   "label": "仿真侧 VLM latents\n Z_sim",
+   "label": "仿真侧 VLM latents Z_s\nim",
    "sub": "",
    "icon": "brain",
    "cls": "data",
-   "x": 426,
-   "y": 502,
-   "w": 228,
-   "h": 93
+   "x": 492,
+   "y": 461,
+   "w": 266,
+   "h": 95
   },
   {
    "id": "REALZ",
-   "label": "真实侧 VLM latents\n Z_real",
+   "label": "真实侧 VLM latents Z_r\neal",
    "sub": "",
    "icon": "brain",
    "cls": "data",
-   "x": 558,
-   "y": 332,
-   "w": 228,
-   "h": 93
+   "x": 46,
+   "y": 254,
+   "w": 266,
+   "h": 95
   },
   {
    "id": "MAP",
-   "label": "Sinkhorn OT mapper\n (核心)",
-   "sub": "4 层 Transformer +",
+   "label": "Sinkhorn OT mapper (\n核心)",
+   "sub": "4 层 Transformer + 零",
    "icon": "spark",
    "cls": "key",
-   "x": 298,
-   "y": 655,
-   "w": 233,
-   "h": 126
+   "x": 348,
+   "y": 652,
+   "w": 258,
+   "h": 128
   },
   {
    "id": "RL",
-   "label": "TD3 残差策略 (trai\nn, 仅仿真 60k 步)",
-   "sub": "输入: pool 后 late",
+   "label": "TD3 残差策略 (train, \n仅仿真 60k 步)",
+   "sub": "输入: pool 后 latent +",
    "icon": "gear",
    "cls": "train",
-   "x": 301,
-   "y": 841,
-   "w": 228,
-   "h": 126
+   "x": 344,
+   "y": 876,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "NOM",
-   "label": "名义动作 a_vla (冻\n结动作头)",
+   "label": "名义动作 a_vla (冻结动\n作头)",
    "sub": "",
    "icon": "lightning",
    "cls": "frozen",
-   "x": 176,
-   "y": 502,
-   "w": 225,
-   "h": 93
+   "x": 196,
+   "y": 461,
+   "w": 259,
+   "h": 95
   },
   {
    "id": "CRITIC",
-   "label": "双 critic (非对称)\n额外吃仿真特权任务状",
-   "sub": "态",
-   "icon": "target",
+   "label": "双 critic (非对称)\n额外吃仿真特权任务状态",
+   "sub": "",
+   "icon": "state",
    "cls": "reward",
-   "x": 172,
-   "y": 1027,
-   "w": 236,
-   "h": 126
+   "x": 502,
+   "y": 1100,
+   "w": 252,
+   "h": 95
   },
   {
    "id": "PRIV",
@@ -105,32 +105,32 @@
    "sub": "",
    "icon": "state",
    "cls": "frozen",
-   "x": 436,
-   "y": 146,
-   "w": 200,
-   "h": 93
+   "x": 524,
+   "y": 46,
+   "w": 198,
+   "h": 95
   },
   {
    "id": "SUM",
-   "label": "执行动作 a = a_vla\n + 0.10 * a_rl",
+   "label": "执行动作 a = a_vla + 0\n.10 * a_rl",
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 432,
-   "y": 1044,
-   "w": 227,
-   "h": 93
+   "x": 200,
+   "y": 1100,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "DEPLOY",
-   "label": "Franka 真机零样本部\n署",
-   "sub": "原始 real latent ",
+   "label": "Franka 真机零样本部署\n原始 real latent 直入,",
+   "sub": " mapper 不上线",
    "icon": "noise",
    "cls": "act",
-   "x": 298,
-   "y": 1213,
-   "w": 233,
-   "h": 126
+   "x": 345,
+   "y": 1291,
+   "w": 264,
+   "h": 128
   }
  ],
  "edges": [
@@ -179,11 +179,7 @@
    "from": "DEMO",
    "to": "RL",
    "style": "fb",
-   "label": "\"demo 残差目标 (a_demo - a_v",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"demo 残差目标 (a_demo - a"
   },
   {
    "from": "RL",
@@ -194,11 +190,7 @@
    "from": "PRIV",
    "to": "CRITIC",
    "style": "fb",
-   "label": "\"asymmetric critic 输入\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"asymmetric critic 输入\""
   },
   {
    "from": "NOM",
@@ -218,8 +210,8 @@
  ],
  "panels": [],
  "canvas": [
-  830,
-  1429
+  954,
+  1601
  ],
  "legend": [
   "act",
@@ -230,13 +222,9 @@
   "reward",
   "train"
  ],
- "layout_wh": [
-  830,
-  1429
- ],
  "title": "vlarl",
  "subtitle": "冻结 VLA（Flower / GR00T N1.7 两个骨干），把其内部 VLM token 表征（mean-pool 后 Flower 1024 维、GR00T 2048 ",
  "foot": "vlarl · arXiv 2609.30868 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    DEMO[(\"32 条真机 demo / 任务<br/>3D 鼠标遥操作\")] ==> FT[\"微调后冻结 VLA<br/>Flower (1024 维) / GR00T N1.7 (2048 维)\"]\n    DEMO ==> TWIN[\"数字孪生重建<br/>FoundationPose + MuJoCo\"]\n    TWIN ==> SIMZ[\"仿真侧 VLM latents Z_sim\"]\n    DEMO ==> REALZ[\"真实侧 VLM latents Z_real\"]\n    SIMZ ==> MAP[\"Sinkhorn OT mapper (核心)<br/>4 层 Transformer + 零初始化残差<br/>分布级对齐: sim latent 拉向 real 分布<br/>轨迹进度正则, 不需帧级对齐\"]\n    REALZ -.->|\"对齐目标分布\"| MAP\n    MAP ==> RL[\"TD3 残差策略 (train, 仅仿真 60k 步)<br/>输入: pool 后 latent + 名义动作 + 本体 + 腕力\"]\n    FT ==> NOM[\"名义动作 a_vla (冻结动作头)\"]\n    DEMO -.->|\"demo 残差目标<br/>(a_demo - a_vla)/0.10 作正则\"| RL\n    RL ==> CRITIC[\"双 critic (非对称)<br/>额外吃仿真特权任务状态\"]\n    PRIV[\"仿真特权任务状态<br/>(仅训练期)\"] -.->|\"asymmetric critic 输入\"| CRITIC\n    NOM ==> SUM([\"执行动作 a = a_vla + 0.10 * a_rl\"])\n    RL ==> SUM\n    SUM ==> DEPLOY[\"Franka 真机零样本部署<br/>原始 real latent 直入, mapper 不上线<br/>零真机 RL, 零在线适应\"]\n\n    class DEMO,SIMZ,REALZ data\n    class FT,NOM,PRIV frozen\n    class TWIN env\n    class MAP key\n    class RL train\n    class CRITIC reward\n    class SUM,DEPLOY act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c"
 }

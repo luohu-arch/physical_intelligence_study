@@ -2,124 +2,124 @@
  "nodes": [
   {
    "id": "POL",
-   "label": "被 RL 的策略: Qwen\n3-4B",
-   "sub": "BC 冷启动 + 格式惩",
+   "label": "被 RL 的策略: Qwen3-4B\nBC 冷启动 + 格式惩罚 + ",
+   "sub": "k3 KL 正则测试床",
    "icon": "brain",
    "cls": "loop",
-   "x": 295,
-   "y": 130,
-   "w": 227,
-   "h": 126
+   "x": 636,
+   "y": 46,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "ENV",
-   "label": "文本环境: ALFWorld\n / WebShop / Sokob",
-   "sub": "an / TIR Math",
+   "label": "文本环境: ALFWorld / W\nebShop / Sokoban / TI",
+   "sub": "R Math",
    "icon": "chat",
    "cls": "loop",
-   "x": 420,
-   "y": 316,
-   "w": 233,
-   "h": 126
+   "x": 486,
+   "y": 270,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "TRAJ",
-   "label": "多回合轨迹, 逐 turn\n 切分成单回合样本",
+   "label": "多回合轨迹, 逐 turn 切\n分成单回合样本",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 420,
-   "y": 502,
-   "w": 233,
-   "h": 93
+   "x": 488,
+   "y": 494,
+   "w": 259,
+   "h": 95
   },
   {
    "id": "PG",
-   "label": "agentic 策略梯度\nIS 权重 x log-prob",
-   "sub": " x advantage",
+   "label": "agentic 策略梯度\nIS 权重 x log-prob x a",
+   "sub": "dvantage",
    "icon": "lightning",
    "cls": "loop",
-   "x": 422,
-   "y": 655,
-   "w": 230,
-   "h": 126
+   "x": 484,
+   "y": 685,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "D1",
-   "label": "维度 1 损失聚合\nseq-mean vs token-",
-   "sub": "mean",
+   "label": "维度 1 损失聚合\nseq-mean vs token-mea",
+   "sub": "n",
    "icon": "sigma",
    "cls": "loop",
-   "x": 44,
-   "y": 841,
-   "w": 233,
-   "h": 126
+   "x": 46,
+   "y": 909,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "D2",
-   "label": "维度 2 IS 裁剪\ntoken 级 / 容错 / ",
-   "sub": "序列级",
+   "label": "维度 2 IS 裁剪\ntoken 级 / 容错 / 序列",
+   "sub": "级",
    "icon": "stack",
    "cls": "loop",
-   "x": 301,
-   "y": 841,
-   "w": 228,
-   "h": 126
+   "x": 345,
+   "y": 909,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "D3",
-   "label": "维度 3 轨迹过滤重采\n样",
-   "sub": "DAPO 动态采样",
+   "label": "维度 3 轨迹过滤重采样\nDAPO 动态采样",
+   "sub": "配 GIGPO +11.0%, 配 GR",
    "icon": "refresh",
    "cls": "loop",
-   "x": 553,
-   "y": 841,
-   "w": 230,
-   "h": 126
+   "x": 645,
+   "y": 909,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "D4",
-   "label": "维度 4 优势设计\n全局 / 步级 / 熵调",
-   "sub": "制",
+   "label": "维度 4 优势设计\n全局 / 步级 / 熵调制",
+   "sub": "细粒度 +3.4%",
    "icon": "refresh",
    "cls": "loop",
-   "x": 807,
-   "y": 841,
-   "w": 223,
-   "h": 126
+   "x": 950,
+   "y": 909,
+   "w": 239,
+   "h": 128
   },
   {
    "id": "CRASH",
-   "label": "崩溃根因诊断: 负优\n势 + 低 IS 比率序列",
-   "sub": "累积",
+   "label": "崩溃根因诊断: 负优势 + \n低 IS 比率序列累积",
+   "sub": "序列掩码一招把 CISPO/SA",
    "icon": "refresh",
    "cls": "loop",
-   "x": 546,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 330,
+   "y": 46,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "SAMPO",
-   "label": "SAMPO 三合一: 序列\n级 s_i 裁剪 +",
-   "sub": "步级优势 A' + 动态",
+   "label": "SAMPO 三合一: 序列级 s\n_i 裁剪 +",
+   "sub": "步级优势 A' + 动态过滤",
    "icon": "refresh",
    "cls": "loop",
-   "x": 424,
-   "y": 1027,
-   "w": 225,
-   "h": 126
+   "x": 487,
+   "y": 1133,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "ACC",
-   "label": "四任务平均 60.21, \n比 GRPO +25.2%",
-   "sub": "ALFWorld 92.72% 反",
+   "label": "四任务平均 60.21, 比 G\nRPO +25.2%",
+   "sub": "ALFWorld 92.72% 反超 G",
    "icon": "refresh",
    "cls": "loop",
-   "x": 421,
-   "y": 1213,
-   "w": 232,
-   "h": 126
+   "x": 484,
+   "y": 1357,
+   "w": 267,
+   "h": 128
   }
  ],
  "edges": [
@@ -147,11 +147,7 @@
    "from": "POL",
    "to": "ENV",
    "style": "fb",
-   "label": "\"rollout 交互\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"rollout 交互\""
   },
   {
    "from": "ENV",
@@ -187,11 +183,7 @@
    "from": "CRASH",
    "to": "D2",
    "style": "fb",
-   "label": "\"八组 KL 贡献分解锁定\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"八组 KL 贡献分解锁定\""
   },
   {
    "from": "SAMPO",
@@ -203,28 +195,24 @@
    "to": "POL",
    "style": "loss",
    "label": "\"梯度更新\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 1395
   }
  ],
  "panels": [],
  "canvas": [
-  1074,
-  1429
+  1235,
+  1667
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  1074,
-  1429
- ],
  "title": "arlarena",
  "subtitle": "ICML 2026 的 agentic RL 稳定性系统研究：先把多回合 ARL 训练拆成四个正交设计维度（损失聚合、IS 裁剪、轨迹过滤重采样、优势设计），在标准化测试床上逐",
  "foot": "arlarena · arXiv 2602.21534 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    POL[\"被 RL 的策略: Qwen3-4B<br/>BC 冷启动 + 格式惩罚 + k3 KL 正则测试床\"]:::train\n    ENV[\"文本环境: ALFWorld / WebShop / Sokoban / TIR Math<br/>累积多轮历史, 逐轮返回转移与终局奖励\"]:::env\n    TRAJ[\"多回合轨迹, 逐 turn 切分成单回合样本\"]:::data\n    PG[\"agentic 策略梯度<br/>IS 权重 x log-prob x advantage\"]:::loss\n\n    PG ==> D1[\"维度 1 损失聚合<br/>seq-mean vs token-mean<br/>token-mean 稳, seq-mean -15.0%\"]:::loss\n    PG ==> D2[\"维度 2 IS 裁剪<br/>token 级 / 容错 / 序列级<br/>序列级 +13.3%, 容错 ~130 步崩溃\"]:::loss\n    PG ==> D3[\"维度 3 轨迹过滤重采样<br/>DAPO 动态采样<br/>配 GIGPO +11.0%, 配 GRPO -7.6%\"]:::loss\n    PG ==> D4[\"维度 4 优势设计<br/>全局 / 步级 / 熵调制<br/>细粒度 +3.4%\"]:::loss\n\n    CRASH[\"崩溃根因诊断: 负优势 + 低 IS 比率序列累积<br/>序列掩码一招把 CISPO/SAPO 拉回 78.88/76.92\"]:::loop\n    SAMPO[\"SAMPO 三合一: 序列级 s_i 裁剪 +<br/>步级优势 A' + 动态过滤\"]:::key\n    ACC([\"四任务平均 60.21, 比 GRPO +25.2%<br/>ALFWorld 92.72% 反超 GPT-5.2 的 51.56%\"]):::data\n\n    POL -.->|\"rollout 交互\"| ENV\n    ENV ==> TRAJ\n    TRAJ ==> PG\n    D1 ==> SAMPO\n    D2 ==> SAMPO\n    D3 ==> SAMPO\n    D4 ==> SAMPO\n    CRASH -.->|\"八组 KL 贡献分解锁定\"| D2\n    SAMPO ==> ACC\n    PG -.->|\"梯度更新\"| POL\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

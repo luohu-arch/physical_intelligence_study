@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 44,
-   "y": 130,
-   "w": 235,
-   "h": 92
+   "x": 46,
+   "y": 46,
+   "w": 233,
+   "h": 94
   },
   {
    "id": "VENC",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "train",
-   "x": 345,
-   "y": 304,
-   "w": 146,
-   "h": 92
+   "x": 413,
+   "y": 237,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "LANG",
@@ -28,21 +28,21 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 92,
-   "y": 246,
-   "w": 140,
-   "h": 92
+   "x": 317,
+   "y": 46,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "TRIM",
-   "label": "中间模态融合: 裁掉\n后 50% LLM 层",
+   "label": "中间模态融合: 裁掉后 50\n% LLM 层",
    "sub": "省下的容量转给动作头",
    "icon": "brain",
    "cls": "key",
-   "x": 557,
-   "y": 288,
-   "w": 236,
-   "h": 126
+   "x": 356,
+   "y": 427,
+   "w": 265,
+   "h": 128
   },
   {
    "id": "NOISE",
@@ -50,21 +50,21 @@
    "sub": "",
    "icon": "noise",
    "cls": "data",
-   "x": 78,
-   "y": 362,
-   "w": 167,
-   "h": 92
+   "x": 505,
+   "y": 46,
+   "w": 165,
+   "h": 94
   },
   {
    "id": "HEAD",
-   "label": "扩散头: Global-Ada\nLN",
-   "sub": "全层共享调制 + 动作",
+   "label": "扩散头: Global-AdaLN\n全层共享调制 + 动作特定",
+   "sub": "残差",
    "icon": "lightning",
    "cls": "key",
-   "x": 859,
-   "y": 288,
-   "w": 230,
-   "h": 126
+   "x": 356,
+   "y": 651,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "LFM",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 50,
-   "y": 478,
-   "w": 224,
-   "h": 93
+   "x": 708,
+   "y": 46,
+   "w": 222,
+   "h": 95
   },
   {
    "id": "ACT",
@@ -83,21 +83,21 @@
    "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 1155,
-   "y": 304,
-   "w": 140,
-   "h": 92
+   "x": 413,
+   "y": 875,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "ROBOT",
-   "label": "机器人执行\n推理 311Hz, 延迟 5",
-   "sub": "2ms",
+   "label": "机器人执行\n推理 311Hz, 延迟 52ms",
+   "sub": "",
    "icon": "brain",
    "cls": "act",
-   "x": 1361,
-   "y": 288,
-   "w": 227,
-   "h": 126
+   "x": 361,
+   "y": 1065,
+   "w": 254,
+   "h": 95
   }
  ],
  "edges": [
@@ -125,11 +125,7 @@
    "from": "TRIM",
    "to": "HEAD",
    "style": "thick",
-   "label": "\"中间层表征 h^(k)\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"中间层表征 h^(k)\""
   },
   {
    "from": "LFM",
@@ -140,11 +136,7 @@
    "from": "HEAD",
    "to": "ACT",
    "style": "thick",
-   "label": "\"Flow Matching 去噪 单臂 4 步",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"Flow Matching 去噪 单臂 4"
   },
   {
    "from": "ACT",
@@ -156,36 +148,32 @@
    "to": "IMG",
    "style": "fb",
    "label": "\"逐 chunk 重观测\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 1104
   }
  ],
  "panels": [
   {
    "label": "Florence-2 VLM 基座 (预训练后微调)",
-   "x": 321,
-   "y": 244,
-   "w": 496,
-   "h": 190
+   "x": 330,
+   "y": 191,
+   "w": 317,
+   "h": 386
   },
   {
-   "label": "Flow Transformer 动作头 (18 层, 共 950M)",
-   "x": 835,
-   "y": 244,
-   "w": 278,
-   "h": 190
+   "label": "Flow Transformer 动作头 (18 层, 共 95",
+   "x": 330,
+   "y": 605,
+   "w": 316,
+   "h": 196
   }
  ],
  "canvas": [
-  1632,
-  661
+  976,
+  1342
  ],
  "legend": [
   "act",
@@ -194,13 +182,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  1632,
-  661
- ],
  "title": "flower",
  "subtitle": "FLOWER 是一个仅 950M 参数的视觉-语言-动作 flow policy，通过中间模态融合（裁剪 50% LLM 层）和动作特定全局自适应层归一化（削减 20% 扩散头",
  "foot": "flower · arXiv 2509.04996 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    IMG([\"视觉输入 1-2 路 RGB\"]) ==> VENC\n    LANG([\"语言指令\"]) ==> TRIM\n    NOISE([\"高斯噪声 a_0\"]) ==> HEAD\n    subgraph BASE[\"Florence-2 VLM 基座 (预训练后微调)\"]\n        VENC[\"视觉编码器\"]\n        TRIM[\"中间模态融合: 裁掉后 50% LLM 层<br/>省下的容量转给动作头\"]\n    end\n    VENC --> TRIM\n    TRIM ==>|\"中间层表征 h^(k)\"| HEAD\n    subgraph FLOWG[\"Flow Transformer 动作头 (18 层, 共 950M)\"]\n        HEAD[\"扩散头: Global-AdaLN<br/>全层共享调制 + 动作特定残差<br/>(省 20% 扩散头参数)\"]\n    end\n    LFM[\"损失 L_FM: 流匹配<br/>|| v_t - u_t ||^2\"] -.-> HEAD\n    HEAD ==>|\"Flow Matching 去噪<br/>单臂 4 步 / 双臂 8 步\"| ACT([\"连续动作\"])\n    ACT ==> ROBOT([\"机器人执行<br/>推理 311Hz, 延迟 52ms\"])\n    ROBOT -.->|\"逐 chunk 重观测\"| IMG\n\n    class IMG,LANG,NOISE data\n    class VENC train\n    class TRIM,HEAD key\n    class ACT,ROBOT act\n    class LFM loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

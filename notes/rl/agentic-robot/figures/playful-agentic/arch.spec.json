@@ -2,69 +2,69 @@
  "nodes": [
   {
    "id": "SCENE",
-   "label": "场景上下文 + 技能库\n摘要 (仅元数据) + ",
-   "sub": "近 10 条任务历史",
+   "label": "场景上下文 + 技能库摘要\n (仅元数据) + 近 10 条",
+   "sub": "任务历史",
    "icon": "db",
    "cls": "loop",
-   "x": 175,
-   "y": 130,
-   "w": 230,
-   "h": 126
+   "x": 198,
+   "y": 46,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "GEN",
-   "label": "LLM 生成候选池\n人设: 3-4 岁小孩, ",
-   "sub": "一次一件单步小事",
+   "label": "LLM 生成候选池\n人设: 3-4 岁小孩, 一次",
+   "sub": "一件单步小事",
    "icon": "brain",
    "cls": "loop",
-   "x": 178,
-   "y": 316,
-   "w": 225,
-   "h": 126
+   "x": 200,
+   "y": 270,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "GOLD",
-   "label": "Goldilocks 打分: \n新颖度 N x 能力边界",
-   "sub": " F",
+   "label": "Goldilocks 打分: 新颖\n度 N x 能力边界 F",
+   "sub": "F = 4*r*(1-r), Wilson",
    "icon": "reward",
    "cls": "loop",
-   "x": 174,
-   "y": 502,
-   "w": 231,
-   "h": 126
+   "x": 200,
+   "y": 494,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "CREATE",
-   "label": "Environment Creato\nr",
-   "sub": "编译成 BDDL 任务实",
+   "label": "Environment Creator\n编译成 BDDL 任务实例 + ",
+   "sub": "一次有界修复",
    "icon": "gear",
    "cls": "loop",
-   "x": 174,
-   "y": 688,
-   "w": 233,
-   "h": 126
+   "x": 196,
+   "y": 718,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "EVERIFY",
-   "label": "Environment Verifi\ner",
-   "sub": "2 个 reset seed 确",
-   "icon": "gear",
+   "label": "Environment Verifier\n2 个 reset seed 确定性",
+   "sub": "检查, 不合格退回",
+   "icon": "target",
    "cls": "loop",
-   "x": 174,
-   "y": 874,
-   "w": 233,
-   "h": 126
+   "x": 198,
+   "y": 942,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "PLAN",
-   "label": "Planner: 带技能标注\n分步计划",
+   "label": "Planner: 带技能标注分步\n计划",
    "sub": "+ 预测失败点",
    "icon": "tree",
    "cls": "loop",
-   "x": 172,
-   "y": 1060,
-   "w": 235,
-   "h": 126
+   "x": 196,
+   "y": 1166,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "PVER",
@@ -72,32 +72,32 @@
    "sub": "",
    "icon": "target",
    "cls": "loop",
-   "x": 183,
-   "y": 1246,
-   "w": 214,
-   "h": 93
+   "x": 224,
+   "y": 1390,
+   "w": 212,
+   "h": 95
   },
   {
    "id": "WRITE",
-   "label": "Policy Writer: 写 \nPython 控制代码",
+   "label": "Policy Writer: 写 Pyt\nhon 控制代码",
    "sub": "retry 只做局部修改",
    "icon": "robot",
    "cls": "loop",
-   "x": 174,
-   "y": 1399,
-   "w": 232,
-   "h": 126
+   "x": 200,
+   "y": 1581,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "QCHECK",
-   "label": "Quality Checker: \n静态筛查",
-   "sub": "语法/不可用 API/无",
+   "label": "Quality Checker: 静态\n筛查",
+   "sub": "语法/不可用 API/无界循",
    "icon": "refresh",
    "cls": "loop",
-   "x": 178,
-   "y": 1585,
-   "w": 224,
-   "h": 126
+   "x": 201,
+   "y": 1805,
+   "w": 258,
+   "h": 128
   },
   {
    "id": "RUN",
@@ -105,120 +105,120 @@
    "sub": "",
    "icon": "gear",
    "cls": "loop",
-   "x": 220,
-   "y": 1771,
-   "w": 140,
-   "h": 92
+   "x": 255,
+   "y": 2029,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "GVER",
-   "label": "Goal Verifier + Pe\nr-Step Verifier",
-   "sub": "任务判定 + step 级",
+   "label": "Goal Verifier + Per-S\ntep Verifier",
+   "sub": "任务判定 + step 级证据 ",
    "icon": "target",
    "cls": "loop",
-   "x": 174,
-   "y": 1923,
-   "w": 233,
-   "h": 126
+   "x": 196,
+   "y": 2219,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "DIAG",
-   "label": "Failure Diagnoser:\n 失败类别 + 首个失",
-   "sub": "败步",
+   "label": "Failure Diagnoser: 失\n败类别 + 首个失败步",
+   "sub": "+ 修复建议 + 路由标志",
    "icon": "refresh",
    "cls": "loop",
-   "x": 174,
-   "y": 2109,
-   "w": 233,
-   "h": 126
+   "x": 200,
+   "y": 2443,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "SUB",
-   "label": "SubAgent 单练瓶颈子\n动作",
-   "sub": "成果只注入当前 retr",
+   "label": "SubAgent 单练瓶颈子动作\n成果只注入当前 retry, ",
+   "sub": "不自动入库",
    "icon": "lightning",
    "cls": "loop",
-   "x": 44,
-   "y": 2295,
-   "w": 235,
-   "h": 126
+   "x": 46,
+   "y": 2667,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "UP",
-   "label": "成功: 抽参数化 help\ner 以 experimental",
-   "sub": " 入库",
-   "icon": "check",
+   "label": "成功: 抽参数化 helper \n以 experimental 入库",
+   "sub": "失败: 蒸馏紧凑教训入错",
+   "icon": "flask",
    "cls": "loop",
-   "x": 303,
-   "y": 2295,
-   "w": 233,
-   "h": 126
+   "x": 353,
+   "y": 2667,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "CUR",
-   "label": "Memory Curator 合\n并近似重复",
-   "sub": "Skill Proposer 前",
+   "label": "Memory Curator 合并近\n似重复",
+   "sub": "Skill Proposer 前瞻草",
    "icon": "db",
    "cls": "loop",
-   "x": 179,
-   "y": 2481,
-   "w": 222,
-   "h": 126
+   "x": 202,
+   "y": 2891,
+   "w": 256,
+   "h": 128
   },
   {
    "id": "TIER",
-   "label": "可靠度三档: 3 次用\n且率>=0.5 升 verif",
-   "sub": "ied",
+   "label": "可靠度三档: 3 次用且率>\n=0.5 升 verified",
+   "sub": "10 次用且率<=0.2 隐藏;",
    "icon": "refresh",
    "cls": "loop",
-   "x": 176,
-   "y": 2667,
-   "w": 228,
-   "h": 126
+   "x": 198,
+   "y": 3115,
+   "w": 265,
+   "h": 128
   },
   {
    "id": "LIB",
-   "label": "冻结技能库 L = L0 +\n L_learned",
-   "sub": "可执行 Python 源码 ",
+   "label": "冻结技能库 L = L0 + L_\nlearned",
+   "sub": "可执行 Python 源码 + ",
    "icon": "robot",
    "cls": "loop",
-   "x": 172,
-   "y": 2853,
-   "w": 235,
-   "h": 126
+   "x": 199,
+   "y": 3339,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "PLUG",
-   "label": "Plug-and-Play: 冻\n结库插入 CaP-Agent",
-   "sub": "0",
+   "label": "Plug-and-Play: 冻结库\n插入 CaP-Agent0",
+   "sub": "不带 RATS 回路, 单独度",
    "icon": "refresh",
    "cls": "loop",
-   "x": 51,
-   "y": 3039,
-   "w": 227,
-   "h": 126
+   "x": 352,
+   "y": 3563,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "FULL",
-   "label": "RATS Exec: 完整团\n队带库上场",
-   "sub": "Planner 优先检索 v",
+   "label": "RATS Exec: 完整团队带\n库上场",
+   "sub": "Planner 优先检索 verif",
    "icon": "tree",
    "cls": "loop",
-   "x": 302,
-   "y": 3039,
-   "w": 227,
-   "h": 126
+   "x": 50,
+   "y": 3563,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "ACC",
-   "label": "LIBERO-PRO 23.2% -\n> 43.8% (+20.6pp)",
-   "sub": "RoboSuite +8.9pp /",
+   "label": "LIBERO-PRO 23.2% -> 4\n3.8% (+20.6pp)",
+   "sub": "RoboSuite +8.9pp / 真",
    "icon": "refresh",
    "cls": "loop",
-   "x": 174,
-   "y": 3225,
-   "w": 233,
-   "h": 126
+   "x": 200,
+   "y": 3787,
+   "w": 261,
+   "h": 128
   }
  ],
  "edges": [
@@ -273,26 +273,22 @@
    "to": "WRITE",
    "style": "fb",
    "label": "\"代码级 bug\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 2290
   },
   {
    "from": "DIAG",
    "to": "PLAN",
    "style": "fb",
    "label": "\"计划级错误: 重规划\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 2705
   },
   {
    "from": "DIAG",
@@ -367,41 +363,37 @@
  ],
  "panels": [
   {
-   "label": "Task Proposer 团队: 无外部任务, 自提练习目",
-   "x": 150,
-   "y": 272,
-   "w": 281,
-   "h": 748
+   "label": "Task Proposer 团队: 无外部任务, 自提练",
+   "x": 170,
+   "y": 224,
+   "w": 321,
+   "h": 868
   },
   {
-   "label": "Execution 团队: Write-Execute-Verify-Dia",
+   "label": "Execution 团队: Write-Execute-Verify",
    "x": 20,
-   "y": 1016,
-   "w": 412,
-   "h": 1425
+   "y": 1120,
+   "w": 470,
+   "h": 1697
   },
   {
    "label": "Memory-Management 团队: 每 K=5 轮维护",
-   "x": 152,
-   "y": 2251,
-   "w": 408,
-   "h": 562
+   "x": 172,
+   "y": 2621,
+   "w": 468,
+   "h": 644
   }
  ],
  "canvas": [
-  580,
-  3441
+  660,
+  4097
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  580,
-  3441
- ],
  "title": "playful-agentic",
  "subtitle": "UC Berkeley + Impossible Research 的 RATS（Robotics Agent Teams）把「游戏时间」变成一个显式的技能习得阶段：机器人团队",
  "foot": "playful-agentic · arXiv 2606.19419 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TB\n    SCENE([\"场景上下文 + 技能库摘要 (仅元数据) + 近 10 条任务历史\"]):::data\n\n    subgraph PROPOSE[\"Task Proposer 团队: 无外部任务, 自提练习目标\"]\n        direction TB\n        GEN[\"LLM 生成候选池<br/>人设: 3-4 岁小孩, 一次一件单步小事\"]:::frozen\n        GOLD[\"Goldilocks 打分: 新颖度 N x 能力边界 F<br/>F = 4*r*(1-r), Wilson 下界成功率, 峰在半熟\"]:::key\n        CREATE[\"Environment Creator<br/>编译成 BDDL 任务实例 + 一次有界修复\"]:::env\n        EVERIFY[\"Environment Verifier<br/>2 个 reset seed 确定性检查, 不合格退回\"]:::env\n        GEN ==> GOLD ==> CREATE ==> EVERIFY\n    end\n\n    subgraph EXEC[\"Execution 团队: Write-Execute-Verify-Diagnose 循环 (最多 5 次重试)\"]\n        direction TB\n        PLAN[\"Planner: 带技能标注分步计划<br/>+ 预测失败点\"]:::frozen\n        PVER[\"Planner Verifier<br/>计划是否物理落地\"]:::reward\n        WRITE[\"Policy Writer: 写 Python 控制代码<br/>retry 只做局部修改\"]:::act\n        QCHECK[\"Quality Checker: 静态筛查<br/>语法/不可用 API/无界循环, 省执行预算\"]:::reward\n        RUN[\"仿真执行\"]:::env\n        GVER[\"Goal Verifier + Per-Step Verifier<br/>任务判定 + step 级证据 (策略 crash 一律失败)\"]:::reward\n        DIAG[\"Failure Diagnoser: 失败类别 + 首个失败步<br/>+ 修复建议 + 路由标志\"]:::reward\n        SUB[\"SubAgent 单练瓶颈子动作<br/>成果只注入当前 retry, 不自动入库\"]:::act\n        PLAN ==> PVER ==> WRITE ==> QCHECK ==> RUN ==> GVER\n        GVER -.->|\"失败: 定位证据\"| DIAG\n        DIAG -.->|\"代码级 bug\"| WRITE\n        DIAG -.->|\"计划级错误: 重规划\"| PLAN\n        DIAG -.->|\"持续局部瓶颈\"| SUB\n    end\n\n    subgraph MEM[\"Memory-Management 团队: 每 K=5 轮维护\"]\n        direction LR\n        UP[\"成功: 抽参数化 helper 以 experimental 入库<br/>失败: 蒸馏紧凑教训入错题本\"]:::mem\n        CUR[\"Memory Curator 合并近似重复<br/>Skill Proposer 前瞻草拟 helper\"]:::mem\n        TIER[\"可靠度三档: 3 次用且率>=0.5 升 verified<br/>10 次用且率<=0.2 隐藏; Wilson 下界排序\"]:::mem\n    end\n\n    LIB[\"冻结技能库 L = L0 + L_learned<br/>可执行 Python 源码 + 前置条件/效果元数据\"]:::key\n    PLUG[\"Plug-and-Play: 冻结库插入 CaP-Agent0<br/>不带 RATS 回路, 单独度量库价值\"]:::frozen\n    FULL[\"RATS Exec: 完整团队带库上场<br/>Planner 优先检索 verified 技能\"]:::frozen\n    ACC([\"LIBERO-PRO 23.2% -> 43.8% (+20.6pp)<br/>RoboSuite +8.9pp / 真机 +8.8pp 零微调\"]):::data\n\n    SCENE ==> GEN\n    EVERIFY ==>|\"合格任务\"| PLAN\n    GVER ==>|\"成功\"| UP\n    DIAG ==>|\"失败也归档\"| UP\n    UP ==> CUR ==> TIER\n    UP ==> LIB\n    TIER -.->|\"检索排序\"| LIB\n    LIB ==> PLUG\n    LIB ==> FULL\n    PLUG ==> ACC\n    FULL ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

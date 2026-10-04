@@ -2,124 +2,124 @@
  "nodes": [
   {
    "id": "FAIL",
-   "label": "失败 rollouts 200 \n条",
-   "sub": "33 教师 + 167 VLA",
+   "label": "失败 rollouts 200 条\n33 教师 + 167 VLA",
+   "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 130,
-   "w": 230,
-   "h": 126
+   "x": 362,
+   "y": 62,
+   "w": 246,
+   "h": 95
   },
   {
    "id": "EXPERT",
-   "label": "固定特权专家: PPO \n教师 (seed 42)",
-   "sub": "43 维特权仿真观测, ",
+   "label": "固定特权专家: PPO 教师 \n(seed 42)",
+   "sub": "43 维特权仿真观测, 永不",
    "icon": "state",
    "cls": "loop",
-   "x": 300,
-   "y": 130,
-   "w": 231,
-   "h": 126
+   "x": 56,
+   "y": 46,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "RESTORE",
-   "label": "restore-and-branch\n: 仿真精确状态恢复",
-   "sub": "容差 2e-5, 5 步 wa",
+   "label": "restore-and-branch: \n仿真精确状态恢复",
+   "sub": "容差 2e-5, 5 步 warm-u",
    "icon": "state",
    "cls": "loop",
-   "x": 172,
-   "y": 316,
-   "w": 233,
-   "h": 126
+   "x": 199,
+   "y": 270,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "LADDER",
-   "label": "自适应蒙特卡洛阶梯 \n5 -> 15 -> 30 次",
-   "sub": "Wilson 区间相对阈值",
+   "label": "自适应蒙特卡洛阶梯 5 ->\n 15 -> 30 次",
+   "sub": "Wilson 区间相对阈值三分",
    "icon": "tree",
    "cls": "loop",
-   "x": 172,
-   "y": 502,
-   "w": 233,
-   "h": 126
+   "x": 198,
+   "y": 494,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "CURVE",
-   "label": "可恢复性曲线 p_rec(\nt)",
-   "sub": "教师相对量 (rho 低",
+   "label": "可恢复性曲线 p_rec(t)\n教师相对量 (rho 低至 0.",
+   "sub": "103), 均值 3.37 次穿阈",
    "icon": "refresh",
    "cls": "loop",
-   "x": 172,
-   "y": 688,
-   "w": 233,
-   "h": 126
+   "x": 198,
+   "y": 718,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "ISLAND",
-   "label": "75.6% 非单调, 70.9\n% 含恢复岛屿",
-   "sub": "首次穿阈会漏掉后面的",
+   "label": "75.6% 非单调, 70.9% 含\n恢复岛屿",
+   "sub": "首次穿阈会漏掉后面的可恢",
    "icon": "refresh",
    "cls": "loop",
-   "x": 44,
-   "y": 874,
-   "w": 236,
-   "h": 126
+   "x": 348,
+   "y": 942,
+   "w": 270,
+   "h": 128
   },
   {
    "id": "FRONTIER",
-   "label": "终段低可恢复性边界 \nt_f",
-   "sub": "60.6% episode 有稳",
+   "label": "终段低可恢复性边界 t_f\n60.6% episode 有稳定边",
+   "sub": "界, 中位归一深度 0.856",
    "icon": "refresh",
    "cls": "loop",
-   "x": 304,
-   "y": 874,
-   "w": 230,
-   "h": 126
+   "x": 46,
+   "y": 942,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "DEPTH",
-   "label": "目标深度采样: t_dev\n 到 t_f 之间",
-   "sub": "归一深度 0.15 / 0.",
+   "label": "目标深度采样: t_dev 到 \nt_f 之间",
+   "sub": "归一深度 0.15 / 0.50 /",
    "icon": "refresh",
    "cls": "loop",
-   "x": 172,
-   "y": 1060,
-   "w": 233,
-   "h": 126
+   "x": 198,
+   "y": 1166,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "DEMO",
-   "label": "专家成功续跑 = 合成\n恢复演示",
-   "sub": "(难度匹配 + 帧预算",
+   "label": "专家成功续跑 = 合成恢复\n演示",
+   "sub": "(难度匹配 + 帧预算匹配",
    "icon": "db",
    "cls": "loop",
-   "x": 174,
-   "y": 1246,
-   "w": 230,
-   "h": 126
+   "x": 200,
+   "y": 1390,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "SFT",
-   "label": "SmolVLA 变体 V0 ->\n V3 SFT",
-   "sub": "V2 同窗口均匀 / V3 ",
+   "label": "SmolVLA 变体 V0 -> V3 \nSFT",
+   "sub": "V2 同窗口均匀 / V3 目标",
    "icon": "refresh",
    "cls": "loop",
-   "x": 172,
-   "y": 1432,
-   "w": 235,
-   "h": 126
+   "x": 198,
+   "y": 1614,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "ACC",
-   "label": "恢复 SR 34.6% / 38\n.4%, 比均匀采样 +5.",
-   "sub": "8/+6.7pp",
+   "label": "恢复 SR 34.6% / 38.4%,\n 比均匀采样 +5.8/+6.7p",
+   "sub": "p",
    "icon": "refresh",
    "cls": "loop",
-   "x": 172,
-   "y": 1618,
-   "w": 235,
-   "h": 126
+   "x": 198,
+   "y": 1838,
+   "w": 267,
+   "h": 128
   }
  ],
  "edges": [
@@ -132,11 +132,7 @@
    "from": "EXPERT",
    "to": "RESTORE",
    "style": "fb",
-   "label": "\"在预算 H 内续跑原任务, 数成功\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"在预算 H 内续跑原任务, 数成功\""
   },
   {
    "from": "RESTORE",
@@ -183,19 +179,15 @@
  ],
  "panels": [],
  "canvas": [
-  578,
-  1834
+  664,
+  2148
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  578,
-  1834
- ],
  "title": "kintsugi-vla",
  "subtitle": "利用仿真器的精确状态恢复与分支能力，对失败轨迹上的每个 checkpoint 反复交给固定特权专家续跑，用自适应蒙特卡洛阶梯（5→15→30 次 + 逐点 Wilson 区间）",
  "foot": "kintsugi-vla · arXiv 2609.31048 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    FAIL([\"失败 rollouts 200 条<br/>33 教师 + 167 VLA\"]):::data\n    EXPERT[\"固定特权专家: PPO 教师 (seed 42)<br/>43 维特权仿真观测, 永不暴露给 VLA\"]:::frozen\n    RESTORE[\"restore-and-branch: 仿真精确状态恢复<br/>容差 2e-5, 5 步 warm-up, 逐 checkpoint 分支重跑\"]:::env\n    LADDER[\"自适应蒙特卡洛阶梯 5 -> 15 -> 30 次<br/>Wilson 区间相对阈值三分, 只细化未定槽\"]:::loop\n    CURVE[\"可恢复性曲线 p_rec(t)<br/>教师相对量 (rho 低至 0.103), 均值 3.37 次穿阈\"]:::reward\n    ISLAND[\"75.6% 非单调, 70.9% 含恢复岛屿<br/>首次穿阈会漏掉后面的可恢复区\"]:::loop\n    FRONTIER[\"终段低可恢复性边界 t_f<br/>60.6% episode 有稳定边界, 中位归一深度 0.856\"]:::key\n    DEPTH[\"目标深度采样: t_dev 到 t_f 之间<br/>归一深度 0.15 / 0.50 / 0.85\"]:::key\n    DEMO[\"专家成功续跑 = 合成恢复演示<br/>(难度匹配 + 帧预算匹配对照)\"]:::data\n    SFT[\"SmolVLA 变体 V0 -> V3 SFT<br/>V2 同窗口均匀 / V3 目标深度\"]:::train\n    ACC([\"恢复 SR 34.6% / 38.4%, 比均匀采样 +5.8/+6.7pp<br/>省 30.6% 演示 / 33.7% 帧; 干净任务 -2.1pp\"]):::data\n\n    FAIL ==> RESTORE\n    EXPERT -.->|\"在预算 H 内续跑原任务, 数成功\"| RESTORE\n    RESTORE ==>|\"逐点成功计数\"| LADDER\n    LADDER ==> CURVE\n    CURVE -.->|\"曲线结构\"| ISLAND\n    CURVE ==> FRONTIER\n    FRONTIER ==> DEPTH\n    DEPTH ==> DEMO\n    DEMO ==> SFT\n    SFT ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

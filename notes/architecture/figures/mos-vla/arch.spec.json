@@ -6,9 +6,9 @@
    "sub": "",
    "icon": "robot",
    "cls": "data",
-   "x": 44,
-   "y": 146,
-   "w": 224,
+   "x": 80,
+   "y": 346,
+   "w": 200,
    "h": 93
   },
   {
@@ -17,9 +17,9 @@
    "sub": " DinoV2, LoRA 微调",
    "icon": "brain",
    "cls": "train",
-   "x": 423,
-   "y": 316,
-   "w": 233,
+   "x": 340,
+   "y": 330,
+   "w": 230,
    "h": 126
   },
   {
@@ -28,9 +28,9 @@
    "sub": "(function encoder ",
    "icon": "eye",
    "cls": "key",
-   "x": 423,
-   "y": 502,
-   "w": 233,
+   "x": 630,
+   "y": 330,
+   "w": 230,
    "h": 126
   },
   {
@@ -39,9 +39,9 @@
    "sub": "L2)",
    "icon": "noise",
    "cls": "loss",
-   "x": 292,
-   "y": 130,
-   "w": 235,
+   "x": 140,
+   "y": 160,
+   "w": 220,
    "h": 126
   },
   {
@@ -50,8 +50,8 @@
    "sub": "保持基函数多样性",
    "icon": "sigma",
    "cls": "loss",
-   "x": 551,
-   "y": 130,
+   "x": 396,
+   "y": 160,
    "w": 227,
    "h": 126
   },
@@ -61,8 +61,8 @@
    "sub": "每 16 步重算系数",
    "icon": "db",
    "cls": "loop",
-   "x": 802,
-   "y": 130,
+   "x": 659,
+   "y": 160,
    "w": 233,
    "h": 126
   },
@@ -72,8 +72,8 @@
    "sub": ")",
    "icon": "state",
    "cls": "data",
-   "x": 424,
-   "y": 1366,
+   "x": 80,
+   "y": 550,
    "w": 230,
    "h": 126
   },
@@ -83,9 +83,9 @@
    "sub": "梯度数秒完成",
    "icon": "tree",
    "cls": "key",
-   "x": 427,
-   "y": 688,
-   "w": 225,
+   "x": 950,
+   "y": 330,
+   "w": 210,
    "h": 126
   },
   {
@@ -94,9 +94,9 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 422,
-   "y": 874,
-   "w": 235,
+   "x": 950,
+   "y": 570,
+   "w": 190,
    "h": 93
   },
   {
@@ -105,9 +105,9 @@
    "sub": "推理 O(1), 与演示长",
    "icon": "brain",
    "cls": "key",
-   "x": 423,
-   "y": 1027,
-   "w": 233,
+   "x": 630,
+   "y": 550,
+   "w": 230,
    "h": 126
   },
   {
@@ -116,8 +116,8 @@
    "sub": "",
    "icon": "state",
    "cls": "act",
-   "x": 466,
-   "y": 1213,
+   "x": 350,
+   "y": 557,
    "w": 146,
    "h": 93
   }
@@ -126,57 +126,93 @@
   {
    "from": "OXE",
    "to": "BB",
-   "style": "main"
+   "style": "main",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "BB",
    "to": "BASIS",
-   "style": "main"
+   "style": "main",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "L1L",
    "to": "BASIS",
-   "style": "fb"
+   "style": "fb",
+   "out": "bottom",
+   "pos_out": 0.65,
+   "in": "top",
+   "pos_in": 0.1
   },
   {
    "from": "ORTHO",
    "to": "BASIS",
-   "style": "fb"
+   "style": "fb",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.45
   },
   {
    "from": "CAL",
    "to": "BASIS",
-   "style": "fb"
+   "style": "fb",
+   "out": "bottom",
+   "pos_out": 0.45,
+   "in": "top",
+   "pos_in": 0.8
   },
   {
    "from": "DEMO",
    "to": "OPT",
    "style": "main",
    "out": "top",
-   "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
+   "in": "bottom",
+   "pos_out": 0.5,
+   "pos_in": 0.3,
    "k": 74
   },
   {
    "from": "BASIS",
    "to": "OPT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "OPT",
    "to": "W",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "W",
    "to": "POL",
-   "style": "thick"
+   "style": "thick",
+   "out": "left",
+   "pos_out": 0.5,
+   "in": "right",
+   "pos_in": 0.5
   },
   {
    "from": "POL",
    "to": "ROBOT",
-   "style": "thick"
+   "style": "thick",
+   "out": "left",
+   "pos_out": 0.5,
+   "in": "right",
+   "pos_in": 0.5
   },
   {
    "from": "ROBOT",
@@ -185,22 +221,27 @@
    "label": "\"上下文变化需再给一条演示 重新标定系数\"",
    "loff": [
     0,
-    -18
-   ]
+    18
+   ],
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "bottom",
+   "pos_in": 0.5,
+   "k": 56
   }
  ],
  "panels": [
   {
    "label": "OXE 27 数据集跨上下文预训练",
-   "x": 20,
-   "y": 86,
-   "w": 1039,
-   "h": 562
+   "x": 56,
+   "y": 130,
+   "w": 850,
+   "h": 360
   }
  ],
  "canvas": [
-  1079,
-  1582
+  1220,
+  810
  ],
  "legend": [
   "act",
@@ -211,8 +252,8 @@
   "train"
  ],
  "layout_wh": [
-  1079,
-  1582
+  1220,
+  810
  ],
  "title": "mos-vla",
  "subtitle": "MoS-VLA 将机器人操作策略表示为一组可学习基函数的线性组合（Mixture-of-Skills），在 Open X-Embodiment 上跨数据集联合预训练后，给定一次",

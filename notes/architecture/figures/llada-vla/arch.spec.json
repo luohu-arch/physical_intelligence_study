@@ -6,8 +6,8 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 58,
-   "y": 130,
+   "x": 64,
+   "y": 235,
    "w": 204,
    "h": 93
   },
@@ -17,9 +17,9 @@
    "sub": "掩码扩散, 非自回归",
    "icon": "brain",
    "cls": "train",
-   "x": 343,
-   "y": 322,
-   "w": 235,
+   "x": 350,
+   "y": 340,
+   "w": 210,
    "h": 126
   },
   {
@@ -28,8 +28,8 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 90,
-   "y": 247,
+   "x": 350,
+   "y": 170,
    "w": 140,
    "h": 92
   },
@@ -39,8 +39,8 @@
    "sub": "D=7)",
    "icon": "stack",
    "cls": "data",
-   "x": 44,
-   "y": 363,
+   "x": 470,
+   "y": 560,
    "w": 233,
    "h": 126
   },
@@ -50,9 +50,9 @@
    "sub": "仅在 32 个动作 bin ",
    "icon": "stack",
    "cls": "key",
-   "x": 644,
-   "y": 322,
-   "w": 235,
+   "x": 670,
+   "y": 340,
+   "w": 210,
    "h": 126
   },
   {
@@ -61,9 +61,9 @@
    "sub": "mask",
    "icon": "lightning",
    "cls": "key",
-   "x": 945,
-   "y": 322,
-   "w": 230,
+   "x": 1000,
+   "y": 340,
+   "w": 205,
    "h": 126
   },
   {
@@ -72,8 +72,8 @@
    "sub": "L_token 只算动作 t",
    "icon": "sigma",
    "cls": "loss",
-   "x": 47,
-   "y": 513,
+   "x": 900,
+   "y": 560,
    "w": 227,
    "h": 126
   },
@@ -83,9 +83,9 @@
    "sub": "度无 EOS",
    "icon": "lightning",
    "cls": "act",
-   "x": 1241,
-   "y": 322,
-   "w": 225,
+   "x": 1315,
+   "y": 340,
+   "w": 200,
    "h": 126
   },
   {
@@ -94,8 +94,8 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 1532,
-   "y": 338,
+   "x": 1210,
+   "y": 560,
    "w": 146,
    "h": 92
   }
@@ -104,17 +104,29 @@
   {
    "from": "VIS",
    "to": "DVLM",
-   "style": "main"
+   "style": "main",
+   "out": "right",
+   "pos_out": 0.5,
+   "pos_in": 0.35,
+   "in": "left"
   },
   {
    "from": "LANG",
    "to": "DVLM",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.55
   },
   {
    "from": "MASK",
    "to": "LSC",
-   "style": "thick"
+   "style": "thick",
+   "out": "top",
+   "pos_out": 0.85,
+   "in": "bottom",
+   "pos_in": 0.18
   },
   {
    "from": "DVLM",
@@ -133,8 +145,8 @@
    "label": "\"低置信度重掩码 迭代去噪约 10 步\"",
    "out": "top",
    "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
+   "pos_out": 0.25,
+   "pos_in": 0.7,
    "k": 74,
    "loff": [
     0,
@@ -144,7 +156,11 @@
   {
    "from": "LSCM",
    "to": "LSC",
-   "style": "fb"
+   "style": "fb",
+   "out": "top",
+   "pos_out": 0.3,
+   "in": "bottom",
+   "pos_in": 0.82
   },
   {
    "from": "HAD",
@@ -154,7 +170,11 @@
   {
    "from": "ACT",
    "to": "ROBOT",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.1,
+   "in": "top",
+   "pos_in": 0.7
   },
   {
    "from": "ROBOT",
@@ -163,15 +183,19 @@
    "label": "\"逐动作块重新观测\"",
    "out": "top",
    "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_out": 0.05,
+   "pos_in": 0.5,
+   "k": 95,
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [],
  "canvas": [
-  1722,
-  729
+  1580,
+  780
  ],
  "legend": [
   "act",
@@ -181,8 +205,8 @@
   "train"
  ],
  "layout_wh": [
-  1722,
-  729
+  1580,
+  780
  ],
  "title": "llada-vla",
  "subtitle": "LLaDA-VLA 是首个基于预训练扩散 VLM（扩散 VLM）而非自回归 VLM 构建的 VLA 模型，通过局部特殊 token 分类（LSC）将连续动作映射为 32 个离散",

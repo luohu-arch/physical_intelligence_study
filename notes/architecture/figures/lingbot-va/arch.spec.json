@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 44,
-   "y": 146,
-   "w": 169,
-   "h": 93
+   "x": 286,
+   "y": 62,
+   "w": 167,
+   "h": 95
   },
   {
    "id": "VAE",
-   "label": "因果视频 VAE\n压缩到约 256 token",
-   "sub": "/帧",
+   "label": "因果视频 VAE\n压缩到约 256 token/帧",
+   "sub": "",
    "icon": "stack",
    "cls": "frozen",
-   "x": 387,
-   "y": 316,
-   "w": 227,
-   "h": 126
+   "x": 420,
+   "y": 270,
+   "w": 253,
+   "h": 95
   },
   {
    "id": "VT",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 425,
-   "y": 502,
-   "w": 151,
-   "h": 92
+   "x": 471,
+   "y": 461,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "NOISE",
@@ -39,65 +39,65 @@
    "sub": "",
    "icon": "noise",
    "cls": "data",
-   "x": 237,
-   "y": 146,
-   "w": 204,
-   "h": 93
+   "x": 46,
+   "y": 62,
+   "w": 202,
+   "h": 95
   },
   {
    "id": "SEQ",
-   "label": "因果自回归序列\n视频 + 动作 token ",
-   "sub": "交替",
+   "label": "因果自回归序列\n视频 + 动作 token 交替",
+   "sub": "因果 mask: 动作只看过去",
    "icon": "stack",
    "cls": "key",
-   "x": 387,
-   "y": 654,
-   "w": 227,
-   "h": 126
+   "x": 412,
+   "y": 651,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "MoT",
-   "label": "Mixture-of-Transfo\nrmers",
+   "label": "Mixture-of-Transforme\nrs",
    "sub": "双流非对称架构",
    "icon": "refresh",
    "cls": "loop",
-   "x": 384,
-   "y": 840,
-   "w": 233,
-   "h": 126
+   "x": 416,
+   "y": 875,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "VEX",
-   "label": "视频 expert 约 7B\n(视频生成预训练初始",
-   "sub": "化)",
+   "label": "视频 expert 约 7B\n(视频生成预训练初始化)",
+   "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 386,
-   "y": 1026,
-   "w": 228,
-   "h": 126
+   "x": 419,
+   "y": 1099,
+   "w": 254,
+   "h": 95
   },
   {
    "id": "AEX",
-   "label": "动作 expert 约 300\nM",
-   "sub": "(轻量解码动作)",
+   "label": "动作 expert 约 300M\n(轻量解码动作)",
+   "sub": "",
    "icon": "lightning",
    "cls": "train",
-   "x": 386,
-   "y": 1398,
-   "w": 228,
-   "h": 126
+   "x": 428,
+   "y": 1514,
+   "w": 236,
+   "h": 95
   },
   {
    "id": "FUT",
-   "label": "预测未来 K 帧视频 l\natent",
-   "sub": "(K 在 1-8, 部署可调",
+   "label": "预测未来 K 帧视频 laten\nt",
+   "sub": "(K 在 1-8, 部署可调)",
    "icon": "refresh",
    "cls": "loop",
-   "x": 383,
-   "y": 1212,
-   "w": 235,
-   "h": 126
+   "x": 412,
+   "y": 1290,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "ACTION",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "act",
-   "x": 396,
-   "y": 1584,
-   "w": 209,
-   "h": 92
+   "x": 442,
+   "y": 1705,
+   "w": 207,
+   "h": 94
   },
   {
    "id": "EXEC",
@@ -116,32 +116,32 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 389,
-   "y": 1736,
-   "w": 223,
-   "h": 93
+   "x": 436,
+   "y": 1895,
+   "w": 221,
+   "h": 95
   },
   {
    "id": "KV",
-   "label": "KV cache 持久时序记\n忆",
-   "sub": "(真实交互历史)",
+   "label": "KV cache 持久时序记忆\n(真实交互历史)",
+   "sub": "",
    "icon": "db",
    "cls": "mem",
-   "x": 465,
-   "y": 130,
-   "w": 235,
-   "h": 126
+   "x": 491,
+   "y": 62,
+   "w": 251,
+   "h": 95
   },
   {
    "id": "LFM",
-   "label": "损失: flow matchin\ng 模仿",
-   "sub": "+ 逆动力学损失 (lam",
+   "label": "损失: flow matching 模\n仿",
+   "sub": "+ 逆动力学损失 (lambda",
    "icon": "gear",
    "cls": "loss",
-   "x": 724,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 780,
+   "y": 46,
+   "w": 266,
+   "h": 128
   }
  ],
  "edges": [
@@ -189,21 +189,17 @@
    "from": "FUT",
    "to": "AEX",
    "style": "fb",
-   "label": "\"部分去噪中间状态直接解码 不等视频完全生成\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"部分去噪中间状态直接解码 不等视频完全生成"
   },
   {
    "from": "FUT",
    "to": "SEQ",
    "style": "main",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 1295
   },
   {
    "from": "AEX",
@@ -219,16 +215,12 @@
    "from": "EXEC",
    "to": "SEQ",
    "style": "fb",
-   "label": "\"新观测经 KV cache 注入 recali",
-   "out": "top",
-   "in": "top",
+   "label": "\"新观测经 KV cache 注入 reca",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 1295
   },
   {
    "from": "KV",
@@ -243,8 +235,8 @@
  ],
  "panels": [],
  "canvas": [
-  1001,
-  1919
+  1092,
+  2172
  ],
  "legend": [
   "act",
@@ -257,13 +249,9 @@
   "mem",
   "train"
  ],
- "layout_wh": [
-  1001,
-  1919
- ],
  "title": "lingbot-va",
  "subtitle": "LingBot-VA 提出首个开源自回归视频-动作世界模型：用 Mixture-of-Transformers (MoT) 架构将视频帧预测和动作推理统一到一个因果序列中，先预",
  "foot": "lingbot-va · arXiv 2601.21998 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS([\"真实观测 O_t<br/>(RGB 视频流)\"]) --> VAE[\"因果视频 VAE<br/>压缩到约 256 token/帧\"]\n    VAE --> VT[\"视频 token\"]\n    NOISE([\"噪声动作起点<br/>(flow matching)\"]) --> SEQ\n    VT --> SEQ[\"因果自回归序列<br/>视频 + 动作 token 交替<br/>因果 mask: 动作只看过去\"]\n    SEQ --> MoT[\"Mixture-of-Transformers<br/>双流非对称架构\"]\n    MoT --> VEX[\"视频 expert 约 7B<br/>(视频生成预训练初始化)\"]\n    MoT --> AEX[\"动作 expert 约 300M<br/>(轻量解码动作)\"]\n    VEX --> FUT[\"预测未来 K 帧视频 latent<br/>(K 在 1-8, 部署可调)\"]\n    FUT -.->|\"部分去噪中间状态直接解码<br/>不等视频完全生成\"| AEX\n    FUT --> SEQ\n    AEX ==> ACTION([\"动作 chunk 50 步\"])\n    ACTION ==> EXEC([\"机器人异步执行<br/>约 2Hz, 与预测并行\"])\n    EXEC -.->|\"新观测经 KV cache 注入<br/>recalibrate 过期预测\"| SEQ\n    KV[\"KV cache 持久时序记忆<br/>(真实交互历史)\"] -.-> SEQ\n    LFM[\"损失: flow matching 模仿<br/>+ 逆动力学损失 (lambda = 1)\"] -.-> MoT\n\n    class OBS,NOISE data\n    class VAE frozen\n    class SEQ key\n    class VEX env\n    class AEX train\n    class ACTION,EXEC act\n    class KV mem\n    class LFM loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

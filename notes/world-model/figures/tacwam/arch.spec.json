@@ -6,8 +6,8 @@
    "sub": " 流 30Hz",
    "icon": "camera",
    "cls": "data",
-   "x": 257,
-   "y": 130,
+   "x": 40,
+   "y": 180,
    "w": 227,
    "h": 126
   },
@@ -17,8 +17,8 @@
    "sub": " 流",
    "icon": "camera",
    "cls": "train",
-   "x": 371,
-   "y": 316,
+   "x": 40,
+   "y": 380,
    "w": 227,
    "h": 126
   },
@@ -28,8 +28,8 @@
    "sub": "",
    "icon": "noise",
    "cls": "env",
-   "x": 371,
-   "y": 502,
+   "x": 40,
+   "y": 576,
    "w": 227,
    "h": 93
   },
@@ -39,8 +39,8 @@
    "sub": "单帧力歧义靠历史消歧",
    "icon": "eye",
    "cls": "mem",
-   "x": 238,
-   "y": 655,
+   "x": 36,
+   "y": 800,
    "w": 236,
    "h": 126
   },
@@ -50,8 +50,8 @@
    "sub": "",
    "icon": "db",
    "cls": "mem",
-   "x": 44,
-   "y": 858,
+   "x": 72,
+   "y": 990,
    "w": 164,
    "h": 93
   },
@@ -61,8 +61,8 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 508,
-   "y": 147,
+   "x": 405,
+   "y": 340,
    "w": 204,
    "h": 92
   },
@@ -72,8 +72,8 @@
    "sub": " DiT + Tactile DiT",
    "icon": "lightning",
    "cls": "key",
-   "x": 498,
-   "y": 655,
+   "x": 390,
+   "y": 560,
    "w": 233,
    "h": 126
   },
@@ -83,8 +83,8 @@
    "sub": "只作预测监督目标",
    "icon": "sigma",
    "cls": "loss",
-   "x": 232,
-   "y": 841,
+   "x": 390,
+   "y": 780,
    "w": 227,
    "h": 126
   },
@@ -94,8 +94,8 @@
    "sub": "",
    "icon": "camera",
    "cls": "env",
-   "x": 738,
-   "y": 858,
+   "x": 723,
+   "y": 340,
    "w": 187,
    "h": 92
   },
@@ -105,8 +105,8 @@
    "sub": "掩码纪律: 放宽即 7.",
    "icon": "stack",
    "cls": "act",
-   "x": 483,
-   "y": 841,
+   "x": 723,
+   "y": 560,
    "w": 231,
    "h": 126
   },
@@ -116,8 +116,8 @@
    "sub": "",
    "icon": "lightning",
    "cls": "frozen",
-   "x": 243,
-   "y": 1044,
+   "x": 390,
+   "y": 990,
    "w": 228,
    "h": 93
   },
@@ -127,8 +127,8 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 394,
-   "y": 1213,
+   "x": 660,
+   "y": 991,
    "w": 182,
    "h": 92
   },
@@ -138,8 +138,8 @@
    "sub": "四真机任务均值 75.0",
    "icon": "robot",
    "cls": "loop",
-   "x": 495,
-   "y": 1027,
+   "x": 1054,
+   "y": 560,
    "w": 231,
    "h": 126
   }
@@ -148,68 +148,94 @@
   {
    "from": "RAW",
    "to": "SAF",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "SAF",
    "to": "Z",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "Z",
    "to": "HIST",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "HIST",
    "to": "MOD",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "V",
    "to": "GEN",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "Z",
    "to": "GEN",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "GEN",
    "to": "TF",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "GEN",
    "to": "VF",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.2,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "GEN",
    "to": "A",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "TF",
    "to": "DEC",
-   "style": "fb"
+   "style": "fb",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "DEC",
    "to": "LOSS",
-   "style": "fb"
+   "style": "fb",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "A",
    "to": "EXEC",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   }
  ],
  "panels": [],
  "canvas": [
-  969,
-  1395
+  1325,
+  1173
  ],
  "legend": [
   "act",
@@ -223,8 +249,8 @@
   "train"
  ],
  "layout_wh": [
-  969,
-  1395
+  1325,
+  1173
  ],
  "title": "tacwam",
  "subtitle": "TacWAM 回答了一个此前 WAM 工作都回避的问题：**触觉未来该不该进 WAM、以什么方式进**。纯视觉 WAM 看得到场景怎么变，看不到力、变形、剪切与滑移——一张\"看",

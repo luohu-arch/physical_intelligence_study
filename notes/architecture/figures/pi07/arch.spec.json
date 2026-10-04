@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "OBS",
-   "label": "当前观测\n最多 4 路 RGB + 6 ",
-   "sub": "帧历史 + 关节状态",
+   "label": "当前观测\n最多 4 路 RGB + 6 帧历",
+   "sub": "史 + 关节状态",
    "icon": "camera",
    "cls": "data",
-   "x": 1235,
-   "y": 472,
-   "w": 228,
-   "h": 126
+   "x": 551,
+   "y": 46,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "ENC",
-   "label": "多模态上下文编码 (\n核心)",
-   "sub": "C_t = 指令 + 子步骤",
+   "label": "多模态上下文编码 (核心)\nC_t = 指令 + 子步骤 + ",
+   "sub": "元数据",
    "icon": "chat",
    "cls": "key",
-   "x": 1529,
-   "y": 472,
-   "w": 235,
-   "h": 126
+   "x": 752,
+   "y": 461,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "LANG",
@@ -28,21 +28,21 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 78,
-   "y": 106,
-   "w": 164,
-   "h": 93
+   "x": 46,
+   "y": 62,
+   "w": 162,
+   "h": 95
   },
   {
    "id": "META",
-   "label": "任务元数据\n速度 / 质量 / 错误",
-   "sub": "标记 (怎么做)",
+   "label": "任务元数据\n速度 / 质量 / 错误标记 ",
+   "sub": "(怎么做)",
    "icon": "db",
    "cls": "data",
-   "x": 48,
-   "y": 678,
-   "w": 223,
-   "h": 126
+   "x": 246,
+   "y": 46,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "SG",
@@ -50,21 +50,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 386,
-   "y": 414,
-   "w": 146,
-   "h": 93
-  },
-  {
-   "id": "VLA",
-   "label": "VLA",
-   "sub": "",
-   "icon": "refresh",
-   "cls": "loop",
-   "x": 1830,
-   "y": 489,
-   "w": 140,
-   "h": 92
+   "x": 810,
+   "y": 270,
+   "w": 150,
+   "h": 95
   },
   {
    "id": "VLM",
@@ -72,76 +61,76 @@
    "sub": "",
    "icon": "brain",
    "cls": "train",
-   "x": 50,
-   "y": 392,
-   "w": 220,
-   "h": 93
+   "x": 776,
+   "y": 685,
+   "w": 218,
+   "h": 95
   },
   {
    "id": "EXP",
-   "label": "Action Expert 860M\nflow matching, 5 ",
-   "sub": "步去噪",
+   "label": "Action Expert 860M\nflow matching, 5 步去",
+   "sub": "噪",
    "icon": "lightning",
    "cls": "train",
-   "x": 342,
-   "y": 530,
-   "w": 233,
-   "h": 126
+   "x": 756,
+   "y": 876,
+   "w": 258,
+   "h": 128
   },
   {
    "id": "WM",
-   "label": "14B 子目标世界模型 \n(BAGEL)",
-   "sub": "按观测 + 子任务异步",
+   "label": "14B 子目标世界模型 (BAG\nEL)",
+   "sub": "按观测 + 子任务异步合成",
    "icon": "state",
    "cls": "env",
-   "x": 44,
-   "y": 233,
-   "w": 231,
-   "h": 126
+   "x": 1454,
+   "y": 46,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "CFGN",
-   "label": "推理时 CFG 元数据引\n导",
-   "sub": "放大正向元数据影响",
+   "label": "推理时 CFG 元数据引导\n放大正向元数据影响",
+   "sub": "beta = 1.3 / 1.7 / 2.",
    "icon": "brain",
    "cls": "key",
-   "x": 44,
-   "y": 519,
-   "w": 231,
-   "h": 126
+   "x": 851,
+   "y": 46,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "LCFM",
-   "label": "损失: VLM FAST tok\nen 监督",
-   "sub": "+ Action Expert 条",
+   "label": "损失: VLM FAST token \n监督",
+   "sub": "+ Action Expert 条件流",
    "icon": "brain",
    "cls": "loss",
-   "x": 44,
-   "y": 838,
-   "w": 232,
-   "h": 126
+   "x": 1150,
+   "y": 46,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "ACT",
-   "label": "可 steer 的动作块 5\n0 步",
-   "sub": "执行 15-25 步后重采",
+   "label": "可 steer 的动作块 50 \n步",
+   "sub": "执行 15-25 步后重采样",
    "icon": "stack",
    "cls": "act",
-   "x": 641,
-   "y": 472,
-   "w": 235,
-   "h": 126
+   "x": 758,
+   "y": 1100,
+   "w": 253,
+   "h": 128
   },
   {
    "id": "ROBOT",
-   "label": "机器人执行 50Hz\n(RTC 训练容忍 0-12",
-   "sub": " 步延迟)",
+   "label": "机器人执行 50Hz\n(RTC 训练容忍 0-12 步",
+   "sub": "延迟)",
    "icon": "robot",
    "cls": "act",
-   "x": 942,
-   "y": 472,
-   "w": 227,
-   "h": 126
+   "x": 758,
+   "y": 1324,
+   "w": 253,
+   "h": 128
   }
  ],
  "edges": [
@@ -167,28 +156,20 @@
   },
   {
    "from": "ENC",
-   "to": "VLA",
+   "to": "VLM",
    "style": "thick"
   },
   {
    "from": "VLM",
    "to": "EXP",
    "style": "loss",
-   "label": "\"骨干激活作条件 (KI: 动作梯度不回传 VL",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"骨干激活作条件 (KI: 动作梯度不回传 "
   },
   {
    "from": "WM",
    "to": "SG",
    "style": "fb",
-   "label": "\"每 delta=4s 或子任务变化时刷新\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"每 delta=4s 或子任务变化时刷新\""
   },
   {
    "from": "CFGN",
@@ -197,7 +178,7 @@
   },
   {
    "from": "LCFM",
-   "to": "VLA",
+   "to": "VLM",
    "style": "fb"
   },
   {
@@ -215,41 +196,37 @@
    "to": "OBS",
    "style": "fb",
    "label": "\"持续重观测 跨具身零样本\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 1362
   }
  ],
  "panels": [
   {
    "label": "pi0.7 VLA (总约 5B)",
-   "x": 26,
-   "y": 348,
-   "w": 573,
-   "h": 328
+   "x": 730,
+   "y": 639,
+   "w": 310,
+   "h": 387
   }
  ],
  "canvas": [
-  2014,
-  1030
+  1769,
+  1634
  ],
  "legend": [
   "act",
   "data",
   "env",
   "key",
-  "loop",
   "loss",
   "train"
- ],
- "layout_wh": [
-  2014,
-  1030
  ],
  "title": "pi07",
  "subtitle": "π0.7 通过在训练中注入多模态上下文（语言 + 元数据 + 子目标图像），使 VLA 不仅能理解「做什么」还能理解「怎么做」，实现了推理时的 steerability、跨 e",
  "foot": "pi07 · arXiv 2604.15483 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    OBS([\"当前观测<br/>最多 4 路 RGB + 6 帧历史 + 关节状态\"]) --> ENC\n    LANG([\"整体任务指令<br/>(做什么)\"]) --> ENC\n    META([\"任务元数据<br/>速度 / 质量 / 错误标记 (怎么做)\"]) --> ENC\n    SG([\"子目标图像<br/>最多 3 张\"]) --> ENC\n    ENC[\"多模态上下文编码 (核心)<br/>C_t = 指令 + 子步骤 + 元数据<br/>+ 子目标图 + 控制模式\"] ==> VLA\n    subgraph VLA[\"pi0.7 VLA (总约 5B)\"]\n        VLM[\"Gemma3 4B 骨干<br/>(FAST token 监督)\"]\n        EXP[\"Action Expert 860M<br/>flow matching, 5 步去噪\"]\n        VLM ==>|\"骨干激活作条件<br/>(KI: 动作梯度不回传 VLM)\"| EXP\n    end\n    WM[\"14B 子目标世界模型 (BAGEL)<br/>按观测 + 子任务异步合成子目标图像\"] -.->|\"每 delta=4s 或子任务变化时刷新\"| SG\n    CFGN[\"推理时 CFG 元数据引导<br/>放大正向元数据影响<br/>beta = 1.3 / 1.7 / 2.2\"] -.-> EXP\n    LCFM[\"损失: VLM FAST token 监督<br/>+ Action Expert 条件流匹配 CFM\"] -.-> VLA\n    EXP ==> ACT([\"可 steer 的动作块 50 步<br/>执行 15-25 步后重采样\"])\n    ACT ==> ROBOT([\"机器人执行 50Hz<br/>(RTC 训练容忍 0-12 步延迟)\"])\n    ROBOT -.->|\"持续重观测<br/>跨具身零样本\"| OBS\n\n    class OBS,LANG,META,SG data\n    class WM env\n    class VLM,EXP train\n    class ENC,CFGN key\n    class ACT,ROBOT act\n    class LCFM loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

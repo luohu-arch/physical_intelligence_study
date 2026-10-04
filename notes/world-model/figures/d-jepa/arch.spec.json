@@ -6,9 +6,9 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 147,
-   "w": 215,
+   "x": 58,
+   "y": 190,
+   "w": 205,
    "h": 92
   },
   {
@@ -17,9 +17,9 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 283,
-   "y": 146,
-   "w": 236,
+   "x": 58,
+   "y": 314,
+   "w": 215,
    "h": 93
   },
   {
@@ -28,8 +28,8 @@
    "sub": "(可选 JEPA-WM / DI",
    "icon": "sigma",
    "cls": "frozen",
-   "x": 295,
-   "y": 316,
+   "x": 400,
+   "y": 210,
    "w": 230,
    "h": 126
   },
@@ -39,8 +39,8 @@
    "sub": "排名 r_i",
    "icon": "gear",
    "cls": "env",
-   "x": 298,
-   "y": 502,
+   "x": 730,
+   "y": 210,
    "w": 225,
    "h": 126
   },
@@ -50,8 +50,8 @@
    "sub": "386 维",
    "icon": "stack",
    "cls": "env",
-   "x": 294,
-   "y": 688,
+   "x": 1060,
+   "y": 210,
    "w": 233,
    "h": 126
   },
@@ -61,8 +61,8 @@
    "sub": "2 层 4 头",
    "icon": "spark",
    "cls": "key",
-   "x": 294,
-   "y": 874,
+   "x": 1395,
+   "y": 210,
    "w": 233,
    "h": 126
   },
@@ -72,8 +72,8 @@
    "sub": "有界输出 eps=0.2",
    "icon": "lightning",
    "cls": "key",
-   "x": 298,
-   "y": 1060,
+   "x": 60,
+   "y": 580,
    "w": 225,
    "h": 126
   },
@@ -83,8 +83,8 @@
    "sub": "1-alpha)*rT",
    "icon": "medal",
    "cls": "reward",
-   "x": 543,
-   "y": 130,
+   "x": 395,
+   "y": 770,
    "w": 233,
    "h": 126
   },
@@ -94,8 +94,8 @@
    "sub": "i",
    "icon": "medal",
    "cls": "reward",
-   "x": 294,
-   "y": 1246,
+   "x": 395,
+   "y": 580,
    "w": 233,
    "h": 126
   },
@@ -105,8 +105,8 @@
    "sub": "案",
    "icon": "spark",
    "cls": "key",
-   "x": 299,
-   "y": 1432,
+   "x": 728,
+   "y": 580,
    "w": 222,
    "h": 126
   },
@@ -116,8 +116,8 @@
    "sub": "实现",
    "icon": "spark",
    "cls": "key",
-   "x": 295,
-   "y": 1618,
+   "x": 1050,
+   "y": 580,
    "w": 230,
    "h": 126
   },
@@ -127,8 +127,8 @@
    "sub": "nt 距离",
    "icon": "tree",
    "cls": "act",
-   "x": 296,
-   "y": 1804,
+   "x": 1380,
+   "y": 580,
    "w": 228,
    "h": 126
   },
@@ -138,8 +138,8 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 299,
-   "y": 1990,
+   "x": 1382,
+   "y": 800,
    "w": 222,
    "h": 93
   }
@@ -148,91 +148,125 @@
   {
    "from": "CTX",
    "to": "WM",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.4
   },
   {
    "from": "CAND",
    "to": "WM",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.85
   },
   {
    "from": "WM",
    "to": "DESC",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "DESC",
    "to": "TOKEN",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "TOKEN",
    "to": "SET",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "SET",
    "to": "HEAD",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "BASE",
    "to": "SCORE",
-   "style": "main"
+   "style": "main",
+   "out": "top",
+   "pos_out": 0.5,
+   "in": "bottom",
+   "pos_in": 0.5
   },
   {
    "from": "HEAD",
    "to": "SCORE",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "SCORE",
    "to": "GATE",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "GATE",
    "to": "LIFT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "LIFT",
    "to": "PLAN",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "PLAN",
    "to": "EXEC",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "EXEC",
    "to": "SET",
    "style": "loss",
    "label": "\"执行结果监督关系对齐 消融 +10.16pp ",
-   "out": "top",
-   "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
+   "out": "right",
+   "in": "right",
+   "pos_out": 0.5,
+   "pos_in": 0.5,
+   "k": 45,
    "loff": [
-    0,
-    -18
+    -150,
+    -80
    ]
   }
  ],
  "panels": [
   {
    "label": "输入",
-   "x": 20,
-   "y": 102,
-   "w": 523,
-   "h": 157
+   "x": 40,
+   "y": 130,
+   "w": 253,
+   "h": 301
   }
  ],
  "canvas": [
-  820,
-  2173
+  1700,
+  1000
  ],
  "legend": [
   "act",

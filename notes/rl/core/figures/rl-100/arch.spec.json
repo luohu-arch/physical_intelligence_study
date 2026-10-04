@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "DEMO",
-   "label": "演示数据: 约 115 de\nmos/任务",
+   "label": "演示数据: 约 115 demos\n/任务",
    "sub": "总预算 < 100 小时",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 130,
-   "w": 235,
-   "h": 126
+   "x": 46,
+   "y": 46,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "S1",
@@ -17,54 +17,54 @@
    "sub": "修大体正确 (67.8%)",
    "icon": "lightning",
    "cls": "train",
-   "x": 178,
-   "y": 316,
-   "w": 225,
-   "h": 126
+   "x": 215,
+   "y": 270,
+   "w": 223,
+   "h": 128
   },
   {
    "id": "S2",
-   "label": "阶段 2: 迭代离线 RL\nclipped PPO 直接作",
-   "sub": "用于去噪每一步",
+   "label": "阶段 2: 迭代离线 RL\nclipped PPO 直接作用于",
+   "sub": "去噪每一步",
    "icon": "eye",
    "cls": "train",
-   "x": 174,
-   "y": 502,
-   "w": 233,
-   "h": 126
+   "x": 196,
+   "y": 494,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "OPE",
    "label": "OPE 门控 (保险丝)\n保守 Q 估计",
-   "sub": "Q_new >= Q_old + d",
+   "sub": "Q_new >= Q_old + delt",
    "icon": "spark",
    "cls": "key",
-   "x": 303,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 346,
+   "y": 46,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "S3",
    "label": "阶段 3: 在线 RL\n小于 50 episodes",
-   "sub": "修最后 1% corner c",
+   "sub": "修最后 1% corner case ",
    "icon": "cpu",
    "cls": "train",
-   "x": 176,
-   "y": 688,
-   "w": 228,
-   "h": 126
+   "x": 194,
+   "y": 718,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "ROBOT",
-   "label": "真实机器人 (8 任务)\nUR5 / Franka / xAr",
-   "sub": "m / LeapHand",
+   "label": "真实机器人 (8 任务)\nUR5 / Franka / xArm /",
+   "sub": " LeapHand",
    "icon": "robot",
    "cls": "env",
-   "x": 174,
-   "y": 1060,
-   "w": 233,
-   "h": 126
+   "x": 196,
+   "y": 1166,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "RW",
@@ -72,21 +72,21 @@
    "sub": "",
    "icon": "reward",
    "cls": "reward",
-   "x": 172,
-   "y": 1246,
-   "w": 236,
-   "h": 92
+   "x": 210,
+   "y": 1390,
+   "w": 234,
+   "h": 94
   },
   {
    "id": "CD",
-   "label": "一致性蒸馏 (部署加\n速)",
-   "sub": "多步 DDIM -> 1 步",
+   "label": "一致性蒸馏 (部署加速)\n多步 DDIM -> 1 步控制",
+   "sub": "器",
    "icon": "flask",
    "cls": "act",
-   "x": 180,
-   "y": 874,
-   "w": 220,
-   "h": 126
+   "x": 200,
+   "y": 942,
+   "w": 253,
+   "h": 128
   }
  ],
  "edges": [
@@ -104,11 +104,7 @@
    "from": "OPE",
    "to": "S2",
    "style": "fb",
-   "label": "\"拒绝降质更新, 防分布偏移崩溃\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"拒绝降质更新, 防分布偏移崩溃\""
   },
   {
    "from": "S2",
@@ -124,11 +120,11 @@
    "from": "RW",
    "to": "ROBOT",
    "style": "main",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 274
   },
   {
    "from": "S3",
@@ -140,15 +136,11 @@
    "to": "S3",
    "style": "fb",
    "label": "\"失败 / 成功对比样本\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 722
   },
   {
    "from": "S3",
@@ -159,25 +151,21 @@
    "from": "CD",
    "to": "ROBOT",
    "style": "thick",
-   "label": "\"部署级可靠性: 1000/1000 商场 7 ",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"部署级可靠性: 1000/1000 商场 "
   }
  ],
  "panels": [
   {
    "label": "真机在线回路",
-   "x": 148,
-   "y": 1016,
-   "w": 284,
-   "h": 342
+   "x": 170,
+   "y": 1120,
+   "w": 313,
+   "h": 386
   }
  ],
  "canvas": [
-  580,
-  1428
+  653,
+  1666
  ],
  "legend": [
   "act",
@@ -187,13 +175,9 @@
   "reward",
   "train"
  ],
- "layout_wh": [
-  580,
-  1428
- ],
  "title": "rl-100",
  "subtitle": "RL-100 提出三阶段真实世界 RL 框架：(1) 模仿学习预训练（~115 demos/任务、总预算 <100 小时），(2) 迭代离线 RL（PPO 风格更新 + off",
  "foot": "rl-100 · arXiv 2510.14830 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    DEMO[(\"演示数据: 约 115 demos/任务<br/>总预算 < 100 小时\")] ==> S1[\"阶段 1: IL 预训练<br/>3D 点云扩散策略 BC<br/>修大体正确 (67.8%)\"]\n    S1 ==> S2[\"阶段 2: 迭代离线 RL<br/>clipped PPO 直接作用于去噪每一步<br/>修系统性偏差 (91.8%)\"]\n    OPE[\"OPE 门控 (保险丝)<br/>保守 Q 估计<br/>Q_new >= Q_old + delta 才接受\"] -.->|\"拒绝降质更新, 防分布偏移崩溃\"| S2\n    S2 ==> S3[\"阶段 3: 在线 RL<br/>小于 50 episodes<br/>修最后 1% corner case (100%)\"]\n    subgraph LOOP[\"真机在线回路\"]\n        ROBOT[\"真实机器人 (8 任务)<br/>UR5 / Franka / xArm / LeapHand\"] --> RW([\"人工二值终局奖励判定\"])\n        RW --> ROBOT\n    end\n    S3 ==> ROBOT\n    RW -.->|\"失败 / 成功对比样本\"| S3\n    S3 ==> CD[\"一致性蒸馏 (部署加速)<br/>多步 DDIM -> 1 步控制器<br/>延迟降约 10 倍, 20 Hz 控制\"]\n    CD ==>|\"部署级可靠性: 1000/1000<br/>商场 7 小时零故障\"| ROBOT\n\n    class DEMO data\n    class S1,S2,S3 train\n    class OPE key\n    class ROBOT env\n    class RW reward\n    class CD act\n    class LOOP loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f"
 }

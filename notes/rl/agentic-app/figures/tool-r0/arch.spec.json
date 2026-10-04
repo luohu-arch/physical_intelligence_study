@@ -2,157 +2,157 @@
  "nodes": [
   {
    "id": "A",
-   "label": "同一 instruction-t\nuned 基座",
-   "sub": "Qwen2.5-1.5B 初始",
+   "label": "同一 instruction-tuned\n 基座",
+   "sub": "Qwen2.5-1.5B 初始化双",
    "icon": "brain",
    "cls": "loop",
-   "x": 46,
-   "y": 130,
-   "w": 230,
-   "h": 126
+   "x": 51,
+   "y": 46,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "GEN",
-   "label": "Generator pi_theta\n (被 RL)",
+   "label": "Generator pi_theta (\n被 RL)",
    "sub": "按规格合成可验证任务",
    "icon": "refresh",
    "cls": "loop",
-   "x": 345,
-   "y": 205,
-   "w": 236,
-   "h": 126
+   "x": 208,
+   "y": 270,
+   "w": 251,
+   "h": 128
   },
   {
    "id": "SOL",
-   "label": "Solver pi_phi (被 \nRL)",
-   "sub": "学习执行真实工具调用",
+   "label": "Solver pi_phi (被 RL)\n学习执行真实工具调用",
+   "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 3029,
-   "y": 130,
-   "w": 236,
-   "h": 126
+   "x": 357,
+   "y": 2236,
+   "w": 259,
+   "h": 95
   },
   {
    "id": "S",
-   "label": "任务规格 s = (32 域\n, 形态,",
-   "sub": "菜单规模, gold 调用",
+   "label": "任务规格 s = (32 域, \n形态,",
+   "sub": "菜单规模, gold 调用数)",
    "icon": "refresh",
    "cls": "loop",
-   "x": 44,
-   "y": 280,
-   "w": 235,
-   "h": 126
+   "x": 356,
+   "y": 46,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "T",
-   "label": "task = question + \n工具菜单 + gold ca",
-   "sub": "lls",
+   "label": "task = question + 工具\n菜单 + gold calls",
+   "sub": "参数值必须在问题里逐字出",
    "icon": "refresh",
    "cls": "loop",
-   "x": 647,
-   "y": 205,
-   "w": 233,
-   "h": 126
+   "x": 198,
+   "y": 494,
+   "w": 270,
+   "h": 128
   },
   {
    "id": "RD",
-   "label": "带通难度奖励 (核心)\n: r_diff 在 p_succ",
-   "sub": " [0.25, 0.75] 平台",
+   "label": "带通难度奖励 (核心): r_\ndiff 在 p_succ [0.25,",
+   "sub": " 0.75] 平台",
    "icon": "reward",
    "cls": "loop",
-   "x": 946,
-   "y": 130,
-   "w": 232,
-   "h": 126
+   "x": 353,
+   "y": 718,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "CHK",
-   "label": "r_fmt + r_valid 机\n检",
-   "sub": "菜单存在/schema 齐",
+   "label": "r_fmt + r_valid 机检\n菜单存在/schema 齐全/参",
+   "sub": "数有出处",
    "icon": "refresh",
    "cls": "loop",
-   "x": 946,
-   "y": 280,
-   "w": 232,
-   "h": 126
+   "x": 46,
+   "y": 718,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "F",
-   "label": "Generator 奖励 = r\n_fmt + r_valid + r",
-   "sub": "_curr",
+   "label": "Generator 奖励 = r_fmt\n + r_valid + r_curr",
+   "sub": "(按 Solver 能力边界领奖",
    "icon": "reward",
    "cls": "loop",
-   "x": 1244,
-   "y": 205,
-   "w": 233,
-   "h": 126
+   "x": 198,
+   "y": 942,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "G",
-   "label": "GRPO 更新 Generato\nr, 50 步",
+   "label": "GRPO 更新 Generator, 5\n0 步",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1543,
-   "y": 222,
-   "w": 230,
-   "h": 93
+   "x": 200,
+   "y": 1166,
+   "w": 267,
+   "h": 95
   },
   {
    "id": "H",
-   "label": "冻结 Generator, 采\n 10,000 候选",
+   "label": "冻结 Generator, 采 10,\n000 候选",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1839,
-   "y": 222,
-   "w": 228,
-   "h": 93
+   "x": 200,
+   "y": 1357,
+   "w": 266,
+   "h": 95
   },
   {
    "id": "I",
-   "label": "三段过滤: 去重 -> S\nolver 交叉验证 -> ",
-   "sub": "难度分桶",
+   "label": "三段过滤: 去重 -> Solv\ner 交叉验证 -> 难度分桶",
+   "sub": "10,000 选 2,000 (20% ",
    "icon": "refresh",
    "cls": "loop",
-   "x": 2133,
-   "y": 205,
-   "w": 233,
-   "h": 126
+   "x": 200,
+   "y": 1548,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "J",
-   "label": "2,000 条课程数据\nbatch 级 easy -> h",
-   "sub": "ard 排布",
+   "label": "2,000 条课程数据\nbatch 级 easy -> hard",
+   "sub": " 排布",
    "icon": "refresh",
    "cls": "loop",
-   "x": 2432,
-   "y": 205,
-   "w": 232,
-   "h": 126
+   "x": 204,
+   "y": 1772,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "K",
-   "label": "Solver GRPO: r_fmt\n + 稠密 r_acc",
-   "sub": "(name 0.2 + key F1",
+   "label": "Solver GRPO: r_fmt + \n稠密 r_acc",
+   "sub": "(name 0.2 + key F1 0.",
    "icon": "refresh",
    "cls": "loop",
-   "x": 2730,
-   "y": 205,
-   "w": 233,
-   "h": 126
+   "x": 202,
+   "y": 1996,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "ACC",
-   "label": "Qwen2.5-1.5B 平均 \n24.85 -> 47.84 (+9",
-   "sub": "2.52%)",
+   "label": "Qwen2.5-1.5B 平均 24.8\n5 -> 47.84 (+92.52%)",
+   "sub": "零数据超 4k-210k 人工数",
    "icon": "brain",
    "cls": "loop",
-   "x": 3030,
-   "y": 280,
-   "w": 233,
-   "h": 126
+   "x": 50,
+   "y": 2220,
+   "w": 269,
+   "h": 128
   }
  ],
  "edges": [
@@ -184,12 +184,8 @@
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 1586
   },
   {
    "from": "T",
@@ -254,29 +250,21 @@
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 1586
   }
  ],
  "panels": [],
  "canvas": [
-  3309,
-  496
+  666,
+  2530
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  3309,
-  496
- ],
  "title": "tool-r0",
  "subtitle": "Tool-R0 用 zero-data self-play RL 把同一个 instruction-tuned 基座初始化成 Generator（合成\"问题 + 工具菜单 + ",
  "foot": "tool-r0 · arXiv 2602.21320 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    A([\"同一 instruction-tuned 基座<br/>Qwen2.5-1.5B 初始化双角色, 零人工数据\"]):::data\n    GEN[\"Generator pi_theta (被 RL)<br/>按规格合成可验证任务\"]:::train\n    SOL[\"Solver pi_phi (被 RL)<br/>学习执行真实工具调用\"]:::train\n    S[\"任务规格 s = (32 域, 形态,<br/>菜单规模, gold 调用数)\"]:::data\n    T[\"task = question + 工具菜单 + gold calls<br/>参数值必须在问题里逐字出现 (value grounding)\"]:::data\n    RD[\"带通难度奖励 (核心): r_diff 在 p_succ [0.25, 0.75] 平台<br/>+ 高斯衰减; K=8 蒙特卡洛探测, 零命中归零\"]:::key\n    CHK[\"r_fmt + r_valid 机检<br/>菜单存在/schema 齐全/参数有出处\"]:::reward\n    F[\"Generator 奖励 = r_fmt + r_valid + r_curr<br/>(按 Solver 能力边界领奖励)\"]:::reward\n    G[\"GRPO 更新 Generator, 50 步\"]:::loss\n    H[\"冻结 Generator, 采 10,000 候选\"]:::loop\n    I[\"三段过滤: 去重 -> Solver 交叉验证 -> 难度分桶<br/>10,000 选 2,000 (20% 存活)\"]:::data\n    J[\"2,000 条课程数据<br/>batch 级 easy -> hard 排布\"]:::data\n    K[\"Solver GRPO: r_fmt + 稠密 r_acc<br/>(name 0.2 + key F1 0.3 + value 0.5 - 多余调用罚)\"]:::loss\n    ACC([\"Qwen2.5-1.5B 平均 24.85 -> 47.84 (+92.52%)<br/>零数据超 4k-210k 人工数据基线 (最强 ToolRL 46.06)\"]):::data\n\n    A ==> GEN\n    A ==> SOL\n    S ==> GEN\n    GEN ==> T\n    SOL -.->|\"冻结做 K=8 探测 p_succ\"| RD\n    T ==> RD\n    T ==> CHK\n    RD ==> F\n    CHK ==> F\n    F ==> G\n    G ==> H\n    H ==> I\n    I ==> J\n    J ==> K\n    K ==> SOL\n    K ==> ACC\n    SOL -.->|\"下一迭代: 能力上移带动难度锚上移\"| RD\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

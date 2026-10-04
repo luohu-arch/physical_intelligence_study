@@ -2,91 +2,91 @@
  "nodes": [
   {
    "id": "SCAN",
-   "label": "物体 3D 扫描\nPolycam + SAM2 微",
-   "sub": "调分割",
+   "label": "物体 3D 扫描\nPolycam + SAM2 微调分",
+   "sub": "割",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 130,
-   "w": 222,
-   "h": 126
+   "x": 46,
+   "y": 46,
+   "w": 256,
+   "h": 128
   },
   {
    "id": "GS",
-   "label": "3D Gaussian Splatt\ning",
+   "label": "3D Gaussian Splatting",
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 166,
-   "y": 316,
-   "w": 233,
-   "h": 93
+   "x": 195,
+   "y": 270,
+   "w": 261,
+   "h": 94
   },
   {
    "id": "AUG",
-   "label": "pre-rasterization \n增强 (核心)",
+   "label": "pre-rasterization 增强\n (核心)",
    "sub": "渲染前扰动 SH 系数",
    "icon": "spark",
    "cls": "key",
-   "x": 166,
-   "y": 469,
-   "w": 233,
-   "h": 126
+   "x": 192,
+   "y": 460,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "RENDER",
-   "label": "仿真渲染管线\n比光线追踪快 1.6x, ",
-   "sub": "仅 12GB 显存",
+   "label": "仿真渲染管线\n比光线追踪快 1.6x, 仅 1",
+   "sub": "2GB 显存",
    "icon": "gear",
    "cls": "env",
-   "x": 166,
-   "y": 655,
-   "w": 233,
-   "h": 126
+   "x": 191,
+   "y": 684,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "TEACHER",
-   "label": "特权教师 (PPO)\n吃全状态: 物体速度 ",
-   "sub": "/ 指尖接触力",
+   "label": "特权教师 (PPO)\n吃全状态: 物体速度 / 指",
+   "sub": "尖接触力",
    "icon": "state",
    "cls": "frozen",
-   "x": 290,
-   "y": 130,
-   "w": 230,
-   "h": 126
+   "x": 340,
+   "y": 46,
+   "w": 265,
+   "h": 128
   },
   {
    "id": "STUDENT",
-   "label": "recurrent student \n策略",
-   "sub": "仅单目 RGB + 本体 (",
+   "label": "recurrent student 策略\n仅单目 RGB + 本体 (无深",
+   "sub": "度 / 无 pose 真值)",
    "icon": "camera",
    "cls": "train",
-   "x": 164,
-   "y": 1027,
-   "w": 235,
-   "h": 126
+   "x": 191,
+   "y": 1132,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "BELIEF",
-   "label": "recurrent belief e\nncoder",
-   "sub": "GRU 时序滤波估物体 ",
+   "label": "recurrent belief enco\nder",
+   "sub": "GRU 时序滤波估物体 pose",
    "icon": "db",
    "cls": "mem",
-   "x": 166,
-   "y": 841,
-   "w": 233,
-   "h": 126
+   "x": 191,
+   "y": 908,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "DEPLOY",
-   "label": "Allegro 16-DoF 零\n样本部署",
-   "sub": "30 Hz 推理 + 300 H",
+   "label": "Allegro 16-DoF 零样本\n部署",
+   "sub": "30 Hz 推理 + 300 Hz 关",
    "icon": "brain",
    "cls": "act",
-   "x": 167,
-   "y": 1213,
-   "w": 230,
-   "h": 126
+   "x": 192,
+   "y": 1356,
+   "w": 266,
+   "h": 128
   }
  ],
  "edges": [
@@ -109,11 +109,7 @@
    "from": "TEACHER",
    "to": "STUDENT",
    "style": "loss",
-   "label": "\"BC 蒸馏 + 状态重建\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"BC 蒸馏 + 状态重建\""
   },
   {
    "from": "RENDER",
@@ -133,8 +129,8 @@
  ],
  "panels": [],
  "canvas": [
-  564,
-  1429
+  651,
+  1666
  ],
  "legend": [
   "act",
@@ -145,13 +141,9 @@
   "mem",
   "train"
  ],
- "layout_wh": [
-  564,
-  1429
- ],
  "title": "viserdex",
  "subtitle": "ViserDex 实现仅用单目 RGB（无深度、无物体 pose 真值）的灵巧手在操作零样本 Sim2Real。核心创新：3DGS 渲染替代昂贵光线追踪，在 Gaussian ",
  "foot": "viserdex · arXiv 2604.11138 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    SCAN([\"物体 3D 扫描<br/>Polycam + SAM2 微调分割\"]) ==> GS[\"3D Gaussian Splatting\"]\n    GS ==> AUG[\"pre-rasterization 增强 (核心)<br/>渲染前扰动 SH 系数<br/>= 光源层面物理一致的光照变化<br/>保真 (3DGS) + 多样性 (SH 扰动) 兼得\"]\n    AUG ==> RENDER[\"仿真渲染管线<br/>比光线追踪快 1.6x, 仅 12GB 显存\"]\n    TEACHER[\"特权教师 (PPO)<br/>吃全状态: 物体速度 / 指尖接触力<br/>(24,576 并行 env 训练 26h)\"] -.->|\"BC 蒸馏 + 状态重建\"| STUDENT\n    RENDER ==> BELIEF[\"recurrent belief encoder<br/>GRU 时序滤波估物体 pose<br/>拒掉 180 度翻转类灾难错误\"]\n    BELIEF ==> STUDENT[\"recurrent student 策略<br/>仅单目 RGB + 本体 (无深度 / 无 pose 真值)<br/>4,096 env 蒸馏 16h\"]\n    STUDENT ==> DEPLOY[\"Allegro 16-DoF 零样本部署<br/>30 Hz 推理 + 300 Hz 关节 PD<br/>平均 25+ 连续成功\"]\n\n    class SCAN data\n    class GS data\n    class AUG key\n    class RENDER env\n    class TEACHER frozen\n    class BELIEF mem\n    class STUDENT train\n    class DEPLOY act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c"
 }

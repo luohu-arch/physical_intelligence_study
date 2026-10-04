@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "robot",
    "cls": "data",
-   "x": 98,
-   "y": 130,
-   "w": 200,
-   "h": 93
+   "x": 380,
+   "y": 46,
+   "w": 198,
+   "h": 95
   },
   {
    "id": "TWIN",
-   "label": "MuJoCo 数字孪生同步\n(物理机器人 + 孪生并行驱动",
-   "sub": ")",
+   "label": "MuJoCo 数字孪生同步\n(物理机器人 + 孪生并行",
+   "sub": "驱动)",
    "icon": "gear",
    "cls": "env",
-   "x": 209,
-   "y": 315,
-   "w": 290,
-   "h": 126
+   "x": 197,
+   "y": 237,
+   "w": 256,
+   "h": 128
   },
   {
    "id": "AVP",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 338,
-   "y": 130,
-   "w": 271,
-   "h": 93
+   "x": 72,
+   "y": 46,
+   "w": 269,
+   "h": 95
   },
   {
    "id": "SIM",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "data",
-   "x": 109,
-   "y": 533,
-   "w": 210,
-   "h": 93
+   "x": 359,
+   "y": 461,
+   "w": 208,
+   "h": 95
   },
   {
    "id": "REAL",
@@ -50,54 +50,54 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 359,
-   "y": 533,
-   "w": 240,
-   "h": 93
+   "x": 83,
+   "y": 461,
+   "w": 238,
+   "h": 95
   },
   {
    "id": "S1",
-   "label": "阶段 1: 仿真预训练\ndecoder-only Transformer",
-   "sub": " 28 层",
+   "label": "阶段 1: 仿真预训练\ndecoder-only Transfor",
+   "sub": "mer 28 层",
    "icon": "gear",
    "cls": "train",
-   "x": 44,
-   "y": 718,
-   "w": 290,
-   "h": 126
+   "x": 343,
+   "y": 652,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "DISC",
-   "label": "阶段 2: 质量判别器 (核心)\n12 层 Transformer + PU-l",
-   "sub": "earning",
+   "label": "阶段 2: 质量判别器 (核\n心)",
+   "sub": "12 层 Transformer + P",
    "icon": "target",
    "cls": "key",
-   "x": 374,
-   "y": 718,
-   "w": 290,
-   "h": 126
+   "x": 46,
+   "y": 652,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "S3",
    "label": "阶段 3: 质量加权微调\n低质 demo 自动降权",
-   "sub": "(好示范易定义, 坏示范难定",
+   "sub": "(好示范易定义, 坏示范难",
    "icon": "db",
    "cls": "train",
-   "x": 212,
-   "y": 936,
-   "w": 284,
-   "h": 126
+   "x": 193,
+   "y": 876,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "TRANS",
-   "label": "跨本体迁移\naction-dim padding + cam",
-   "sub": "era masking",
-   "icon": "state",
+   "label": "跨本体迁移\naction-dim padding + ",
+   "sub": "camera masking",
+   "icon": "camera",
    "cls": "act",
-   "x": 209,
-   "y": 1154,
-   "w": 290,
-   "h": 126
+   "x": 194,
+   "y": 1100,
+   "w": 261,
+   "h": 128
   }
  ],
  "edges": [
@@ -140,11 +140,7 @@
    "from": "DISC",
    "to": "S3",
    "style": "loss",
-   "label": "\"质量权重 w_i 加权 DiT 损失\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"质量权重 w_i 加权 DiT 损失\""
   },
   {
    "from": "S3",
@@ -154,8 +150,8 @@
  ],
  "panels": [],
  "canvas": [
-  708,
-  1370
+  650,
+  1410
  ],
  "legend": [
   "act",
@@ -164,13 +160,9 @@
   "key",
   "train"
  ],
- "layout_wh": [
-  708,
-  1370
- ],
  "title": "dexora",
  "subtitle": "Dexora 是首个开源的双臂灵巧 VLA：2× AIRBOT (6-DoF) + 2× XHAND (12-DoF) = 36-DoF，混合遥操作（外骨骼背包 + Apple",
  "foot": "dexora · arXiv 2605.18722 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    EXO([\"外骨骼背包<br/>臂部低延迟无漂移\"]) --> TWIN[\"MuJoCo 数字孪生同步<br/>(物理机器人 + 孪生并行驱动)\"]\n    AVP([\"Apple Vision Pro<br/>无标记手指追踪 (24-DoF)\"]) --> TWIN\n    TWIN ==> SIM[(\"100K 仿真轨迹<br/>DexMimicGen 增强\")]\n    TWIN ==> REAL[(\"12.2K 真机 episodes<br/>347 物体 / 17 类\")]\n    SIM ==> S1[\"阶段 1: 仿真预训练<br/>decoder-only Transformer 28 层<br/>+ DiT 动作头 (chunk L = 32)\"]\n    REAL ==> DISC[\"阶段 2: 质量判别器 (核心)<br/>12 层 Transformer + PU-learning<br/>只标少量高质量正样本<br/>即给全部 demo 打质量分\"]\n    S1 ==> S3[\"阶段 3: 质量加权微调<br/>低质 demo 自动降权<br/>(好示范易定义, 坏示范难定义)\"]\n    DISC -.->|\"质量权重 w_i 加权 DiT 损失\"| S3\n    S3 ==> TRANS[\"跨本体迁移<br/>action-dim padding + camera masking<br/>36-DoF -> 单臂 / 双臂夹爪 / 低 DoF 手\"]\n\n    class EXO,AVP data\n    class TWIN env\n    class SIM,REAL data\n    class S1,S3 train\n    class DISC key\n    class TRANS act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c"
 }

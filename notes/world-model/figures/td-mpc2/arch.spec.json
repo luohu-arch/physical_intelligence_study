@@ -6,8 +6,8 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 302,
-   "y": 147,
+   "x": 50,
+   "y": 144,
    "w": 140,
    "h": 92
   },
@@ -17,8 +17,8 @@
    "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 431,
-   "y": 316,
+   "x": 650,
+   "y": 144,
    "w": 140,
    "h": 92
   },
@@ -28,8 +28,8 @@
    "sub": "17M",
    "icon": "spark",
    "cls": "key",
-   "x": 466,
-   "y": 130,
+   "x": 1155,
+   "y": 127,
    "w": 235,
    "h": 126
   },
@@ -39,8 +39,8 @@
    "sub": "tmax",
    "icon": "gear",
    "cls": "key",
-   "x": 387,
-   "y": 468,
+   "x": 606,
+   "y": 315,
    "w": 228,
    "h": 126
   },
@@ -50,8 +50,8 @@
    "sub": "免解码器的隐式世界模",
    "icon": "gear",
    "cls": "train",
-   "x": 44,
-   "y": 654,
+   "x": 119,
+   "y": 503,
    "w": 236,
    "h": 126
   },
@@ -61,8 +61,8 @@
    "sub": "",
    "icon": "reward",
    "cls": "reward",
-   "x": 564,
-   "y": 671,
+   "x": 831,
+   "y": 520,
    "w": 140,
    "h": 92
   },
@@ -72,8 +72,8 @@
    "sub": "Q-ensemble 提至 57",
    "icon": "medal",
    "cls": "reward",
-   "x": 728,
-   "y": 654,
+   "x": 1091,
+   "y": 503,
    "w": 230,
    "h": 126
   },
@@ -83,8 +83,8 @@
    "sub": "(多动作空间关键细节",
    "icon": "noise",
    "cls": "train",
-   "x": 304,
-   "y": 654,
+   "x": 475,
+   "y": 503,
    "w": 236,
    "h": 126
   },
@@ -94,8 +94,8 @@
    "sub": " 种群 512",
    "icon": "tree",
    "cls": "loop",
-   "x": 386,
-   "y": 840,
+   "x": 605,
+   "y": 691,
    "w": 230,
    "h": 126
   },
@@ -105,8 +105,8 @@
    "sub": " 70.6",
    "icon": "robot",
    "cls": "loop",
-   "x": 383,
-   "y": 1026,
+   "x": 602,
+   "y": 879,
    "w": 236,
    "h": 126
   },
@@ -116,8 +116,8 @@
    "sub": "",
    "icon": "db",
    "cls": "mem",
-   "x": 427,
-   "y": 1212,
+   "x": 646,
+   "y": 1067,
    "w": 148,
    "h": 92
   },
@@ -127,8 +127,8 @@
    "sub": "值 CE",
    "icon": "reward",
    "cls": "train",
-   "x": 387,
-   "y": 1364,
+   "x": 894,
+   "y": 1050,
    "w": 228,
    "h": 126
   }
@@ -137,68 +137,102 @@
   {
    "from": "S",
    "to": "ENC",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   },
   {
    "from": "E",
    "to": "ENC",
-   "style": "thick"
+   "style": "thick",
+   "out": "left",
+   "in": "right"
   },
   {
    "from": "ENC",
    "to": "Z",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "Z",
    "to": "DYN",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.1,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "Z",
    "to": "RW",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.65,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "Z",
    "to": "QN",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.9,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "Z",
    "to": "PP",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.35,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "DYN",
    "to": "PLAN",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top",
+   "pos_in": 0.25
   },
   {
    "from": "PP",
    "to": "PLAN",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top",
+   "pos_in": 0.4
   },
   {
    "from": "PLAN",
    "to": "ACT",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "ACT",
    "to": "BUF",
-   "style": "fb"
+   "style": "fb",
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "BUF",
    "to": "TR",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "in": "left"
   }
  ],
  "panels": [],
  "canvas": [
-  1002,
-  1580
+  1440,
+  1266
  ],
  "legend": [
   "data",
@@ -209,8 +243,8 @@
   "train"
  ],
  "layout_wh": [
-  1002,
-  1580
+  1440,
+  1266
  ],
  "title": "td-mpc2",
  "subtitle": "TD-MPC2 在一个不含解码器的隐式（joint-embedding）世界模型上做局部轨迹优化：encoder 把观测压成 SimNorm 归一化的 latent，laten",

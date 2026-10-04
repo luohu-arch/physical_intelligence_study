@@ -6,9 +6,9 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 130,
-   "w": 182,
+   "x": 80,
+   "y": 180,
+   "w": 230,
    "h": 93
   },
   {
@@ -17,9 +17,9 @@
    "sub": "初始化为恒等拷贝",
    "icon": "camera",
    "cls": "train",
-   "x": 122,
-   "y": 283,
-   "w": 235,
+   "x": 80,
+   "y": 345,
+   "w": 230,
    "h": 126
   },
   {
@@ -28,9 +28,9 @@
    "sub": "十指共享权重",
    "icon": "camera",
    "cls": "frozen",
-   "x": 347,
-   "y": 469,
-   "w": 227,
+   "x": 80,
+   "y": 510,
+   "w": 230,
    "h": 126
   },
   {
@@ -39,9 +39,9 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 344,
-   "y": 655,
-   "w": 233,
+   "x": 80,
+   "y": 675,
+   "w": 230,
    "h": 93
   },
   {
@@ -50,9 +50,9 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 342,
-   "y": 808,
-   "w": 236,
+   "x": 80,
+   "y": 840,
+   "w": 230,
    "h": 92
   },
   {
@@ -61,9 +61,9 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 250,
-   "y": 130,
-   "w": 167,
+   "x": 470,
+   "y": 180,
+   "w": 235,
    "h": 92
   },
   {
@@ -72,9 +72,9 @@
    "sub": "q",
    "icon": "eye",
    "cls": "train",
-   "x": 381,
-   "y": 283,
-   "w": 233,
+   "x": 470,
+   "y": 345,
+   "w": 235,
    "h": 126
   },
   {
@@ -83,8 +83,8 @@
    "sub": "手查询 + 5 指 toke",
    "icon": "stack",
    "cls": "key",
-   "x": 343,
-   "y": 960,
+   "x": 470,
+   "y": 560,
    "w": 235,
    "h": 126
   },
@@ -94,9 +94,9 @@
    "sub": "W 网格",
    "icon": "cpu",
    "cls": "train",
-   "x": 346,
-   "y": 1146,
-   "w": 228,
+   "x": 470,
+   "y": 760,
+   "w": 235,
    "h": 126
   },
   {
@@ -105,9 +105,9 @@
    "sub": "8",
    "icon": "noise",
    "cls": "key",
-   "x": 344,
-   "y": 1332,
-   "w": 233,
+   "x": 470,
+   "y": 950,
+   "w": 235,
    "h": 126
   },
   {
@@ -116,8 +116,8 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 441,
-   "y": 130,
+   "x": 1150,
+   "y": 180,
    "w": 225,
    "h": 93
   },
@@ -127,8 +127,8 @@
    "sub": "",
    "icon": "camera",
    "cls": "env",
-   "x": 638,
-   "y": 300,
+   "x": 1150,
+   "y": 330,
    "w": 161,
    "h": 92
   },
@@ -138,8 +138,8 @@
    "sub": "角联合去噪",
    "icon": "cpu",
    "cls": "train",
-   "x": 344,
-   "y": 1518,
+   "x": 1150,
+   "y": 520,
    "w": 232,
    "h": 126
   },
@@ -149,9 +149,9 @@
    "sub": "触觉接触演化被显式预",
    "icon": "state",
    "cls": "env",
-   "x": 342,
-   "y": 1704,
-   "w": 236,
+   "x": 1150,
+   "y": 700,
+   "w": 232,
    "h": 126
   },
   {
@@ -160,9 +160,9 @@
    "sub": "逐模态 K/V RMS 归一",
    "icon": "lightning",
    "cls": "train",
-   "x": 343,
-   "y": 1890,
-   "w": 235,
+   "x": 1150,
+   "y": 880,
+   "w": 232,
    "h": 126
   },
   {
@@ -171,8 +171,8 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 690,
-   "y": 130,
+   "x": 830,
+   "y": 700,
    "w": 187,
    "h": 92
   },
@@ -182,9 +182,9 @@
    "sub": "F 位姿",
    "icon": "robot",
    "cls": "act",
-   "x": 343,
-   "y": 2076,
-   "w": 235,
+   "x": 1150,
+   "y": 1046,
+   "w": 232,
    "h": 126
   }
  ],
@@ -192,96 +192,160 @@
   {
    "from": "FING",
    "to": "ADAPT",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "ADAPT",
    "to": "VAE",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "VAE",
    "to": "FIV",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "FIV",
    "to": "ADD",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "POSE",
    "to": "PE",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.38
   },
   {
    "from": "ADD",
    "to": "POOL",
-   "style": "main"
+   "style": "main",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "PE",
    "to": "POOL",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "POOL",
    "to": "ST",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "ST",
    "to": "TLAT",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "VIS",
    "to": "LAT",
-   "style": "main"
+   "style": "main",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.7
   },
   {
    "from": "LAT",
    "to": "DIT",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.35
   },
   {
    "from": "TLAT",
    "to": "DIT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.2,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "DIT",
    "to": "S",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "S",
    "to": "ACT",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "PROP",
    "to": "ACT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "ACT",
    "to": "OUT",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   }
  ],
  "panels": [
   {
    "label": "触觉压缩器 (5:1 压缩, 保 89.4% 接触召回)",
-   "x": 20,
-   "y": 86,
-   "w": 618,
-   "h": 1392
+   "x": 40,
+   "y": 136,
+   "w": 730,
+   "h": 980
   }
  ],
  "canvas": [
-  921,
-  2292
+  1420,
+  1270
  ],
  "legend": [
   "act",

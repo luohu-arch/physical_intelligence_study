@@ -6,32 +6,32 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 68,
-   "y": 205,
-   "w": 186,
-   "h": 92
+   "x": 208,
+   "y": 46,
+   "w": 184,
+   "h": 94
   },
   {
    "id": "B",
    "label": "V-JEPA 预训练\nlatent 空间掩码去噪",
-   "sub": "scaling 四要素 84.",
+   "sub": "scaling 四要素 84.2->8",
    "icon": "noise",
    "cls": "train",
-   "x": 345,
-   "y": 246,
-   "w": 233,
-   "h": 126
+   "x": 308,
+   "y": 236,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "C",
-   "label": "冻结 ViT-g 编码器\nSSv2 75.3 vs DINOv",
-   "sub": "2 50.7",
+   "label": "冻结 ViT-g 编码器\nSSv2 75.3 vs DINOv2 5",
+   "sub": "0.7",
    "icon": "eye",
    "cls": "frozen",
-   "x": 644,
-   "y": 246,
-   "w": 233,
-   "h": 126
+   "x": 310,
+   "y": 460,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "D",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "check",
    "cls": "data",
-   "x": 943,
-   "y": 130,
-   "w": 233,
-   "h": 93
+   "x": 46,
+   "y": 700,
+   "w": 231,
+   "h": 95
   },
   {
    "id": "E",
@@ -50,54 +50,54 @@
    "sub": "",
    "icon": "brain",
    "cls": "train",
-   "x": 948,
-   "y": 397,
-   "w": 222,
-   "h": 92
+   "x": 315,
+   "y": 701,
+   "w": 220,
+   "h": 94
   },
   {
    "id": "F",
-   "label": "Droid 机器人数据<br\n/",
+   "label": "Droid 机器人数据<br/",
    "sub": "",
    "icon": "robot",
    "cls": "data",
-   "x": 44,
-   "y": 321,
-   "w": 235,
-   "h": 93
+   "x": 430,
+   "y": 46,
+   "w": 243,
+   "h": 94
   },
   {
    "id": "G",
-   "label": "V-JEPA 2-AC 预测器\n训练",
-   "sub": "在冻结 latent 上",
+   "label": "V-JEPA 2-AC 预测器训练\n在冻结 latent 上",
+   "sub": "动作条件自回归预测",
    "icon": "noise",
    "cls": "key",
-   "x": 946,
-   "y": 247,
-   "w": 228,
-   "h": 126
+   "x": 573,
+   "y": 684,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "H",
-   "label": "规划: CEM 迭代\n最小化 latent L1 ",
-   "sub": "能量",
+   "label": "规划: CEM 迭代\n最小化 latent L1 能量",
+   "sub": "",
    "icon": "noise",
    "cls": "loop",
-   "x": 1242,
-   "y": 246,
-   "w": 218,
-   "h": 126
+   "x": 314,
+   "y": 908,
+   "w": 253,
+   "h": 95
   },
   {
    "id": "I",
-   "label": "零样本 pick&place\n两实验室 Franka 各 ",
-   "sub": "10 trials",
+   "label": "零样本 pick&place\n两实验室 Franka 各 10 ",
+   "sub": "trials",
    "icon": "lightning",
    "cls": "act",
-   "x": 1526,
-   "y": 246,
-   "w": 235,
-   "h": 126
+   "x": 310,
+   "y": 1099,
+   "w": 262,
+   "h": 128
   }
  ],
  "edges": [
@@ -144,8 +144,8 @@
  ],
  "panels": [],
  "canvas": [
-  1805,
-  579
+  881,
+  1409
  ],
  "legend": [
   "act",
@@ -155,13 +155,9 @@
   "loop",
   "train"
  ],
- "layout_wh": [
-  1805,
-  579
- ],
  "title": "v-jepa2",
  "subtitle": "先用 V-JEPA 目标在约 100 万小时互联网视频上把视觉编码器扩到 ViT-g/1B 并得到通用运动理解表征，再冻结该编码器、只用 Droid 数据集不到 62 小时的无",
  "foot": "v-jepa2 · arXiv 2506.09985 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    A([(互联网视频<br/>22M 片段 / 超 1M 小时)]) ==> B[\"V-JEPA 预训练<br/>latent 空间掩码去噪<br/>scaling 四要素 84.2->88.2\"]\n    B ==> C[\"冻结 ViT-g 编码器<br/>SSv2 75.3 vs DINOv2 50.7\"]\n    C --> D[\"探针评测<br/>SSv2 / K400 / IN1K\"]\n    C --> E[\"LLM 对齐做视频问答\"]\n    F[(Droid 机器人数据<br/>不足 62h 无标注)] ==> G[\"V-JEPA 2-AC 预测器训练<br/>在冻结 latent 上<br/>动作条件自回归预测\"]\n    C ==> G\n    G ==> H[\"规划: CEM 迭代<br/>最小化 latent L1 能量\"]\n    H ==> I[\"零样本 pick&place<br/>两实验室 Franka 各 10 trials<br/>成功率达 80%\"]\n\n    class A,F,D data\n    class B,E train\n    class C frozen\n    class G key\n    class H loop\n    class I act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

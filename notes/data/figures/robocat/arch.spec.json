@@ -2,58 +2,58 @@
  "nodes": [
   {
    "id": "PRE",
-   "label": "240 任务变体 / 11 任务族<\nbr/",
+   "label": "240 任务变体 / 11 任务\n族<br/",
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 146,
-   "w": 290,
-   "h": 93
+   "x": 595,
+   "y": 62,
+   "w": 261,
+   "h": 95
   },
   {
    "id": "GOAL",
    "label": "目标图像 g\n视觉目标条件",
-   "sub": "失败轨迹 hindsight 重标注",
+   "sub": "失败轨迹 hindsight 重",
    "icon": "camera",
    "cls": "data",
-   "x": 374,
-   "y": 130,
-   "w": 290,
-   "h": 126
+   "x": 304,
+   "y": 46,
+   "w": 253,
+   "h": 128
   },
   {
    "id": "VQ",
-   "label": "VQ-GAN 图像分词器 (冻结)\n压缩为 8x8 token",
-   "sub": "",
+   "label": "VQ-GAN 图像分词器 (冻结\n)",
+   "sub": "压缩为 8x8 token",
    "icon": "camera",
    "cls": "frozen",
-   "x": 344,
-   "y": 348,
-   "w": 281,
-   "h": 93
+   "x": 316,
+   "y": 270,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "BB",
-   "label": "Decoder-only Transformer\n 1.18B",
-   "sub": "异构本体统一为 token 序列",
+   "label": "Decoder-only Transfor\nmer 1.18B",
+   "sub": "异构本体统一为 token 序",
    "icon": "state",
    "cls": "train",
-   "x": 340,
-   "y": 533,
-   "w": 290,
-   "h": 126
+   "x": 318,
+   "y": 494,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "L",
    "label": "联合损失\n动作 token 交叉熵",
-   "sub": "+ k=5 步图像 token 预测",
+   "sub": "+ k=5 步图像 token 预",
    "icon": "camera",
    "cls": "loss",
-   "x": 108,
-   "y": 751,
-   "w": 274,
-   "h": 126
+   "x": 562,
+   "y": 718,
+   "w": 254,
+   "h": 128
   },
   {
    "id": "DEMO",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 704,
-   "y": 147,
-   "w": 222,
-   "h": 92
+   "x": 46,
+   "y": 63,
+   "w": 220,
+   "h": 94
   },
   {
    "id": "FT",
@@ -72,21 +72,21 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 422,
-   "y": 768,
-   "w": 253,
-   "h": 93
+   "x": 86,
+   "y": 734,
+   "w": 251,
+   "h": 95
   },
   {
    "id": "GEN",
    "label": "真机自主收集轨迹\n成功检测器筛选 ~90%",
-   "sub": "策略池互补任务互为 reset",
+   "sub": "策略池互补任务互为 rese",
    "icon": "check",
    "cls": "key",
-   "x": 346,
-   "y": 969,
-   "w": 277,
-   "h": 126
+   "x": 318,
+   "y": 942,
+   "w": 265,
+   "h": 128
   },
   {
    "id": "AGG",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 376,
-   "y": 1187,
-   "w": 218,
-   "h": 93
+   "x": 343,
+   "y": 1166,
+   "w": 216,
+   "h": 95
   },
   {
    "id": "ROBOT",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 716,
-   "y": 768,
-   "w": 146,
-   "h": 92
+   "x": 374,
+   "y": 735,
+   "w": 150,
+   "h": 94
   }
  ],
  "edges": [
@@ -151,64 +151,52 @@
    "from": "GEN",
    "to": "AGG",
    "style": "fb",
-   "label": "\"自生成数据入池 一轮自改进全面超纯示教\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"自生成数据入池 一轮自改进全面超纯示教\""
   },
   {
    "from": "AGG",
    "to": "BB",
    "style": "fb",
    "label": "\"重训练下一版通用模型\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 723
   },
   {
    "from": "BB",
    "to": "ROBOT",
    "style": "thick",
-   "label": "\"动作 token 自回归 10-20Hz 闭环",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"动作 token 自回归 10-20Hz "
   }
  ],
  "panels": [
   {
    "label": "多任务多本体预训练数据",
-   "x": 20,
-   "y": 86,
-   "w": 668,
-   "h": 190
+   "x": 278,
+   "y": 0,
+   "w": 604,
+   "h": 196
   },
   {
    "label": "Gato 式跨本体骨干",
-   "x": 84,
-   "y": 304,
-   "w": 570,
-   "h": 593
+   "x": 290,
+   "y": 224,
+   "w": 552,
+   "h": 644
   },
   {
    "label": "自改进循环 (self-improvement)",
-   "x": 322,
-   "y": 103,
-   "w": 628,
-   "h": 1197
+   "x": 20,
+   "y": 17,
+   "w": 590,
+   "h": 1266
   }
  ],
  "canvas": [
-  970,
-  1370
+  902,
+  1443
  ],
  "legend": [
   "act",
@@ -218,13 +206,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  970,
-  1370
- ],
  "title": "robocat",
  "subtitle": "RoboCat 是一个基于 Gato 架构的视觉目标条件决策 Transformer，首次实现了跨多机器人本体的大规模多任务操作，并通过「从实践中自我生成数据 -> 重训练」的",
  "foot": "robocat · arXiv 2306.11706 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    subgraph SEED[\"多任务多本体预训练数据\"]\n        PRE[(240 任务变体 / 11 任务族<br/>仿真 RL 专家 + 真机遥操作<br/>3 种本体 36 台真机)]\n        GOAL([\"目标图像 g<br/>视觉目标条件<br/>失败轨迹 hindsight 重标注\"])\n    end\n\n    subgraph BACK[\"Gato 式跨本体骨干\"]\n        VQ[\"VQ-GAN 图像分词器 (冻结)<br/>压缩为 8x8 token\"]\n        BB[\"Decoder-only Transformer 1.18B<br/>异构本体统一为 token 序列<br/>上下文 1024 token 约 3 步历史\"]\n        L[\"联合损失<br/>动作 token 交叉熵<br/>+ k=5 步图像 token 预测\"]\n    end\n\n    PRE --> VQ\n    VQ ==> BB\n    GOAL ==> BB\n    BB -.-> L\n\n    subgraph IMP[\"自改进循环 (self-improvement)\"]\n        DEMO[(新任务人类示教<br/>仅 100-1000 条)]\n        FT[\"少样本微调<br/>水果插碗 500 条达 84%\"]\n        GEN[\"真机自主收集轨迹<br/>成功检测器筛选 ~90%<br/>策略池互补任务互为 reset\"]\n        AGG[\"数据聚合<br/>专家数据常驻防遗忘\"]\n    end\n\n    BB ==> FT\n    DEMO ==> FT\n    FT ==> GEN\n    GEN -.->|\"自生成数据入池<br/>一轮自改进全面超纯示教\"| AGG\n    AGG -.->|\"重训练下一版通用模型\"| BB\n    BB ==>|\"动作 token 自回归 10-20Hz<br/>闭环逐观测\"| ROBOT[\"机器人执行\"]\n\n    class PRE,GOAL,DEMO data\n    class VQ frozen\n    class BB,FT train\n    class L loss\n    class GEN,AGG key\n    class ROBOT act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3"
 }

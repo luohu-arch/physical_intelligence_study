@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "TAC",
-   "label": "触觉阵列 200 taxels @ 120\n Hz",
+   "label": "触觉阵列 200 taxels @ \n120 Hz",
    "sub": "(仅训练期的特权模态)",
    "icon": "db",
    "cls": "data",
-   "x": 44,
-   "y": 130,
-   "w": 290,
-   "h": 126
+   "x": 234,
+   "y": 46,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "TEACHER",
-   "label": "SA-RWFM teacher (SmolVLA\n 0.45B)",
-   "sub": "safety-aware reward-weig",
+   "label": "SA-RWFM teacher (Smol\nVLA 0.45B)",
+   "sub": "safety-aware reward-w",
    "icon": "reward",
    "cls": "frozen",
-   "x": 299,
-   "y": 348,
-   "w": 290,
-   "h": 126
+   "x": 287,
+   "y": 270,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "DEMO",
@@ -28,54 +28,54 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 374,
-   "y": 147,
-   "w": 140,
-   "h": 92
+   "x": 46,
+   "y": 63,
+   "w": 150,
+   "h": 94
   },
   {
    "id": "TDST",
-   "label": "Tactile Distillation (核\n心)",
-   "sub": "student 从视觉 + 本体预测",
+   "label": "Tactile Distillation \n(核心)",
+   "sub": "student 从视觉 + 本体",
    "icon": "camera",
    "cls": "key",
-   "x": 299,
-   "y": 566,
-   "w": 290,
-   "h": 126
+   "x": 287,
+   "y": 494,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "VIS",
-   "label": "3 路 RGB + 本体 (部署观测\n)",
+   "label": "3 路 RGB + 本体 (部署\n观测)",
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 554,
-   "y": 146,
-   "w": 290,
-   "h": 93
+   "x": 536,
+   "y": 62,
+   "w": 253,
+   "h": 95
   },
   {
    "id": "STUDENT",
-   "label": "student VLA\n动作目标 = 0.5 * GT demo ",
-   "sub": "+ 0.5 * teacher",
-   "icon": "db",
+   "label": "student VLA\n动作目标 = 0.5 * GT de",
+   "sub": "mo + 0.5 * teacher",
+   "icon": "flask",
    "cls": "train",
-   "x": 299,
-   "y": 784,
-   "w": 290,
-   "h": 126
+   "x": 286,
+   "y": 718,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "DEPLOY",
-   "label": "纯视觉部署 (无触觉硬件)\nJetson Orin NX 边缘推理",
-   "sub": "86.7% 反超带触觉 teacher ",
+   "label": "纯视觉部署 (无触觉硬件)\nJetson Orin NX 边缘推",
+   "sub": "理",
    "icon": "camera",
    "cls": "act",
-   "x": 299,
-   "y": 1002,
-   "w": 290,
-   "h": 126
+   "x": 286,
+   "y": 942,
+   "w": 264,
+   "h": 128
   }
  ],
  "edges": [
@@ -83,11 +83,7 @@
    "from": "TAC",
    "to": "TEACHER",
    "style": "fb",
-   "label": "\"安全奖励: 抓取力 / 压力峰值 / 滑移\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"安全奖励: 抓取力 / 压力峰值 / 滑移"
   },
   {
    "from": "DEMO",
@@ -98,11 +94,7 @@
    "from": "TEACHER",
    "to": "TDST",
    "style": "loss",
-   "label": "\"蒸馏触觉内部表征 h^T\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"蒸馏触觉内部表征 h^T\""
   },
   {
    "from": "VIS",
@@ -122,8 +114,8 @@
  ],
  "panels": [],
  "canvas": [
-  888,
-  1218
+  835,
+  1252
  ],
  "legend": [
   "act",
@@ -132,13 +124,9 @@
   "key",
   "train"
  ],
- "layout_wh": [
-  888,
-  1218
- ],
  "title": "hapticvla",
  "subtitle": "HapticVLA 提出触觉蒸馏 (Tactile Distillation)：两阶段训练——(1) SA-RWFM: 用触觉传感器做 safety-aware reward-",
  "foot": "hapticvla · arXiv 2603.15257 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    TAC([\"触觉阵列 200 taxels @ 120 Hz<br/>(仅训练期的特权模态)\"]) -.->|\"安全奖励: 抓取力 / 压力峰值 / 滑移\"| TEACHER[\"SA-RWFM teacher (SmolVLA 0.45B)<br/>safety-aware reward-weighted<br/>flow matching 离线 RL\"]\n    DEMO[(\"真机演示\")] ==> TEACHER\n    TEACHER -.->|\"蒸馏触觉内部表征 h^T\"| TDST[\"Tactile Distillation (核心)<br/>student 从视觉 + 本体预测<br/>compact tactile token<br/>(预测的手感替代测出的手感)\"]\n    VIS([\"3 路 RGB + 本体 (部署观测)\"]) ==> TDST\n    TDST ==> STUDENT[\"student VLA<br/>动作目标 = 0.5 * GT demo + 0.5 * teacher<br/>从模仿平滑过渡到跟随 teacher\"]\n    STUDENT ==> DEPLOY[\"纯视觉部署 (无触觉硬件)<br/>Jetson Orin NX 边缘推理<br/>86.7% 反超带触觉 teacher 75%\"]\n\n    class TAC,DEMO,VIS data\n    class TEACHER frozen\n    class TDST key\n    class STUDENT train\n    class DEPLOY act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c"
 }

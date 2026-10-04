@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 78,
-   "y": 130,
-   "w": 164,
-   "h": 93
+   "x": 46,
+   "y": 62,
+   "w": 162,
+   "h": 95
   },
   {
    "id": "PREC",
@@ -17,21 +17,21 @@
    "sub": "",
    "icon": "brain",
    "cls": "frozen",
-   "x": 341,
-   "y": 356,
-   "w": 182,
-   "h": 92
+   "x": 476,
+   "y": 270,
+   "w": 180,
+   "h": 94
   },
   {
    "id": "SEQP",
-   "label": "装配序列规划\n序列 + 抓取 + 运动 ",
-   "sub": "联合优化",
+   "label": "装配序列规划\n序列 + 抓取 + 运动 联合",
+   "sub": "优化",
    "icon": "tree",
    "cls": "frozen",
-   "x": 589,
-   "y": 338,
-   "w": 233,
-   "h": 126
+   "x": 433,
+   "y": 460,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "GRASP",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "tree",
    "cls": "frozen",
-   "x": 888,
-   "y": 355,
-   "w": 184,
-   "h": 93
+   "x": 476,
+   "y": 684,
+   "w": 182,
+   "h": 95
   },
   {
    "id": "MOT",
@@ -50,76 +50,76 @@
    "sub": "",
    "icon": "robot",
    "cls": "frozen",
-   "x": 1138,
-   "y": 355,
-   "w": 140,
-   "h": 93
+   "x": 492,
+   "y": 875,
+   "w": 150,
+   "h": 95
   },
   {
    "id": "EXEC",
-   "label": "双 Franka 执行装配\n步",
+   "label": "双 Franka 执行装配步",
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 1637,
-   "y": 355,
-   "w": 225,
-   "h": 93
+   "x": 446,
+   "y": 1290,
+   "w": 241,
+   "h": 94
   },
   {
    "id": "RL",
-   "label": "SE(3) 等变 RL 策略\n~2M 参数, 输出残差",
-   "sub": "修正",
+   "label": "SE(3) 等变 RL 策略\n~2M 参数, 输出残差修正",
+   "sub": "a_t = a_t^ol + pi_the",
    "icon": "lightning",
    "cls": "train",
-   "x": 1344,
-   "y": 338,
-   "w": 227,
-   "h": 126
+   "x": 436,
+   "y": 1066,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "EQ",
-   "label": "SE(3) 等变结构\n零样本 sim-to-real",
-   "sub": " 保证",
+   "label": "SE(3) 等变结构\n零样本 sim-to-real 保",
+   "sub": "证",
    "icon": "gear",
    "cls": "key",
-   "x": 46,
-   "y": 247,
-   "w": 228,
-   "h": 126
+   "x": 246,
+   "y": 46,
+   "w": 254,
+   "h": 128
   },
   {
    "id": "REW",
-   "label": "插接奖励 r = -||p \n- p*||_2",
-   "sub": "零件到目标的负 L2 ",
+   "label": "插接奖励 r = -||p - p*\n||_2",
+   "sub": "零件到目标的负 L2 距离",
    "icon": "reward",
    "cls": "reward",
-   "x": 46,
-   "y": 397,
-   "w": 227,
-   "h": 126
+   "x": 538,
+   "y": 46,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "SIM",
-   "label": "Isaac Gym 仿真训练\n域随机化 3mm 姿态噪",
-   "sub": "声",
+   "label": "Isaac Gym 仿真训练\n域随机化 3mm 姿态噪声",
+   "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 44,
-   "y": 547,
-   "w": 231,
-   "h": 126
+   "x": 840,
+   "y": 62,
+   "w": 247,
+   "h": 95
   },
   {
    "id": "DONE",
-   "label": "装配完成\nstep-level 80% 无",
-   "sub": "干预",
+   "label": "装配完成\nstep-level 80% 无干预",
+   "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 1928,
-   "y": 338,
-   "w": 222,
-   "h": 126
+   "x": 438,
+   "y": 1480,
+   "w": 256,
+   "h": 95
   }
  ],
  "edges": [
@@ -147,31 +147,19 @@
    "from": "MOT",
    "to": "EXEC",
    "style": "thick",
-   "label": "\"转运段: 开环跟踪规划轨迹\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"转运段: 开环跟踪规划轨迹\""
   },
   {
    "from": "MOT",
    "to": "RL",
    "style": "main",
-   "label": "\"开环参考轨迹 a_t^ol\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"开环参考轨迹 a_t^ol\""
   },
   {
    "from": "RL",
    "to": "EXEC",
    "style": "thick",
-   "label": "\"接触丰富的插接步 TSI 阻抗控制\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"接触丰富的插接步 TSI 阻抗控制\""
   },
   {
    "from": "EQ",
@@ -199,29 +187,25 @@
    "to": "EXEC",
    "style": "fb",
    "label": "\"状态检测失败 每步最多重试 3 次\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 275
   }
  ],
  "panels": [
   {
    "label": "层级规划栈 (宏观离散决策, 无需训练)",
-   "x": 317,
-   "y": 294,
-   "w": 985,
-   "h": 190
+   "x": 407,
+   "y": 224,
+   "w": 319,
+   "h": 768
   }
  ],
  "canvas": [
-  2194,
-  763
+  1133,
+  1757
  ],
  "legend": [
   "act",
@@ -232,13 +216,9 @@
   "reward",
   "train"
  ],
- "layout_wh": [
-  2194,
-  763
- ],
  "title": "fabrica",
  "subtitle": "Fabrica 是一个端到端双臂装配系统：从 CAD 模型出发，通过层级规划（装配顺序→抓取→运动规划+自动夹具生成）+ 轻量 SE(3) 等变 RL 策略完成接触-rich ",
  "foot": "fabrica · arXiv 2506.05168 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    CAD([\"CAD 模型<br/>多零件装配体\"]) ==> PREC\n    subgraph PLAN[\"层级规划栈 (宏观离散决策, 无需训练)\"]\n        PREC[\"装配优先级推理\"] --> SEQP[\"装配序列规划<br/>序列 + 抓取 + 运动 联合优化\"]\n        SEQP --> GRASP[\"抓取规划<br/>+ 自动夹具生成\"]\n        GRASP --> MOT[\"运动规划<br/>双臂协调\"]\n    end\n    MOT ==>|\"转运段: 开环跟踪规划轨迹\"| EXEC([\"双 Franka 执行装配步\"])\n    MOT -->|\"开环参考轨迹 a_t^ol\"| RL[\"SE(3) 等变 RL 策略<br/>~2M 参数, 输出残差修正<br/>a_t = a_t^ol + pi_theta(o_t)\"]\n    RL ==>|\"接触丰富的插接步<br/>TSI 阻抗控制\"| EXEC\n    EQ[\"SE(3) 等变结构<br/>零样本 sim-to-real 保证\"] -.-> RL\n    REW[\"插接奖励 r = -||p - p*||_2<br/>零件到目标的负 L2 距离\"] -.-> RL\n    SIM[\"Isaac Gym 仿真训练<br/>域随机化 3mm 姿态噪声\"] -.->|\"零样本迁移\"| RL\n    EXEC ==> DONE([\"装配完成<br/>step-level 80% 无干预\"])\n    DONE -.->|\"状态检测失败<br/>每步最多重试 3 次\"| EXEC\n\n    class CAD data\n    class PREC,SEQP,GRASP,MOT frozen\n    class RL train\n    class EQ key\n    class EXEC,DONE act\n    class SIM env\n    class REW reward\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

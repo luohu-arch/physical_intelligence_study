@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "IMG",
-   "label": "当前观测 x\n3 路 RGB 480x640@5",
-   "sub": "0Hz",
+   "label": "当前观测 x\n3 路 RGB 480x640@50Hz",
+   "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 44,
-   "y": 130,
-   "w": 232,
-   "h": 126
+   "x": 268,
+   "y": 46,
+   "w": 259,
+   "h": 95
   },
   {
    "id": "DEMO",
@@ -17,32 +17,32 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 67,
-   "y": 280,
-   "w": 186,
-   "h": 93
+   "x": 46,
+   "y": 46,
+   "w": 184,
+   "h": 95
   },
   {
    "id": "STAT",
-   "label": "静态 ALOHA 数据 2.\n7K<br/",
+   "label": "静态 ALOHA 数据 2.7K<b\nr/",
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 46,
-   "y": 397,
-   "w": 227,
-   "h": 93
+   "x": 565,
+   "y": 46,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "ENC",
-   "label": "CVAE 编码器 q(z|x,\ny)",
-   "sub": "ResNet18 + 4 层 Tr",
+   "label": "CVAE 编码器 q(z|x,y)\nResNet18 + 4 层 Trans",
+   "sub": "former",
    "icon": "eye",
    "cls": "train",
-   "x": 342,
-   "y": 247,
-   "w": 232,
-   "h": 126
+   "x": 308,
+   "y": 237,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "Z",
@@ -50,54 +50,54 @@
    "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 640,
-   "y": 264,
-   "w": 218,
-   "h": 93
+   "x": 330,
+   "y": 461,
+   "w": 216,
+   "h": 95
   },
   {
    "id": "DEC",
-   "label": "CVAE 解码器 p(y|x,\nz)",
-   "sub": "7 层 Transformer",
+   "label": "CVAE 解码器 p(y|x,z)\n7 层 Transformer",
+   "sub": "",
    "icon": "lightning",
    "cls": "train",
-   "x": 924,
-   "y": 247,
-   "w": 228,
-   "h": 126
+   "x": 314,
+   "y": 652,
+   "w": 246,
+   "h": 95
   },
   {
    "id": "ELBO",
-   "label": "ELBO\n抑制复合误差 O(T^2 ",
-   "sub": "eps)",
+   "label": "ELBO\n抑制复合误差 O(T^2 eps",
+   "sub": ")",
    "icon": "sigma",
    "cls": "loss",
-   "x": 1218,
-   "y": 172,
-   "w": 233,
-   "h": 126
+   "x": 444,
+   "y": 843,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "CHUNK",
-   "label": "动作块 Action Chun\nk",
-   "sub": "一次预测 K=45 步",
+   "label": "动作块 Action Chunk\n一次预测 K=45 步",
+   "sub": "",
    "icon": "stack",
    "cls": "key",
-   "x": 1220,
-   "y": 322,
-   "w": 228,
-   "h": 126
+   "x": 170,
+   "y": 860,
+   "w": 236,
+   "h": 95
   },
   {
    "id": "ROBOT",
-   "label": "机器人执行\n双臂位置控制 + 底座",
-   "sub": "速度控制",
+   "label": "机器人执行\n双臂位置控制 + 底座速度",
+   "sub": "控制",
    "icon": "robot",
    "cls": "act",
-   "x": 1517,
-   "y": 247,
-   "w": 230,
-   "h": 126
+   "x": 306,
+   "y": 1067,
+   "w": 264,
+   "h": 128
   }
  ],
  "edges": [
@@ -132,21 +132,13 @@
    "from": "STAT",
    "to": "DEC",
    "style": "fb",
-   "label": "\"协同训练 复用视觉-动作表征\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"协同训练 复用视觉-动作表征\""
   },
   {
    "from": "DEC",
    "to": "ELBO",
    "style": "fb",
-   "label": "\"重构 + KL(beta=10) ELBO 损",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"重构 + KL(beta=10) ELBO"
   },
   {
    "from": "DEMO",
@@ -162,47 +154,39 @@
    "from": "CHUNK",
    "to": "ROBOT",
    "style": "thick",
-   "label": "\"块间 temporal ensemble 重叠",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"块间 temporal ensemble "
   },
   {
    "from": "ROBOT",
    "to": "IMG",
    "style": "fb",
-   "label": "\"新观测闭环修正 无 SLAM 纠偏 ~10cm",
-   "out": "top",
-   "in": "top",
+   "label": "\"新观测闭环修正 无 SLAM 纠偏 ~10",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 1138
   }
  ],
  "panels": [
   {
    "label": "输入",
    "x": 20,
-   "y": 86,
-   "w": 280,
-   "h": 424
+   "y": 0,
+   "w": 835,
+   "h": 163
   },
   {
    "label": "ACT 策略 = CVAE + Transformer",
-   "x": 318,
-   "y": 203,
-   "w": 858,
-   "h": 190
+   "x": 282,
+   "y": 191,
+   "w": 311,
+   "h": 578
   }
  ],
  "canvas": [
-  1791,
-  580
+  875,
+  1377
  ],
  "legend": [
   "act",
@@ -211,13 +195,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  1791,
-  580
- ],
  "title": "mobile-aloha-act",
  "subtitle": "Mobile ALOHA 与 ACT 提供了低成本全身遥操作硬件方案与动作分块（Action Chunking）Transformer 架构，通过 CVAE 建模多模态示教分布",
  "foot": "mobile-aloha-act · arXiv 2401.02117 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph IN[\"输入\"]\n        direction TB\n        IMG([\"当前观测 x<br/>3 路 RGB 480x640@50Hz\"])\n        DEMO([\"示教动作 y<br/>每任务仅 50 条\"])\n        STAT([(静态 ALOHA 数据 2.7K<br/>0.5/0.5 协同采样)])\n    end\n\n    subgraph CVAE[\"ACT 策略 = CVAE + Transformer\"]\n        ENC[\"CVAE 编码器 q(z|x,y)<br/>ResNet18 + 4 层 Transformer\"]\n        Z[\"隐变量 z<br/>编码多模态操作风格\"]\n        DEC[\"CVAE 解码器 p(y|x,z)<br/>7 层 Transformer\"]\n    end\n\n    IMG --> ENC\n    DEMO --> ENC\n    ENC ==>|\"风格采样\"| Z\n    Z ==> DEC\n    IMG ==>|\"观测条件\"| DEC\n    STAT -.->|\"协同训练<br/>复用视觉-动作表征\"| DEC\n    DEC -.->|\"重构 + KL(beta=10)<br/>ELBO 损失\"| ELBO[\"ELBO<br/>抑制复合误差 O(T^2 eps)\"]\n    DEMO -.-> ELBO\n    DEC ==> CHUNK[\"动作块 Action Chunk<br/>一次预测 K=45 步\"]\n    CHUNK ==>|\"块间 temporal ensemble<br/>重叠预测加权融合\"| ROBOT[\"机器人执行<br/>双臂位置控制 + 底座速度控制<br/>延迟 d 步错位补偿\"]\n    ROBOT -.->|\"新观测闭环修正<br/>无 SLAM 纠偏 ~10cm\"| IMG\n\n    class IMG,DEMO,STAT data\n    class ENC,Z,DEC train\n    class CHUNK key\n    class ELBO loss\n    class ROBOT act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3"
 }

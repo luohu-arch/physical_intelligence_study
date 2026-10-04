@@ -2,91 +2,91 @@
  "nodes": [
   {
    "id": "Q",
-   "label": "动力学 f 是否开环 E\nISS?",
-   "sub": "(如 EE 位置控制 + ",
+   "label": "动力学 f 是否开环 EISS?\n(如 EE 位置控制 + 高频",
+   "sub": "底层跟踪)",
    "icon": "gear",
    "cls": "env",
-   "x": 299,
-   "y": 130,
-   "w": 231,
-   "h": 126
+   "x": 345,
+   "y": 46,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "P1",
-   "label": "Practice 1: 动作 c\nhunking",
+   "label": "Practice 1: 动作 chunk\ning",
    "sub": "",
-   "icon": "lightning",
+   "icon": "stack",
    "cls": "key",
-   "x": 44,
-   "y": 332,
-   "w": 230,
-   "h": 93
+   "x": 46,
+   "y": 286,
+   "w": 267,
+   "h": 95
   },
   {
    "id": "P2",
-   "label": "Practice 2: 噪声注\n入采集",
+   "label": "Practice 2: 噪声注入采\n集",
    "sub": "",
    "icon": "noise",
    "cls": "key",
-   "x": 298,
-   "y": 332,
-   "w": 228,
-   "h": 93
+   "x": 351,
+   "y": 286,
+   "w": 262,
+   "h": 95
   },
   {
    "id": "C1",
-   "label": "开环执行长度 l 的动\n作块",
-   "sub": "每 l 步才重观测一次",
+   "label": "开环执行长度 l 的动作块\n每 l 步才重观测一次",
+   "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 172,
-   "y": 502,
-   "w": 230,
-   "h": 126
+   "x": 200,
+   "y": 494,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "C2",
-   "label": "块长只需对数级\nl > log(1/rho)^-1 ",
-   "sub": "* log poly(L_pi, C",
+   "label": "块长只需对数级\nl > log(1/rho)^-1 * l",
+   "sub": "og poly(L_pi, C_ISS)",
    "icon": "stack",
    "cls": "train",
-   "x": 177,
-   "y": 688,
-   "w": 233,
-   "h": 126
+   "x": 222,
+   "y": 685,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "S1",
-   "label": "诱导出闭环 EISS\n(C_tilde, rho^(1/2",
-   "sub": "))",
+   "label": "诱导出闭环 EISS\n(C_tilde, rho^(1/2))",
+   "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 172,
-   "y": 874,
-   "w": 233,
-   "h": 126
+   "x": 222,
+   "y": 909,
+   "w": 251,
+   "h": 95
   },
   {
    "id": "R1",
-   "label": "J_TRAJ <= O(1) * J\n_DEMO",
-   "sub": "horizon-free 误差",
-   "icon": "db",
+   "label": "J_TRAJ <= O(1) * J_DE\nMO",
+   "sub": "horizon-free 误差界 (T",
+   "icon": "refresh",
    "cls": "loop",
-   "x": 177,
-   "y": 1060,
-   "w": 233,
-   "h": 126
+   "x": 220,
+   "y": 1100,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "N1",
-   "label": "执行 u* + sigma_u \n* z",
-   "sub": "但记录干净标签 u*",
+   "label": "执行 u* + sigma_u * z\n但记录干净标签 u*",
+   "sub": "",
    "icon": "robot",
    "cls": "train",
-   "x": 426,
-   "y": 502,
-   "w": 230,
-   "h": 126
+   "x": 502,
+   "y": 494,
+   "w": 258,
+   "h": 95
   },
   {
    "id": "N2",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 434,
-   "y": 704,
-   "w": 218,
-   "h": 93
+   "x": 521,
+   "y": 702,
+   "w": 216,
+   "h": 95
   },
   {
    "id": "G",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "noise",
    "cls": "data",
-   "x": 429,
-   "y": 890,
-   "w": 228,
-   "h": 93
+   "x": 511,
+   "y": 909,
+   "w": 226,
+   "h": 95
   },
   {
    "id": "G2",
@@ -116,43 +116,43 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 434,
-   "y": 1076,
-   "w": 218,
-   "h": 93
+   "x": 524,
+   "y": 1116,
+   "w": 216,
+   "h": 95
   },
   {
    "id": "R2",
-   "label": "J_TRAJ <= O*(T) * \nJ_DEMO",
-   "sub": "混合分布上的界 (Thm",
-   "icon": "db",
+   "label": "J_TRAJ <= O*(T) * J_D\nEMO",
+   "sub": "混合分布上的界 (Thm 2)",
+   "icon": "refresh",
    "cls": "loop",
-   "x": 298,
-   "y": 1246,
-   "w": 233,
-   "h": 126
+   "x": 349,
+   "y": 1324,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "OK",
-   "label": "指数复合误差下界被绕\n开",
-   "sub": "单次采集即可, 无需 ",
+   "label": "指数复合误差下界被绕开\n单次采集即可, 无需 DAgg",
+   "sub": "er 迭代",
    "icon": "db",
    "cls": "act",
-   "x": 296,
-   "y": 1432,
-   "w": 236,
-   "h": 126
+   "x": 346,
+   "y": 1548,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "BAD",
-   "label": "块内发散\n(开环不稳定: HalfCh",
-   "sub": "eetah 反例)",
+   "label": "块内发散\n(开环不稳定: HalfCheet",
+   "sub": "ah 反例)",
    "icon": "stack",
    "cls": "loss",
-   "x": 550,
-   "y": 316,
-   "w": 235,
-   "h": 126
+   "x": 651,
+   "y": 270,
+   "w": 262,
+   "h": 128
   }
  ],
  "edges": [
@@ -227,17 +227,13 @@
    "from": "Q",
    "to": "BAD",
    "style": "fb",
-   "label": "\"否却硬用朴素 chunking\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"否却硬用朴素 chunking\""
   }
  ],
  "panels": [],
  "canvas": [
-  829,
-  1648
+  959,
+  1858
  ],
  "legend": [
   "act",
@@ -248,13 +244,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  829,
-  1648
- ],
  "title": "chunking-exploratory",
  "subtitle": "Problem**：连续控制 IL 存在指数复合误差下界（Simchowitz et al. 2025：即使动力学与专家均稳定，任何平滑马尔可夫学习器都逃不掉 C^T 放大）；",
  "foot": "chunking-exploratory · arXiv 2507.09061 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    Q{\"动力学 f 是否开环 EISS?<br/>(如 EE 位置控制 + 高频底层跟踪)\"}\n    Q -->|\"是\"| P1[\"Practice 1: 动作 chunking\"]\n    Q -->|\"否\"| P2[\"Practice 2: 噪声注入采集\"]\n    P1 --> C1[\"开环执行长度 l 的动作块<br/>每 l 步才重观测一次\"]\n    C1 --> C2[\"块长只需对数级<br/>l > log(1/rho)^-1 * log poly(L_pi, C_ISS)\"]\n    C2 --> S1[\"诱导出闭环 EISS<br/>(C_tilde, rho^(1/2))\"]\n    S1 --> R1[\"J_TRAJ <= O(1) * J_DEMO<br/>horizon-free 误差界 (Thm 1)\"]\n    P2 --> N1[\"执行 u* + sigma_u * z<br/>但记录干净标签 u*\"]\n    N1 --> N2[\"与干净专家轨迹混合<br/>(gamma = 0.5)\"]\n    N2 --> G[\"等向白噪声激励<br/>可控性 Gramian W_u\"]\n    G --> G2[\"大特征方向 =<br/>误差复合最快的方向\"]\n    G2 --> R2[\"J_TRAJ <= O*(T) * J_DEMO<br/>混合分布上的界 (Thm 2)\"]\n    R1 ==> OK([\"指数复合误差下界被绕开<br/>单次采集即可, 无需 DAgger 迭代\"])\n    R2 ==> OK\n    Q -.->|\"否却硬用朴素 chunking\"| BAD[\"块内发散<br/>(开环不稳定: HalfCheetah 反例)\"]\n\n    class Q,S1 env\n    class P1,P2 key\n    class C1,C2,N1 train\n    class N2,G,G2 data\n    class OK act\n    class BAD loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

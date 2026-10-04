@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 77,
-   "y": 101,
-   "w": 167,
-   "h": 92
+   "x": 1133,
+   "y": 46,
+   "w": 165,
+   "h": 94
   },
   {
    "id": "CMD",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 53,
-   "y": 227,
-   "w": 215,
-   "h": 92
+   "x": 46,
+   "y": 46,
+   "w": 213,
+   "h": 94
   },
   {
    "id": "ENC",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 343,
-   "y": 480,
-   "w": 186,
-   "h": 92
+   "x": 848,
+   "y": 237,
+   "w": 184,
+   "h": 94
   },
   {
    "id": "POL",
@@ -39,65 +39,65 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 595,
-   "y": 480,
-   "w": 204,
-   "h": 92
+   "x": 840,
+   "y": 427,
+   "w": 202,
+   "h": 94
   },
   {
    "id": "FEST",
-   "label": "无传感器力估计器<br\n/",
+   "label": "无传感器力估计器<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 352,
-   "w": 230,
-   "h": 93
+   "x": 297,
+   "y": 46,
+   "w": 238,
+   "h": 94
   },
   {
    "id": "COMP",
-   "label": "柔顺映射 力翻译为位\n置偏移",
-   "sub": "x_target = x_cmd +",
+   "label": "柔顺映射 力翻译为位置偏\n移",
+   "sub": "x_target = x_cmd + (F",
    "icon": "refresh",
    "cls": "loop",
-   "x": 865,
-   "y": 462,
-   "w": 233,
-   "h": 126
+   "x": 810,
+   "y": 617,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "PD",
-   "label": "PD 位置控制器 + 力\n前馈",
+   "label": "PD 位置控制器 + 力前馈",
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 1164,
-   "y": 479,
-   "w": 223,
-   "h": 93
+   "x": 812,
+   "y": 841,
+   "w": 257,
+   "h": 94
   },
   {
    "id": "ROBOT",
-   "label": "四足 B2-Z1 / 人形 \nG1",
+   "label": "四足 B2-Z1 / 人形 G1",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1453,
-   "y": 479,
-   "w": 227,
-   "h": 93
+   "x": 818,
+   "y": 1031,
+   "w": 244,
+   "h": 94
   },
   {
    "id": "REW",
-   "label": "PPO 稠密跟踪奖励<br\n/",
+   "label": "PPO 稠密跟踪奖励<br/",
    "sub": "",
    "icon": "reward",
    "cls": "loop",
-   "x": 44,
-   "y": 479,
-   "w": 233,
-   "h": 93
+   "x": 1336,
+   "y": 46,
+   "w": 241,
+   "h": 94
   },
   {
    "id": "GT",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "loop",
-   "x": 50,
-   "y": 606,
-   "w": 222,
-   "h": 92
+   "x": 573,
+   "y": 46,
+   "w": 220,
+   "h": 94
   },
   {
    "id": "TEACH",
@@ -116,21 +116,21 @@
    "sub": "",
    "icon": "eye",
    "cls": "loop",
-   "x": 50,
-   "y": 731,
-   "w": 222,
-   "h": 92
+   "x": 1615,
+   "y": 46,
+   "w": 220,
+   "h": 94
   },
   {
    "id": "IL",
-   "label": "模仿学习 diffusion\n policy",
+   "label": "模仿学习 diffusion pol\nicy",
    "sub": "",
-   "icon": "lightning",
+   "icon": "refresh",
    "cls": "loop",
-   "x": 47,
-   "y": 857,
-   "w": 227,
-   "h": 93
+   "x": 831,
+   "y": 46,
+   "w": 264,
+   "h": 95
   }
  ],
  "edges": [
@@ -172,19 +172,15 @@
  ],
  "panels": [],
  "canvas": [
-  1724,
-  1011
+  1881,
+  1307
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  1724,
-  1011
- ],
  "title": "unifp",
  "subtitle": "UniFP 提出首个不依赖力传感器的统一力位控制策略——同一策略在四足（Unitree B2-Z1）和人形（Unitree G1）机器人上同时实现位置跟踪、力施加和柔顺交互，位",
  "foot": "unifp · arXiv 2505.20829 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    PROP[本体感知<br/>关节力矩 IMU 历史状态]:::data\n    CMD[位置 / 力指令<br/>q_d 与 F_cmd]:::data\n    ENC[状态编码器 MLP]:::train\n    POL[统一策略网络<br/>位置 + 力联合输出 50Hz]:::train\n    FEST[无传感器力估计器<br/>由历史状态与位置偏移推断 F_ext]:::key\n    COMP[\"柔顺映射 力翻译为位置偏移<br/>x_target = x_cmd + (F_ext + F_cmd - F_react)/K\"]:::key\n    PD[PD 位置控制器 + 力前馈]:::act\n    ROBOT([四足 B2-Z1 / 人形 G1]):::env\n\n    PROP ==> ENC\n    CMD ==> ENC\n    ENC ==> POL\n    POL ==> COMP\n    FEST ==> COMP\n    COMP ==> PD\n    PD ==> ROBOT\n    ROBOT -.50Hz 闭环 无模式切换.-> PROP\n    REW[PPO 稠密跟踪奖励<br/>Isaac Gym 域随机化训练]:::reward\n    REW -.强化学习.-> POL\n    GT[仿真接触力真值<br/>仅训练期可得]:::loss\n    GT -.监督力估计器.-> FEST\n    TEACH[力感知示教数据<br/>遥操作执行中自动记录估计力]:::data\n    ROBOT -.记录接触力标签.-> TEACH\n    IL[模仿学习 diffusion policy]:::train\n    TEACH -.自动补力标签 成功率提升约 39.5 个点.-> IL\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

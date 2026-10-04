@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "SEED",
-   "label": "种子语料: Wikipedi\na + BBC News 约 10",
-   "sub": "00 万页",
+   "label": "种子语料: Wikipedia + \nBBC News 约 1000 万页",
+   "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 44,
-   "y": 130,
-   "w": 232,
-   "h": 126
+   "x": 345,
+   "y": 62,
+   "w": 264,
+   "h": 95
   },
   {
    "id": "EXT",
-   "label": "LLM 从网页抽取事实\n性 QA 对",
+   "label": "LLM 从网页抽取事实性 QA\n 对",
    "sub": "覆盖五种原子搜索能力",
    "icon": "brain",
    "cls": "loop",
-   "x": 380,
-   "y": 316,
-   "w": 236,
-   "h": 126
+   "x": 346,
+   "y": 270,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "MASK",
-   "label": "source masking: 删\n掉 QA 出处页",
-   "sub": "逼 agent 走非平凡搜",
-   "icon": "refresh",
+   "label": "source masking: 删掉 Q\nA 出处页",
+   "sub": "逼 agent 走非平凡搜索路",
+   "icon": "tree",
    "cls": "loop",
-   "x": 382,
-   "y": 502,
-   "w": 233,
-   "h": 126
+   "x": 346,
+   "y": 494,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "RUB",
@@ -39,142 +39,131 @@
    "sub": "",
    "icon": "brain",
    "cls": "loop",
-   "x": 391,
-   "y": 688,
-   "w": 215,
-   "h": 93
+   "x": 373,
+   "y": 718,
+   "w": 213,
+   "h": 95
   },
   {
    "id": "EXP",
-   "label": "语料扩张: 按 QA 抓\n真实网页入语料",
-   "sub": "两轮迭代, 220K 次 S",
+   "label": "语料扩张: 按 QA 抓真实\n网页入语料",
+   "sub": "两轮迭代, 220K 次 Serp",
    "icon": "refresh",
    "cls": "loop",
-   "x": 381,
-   "y": 841,
-   "w": 235,
-   "h": 126
+   "x": 348,
+   "y": 909,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "CORP",
-   "label": "约 3200 万页 / 100\n 万+ 域名",
-   "sub": "确定性: 同 query 永",
+   "label": "约 3200 万页 / 100 万+\n 域名",
+   "sub": "确定性: 同 query 永远同",
    "icon": "refresh",
    "cls": "loop",
-   "x": 381,
-   "y": 1027,
-   "w": 235,
-   "h": 126
+   "x": 345,
+   "y": 1133,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "SEARCH",
-   "label": "本地 Search: BGE-M\n3 + Milvus + DiskA",
-   "sub": "NN",
+   "label": "本地 Search: BGE-M3 + \nMilvus + DiskANN",
+   "sub": "约 0.15s/查询, 支撑数百",
    "icon": "refresh",
    "cls": "loop",
-   "x": 382,
-   "y": 1213,
-   "w": 233,
-   "h": 126
+   "x": 345,
+   "y": 1357,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "BROWSE",
-   "label": "本地 Browse: Postg\nreSQL Markdown",
+   "label": "本地 Browse: PostgreSQ\nL Markdown",
    "sub": "约 0.17s/页",
    "icon": "refresh",
    "cls": "loop",
-   "x": 255,
-   "y": 1585,
-   "w": 230,
-   "h": 126
+   "x": 192,
+   "y": 1805,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "POL",
-   "label": "策略 Qwen3-4B-Thin\nking",
-   "sub": "ReAct: 思考 -> Sea",
+   "label": "策略 Qwen3-4B-Thinking\nReAct: 思考 -> Search/",
+   "sub": "Browse -> 观察",
    "icon": "brain",
    "cls": "loop",
-   "x": 384,
-   "y": 1399,
-   "w": 230,
-   "h": 126
+   "x": 346,
+   "y": 1581,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "TCH",
-   "label": "SFT 冷启动: Tongyi\n DeepResearch 当 t",
-   "sub": "eacher",
-   "icon": "refresh",
+   "label": "SFT 冷启动: Tongyi Dee\npResearch 当 teacher",
+   "sub": "68,231 条轨迹, GAIA 55",
+   "icon": "flask",
    "cls": "loop",
-   "x": 300,
-   "y": 130,
-   "w": 232,
-   "h": 126
+   "x": 647,
+   "y": 46,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "DIFF",
-   "label": "难度课程过滤: pass@\n8 保留 1<=c<=7",
-   "sub": "c=8 零梯度 / c=0 ",
-   "icon": "refresh",
+   "label": "难度课程过滤: pass@8 保\n留 1<=c<=7",
+   "sub": "c=8 零梯度 / c=0 噪声",
+   "icon": "noise",
    "cls": "loop",
-   "x": 509,
-   "y": 1585,
-   "w": 233,
-   "h": 126
+   "x": 498,
+   "y": 1805,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "JUDGE",
-   "label": "二值终局奖励: Qwen3\n-30B judge",
+   "label": "二值终局奖励: Qwen3-30\nB judge",
    "sub": "判最终答案语义等价",
    "icon": "brain",
    "cls": "loop",
-   "x": 556,
-   "y": 130,
-   "w": 233,
-   "h": 126
+   "x": 46,
+   "y": 46,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "S1",
-   "label": "Stage 1: 严格 on-p\nolicy GRPO, 无 KL/",
-   "sub": "无熵项",
-   "icon": "refresh",
+   "label": "Stage 1: 严格 on-polic\ny GRPO, 无 KL/无熵项",
+   "sub": "32K 上下文, 温度 0.7, ",
+   "icon": "db",
    "cls": "loop",
-   "x": 382,
-   "y": 1771,
-   "w": 232,
-   "h": 126
+   "x": 346,
+   "y": 2029,
+   "w": 267,
+   "h": 128
   },
   {
    "id": "S2",
-   "label": "Stage 2: 48K, 温度\n 1.0",
-   "sub": "混入 science 数据突",
+   "label": "Stage 2: 48K, 温度 1.0\n混入 science 数据突破平",
+   "sub": "台",
    "icon": "refresh",
    "cls": "loop",
-   "x": 381,
-   "y": 1957,
-   "w": 235,
-   "h": 126
+   "x": 345,
+   "y": 2253,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "ACC",
-   "label": "LiteResearcher-4B:\n GAIA 71.3% / Xben",
-   "sub": "ch-DS 78.0%",
+   "label": "LiteResearcher-4B: GA\nIA 71.3% / Xbench-DS ",
+   "sub": "78.0%",
    "icon": "refresh",
    "cls": "loop",
-   "x": 382,
-   "y": 2143,
-   "w": 233,
-   "h": 126
-  },
-  {
-   "id": "WORLD",
-   "label": "WORLD",
-   "sub": "",
-   "icon": "refresh",
-   "cls": "loop",
-   "x": 813,
-   "y": 147,
-   "w": 140,
-   "h": 92
+   "x": 349,
+   "y": 2477,
+   "w": 261,
+   "h": 128
   }
  ],
  "edges": [
@@ -203,15 +192,11 @@
    "to": "EXT",
    "style": "fb",
    "label": "\"数据-语料共进化迭代\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 2291
   },
   {
    "from": "EXP",
@@ -238,16 +223,12 @@
    "from": "POL",
    "to": "SEARCH",
    "style": "fb",
-   "label": "\"ReAct 交互: 45.8M 次 searc",
-   "out": "top",
-   "in": "top",
+   "label": "\"ReAct 交互: 45.8M 次 sea",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 1204
   },
   {
    "from": "POL",
@@ -264,24 +245,20 @@
    "from": "BROWSE",
    "to": "POL",
    "style": "fb",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "pos_in": 0.6,
+   "k": 980
   },
   {
    "from": "POL",
    "to": "DIFF",
    "style": "fb",
-   "label": "\"每阶段 pass@8 探测\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"每阶段 pass@8 探测\""
   },
   {
-   "from": "WORLD",
+   "from": "CORP",
    "to": "DIFF",
    "style": "thick"
   },
@@ -299,11 +276,7 @@
    "from": "JUDGE",
    "to": "S1",
    "style": "fb",
-   "label": "\"二值奖励注入组相对优势\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"二值奖励注入组相对优势\""
   },
   {
    "from": "JUDGE",
@@ -318,27 +291,23 @@
  ],
  "panels": [
   {
-   "label": "lite virtual world (核心): 镜像真实网络结",
-   "x": 231,
-   "y": 983,
-   "w": 409,
-   "h": 748
+   "label": "lite virtual world (核心): 镜像真实网",
+   "x": 166,
+   "y": 1087,
+   "w": 474,
+   "h": 868
   }
  ],
  "canvas": [
-  997,
-  2359
+  959,
+  2787
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  997,
-  2359
- ],
  "title": "lite-researcher",
  "subtitle": "浙江大学 + Simplex AI + 香港理工的 LiteResearcher 论证：deep research 的 agentic RL 扩不动，瓶颈不在 RL 范式本身，",
  "foot": "lite-researcher · arXiv 2604.17931 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    SEED([\"种子语料: Wikipedia + BBC News 约 1000 万页\"]):::data\n    EXT[\"LLM 从网页抽取事实性 QA 对<br/>覆盖五种原子搜索能力\"]:::frozen\n    MASK[\"source masking: 删掉 QA 出处页<br/>逼 agent 走非平凡搜索路径\"]:::data\n    RUB[\"7 项 LLM 评分规则<br/>全过硬才保留\"]:::reward\n    EXP[\"语料扩张: 按 QA 抓真实网页入语料<br/>两轮迭代, 220K 次 Serper 约 $220 一次性\"]:::data\n\n    subgraph WORLD[\"lite virtual world (核心): 镜像真实网络结构, 执行完全隔离\"]\n        direction LR\n        CORP[\"约 3200 万页 / 100 万+ 域名<br/>确定性: 同 query 永远同结果\"]:::key\n        SEARCH[\"本地 Search: BGE-M3 + Milvus + DiskANN<br/>约 0.15s/查询, 支撑数百并发 rollout\"]:::env\n        BROWSE[\"本地 Browse: PostgreSQL Markdown<br/>约 0.17s/页\"]:::env\n    end\n\n    POL[\"策略 Qwen3-4B-Thinking<br/>ReAct: 思考 -> Search/Browse -> 观察\"]:::train\n    TCH[\"SFT 冷启动: Tongyi DeepResearch 当 teacher<br/>68,231 条轨迹, GAIA 55.6% 留出 RL 空间\"]:::frozen\n    DIFF[\"难度课程过滤: pass@8 保留 1<=c<=7<br/>c=8 零梯度 / c=0 噪声均丢弃\"]:::loop\n    JUDGE[\"二值终局奖励: Qwen3-30B judge<br/>判最终答案语义等价\"]:::reward\n    S1[\"Stage 1: 严格 on-policy GRPO, 无 KL/无熵项<br/>32K 上下文, 温度 0.7, TIS 修引擎失配\"]:::loss\n    S2[\"Stage 2: 48K, 温度 1.0<br/>混入 science 数据突破平台\"]:::loss\n    ACC([\"LiteResearcher-4B: GAIA 71.3% / Xbench-DS 78.0%<br/>超 8 倍大的 Tongyi 30B; 73.2M 次本地调用零边际成本\"]):::data\n\n    SEED ==> EXT\n    EXT ==> MASK\n    MASK ==> RUB\n    RUB ==> EXP\n    EXP -.->|\"数据-语料共进化迭代\"| EXT\n    EXP ==> CORP\n    CORP ==> SEARCH\n    CORP ==> BROWSE\n    TCH -.->|\"SFT 初始化\"| POL\n    POL -.->|\"ReAct 交互: 45.8M 次 search + 27.4M 次 browse\"| SEARCH\n    POL -.-> BROWSE\n    SEARCH -.->|\"即时确定性反馈\"| POL\n    BROWSE -.-> POL\n    POL -.->|\"每阶段 pass@8 探测\"| DIFF\n    WORLD ==> DIFF\n    DIFF ==> S1\n    S1 ==> S2\n    JUDGE -.->|\"二值奖励注入组相对优势\"| S1\n    JUDGE -.-> S2\n    S2 ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

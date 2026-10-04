@@ -6,8 +6,8 @@
    "sub": "一次性投入, 被后续",
    "icon": "db",
    "cls": "loop",
-   "x": 44,
-   "y": 130,
+   "x": 30,
+   "y": 112,
    "w": 231,
    "h": 126
   },
@@ -17,8 +17,8 @@
    "sub": "动重置",
    "icon": "refresh",
    "cls": "loop",
-   "x": 299,
-   "y": 130,
+   "x": 340,
+   "y": 150,
    "w": 230,
    "h": 126
   },
@@ -28,8 +28,8 @@
    "sub": "SAM3 + 本体感知 + ",
    "icon": "state",
    "cls": "loop",
-   "x": 553,
-   "y": 130,
+   "x": 594,
+   "y": 150,
    "w": 227,
    "h": 126
   },
@@ -39,8 +39,8 @@
    "sub": "复位到最难阶段起点",
    "icon": "tree",
    "cls": "loop",
-   "x": 804,
-   "y": 130,
+   "x": 848,
+   "y": 180,
    "w": 227,
    "h": 126
   },
@@ -50,8 +50,8 @@
    "sub": "30 Hz 策略, 单 rol",
    "icon": "stack",
    "cls": "loop",
-   "x": 424,
-   "y": 468,
+   "x": 160,
+   "y": 450,
    "w": 228,
    "h": 126
   },
@@ -61,8 +61,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 420,
-   "y": 1026,
+   "x": 884,
+   "y": 336,
    "w": 236,
    "h": 93
   },
@@ -72,8 +72,8 @@
    "sub": "启发式 / code-as-p",
    "icon": "refresh",
    "cls": "loop",
-   "x": 163,
-   "y": 1179,
+   "x": 700,
+   "y": 470,
    "w": 233,
    "h": 126
   },
@@ -83,8 +83,8 @@
    "sub": "p 最大增益",
    "icon": "lightning",
    "cls": "loop",
-   "x": 424,
-   "y": 1365,
+   "x": 700,
+   "y": 650,
    "w": 227,
    "h": 126
   },
@@ -94,8 +94,8 @@
    "sub": "cherry-pick/copy/m",
    "icon": "stack",
    "cls": "loop",
-   "x": 420,
-   "y": 1179,
+   "x": 1130,
+   "y": 300,
    "w": 233,
    "h": 126
   },
@@ -105,8 +105,8 @@
    "sub": "每站 RTX 5090, 无",
    "icon": "robot",
    "cls": "loop",
-   "x": 338,
-   "y": 654,
+   "x": 155,
+   "y": 630,
    "w": 235,
    "h": 126
   },
@@ -116,8 +116,8 @@
    "sub": "/",
    "icon": "reward",
    "cls": "loop",
-   "x": 421,
-   "y": 840,
+   "x": 160,
+   "y": 810,
    "w": 233,
    "h": 126
   },
@@ -127,8 +127,8 @@
    "sub": "pin -> GPU inserti",
    "icon": "db",
    "cls": "loop",
-   "x": 677,
-   "y": 1179,
+   "x": 1130,
+   "y": 560,
    "w": 235,
    "h": 126
   },
@@ -138,8 +138,8 @@
    "sub": "MRU / MTU 度量物理",
    "icon": "gear",
    "cls": "loop",
-   "x": 422,
-   "y": 1551,
+   "x": 860,
+   "y": 800,
    "w": 231,
    "h": 126
   },
@@ -149,19 +149,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 468,
-   "y": 316,
-   "w": 140,
-   "h": 92
-  },
-  {
-   "id": "PIRE",
-   "label": "PIRE",
-   "sub": "",
-   "icon": "refresh",
-   "cls": "loop",
-   "x": 597,
-   "y": 671,
+   "x": 190,
+   "y": 320,
    "w": 140,
    "h": 92
   }
@@ -170,40 +159,64 @@
   {
    "from": "HUMAN",
    "to": "EN",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "EN",
    "to": "API",
    "style": "thick",
-   "label": "\"离线验证后固化\""
+   "label": "\"离线验证后固化\"",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "API",
-   "to": "PIRE",
+   "to": "AGT",
    "style": "thick",
-   "label": "\"释放全自主\""
+   "label": "\"释放全自主\"",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "AGT",
    "to": "PI",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.25,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "PI",
    "to": "POL",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "POL",
    "to": "ROBOT",
    "style": "thick",
    "label": "\"提交动作目标\"",
-   "out": "top",
-   "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74
+   "out": "left",
+   "in": "left",
+   "pos_out": 0.5,
+   "pos_in": 0.6,
+   "k": 60,
+   "loff": [
+    0,
+    -16
+   ]
   },
   {
    "from": "API",
@@ -213,12 +226,20 @@
    "loff": [
     0,
     -18
-   ]
+   ],
+   "out": "bottom",
+   "pos_out": 0.7,
+   "in": "top",
+   "pos_in": 0.7
   },
   {
    "from": "ROBOT",
    "to": "LOG",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "LOG",
@@ -228,13 +249,21 @@
    "loff": [
     0,
     -18
-   ]
+   ],
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "AGT",
    "to": "GIT",
    "style": "fb",
-   "label": "\"提交配方分支\""
+   "label": "\"提交配方分支\"",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "GIT",
@@ -247,8 +276,8 @@
    "pos_in": 0.55,
    "k": 74,
    "loff": [
-    0,
-    -18
+    90,
+    -2
    ]
   },
   {
@@ -259,7 +288,11 @@
    "loff": [
     0,
     -18
-   ]
+   ],
+   "out": "bottom",
+   "pos_out": 0.8,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "EXP",
@@ -267,9 +300,9 @@
    "style": "fb",
    "label": "\"注入新任务 autoresearch\"",
    "out": "top",
-   "in": "top",
+   "in": "right",
    "pos_out": 0.3,
-   "pos_in": 0.55,
+   "pos_in": 0.75,
    "k": 74,
    "loff": [
     0,
@@ -279,35 +312,39 @@
   {
    "from": "POL",
    "to": "ACC",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   }
  ],
  "panels": [
   {
    "label": "Stage 1 EN: 人引导一次性搭真机环境",
-   "x": 275,
-   "y": 86,
-   "w": 780,
+   "x": 320,
+   "y": 104,
+   "w": 764,
    "h": 190
   },
   {
    "label": "Stage 2 PIRE: 完全无人的 autoresearch",
-   "x": 139,
-   "y": 982,
-   "w": 540,
-   "h": 529
+   "x": 600,
+   "y": 290,
+   "w": 820,
+   "h": 660
   }
  ],
  "canvas": [
-  1075,
-  1767
+  1440,
+  1060
  ],
  "legend": [
   "loop"
  ],
  "layout_wh": [
-  1075,
-  1767
+  1440,
+  1060
  ],
  "title": "enpire",
  "subtitle": "NVIDIA + CMU + UC Berkeley 把「reset → execute → verify → refine」做成 coding agent 可直接调用的真机闭",

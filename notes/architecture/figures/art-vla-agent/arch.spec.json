@@ -6,8 +6,8 @@
    "sub": "状态",
    "icon": "camera",
    "cls": "data",
-   "x": 50,
-   "y": 130,
+   "x": 418,
+   "y": 104,
    "w": 223,
    "h": 126
   },
@@ -17,8 +17,8 @@
    "sub": "具决策",
    "icon": "brain",
    "cls": "key",
-   "x": 288,
-   "y": 316,
+   "x": 412,
+   "y": 272,
    "w": 235,
    "h": 126
   },
@@ -28,8 +28,8 @@
    "sub": "ken)",
    "icon": "stack",
    "cls": "key",
-   "x": 290,
-   "y": 502,
+   "x": 414,
+   "y": 440,
    "w": 233,
    "h": 126
   },
@@ -39,8 +39,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 336,
-   "y": 688,
+   "x": 460,
+   "y": 608,
    "w": 140,
    "h": 92
   },
@@ -50,8 +50,8 @@
    "sub": "糊 / 防抖",
    "icon": "camera",
    "cls": "frozen",
-   "x": 44,
-   "y": 840,
+   "x": 132,
+   "y": 762,
    "w": 223,
    "h": 126
   },
@@ -61,8 +61,8 @@
    "sub": "NO-X 检测",
    "icon": "check",
    "cls": "frozen",
-   "x": 291,
-   "y": 840,
+   "x": 415,
+   "y": 762,
    "w": 230,
    "h": 126
   },
@@ -72,8 +72,8 @@
    "sub": "本体重置",
    "icon": "camera",
    "cls": "frozen",
-   "x": 545,
-   "y": 840,
+   "x": 705,
+   "y": 762,
    "w": 223,
    "h": 126
   },
@@ -83,8 +83,8 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 333,
-   "y": 1026,
+   "x": 457,
+   "y": 948,
    "w": 146,
    "h": 92
   },
@@ -94,8 +94,8 @@
    "sub": "RA 输出",
    "icon": "brain",
    "cls": "frozen",
-   "x": 291,
-   "y": 1178,
+   "x": 415,
+   "y": 1098,
    "w": 230,
    "h": 126
   },
@@ -105,8 +105,8 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 309,
-   "y": 1364,
+   "x": 433,
+   "y": 1272,
    "w": 194,
    "h": 92
   },
@@ -116,8 +116,8 @@
    "sub": "交叉熵",
    "icon": "brain",
    "cls": "loop",
-   "x": 296,
-   "y": 130,
+   "x": 100,
+   "y": 104,
    "w": 227,
    "h": 126
   },
@@ -127,8 +127,8 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 548,
-   "y": 146,
+   "x": 745,
+   "y": 1114,
    "w": 215,
    "h": 93
   }
@@ -153,23 +153,25 @@
    "from": "TOOLDISP",
    "to": "VIS",
    "style": "main",
-   "label": "\"视觉\""
+   "label": "\"视觉\"",
+   "out": "left",
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "TOOLDISP",
    "to": "AFF",
    "style": "main",
-   "label": "\"affordance\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"affordance\""
   },
   {
    "from": "TOOLDISP",
    "to": "EMB",
    "style": "main",
-   "label": "\"具身\""
+   "label": "\"具身\"",
+   "out": "right",
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "VIS",
@@ -195,32 +197,30 @@
    "from": "VLA",
    "to": "ACT",
    "style": "thick",
-   "label": "\"动作 chunk: H 步具身动作\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"动作 chunk: H 步具身动作\""
   },
   {
    "from": "ACT",
    "to": "OBS",
    "style": "fb",
    "label": "\"下一 chunk 开头重新观测 (chunk ",
-   "out": "top",
-   "in": "top",
-   "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
+   "out": "right",
+   "in": "right",
+   "pos_in": 0.5,
+   "k": 359,
    "loff": [
-    0,
-    -18
-   ]
+    -140,
+    0
+   ],
+   "pos_out": 0.5
   },
   {
    "from": "LTOOL",
    "to": "LORA",
    "style": "fb",
-   "label": "\"只更新 LoRA\""
+   "label": "\"只更新 LoRA\"",
+   "out": "bottom",
+   "pos_out": 0.7
   },
   {
    "from": "LACT",
@@ -232,22 +232,22 @@
  "panels": [
   {
    "label": "工具旁路 (Adaptive LoRA)",
-   "x": 20,
-   "y": 272,
-   "w": 772,
-   "h": 714
+   "x": 106,
+   "y": 252,
+   "w": 850,
+   "h": 664
   },
   {
    "label": "冻结基座 (3B pi0-FAST, FAST/DCT 动作 toke",
-   "x": 267,
-   "y": 1134,
-   "w": 278,
-   "h": 190
+   "x": 389,
+   "y": 1078,
+   "w": 282,
+   "h": 166
   }
  ],
  "canvas": [
-  812,
-  1546
+  1060,
+  1450
  ],
  "legend": [
   "act",

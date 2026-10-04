@@ -6,131 +6,131 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 54,
-   "y": 146,
-   "w": 217,
-   "h": 93
+   "x": 369,
+   "y": 62,
+   "w": 215,
+   "h": 95
   },
   {
    "id": "PRE",
-   "label": "共享 VLM 只 prefil\nl 一次",
-   "sub": "(pi0.5 权重完全冻结",
+   "label": "共享 VLM 只 prefill 一\n次",
+   "sub": "(pi0.5 权重完全冻结, 零",
    "icon": "brain",
    "cls": "frozen",
-   "x": 174,
-   "y": 316,
-   "w": 233,
-   "h": 126
+   "x": 194,
+   "y": 270,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "KT",
-   "label": "K_t: 模态无关 KV c\nache",
-   "sub": "只编码观测本身, 两",
+   "label": "K_t: 模态无关 KV cache\n只编码观测本身, 两类专",
+   "sub": "家共享",
    "icon": "state",
    "cls": "mem",
-   "x": 176,
-   "y": 502,
-   "w": 227,
-   "h": 126
+   "x": 196,
+   "y": 494,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "AEX",
-   "label": "动作专家: 只读 K_t\nS = 10 步去噪 -> ",
-   "sub": "动作块 A_t",
+   "label": "动作专家: 只读 K_t\nS = 10 步去噪 -> 动作",
+   "sub": "块 A_t",
    "icon": "stack",
    "cls": "frozen",
-   "x": 50,
-   "y": 688,
-   "w": 223,
-   "h": 126
+   "x": 52,
+   "y": 718,
+   "w": 253,
+   "h": 128
   },
   {
    "id": "SIGMA",
-   "label": "语言可恢复状态\nsigma_t = (K_t, y_",
-   "sub": "t, delta_t)",
+   "label": "语言可恢复状态\nsigma_t = (K_t, y_t, ",
+   "sub": "delta_t)",
    "icon": "chat",
    "cls": "mem",
-   "x": 297,
-   "y": 688,
-   "w": 233,
-   "h": 126
+   "x": 343,
+   "y": 718,
+   "w": 261,
+   "h": 128
   },
   {
    "id": "INFLIGHT",
-   "label": "历史帧在飞语言请求\nt-1, t-2, ... 的 s",
-   "sub": "igma",
+   "label": "历史帧在飞语言请求\nt-1, t-2, ... 的 sigm",
+   "sub": "a",
    "icon": "chat",
    "cls": "data",
-   "x": 294,
-   "y": 130,
-   "w": 232,
-   "h": 126
+   "x": 72,
+   "y": 46,
+   "w": 259,
+   "h": 128
   },
   {
    "id": "M",
-   "label": "统一 KV cache 管理\n器 M",
-   "sub": "Store / Retrieve /",
+   "label": "统一 KV cache 管理器 M\nStore / Retrieve / Up",
+   "sub": "date / Remove",
    "icon": "search",
    "cls": "key",
-   "x": 303,
-   "y": 874,
-   "w": 233,
-   "h": 126
+   "x": 348,
+   "y": 942,
+   "w": 262,
+   "h": 128
   },
   {
    "id": "BATCH",
-   "label": "Retrieve + Batch\nm 个活跃状态沿 batc",
-   "sub": "h 维堆成 sigma_hat",
+   "label": "Retrieve + Batch\nm 个活跃状态沿 batch 维",
+   "sub": "堆成 sigma_hat",
    "icon": "state",
    "cls": "key",
-   "x": 174,
-   "y": 1060,
-   "w": 233,
-   "h": 126
+   "x": 194,
+   "y": 1166,
+   "w": 269,
+   "h": 128
   },
   {
    "id": "DECODE",
-   "label": "跨帧连续批解码\n每帧为全部请求解 k ",
-   "sub": "个 token",
-   "icon": "stack",
+   "label": "跨帧连续批解码\n每帧为全部请求解 k 个 t",
+   "sub": "oken",
+   "icon": "lightning",
    "cls": "key",
-   "x": 175,
-   "y": 1246,
-   "w": 230,
-   "h": 126
+   "x": 196,
+   "y": 1390,
+   "w": 265,
+   "h": 128
   },
   {
    "id": "UNB",
-   "label": "UnBatch: 完成则 Re\nmove (delta=1)",
-   "sub": "未完成则 Update 持",
+   "label": "UnBatch: 完成则 Remove\n (delta=1)",
+   "sub": "未完成则 Update 持久化",
    "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 1432,
-   "w": 228,
-   "h": 126
+   "x": 343,
+   "y": 1614,
+   "w": 266,
+   "h": 128
   },
   {
    "id": "ACT",
-   "label": "机器人动作 60-70 Hz\n关键路径 198 ms < ",
-   "sub": "333 ms 执行窗口",
+   "label": "机器人动作 60-70 Hz\n关键路径 198 ms < 333 ",
+   "sub": "ms 执行窗口",
    "icon": "robot",
    "cls": "act",
-   "x": 44,
-   "y": 874,
-   "w": 235,
-   "h": 126
+   "x": 46,
+   "y": 942,
+   "w": 264,
+   "h": 128
   },
   {
    "id": "LANGOUT",
-   "label": "语言 token 200+ to\nk/s",
-   "sub": "藏在动作执行窗口之后",
+   "label": "语言 token 200+ tok/s\n藏在动作执行窗口之后",
+   "sub": "",
    "icon": "chat",
    "cls": "act",
-   "x": 298,
-   "y": 1432,
-   "w": 236,
-   "h": 126
+   "x": 47,
+   "y": 1630,
+   "w": 258,
+   "h": 95
   }
  ],
  "edges": [
@@ -184,15 +184,11 @@
    "to": "M",
    "style": "fb",
    "label": "\"断点续传, 跨帧无损续跑\"",
-   "out": "top",
-   "in": "top",
+   "out": "bottom",
+   "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 756
   },
   {
    "from": "AEX",
@@ -207,8 +203,8 @@
  ],
  "panels": [],
  "canvas": [
-  580,
-  1648
+  656,
+  1924
  ],
  "legend": [
   "act",
@@ -218,13 +214,9 @@
   "loop",
   "mem"
  ],
- "layout_wh": [
-  580,
-  1648
- ],
  "title": "oxygen",
  "subtitle": "问题**：MoT 结构 VLA（如 π0.5）架构上支持动作+语言多任务并行，但现有推理系统孤立执行——同一观测被每个任务重复 prefill、语言解码阻塞动作硬实时，端侧单 ",
  "foot": "oxygen · arXiv 2603.14371 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS([\"新观测 o_t<br/>(多路 RGB + 语言)\"]) --> PRE[\"共享 VLM 只 prefill 一次<br/>(pi0.5 权重完全冻结, 零训练)\"]\n    PRE --> KT[\"K_t: 模态无关 KV cache<br/>只编码观测本身, 两类专家共享\"]\n    KT --> AEX[\"动作专家: 只读 K_t<br/>S = 10 步去噪 -> 动作块 A_t\"]\n    KT --> SIGMA[\"语言可恢复状态<br/>sigma_t = (K_t, y_t, delta_t)\"]\n    INFLIGHT([\"历史帧在飞语言请求<br/>t-1, t-2, ... 的 sigma\"]) --> M\n    SIGMA --> M\n    M[\"统一 KV cache 管理器 M<br/>Store / Retrieve / Update / Remove\"]\n    M --> BATCH[\"Retrieve + Batch<br/>m 个活跃状态沿 batch 维堆成 sigma_hat\"]\n    BATCH --> DECODE[\"跨帧连续批解码<br/>每帧为全部请求解 k 个 token<br/>(k 按帧率与硬件离线校准)\"]\n    DECODE --> UNB[\"UnBatch: 完成则 Remove (delta=1)<br/>未完成则 Update 持久化到下一帧\"]\n    UNB -.->|\"断点续传, 跨帧无损续跑\"| M\n    AEX ==> ACT([\"机器人动作 60-70 Hz<br/>关键路径 198 ms < 333 ms 执行窗口\"])\n    DECODE ==> LANGOUT([\"语言 token 200+ tok/s<br/>藏在动作执行窗口之后\"])\n\n    class OBS,INFLIGHT data\n    class PRE,AEX frozen\n    class KT,SIGMA mem\n    class M,BATCH,DECODE key\n    class UNB loop\n    class ACT,LANGOUT act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

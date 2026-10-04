@@ -6,8 +6,8 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 76,
-   "y": 106,
+   "x": 60,
+   "y": 140,
    "w": 167,
    "h": 92
   },
@@ -17,8 +17,8 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 86,
-   "y": 232,
+   "x": 72,
+   "y": 290,
    "w": 148,
    "h": 92
   },
@@ -28,8 +28,8 @@
    "sub": "",
    "icon": "eye",
    "cls": "loop",
-   "x": 341,
-   "y": 420,
+   "x": 330,
+   "y": 460,
    "w": 167,
    "h": 92
   },
@@ -39,8 +39,8 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 574,
-   "y": 420,
+   "x": 610,
+   "y": 460,
    "w": 204,
    "h": 92
   },
@@ -50,8 +50,8 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 1114,
-   "y": 420,
+   "x": 1080,
+   "y": 460,
    "w": 167,
    "h": 92
   },
@@ -61,8 +61,8 @@
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 844,
-   "y": 420,
+   "x": 860,
+   "y": 200,
    "w": 204,
    "h": 92
   },
@@ -72,8 +72,8 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 1347,
-   "y": 420,
+   "x": 1350,
+   "y": 460,
    "w": 231,
    "h": 93
   },
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 44,
-   "y": 357,
-   "w": 231,
-   "h": 92
+   "x": 330,
+   "y": 712,
+   "w": 210,
+   "h": 88
   },
   {
    "id": "LF",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 58,
-   "y": 483,
+   "x": 610,
+   "y": 712,
    "w": 204,
-   "h": 92
+   "h": 88
   },
   {
    "id": "LA",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 50,
-   "y": 608,
+   "x": 1080,
+   "y": 712,
    "w": 218,
-   "h": 92
+   "h": 88
   },
   {
    "id": "LJ",
@@ -116,71 +116,115 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 66,
-   "y": 734,
+   "x": 1350,
+   "y": 712,
    "w": 186,
-   "h": 92
+   "h": 88
   }
  ],
  "edges": [
   {
    "from": "OBS",
    "to": "PERC",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.35
   },
   {
    "from": "LANG",
    "to": "PERC",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.7
   },
   {
    "from": "PERC",
    "to": "GEN",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "GEN",
    "to": "TGT",
-   "style": "thick"
+   "style": "thick",
+   "out": "top",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "TGT",
    "to": "CTRL",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.4
   },
   {
    "from": "OBS",
    "to": "CTRL",
-   "style": "thick"
+   "style": "thick",
+   "out": "top",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.7,
+   "k": 25
   },
   {
    "from": "CTRL",
    "to": "ROBOT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "LF",
    "to": "GEN",
-   "style": "fb"
+   "style": "fb",
+   "out": "top",
+   "pos_out": 0.5,
+   "in": "bottom",
+   "pos_in": 0.35
   },
   {
    "from": "LA",
    "to": "CTRL",
-   "style": "fb"
+   "style": "fb",
+   "out": "top",
+   "pos_out": 0.5,
+   "in": "bottom",
+   "pos_in": 0.5
   }
  ],
  "panels": [
   {
    "label": "Mixture-of-Transformer 三专家",
-   "x": 317,
-   "y": 376,
-   "w": 988,
-   "h": 156
+   "x": 290,
+   "y": 385,
+   "w": 990,
+   "h": 195
+  },
+  {
+   "label": "训练与初始化",
+   "x": 300,
+   "y": 660,
+   "w": 1290,
+   "h": 175
   }
  ],
  "canvas": [
   1622,
-  892
+  920
  ],
  "legend": [
   "loop"

@@ -6,8 +6,8 @@
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 4,
-   "y": 130,
+   "x": 44,
+   "y": 220,
    "w": 195,
    "h": 92
   },
@@ -17,8 +17,8 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 255,
-   "y": 130,
+   "x": 72,
+   "y": 348,
    "w": 140,
    "h": 92
   },
@@ -28,8 +28,8 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 451,
-   "y": 130,
+   "x": 50,
+   "y": 476,
    "w": 186,
    "h": 92
   },
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 146,
-   "y": 314,
-   "w": 268,
-   "h": 92
+   "x": 345,
+   "y": 280,
+   "w": 260,
+   "h": 100
   },
   {
    "id": "BLOCK",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 590,
-   "y": 498,
-   "w": 240,
-   "h": 92
+   "x": 710,
+   "y": 282,
+   "w": 210,
+   "h": 96
   },
   {
    "id": "DYN",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 693,
-   "y": 130,
-   "w": 204,
-   "h": 92
+   "x": 1010,
+   "y": 155,
+   "w": 200,
+   "h": 88
   },
   {
    "id": "DEP",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 953,
-   "y": 130,
-   "w": 204,
-   "h": 92
+   "x": 1010,
+   "y": 285,
+   "w": 200,
+   "h": 88
   },
   {
    "id": "SEM",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1213,
-   "y": 130,
-   "w": 204,
-   "h": 92
+   "x": 1010,
+   "y": 415,
+   "w": 200,
+   "h": 88
   },
   {
    "id": "LDYN",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 454,
-   "y": 314,
-   "w": 249,
-   "h": 92
+   "x": 1330,
+   "y": 155,
+   "w": 230,
+   "h": 88
   },
   {
    "id": "LDEP",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 743,
-   "y": 314,
-   "w": 249,
-   "h": 92
+   "x": 1330,
+   "y": 285,
+   "w": 230,
+   "h": 88
   },
   {
    "id": "LSEM",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 1032,
-   "y": 314,
-   "w": 243,
-   "h": 92
+   "x": 1330,
+   "y": 415,
+   "w": 220,
+   "h": 88
   },
   {
    "id": "LATENT",
@@ -127,9 +127,9 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 628,
-   "y": 682,
-   "w": 164,
+   "x": 710,
+   "y": 590,
+   "w": 170,
    "h": 92
   },
   {
@@ -138,9 +138,9 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 586,
-   "y": 866,
-   "w": 250,
+   "x": 990,
+   "y": 590,
+   "w": 240,
    "h": 92
   },
   {
@@ -149,10 +149,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 462,
-   "y": 1050,
+   "x": 990,
+   "y": 725,
    "w": 240,
-   "h": 92
+   "h": 80
   },
   {
    "id": "ROBOT",
@@ -160,9 +160,9 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 742,
-   "y": 1050,
-   "w": 218,
+   "x": 1330,
+   "y": 590,
+   "w": 200,
    "h": 92
   }
  ],
@@ -170,71 +170,115 @@
   {
    "from": "LLM",
    "to": "BLOCK",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "OBS",
    "to": "LLM",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.22
   },
   {
    "from": "LANG",
    "to": "LLM",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "STATE",
    "to": "LLM",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.78
   },
   {
    "from": "DYN",
    "to": "LDYN",
-   "style": "fb"
+   "style": "fb",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "DEP",
    "to": "LDEP",
-   "style": "fb"
+   "style": "fb",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "SEM",
    "to": "LSEM",
-   "style": "fb"
+   "style": "fb",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "BLOCK",
    "to": "LATENT",
-   "style": "thick"
+   "style": "thick",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "LATENT",
    "to": "DIT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   },
   {
    "from": "DIT",
    "to": "LDIT",
-   "style": "fb"
+   "style": "fb",
+   "out": "bottom",
+   "pos_out": 0.5,
+   "in": "top",
+   "pos_in": 0.5
   },
   {
    "from": "DIT",
    "to": "ROBOT",
-   "style": "thick"
+   "style": "thick",
+   "out": "right",
+   "pos_out": 0.5,
+   "in": "left",
+   "pos_in": 0.5
   }
  ],
  "panels": [
   {
    "label": "世界知识预测 - 前瞻做梦",
-   "x": 122,
-   "y": 86,
-   "w": 1319,
-   "h": 524
+   "x": 300,
+   "y": 115,
+   "w": 940,
+   "h": 435
   }
  ],
  "canvas": [
-  1421,
-  1232
+  1600,
+  880
  ],
  "legend": [
   "loop"
