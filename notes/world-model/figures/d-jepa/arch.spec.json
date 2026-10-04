@@ -9,7 +9,7 @@
    "x": 318,
    "y": 167,
    "w": 213,
-   "h": 106
+   "h": 104
   },
   {
    "id": "CAND",
@@ -20,51 +20,51 @@
    "x": 46,
    "y": 166,
    "w": 234,
-   "h": 107
+   "h": 105
   },
   {
    "id": "WM",
    "label": "冻结预测骨干\nLeWM + TD-JEPA",
-   "sub": "(可选 JEPA-WM / DINO-W",
+   "sub": "(可选 JEPA-WM / DINO-WM)",
    "icon": "sigma",
    "cls": "frozen",
    "x": 304,
    "y": 386,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DESC",
-   "label": "目标相对描述符 d_i\n每条 192 维 + 序数排名 ",
+   "label": "目标相对描述符 d_i\n每条 192 维 + 序数排名",
    "sub": "r_i",
    "icon": "gear",
    "cls": "env",
    "x": 304,
    "y": 622,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TOKEN",
-   "label": "token v_i = concat(dL\n, dT, rL, rT)",
-   "sub": "386 维",
+   "label": "token v_i = concat(dL\n,",
+   "sub": "dT, rL, rT)\n386 维",
    "icon": "stack",
    "cls": "env",
    "x": 308,
    "y": 858,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "SET",
-   "label": "置换等变集合 Transform\ner",
+   "label": "置换等变集合\nTransformer",
    "sub": "2 层 4 头",
    "icon": "spark",
    "cls": "key",
    "x": 308,
    "y": 1094,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "HEAD",
@@ -75,18 +75,18 @@
    "x": 308,
    "y": 1330,
    "w": 259,
-   "h": 107
+   "h": 105
   },
   {
    "id": "BASE",
-   "label": "序数基础分\nb_i = alpha*rL + (1-a",
-   "sub": "lpha)*rT",
+   "label": "序数基础分\nb_i = alpha*rL + (1-",
+   "sub": "alpha)*rT",
    "icon": "medal",
    "cls": "reward",
    "x": 569,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SCORE",
@@ -97,7 +97,7 @@
    "x": 318,
    "y": 1533,
    "w": 241,
-   "h": 107
+   "h": 105
   },
   {
    "id": "GATE",
@@ -108,7 +108,7 @@
    "x": 319,
    "y": 1736,
    "w": 238,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LIFT",
@@ -119,29 +119,29 @@
    "x": 306,
    "y": 1939,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PLAN",
-   "label": "原生潜距离规划\nargmin 到目标 latent ",
+   "label": "原生潜距离规划\nargmin 到目标 latent",
    "sub": "距离",
    "icon": "noise",
    "cls": "act",
    "x": 310,
    "y": 2142,
    "w": 256,
-   "h": 140
+   "h": 138
   },
   {
    "id": "EXEC",
-   "label": "执行选中的 25 步控制序\n列",
+   "label": "执行选中的 25 步控制\n序列",
    "sub": "",
    "icon": "robot",
    "cls": "act",
    "x": 310,
    "y": 2378,
    "w": 256,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -209,21 +209,21 @@
    "from": "EXEC",
    "to": "SET",
    "style": "loss",
-   "label": "\"执行结果监督关系对齐 消融 +10.16p",
+   "label": "执行结果监督关系对齐 消融 +1…",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1335
+   "k": 84
   }
  ],
  "panels": [
   {
    "label": "输入",
    "x": 20,
-   "y": 150,
+   "y": 119,
    "w": 537,
-   "h": 175
+   "h": 206
   }
  ],
  "canvas": [

@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "ROB",
-   "label": "真实机器人 x 8\n7-DoF EE delta pose ",
+   "label": "真实机器人 x 8\n7-DoF EE delta pose",
    "sub": "逐步控制",
    "icon": "robot",
    "cls": "env",
    "x": 55,
    "y": 353,
    "w": 251,
-   "h": 140
+   "h": 138
   },
   {
    "id": "PR",
-   "label": "pair 输入\n当前帧 + 历史帧 (o_t, ",
+   "label": "pair 输入\n当前帧 + 历史帧 (o_t,",
    "sub": "o_prev) + 指令",
    "icon": "chat",
    "cls": "data",
    "x": 50,
    "y": 589,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VLMB",
@@ -31,51 +31,51 @@
    "x": 64,
    "y": 825,
    "w": 233,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACT",
-   "label": "actor 模式 (2B)\nsemantic delta EE pos",
-   "sub": "e",
+   "label": "actor 模式 (2B)\nsemantic delta EE",
+   "sub": "pose",
    "icon": "lightning",
    "cls": "train",
    "x": 50,
    "y": 1769,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "KEY",
-   "label": "critic 模式 (8B): pair\n-wise 进度 (核心)",
-   "sub": "两帧对比输出连续 progre",
+   "label": "critic 模式 (8B):\npair-wise 进度 (核心)",
+   "sub": "两帧对比输出连续 progress\ndelta\n正 = 前进, 负 = 倒退",
    "icon": "target",
    "cls": "key",
    "x": 47,
    "y": 1061,
    "w": 267,
-   "h": 140
+   "h": 172
   },
   {
    "id": "REW",
-   "label": "dense 进度奖励 r 在 [-\n1, 1]",
-   "sub": "替代稀疏 0/1 (瓶颈是 re",
+   "label": "dense 进度奖励 r 在 [-1\n,",
+   "sub": "1]\n替代稀疏 0/1 (瓶颈是 reward\n不是算法)",
    "icon": "reward",
    "cls": "reward",
    "x": 46,
    "y": 1297,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "PPO",
-   "label": "PPO 更新 (clipped surr\nogate)",
-   "sub": "优势 A_t 由进度 delta ",
+   "label": "PPO 更新 (clipped\nsurrogate)",
+   "sub": "优势 A_t 由进度 delta 累积",
    "icon": "eye",
    "cls": "loss",
    "x": 47,
    "y": 1533,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "HGE",
@@ -86,7 +86,7 @@
    "x": 55,
    "y": 150,
    "w": 251,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -103,7 +103,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1500
+   "k": 84
   },
   {
    "from": "PR",
@@ -134,7 +134,7 @@
    "from": "PPO",
    "to": "ACT",
    "style": "fb",
-   "label": "\"更新 actor\""
+   "label": "更新 actor"
   },
   {
    "from": "ACT",
@@ -144,22 +144,22 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1500
+   "k": 84
   },
   {
    "from": "HGE",
    "to": "ROB",
    "style": "fb",
-   "label": "\"引导 rollout\""
+   "label": "引导 rollout"
   }
  ],
  "panels": [
   {
-   "label": "异步分布式采样 (8 台 AGI",
+   "label": "异步分布式采样 (8 台 AGILE PiPER, ZeroMQ \n+…",
    "x": 24,
-   "y": 307,
+   "y": 289,
    "w": 313,
-   "h": 444
+   "h": 462
   }
  ],
  "canvas": [

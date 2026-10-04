@@ -9,7 +9,7 @@
    "x": 46,
    "y": 166,
    "w": 177,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ENC",
@@ -20,7 +20,7 @@
    "x": 248,
    "y": 858,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "TXT",
@@ -31,18 +31,18 @@
    "x": 261,
    "y": 167,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "USE",
-   "label": "Universal Sentence En\ncoder 嵌入",
+   "label": "Universal Sentence\nEncoder 嵌入",
    "sub": "(冻结)",
    "icon": "brain",
    "cls": "frozen",
    "x": 250,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "FILM",
@@ -53,7 +53,7 @@
    "x": 252,
    "y": 622,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "FLAT",
@@ -64,51 +64,51 @@
    "x": 260,
    "y": 1061,
    "w": 243,
-   "h": 107
+   "h": 105
   },
   {
    "id": "TL",
-   "label": "TokenLearner 软选择压\n缩",
-   "sub": "81 -> 8 token (2.4x ",
+   "label": "TokenLearner 软选择\n压缩",
+   "sub": "81 -> 8 token (2.4x 加速)",
    "icon": "stack",
    "cls": "key",
    "x": 254,
    "y": 1264,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CAT",
    "label": "6 帧拼接共 48 token\n(滑窗复用旧帧特征, 1.7x",
-   "sub": " 加速)",
+   "sub": "加速)",
    "icon": "stack",
    "cls": "loop",
    "x": 248,
    "y": 1500,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TR",
-   "label": "decoder-only Transfor\nmer",
+   "label": "decoder-only\nTransformer",
    "sub": "8 层 19M 参数 (共 35M)",
    "icon": "lightning",
    "cls": "train",
    "x": 249,
    "y": 1736,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LCE",
-   "label": "损失: 11 维 categorica\nl CE",
-   "sub": "+ causal masking (等价",
+   "label": "损失: 11 维 categorical\nCE",
+   "sub": "+ causal masking (等价 BC)",
    "icon": "sigma",
    "cls": "loss",
    "x": 449,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACT",
@@ -119,7 +119,7 @@
    "x": 246,
    "y": 1972,
    "w": 270,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DEC",
@@ -130,7 +130,7 @@
    "x": 248,
    "y": 2175,
    "w": 265,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ROBOT",
@@ -141,7 +141,7 @@
    "x": 298,
    "y": 2378,
    "w": 165,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -164,7 +164,7 @@
    "from": "FILM",
    "to": "ENC",
    "style": "fb",
-   "label": "\"语言早融合调制卷积特征\""
+   "label": "语言早融合调制卷积特征"
   },
   {
    "from": "ENC",
@@ -210,12 +210,12 @@
    "from": "ROBOT",
    "to": "IMG",
    "style": "fb",
-   "label": "\"每步重观测\"",
+   "label": "每步重观测",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 2296
+   "k": 84
   }
  ],
  "panels": [],

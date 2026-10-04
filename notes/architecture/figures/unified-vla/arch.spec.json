@@ -9,18 +9,18 @@
    "x": 689,
    "y": 167,
    "w": 216,
-   "h": 106
+   "h": 104
   },
   {
    "id": "TOK",
-   "label": "统一 token 化 (核心)\nVQ 视觉 token + FAST ",
-   "sub": "动作 token (1024 词表)",
+   "label": "统一 token 化 (核心)\nVQ 视觉 token + FAST",
+   "sub": "动作 token (1024 词表)\n共享离散词表, 无模态特定分支",
    "icon": "camera",
    "cls": "key",
    "x": 508,
    "y": 386,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LANG",
@@ -31,7 +31,7 @@
    "x": 234,
    "y": 167,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ACTIN",
@@ -42,18 +42,18 @@
    "x": 46,
    "y": 167,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "AR",
    "label": "自回归 Transformer\n(Emu3 初始化)",
-   "sub": "单一 next-token 目标联",
+   "sub": "单一 next-token 目标联合建模",
    "icon": "stack",
    "cls": "train",
    "x": 646,
    "y": 622,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VD",
@@ -64,7 +64,7 @@
    "x": 422,
    "y": 166,
    "w": 229,
-   "h": 107
+   "h": 105
   },
   {
    "id": "WM",
@@ -75,51 +75,51 @@
    "x": 810,
    "y": 386,
    "w": 236,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LAR",
-   "label": "损失 L_AR: 统一 next-t\noken NLL",
+   "label": "损失 L_AR: 统一 next-\ntoken NLL",
    "sub": "模态权重 1 : 1 : 2",
    "icon": "sigma",
    "cls": "loss",
    "x": 943,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LWM",
-   "label": "损失 L_WM: 下一帧 visi\non token 预测",
+   "label": "损失 L_WM: 下一帧\nvision token 预测",
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
    "x": 1245,
    "y": 166,
    "w": 262,
-   "h": 107
+   "h": 105
   },
   {
    "id": "POL",
-   "label": "下游策略学习\n各基准 8k-20k 步任务微",
-   "sub": "调",
+   "label": "下游策略学习\n各基准 8k-20k 步任务",
+   "sub": "微调",
    "icon": "lightning",
    "cls": "train",
    "x": 647,
    "y": 858,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACT",
-   "label": "动作 token 预测\nLIBERO 95.5% vs pi0-F",
-   "sub": "AST 85.5%",
+   "label": "动作 token 预测\nLIBERO 95.5% vs pi0-",
+   "sub": "FAST 85.5%",
    "icon": "stack",
    "cls": "act",
    "x": 646,
    "y": 1094,
    "w": 261,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -155,7 +155,7 @@
    "from": "WM",
    "to": "AR",
    "style": "fb",
-   "label": "\"因果先验注入权重 (长程任务的关键)\""
+   "label": "因果先验注入权重 (长程任务的关键)"
   },
   {
    "from": "LAR",
@@ -181,7 +181,7 @@
    "from": "ACT",
    "to": "VIS",
    "style": "fb",
-   "label": "\"逐 chunk 重观测 (LIBERO/C",
+   "label": "逐 chunk 重观测 (LIBERO/CAL…",
    "k": 60,
    "out": "top",
    "in": "top"

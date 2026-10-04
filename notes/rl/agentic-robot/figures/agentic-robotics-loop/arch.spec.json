@@ -9,40 +9,40 @@
    "x": 1205,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CTRL",
-   "label": "LLM 主 agent 控制器\n有限上下文只花在决策, ",
+   "label": "LLM 主 agent 控制器\n有限上下文只花在决策,",
    "sub": "从不触碰物理",
    "icon": "brain",
    "cls": "loop",
    "x": 46,
    "y": 150,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "NOTE",
-   "label": "共享 notebook 跨 run \n记忆",
-   "sub": "每轮一行 did/learned/s",
+   "label": "共享 notebook\n跨 run 记忆",
+   "sub": "每轮 did/learned/source\n+ 数据非指令",
    "icon": "db",
    "cls": "loop",
    "x": 903,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "REG",
-   "label": "能力注册表: 质量五态梯 \n+ Wilson 下界排序",
-   "sub": "测量绑定 artifact 版本",
+   "label": "能力注册表: 质量五态梯 \n+",
+   "sub": "Wilson 下界排序\n测量绑定 artifact 版本, 重训练\n即自动 stale",
    "icon": "lightning",
    "cls": "loop",
    "x": 870,
    "y": 1839,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "BIND",
@@ -53,18 +53,18 @@
    "x": 796,
    "y": 386,
    "w": 189,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ANA",
-   "label": "Analyze\nworker 分析账本与历史轮",
-   "sub": "次",
+   "label": "Analyze\nworker 分析账本与历史",
+   "sub": "轮次",
    "icon": "db",
    "cls": "loop",
    "x": 757,
    "y": 589,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACT",
@@ -75,7 +75,7 @@
    "x": 778,
    "y": 825,
    "w": 226,
-   "h": 107
+   "h": 105
   },
   {
    "id": "MEA",
@@ -86,7 +86,7 @@
    "x": 764,
    "y": 1230,
    "w": 252,
-   "h": 107
+   "h": 105
   },
   {
    "id": "SCO",
@@ -97,7 +97,7 @@
    "x": 792,
    "y": 1433,
    "w": 198,
-   "h": 107
+   "h": 105
   },
   {
    "id": "COM",
@@ -108,7 +108,7 @@
    "x": 816,
    "y": 1636,
    "w": 150,
-   "h": 107
+   "h": 105
   },
   {
    "id": "POL",
@@ -119,7 +119,7 @@
    "x": 802,
    "y": 1028,
    "w": 177,
-   "h": 106
+   "h": 104
   },
   {
    "id": "TRA",
@@ -130,7 +130,7 @@
    "x": 1512,
    "y": 167,
    "w": 223,
-   "h": 106
+   "h": 104
   },
   {
    "id": "EVAL",
@@ -141,18 +141,18 @@
    "x": 338,
    "y": 167,
    "w": 225,
-   "h": 106
+   "h": 104
   },
   {
    "id": "GATE",
-   "label": "晋升统计门: Agresti-Ca\nffo 半宽",
-   "sub": "delta >= 1.5w 直接晋升",
+   "label": "晋升统计门: Agresti-\nCaffo 半宽",
+   "sub": "delta >= 1.5w 直接晋升, 小正\n差触发确认检验",
    "icon": "refresh",
    "cls": "loop",
    "x": 601,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "EXIT",
@@ -163,18 +163,18 @@
    "x": 647,
    "y": 1856,
    "w": 185,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ACC",
-   "label": "locked acceptance hol\ndout",
+   "label": "locked acceptance\nholdout",
    "sub": "退出时只读一次",
    "icon": "refresh",
    "cls": "loop",
    "x": 760,
    "y": 2075,
    "w": 261,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -212,48 +212,48 @@
    "from": "CTRL",
    "to": "BIND",
    "style": "fb",
-   "label": "\"十一不变式约束下的管环决策\""
+   "label": "十一不变式约束下的管环决策"
   },
   {
    "from": "NOTE",
    "to": "BIND",
    "style": "fb",
-   "label": "\"bind 时读, 不作指令\""
+   "label": "bind 时读, 不作指令"
   },
   {
    "from": "ACT",
    "to": "POL",
    "style": "thick",
-   "label": "\"skill 决定怎么做, tool 真正干"
+   "label": "skill 决定怎么做, tool 真正干"
   },
   {
    "from": "POL",
    "to": "MEA",
    "style": "loss",
-   "label": "\"结果信封回传: 失败与超时也是结果\""
+   "label": "结果信封回传: 失败与超时也是结果"
   },
   {
    "from": "GATE",
    "to": "SCO",
    "style": "fb",
-   "label": "\"拦截错误晋升: 假晋升率 0.001/ru"
+   "label": "拦截错误晋升: 假晋升率 0.001/run"
   },
   {
    "from": "REG",
    "to": "ACT",
    "style": "fb",
-   "label": "\"unvalidated 或 stale 禁",
+   "label": "unvalidated 或 stale 禁入无…",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1367
+   "k": 84
   },
   {
    "from": "COM",
    "to": "REG",
    "style": "thick",
-   "label": "\"质量按 benchmark 分 key 更"
+   "label": "质量按 benchmark 分 key 更新"
   },
   {
    "from": "COM",
@@ -264,27 +264,27 @@
    "from": "EXIT",
    "to": "ANA",
    "style": "fb",
-   "label": "\"否: 停滞强制切换策略类\"",
+   "label": "否: 停滞强制切换策略类",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1570
+   "k": 84
   },
   {
    "from": "EXIT",
    "to": "ACC",
    "style": "thick",
-   "label": "\"是\""
+   "label": "是"
   }
  ],
  "panels": [
   {
-   "label": "轮次事务 harness: co · 工具边界: 世界执行皆工具 (M",
+   "label": "轮次事务 harness · 工具边界",
    "x": 312,
-   "y": 150,
+   "y": 103,
    "w": 1449,
-   "h": 1644
+   "h": 1691
   }
  ],
  "canvas": [

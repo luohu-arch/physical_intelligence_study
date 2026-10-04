@@ -2,58 +2,58 @@
  "nodes": [
   {
    "id": "POOL",
-   "label": "任务池: OpenSWE 36,884\n -> 策略相对难度筛 2,69",
-   "sub": "9",
+   "label": "任务池: OpenSWE 36,884 \n->",
+   "sub": "策略相对难度筛 2,699\n4 条 rollout 解出 1-3 次的难\n度带",
    "icon": "lightning",
    "cls": "loop",
    "x": 342,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "SB",
-   "label": "隔离沙箱: Docker / K8s\n / Nydus lazy-pull",
-   "sub": "分级防作弊: 特权 sideca",
+   "label": "隔离沙箱\nDocker / K8s / Nydus",
+   "sub": "分级防作弊: 特权 sidecar\n防火墙 + 隐藏 git 历史\n+ 评分前扣住测试",
    "icon": "refresh",
    "cls": "loop",
    "x": 342,
    "y": 386,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "HARNESS",
    "label": "原生 harness (当环境的\n一部分, 不改控制流)",
-   "sub": "OpenHands / Claude Co",
+   "sub": "OpenHands / Claude Code /\nOpenCode",
    "icon": "gear",
    "cls": "loop",
    "x": 346,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "PROXY",
-   "label": "进程内 LLM 代理: servi\nng 边界捕获",
-   "sub": "token + log-prob + ma",
+   "label": "进程内 LLM 代理:\nserving 边界捕获",
+   "sub": "token + log-prob + mask +\nMoE 路由 (R3 重放)",
    "icon": "brain",
    "cls": "loop",
    "x": 200,
    "y": 858,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "INF",
-   "label": "推理服务器 vLLM\n承载被训策略 Qwen3.5-3",
-   "sub": "5B-A3B 稀疏 MoE",
+   "label": "推理服务器 vLLM\n承载被训策略 Qwen3.5-",
+   "sub": "35B-A3B 稀疏 MoE",
    "icon": "brain",
    "cls": "loop",
    "x": 345,
    "y": 1802,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VER",
@@ -64,29 +64,29 @@
    "x": 500,
    "y": 874,
    "w": 251,
-   "h": 107
+   "h": 105
   },
   {
    "id": "BUF",
-   "label": "Data buffer: 轨迹 + 奖\n励",
-   "sub": "全异步 rollout + 部分",
+   "label": "Data buffer: 轨迹 +\n奖励",
+   "sub": "全异步 rollout + 部分轨迹恢复",
    "icon": "db",
    "cls": "loop",
    "x": 343,
    "y": 1094,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "FIL",
    "label": "终止感知准入: 基础设施\n失败轨迹",
-   "sub": "权重置零, 不进组相对优",
+   "sub": "权重置零, 不进组相对优势",
    "icon": "eye",
    "cls": "loop",
    "x": 349,
    "y": 1330,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TR",
@@ -97,29 +97,29 @@
    "x": 344,
    "y": 1566,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "UI",
    "label": "Live UI: 终止原因 / 任\n务网格 /",
-   "sub": "rollout-training 一致",
+   "sub": "rollout-training 一致性面板",
    "icon": "refresh",
    "cls": "loop",
    "x": 644,
    "y": 1802,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACC",
-   "label": "SWE-bench Verified: O\npenHands 64.0% -> 70.",
-   "sub": "4%",
+   "label": "SWE-bench Verified:\nOpenHands 64.0% ->",
+   "sub": "70.4%\nClaude Code 62.4% -> 68.2%,\n相关性保持 >0.99",
    "icon": "refresh",
    "cls": "loop",
    "x": 46,
    "y": 1802,
    "w": 261,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [
@@ -137,31 +137,31 @@
    "from": "HARNESS",
    "to": "PROXY",
    "style": "fb",
-   "label": "\"每次模型 API 调用\""
+   "label": "每次模型 API 调用"
   },
   {
    "from": "PROXY",
    "to": "INF",
    "style": "fb",
-   "label": "\"sticky routing, 训练时重放"
+   "label": "sticky routing, 训练时重放…"
   },
   {
    "from": "HARNESS",
    "to": "VER",
    "style": "thick",
-   "label": "\"执行后评分\""
+   "label": "执行后评分"
   },
   {
    "from": "PROXY",
    "to": "BUF",
    "style": "thick",
-   "label": "\"忠实捕获的 token 序列\""
+   "label": "忠实捕获的 token 序列"
   },
   {
    "from": "VER",
    "to": "BUF",
    "style": "fb",
-   "label": "\"0/1 终局奖励\""
+   "label": "0/1 终局奖励"
   },
   {
    "from": "BUF",
@@ -177,7 +177,7 @@
    "from": "TR",
    "to": "INF",
    "style": "fb",
-   "label": "\"weight sync, stalenes"
+   "label": "weight sync, staleness <= 1"
   },
   {
    "from": "TR",

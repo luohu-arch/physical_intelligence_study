@@ -9,29 +9,29 @@
    "x": 47,
    "y": 150,
    "w": 262,
-   "h": 107
+   "h": 105
   },
   {
    "id": "TENC",
-   "label": "目标编码器 f_theta_bar\ntheta 的 EMA, 无梯度分",
-   "sub": "支",
+   "label": "目标编码器 f_theta_bar\ntheta 的 EMA, 无梯度",
+   "sub": "分支",
    "icon": "eye",
    "cls": "frozen",
    "x": 46,
    "y": 353,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CSAMP",
-   "label": "multi-block 采样上下文\n块",
-   "sub": "scale 0.85-1.0, 去重叠",
+   "label": "multi-block 采样上下\n文块",
+   "sub": "scale 0.85-1.0, 去重叠\n消融 54.2 vs 随机 17.6",
    "icon": "db",
    "cls": "key",
    "x": 346,
    "y": 353,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "TP",
@@ -42,7 +42,7 @@
    "x": 61,
    "y": 589,
    "w": 257,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CENC",
@@ -53,7 +53,7 @@
    "x": 356,
    "y": 606,
    "w": 241,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PRED",
@@ -64,18 +64,18 @@
    "x": 210,
    "y": 825,
    "w": 238,
-   "h": 140
+   "h": 138
   },
   {
    "id": "MT",
-   "label": "可学习 mask token + 位\n置",
+   "label": "可学习 mask token +\n位置",
    "sub": "",
    "icon": "stack",
    "cls": "data",
    "x": 347,
    "y": 150,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "L",
@@ -86,7 +86,7 @@
    "x": 254,
    "y": 1061,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "UPD",
@@ -97,7 +97,7 @@
    "x": 254,
    "y": 1263,
    "w": 150,
-   "h": 106
+   "h": 104
   }
  ],
  "edges": [
@@ -135,7 +135,7 @@
    "from": "PRED",
    "to": "L",
    "style": "fb",
-   "label": "\"L2 只算表征空间 潜目标 66.9 vs"
+   "label": "L2 只算表征空间 潜目标 66.9 …"
   },
   {
    "from": "TP",
@@ -146,7 +146,7 @@
    "from": "L",
    "to": "UPD",
    "style": "loss",
-   "label": "\"梯度更新 theta/phi theta_"
+   "label": "梯度更新 theta/phi theta_ba…"
   }
  ],
  "panels": [],

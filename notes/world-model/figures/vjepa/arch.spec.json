@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "CLIP",
-   "label": "输入片段 16 帧 224 分辨\n率",
+   "label": "输入片段 16 帧 224 分\n辨率",
    "sub": "",
    "icon": "db",
    "cls": "data",
    "x": 46,
    "y": 166,
    "w": 269,
-   "h": 107
+   "h": 105
   },
   {
    "id": "TOK",
-   "label": "3D 卷积 patchify\n1568 个 token, 16x16x",
-   "sub": "2",
+   "label": "3D 卷积 patchify\n1568 个 token,",
+   "sub": "16x16x2",
    "icon": "stack",
    "cls": "train",
    "x": 202,
    "y": 386,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DROP",
-   "label": "丢弃可见补集 token\nmulti-block 掩码率约 9",
-   "sub": "0%",
+   "label": "丢弃可见补集 token\nmulti-block 掩码率约",
+   "sub": "90%\nshort-range + long-range 组合",
    "icon": "stack",
    "cls": "key",
    "x": 347,
    "y": 622,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "XENC",
@@ -42,7 +42,7 @@
    "x": 362,
    "y": 874,
    "w": 243,
-   "h": 107
+   "h": 105
   },
   {
    "id": "YENC",
@@ -53,18 +53,18 @@
    "x": 52,
    "y": 622,
    "w": 257,
-   "h": 140
+   "h": 138
   },
   {
    "id": "OUT",
-   "label": "输出端掩码取目标 patch \ns_M",
+   "label": "输出端掩码取目标 patch\ns_M",
    "sub": "stop-gradient",
    "icon": "lightning",
    "cls": "loss",
    "x": 58,
    "y": 858,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "MSKT",
@@ -75,18 +75,18 @@
    "x": 353,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "PRED",
    "label": "窄预测器 P_phi\n12 层 384 维",
-   "sub": "特征 L1 目标 K400 73.7",
+   "sub": "特征 L1 目标 K400 73.7 vs 像\n素 68.6",
    "icon": "spark",
    "cls": "key",
    "x": 200,
    "y": 1094,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LOSS",
@@ -97,18 +97,18 @@
    "x": 200,
    "y": 1330,
    "w": 264,
-   "h": 106
+   "h": 104
   },
   {
    "id": "OPT",
-   "label": "AdamW 更新 theta/phi\ntheta_bar 走 EMA 0.99",
-   "sub": "8 渐升到 1.0",
+   "label": "AdamW 更新 theta/phi\ntheta_bar 走 EMA",
+   "sub": "0.998 渐升到 1.0",
    "icon": "cpu",
    "cls": "train",
    "x": 202,
    "y": 1532,
    "w": 259,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [

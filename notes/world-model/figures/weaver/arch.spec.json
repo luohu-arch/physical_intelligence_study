@@ -9,7 +9,7 @@
    "x": 214,
    "y": 150,
    "w": 228,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ENC",
@@ -20,51 +20,51 @@
    "x": 202,
    "y": 353,
    "w": 253,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FM",
    "label": "多视角 Flow Matching\nlatent 空间联合预测",
-   "sub": "FID 10.20 vs 像素 26.0",
+   "sub": "FID 10.20 vs 像素 26.09 约快\n3x",
    "icon": "camera",
    "cls": "key",
    "x": 194,
    "y": 556,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "FUTURE",
-   "label": "未来 latent 预测\n可解码回像素 也可在 lat",
-   "sub": "ent 评估任意策略",
+   "label": "未来 latent 预测\n可解码回像素 也可在",
+   "sub": "latent 评估任意策略",
    "icon": "camera",
    "cls": "env",
    "x": 345,
    "y": 792,
    "w": 265,
-   "h": 140
+   "h": 138
   },
   {
    "id": "REWARD",
-   "label": "奖励预测\nlatent reward + criti",
-   "sub": "c head",
+   "label": "奖励预测\nlatent reward +",
+   "sub": "critic head\n评估/改进/规划三应用共同支点",
    "icon": "reward",
    "cls": "reward",
    "x": 46,
    "y": 792,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "POLICY",
    "label": "策略评估 / 改进 / 规划\n优势过滤离线蒸馏 pi0.5 ",
-   "sub": "+38%",
+   "sub": "+ 38%",
    "icon": "target",
    "cls": "loop",
    "x": 194,
    "y": 1028,
    "w": 267,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [

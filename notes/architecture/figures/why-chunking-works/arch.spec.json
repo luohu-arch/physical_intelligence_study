@@ -9,18 +9,18 @@
    "x": 348,
    "y": 166,
    "w": 202,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PI",
-   "label": "训练好的 chunk 策略 pi\n_hat_k (k = 20)",
-   "sub": "同一动作被 k 种条件重复",
+   "label": "训练好的 chunk 策略\npi_hat_k (k=20)",
+   "sub": "同一动作被 k 种条件重复监督:\na_t | o_t..o_t-k+1\n(隐式集成 k 个延迟成员)",
    "icon": "stack",
    "cls": "train",
    "x": 320,
    "y": 386,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "DEMO",
@@ -31,40 +31,40 @@
    "x": 46,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AC",
    "label": "AC(k): 开环 chunk 执行\n每 k 步才查询一次观测",
-   "sub": "预测 a_0 ... a_k-1 整",
+   "sub": "预测 a_0 ... a_k-1 整段开环\n执行",
    "icon": "state",
    "cls": "loop",
    "x": 622,
    "y": 622,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "DELAY",
    "label": "Delay(d): 每步重算\n但条件于 d 步前的旧观测",
-   "sub": " o_t-d",
+   "sub": "o_t-d\n(延迟条件预测, 可复制 chunking\n)",
    "icon": "state",
    "cls": "loop",
    "x": 924,
    "y": 386,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "RDE",
-   "label": "RDE(n): 每步采样 i ~ u\nnif{0..n-1}",
-   "sub": "随机抽一个延迟成员执行",
+   "label": "RDE(n): 每步采样 i ~\nunif{0..n-1}",
+   "sub": "随机抽一个延迟成员执行\n9/9 设置匹配 AC, 无需 chunk\n执行",
    "icon": "robot",
    "cls": "key",
    "x": 622,
    "y": 386,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "ENV",
@@ -75,40 +75,40 @@
    "x": 628,
    "y": 858,
    "w": 253,
-   "h": 107
+   "h": 105
   },
   {
    "id": "TE",
-   "label": "TE 时间集成: 预测线性平\n均",
-   "sub": "压掉集成效应 (Tool Han",
+   "label": "TE 时间集成: 预测线性\n平均",
+   "sub": "压掉集成效应 (Tool Hang 仅\n42.2\nvs RDE 71.8)",
    "icon": "sigma",
    "cls": "loss",
    "x": 1197,
    "y": 150,
    "w": 265,
-   "h": 140
+   "h": 172
   },
   {
    "id": "ENS",
-   "label": "显式集成: m 个独立 pi_h\nat_20",
-   "sub": "Transport 12.6 -> 41.",
+   "label": "显式集成: m 个独立\npi_hat_20",
+   "sub": "Transport 12.6 -> 41.5 (+28.9\n点)\nTool Hang 75.2 -> 87.6",
    "icon": "spark",
    "cls": "key",
    "x": 588,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "LBCL",
-   "label": "BC 损失 (chunk 内逐步\n以 k 种延迟条件重复监督",
-   "sub": ")",
+   "label": "BC 损失 (chunk 内逐步\n以 k 种延迟条件重复监",
+   "sub": "督)",
    "icon": "sigma",
    "cls": "loss",
    "x": 895,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -121,7 +121,7 @@
    "from": "DEMO",
    "to": "PI",
    "style": "fb",
-   "label": "\"BC 训练\""
+   "label": "BC 训练"
   },
   {
    "from": "PI",
@@ -147,7 +147,7 @@
    "from": "ENV",
    "to": "OBS",
    "style": "fb",
-   "label": "\"新观测反馈\"",
+   "label": "新观测反馈",
    "k": 60,
    "out": "top",
    "in": "top"
@@ -161,24 +161,24 @@
    "from": "ENS",
    "to": "RDE",
    "style": "fb",
-   "label": "\"放大隐式集成\""
+   "label": "放大隐式集成"
   },
   {
    "from": "LBCL",
    "to": "PI",
    "style": "fb",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "out": "bottom",
+   "in": "bottom",
+   "k": 40
   }
  ],
  "panels": [
   {
-   "label": "同一 pi_hat_20 的三种",
+   "label": "同一 pi_hat_20 的三种部署方式 (机制隔离对照)",
    "x": 596,
-   "y": 340,
+   "y": 322,
    "w": 618,
-   "h": 444
+   "h": 462
   }
  ],
  "canvas": [

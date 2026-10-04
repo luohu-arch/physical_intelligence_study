@@ -9,7 +9,7 @@
    "x": 46,
    "y": 167,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ENV",
@@ -20,29 +20,29 @@
    "x": 333,
    "y": 1330,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "Z",
    "label": "技能 z: 固定均匀先验 p(\nz)",
-   "sub": "(每回合采样一次, 不学 p",
+   "sub": "(每回合采样一次, 不学 p(z) 防\nMatthew Effect)",
    "icon": "noise",
    "cls": "data",
    "x": 234,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "PI",
-   "label": "技能策略 pi(a | s, z)\nSAC 最大熵, 熵系数 alp",
-   "sub": "ha = 0.1",
+   "label": "技能策略 pi(a | s, z)\nSAC 最大熵, 熵系数",
+   "sub": "alpha = 0.1\nz 直接拼接到状态后输入",
    "icon": "tree",
    "cls": "train",
    "x": 278,
    "y": 1094,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "DIS",
@@ -53,29 +53,29 @@
    "x": 281,
    "y": 386,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "KEY",
-   "label": "伪奖励 (核心)\nr = log q_phi(z|s) - ",
-   "sub": "log p(z)",
+   "label": "伪奖励 (核心)\nr = log q_phi(z|s) -",
+   "sub": "log p(z)\n互信息下界的逐时刻形式",
    "icon": "reward",
    "cls": "key",
    "x": 278,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "UPD",
-   "label": "SAC actor-critic 更新\n无监督目标退化为普通 of",
-   "sub": "f-policy RL",
+   "label": "SAC actor-critic 更新\n无监督目标退化为普通",
+   "sub": "off-policy RL",
    "icon": "target",
    "cls": "loss",
    "x": 276,
    "y": 858,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DISL",
@@ -86,7 +86,7 @@
    "x": 539,
    "y": 166,
    "w": 231,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -103,7 +103,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1247
+   "k": 84
   },
   {
    "from": "Z",
@@ -119,7 +119,7 @@
    "from": "PI",
    "to": "ENV",
    "style": "thick",
-   "label": "\"动作 a_t (块内高熵探索)\""
+   "label": "动作 a_t (块内高熵探索)"
   },
   {
    "from": "S",
@@ -140,22 +140,22 @@
    "from": "UPD",
    "to": "PI",
    "style": "fb",
-   "label": "\"更新策略 theta\""
+   "label": "更新策略 theta"
   },
   {
    "from": "DISL",
    "to": "DIS",
    "style": "fb",
-   "label": "\"更新 phi (合作博弈, 非对抗)\""
+   "label": "更新 phi (合作博弈, 非对抗)"
   }
  ],
  "panels": [
   {
-   "label": "技能 rollout 回路 (M",
+   "label": "技能 rollout 回路 (MuJoCo 5 环境)",
    "x": 20,
-   "y": 150,
+   "y": 103,
    "w": 489,
-   "h": 1337
+   "h": 1384
   }
  ],
  "canvas": [

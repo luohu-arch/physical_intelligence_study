@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "ROBOT",
-   "label": "机器人 (Astribot S1)\nlatency budget n = 6 ",
+   "label": "机器人 (Astribot S1)\nlatency budget n = 6",
    "sub": "帧 = 200 ms",
    "icon": "robot",
    "cls": "env",
    "x": 348,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "OBS",
@@ -20,51 +20,51 @@
    "x": 348,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "BASE",
    "label": "冻结 pi_base (pi 0.5)\n输出参考 chunk a_bar (",
-   "sub": "H = 32) + RL token z_",
+   "sub": "H = 32) + RL token z_t",
    "icon": "stack",
    "cls": "frozen",
    "x": 351,
    "y": 622,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "THREE",
-   "label": "chunk 三区划分 (核心)\ncommitted [0,n): 上一 ",
-   "sub": "chunk 已占用",
+   "label": "chunk 三区划分 (核心)",
+   "sub": "committed [0,n): 已占用\nexecution [n,2n): 唯一执行\ndiscarded [2n,H): 被覆盖",
    "icon": "stack",
    "cls": "key",
    "x": 197,
    "y": 858,
    "w": 267,
-   "h": 140
+   "h": 151
   },
   {
    "id": "ACT",
    "label": "残差 actor (3 层 MLP)\na = a_bar + 有界 delta",
-   "sub": " (界 0.05)",
+   "sub": "(界 0.05)\n梯度只流经 execution 区",
    "icon": "lightning",
    "cls": "train",
    "x": 197,
    "y": 1094,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "BUF",
    "label": "回放缓冲\nbase policy 50 eps 初",
-   "sub": "始化",
+   "sub": "始化\n+ 在线 rollout + 人工干预",
    "icon": "lightning",
    "cls": "mem",
    "x": 52,
    "y": 386,
    "w": 259,
-   "h": 140
+   "h": 155
   },
   {
    "id": "HUM",
@@ -75,18 +75,18 @@
    "x": 52,
    "y": 166,
    "w": 257,
-   "h": 107
+   "h": 105
   },
   {
    "id": "CRITIC",
    "label": "critic 集成 (REDQ)\n输入 [z, s, a_tilde[0,",
-   "sub": "n), a[n,2n)]",
+   "sub": "n), a[n,2n)]\ncommitted 区 stop-gradient 状\n态增广",
    "icon": "target",
    "cls": "reward",
    "x": 46,
    "y": 622,
    "w": 267,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [
@@ -103,7 +103,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "OBS",
@@ -124,12 +124,16 @@
    "from": "ACT",
    "to": "ROBOT",
    "style": "thick",
-   "label": "\"execution 区 6 帧生效 训练 ",
+   "label": "execution 区 6 帧生效 训练 …",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84,
+   "labpos": [
+    373,
+    810
+   ]
   },
   {
    "from": "ROBOT",
@@ -140,7 +144,7 @@
    "from": "HUM",
    "to": "BUF",
    "style": "fb",
-   "label": "\"干预 chunk 既作 BC 目标 又作 "
+   "label": "干预 chunk 既作 BC 目标 又…"
   },
   {
    "from": "BUF",
@@ -151,22 +155,22 @@
    "from": "CRITIC",
    "to": "ACT",
    "style": "loss",
-   "label": "\"actor 损失: -Q + w_bc *"
+   "label": "actor 损失: -Q + w_bc * MS…"
   },
   {
    "from": "CRITIC",
    "to": "CRITIC",
    "style": "loss",
-   "label": "\"chunk-skip TD: y = r "
+   "label": "chunk-skip TD: y = r + gam…"
   }
  ],
  "panels": [
   {
-   "label": "异步执行循环 (30 Hz 控制",
+   "label": "异步执行循环 (30 Hz 控制 / 5 Hz 推理)",
    "x": 322,
-   "y": 150,
+   "y": 103,
    "w": 314,
-   "h": 444
+   "h": 491
   }
  ],
  "canvas": [

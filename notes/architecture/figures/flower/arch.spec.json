@@ -9,7 +9,7 @@
    "x": 46,
    "y": 150,
    "w": 233,
-   "h": 106
+   "h": 104
   },
   {
    "id": "VENC",
@@ -20,7 +20,7 @@
    "x": 413,
    "y": 353,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "LANG",
@@ -31,18 +31,18 @@
    "x": 317,
    "y": 150,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "TRIM",
-   "label": "中间模态融合: 裁掉后 50\n% LLM 层",
-   "sub": "省下的容量转给动作头",
+   "label": "中间模态融合: 裁掉后 50\n%",
+   "sub": "LLM 层\n省下的容量转给动作头",
    "icon": "brain",
    "cls": "key",
    "x": 356,
    "y": 555,
    "w": 265,
-   "h": 140
+   "h": 155
   },
   {
    "id": "NOISE",
@@ -53,18 +53,18 @@
    "x": 505,
    "y": 150,
    "w": 165,
-   "h": 106
+   "h": 104
   },
   {
    "id": "HEAD",
    "label": "扩散头: Global-AdaLN\n全层共享调制 + 动作特定",
-   "sub": "残差",
+   "sub": "残差\n(省 20% 扩散头参数)",
    "icon": "lightning",
    "cls": "key",
    "x": 356,
    "y": 791,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LFM",
@@ -75,7 +75,7 @@
    "x": 708,
    "y": 150,
    "w": 222,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ACT",
@@ -86,7 +86,7 @@
    "x": 413,
    "y": 1027,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ROBOT",
@@ -97,7 +97,7 @@
    "x": 361,
    "y": 1229,
    "w": 254,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -125,7 +125,7 @@
    "from": "TRIM",
    "to": "HEAD",
    "style": "thick",
-   "label": "\"中间层表征 h^(k)\""
+   "label": "中间层表征 h^(k)"
   },
   {
    "from": "LFM",
@@ -136,7 +136,7 @@
    "from": "HEAD",
    "to": "ACT",
    "style": "thick",
-   "label": "\"Flow Matching 去噪 单臂 4"
+   "label": "Flow Matching 去噪 单臂 4 …"
   },
   {
    "from": "ACT",
@@ -147,28 +147,28 @@
    "from": "ROBOT",
    "to": "IMG",
    "style": "fb",
-   "label": "\"逐 chunk 重观测\"",
+   "label": "逐 chunk 重观测",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1164
+   "k": 84
   }
  ],
  "panels": [
   {
-   "label": "Florence-2 VLM 基",
+   "label": "Florence-2 VLM 基座 (预训练后微调)",
    "x": 330,
-   "y": 307,
+   "y": 306,
    "w": 317,
-   "h": 410
+   "h": 411
   },
   {
-   "label": "Flow Transformer",
+   "label": "Flow Transformer 动作头 (18 层, 共 950M)",
    "x": 330,
-   "y": 745,
+   "y": 744,
    "w": 316,
-   "h": 208
+   "h": 209
   }
  ],
  "canvas": [

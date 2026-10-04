@@ -9,29 +9,29 @@
    "x": 369,
    "y": 166,
    "w": 215,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PRE",
-   "label": "共享 VLM 只 prefill 一\n次",
-   "sub": "(pi0.5 权重完全冻结, 零",
+   "label": "共享 VLM 只 prefill\n一次",
+   "sub": "(pi0.5 权重完全冻结, 零训练)",
    "icon": "brain",
    "cls": "frozen",
    "x": 194,
    "y": 386,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "KT",
-   "label": "K_t: 模态无关 KV cache\n只编码观测本身, 两类专",
-   "sub": "家共享",
+   "label": "K_t: 模态无关 KV cache\n只编码观测本身, 两类专家",
+   "sub": "共享",
    "icon": "state",
    "cls": "mem",
    "x": 196,
    "y": 622,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AEX",
@@ -42,40 +42,40 @@
    "x": 52,
    "y": 858,
    "w": 253,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SIGMA",
-   "label": "语言可恢复状态\nsigma_t = (K_t, y_t, ",
+   "label": "语言可恢复状态\nsigma_t = (K_t, y_t,",
    "sub": "delta_t)",
    "icon": "chat",
    "cls": "mem",
    "x": 343,
    "y": 858,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "INFLIGHT",
-   "label": "历史帧在飞语言请求\nt-1, t-2, ... 的 sigm",
-   "sub": "a",
+   "label": "历史帧在飞语言请求\nt-1, t-2, ... 的",
+   "sub": "sigma",
    "icon": "chat",
    "cls": "data",
    "x": 72,
    "y": 150,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "M",
-   "label": "统一 KV cache 管理器 M\nStore / Retrieve / Up",
-   "sub": "date / Remove",
+   "label": "统一 KV cache 管理器 M\nStore / Retrieve /",
+   "sub": "Update / Remove",
    "icon": "search",
    "cls": "key",
    "x": 348,
    "y": 1094,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "BATCH",
@@ -86,40 +86,40 @@
    "x": 194,
    "y": 1330,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DECODE",
-   "label": "跨帧连续批解码\n每帧为全部请求解 k 个 t",
-   "sub": "oken",
+   "label": "跨帧连续批解码\n每帧为全部请求解 k 个",
+   "sub": "token\n(k 按帧率与硬件离线校准)",
    "icon": "lightning",
    "cls": "key",
    "x": 196,
    "y": 1566,
    "w": 265,
-   "h": 140
+   "h": 155
   },
   {
    "id": "UNB",
-   "label": "UnBatch: 完成则 Remove\n (delta=1)",
-   "sub": "未完成则 Update 持久化",
+   "label": "UnBatch: 完成则 Remove\n(delta=1)",
+   "sub": "未完成则 Update 持久化到下一帧",
    "icon": "refresh",
    "cls": "loop",
    "x": 343,
    "y": 1802,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACT",
-   "label": "机器人动作 60-70 Hz\n关键路径 198 ms < 333 ",
+   "label": "机器人动作 60-70 Hz\n关键路径 198 ms < 333",
    "sub": "ms 执行窗口",
    "icon": "robot",
    "cls": "act",
    "x": 46,
    "y": 1094,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LANGOUT",
@@ -130,7 +130,7 @@
    "x": 47,
    "y": 1818,
    "w": 258,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -183,12 +183,12 @@
    "from": "UNB",
    "to": "M",
    "style": "fb",
-   "label": "\"断点续传, 跨帧无损续跑\"",
+   "label": "断点续传, 跨帧无损续跑",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 792
+   "k": 84
   },
   {
    "from": "AEX",

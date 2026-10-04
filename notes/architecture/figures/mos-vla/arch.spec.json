@@ -9,29 +9,29 @@
    "x": 46,
    "y": 166,
    "w": 222,
-   "h": 107
+   "h": 105
   },
   {
    "id": "BB",
-   "label": "OpenVLA backbone\nLlama 2 + SigLIP + Di",
-   "sub": "noV2, LoRA 微调",
+   "label": "OpenVLA backbone\nLlama 2 + SigLIP +",
+   "sub": "DinoV2, LoRA 微调",
    "icon": "brain",
    "cls": "train",
    "x": 466,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "BASIS",
    "label": "k = 16 个可学习基函数头\n(function encoder 头,",
-   "sub": " MLPResNet)",
+   "sub": "MLPResNet)",
    "icon": "eye",
    "cls": "key",
    "x": 463,
    "y": 622,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "L1L",
@@ -42,7 +42,7 @@
    "x": 613,
    "y": 166,
    "w": 262,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ORTHO",
@@ -53,18 +53,18 @@
    "x": 913,
    "y": 166,
    "w": 234,
-   "h": 107
+   "h": 105
   },
   {
    "id": "CAL",
-   "label": "calibration buffer\n每数据集 512 样本, 每 1",
-   "sub": "6 步重算系数",
+   "label": "calibration buffer\n每数据集 512 样本, 每",
+   "sub": "16 步重算系数",
    "icon": "db",
    "cls": "loop",
    "x": 306,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEMO",
@@ -75,7 +75,7 @@
    "x": 478,
    "y": 1736,
    "w": 238,
-   "h": 107
+   "h": 105
   },
   {
    "id": "OPT",
@@ -86,29 +86,29 @@
    "x": 467,
    "y": 858,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "W",
-   "label": "基函数权重 alpha (k 维\n)",
+   "label": "基函数权重 alpha (k\n维)",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
    "x": 466,
    "y": 1094,
    "w": 261,
-   "h": 107
+   "h": 105
   },
   {
    "id": "POL",
-   "label": "策略 = sum alpha_i * g\n_i",
-   "sub": "推理 O(1), 与演示长度无",
+   "label": "策略 = sum alpha_i *\ng_i",
+   "sub": "推理 O(1), 与演示长度无关",
    "icon": "brain",
    "cls": "key",
    "x": 463,
    "y": 1297,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ROBOT",
@@ -119,7 +119,7 @@
    "x": 522,
    "y": 1533,
    "w": 150,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -156,7 +156,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 929
+   "k": 84
   },
   {
    "from": "BASIS",
@@ -182,16 +182,16 @@
    "from": "ROBOT",
    "to": "DEMO",
    "style": "fb",
-   "label": "\"上下文变化需再给一条演示 重新标定系数\""
+   "label": "上下文变化需再给一条演示 重新标定系数"
   }
  ],
  "panels": [
   {
-   "label": "OXE 27 数据集跨上下文预训",
+   "label": "OXE 27 数据集跨上下文预训练",
    "x": 20,
-   "y": 150,
+   "y": 103,
    "w": 1153,
-   "h": 680
+   "h": 727
   }
  ],
  "canvas": [

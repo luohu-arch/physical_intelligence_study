@@ -23,55 +23,59 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">ragen-2</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">RAGEN-2 发现多轮 agent RL 存在一类对熵完全不可见的失败模式——template collapse（推理在单个输入内看似多样、跨输入却完全 input-agno</text>
 <text x="622" y="2309" font-size="11.5" fill="#a0aab4" text-anchor="end">ragen-2 · arXiv 2604.06268 · v3 auto</text>
-<path d="M 328.0 290.0 L 328.5 386.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 328.5 526.0 L 328.5 622.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 328.5 762.0 L 341.0 762.0 L 341.0 874.0 L 481.5 874.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 481.5 981.0 L 481.5 1533.0 L 328.0 1533.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 328.0 1673.0 L 328.0 1769.0 L 478.0 1769.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 328.0 1673.0 L 328.0 1769.0 L 177.0 1769.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 425.2 1909.0 L 483.0 1909.0 L 483.0 3848.0 L 630.0 3848.0 L 630.0 290.0 L 354.4 290.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<path d="M 328.5 762.0 L 328.5 858.0 L 182.5 858.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 182.5 998.0 L 182.5 1094.0 L 327.5 1094.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 327.5 1201.0 L 328.0 1297.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 274.1 1201.0 L 26.0 1201.0 L 26.0 3140.0 L 630.0 3140.0 L 630.0 290.0 L 354.4 290.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 328.0 1437.0 L 328.0 1533.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 478.0 1909.0 L 478.0 2005.0 L 328.0 2005.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<rect x="198.5" y="153.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="196" y="150" width="264" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<path d="M 328.0 322.0 L 328.5 386.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 328.5 558.0 L 328.5 622.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 328.5 760.0 L 341.0 760.0 L 341.0 874.0 L 481.5 874.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 481.5 979.0 L 481.5 1533.0 L 328.0 1533.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 328.0 1671.0 L 328.0 1769.0 L 478.0 1769.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 328.0 1671.0 L 328.0 1769.0 L 177.0 1769.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 425.2 1907.0 L 425.2 1991.0 L 630.0 1991.0 L 630.0 322.0 L 354.4 322.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<path d="M 328.5 760.0 L 328.5 858.0 L 182.5 858.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 182.5 1030.0 L 182.5 1094.0 L 327.5 1094.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 327.5 1199.0 L 328.0 1297.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 274.1 1199.0 L 274.1 1283.0 L 630.0 1283.0 L 630.0 322.0 L 354.4 322.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 328.0 1435.0 L 328.0 1533.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 478.0 1907.0 L 478.0 2005.0 L 328.0 2005.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<rect x="198.5" y="153.5" width="264" height="172" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="196" y="150" width="264" height="172" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="328.0" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="328.0" cy="150" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(314.5,136.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="328.0" y="206" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="328.0" dy="0">被 RL 的策略 Qwen2.5 0</tspan><tspan x="328.0" dy="20">.5B-7B / Llama3.2 / V</tspan></text>
-<text x="328.0" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">L</text>
-<rect x="200.5" y="389.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="198" y="386" width="261" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="328.0" y="206" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="328.0" dy="0">被 RL 的策略 Qwen2.5</tspan><tspan x="328.0" dy="20">0.5B-7B / Llama3.2 /</tspan></text>
+<text x="328.0" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">VL
+PPO / DAPO / GRPO / Dr.GRPO
+皆可插</text>
+<rect x="200.5" y="389.5" width="261" height="172" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="198" y="386" width="261" height="172" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="328.5" cy="386" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="328.5" cy="386" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(315.0,372.5) scale(1.1250)">
   <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
   <circle cx="12" cy="12" r="3" />
 </g>
-<text x="328.5" y="442" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="328.5" dy="0">七环境测试台: Sokoban </tspan><tspan x="328.5" dy="20">/ FrozenLake / MetaMa</tspan></text>
-<text x="328.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">thQA /</text>
-<rect x="200.5" y="625.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="198" y="622" width="261" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="328.5" y="442" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="328.5" dy="0">七环境测试台: Sokoban </tspan><tspan x="328.5" dy="20">/</tspan></text>
+<text x="328.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">FrozenLake /
+Countdown / SearchQA /
+WebShop / DeepCoder</text>
+<rect x="200.5" y="625.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="198" y="622" width="261" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="328.5" cy="622" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="328.5" cy="622" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(315.0,608.5) scale(1.1250)">
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
 </g>
-<text x="328.5" y="678" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="328.5" dy="0">rollout: P=8 prompt x</tspan><tspan x="328.5" dy="20"> G=16 轨迹/迭代</tspan></text>
+<text x="328.5" y="678" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="328.5" dy="0">rollout: P=8 prompt x</tspan><tspan x="328.5" dy="20">G=16 轨迹/迭代</tspan></text>
 <text x="328.5" y="708" font-size="12" fill="#5f6b7a" text-anchor="middle">(X, Z) 对复用训练数据</text>
-<rect x="357.5" y="877.5" width="253" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="355" y="874" width="253" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="357.5" y="877.5" width="253" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="355" y="874" width="253" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="481.5" cy="874" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="481.5" cy="874" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(468.0,860.5) scale(1.1250)">
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
 </g>
 <text x="481.5" y="930" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="481.5" dy="0">逐 prompt 奖励方差 RV</tspan><tspan x="481.5" dy="20">信号强度上界 sqrt(RV)</tspan></text>
-<rect x="195.5" y="1536.5" width="270" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="193" y="1533" width="270" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="195.5" y="1536.5" width="270" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="193" y="1533" width="270" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="328.0" cy="1533" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="328.0" cy="1533" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(314.5,1519.5) scale(1.1250)">
@@ -81,27 +85,28 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="328.0" y="1589" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="328.0" dy="0">SNR-Aware Top-p 过滤 (</tspan><tspan x="328.0" dy="20">rho=0.9)</tspan></text>
-<text x="328.0" y="1619" font-size="12" fill="#5f6b7a" text-anchor="middle">按方差累积质量保留最小前</text>
-<rect x="48.5" y="1772.5" width="262" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="1769" width="262" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="328.0" y="1619" font-size="12" fill="#5f6b7a" text-anchor="middle">按方差累积质量保留最小前缀</text>
+<rect x="48.5" y="1772.5" width="262" height="155" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="1769" width="262" height="155" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="177.0" cy="1769" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="177.0" cy="1769" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(163.5,1755.5) scale(1.1250)">
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
 </g>
 <text x="177.0" y="1825" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="177.0" dy="0">滤除近零 RV prompt: 此</tspan><tspan x="177.0" dy="20">处任务梯度趋零</tspan></text>
-<text x="177.0" y="1855" font-size="12" fill="#5f6b7a" text-anchor="middle">reward-agnostic 的 KL</text>
-<rect x="348.5" y="1772.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="346" y="1769" width="264" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="177.0" y="1855" font-size="12" fill="#5f6b7a" text-anchor="middle">reward-agnostic 的 KL/熵正
+则会主导更新</text>
+<rect x="348.5" y="1772.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="346" y="1769" width="264" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="478.0" cy="1769" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="478.0" cy="1769" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(464.5,1755.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="478.0" y="1825" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="478.0" dy="0">高信号子集上策略更新, l</tspan><tspan x="478.0" dy="20">oss 乘 rho</tspan></text>
+<text x="478.0" y="1825" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="478.0" dy="0">高信号子集上策略更新,</tspan><tspan x="478.0" dy="20">loss 乘 rho</tspan></text>
 <text x="478.0" y="1855" font-size="12" fill="#5f6b7a" text-anchor="middle">附带步时下降 26-41%</text>
-<rect x="50.5" y="861.5" width="269" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="48" y="858" width="269" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="50.5" y="861.5" width="269" height="172" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="48" y="858" width="269" height="172" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="182.5" cy="858" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="182.5" cy="858" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(169.0,844.5) scale(1.1250)">
@@ -110,10 +115,12 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="182.5" y="914" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="182.5" dy="0">MI proxy (核心): in-ba</tspan><tspan x="182.5" dy="20">tch cross-scoring</tspan></text>
-<text x="182.5" y="944" font-size="12" fill="#5f6b7a" text-anchor="middle">双轴分解 H(Z|X) 条件熵 </text>
-<rect x="196.5" y="1097.5" width="267" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="194" y="1094" width="267" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="182.5" y="914" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="182.5" dy="0">MI proxy (核心): in-</tspan><tspan x="182.5" dy="20">batch cross-scoring</tspan></text>
+<text x="182.5" y="944" font-size="12" fill="#5f6b7a" text-anchor="middle">双轴分解 H(Z|X) 条件熵 x I(X;Z
+)
+互信息, 无需外部模型</text>
+<rect x="196.5" y="1097.5" width="267" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="194" y="1094" width="267" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="327.5" cy="1094" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="327.5" cy="1094" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(314.0,1080.5) scale(1.1250)">
@@ -123,15 +130,15 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="327.5" y="1150" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="327.5" dy="0">Retrieval-Acc 跌向 1/P</tspan><tspan x="327.5" dy="20">而条件熵仍高?</tspan></text>
-<rect x="198.5" y="1300.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="196" y="1297" width="264" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="198.5" y="1300.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="196" y="1297" width="264" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="328.0" cy="1297" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="328.0" cy="1297" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(314.5,1283.5) scale(0.1055)"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" opacity="0.2"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></g>
 <text x="328.0" y="1353" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="328.0" dy="0">升高过滤压力 / 检查奖励</tspan><tspan x="328.0" dy="20">信号</tspan></text>
-<text x="328.0" y="1383" font-size="12" fill="#5f6b7a" text-anchor="middle">(MI 先于成功率下跌的预</text>
-<rect x="199.5" y="2008.5" width="262" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="197" y="2005" width="262" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="328.0" y="1383" font-size="12" fill="#5f6b7a" text-anchor="middle">(MI 先于成功率下跌的预警窗)</text>
+<rect x="199.5" y="2008.5" width="262" height="172" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="197" y="2005" width="262" height="172" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="328.0" cy="2005" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="328.0" cy="2005" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(314.5,1991.5) scale(1.1250)">
@@ -141,13 +148,15 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="328.0" y="2061" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="328.0" dy="0">11 组设置增益 +0.8 ~ +</tspan><tspan x="328.0" dy="20">35.8 全正</tspan></text>
-<text x="328.0" y="2091" font-size="12" fill="#5f6b7a" text-anchor="middle">MI proxy 与最终性能 Sp</text>
-<g transform="translate(328.2,338.0)"><rect x="-41.3" y="-11" width="82.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;rollout&quot;</text></g>
-<g transform="translate(355.0,1741.0)"><rect x="-61.5" y="-11" width="123.0" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;保留高方差子集&quot;</text></g>
-<g transform="translate(630.0,3003.1)"><rect x="-42.4" y="-11" width="84.8" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;梯度更新&quot;</text></g>
-<g transform="translate(303.5,830.0)"><rect x="-101.0" y="-11" width="201.9" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;teacher-forcing 全交叉打分</text></g>
-<g transform="translate(327.8,1249.0)"><rect x="-89.4" y="-11" width="178.9" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;是: template collapse </text></g>
-<g transform="translate(630.0,2972.7)"><rect x="-55.7" y="-11" width="111.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;否: 正常迭代&quot;</text></g>
+<text x="328.0" y="2091" font-size="12" fill="#5f6b7a" text-anchor="middle">MI proxy 与最终性能 Spearman 
++
+0.39, 熵类 -0.11 ~ -0.14</text>
+<g transform="translate(328.2,354.0)"><rect x="-34.4" y="-11" width="68.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">rollout</text></g>
+<g transform="translate(354.0,1741.0)"><rect x="-54.5" y="-11" width="109.0" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">保留高方差子集</text></g>
+<g transform="translate(604.0,1135.1)"><rect x="-35.4" y="-11" width="70.9" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">梯度更新</text></g>
+<g transform="translate(304.5,830.0)"><rect x="-97.5" y="-11" width="195.0" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">teacher-forcing 全交叉打分</text></g>
+<g transform="translate(327.8,1248.0)"><rect x="-111.4" y="-11" width="222.8" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">是: template collapse 早期预警</text></g>
+<g transform="translate(566.0,856.6)"><rect x="-48.8" y="-11" width="97.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">否: 正常迭代</text></g>
 <text x="40" y="2275.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="2261" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="2272" r="4.2" fill="#546e7a"/><text x="110" y="2276" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 <text x="40" y="2315" font-size="11.5" fill="#78909c">线型</text>

@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "SCAN",
-   "label": "物体 3D 扫描\nPolycam + SAM2 微调分",
-   "sub": "割",
+   "label": "物体 3D 扫描\nPolycam + SAM2 微调",
+   "sub": "分割",
    "icon": "db",
    "cls": "data",
    "x": 46,
    "y": 150,
    "w": 256,
-   "h": 140
+   "h": 138
   },
   {
    "id": "GS",
@@ -20,73 +20,73 @@
    "x": 195,
    "y": 386,
    "w": 261,
-   "h": 106
+   "h": 104
   },
   {
    "id": "AUG",
-   "label": "pre-rasterization 增强\n (核心)",
-   "sub": "渲染前扰动 SH 系数",
+   "label": "渲染前增强 (核心)",
+   "sub": "扰动 SH 系数 = 光源层面\n物理一致的光照变化\n保真+多样性兼得 (3DGS)",
    "icon": "spark",
    "cls": "key",
    "x": 192,
    "y": 588,
    "w": 267,
-   "h": 140
+   "h": 151
   },
   {
    "id": "RENDER",
-   "label": "仿真渲染管线\n比光线追踪快 1.6x, 仅 1",
-   "sub": "2GB 显存",
+   "label": "仿真渲染管线\n比光线追踪快 1.6x, 仅",
+   "sub": "12GB 显存",
    "icon": "gear",
    "cls": "env",
    "x": 191,
    "y": 824,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TEACHER",
    "label": "特权教师 (PPO)\n吃全状态: 物体速度 / 指",
-   "sub": "尖接触力",
+   "sub": "尖接触力\n(24,576 并行 env 训练 26h)",
    "icon": "state",
    "cls": "frozen",
    "x": 340,
    "y": 150,
    "w": 265,
-   "h": 140
+   "h": 155
   },
   {
    "id": "STUDENT",
    "label": "recurrent student 策略\n仅单目 RGB + 本体 (无深",
-   "sub": "度 / 无 pose 真值)",
+   "sub": "度 / 无 pose 真值)\n4,096 env 蒸馏 16h",
    "icon": "camera",
    "cls": "train",
    "x": 191,
    "y": 1296,
    "w": 269,
-   "h": 140
+   "h": 155
   },
   {
    "id": "BELIEF",
-   "label": "recurrent belief enco\nder",
-   "sub": "GRU 时序滤波估物体 pose",
+   "label": "recurrent belief\nencoder",
+   "sub": "GRU 时序滤波估物体 pose\n拒掉 180 度翻转类灾难错误",
    "icon": "db",
    "cls": "mem",
    "x": 191,
    "y": 1060,
    "w": 269,
-   "h": 140
+   "h": 155
   },
   {
    "id": "DEPLOY",
    "label": "Allegro 16-DoF 零样本\n部署",
-   "sub": "30 Hz 推理 + 300 Hz 关",
+   "sub": "30 Hz 推理 + 300 Hz 关节 PD\n平均 25+ 连续成功",
    "icon": "brain",
    "cls": "act",
    "x": 192,
    "y": 1532,
    "w": 266,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -109,7 +109,7 @@
    "from": "TEACHER",
    "to": "STUDENT",
    "style": "loss",
-   "label": "\"BC 蒸馏 + 状态重建\""
+   "label": "BC 蒸馏 + 状态重建"
   },
   {
    "from": "RENDER",

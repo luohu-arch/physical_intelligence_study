@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "A",
-   "label": "同一 instruction-tuned\n 基座",
-   "sub": "Qwen2.5-1.5B 初始化双",
+   "label": "同一 instruction-tuned\n基座",
+   "sub": "Qwen2.5-1.5B 初始化双角色, 零\n人工数据",
    "icon": "brain",
    "cls": "loop",
    "x": 51,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "GEN",
@@ -20,7 +20,7 @@
    "x": 208,
    "y": 386,
    "w": 251,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SOL",
@@ -31,40 +31,40 @@
    "x": 357,
    "y": 2460,
    "w": 259,
-   "h": 107
+   "h": 105
   },
   {
    "id": "S",
-   "label": "任务规格 s = (32 域, \n形态,",
+   "label": "任务规格 s = (32 域,\n形态,",
    "sub": "菜单规模, gold 调用数)",
    "icon": "refresh",
    "cls": "loop",
    "x": 356,
    "y": 150,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "T",
    "label": "task = question + 工具\n菜单 + gold calls",
-   "sub": "参数值必须在问题里逐字出",
+   "sub": "参数值必须在问题里逐字出现 (\nvalue grounding)",
    "icon": "refresh",
    "cls": "loop",
    "x": 198,
    "y": 622,
    "w": 270,
-   "h": 140
+   "h": 155
   },
   {
    "id": "RD",
-   "label": "带通难度奖励 (核心): r_\ndiff 在 p_succ [0.25,",
-   "sub": " 0.75] 平台",
+   "label": "带通难度奖励 (核心)\nr_diff 在 p_succ",
+   "sub": "[0.25,0.75] 平台 + 高斯衰减;\nK=8 蒙特卡洛探测, 零命中归零",
    "icon": "reward",
    "cls": "loop",
    "x": 353,
    "y": 858,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "CHK",
@@ -75,29 +75,29 @@
    "x": 46,
    "y": 858,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "F",
-   "label": "Generator 奖励 = r_fmt\n + r_valid + r_curr",
-   "sub": "(按 Solver 能力边界领奖",
+   "label": "Generator 奖励 = r_fmt \n+",
+   "sub": "r_valid + r_curr\n(按 Solver 能力边界领奖励)",
    "icon": "reward",
    "cls": "loop",
    "x": 198,
    "y": 1094,
    "w": 269,
-   "h": 140
+   "h": 155
   },
   {
    "id": "G",
-   "label": "GRPO 更新 Generator, 5\n0 步",
+   "label": "GRPO 更新 Generator,\n50 步",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
    "x": 200,
    "y": 1330,
    "w": 267,
-   "h": 107
+   "h": 105
   },
   {
    "id": "H",
@@ -108,51 +108,51 @@
    "x": 200,
    "y": 1533,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "I",
-   "label": "三段过滤: 去重 -> Solv\ner 交叉验证 -> 难度分桶",
-   "sub": "10,000 选 2,000 (20% ",
+   "label": "三段过滤: 去重 ->\nSolver 交叉验证 -> 难度",
+   "sub": "分桶\n10,000 选 2,000 (20% 存活)",
    "icon": "refresh",
    "cls": "loop",
    "x": 200,
    "y": 1736,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "J",
    "label": "2,000 条课程数据\nbatch 级 easy -> hard",
-   "sub": " 排布",
+   "sub": "排布",
    "icon": "refresh",
    "cls": "loop",
    "x": 204,
    "y": 1972,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "K",
-   "label": "Solver GRPO: r_fmt + \n稠密 r_acc",
-   "sub": "(name 0.2 + key F1 0.",
+   "label": "Solver GRPO: r_fmt +\n稠密 r_acc",
+   "sub": "(name 0.2 + key F1 0.3 +\nvalue 0.5 - 多余调用罚)",
    "icon": "refresh",
    "cls": "loop",
    "x": 202,
    "y": 2208,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ACC",
-   "label": "Qwen2.5-1.5B 平均 24.8\n5 -> 47.84 (+92.52%)",
-   "sub": "零数据超 4k-210k 人工数",
+   "label": "Qwen2.5-1.5B 平均 24.85\n-> 47.84 (+92.52%)",
+   "sub": "零数据超 4k-210k 人工数据基线 (\n最强 ToolRL 46.06)",
    "icon": "brain",
    "cls": "loop",
    "x": 50,
    "y": 2444,
    "w": 269,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -183,12 +183,12 @@
    "from": "SOL",
    "to": "RD",
    "style": "fb",
-   "label": "\"冻结做 K=8 探测 p_succ\"",
+   "label": "冻结做 K=8 探测 p_succ",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1670
+   "k": 84
   },
   {
    "from": "T",
@@ -249,12 +249,12 @@
    "from": "SOL",
    "to": "RD",
    "style": "fb",
-   "label": "\"下一迭代: 能力上移带动难度锚上移\"",
+   "label": "冻结做 K=8 探测 p_succ",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1670
+   "k": 84
   }
  ],
  "panels": [],

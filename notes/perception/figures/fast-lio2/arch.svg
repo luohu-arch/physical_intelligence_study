@@ -23,55 +23,55 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">fast-lio2</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">FAST-LIO2 提出了一种快速、鲁棒的 LiDAR-inertial 里程计框架。相比传统方法提取特征点再配准，它直接将原始点云注册到地图上（direct method），</text>
 <text x="749" y="2583" font-size="11.5" fill="#a0aab4" text-anchor="end">fast-lio2 · arXiv 2107.06829 · v3 auto</text>
-<path d="M 486.5 257.0 L 486.5 353.0 L 520.5 353.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 256.5 257.0 L 256.5 353.0 L 274.0 353.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 274.0 460.0 L 274.0 556.0 L 391.0 556.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 520.5 460.0 L 520.5 556.0 L 391.0 556.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 391.0 2013.0 L 26.0 2013.0 L 26.0 2109.0 L 145.0 2109.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 105.4 2216.0 L 105.4 3853.0 L 237.0 3853.0 L 237.0 866.0 L 410.0 866.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 391.0 663.0 L 391.0 759.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 391.0 866.0 L 391.5 962.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 391.5 1102.0 L 391.0 1198.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 361.0 1305.0 L 26.0 1305.0 L 26.0 2942.0 L 757.0 2942.0 L 757.0 866.0 L 410.0 866.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 391.0 1305.0 L 391.5 1401.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 391.5 1541.0 L 391.5 1637.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 391.5 1777.0 L 391.0 1873.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 391.0 2013.0 L 757.0 2013.0 L 757.0 2109.0 L 603.5 2109.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 391.0 2013.0 L 391.0 2110.0 L 357.0 2110.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 357.0 2216.0 L 357.0 2312.0 L 391.0 2312.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 358.6 2419.0 L 358.6 2909.0 L 446.0 2909.0 L 446.0 2013.0 L 417.2 2013.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<rect x="372.5" y="153.5" width="233" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="370" y="150" width="233" height="107" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<path d="M 486.5 255.0 L 486.5 353.0 L 520.5 353.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 256.5 255.0 L 256.5 353.0 L 274.0 353.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 274.0 458.0 L 274.0 556.0 L 391.0 556.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 520.5 458.0 L 520.5 556.0 L 391.0 556.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 391.0 2011.0 L 26.0 2011.0 L 26.0 2109.0 L 145.0 2109.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 105.4 2214.0 L 105.4 2298.0 L 237.0 2298.0 L 237.0 864.0 L 410.0 864.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 391.0 661.0 L 391.0 759.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 391.0 864.0 L 391.5 962.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 391.5 1100.0 L 391.0 1198.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 361.0 1303.0 L 361.0 1387.0 L 549.0 1387.0 L 549.0 864.0 L 410.0 864.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 391.0 1303.0 L 391.5 1401.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 391.5 1539.0 L 391.5 1637.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 391.5 1775.0 L 391.0 1873.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 391.0 2011.0 L 757.0 2011.0 L 757.0 2109.0 L 603.5 2109.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 391.0 2011.0 L 391.0 2110.0 L 357.0 2110.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 357.0 2214.0 L 357.0 2312.0 L 391.0 2312.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 358.6 2417.0 L 358.6 2501.0 L 446.0 2501.0 L 446.0 2011.0 L 417.2 2011.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<rect x="372.5" y="153.5" width="233" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="370" y="150" width="233" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="486.5" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="486.5" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(473.0,136.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
 <text x="486.5" y="206" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="486.5" dy="0">LiDAR 原始点流</tspan><tspan x="486.5" dy="20">10-100Hz 无特征提取</tspan></text>
-<rect x="424.5" y="356.5" width="197" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="422" y="353" width="197" height="107" rx="14" fill="url(#g-mem)" stroke="#b8860b" stroke-width="2.0"/>
+<rect x="424.5" y="356.5" width="197" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="422" y="353" width="197" height="105" rx="14" fill="url(#g-mem)" stroke="#b8860b" stroke-width="2.0"/>
 <circle cx="520.5" cy="353" r="24" fill="#ffffff" stroke="#b8860b" stroke-width="1.8"/>
 <circle cx="520.5" cy="353" r="27.5" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.35"/>
 <g transform="translate(507.0,339.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
 <text x="520.5" y="409" font-size="15" class="lbl" fill="#8a6d00" text-anchor="middle"><tspan x="520.5" dy="0">点累积 10-100ms</tspan><tspan x="520.5" dy="20">成一帧 Scan</tspan></text>
-<rect x="182.5" y="153.5" width="153" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="180" y="150" width="153" height="107" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<rect x="182.5" y="153.5" width="153" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="180" y="150" width="153" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="256.5" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="256.5" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(243.0,136.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
 <text x="256.5" y="206" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="256.5" dy="0">IMU 测量</tspan><tspan x="256.5" dy="20">100-1000Hz</tspan></text>
-<rect x="166.5" y="356.5" width="220" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="164" y="353" width="220" height="107" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="166.5" y="356.5" width="220" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="164" y="353" width="220" height="105" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="274.0" cy="353" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="274.0" cy="353" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(260.5,339.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
 <text x="274.0" y="409" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="274.0" dy="0">前向传播</tspan><tspan x="274.0" dy="20">IMU 运动学状态预测</tspan></text>
-<rect x="294.5" y="559.5" width="198" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="292" y="556" width="198" height="107" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="294.5" y="559.5" width="198" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="292" y="556" width="198" height="105" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="391.0" cy="556" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="391.0" cy="556" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(377.5,542.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
 <text x="391.0" y="612" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="391.0" dy="0">反向传播</tspan><tspan x="391.0" dy="20">逐点运动畸变补偿</tspan></text>
-<rect x="262.5" y="1876.5" width="262" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="260" y="1873" width="262" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="262.5" y="1876.5" width="262" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="260" y="1873" width="262" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="391.0" cy="1873" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="391.0" cy="1873" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(377.5,1859.5) scale(1.1250)">
@@ -82,8 +82,8 @@
 </g>
 <text x="391.0" y="1929" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="391.0" dy="0">ikd-Tree 增量全局地图</tspan><tspan x="391.0" dy="20">插入 O(log n) / 框式删</tspan></text>
 <text x="391.0" y="1959" font-size="12" fill="#5f6b7a" text-anchor="middle">除 / 动态重平衡</text>
-<rect x="48.5" y="2112.5" width="198" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="2109" width="198" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="48.5" y="2112.5" width="198" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="2109" width="198" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="145.0" cy="2109" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="145.0" cy="2109" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(131.5,2095.5) scale(1.1250)">
@@ -94,8 +94,8 @@
   <path d="M12 12V8" />
 </g>
 <text x="145.0" y="2165" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="145.0" dy="0">kNN 搜索</tspan><tspan x="145.0" dy="20">最近平面与法向量</tspan></text>
-<rect x="298.5" y="762.5" width="190" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="296" y="759" width="190" height="107" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="298.5" y="762.5" width="190" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="296" y="759" width="190" height="105" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="391.0" cy="759" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="391.0" cy="759" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(377.5,745.5) scale(1.1250)">
@@ -105,15 +105,15 @@
   <circle cx="4" cy="20" r="2" />
 </g>
 <text x="391.0" y="815" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="391.0" dy="0">点到平面残差</tspan><tspan x="391.0" dy="20">直接配准 免调参</tspan></text>
-<rect x="260.5" y="965.5" width="267" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="258" y="962" width="267" height="140" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="260.5" y="965.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="258" y="962" width="267" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="391.5" cy="962" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="391.5" cy="962" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(378.0,948.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
 <text x="391.5" y="1018" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="391.5" dy="0">IEKF 迭代状态更新</tspan><tspan x="391.5" dy="20">等价 Kalman 增益</tspan></text>
-<text x="391.5" y="1048" font-size="12" fill="#5f6b7a" text-anchor="middle">O(m^3) 降为 O(d^3), d=</text>
-<rect x="318.5" y="1201.5" width="150" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="316" y="1198" width="150" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="391.5" y="1048" font-size="12" fill="#5f6b7a" text-anchor="middle">O(m^3) 降为 O(d^3), d=18</text>
+<rect x="318.5" y="1201.5" width="150" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="316" y="1198" width="150" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="391.0" cy="1198" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="391.0" cy="1198" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(377.5,1184.5) scale(1.1250)">
@@ -123,17 +123,17 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="391.0" y="1254" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="391.0" dy="0">收敛?</tspan><tspan x="391.0" dy="20">3-5 次迭代</tspan></text>
-<rect x="263.5" y="1404.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="261" y="1401" width="261" height="140" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<rect x="263.5" y="1404.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="261" y="1401" width="261" height="138" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="391.5" cy="1401" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
 <circle cx="391.5" cy="1401" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(378.0,1387.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="391.5" y="1457" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="391.5" dy="0">里程计输出</tspan><tspan x="391.5" dy="20">位姿/速度/bias/外参 10</tspan></text>
-<text x="391.5" y="1487" font-size="12" fill="#5f6b7a" text-anchor="middle">-100Hz</text>
-<rect x="263.5" y="1640.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="261" y="1637" width="261" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="391.5" y="1457" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="391.5" dy="0">里程计输出</tspan><tspan x="391.5" dy="20">位姿/速度/bias/外参</tspan></text>
+<text x="391.5" y="1487" font-size="12" fill="#5f6b7a" text-anchor="middle">10-100Hz</text>
+<rect x="263.5" y="1640.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="261" y="1637" width="261" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="391.5" cy="1637" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="391.5" cy="1637" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(378.0,1623.5) scale(1.1250)">
@@ -142,16 +142,16 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="391.5" y="1693" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="391.5" dy="0">建图: 新点插入 ikd-Tre</tspan><tspan x="391.5" dy="20">e</tspan></text>
+<text x="391.5" y="1693" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="391.5" dy="0">建图: 新点插入 ikd-</tspan><tspan x="391.5" dy="20">Tree</tspan></text>
 <text x="391.5" y="1723" font-size="12" fill="#5f6b7a" text-anchor="middle">树上降采样</text>
-<rect x="472.5" y="2112.5" width="267" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="470" y="2109" width="267" height="107" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<rect x="472.5" y="2112.5" width="267" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="470" y="2109" width="267" height="105" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="603.5" cy="2109" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="603.5" cy="2109" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(590.0,2095.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
 <text x="603.5" y="2165" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="603.5" dy="0">框式删除</tspan><tspan x="603.5" dy="20">超 2000m 历史点防误匹配</tspan></text>
-<rect x="284.5" y="2113.5" width="150" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="282" y="2110" width="150" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="284.5" y="2113.5" width="150" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="282" y="2110" width="150" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="357.0" cy="2110" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="357.0" cy="2110" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(343.5,2096.5) scale(1.1250)">
@@ -161,8 +161,8 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="357.0" y="2173" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">子树失衡?</text>
-<rect x="312.5" y="2315.5" width="162" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="310" y="2312" width="162" height="107" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<rect x="312.5" y="2315.5" width="162" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="310" y="2312" width="162" height="105" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="391.0" cy="2312" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="391.0" cy="2312" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(377.5,2298.5) scale(1.1250)">
@@ -170,9 +170,9 @@
   <circle cx="12" cy="12" r="3" />
 </g>
 <text x="391.0" y="2368" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="391.0" dy="0">并行重建子树</tspan><tspan x="391.0" dy="20">主线程不卡顿</tspan></text>
-<g transform="translate(617.0,2942.0)"><rect x="-23.3" y="-11" width="46.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;否&quot;</text></g>
-<g transform="translate(391.2,1353.0)"><rect x="-23.3" y="-11" width="46.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;是&quot;</text></g>
-<g transform="translate(357.0,2281.0)"><rect x="-23.3" y="-11" width="46.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;是&quot;</text></g>
+<g transform="translate(549.0,1192.0)"><rect x="-16.4" y="-11" width="32.7" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">否</text></g>
+<g transform="translate(391.2,1352.0)"><rect x="-16.4" y="-11" width="32.7" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">是</text></g>
+<g transform="translate(357.0,2280.0)"><rect x="-16.4" y="-11" width="32.7" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">是</text></g>
 <text x="40" y="2549.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="2535" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="2546" r="4.2" fill="#6a1b9a"/><text x="110" y="2550" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="2535" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="2546" r="4.2" fill="#2e7d32"/><text x="208.76" y="2550" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

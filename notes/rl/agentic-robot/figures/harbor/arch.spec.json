@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "REQ",
-   "label": "用户请求: 仿真器代码库 \n+ 任务规格",
-   "sub": "",
+   "label": "用户请求: 仿真器代码库 \n+",
+   "sub": "任务规格",
    "icon": "gear",
    "cls": "loop",
    "x": 200,
    "y": 150,
    "w": 264,
-   "h": 107
+   "h": 138
   },
   {
    "id": "MAIN",
-   "label": "主 agent\n检索经验与 artifact, ",
+   "label": "主 agent\n检索经验与 artifact,",
    "sub": "分解有界阶段",
    "icon": "db",
    "cls": "loop",
    "x": 206,
    "y": 353,
    "w": 253,
-   "h": 140
+   "h": 138
   },
   {
    "id": "KNOW",
-   "label": "可复用经验库: 模板/参考\n/人类启发式/历史要点",
-   "sub": "stack-cube 复用 4h -> ",
+   "label": "可复用经验库: 模板/参考/\n人类启发式/历史要点",
+   "sub": "stack-cube 复用 4h -> 30min",
    "icon": "db",
    "cls": "loop",
    "x": 94,
    "y": 1297,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SIM",
@@ -42,18 +42,18 @@
    "x": 357,
    "y": 1078,
    "w": 258,
-   "h": 107
+   "h": 105
   },
   {
    "id": "CCDE",
-   "label": "CCDE 并行调参: 主 agen\nt 中央决策",
-   "sub": "N=4 子 agent 隔离 tria",
+   "label": "CCDE 并行调参: 主 agent\n中央决策",
+   "sub": "N=4 子 agent 隔离 trial 异步执\n行 (6.3x)",
    "icon": "refresh",
    "cls": "loop",
    "x": 353,
    "y": 589,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ESC",
@@ -64,18 +64,18 @@
    "x": 358,
    "y": 842,
    "w": 254,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DONE",
    "label": "可训练策略 + 全程可审计\n产物",
-   "sub": "+ 系统辨识/DR 真机迁移",
+   "sub": "+ 系统辨识/DR 真机迁移栈",
    "icon": "lightning",
    "cls": "loop",
    "x": 200,
    "y": 1533,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AG",
@@ -86,29 +86,29 @@
    "x": 46,
    "y": 589,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ART",
-   "label": "mutable artifact: tas\nk spec / reward 代码 /",
-   "sub": "曲线 / rollout MP4 / i",
+   "label": "mutable artifact: task\nspec / reward 代码 /",
+   "sub": "曲线 / rollout MP4 / install\nlog",
    "icon": "reward",
    "cls": "loop",
    "x": 53,
    "y": 825,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "GATE",
-   "label": "gate: 硬接口 + 软语义检\n查",
-   "sub": "import / reset / obs-",
+   "label": "gate: 硬接口 + 软语义\n检查",
+   "sub": "import / reset / obs-act 形状\n/ 渲染",
    "icon": "state",
    "cls": "loop",
    "x": 50,
    "y": 1061,
    "w": 269,
-   "h": 140
+   "h": 155
   },
   {
    "id": "NEXT",
@@ -119,7 +119,7 @@
    "x": 399,
    "y": 1314,
    "w": 172,
-   "h": 106
+   "h": 104
   }
  ],
  "edges": [
@@ -127,7 +127,7 @@
    "from": "AG",
    "to": "ART",
    "style": "thick",
-   "label": "\"标准化命令修改/创建 artifact\""
+   "label": "标准化命令修改/创建 artifact"
   },
   {
    "from": "ART",
@@ -138,12 +138,12 @@
    "from": "GATE",
    "to": "AG",
    "style": "loss",
-   "label": "\"失败: 结构化摘要回传就地修复\"",
+   "label": "失败: 结构化摘要回传就地修复",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "REQ",
@@ -159,58 +159,74 @@
    "from": "KNOW",
    "to": "AG",
    "style": "fb",
-   "label": "\"按 simulator/task/算法标签",
+   "label": "按 simulator/task/算法标签…",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84,
+   "labpos": [
+    560,
+    1484
+   ]
   },
   {
    "from": "GATE",
    "to": "KNOW",
    "style": "thick",
-   "label": "\"通过: 提交 artifact + 摘要写"
+   "label": "通过: 提交 artifact + 摘要写回",
+   "labpos": [
+    205,
+    1256
+   ]
   },
   {
    "from": "ART",
    "to": "SIM",
    "style": "fb",
-   "label": "\"短训练 / rollout / 渲染可执行"
+   "label": "短训练 / rollout / 渲染可执行反馈"
   },
   {
    "from": "SIM",
    "to": "ART",
    "style": "fb",
-   "label": "\"学习曲线与视频供 gate 与 agent",
+   "label": "学习曲线与视频供 gate 与 age…",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 792
+   "k": 84,
+   "labpos": [
+    205,
+    1484
+   ]
   },
   {
    "from": "AG",
    "to": "ESC",
    "style": "fb",
-   "label": "\"重试预算耗尽\""
+   "label": "重试预算耗尽"
   },
   {
    "from": "MAIN",
    "to": "CCDE",
    "style": "fb",
-   "label": "\"迭代密集阶段\""
+   "label": "迭代密集阶段"
   },
   {
    "from": "CCDE",
    "to": "MAIN",
    "style": "fb",
-   "label": "\"聚合决策写回首 agent\"",
+   "label": "聚合决策写回首 agent",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1264
+   "k": 84,
+   "labpos": [
+    98,
+    479
+   ]
   },
   {
    "from": "GATE",
@@ -224,27 +240,27 @@
    "from": "NEXT",
    "to": "MAIN",
    "style": "fb",
-   "label": "\"是: 推进下一有界阶段\"",
+   "label": "是: 推进下一有界阶段",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1264
+   "k": 84
   },
   {
    "from": "NEXT",
    "to": "DONE",
    "style": "thick",
-   "label": "\"否\""
+   "label": "否"
   }
  ],
  "panels": [
   {
-   "label": "五元组 harness: age",
+   "label": "五元组 harness: agents / commands /\nartifacts / gates / knowledge",
    "x": 20,
-   "y": 543,
+   "y": 525,
    "w": 326,
-   "h": 680
+   "h": 698
   }
  ],
  "canvas": [

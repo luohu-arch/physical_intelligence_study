@@ -9,106 +9,106 @@
    "x": 63,
    "y": 166,
    "w": 231,
-   "h": 107
+   "h": 105
   },
   {
    "id": "C",
-   "label": "Terminal / GUI / SWE \n/ Tool-call",
-   "sub": "云环境 128/64/64/32 并",
+   "label": "Terminal / GUI / SWE /\nTool-call",
+   "sub": "云环境 128/64/64/32 并行",
    "icon": "gear",
    "cls": "loop",
    "x": 332,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "B",
-   "label": "Policy Server (被训策\n略挂载)",
-   "sub": "SGLang 无状态 completi",
+   "label": "Policy Server (被训策略\n挂载)",
+   "sub": "SGLang 无状态 completion API",
    "icon": "state",
    "cls": "loop",
    "x": 196,
    "y": 386,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "D",
    "label": "主线/侧线分流: 主线回合\n可训练",
-   "sub": "侧线 (记忆/辅助查询) 只",
+   "sub": "侧线 (记忆/辅助查询) 只转发",
    "icon": "db",
    "cls": "loop",
    "x": 197,
    "y": 622,
    "w": 265,
-   "h": 140
+   "h": 138
   },
   {
    "id": "E",
    "label": "PRM Server (核心): 下\n一状态信号就地提取",
-   "sub": "用户回复/工具输出/状态",
+   "sub": "用户回复/工具输出/状态变化 =\n免费裁判",
    "icon": "state",
    "cls": "loop",
    "x": 202,
    "y": 858,
    "w": 256,
-   "h": 140
+   "h": 155
   },
   {
    "id": "EVAL",
-   "label": "评价性: 标量 PRM 多数投\n票",
+   "label": "评价性: 标量 PRM 多数\n投票",
    "sub": "r_t in {+1, -1, 0}",
    "icon": "refresh",
    "cls": "loop",
    "x": 46,
    "y": 1094,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "HINT",
-   "label": "指导性: 下一状态含修正\n时",
-   "sub": "蒸馏 [HINT] 包裹的 tok",
+   "label": "指导性: 下一状态含修\n正时",
+   "sub": "蒸馏 [HINT] 包裹的 token 级\nhint",
    "icon": "state",
    "cls": "loop",
    "x": 351,
    "y": 1094,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "G",
-   "label": "PRM Actor (teacher lo\ng-prob)",
-   "sub": "overlap 选 hint + Del",
+   "label": "PRM Actor (teacher\nlog-prob)",
+   "sub": "overlap 选 hint + Delta clip\n锁比率",
    "icon": "flask",
    "cls": "loop",
    "x": 199,
    "y": 1330,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "F",
-   "label": "Megatron 训练引擎\n混合目标 L = w_RL*L_GR",
-   "sub": "PO + w_OPD*L_OPD",
+   "label": "Megatron 训练引擎\n混合目标 L =",
+   "sub": "w_RL*L_GRPO + w_OPD*L_OPD",
    "icon": "refresh",
    "cls": "loop",
    "x": 198,
    "y": 1566,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACC",
-   "label": "偏好对齐 10.3 会话 vs \nGRPO 14.1 / Mem0 14.5",
-   "sub": "部署中在线学习: 被使用",
+   "label": "偏好对齐 10.3 会话 vs\nGRPO 14.1 / Mem0 14.5",
+   "sub": "部署中在线学习: 被使用就在变强",
    "icon": "refresh",
    "cls": "loop",
    "x": 199,
    "y": 1802,
    "w": 261,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -116,13 +116,13 @@
    "from": "A",
    "to": "B",
    "style": "thick",
-   "label": "\"HTTP API + session id"
+   "label": "HTTP API + session id"
   },
   {
    "from": "C",
    "to": "B",
    "style": "thick",
-   "label": "\"交互流\""
+   "label": "交互流"
   },
   {
    "from": "B",
@@ -148,7 +148,7 @@
    "from": "EVAL",
    "to": "F",
    "style": "fb",
-   "label": "\"稠密但薄的标量优势\""
+   "label": "稠密但薄的标量优势"
   },
   {
    "from": "HINT",
@@ -159,18 +159,18 @@
    "from": "G",
    "to": "F",
    "style": "fb",
-   "label": "\"稀疏但厚的 token 级优势\""
+   "label": "稀疏但厚的 token 级优势"
   },
   {
    "from": "F",
    "to": "B",
    "style": "fb",
-   "label": "\"同步边界推权重, 零服务中断\"",
+   "label": "同步边界推权重, 零服务中断",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1500
+   "k": 84
   },
   {
    "from": "F",
@@ -180,18 +180,18 @@
  ],
  "panels": [
   {
-   "label": "Client 侧: 任意 age",
+   "label": "Client 侧: 任意 agent 框架即数据源",
    "x": 37,
-   "y": 150,
+   "y": 103,
    "w": 585,
-   "h": 208
+   "h": 255
   },
   {
-   "label": "RL Server: slime",
+   "label": "RL Server: slime 异步四组件解耦",
    "x": 20,
-   "y": 340,
+   "y": 339,
    "w": 619,
-   "h": 1388
+   "h": 1389
   }
  ],
  "canvas": [

@@ -9,7 +9,7 @@
    "x": 80,
    "y": 167,
    "w": 197,
-   "h": 106
+   "h": 104
   },
   {
    "id": "VL",
@@ -20,7 +20,7 @@
    "x": 214,
    "y": 386,
    "w": 236,
-   "h": 106
+   "h": 104
   },
   {
    "id": "WH",
@@ -31,7 +31,7 @@
    "x": 315,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "FUSE",
@@ -42,73 +42,73 @@
    "x": 206,
    "y": 588,
    "w": 252,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FM",
-   "label": "flow-matching 动作专家\n(约 1000h ManuFacet-1",
-   "sub": "K 训练)",
+   "label": "flow-matching 动作专家\n(约 1000h ManuFacet-1K",
+   "sub": "训练)",
    "icon": "lightning",
    "cls": "train",
    "x": 350,
    "y": 791,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "Y",
-   "label": "联合块 Y (核心)\n50 步动作 + 预期诱发 wr",
-   "sub": "ench 按行配对",
+   "label": "联合块 Y (核心)\n50 步动作 + 预期诱发",
+   "sub": "wrench 按行配对\n(一步错位的因果约定)\n动作被执行, wrench 始终是预测量",
    "icon": "stack",
    "cls": "key",
    "x": 348,
    "y": 1027,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "CRITIC",
-   "label": "分布式 Action-Wrench C\nritic",
-   "sub": "区分几何进度相同但接触结",
+   "label": "分布式 Action-Wrench\nCritic",
+   "sub": "区分几何进度相同但接触结局不同的\n运动\n(干净插入 vs 卡死) + 4 辅助头",
    "icon": "lightning",
    "cls": "reward",
    "x": 348,
    "y": 1263,
    "w": 270,
-   "h": 140
+   "h": 172
   },
   {
    "id": "CREDIT",
-   "label": "contact-selective cre\ndit",
-   "sub": "无折扣短视野 delta^(N)",
+   "label": "contact-selective\ncredit",
+   "sub": "无折扣短视野 delta^(N)\n按接触 regime 分桶取 top 分位",
    "icon": "lightning",
    "cls": "loss",
    "x": 335,
    "y": 1499,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "EZ",
-   "label": "冻结瓶颈编码器 E_z\n-> FACET token (1024 ",
+   "label": "冻结瓶颈编码器 E_z\n-> FACET token (1024",
    "sub": "维)",
    "icon": "eye",
    "cls": "frozen",
    "x": 50,
    "y": 791,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACTOR",
    "label": "有界局部 actor (TD3+BC\n)",
-   "sub": "tanh 映射到任务盒 [a_m",
+   "sub": "tanh 映射到任务盒 [a_min,\na_max]\n只更新 6.6% 参数 (新零件适配)",
    "icon": "sigma",
    "cls": "train",
    "x": 46,
    "y": 1027,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "SAFETY",
@@ -119,7 +119,7 @@
    "x": 46,
    "y": 1263,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CTRL",
@@ -130,7 +130,7 @@
    "x": 68,
    "y": 1516,
    "w": 229,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -173,12 +173,12 @@
    "from": "CREDIT",
    "to": "FM",
    "style": "fb",
-   "label": "\"tagged instruction 加权",
+   "label": "tagged instruction 加权 fl…",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 792
+   "k": 84
   },
   {
    "from": "FUSE",

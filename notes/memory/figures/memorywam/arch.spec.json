@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "CLEAN",
-   "label": "当前 clean latent z_t<\nbr/",
+   "label": "当前 clean latent\nz_t<br/",
    "sub": "",
    "icon": "noise",
    "cls": "loop",
    "x": 46,
    "y": 439,
    "w": 267,
-   "h": 107
+   "h": 105
   },
   {
    "id": "NOISY",
@@ -20,7 +20,7 @@
    "x": 50,
    "y": 729,
    "w": 259,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ANCHOR",
@@ -31,40 +31,40 @@
    "x": 70,
    "y": 295,
    "w": 218,
-   "h": 106
+   "h": 104
   },
   {
    "id": "RECENT",
-   "label": "近期滑动窗 N_recent=4<\nbr/",
+   "label": "近期滑动窗\nN_recent=4<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
    "x": 48,
    "y": 874,
    "w": 262,
-   "h": 107
+   "h": 105
   },
   {
    "id": "GIST",
-   "label": "Gist token 每帧 M_v=8<\nbr/",
+   "label": "Gist token 每帧\nM_v=8<br/",
    "sub": "",
    "icon": "stack",
    "cls": "loop",
    "x": 46,
    "y": 584,
    "w": 267,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VDIT",
-   "label": "Video DiT Wan2.2 约 5\nB<br/",
+   "label": "Video DiT Wan2.2 约\n5B<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
    "x": 421,
    "y": 512,
    "w": 259,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ADIT",
@@ -75,7 +75,7 @@
    "x": 788,
    "y": 512,
    "w": 249,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ACTOUT",
@@ -86,18 +86,18 @@
    "x": 1145,
    "y": 512,
    "w": 233,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ALOSS",
-   "label": "动作 flow-matching 损\n失",
+   "label": "动作 flow-matching\n损失",
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
    "x": 52,
    "y": 150,
    "w": 256,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ROBOT",
@@ -108,7 +108,7 @@
    "x": 1486,
    "y": 512,
    "w": 165,
-   "h": 106
+   "h": 104
   }
  ],
  "edges": [
@@ -154,21 +154,21 @@
   {
    "label": "三层混合记忆 KV cache",
    "x": 20,
-   "y": 249,
+   "y": 248,
    "w": 319,
-   "h": 754
+   "h": 755
   },
   {
-   "label": "MoT 双 DiT 共享 3D ",
+   "label": "MoT 双 DiT 共享 3D RoPE",
    "x": 395,
-   "y": 466,
+   "y": 465,
    "w": 668,
-   "h": 175
+   "h": 176
   }
  ],
  "canvas": [
   1697,
-  1077
+  1121
  ],
  "legend": [
   "loop"

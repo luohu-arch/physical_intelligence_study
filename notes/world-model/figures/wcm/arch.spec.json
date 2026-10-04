@@ -9,7 +9,7 @@
    "x": 160,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ENC",
@@ -20,7 +20,7 @@
    "x": 160,
    "y": 386,
    "w": 269,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VAL",
@@ -31,18 +31,18 @@
    "x": 346,
    "y": 606,
    "w": 198,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DYN",
    "label": "动力学头 D(z, a)\n预测未来表征",
-   "sub": "dense 预测误差让 criti",
+   "sub": "dense 预测误差让 critic 更懂\n环境",
    "icon": "gear",
    "cls": "key",
    "x": 46,
    "y": 589,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "COND",
@@ -53,18 +53,18 @@
    "x": 162,
    "y": 825,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "POL",
-   "label": "VLA 策略\npi0 / pi0.5 / OpenVLA",
-   "sub": "-OFT",
+   "label": "VLA 策略\npi0 / pi0.5 /",
+   "sub": "OpenVLA-OFT\nIND 84.4% vs SFT 38.4%",
    "icon": "gear",
    "cls": "act",
    "x": 164,
    "y": 1061,
    "w": 261,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -97,7 +97,7 @@
    "from": "COND",
    "to": "POL",
    "style": "fb",
-   "label": "\"即插即用\""
+   "label": "即插即用"
   }
  ],
  "panels": [],

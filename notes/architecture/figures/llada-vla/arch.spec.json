@@ -9,18 +9,18 @@
    "x": 533,
    "y": 166,
    "w": 202,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DVLM",
    "label": "LLaDA-V 预训练扩散 VLM\n掩码扩散, 非自回归并行",
-   "sub": "生成",
+   "sub": "生成\n+ SigLIP-2 视觉编码",
    "icon": "brain",
    "cls": "train",
    "x": 410,
    "y": 386,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LANG",
@@ -31,7 +31,7 @@
    "x": 46,
    "y": 167,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "MASK",
@@ -42,29 +42,29 @@
    "x": 234,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LSC",
-   "label": "LSC 局部特殊 token 分\n类",
-   "sub": "仅在 32 个动作 bin tok",
+   "label": "LSC 局部特殊 token 分类\n仅在 32 个动作 bin",
+   "sub": "token 上分类\n不在约 32k 全词表",
    "icon": "stack",
    "cls": "key",
    "x": 410,
    "y": 622,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "HAD",
    "label": "HAD 层次化动作解码\n动作级置信度排序 remask",
-   "sub": "+ 选中动作内 token 级精",
+   "sub": "+ 选中动作内 token 级精炼",
    "icon": "stack",
    "cls": "key",
    "x": 407,
    "y": 858,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LSCM",
@@ -75,18 +75,18 @@
    "x": 773,
    "y": 166,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ACT",
-   "label": "动作序列\ndelta 动作, 固定长度无 ",
+   "label": "动作序列\ndelta 动作, 固定长度无",
    "sub": "EOS",
    "icon": "lightning",
    "cls": "act",
    "x": 407,
    "y": 1094,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ROBOT",
@@ -97,7 +97,7 @@
    "x": 466,
    "y": 1330,
    "w": 150,
-   "h": 106
+   "h": 104
   }
  ],
  "edges": [
@@ -130,12 +130,12 @@
    "from": "HAD",
    "to": "LSC",
    "style": "fb",
-   "label": "\"低置信度重掩码 迭代去噪约 10 步\"",
+   "label": "低置信度重掩码 迭代去噪约 10 步",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 758
+   "k": 84
   },
   {
    "from": "LSCM",
@@ -156,12 +156,12 @@
    "from": "ROBOT",
    "to": "VIS",
    "style": "fb",
-   "label": "\"逐动作块重新观测\"",
+   "label": "逐动作块重新观测",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1246
+   "k": 84
   }
  ],
  "panels": [],

@@ -9,29 +9,29 @@
    "x": 338,
    "y": 166,
    "w": 203,
-   "h": 107
+   "h": 105
   },
   {
    "id": "COFT",
    "label": "co-fine-tune: 动作即一\n门外语 (核心)",
-   "sub": "动作 token 与 web 数据",
+   "sub": "动作 token 与 web 数据混采\n机器人数据占 50% / 66%, 防遗忘",
    "icon": "stack",
    "cls": "key",
    "x": 312,
    "y": 386,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ROBOTD",
-   "label": "RT-1 真机 episode\n130k, 13 台机器人 17 ",
+   "label": "RT-1 真机 episode\n130k, 13 台机器人 17",
    "sub": "个月",
    "icon": "robot",
    "cls": "data",
    "x": 46,
    "y": 150,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LNT",
@@ -42,7 +42,7 @@
    "x": 579,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "P1",
@@ -53,51 +53,51 @@
    "x": 161,
    "y": 622,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "P2",
-   "label": "RT-2 PaLM-E 12B\n覆写词表 256 个最低频 t",
-   "sub": "oken",
+   "label": "RT-2 PaLM-E 12B\n覆写词表 256 个最低频",
+   "sub": "token",
    "icon": "cpu",
    "cls": "train",
    "x": 461,
    "y": 622,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "OC",
    "label": "output constraint 推理\n约束",
-   "sub": "机器人 prompt 只在合法",
+   "sub": "机器人 prompt 只在合法动作\ntoken 内采样\n普通 VQA 任务仍开放全词表",
    "icon": "chat",
    "cls": "key",
    "x": 311,
    "y": 858,
    "w": 267,
-   "h": 140
+   "h": 172
   },
   {
    "id": "DEQ",
-   "label": "反 token 化 8 个 bin\n如: 1 128 91 241 5 10",
-   "sub": "1 127",
+   "label": "反 token 化 8 个 bin\n如: 1 128 91 241 5",
+   "sub": "101 127",
    "icon": "stack",
    "cls": "act",
    "x": 315,
    "y": 1094,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CTRL",
-   "label": "云端 TPU 闭环控制\n55B: 1-3Hz / 5B: 约 5",
-   "sub": "Hz",
+   "label": "云端 TPU 闭环控制\n55B: 1-3Hz / 5B: 约",
+   "sub": "5Hz",
    "icon": "robot",
    "cls": "act",
    "x": 315,
    "y": 1330,
    "w": 259,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -150,12 +150,12 @@
    "from": "CTRL",
    "to": "OC",
    "style": "fb",
-   "label": "\"机器人 prompt 触发采样约束\"",
+   "label": "机器人 prompt 触发采样约束",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 556
+   "k": 84
   }
  ],
  "panels": [],

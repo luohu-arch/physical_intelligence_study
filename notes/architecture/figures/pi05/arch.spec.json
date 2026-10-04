@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "OBS",
-   "label": "4 路 RGB + 本体状态 18\n-19 维",
+   "label": "4 路 RGB + 本体状态\n18-19 维",
    "sub": "(2 腕 + 前 + 后)",
    "icon": "camera",
    "cls": "data",
    "x": 302,
    "y": 150,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VLM",
-   "label": "SigLIP 400M + Gemma 2\n.6B",
+   "label": "SigLIP 400M + Gemma\n2.6B",
    "sub": "VLM 主干",
    "icon": "brain",
    "cls": "frozen",
    "x": 475,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CMD",
@@ -31,18 +31,18 @@
    "x": 46,
    "y": 166,
    "w": 218,
-   "h": 107
+   "h": 105
   },
   {
    "id": "CODATA",
-   "label": "异构数据联合训练\n跨具身机器人 + 网页多模",
-   "sub": "态",
+   "label": "异构数据联合训练\n跨具身机器人 + 网页多",
+   "sub": "模态\n+ 子任务标注 + 口头指令\n(97.6% 非目标平台)",
    "icon": "robot",
    "cls": "key",
    "x": 602,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "SUBTASK",
@@ -53,7 +53,7 @@
    "x": 514,
    "y": 622,
    "w": 184,
-   "h": 107
+   "h": 105
   },
   {
    "id": "EXP",
@@ -64,18 +64,18 @@
    "x": 474,
    "y": 825,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LFM",
-   "label": "联合损失: token 预测\n+ flow matching (alph",
-   "sub": "a = 10)",
+   "label": "联合损失: token 预测\n+ flow matching (",
+   "sub": "alpha = 10)",
    "icon": "sigma",
    "cls": "loss",
    "x": 904,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACTION",
@@ -86,7 +86,7 @@
    "x": 477,
    "y": 1061,
    "w": 257,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ROBOT",
@@ -97,7 +97,7 @@
    "x": 491,
    "y": 1297,
    "w": 229,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -115,19 +115,19 @@
    "from": "CODATA",
    "to": "VLM",
    "style": "fb",
-   "label": "\"co-training 多层次知识迁移\""
+   "label": "co-training 多层次知识迁移"
   },
   {
    "from": "VLM",
    "to": "SUBTASK",
    "style": "thick",
-   "label": "\"每步先预测\""
+   "label": "每步先预测"
   },
   {
    "from": "SUBTASK",
    "to": "EXP",
    "style": "thick",
-   "label": "\"子任务作 condition\""
+   "label": "子任务作 condition"
   },
   {
    "from": "OBS",
@@ -158,12 +158,12 @@
    "from": "ROBOT",
    "to": "OBS",
    "style": "fb",
-   "label": "\"闭环重观测 高层子任务逐步重预测\"",
+   "label": "闭环重观测 高层子任务逐步重预测",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1198
+   "k": 84
   }
  ],
  "panels": [],

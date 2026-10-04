@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "LINK",
-   "label": "link 位姿 x_t + 速度 v\n_t",
+   "label": "link 位姿 x_t + 速度\nv_t",
    "sub": "",
    "icon": "db",
    "cls": "data",
    "x": 353,
    "y": 166,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "CTRL",
@@ -20,18 +20,18 @@
    "x": 808,
    "y": 1734,
    "w": 180,
-   "h": 106
+   "h": 104
   },
   {
    "id": "GEO",
-   "label": "物体几何\nMoCap 网格 / 自我中心深",
-   "sub": "度",
+   "label": "物体几何\nMoCap 网格 / 自我中心",
+   "sub": "深度",
    "icon": "db",
    "cls": "data",
    "x": 46,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DF",
@@ -42,18 +42,18 @@
    "x": 651,
    "y": 386,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TUP",
-   "label": "逐 link DF 四元组 u_t \n(核心表征)",
-   "sub": "[Phi, grad Phi, v_nor",
+   "label": "逐 link DF 四元组\nu_t (核心表征)",
+   "sub": "[Phi,gradPhi,v_norm,v_tan]\n法向=接近强度, 切向=滑移\n不含全局坐标 -> 位姿不变",
    "icon": "spark",
    "cls": "key",
    "x": 646,
    "y": 622,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "WIN",
@@ -64,7 +64,7 @@
    "x": 632,
    "y": 875,
    "w": 233,
-   "h": 106
+   "h": 104
   },
   {
    "id": "VAE",
@@ -75,7 +75,7 @@
    "x": 824,
    "y": 1094,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "Z",
@@ -86,7 +86,7 @@
    "x": 800,
    "y": 1296,
    "w": 198,
-   "h": 106
+   "h": 104
   },
   {
    "id": "PROP",
@@ -97,40 +97,40 @@
    "x": 655,
    "y": 167,
    "w": 195,
-   "h": 106
+   "h": 104
   },
   {
    "id": "POL",
-   "label": "Transformer 策略\n输入 [o_prop, c_root, ",
-   "sub": "z_t] 拼接",
+   "label": "Transformer 策略\n输入 [o_prop, c_root,",
+   "sub": "z_t] 拼接\n单策略连续执行多技能",
    "icon": "lightning",
    "cls": "train",
    "x": 765,
    "y": 1498,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ROOT",
-   "label": "根轨迹命令 c_root\n唯一任务输入, 无全身参",
-   "sub": "考",
+   "label": "根轨迹命令 c_root\n唯一任务输入, 无全身",
+   "sub": "参考",
    "icon": "chat",
    "cls": "data",
    "x": 888,
    "y": 150,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TEACH",
-   "label": "教师 pi_mimic = ResMim\nic",
-   "sub": "(特权全身参考, 仅数据生",
+   "label": "教师 pi_mimic =\nResMimic",
+   "sub": "(特权全身参考, 仅数据生成器)",
    "icon": "brain",
    "cls": "frozen",
    "x": 1180,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "T1",
@@ -141,18 +141,18 @@
    "x": 951,
    "y": 402,
    "w": 195,
-   "h": 107
+   "h": 105
   },
   {
    "id": "AIPD",
-   "label": "AIP 判别器 (LSGAN)\n只判别 DF latent z_t, ",
-   "sub": "不判关节状态",
+   "label": "AIP 判别器 (LSGAN)\n只判别 DF latent z_t,",
+   "sub": "不判关节状态\n允许为新几何合成全新姿态",
    "icon": "state",
    "cls": "reward",
    "x": 1485,
    "y": 150,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "T2",
@@ -163,18 +163,18 @@
    "x": 948,
    "y": 638,
    "w": 203,
-   "h": 107
+   "h": 105
   },
   {
    "id": "T3",
    "label": "3. 视觉蒸馏\n冻结 pi_full -> 纯深度",
-   "sub": " pi_vis",
+   "sub": "pi_vis",
    "icon": "camera",
    "cls": "loss",
    "x": 903,
    "y": 858,
    "w": 262,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -191,7 +191,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1650
+   "k": 84
   },
   {
    "from": "GEO",
@@ -247,13 +247,13 @@
    "from": "TEACH",
    "to": "T1",
    "style": "loss",
-   "label": "\"DAgger 蒸馏\""
+   "label": "DAgger 蒸馏"
   },
   {
    "from": "AIPD",
    "to": "T2",
    "style": "fb",
-   "label": "\"交互风格奖励 r_interact(z_t"
+   "label": "交互风格奖励 r_interact(z_t)"
   },
   {
    "from": "T1",
@@ -270,9 +270,9 @@
   {
    "label": "人形交互回路 · 三阶段训练 (同一架构)",
    "x": 327,
-   "y": 150,
+   "y": 103,
    "w": 864,
-   "h": 1742
+   "h": 1789
   }
  ],
  "canvas": [

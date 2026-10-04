@@ -9,73 +9,73 @@
    "x": 232,
    "y": 150,
    "w": 253,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FT",
-   "label": "微调后冻结 VLA\nFlower (1024 维) / GR",
-   "sub": "00T N1.7 (2048 维)",
+   "label": "微调后冻结 VLA\nFlower (1024 维) /",
+   "sub": "GR00T N1.7 (2048 维)",
    "icon": "brain",
    "cls": "frozen",
    "x": 350,
    "y": 353,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TWIN",
-   "label": "数字孪生重建\nFoundationPose + MuJo",
-   "sub": "Co",
+   "label": "数字孪生重建\nFoundationPose +",
+   "sub": "MuJoCo",
    "icon": "gear",
    "cls": "env",
    "x": 647,
    "y": 353,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SIMZ",
-   "label": "仿真侧 VLM latents Z_s\nim",
+   "label": "仿真侧 VLM latents\nZ_sim",
    "sub": "",
    "icon": "brain",
    "cls": "data",
    "x": 492,
    "y": 589,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "REALZ",
-   "label": "真实侧 VLM latents Z_r\neal",
+   "label": "真实侧 VLM latents\nZ_real",
    "sub": "",
    "icon": "brain",
    "cls": "data",
    "x": 46,
    "y": 370,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "MAP",
-   "label": "Sinkhorn OT mapper (\n核心)",
-   "sub": "4 层 Transformer + 零",
+   "label": "Sinkhorn OT mapper\n(核心)",
+   "sub": "4 层 Transformer + 零初始化\n分布级对齐: sim 拉向 real\n轨迹进度正则, 免帧级对齐",
    "icon": "spark",
    "cls": "key",
    "x": 348,
    "y": 792,
    "w": 258,
-   "h": 140
+   "h": 172
   },
   {
    "id": "RL",
-   "label": "TD3 残差策略 (train, \n仅仿真 60k 步)",
-   "sub": "输入: pool 后 latent +",
+   "label": "TD3 残差策略 (train, 仅\n仿真 60k 步)",
+   "sub": "输入: pool 后 latent + 名义动\n作 + 本体 + 腕力",
    "icon": "gear",
    "cls": "train",
    "x": 344,
    "y": 1028,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "NOM",
@@ -86,7 +86,7 @@
    "x": 196,
    "y": 589,
    "w": 259,
-   "h": 107
+   "h": 105
   },
   {
    "id": "CRITIC",
@@ -97,7 +97,7 @@
    "x": 502,
    "y": 1264,
    "w": 252,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PRIV",
@@ -108,29 +108,29 @@
    "x": 524,
    "y": 150,
    "w": 198,
-   "h": 107
+   "h": 105
   },
   {
    "id": "SUM",
-   "label": "执行动作 a = a_vla + 0\n.10 * a_rl",
+   "label": "执行动作 a = a_vla +\n0.10 * a_rl",
    "sub": "",
    "icon": "robot",
    "cls": "act",
    "x": 200,
    "y": 1264,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DEPLOY",
    "label": "Franka 真机零样本部署\n原始 real latent 直入,",
-   "sub": " mapper 不上线",
+   "sub": "mapper 不上线\n零真机 RL, 零在线适应",
    "icon": "noise",
    "cls": "act",
    "x": 345,
    "y": 1467,
    "w": 264,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -166,7 +166,7 @@
    "from": "REALZ",
    "to": "MAP",
    "style": "fb",
-   "label": "\"对齐目标分布\""
+   "label": "对齐目标分布"
   },
   {
    "from": "MAP",
@@ -182,7 +182,7 @@
    "from": "DEMO",
    "to": "RL",
    "style": "fb",
-   "label": "\"demo 残差目标 (a_demo - a"
+   "label": "demo 残差目标 (a_demo - a_v…"
   },
   {
    "from": "RL",
@@ -193,7 +193,7 @@
    "from": "PRIV",
    "to": "CRITIC",
    "style": "fb",
-   "label": "\"asymmetric critic 输入\""
+   "label": "asymmetric critic 输入"
   },
   {
    "from": "NOM",

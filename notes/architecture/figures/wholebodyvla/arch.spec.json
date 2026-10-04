@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "EGO",
-   "label": "自采 300h egocentric \n行走视频",
-   "sub": "头戴相机, 无 MoCap / ",
+   "label": "自采 300h egocentric\n行走视频",
+   "sub": "头戴相机, 无 MoCap / 无遥操作",
    "icon": "camera",
    "cls": "data",
    "x": 338,
    "y": 150,
    "w": 258,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LAM1",
-   "label": "locomotion LAM (VQ-VA\nE)",
-   "sub": "整幅场景变化 -> 离散码 ",
+   "label": "locomotion LAM (VQ-VAE\n)",
+   "sub": "整幅场景变化 -> 离散码 c_loco",
    "icon": "stack",
    "cls": "key",
    "x": 790,
    "y": 386,
    "w": 265,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AGI",
@@ -31,51 +31,51 @@
    "x": 46,
    "y": 166,
    "w": 254,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LAM2",
    "label": "manipulation LAM (VQ-\nVAE)",
-   "sub": "手臂区域变化 -> 离散码 ",
+   "sub": "手臂区域变化 -> 离散码 c_mani",
    "icon": "stack",
    "cls": "key",
    "x": 487,
    "y": 386,
    "w": 265,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LLAM",
-   "label": "损失 L_LAM:\nDINOv2 特征重建 MSE + ",
+   "label": "损失 L_LAM:\nDINOv2 特征重建 MSE +",
    "sub": "VQ 目标",
    "icon": "sigma",
    "cls": "loss",
    "x": 1232,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VLA",
-   "label": "VLM 主干 (Prismatic-7B\n 初始化)",
-   "sub": "联合预测两类 latent to",
+   "label": "VLM 主干 (Prismatic-7B\n初始化)",
+   "sub": "联合预测两类 latent token\n(约 10Hz@RTX 4090)",
    "icon": "brain",
    "cls": "train",
    "x": 638,
    "y": 622,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LCE",
-   "label": "交叉熵联合监督\nmin -log pi(c_mani, c",
-   "sub": "_loco | o, l)",
+   "label": "交叉熵联合监督\nmin -log pi(c_mani,",
+   "sub": "c_loco | o, l)",
    "icon": "sigma",
    "cls": "loss",
    "x": 933,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEC",
@@ -86,7 +86,7 @@
    "x": 657,
    "y": 858,
    "w": 228,
-   "h": 107
+   "h": 105
   },
   {
    "id": "UB",
@@ -97,40 +97,40 @@
    "x": 830,
    "y": 1078,
    "w": 184,
-   "h": 106
+   "h": 104
   },
   {
    "id": "CMD",
-   "label": "移动指令 s_x, s_y, s_y\naw, h*",
-   "sub": "离散三元 flag + 目标站",
+   "label": "移动指令 s_x, s_y,\ns_yaw, h*",
+   "sub": "离散三元 flag + 目标站姿高度",
    "icon": "chat",
    "cls": "act",
    "x": 528,
    "y": 1061,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LMO",
    "label": "LMO RL 控制器 50Hz (板\n载)",
-   "sub": "goal-conditioned regu",
+   "sub": "goal-conditioned regulation\ntanh 软门控参考整形",
    "icon": "robot",
    "cls": "train",
    "x": 639,
    "y": 1297,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "REW",
-   "label": "LMO 奖励: 方向保真 J_d\nir",
+   "label": "LMO 奖励: 方向保真\nJ_dir",
    "sub": "+ 站姿稳定惩罚",
    "icon": "reward",
    "cls": "reward",
    "x": 634,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ROBOT",
@@ -141,7 +141,7 @@
    "x": 657,
    "y": 1533,
    "w": 228,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -175,13 +175,13 @@
    "from": "LAM1",
    "to": "VLA",
    "style": "thick",
-   "label": "\"伪动作标签\""
+   "label": "伪动作标签"
   },
   {
    "from": "LAM2",
    "to": "VLA",
    "style": "thick",
-   "label": "\"伪动作标签\""
+   "label": "伪动作标签"
   },
   {
    "from": "LCE",
@@ -227,21 +227,21 @@
    "from": "ROBOT",
    "to": "EGO",
    "style": "fb",
-   "label": "\"分层闭环: 10Hz 决策 + 50Hz ",
+   "label": "分层闭环: 10Hz 决策 + 50Hz …",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1467
+   "k": 84
   }
  ],
  "panels": [
   {
    "label": "分离式统一潜在学习 (核心)",
    "x": 461,
-   "y": 340,
+   "y": 339,
    "w": 620,
-   "h": 208
+   "h": 209
   }
  ],
  "canvas": [

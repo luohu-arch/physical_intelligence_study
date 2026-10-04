@@ -9,51 +9,51 @@
    "x": 595,
    "y": 166,
    "w": 261,
-   "h": 107
+   "h": 105
   },
   {
    "id": "GOAL",
    "label": "目标图像 g\n视觉目标条件",
-   "sub": "失败轨迹 hindsight 重",
+   "sub": "失败轨迹 hindsight 重标注",
    "icon": "camera",
    "cls": "data",
    "x": 304,
    "y": 150,
    "w": 253,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VQ",
-   "label": "VQ-GAN 图像分词器 (冻结\n)",
+   "label": "VQ-GAN 图像分词器 (冻\n结)",
    "sub": "压缩为 8x8 token",
    "icon": "camera",
    "cls": "frozen",
    "x": 316,
    "y": 386,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "BB",
-   "label": "Decoder-only Transfor\nmer 1.18B",
-   "sub": "异构本体统一为 token 序",
+   "label": "Decoder-only\nTransformer 1.18B",
+   "sub": "异构本体统一为 token 序列\n上下文 1024 token 约 3 步历史",
    "icon": "state",
    "cls": "train",
    "x": 318,
    "y": 622,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "L",
    "label": "联合损失\n动作 token 交叉熵",
-   "sub": "+ k=5 步图像 token 预",
+   "sub": "+ k=5 步图像 token 预测",
    "icon": "camera",
    "cls": "loss",
    "x": 562,
    "y": 858,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEMO",
@@ -64,7 +64,7 @@
    "x": 46,
    "y": 167,
    "w": 220,
-   "h": 106
+   "h": 104
   },
   {
    "id": "FT",
@@ -75,18 +75,18 @@
    "x": 86,
    "y": 874,
    "w": 251,
-   "h": 107
+   "h": 105
   },
   {
    "id": "GEN",
    "label": "真机自主收集轨迹\n成功检测器筛选 ~90%",
-   "sub": "策略池互补任务互为 rese",
+   "sub": "策略池互补任务互为 reset",
    "icon": "check",
    "cls": "key",
    "x": 318,
    "y": 1094,
    "w": 265,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AGG",
@@ -97,7 +97,7 @@
    "x": 343,
    "y": 1330,
    "w": 216,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ROBOT",
@@ -108,7 +108,7 @@
    "x": 374,
    "y": 875,
    "w": 150,
-   "h": 106
+   "h": 104
   }
  ],
  "edges": [
@@ -151,45 +151,45 @@
    "from": "GEN",
    "to": "AGG",
    "style": "fb",
-   "label": "\"自生成数据入池 一轮自改进全面超纯示教\""
+   "label": "自生成数据入池 一轮自改进全面超纯示教"
   },
   {
    "from": "AGG",
    "to": "BB",
    "style": "fb",
-   "label": "\"重训练下一版通用模型\"",
+   "label": "重训练下一版通用模型",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 759
+   "k": 84
   },
   {
    "from": "BB",
    "to": "ROBOT",
    "style": "thick",
-   "label": "\"动作 token 自回归 10-20Hz "
+   "label": "动作 token 自回归 10-20Hz …"
   }
  ],
  "panels": [
   {
-   "label": "多任务多本体预训练数据 · 自改进循环 (self-impr",
+   "label": "多任务多本体预训练数据 · Gato 式跨本体骨干 · 自改进循环 (self-improvement)",
    "x": 20,
-   "y": 150,
+   "y": 92,
    "w": 862,
-   "h": 1355
+   "h": 1413
   },
   {
    "label": "Gato 式跨本体骨干",
    "x": 290,
-   "y": 340,
+   "y": 339,
    "w": 552,
-   "h": 680
+   "h": 681
   }
  ],
  "canvas": [
   902,
-  1619
+  1623
  ],
  "legend": [
   "act",

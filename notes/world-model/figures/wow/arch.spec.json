@@ -9,18 +9,18 @@
    "x": 46,
    "y": 150,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "REF",
-   "label": "Refiner Agent\n改写提示词 (SOPHIA 迭代",
-   "sub": ")",
+   "label": "Refiner Agent\n改写提示词 (SOPHIA 迭",
+   "sub": "代)",
    "icon": "cpu",
    "cls": "train",
    "x": 80,
    "y": 352,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "P",
@@ -31,7 +31,7 @@
    "x": 96,
    "y": 588,
    "w": 238,
-   "h": 106
+   "h": 104
   },
   {
    "id": "OBS",
@@ -42,18 +42,18 @@
    "x": 234,
    "y": 150,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "GEN",
    "label": "WoW DiT 14B\nT5 文本条件 + Haar 小",
-   "sub": "波 VAE latent",
+   "sub": "波 VAE latent\n+ DINOv2 中间层注入\n203 万真机轨迹训练",
    "icon": "chat",
    "cls": "train",
    "x": 88,
    "y": 790,
    "w": 253,
-   "h": 140
+   "h": 172
   },
   {
    "id": "VID",
@@ -64,29 +64,29 @@
    "x": 89,
    "y": 1026,
    "w": 252,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CRIT",
-   "label": "Critic Team: 物理/运动\n/语义/质量",
+   "label": "Critic Team: 物理/运\n动/语义/质量",
    "sub": "四模板各 1-5 分打分",
    "icon": "target",
    "cls": "key",
    "x": 83,
    "y": 1262,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "IDM",
-   "label": "FM-IDM 逆动力学\n掩码帧 SAM 分支 + CoTr",
-   "sub": "acker3 光流分支",
+   "label": "FM-IDM 逆动力学\n掩码帧 SAM 分支 +",
+   "sub": "CoTracker3 光流分支\n+ DINO 特征",
    "icon": "gear",
    "cls": "key",
    "x": 84,
    "y": 1498,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ACT",
@@ -97,18 +97,18 @@
    "x": 97,
    "y": 1734,
    "w": 236,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ROBOT",
-   "label": "真机执行: 成功率/位置误\n差",
-   "sub": "/力矩稳定/能耗",
+   "label": "真机执行: 成功率/位置\n误差",
+   "sub": "/力矩稳定/能耗\nEasy 94.5% Mid 75.2%",
    "icon": "robot",
    "cls": "act",
    "x": 83,
    "y": 1936,
    "w": 264,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -146,18 +146,22 @@
    "from": "CRIT",
    "to": "REF",
    "style": "fb",
-   "label": "\"不通过: 文字反馈退回重抽 对分布筛样本而",
+   "label": "不通过: 文字反馈退回重抽 对…",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1668
+   "k": 84,
+   "labpos": [
+    111,
+    991
+   ]
   },
   {
    "from": "CRIT",
    "to": "IDM",
    "style": "thick",
-   "label": "\"通过\""
+   "label": "通过"
   },
   {
    "from": "IDM",
@@ -173,12 +177,12 @@
    "from": "ROBOT",
    "to": "GEN",
    "style": "loss",
-   "label": "\"GRPO 奖励信号回传\"",
+   "label": "GRPO 奖励信号回传",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1230
+   "k": 84
   }
  ],
  "panels": [],

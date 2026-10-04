@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "POL",
-   "label": "被 RL 的策略: Qwen3-4B\nBC 冷启动 + 格式惩罚 + ",
+   "label": "被 RL 的策略: Qwen3-4B\nBC 冷启动 + 格式惩罚 +",
    "sub": "k3 KL 正则测试床",
    "icon": "brain",
    "cls": "loop",
    "x": 636,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ENV",
-   "label": "文本环境: ALFWorld / W\nebShop / Sokoban / TI",
-   "sub": "R Math",
+   "label": "文本环境: ALFWorld /\nWebShop / Sokoban /",
+   "sub": "TIR Math\n累积多轮历史, 逐轮返回转移与终\n局奖励",
    "icon": "chat",
    "cls": "loop",
    "x": 486,
    "y": 386,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "TRAJ",
@@ -31,51 +31,51 @@
    "x": 488,
    "y": 622,
    "w": 259,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PG",
-   "label": "agentic 策略梯度\nIS 权重 x log-prob x a",
-   "sub": "dvantage",
+   "label": "agentic 策略梯度\nIS 权重 x log-prob x",
+   "sub": "advantage",
    "icon": "lightning",
    "cls": "loop",
    "x": 484,
    "y": 825,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "D1",
-   "label": "维度 1 损失聚合\nseq-mean vs token-mea",
-   "sub": "n",
+   "label": "维度 1 损失聚合\nseq-mean vs token-",
+   "sub": "mean\ntoken-mean 稳, seq-mean -\n15.0%",
    "icon": "sigma",
    "cls": "loop",
    "x": 46,
    "y": 1061,
    "w": 261,
-   "h": 140
+   "h": 172
   },
   {
    "id": "D2",
-   "label": "维度 2 IS 裁剪\ntoken 级 / 容错 / 序列",
-   "sub": "级",
+   "label": "维度 2 IS 裁剪\ntoken 级 / 容错 / 序",
+   "sub": "列级\n序列级 +13.3%, 容错 ~130 步\n崩溃",
    "icon": "stack",
    "cls": "loop",
    "x": 345,
    "y": 1061,
    "w": 262,
-   "h": 140
+   "h": 172
   },
   {
    "id": "D3",
    "label": "维度 3 轨迹过滤重采样\nDAPO 动态采样",
-   "sub": "配 GIGPO +11.0%, 配 GR",
+   "sub": "配 GIGPO +11.0%, 配 GRPO -7.6\n%",
    "icon": "refresh",
    "cls": "loop",
    "x": 645,
    "y": 1061,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "D4",
@@ -86,40 +86,40 @@
    "x": 950,
    "y": 1061,
    "w": 239,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CRASH",
-   "label": "崩溃根因诊断: 负优势 + \n低 IS 比率序列累积",
-   "sub": "序列掩码一招把 CISPO/SA",
+   "label": "崩溃根因诊断: 负优势 +\n低 IS 比率序列累积",
+   "sub": "序列掩码一招把 CISPO/SAPO 拉回\n78.88/76.92",
    "icon": "refresh",
    "cls": "loop",
    "x": 330,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 155
   },
   {
    "id": "SAMPO",
-   "label": "SAMPO 三合一: 序列级 s\n_i 裁剪 +",
+   "label": "SAMPO 三合一: 序列级\ns_i 裁剪 +",
    "sub": "步级优势 A' + 动态过滤",
    "icon": "refresh",
    "cls": "loop",
    "x": 487,
    "y": 1297,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACC",
-   "label": "四任务平均 60.21, 比 G\nRPO +25.2%",
-   "sub": "ALFWorld 92.72% 反超 G",
+   "label": "四任务平均 60.21, 比\nGRPO +25.2%",
+   "sub": "ALFWorld 92.72% 反超 GPT-5.2\n的 51.56%",
    "icon": "refresh",
    "cls": "loop",
    "x": 484,
    "y": 1533,
    "w": 267,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -147,7 +147,7 @@
    "from": "POL",
    "to": "ENV",
    "style": "fb",
-   "label": "\"rollout 交互\""
+   "label": "rollout 交互"
   },
   {
    "from": "ENV",
@@ -183,7 +183,7 @@
    "from": "CRASH",
    "to": "D2",
    "style": "fb",
-   "label": "\"八组 KL 贡献分解锁定\""
+   "label": "八组 KL 贡献分解锁定"
   },
   {
    "from": "SAMPO",
@@ -194,12 +194,12 @@
    "from": "PG",
    "to": "POL",
    "style": "loss",
-   "label": "\"梯度更新\"",
+   "label": "梯度更新",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1467
+   "k": 84
   }
  ],
  "panels": [],

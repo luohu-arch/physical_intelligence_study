@@ -2,113 +2,113 @@
  "nodes": [
   {
    "id": "PRE",
-   "label": "Qwen3-30B-A3B-Base\n30.5B 总参 / 每 token ",
+   "label": "Qwen3-30B-A3B-Base\n30.5B 总参 / 每 token",
    "sub": "激活 3.3B MoE",
    "icon": "brain",
    "cls": "loop",
    "x": 957,
    "y": 150,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CPT1",
-   "label": "Agentic CPT Stage 1: \n32K 上下文",
-   "sub": "合成数据注入 agentic 行",
+   "label": "Agentic CPT Stage 1:\n32K 上下文",
+   "sub": "合成数据注入 agentic 行为先验",
    "icon": "db",
    "cls": "loop",
    "x": 500,
    "y": 386,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CPT2",
-   "label": "Agentic CPT Stage 2: \n128K 上下文",
-   "sub": "64K-128K 长轨迹 + 少量",
+   "label": "Agentic CPT Stage 2:\n128K 上下文",
+   "sub": "64K-128K 长轨迹 + 少量通用数据\n防遗忘",
    "icon": "db",
    "cls": "loop",
    "x": 504,
    "y": 622,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "SFTN",
-   "label": "SFT 冷启动: 40K -> 128\nK",
-   "sub": "ReAct + Context Manag",
+   "label": "SFT 冷启动: 40K ->\n128K",
+   "sub": "ReAct + Context Management 双\n模式轨迹",
    "icon": "chat",
    "cls": "loop",
    "x": 502,
    "y": 858,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "RLS",
-   "label": "Agentic RL: 严格 on-po\nlicy GRPO 变体",
-   "sub": "IS 比恒 1.0 + clip-hig",
+   "label": "Agentic RL: 严格 on-\npolicy GRPO 变体",
+   "sub": "IS 比恒 1.0 + clip-higher +\nleave-one-out",
    "icon": "eye",
    "cls": "loop",
    "x": 501,
    "y": 1094,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "OBJ",
-   "label": "目标: 纯 0/1 答案正确性\n, 无格式项",
+   "label": "目标: 纯 0/1 答案正确性,\n无格式项",
    "sub": "超长未答负样本从损失剔除",
    "icon": "sigma",
    "cls": "loop",
    "x": 649,
    "y": 150,
    "w": 270,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ENV3",
-   "label": "三级环境 (核心): prior\n world 零成本无限扩 /",
-   "sub": "simulated 离线 wiki 风",
+   "label": "三级环境 (核心): prior\nworld 零成本无限扩 /",
+   "sub": "simulated 离线 wiki 风洞 /\nreal-world 非平稳终训",
    "icon": "gear",
    "cls": "loop",
    "x": 345,
    "y": 150,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "SANDBOX",
-   "label": "统一 sandbox: QPS 限速\n / 缓存 / 重试 /",
-   "sub": "降级 / 备份源, 工具调用",
+   "label": "统一 sandbox: QPS 限速 \n/",
+   "sub": "缓存 / 重试 /\n降级 / 备份源, 工具调用确定性化",
    "icon": "refresh",
    "cls": "loop",
    "x": 805,
    "y": 1566,
    "w": 265,
-   "h": 140
+   "h": 155
   },
   {
    "id": "CM",
-   "label": "Context Management: \n只看 q + 滚动摘要 S_t ",
-   "sub": "+",
+   "label": "Context Management: 只\n看 q + 滚动摘要 S_t +",
+   "sub": "最近一轮交互, Markovian 状态\n重建防膨胀",
    "icon": "chat",
    "cls": "loop",
    "x": 46,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "TOOLS",
-   "label": "5 工具: Search / Visit\n / Python Interpreter",
-   "sub": " /",
+   "label": "5 工具: Search / Visit\n/ Python Interpreter /",
+   "sub": "Scholar / File Parser, 每任务\n<=128 次调用",
    "icon": "refresh",
    "cls": "loop",
    "x": 757,
    "y": 1330,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "CHK",
@@ -119,18 +119,18 @@
    "x": 245,
    "y": 1346,
    "w": 177,
-   "h": 107
+   "h": 105
   },
   {
    "id": "CUR",
    "label": "动态数据策划: 剔除全对/\n全错无信号题",
-   "sub": "checkpoint 回采补难度",
+   "sub": "checkpoint 回采补难度适中新题,\n刷新 D'",
    "icon": "refresh",
    "cls": "loop",
    "x": 199,
    "y": 1566,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "MG",
@@ -141,29 +141,29 @@
    "x": 460,
    "y": 1346,
    "w": 259,
-   "h": 107
+   "h": 105
   },
   {
    "id": "HM",
-   "label": "Heavy Mode: n 个并行 a\ngent 各产压缩报告",
-   "sub": "综合模型只消费 S_T 合成",
+   "label": "Heavy Mode: n 个并行\nagent 各产压缩报告",
+   "sub": "综合模型只消费 S_T 合成答案 (\ntest-time scaling)",
    "icon": "refresh",
    "cls": "loop",
    "x": 501,
    "y": 1566,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ACC",
-   "label": "7 基准 5 项第一: HLE 3\n2.9 / GAIA 70.9 / xbe",
-   "sub": "nch 75.0",
+   "label": "7 基准 5 项第一: HLE\n32.9 / GAIA 70.9 /",
+   "sub": "xbench 75.0\nHeavy Mode 把 BrowseComp\n43.4 拉到 58.3",
    "icon": "refresh",
    "cls": "loop",
    "x": 504,
    "y": 1802,
    "w": 262,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [
@@ -191,31 +191,31 @@
    "from": "OBJ",
    "to": "RLS",
    "style": "fb",
-   "label": "\"目标函数\""
+   "label": "目标函数"
   },
   {
    "from": "ENV3",
    "to": "RLS",
    "style": "fb",
-   "label": "\"mid-training 用前两级, RL"
+   "label": "mid-training 用前两级, RL …"
   },
   {
    "from": "RLS",
    "to": "TOOLS",
    "style": "fb",
-   "label": "\"rollout 交互\""
+   "label": "rollout 交互"
   },
   {
    "from": "TOOLS",
    "to": "SANDBOX",
    "style": "fb",
-   "label": "\"经确定性接口\""
+   "label": "经确定性接口"
   },
   {
    "from": "CM",
    "to": "RLS",
    "style": "fb",
-   "label": "\"S_t 滚动摘要\""
+   "label": "S_t 滚动摘要"
   },
   {
    "from": "RLS",
@@ -226,29 +226,29 @@
    "from": "CHK",
    "to": "RLS",
    "style": "fb",
-   "label": "\"否: 继续训练\"",
+   "label": "否: 继续训练",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 792
+   "k": 84
   },
   {
    "from": "CHK",
    "to": "CUR",
    "style": "thick",
-   "label": "\"是\""
+   "label": "是"
   },
   {
    "from": "CUR",
    "to": "RLS",
    "style": "fb",
-   "label": "\"刷新训练集\"",
+   "label": "刷新训练集",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 792
+   "k": 84
   },
   {
    "from": "RLS",

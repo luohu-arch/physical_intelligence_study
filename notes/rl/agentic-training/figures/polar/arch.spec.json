@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "RS",
-   "label": "Rollout server: TaskR\nequest 展开成 sessions",
-   "sub": "rollout-as-a-service",
+   "label": "Rollout server:\nTaskRequest 展开成",
+   "sub": "sessions\nrollout-as-a-service",
    "icon": "refresh",
    "cls": "loop",
    "x": 353,
    "y": 150,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "GW",
-   "label": "Gateway node: session\n 全生命周期",
+   "label": "Gateway node: session\n全生命周期",
    "sub": "+ 同置托管代理端点",
    "icon": "refresh",
    "cls": "loop",
    "x": 202,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "INIT",
-   "label": "INIT 池: 起 runtime, \n备 harness",
-   "sub": "Docker / rootless App",
+   "label": "INIT 池: 起 runtime,\n备 harness",
+   "sub": "Docker / rootless Apptainer",
    "icon": "refresh",
    "cls": "loop",
    "x": 202,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "RDY",
@@ -42,106 +42,106 @@
    "x": 212,
    "y": 858,
    "w": 241,
-   "h": 107
+   "h": 105
   },
   {
    "id": "RUN",
-   "label": "RUNNING 池: 原生 harne\nss 零改动执行 (黑箱)",
-   "sub": "codex / claude_code /",
+   "label": "RUNNING 池: 原生\nharness 零改动执行 (黑",
+   "sub": "箱)\ncodex / claude_code /\nqwen_code / pi",
    "icon": "robot",
    "cls": "loop",
    "x": 200,
    "y": 1061,
    "w": 266,
-   "h": 140
+   "h": 172
   },
   {
    "id": "PX",
-   "label": "Gateway 代理 (核心): \n模型 API 边界窃听",
-   "sub": "检测四协议 -> 归一化 ->",
+   "label": "Gateway 代理 (核心): 模\n型 API 边界窃听",
+   "sub": "检测四协议 -> 归一化 -> 捕获\ntoken+logprobs -> 转回",
    "icon": "refresh",
    "cls": "loop",
    "x": 199,
    "y": 1297,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "INF",
-   "label": "本地推理服务器 (OpenAI \nChat 形状)",
-   "sub": "承载被训策略 Qwen3.5-4",
+   "label": "本地推理服务器 (OpenAI\nChat 形状)",
+   "sub": "承载被训策略 Qwen3.5-4B",
    "icon": "brain",
    "cls": "loop",
    "x": 348,
    "y": 2477,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "REC",
-   "label": "Completion record 缓存\n:",
-   "sub": "prompt ids + 采样 ids ",
+   "label": "Completion record 缓\n存:",
+   "sub": "prompt ids + 采样 ids +\nlogprobs",
    "icon": "chat",
    "cls": "loop",
    "x": 199,
    "y": 1533,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "BLD",
    "label": "prefix merging 轨迹重\n构: append-only 链合并",
-   "sub": "harness 塞的 interstit",
+   "sub": "harness 塞的 interstitial\ntoken loss mask 置 0",
    "icon": "refresh",
    "cls": "loop",
    "x": 199,
    "y": 1769,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "EVAL",
-   "label": "evaluator registry: S\nWE-bench 官方测试",
-   "sub": "二值 0/1, 可刷新干净 ru",
+   "label": "evaluator registry:\nSWE-bench 官方测试",
+   "sub": "二值 0/1, 可刷新干净 runtime",
    "icon": "refresh",
    "cls": "loop",
    "x": 46,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CB",
-   "label": "POSTRUN: 建轨迹 + 评测\n + 回调",
-   "sub": "超时 session 恢复部分轨",
+   "label": "POSTRUN: 建轨迹 + 评测 \n+",
+   "sub": "回调\n超时 session 恢复部分轨迹",
    "icon": "check",
    "cls": "loop",
    "x": 198,
    "y": 2005,
    "w": 269,
-   "h": 140
+   "h": 155
   },
   {
    "id": "TR",
-   "label": "异步 trainer (Slime GR\nPO)",
+   "label": "异步 trainer (Slime\nGRPO)",
    "sub": "训练框架/算法均解耦",
    "icon": "refresh",
    "cls": "loop",
    "x": 199,
    "y": 2241,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACC",
-   "label": "SWE-Bench Verified: C\nodex +22.6 / Claude C",
-   "sub": "ode +4.8",
+   "label": "SWE-Bench Verified:\nCodex +22.6 / Claude",
+   "sub": "Code +4.8\nQwen Code +0.6 / Pi +6.2; 3\n步墙钟 189.5 -> 35.2 分钟",
    "icon": "refresh",
    "cls": "loop",
    "x": 48,
    "y": 2477,
    "w": 261,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [
@@ -149,7 +149,7 @@
    "from": "RS",
    "to": "GW",
    "style": "thick",
-   "label": "\"dispatch\""
+   "label": "dispatch"
   },
   {
    "from": "GW",
@@ -170,7 +170,7 @@
    "from": "RUN",
    "to": "PX",
    "style": "fb",
-   "label": "\"每次模型 API 调用\""
+   "label": "每次模型 API 调用"
   },
   {
    "from": "PX",
@@ -201,7 +201,7 @@
    "from": "EVAL",
    "to": "CB",
    "style": "fb",
-   "label": "\"按 trace 分配 (outcome 广"
+   "label": "按 trace 分配 (outcome 广播…"
   },
   {
    "from": "CB",
@@ -212,7 +212,7 @@
    "from": "TR",
    "to": "INF",
    "style": "fb",
-   "label": "\"weight sync\""
+   "label": "weight sync"
   },
   {
    "from": "TR",

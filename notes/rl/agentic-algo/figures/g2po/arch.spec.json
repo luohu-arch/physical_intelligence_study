@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "POL",
-   "label": "被 RL 的策略 Qwen2.5-1\n.5B/7B/14B",
-   "sub": "(critic-free, 不养 val",
+   "label": "被 RL 的策略 Qwen2.5-\n1.5B/7B/14B",
+   "sub": "(critic-free, 不养 value 网\n络)",
    "icon": "brain",
    "cls": "loop",
    "x": 200,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ENV",
-   "label": "文本环境: WebShop / AL\nFWorld / AppWorld",
-   "sub": "稀疏终局奖励, 中间步零",
+   "label": "文本环境: WebShop /\nALFWorld / AppWorld",
+   "sub": "稀疏终局奖励, 中间步零奖励",
    "icon": "chat",
    "cls": "loop",
    "x": 202,
    "y": 386,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TRAJ",
@@ -31,51 +31,51 @@
    "x": 208,
    "y": 622,
    "w": 252,
-   "h": 107
+   "h": 105
   },
   {
    "id": "GRAPH",
-   "label": "状态转移图 (核心): 相同\n observation 聚为状态",
-   "sub": "组节点",
+   "label": "状态转移图 (核心): 相同\nobservation 聚为状态组",
+   "sub": "节点\n动作 (G_s, a, G_t) 为有向边,\n线性轨迹在图上重新连通",
    "icon": "camera",
    "cls": "loop",
    "x": 354,
    "y": 825,
    "w": 265,
-   "h": 140
+   "h": 172
   },
   {
    "id": "GA",
-   "label": "组聚合状态价值 V(G_k) =\n 组内折扣回报平均",
-   "sub": "方差 sigma^2 -> sigma^",
+   "label": "组聚合状态价值 V(G_k) =\n组内折扣回报平均",
+   "sub": "方差 sigma^2 -> sigma^2/|G_k|\n,\n跨轨迹抹掉运气",
    "icon": "state",
    "cls": "loop",
    "x": 199,
    "y": 1061,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "AEC",
-   "label": "edge-centric 优势 A_EC\n: 组间 1-step TD error",
-   "sub": "在全图所有转移上均值-方",
+   "label": "edge-centric 优势 A_EC\n:",
+   "sub": "组间 1-step TD error\n在全图所有转移上均值-方差标准化\n(全局标尺)",
    "icon": "gear",
    "cls": "loop",
    "x": 46,
    "y": 1297,
    "w": 267,
-   "h": 140
+   "h": 172
   },
   {
    "id": "ANC",
-   "label": "node-centric 优势 A_NC\n同源状态各动作的局部相对",
-   "sub": "比较",
+   "label": "node-centric 优势 A_NC\n同源状态各动作的局部相",
+   "sub": "对比较",
    "icon": "state",
    "cls": "loop",
    "x": 351,
    "y": 1297,
    "w": 270,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AEP",
@@ -86,40 +86,40 @@
    "x": 48,
    "y": 825,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ADV",
-   "label": "三粒度合成\nA = A_EP + w*(A_NC + ",
+   "label": "三粒度合成\nA = A_EP + w*(A_NC +",
    "sub": "A_EC)",
    "icon": "refresh",
    "cls": "loop",
    "x": 203,
    "y": 1533,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "OBJ",
    "label": "G2PO 目标: 逐样本裁剪代\n理 + KL 惩罚",
-   "sub": "w=0 时退化为 GRPO; 优",
+   "sub": "w=0 时退化为 GRPO; 优势计算纯\nCPU 仅 +1s/步",
    "icon": "refresh",
    "cls": "loop",
    "x": 200,
    "y": 1769,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ACC",
-   "label": "1.5B ALFWorld 95.0 vs\n GRPO 72.8 / GiGPO 86",
-   "sub": ".7",
+   "label": "1.5B ALFWorld 95.0 vs\nGRPO 72.8 / GiGPO",
+   "sub": "86.7\n关键突破型子任务 Look +42.6;\n交互步数 9 -> 5.4",
    "icon": "refresh",
    "cls": "loop",
    "x": 203,
    "y": 2005,
    "w": 261,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [
@@ -127,7 +127,7 @@
    "from": "POL",
    "to": "ENV",
    "style": "fb",
-   "label": "\"rollout\""
+   "label": "rollout"
   },
   {
    "from": "ENV",
@@ -138,7 +138,7 @@
    "from": "TRAJ",
    "to": "GRAPH",
    "style": "thick",
-   "label": "\"收集全部中间 observation, 完"
+   "label": "收集全部中间 observation, …"
   },
   {
    "from": "GRAPH",
@@ -184,12 +184,16 @@
    "from": "OBJ",
    "to": "POL",
    "style": "fb",
-   "label": "\"逐步策略更新\"",
+   "label": "逐步策略更新",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1939
+   "k": 84,
+   "labpos": [
+    381,
+    1457
+   ]
   },
   {
    "from": "OBJ",

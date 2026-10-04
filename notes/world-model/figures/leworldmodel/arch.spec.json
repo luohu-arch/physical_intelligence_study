@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "O",
-   "label": "原始像素 o_1:T + 动作 \na_1:T",
+   "label": "原始像素 o_1:T + 动作\na_1:T",
    "sub": "",
    "icon": "camera",
    "cls": "data",
    "x": 272,
    "y": 150,
    "w": 261,
-   "h": 107
+   "h": 105
   },
   {
    "id": "E2",
-   "label": "ViT-tiny 编码器 + BN \n投影头",
+   "label": "ViT-tiny 编码器 + BN\n投影头",
    "sub": "仅 15M 参数",
    "icon": "eye",
    "cls": "train",
    "x": 181,
    "y": 353,
    "w": 256,
-   "h": 140
+   "h": 138
   },
   {
    "id": "Z",
@@ -31,7 +31,7 @@
    "x": 232,
    "y": 589,
    "w": 153,
-   "h": 106
+   "h": 104
   },
   {
    "id": "P",
@@ -42,7 +42,7 @@
    "x": 46,
    "y": 808,
    "w": 221,
-   "h": 107
+   "h": 105
   },
   {
    "id": "A",
@@ -53,7 +53,7 @@
    "x": 84,
    "y": 150,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ZH",
@@ -64,7 +64,7 @@
    "x": 214,
    "y": 1027,
    "w": 189,
-   "h": 106
+   "h": 104
   },
   {
    "id": "L1",
@@ -75,40 +75,40 @@
    "x": 234,
    "y": 1229,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "SR",
    "label": "SIGReg 正则\nlatent 边缘各向同性高斯",
-   "sub": "唯一防坍塌项 替代 EMA/V",
+   "sub": "唯一防坍塌项 替代 EMA/VICReg\n7 项",
    "icon": "noise",
    "cls": "key",
    "x": 305,
    "y": 791,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "TL",
-   "label": "总损失 = L_pred + lamb\nda*SIGReg",
+   "label": "总损失 = L_pred +\nlambda*SIGReg",
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
    "x": 176,
    "y": 1431,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "Q",
-   "label": "梯度流过一切\n无 stop-grad 无 EMA 目",
-   "sub": "标",
+   "label": "梯度流过一切\n无 stop-grad 无 EMA",
+   "sub": "目标\n端到端训稳, 规划快最多 48x",
    "icon": "spark",
    "cls": "key",
    "x": 176,
    "y": 1634,
    "w": 266,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -141,13 +141,13 @@
    "from": "ZH",
    "to": "L1",
    "style": "fb",
-   "label": "\"L_pred: 到真实 z_t+1 的 M"
+   "label": "L_pred: 到真实 z_t+1 的 MSE"
   },
   {
    "from": "Z",
    "to": "SR",
    "style": "fb",
-   "label": "\"投影到 M 个随机单位向量 逐 1 维边缘"
+   "label": "投影到 M 个随机单位向量 逐 1…"
   },
   {
    "from": "L1",

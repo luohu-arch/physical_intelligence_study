@@ -3,24 +3,24 @@
   {
    "id": "OFF",
    "label": "离线初始化: 外部 LLM 采\n每组 8 条 rollout",
-   "sub": "反思生成 1 任务技能 + 1",
+   "sub": "反思生成 1 任务技能 + 1-8 有出\n处步骤技能",
    "icon": "brain",
    "cls": "loop",
    "x": 196,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LIB",
    "label": "层级技能库 (mem): 任务\n技能 -> 步骤技能两级",
-   "sub": "ALFWorld 300+1625 / W",
+   "sub": "ALFWorld 300+1625 / WebShop\n300+1406",
    "icon": "tree",
    "cls": "loop",
    "x": 198,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "RT",
@@ -31,51 +31,51 @@
    "x": 202,
    "y": 622,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "RA",
-   "label": "Reasoning Agent (被 R\nL 的共享骨干)",
-   "sub": "Qwen2.5-7B, 执行环境动",
+   "label": "Reasoning Agent (被 RL\n的共享骨干)",
+   "sub": "Qwen2.5-7B, 执行环境动作",
    "icon": "brain",
    "cls": "loop",
    "x": 198,
    "y": 858,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ENV",
-   "label": "文本环境: ALFWorld / W\nebShop",
+   "label": "文本环境: ALFWorld /\nWebShop",
    "sub": "秒级免费重置",
    "icon": "chat",
    "cls": "loop",
    "x": 324,
    "y": 1094,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "MS",
-   "label": "Meta-Skill Agent (核心\n novelty): 同一共享骨",
-   "sub": "干",
+   "label": "Meta-Skill Agent (核心\nnovelty): 同一共享骨干",
+   "sub": "每个推理转移后提议一次库编辑",
    "icon": "tree",
    "cls": "loop",
    "x": 196,
    "y": 1330,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ST",
-   "label": "暂存编辑提议: INSERT /\n UPDATE / DELETE / KE",
-   "sub": "EP",
+   "label": "暂存编辑提议: INSERT /\nUPDATE / DELETE /",
+   "sub": "KEEP\n先不写回, 防坏编辑污染库",
    "icon": "refresh",
    "cls": "loop",
    "x": 198,
    "y": 1566,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "PB",
@@ -86,7 +86,7 @@
    "x": 202,
    "y": 1802,
    "w": 254,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VE",
@@ -97,18 +97,18 @@
    "x": 198,
    "y": 2005,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DW",
-   "label": "技能奖励 delta_skill =\n 验证均值 - 基线回报",
+   "label": "技能奖励 delta_skill =\n验证均值 - 基线回报",
    "sub": "跨回合延迟信用分配",
    "icon": "reward",
    "cls": "loop",
    "x": 197,
    "y": 2241,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "PM",
@@ -119,18 +119,18 @@
    "x": 363,
    "y": 2477,
    "w": 198,
-   "h": 107
+   "h": 105
   },
   {
    "id": "TOPK",
-   "label": "组内晋升 top-2, 容量 3\n00 每 5 步驱逐",
+   "label": "组内晋升 top-2, 容量\n300 每 5 步驱逐",
    "sub": "原始束保留维持谱系",
    "icon": "refresh",
    "cls": "loop",
    "x": 351,
    "y": 2680,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DRB",
@@ -141,7 +141,7 @@
    "x": 70,
    "y": 1110,
    "w": 216,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DSB",
@@ -152,29 +152,29 @@
    "x": 97,
    "y": 2477,
    "w": 228,
-   "h": 107
+   "h": 105
   },
   {
    "id": "GG",
-   "label": "GiGPO 联合更新共享策略:\n episode + step 双层优",
-   "sub": "势",
+   "label": "GiGPO 联合更新共享策略:\nepisode + step 双层优势",
+   "sub": "推理锚 (x, o_t), 编辑锚 (x,\no_t, Z_step)",
    "icon": "lightning",
    "cls": "loop",
    "x": 46,
    "y": 2680,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ACC",
-   "label": "ALFWorld 98.4% (六类中\n五类 100%), WebShop 90",
-   "sub": ".6%",
+   "label": "ALFWorld 98.4% (六类中\n五类 100%), WebShop",
+   "sub": "90.6%\n超闭源编辑器版 D2Skill 7.8pp",
    "icon": "refresh",
    "cls": "loop",
    "x": 196,
    "y": 2916,
    "w": 267,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -192,30 +192,34 @@
    "from": "RT",
    "to": "RA",
    "style": "thick",
-   "label": "\"技能进上下文\""
+   "label": "技能进上下文"
   },
   {
    "from": "RA",
    "to": "ENV",
    "style": "thick",
-   "label": "\"环境动作\""
+   "label": "环境动作"
   },
   {
    "from": "ENV",
    "to": "RA",
    "style": "fb",
-   "label": "\"下一观测 / 奖励 / 反馈\"",
+   "label": "下一观测 / 奖励 / 反馈",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 2142
+   "k": 84
   },
   {
    "from": "ENV",
    "to": "MS",
    "style": "fb",
-   "label": "\"同一转移: 观测+活动技能+推理动作+反馈"
+   "label": "同一转移: 观测+活动技能+推理…",
+   "labpos": [
+    468,
+    1486
+   ]
   },
   {
    "from": "MS",
@@ -226,7 +230,7 @@
    "from": "ST",
    "to": "PB",
    "style": "thick",
-   "label": "\"回合结束\""
+   "label": "回合结束"
   },
   {
    "from": "PB",
@@ -247,18 +251,18 @@
    "from": "PM",
    "to": "TOPK",
    "style": "thick",
-   "label": "\"是\""
+   "label": "是"
   },
   {
    "from": "PM",
    "to": "LIB",
    "style": "fb",
-   "label": "\"否: 拒绝写回, 原束保留\"",
+   "label": "否: 拒绝写回, 原束保留",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 2614
+   "k": 84
   },
   {
    "from": "TOPK",
@@ -268,7 +272,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 2614
+   "k": 84
   },
   {
    "from": "RA",
@@ -284,7 +288,7 @@
    "from": "DW",
    "to": "DSB",
    "style": "fb",
-   "label": "\"延迟奖励\""
+   "label": "延迟奖励"
   },
   {
    "from": "DRB",
@@ -300,12 +304,12 @@
    "from": "GG",
    "to": "RA",
    "style": "fb",
-   "label": "\"同一套权重更新两个角色\"",
+   "label": "同一套权重更新两个角色",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 2142
+   "k": 84
   },
   {
    "from": "GG",
@@ -315,7 +319,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1670
+   "k": 84
   },
   {
    "from": "GG",

@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "DEMO",
-   "label": "一次人类示范\nOMOMO / LAFAN1 / 自采 ",
+   "label": "一次人类示范\nOMOMO / LAFAN1 / 自采",
    "sub": "MoCap",
    "icon": "db",
    "cls": "data",
    "x": 46,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "MESH",
-   "label": "交互网格 Interaction M\nesh (核心)",
-   "sub": "节点 = 人体 + 物体 + 地",
+   "label": "交互网格 Interaction\nMesh (核心)",
+   "sub": "节点 = 人体 + 物体 + 地形关键点\n边 = 必须保持的相对几何关系\n(语义藏在相对关系而非骨骼角里)",
    "icon": "lightning",
    "cls": "key",
    "x": 339,
    "y": 386,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "RET",
    "label": "重定向求解\nLaplacian 形变最小化 +",
-   "sub": " 运动学硬约束",
+   "sub": "运动学硬约束\nsequential SOCP 逐段求解",
    "icon": "db",
    "cls": "data",
    "x": 342,
    "y": 622,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "SPEC",
@@ -42,62 +42,62 @@
    "x": 351,
    "y": 150,
    "w": 251,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AUG",
-   "label": "增强数据 8+ 小时\n多本体 x 地形 x 物体组",
-   "sub": "合",
+   "label": "增强数据 8+ 小时\n多本体 x 地形 x 物体",
+   "sub": "组合",
    "icon": "state",
    "cls": "data",
    "x": 345,
    "y": 858,
    "w": 257,
-   "h": 140
+   "h": 138
   },
   {
    "id": "RL",
-   "label": "RL 训练 (仿真)\n纯本体感知观测 + 域随机",
-   "sub": "化",
+   "label": "RL 训练 (仿真)\n纯本体感知观测 + 域随",
+   "sub": "机化",
    "icon": "state",
    "cls": "train",
    "x": 342,
    "y": 1094,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "REW",
-   "label": "5 项共享奖励\nBody / Object Trackin",
-   "sub": "g + Action Rate",
+   "label": "5 项共享奖励",
+   "sub": "Body/Object Tracking +\nActionRate + SoftJointLimit\n+ Self-Collision (权重沿用)",
    "icon": "reward",
    "cls": "reward",
    "x": 640,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 151
   },
   {
    "id": "POL",
-   "label": "全身 loco-manipulation\n 策略",
-   "sub": "成功率 > 82% (naive 重",
+   "label": "全身 loco-manipulation\n策略",
+   "sub": "成功率 > 82% (naive 重定向 50-\n70%)",
    "icon": "check",
    "cls": "train",
    "x": 340,
    "y": 1330,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "G1",
    "label": "Unitree G1 零样本部署\nwall-flip 5/5 / 动态攀",
-   "sub": " 0.9m 平台",
+   "sub": "0.9m 平台",
    "icon": "gear",
    "cls": "env",
    "x": 340,
    "y": 1566,
    "w": 266,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -115,8 +115,8 @@
    "from": "SPEC",
    "to": "RET",
    "style": "thick",
-   "out": "right",
-   "in": "right",
+   "out": "left",
+   "in": "left",
    "k": 60
   },
   {
@@ -133,7 +133,7 @@
    "from": "REW",
    "to": "RL",
    "style": "fb",
-   "label": "\"避免逐任务手写 reward\""
+   "label": "避免逐任务手写 reward"
   },
   {
    "from": "RL",

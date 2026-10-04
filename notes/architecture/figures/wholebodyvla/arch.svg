@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1542" height="1855" viewBox="0 0 1542 1855" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1656" height="1855" viewBox="0 0 1656 1855" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
 <style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
 <defs>
 <linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
@@ -18,41 +18,41 @@
 <marker id="arr-fb" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
-<rect width="1542" height="1855" fill="#ffffff"/>
+<rect width="1656" height="1855" fill="#ffffff"/>
 <rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">wholebodyvla</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">WholeBodyVLA 在 AgiBot X2 人形上实现首个大空间端到端 loco-manipulation：用一个 VQ-VAE 式的 manipulation LAM（</text>
-<text x="1508" y="1837" font-size="11.5" fill="#a0aab4" text-anchor="end">wholebodyvla · arXiv 2512.11047 · v3 auto</text>
-<rect x="461" y="340" width="620" height="208" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
-<rect x="477" y="353" width="191.5" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
-<text x="488" y="370" font-size="12.5" fill="#4a6579">分离式统一潜在学习 (核心)</text>
-<path d="M 596.0 220.0 L 596.0 314.0 L 1115.0 314.0 L 1115.0 456.0 L 1055.0 456.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 300.0 219.5 L 314.0 219.5 L 314.0 456.0 L 487.0 456.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1232.0 220.0 L 1218.0 220.0 L 1218.0 456.0 L 1055.0 456.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1496.0 220.0 L 1556.0 220.0 L 1556.0 550.0 L 752.0 550.0 L 752.0 456.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 922.5 526.0 L 922.5 622.0 L 771.5 622.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 619.5 526.0 L 619.5 622.0 L 771.5 622.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1063.5 290.0 L 1079.0 290.0 L 1079.0 622.0 L 771.5 622.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 771.5 762.0 L 771.0 858.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 771.0 965.0 L 816.0 965.0 L 816.0 1078.0 L 922.0 1078.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 771.0 965.0 L 771.0 1061.0 L 660.0 1061.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 660.0 1201.0 L 660.0 1297.0 L 771.0 1297.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 764.5 290.0 L 26.0 290.0 L 26.0 1297.0 L 771.0 1297.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 922.0 1184.0 L 922.0 1533.0 L 771.0 1533.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 771.0 1437.0 L 771.0 1533.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 725.4 1673.0 L 725.4 3140.0 L 463.0 3140.0 L 463.0 290.0 L 492.8 290.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<rect x="340.5" y="153.5" width="258" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="338" y="150" width="258" height="140" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="1622" y="1837" font-size="11.5" fill="#a0aab4" text-anchor="end">wholebodyvla · arXiv 2512.11047 · v3 auto</text>
+<rect x="461" y="339" width="620" height="209" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
+<rect x="477" y="352" width="191.5" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
+<text x="488" y="369" font-size="12.5" fill="#4a6579">分离式统一潜在学习 (核心)</text>
+<path d="M 596.0 219.0 L 596.0 312.0 L 1115.0 312.0 L 1115.0 455.0 L 1055.0 455.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 300.0 218.5 L 314.0 218.5 L 314.0 455.0 L 487.0 455.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1232.0 219.0 L 1218.0 219.0 L 1218.0 455.0 L 1055.0 455.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1496.0 219.0 L 1556.0 219.0 L 1556.0 548.0 L 752.0 548.0 L 752.0 455.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 922.5 524.0 L 922.5 622.0 L 771.5 622.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 619.5 524.0 L 619.5 622.0 L 771.5 622.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1063.5 288.0 L 1079.0 288.0 L 1079.0 622.0 L 771.5 622.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 771.5 777.0 L 771.0 858.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 771.0 963.0 L 816.0 963.0 L 816.0 1078.0 L 922.0 1078.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 771.0 963.0 L 771.0 1061.0 L 660.0 1061.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 660.0 1199.0 L 660.0 1297.0 L 771.0 1297.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 764.5 288.0 L 26.0 288.0 L 26.0 1297.0 L 771.0 1297.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 922.0 1182.0 L 922.0 1533.0 L 771.0 1533.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 771.0 1452.0 L 771.0 1533.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 725.4 1671.0 L 725.4 1755.0 L 463.0 1755.0 L 463.0 288.0 L 492.8 288.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<rect x="340.5" y="153.5" width="258" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="338" y="150" width="258" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="467.0" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="467.0" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(453.5,136.5) scale(1.1250)">
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="467.0" y="206" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="467.0" dy="0">自采 300h egocentric </tspan><tspan x="467.0" dy="20">行走视频</tspan></text>
-<text x="467.0" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">头戴相机, 无 MoCap / </text>
-<rect x="792.5" y="389.5" width="265" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="790" y="386" width="265" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="467.0" y="206" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="467.0" dy="0">自采 300h egocentric</tspan><tspan x="467.0" dy="20">行走视频</tspan></text>
+<text x="467.0" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">头戴相机, 无 MoCap / 无遥操作</text>
+<rect x="792.5" y="389.5" width="265" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="790" y="386" width="265" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="922.5" cy="386" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="922.5" cy="386" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(909.0,372.5) scale(1.1250)">
@@ -60,10 +60,10 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="922.5" y="442" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="922.5" dy="0">locomotion LAM (VQ-VA</tspan><tspan x="922.5" dy="20">E)</tspan></text>
-<text x="922.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">整幅场景变化 -&gt; 离散码 </text>
-<rect x="48.5" y="169.5" width="254" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="166" width="254" height="107" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="922.5" y="442" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="922.5" dy="0">locomotion LAM (VQ-VAE</tspan><tspan x="922.5" dy="20">)</tspan></text>
+<text x="922.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">整幅场景变化 -&gt; 离散码 c_loco</text>
+<rect x="48.5" y="169.5" width="254" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="166" width="254" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="173.0" cy="166" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="173.0" cy="166" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(159.5,152.5) scale(1.1250)">
@@ -71,8 +71,8 @@
   <circle cx="12" cy="13" r="3" />
 </g>
 <text x="173.0" y="222" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="173.0" dy="0">AgiBot World 操作数据</tspan><tspan x="173.0" dy="20">(相机基本静止)</tspan></text>
-<rect x="489.5" y="389.5" width="265" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="487" y="386" width="265" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="489.5" y="389.5" width="265" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="487" y="386" width="265" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="619.5" cy="386" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="619.5" cy="386" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(606.0,372.5) scale(1.1250)">
@@ -81,55 +81,56 @@
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
 <text x="619.5" y="442" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="619.5" dy="0">manipulation LAM (VQ-</tspan><tspan x="619.5" dy="20">VAE)</tspan></text>
-<text x="619.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">手臂区域变化 -&gt; 离散码 </text>
-<rect x="1234.5" y="153.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1232" y="150" width="264" height="140" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
+<text x="619.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">手臂区域变化 -&gt; 离散码 c_mani</text>
+<rect x="1234.5" y="153.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1232" y="150" width="264" height="138" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
 <circle cx="1364.0" cy="150" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
 <circle cx="1364.0" cy="150" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1350.5,136.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="1364.0" y="206" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1364.0" dy="0">损失 L_LAM:</tspan><tspan x="1364.0" dy="20">DINOv2 特征重建 MSE + </tspan></text>
+<text x="1364.0" y="206" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1364.0" dy="0">损失 L_LAM:</tspan><tspan x="1364.0" dy="20">DINOv2 特征重建 MSE +</tspan></text>
 <text x="1364.0" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">VQ 目标</text>
-<rect x="640.5" y="625.5" width="267" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="638" y="622" width="267" height="140" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="640.5" y="625.5" width="267" height="155" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="638" y="622" width="267" height="155" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="771.5" cy="622" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="771.5" cy="622" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(758.0,608.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="771.5" y="678" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="771.5" dy="0">VLM 主干 (Prismatic-7B</tspan><tspan x="771.5" dy="20"> 初始化)</tspan></text>
-<text x="771.5" y="708" font-size="12" fill="#5f6b7a" text-anchor="middle">联合预测两类 latent to</text>
-<rect x="935.5" y="153.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="933" y="150" width="261" height="140" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
+<text x="771.5" y="678" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="771.5" dy="0">VLM 主干 (Prismatic-7B</tspan><tspan x="771.5" dy="20">初始化)</tspan></text>
+<text x="771.5" y="708" font-size="12" fill="#5f6b7a" text-anchor="middle">联合预测两类 latent token
+(约 10Hz@RTX 4090)</text>
+<rect x="935.5" y="153.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="933" y="150" width="261" height="138" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
 <circle cx="1063.5" cy="150" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
 <circle cx="1063.5" cy="150" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1050.0,136.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="1063.5" y="206" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1063.5" dy="0">交叉熵联合监督</tspan><tspan x="1063.5" dy="20">min -log pi(c_mani, c</tspan></text>
-<text x="1063.5" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">_loco | o, l)</text>
-<rect x="659.5" y="861.5" width="228" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="657" y="858" width="228" height="107" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="1063.5" y="206" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1063.5" dy="0">交叉熵联合监督</tspan><tspan x="1063.5" dy="20">min -log pi(c_mani,</tspan></text>
+<text x="1063.5" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">c_loco | o, l)</text>
+<rect x="659.5" y="861.5" width="228" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="657" y="858" width="228" height="105" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="771.0" cy="858" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="771.0" cy="858" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(757.5,844.5) scale(1.1250)">
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
 </g>
 <text x="771.0" y="914" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="771.0" dy="0">轻量 decoder</tspan><tspan x="771.0" dy="20">上身目标 + 移动指令</tspan></text>
-<rect x="832.5" y="1081.5" width="184" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="830" y="1078" width="184" height="106" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<rect x="832.5" y="1081.5" width="184" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="830" y="1078" width="184" height="104" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="922.0" cy="1078" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
 <circle cx="922.0" cy="1078" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(908.5,1064.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
 <text x="922.0" y="1141" font-size="16" class="lbl" fill="#4a148c" text-anchor="middle">上身 14 关节角</text>
-<rect x="530.5" y="1064.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="528" y="1061" width="264" height="140" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<rect x="530.5" y="1064.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="528" y="1061" width="264" height="138" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="660.0" cy="1061" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
 <circle cx="660.0" cy="1061" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(646.5,1047.5) scale(1.1250)">
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
 </g>
-<text x="660.0" y="1117" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="660.0" dy="0">移动指令 s_x, s_y, s_y</tspan><tspan x="660.0" dy="20">aw, h*</tspan></text>
-<text x="660.0" y="1147" font-size="12" fill="#5f6b7a" text-anchor="middle">离散三元 flag + 目标站</text>
-<rect x="641.5" y="1300.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="639" y="1297" width="264" height="140" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="660.0" y="1117" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="660.0" dy="0">移动指令 s_x, s_y,</tspan><tspan x="660.0" dy="20">s_yaw, h*</tspan></text>
+<text x="660.0" y="1147" font-size="12" fill="#5f6b7a" text-anchor="middle">离散三元 flag + 目标站姿高度</text>
+<rect x="641.5" y="1300.5" width="264" height="155" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="639" y="1297" width="264" height="155" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="771.0" cy="1297" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="771.0" cy="1297" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(757.5,1283.5) scale(1.1250)">
@@ -141,16 +142,17 @@
   <path d="M9 13v2" />
 </g>
 <text x="771.0" y="1353" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="771.0" dy="0">LMO RL 控制器 50Hz (板</tspan><tspan x="771.0" dy="20">载)</tspan></text>
-<text x="771.0" y="1383" font-size="12" fill="#5f6b7a" text-anchor="middle">goal-conditioned regu</text>
-<rect x="636.5" y="153.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="634" y="150" width="261" height="140" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
+<text x="771.0" y="1383" font-size="12" fill="#5f6b7a" text-anchor="middle">goal-conditioned regulation
+tanh 软门控参考整形</text>
+<rect x="636.5" y="153.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="634" y="150" width="261" height="138" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
 <circle cx="764.5" cy="150" r="24" fill="#ffffff" stroke="#ad1457" stroke-width="1.8"/>
 <circle cx="764.5" cy="150" r="27.5" fill="none" stroke="#ad1457" stroke-width="1" opacity="0.35"/>
 <g transform="translate(751.0,136.5) scale(0.1055)"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" opacity="0.2"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></g>
-<text x="764.5" y="206" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="764.5" dy="0">LMO 奖励: 方向保真 J_d</tspan><tspan x="764.5" dy="20">ir</tspan></text>
+<text x="764.5" y="206" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="764.5" dy="0">LMO 奖励: 方向保真</tspan><tspan x="764.5" dy="20">J_dir</tspan></text>
 <text x="764.5" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">+ 站姿稳定惩罚</text>
-<rect x="659.5" y="1536.5" width="228" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="657" y="1533" width="228" height="140" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<rect x="659.5" y="1536.5" width="228" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="657" y="1533" width="228" height="138" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="771.0" cy="1533" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
 <circle cx="771.0" cy="1533" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(757.5,1519.5) scale(1.1250)">
@@ -163,9 +165,9 @@
 </g>
 <text x="771.0" y="1589" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="771.0" dy="0">AgiBot X2 全身执行</tspan><tspan x="771.0" dy="20">上身关节 + 下身力矩</tspan></text>
 <text x="771.0" y="1619" font-size="12" fill="#5f6b7a" text-anchor="middle">三任务平均 78.0%</text>
-<g transform="translate(895.0,594.0)"><rect x="-48.8" y="-11" width="97.5" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;伪动作标签&quot;</text></g>
-<g transform="translate(647.5,594.0)"><rect x="-48.8" y="-11" width="97.5" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;伪动作标签&quot;</text></g>
-<g transform="translate(463.0,2564.8)"><rect x="-103.8" y="-11" width="207.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;分层闭环: 10Hz 决策 + 50Hz </text></g>
+<g transform="translate(896.0,594.0)"><rect x="-41.8" y="-11" width="83.6" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">伪动作标签</text></g>
+<g transform="translate(646.5,594.0)"><rect x="-41.8" y="-11" width="83.6" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">伪动作标签</text></g>
+<g transform="translate(463.0,1235.8)"><rect x="-103.8" y="-11" width="207.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">分层闭环: 10Hz 决策 + 50Hz …</text></g>
 <text x="40" y="1803.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1789" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1800" r="4.2" fill="#6a1b9a"/><text x="110" y="1804" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="1789" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1800" r="4.2" fill="#2e7d32"/><text x="208.76" y="1804" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

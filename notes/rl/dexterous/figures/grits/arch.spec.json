@@ -3,13 +3,13 @@
   {
    "id": "PC",
    "label": "分割点云\nfood: 深度 + SAM2 分割",
-   "sub": "spoon / bowl: CAD 模型",
+   "sub": "spoon / bowl: CAD 模型\n(DP3 式 PointNet++ 编码)",
    "icon": "db",
    "cls": "data",
    "x": 46,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "DP",
@@ -20,29 +20,29 @@
    "x": 64,
    "y": 386,
    "w": 233,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SIM",
    "label": "4K 仿真轨迹 (Isaac Lab\n)",
-   "sub": "4 种 primitive shapes",
+   "sub": "4 种 primitive shapes + 随机\n物理参数\n2000 洒 / 2000 不洒",
    "icon": "gear",
    "cls": "data",
    "x": 351,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "PRED",
-   "label": "spillage predictor\n点云 -> 溅洒概率 p_spi",
-   "sub": "ll",
+   "label": "spillage predictor\n点云 -> 溅洒概率",
+   "sub": "p_spill\n(廉价获得失败经验)",
    "icon": "cpu",
    "cls": "train",
    "x": 336,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "DEN",
@@ -53,18 +53,18 @@
    "x": 243,
    "y": 858,
    "w": 175,
-   "h": 106
+   "h": 104
   },
   {
    "id": "GUIDE",
    "label": "可微分溅洒引导 (核心)\n去噪 30 步后延迟激活:",
-   "sub": "x <- x - rho * grad l",
+   "sub": "x <- x - rho * grad log(1 -\np_spill)\nrho = 2.5, 轨迹推离溅洒区",
    "icon": "spark",
    "cls": "key",
    "x": 200,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 172
   },
   {
    "id": "ACTN",
@@ -75,18 +75,18 @@
    "x": 210,
    "y": 1060,
    "w": 241,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ROBOT",
-   "label": "Franka 真机\n10 类 unseen 食物 82% ",
+   "label": "Franka 真机\n10 类 unseen 食物 82%",
    "sub": "成功 / 4% 溅洒",
    "icon": "check",
    "cls": "env",
    "x": 198,
    "y": 1262,
    "w": 266,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -114,7 +114,7 @@
    "from": "GUIDE",
    "to": "DEN",
    "style": "loss",
-   "label": "\"梯度注入去噪后期 (约束参与生成, 而非事"
+   "label": "梯度注入去噪后期 (约束参与生…"
   },
   {
    "from": "DEN",

@@ -9,18 +9,18 @@
    "x": 292,
    "y": 167,
    "w": 246,
-   "h": 106
+   "h": 104
   },
   {
    "id": "TPRE",
    "label": "离线教师预计算\nCosmos3-Nano 理解塔 第",
-   "sub": " 24 层",
+   "sub": "24 层\n逐视角池化 (教师冻结)",
    "icon": "brain",
    "cls": "frozen",
    "x": 348,
    "y": 386,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "CACHE",
@@ -31,18 +31,18 @@
    "x": 208,
    "y": 622,
    "w": 257,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SUB",
    "label": "学生训练\nQwen3.5-VL 骨干",
-   "sub": "+ flow-matching 动作专",
+   "sub": "+ flow-matching 动作专家",
    "icon": "brain",
    "cls": "train",
    "x": 576,
    "y": 150,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "POOL",
@@ -53,18 +53,18 @@
    "x": 650,
    "y": 402,
    "w": 249,
-   "h": 107
+   "h": 105
   },
   {
    "id": "COS",
-   "label": "余弦对齐损失 (stop-gra\ndient)",
-   "sub": "lambda=0.5",
+   "label": "余弦对齐损失 (stop-\ngradient)",
+   "sub": "lambda=0.5\n特征蒸馏免生成: 3s/45.9GB ->\n32ms",
    "icon": "sigma",
    "cls": "key",
    "x": 342,
    "y": 858,
    "w": 261,
-   "h": 140
+   "h": 172
   },
   {
    "id": "PROJ",
@@ -75,7 +75,7 @@
    "x": 504,
    "y": 622,
    "w": 233,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEMO",
@@ -86,40 +86,40 @@
    "x": 104,
    "y": 167,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ACT",
-   "label": "flow-matching 速度回归\n L_act",
+   "label": "flow-matching 速度回归\nL_act",
    "sub": "",
    "icon": "lightning",
    "cls": "loss",
    "x": 46,
    "y": 402,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "TOT",
-   "label": "总损失 L_act + lambda*\nL_align",
+   "label": "总损失 L_act +\nlambda*L_align",
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
    "x": 340,
    "y": 1094,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DEPLOY",
    "label": "部署策略与未蒸馏基线同构\n1 prefill + 4 flow 步",
-   "sub": "32ms / 1.86GB @ RTX 5",
+   "sub": "32ms / 1.86GB @ RTX 5090\nLIBERO 95.3->97.9, 真机鸡蛋\n46.7->60.0",
    "icon": "flask",
    "cls": "act",
    "x": 338,
    "y": 1297,
    "w": 270,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [

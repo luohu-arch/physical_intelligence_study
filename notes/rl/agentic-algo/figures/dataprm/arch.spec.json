@@ -9,7 +9,7 @@
    "x": 355,
    "y": 150,
    "w": 256,
-   "h": 140
+   "h": 138
   },
   {
    "id": "QUERY",
@@ -20,7 +20,7 @@
    "x": 351,
    "y": 386,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "SAMP",
@@ -31,7 +31,7 @@
    "x": 350,
    "y": 589,
    "w": 267,
-   "h": 107
+   "h": 105
   },
   {
    "id": "JUDGE",
@@ -42,29 +42,29 @@
    "x": 387,
    "y": 792,
    "w": 192,
-   "h": 106
+   "h": 104
   },
   {
    "id": "SPLIT",
-   "label": "步级切分 + Qwen3-235B \n初标注",
+   "label": "步级切分 + Qwen3-235B\n初标注",
    "sub": "",
    "icon": "brain",
    "cls": "loop",
    "x": 351,
    "y": 994,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "MERGE",
-   "label": "AutoManual 合并错误类\n别",
-   "sub": "人工核验 (86.0%, kappa",
+   "label": "AutoManual 合并错误类别\n人工核验 (86.0%,",
+   "sub": "kappa=0.83) 注回 few- shot",
    "icon": "refresh",
    "cls": "loop",
    "x": 351,
    "y": 1197,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TAG",
@@ -75,95 +75,95 @@
    "x": 348,
    "y": 1433,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SFT",
-   "label": "SFT 训 DataPRM 4B (ms\n-swift)",
+   "label": "SFT 训 DataPRM 4B (\nms-swift)",
    "sub": "7K+ 边界样本",
    "icon": "refresh",
    "cls": "loop",
    "x": 354,
    "y": 1669,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "PRM",
-   "label": "DataPRM 4B (核心): env\nironment-aware 生成式 ",
-   "sub": "PRM",
+   "label": "DataPRM 4B (核心):\nenvironment-aware 生成",
+   "sub": "式 PRM\n与 policy 同 ReAct 范式, 验证\n反馈元组跨步拼接",
    "icon": "gear",
    "cls": "loop",
    "x": 350,
    "y": 1905,
    "w": 267,
-   "h": 140
+   "h": 172
   },
   {
    "id": "SANDBOX",
    "label": "代码解释器 + 隔离文件系\n统沙箱",
-   "sub": "主动跑探查代码核对中间状",
+   "sub": "主动跑探查代码核对中间状态 (抓\nsilent error)",
    "icon": "refresh",
    "cls": "loop",
    "x": 351,
    "y": 2141,
    "w": 270,
-   "h": 140
+   "h": 155
   },
   {
    "id": "TOOL",
-   "label": "query_document / quer\ny_image 工具",
+   "label": "query_document /\nquery_image 工具",
    "sub": "补长文档与多模态感知",
    "icon": "camera",
    "cls": "loop",
    "x": 659,
    "y": 2141,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "POL",
-   "label": "数据分析 policy (ReAct\n 写代码)",
-   "sub": "BoN 场景 235B / RL 场",
+   "label": "数据分析 policy (ReAct\n写代码)",
+   "sub": "BoN 场景 235B / RL 场景\nQwen2.5-Coder-7B",
    "icon": "lightning",
    "cls": "loop",
    "x": 351,
    "y": 2377,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "TTS",
-   "label": "TTS 消费: Best-of-N / \nBeam / DVTS",
-   "sub": "按步分聚合选轨迹, 保护",
+   "label": "TTS 消费: Best-of-N /\nBeam / DVTS",
+   "sub": "按步分聚合选轨迹, 保护先试错后\n收敛",
    "icon": "refresh",
    "cls": "loop",
    "x": 350,
    "y": 2613,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "RL",
-   "label": "RL 消费: GRPO + clip-h\nigher",
-   "sub": "r_total = (1-beta)*ou",
+   "label": "RL 消费: GRPO + clip-\nhigher",
+   "sub": "r_total = (1-beta)*outcome +\nbeta*PRM 均值, 终步覆写",
    "icon": "eye",
    "cls": "loop",
    "x": 46,
    "y": 2141,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ACC",
-   "label": "BoN: DABStep 40.89@N=\n16 唯一单调升, 4B 压 3",
-   "sub": "2B/72B",
+   "label": "BoN: DABStep\n40.89@N=16 唯一单调升,",
+   "sub": "4B 压 32B/72B\nRL: DABench 78.73%, 训练熵\n0.18 不塌缩",
    "icon": "refresh",
    "cls": "loop",
    "x": 352,
    "y": 2849,
    "w": 261,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [
@@ -186,18 +186,18 @@
    "from": "JUDGE",
    "to": "SAMP",
    "style": "fb",
-   "label": "\"全一致: 无判别信号, 丢弃重采\"",
+   "label": "全一致: 无判别信号, 丢弃重采",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 2377
+   "k": 84
   },
   {
    "from": "JUDGE",
    "to": "SPLIT",
    "style": "thick",
-   "label": "\"多样: 保留边界样本\""
+   "label": "多样: 保留边界样本"
   },
   {
    "from": "SPLIT",
@@ -223,35 +223,35 @@
    "from": "POL",
    "to": "PRM",
    "style": "thick",
-   "label": "\"完整轨迹 h_t + 当前步\"",
+   "label": "完整轨迹 h_t + 当前步",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "PRM",
    "to": "SANDBOX",
    "style": "fb",
-   "label": "\"写取证代码 (均值 0.87 次工具调用/"
+   "label": "写取证代码 (均值 0.87 次工具…"
   },
   {
    "from": "SANDBOX",
    "to": "PRM",
    "style": "fb",
-   "label": "\"中间执行状态观测\"",
+   "label": "中间执行状态观测",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "PRM",
    "to": "TOOL",
    "style": "fb",
-   "label": "\"查询手册 / 图像\""
+   "label": "查询手册 / 图像"
   },
   {
    "from": "TOOL",
@@ -261,42 +261,42 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "PRM",
    "to": "TTS",
    "style": "thick",
-   "label": "\"三元步分 + rationale\""
+   "label": "三元步分 + rationale"
   },
   {
    "from": "POL",
    "to": "TTS",
    "style": "fb",
-   "label": "\"N 候选轨迹\""
+   "label": "N 候选轨迹"
   },
   {
    "from": "PRM",
    "to": "RL",
    "style": "fb",
-   "label": "\"过程奖励注入\""
+   "label": "过程奖励注入"
   },
   {
    "from": "POL",
    "to": "RL",
    "style": "fb",
-   "label": "\"rollout\"",
+   "label": "rollout",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 792
+   "k": 84
   },
   {
    "from": "RL",
    "to": "POL",
    "style": "fb",
-   "label": "\"更新 policy\""
+   "label": "更新 policy"
   },
   {
    "from": "TTS",

@@ -9,18 +9,18 @@
    "x": 77,
    "y": 166,
    "w": 257,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LORA",
-   "label": "LoRA 推理分支\n生成推理 token + 工具决",
-   "sub": "策",
+   "label": "LoRA 推理分支\n生成推理 token + 工具",
+   "sub": "决策",
    "icon": "brain",
    "cls": "key",
    "x": 346,
    "y": 386,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TOOLSEL",
@@ -31,7 +31,7 @@
    "x": 350,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TOOLDISP",
@@ -42,29 +42,29 @@
    "x": 406,
    "y": 858,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "VIS",
-   "label": "视觉增强工具\n暗光 / 去噪 / 去模糊 / ",
+   "label": "视觉增强工具\n暗光 / 去噪 / 去模糊 /",
    "sub": "防抖",
    "icon": "camera",
    "cls": "frozen",
    "x": 646,
    "y": 1060,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AFF",
    "label": "Affordance 工具\nMetric3D 深度 + DINO-X",
-   "sub": " 检测",
+   "sub": "检测",
    "icon": "check",
    "cls": "frozen",
    "x": 46,
    "y": 1060,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "EMB",
@@ -75,7 +75,7 @@
    "x": 351,
    "y": 1060,
    "w": 257,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ENH",
@@ -86,18 +86,18 @@
    "x": 406,
    "y": 1296,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "VLA",
-   "label": "VLA 主干\n动作生成阶段屏蔽 LoRA ",
+   "label": "VLA 主干\n动作生成阶段屏蔽 LoRA",
    "sub": "输出",
    "icon": "brain",
    "cls": "frozen",
    "x": 352,
    "y": 1498,
    "w": 257,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACT",
@@ -108,18 +108,18 @@
    "x": 384,
    "y": 1734,
    "w": 192,
-   "h": 106
+   "h": 104
   },
   {
    "id": "LTOOL",
-   "label": "损失 L_tool\n推理 + 工具 token 交叉",
-   "sub": "熵",
+   "label": "损失 L_tool\n推理 + 工具 token 交",
+   "sub": "叉熵",
    "icon": "brain",
    "cls": "loop",
    "x": 623,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LACT",
@@ -130,7 +130,7 @@
    "x": 372,
    "y": 166,
    "w": 213,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -153,19 +153,19 @@
    "from": "TOOLDISP",
    "to": "VIS",
    "style": "main",
-   "label": "\"视觉\""
+   "label": "视觉"
   },
   {
    "from": "TOOLDISP",
    "to": "AFF",
    "style": "main",
-   "label": "\"affordance\""
+   "label": "affordance"
   },
   {
    "from": "TOOLDISP",
    "to": "EMB",
    "style": "main",
-   "label": "\"具身\""
+   "label": "具身"
   },
   {
    "from": "VIS",
@@ -191,46 +191,46 @@
    "from": "VLA",
    "to": "ACT",
    "style": "thick",
-   "label": "\"动作 chunk: H 步具身动作\""
+   "label": "动作 chunk: H 步具身动作"
   },
   {
    "from": "ACT",
    "to": "OBS",
    "style": "fb",
-   "label": "\"下一 chunk 开头重新观测 (chun",
+   "label": "下一 chunk 开头重新观测 (ch…",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1650
+   "k": 84
   },
   {
    "from": "LTOOL",
    "to": "LORA",
    "style": "fb",
-   "label": "\"只更新 LoRA\""
+   "label": "只更新 LoRA"
   },
   {
    "from": "LACT",
    "to": "VLA",
    "style": "fb",
-   "label": "\"只走主干\""
+   "label": "只走主干"
   }
  ],
  "panels": [
   {
-   "label": "工具旁路 (Adaptive L",
+   "label": "工具旁路 (Adaptive LoRA)",
    "x": 20,
-   "y": 340,
+   "y": 339,
    "w": 921,
-   "h": 882
+   "h": 883
   },
   {
-   "label": "冻结基座 (3B pi0-FAS",
+   "label": "冻结基座 (3B pi0-FAST, FAST/DCT 动作\ntoken)",
    "x": 326,
-   "y": 1452,
+   "y": 1434,
    "w": 309,
-   "h": 208
+   "h": 226
   }
  ],
  "canvas": [

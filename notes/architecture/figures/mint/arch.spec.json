@@ -9,7 +9,7 @@
    "x": 46,
    "y": 167,
    "w": 215,
-   "h": 106
+   "h": 104
   },
   {
    "id": "DCT",
@@ -20,7 +20,7 @@
    "x": 368,
    "y": 386,
    "w": 165,
-   "h": 106
+   "h": 104
   },
   {
    "id": "LOW",
@@ -31,7 +31,7 @@
    "x": 475,
    "y": 588,
    "w": 216,
-   "h": 107
+   "h": 105
   },
   {
    "id": "HIGH",
@@ -42,7 +42,7 @@
    "x": 209,
    "y": 588,
    "w": 228,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VQ1",
@@ -53,51 +53,51 @@
    "x": 469,
    "y": 808,
    "w": 261,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VQK",
-   "label": "Scale 2..k: Execution\n Tokens",
+   "label": "Scale 2..k: Execution\nTokens",
    "sub": "逐级捕获残差",
    "icon": "stack",
    "cls": "train",
    "x": 170,
    "y": 791,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "RECON",
-   "label": "渐进重建 S1 -> Sk\n(i) 仅 S1 (ii) S1+S2 ",
+   "label": "渐进重建 S1 -> Sk\n(i) 仅 S1 (ii) S1+S2",
    "sub": "(iii) S1+S2+S3 ...",
    "icon": "cpu",
    "cls": "train",
    "x": 470,
    "y": 1027,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LFREQ",
-   "label": "Scale-Wise 频域重建损\n失",
+   "label": "Scale-Wise 频域重建\n损失",
    "sub": "(强制频谱分离)",
    "icon": "sigma",
    "cls": "loss",
    "x": 601,
    "y": 150,
    "w": 253,
-   "h": 140
+   "h": 138
   },
   {
    "id": "POL",
-   "label": "策略解码\n300M decoder-only Tra",
-   "sub": "nsformer",
+   "label": "策略解码\n300M decoder-only",
+   "sub": "Transformer",
    "icon": "lightning",
    "cls": "train",
    "x": 171,
    "y": 1027,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ROBOT",
@@ -108,18 +108,18 @@
    "x": 324,
    "y": 1263,
    "w": 251,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ONESHOT",
    "label": "one-shot 迁移: 从单次\n演示",
-   "sub": "提取 Intent token 固定",
+   "sub": "提取 Intent token 固定注入",
    "icon": "db",
    "cls": "data",
    "x": 299,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -167,7 +167,7 @@
    "from": "VQ1",
    "to": "POL",
    "style": "thick",
-   "label": "\"next-scale 自回归 先意图后执行"
+   "label": "next-scale 自回归 先意图后执行"
   },
   {
    "from": "VQK",
@@ -183,18 +183,18 @@
    "from": "ROBOT",
    "to": "AC",
    "style": "fb",
-   "label": "\"重叠 chunk 滑窗 意图 ensemb",
+   "label": "重叠 chunk 滑窗 意图 ensemb…",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1181
+   "k": 84
   },
   {
    "from": "ONESHOT",
    "to": "VQ1",
    "style": "fb",
-   "label": "\"意图复用, 迁移 +60%\"",
+   "label": "意图复用, 迁移 +60%",
    "out": "right",
    "in": "right",
    "k": 60
@@ -202,11 +202,11 @@
  ],
  "panels": [
   {
-   "label": "频谱解耦动作 tokenizer",
+   "label": "频谱解耦动作 tokenizer (多尺度 VQ-VAE)",
    "x": 144,
-   "y": 745,
+   "y": 744,
    "w": 612,
-   "h": 444
+   "h": 445
   }
  ],
  "canvas": [

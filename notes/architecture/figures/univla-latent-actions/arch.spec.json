@@ -2,47 +2,47 @@
  "nodes": [
   {
    "id": "VIDEO",
-   "label": "互联网视频 + 机器人演示\n + Ego4D",
-   "sub": "多 embodiment, 无动作",
+   "label": "互联网视频 + 机器人演示\n+ Ego4D",
+   "sub": "多 embodiment, 无动作标注也\n可用",
    "icon": "db",
    "cls": "data",
    "x": 330,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "S1",
-   "label": "Stage 1: 任务无关潜在动\n作 a_TI",
-   "sub": "光照/视角等环境动态",
+   "label": "Stage1: 任务无关\n潜在动作 a_TI",
+   "sub": "光照/视角等环境动态 + 语言\nconditioning; codebook 约束\n自动把任务语义挤出去",
    "icon": "gear",
    "cls": "frozen",
    "x": 789,
    "y": 386,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "S2",
    "label": "Stage 2: 任务中心潜在动\n作 a_TC",
-   "sub": "(冻结 Stage 1, 新增 co",
+   "sub": "(冻结 Stage 1, 新增 codebook)\n物体被抓起/移动等语义动态",
    "icon": "spark",
    "cls": "key",
    "x": 789,
    "y": 622,
    "w": 269,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LTI",
-   "label": "损失 L_TI / L_TC:\nDINOv2 特征空间重建 MS",
-   "sub": "E",
+   "label": "损失 L_TI / L_TC:\nDINOv2 特征空间重建",
+   "sub": "MSE\n(非像素, 避开纹理光照噪声)",
    "icon": "sigma",
    "cls": "loss",
    "x": 1540,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LAT",
@@ -53,7 +53,7 @@
    "x": 793,
    "y": 858,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ROBS",
@@ -64,18 +64,18 @@
    "x": 46,
    "y": 167,
    "w": 246,
-   "h": 106
+   "h": 104
   },
   {
    "id": "POL",
-   "label": "通用 VLA 策略: Prismat\nic-7B",
+   "label": "通用 VLA 策略:\nPrismatic-7B",
    "sub": "(跨 embodiment 共享)",
    "icon": "lightning",
    "cls": "train",
    "x": 792,
    "y": 1094,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LPRE",
@@ -86,18 +86,18 @@
    "x": 1232,
    "y": 166,
    "w": 270,
-   "h": 107
+   "h": 105
   },
   {
    "id": "HIST",
-   "label": "上一步 4 个潜在动作 tok\nen",
-   "sub": "注入 prompt (CoT 式上",
+   "label": "上一步 4 个潜在动作\ntoken",
+   "sub": "注入 prompt (CoT 式上下文)",
    "icon": "chat",
    "cls": "mem",
    "x": 632,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEC",
@@ -108,7 +108,7 @@
    "x": 792,
    "y": 1330,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LL1",
@@ -119,18 +119,18 @@
    "x": 937,
    "y": 166,
    "w": 257,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ACT",
-   "label": "各机器人动作\nLIBERO 95.2% vs OpenV",
-   "sub": "LA 76.5%",
+   "label": "各机器人动作\nLIBERO 95.2% vs",
+   "sub": "OpenVLA 76.5%\n仅 1/20 预训练算力",
    "icon": "gear",
    "cls": "act",
    "x": 793,
    "y": 1566,
    "w": 261,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -143,7 +143,7 @@
    "from": "S1",
    "to": "S2",
    "style": "main",
-   "label": "\"冻结后作基座\""
+   "label": "冻结后作基座"
   },
   {
    "from": "LTI",
@@ -169,7 +169,7 @@
    "from": "LAT",
    "to": "POL",
    "style": "thick",
-   "label": "\"自回归预测的训练信号\""
+   "label": "自回归预测的训练信号"
   },
   {
    "from": "LPRE",
@@ -180,7 +180,7 @@
    "from": "HIST",
    "to": "POL",
    "style": "fb",
-   "label": "\"长程任务 +3.9 点\""
+   "label": "长程任务 +3.9 点"
   },
   {
    "from": "POL",
@@ -200,11 +200,11 @@
  ],
  "panels": [
   {
-   "label": "潜在动作模型: 双阶段 VQ-V",
+   "label": "潜在动作模型: 双阶段 VQ-VAE (DINOv2 特征空\n间)",
    "x": 763,
-   "y": 340,
+   "y": 322,
    "w": 321,
-   "h": 444
+   "h": 462
   }
  ],
  "canvas": [

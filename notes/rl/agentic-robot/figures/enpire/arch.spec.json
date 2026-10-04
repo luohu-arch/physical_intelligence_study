@@ -9,51 +9,51 @@
    "x": 46,
    "y": 150,
    "w": 265,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SAFE",
-   "label": "硬安全约束\n越界即任务失败 + 自动重",
-   "sub": "置",
+   "label": "硬安全约束\n越界即任务失败 + 自动",
+   "sub": "重置",
    "icon": "refresh",
    "cls": "loop",
    "x": 348,
    "y": 386,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VER",
    "label": "自动验证: agent 合成二\n值奖励",
-   "sub": "SAM3 + 本体感知 + 力, ",
+   "sub": "SAM3 + 本体感知 + 力, 延迟 <=\n150 ms",
    "icon": "state",
    "cls": "loop",
    "x": 651,
    "y": 150,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "RES",
-   "label": "自动重置: modular skil\nls",
+   "label": "自动重置: modular\nskills",
    "sub": "复位到最难阶段起点",
    "icon": "refresh",
    "cls": "loop",
    "x": 349,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "API",
-   "label": "不可变 Gym API + Rollo\nut 模块 R",
-   "sub": "30 Hz 策略, 单 rollout",
+   "label": "不可变 Gym API +\nRollout 模块 R",
+   "sub": "30 Hz 策略, 单 rollout 8 次重\n试内计成功",
    "icon": "stack",
    "cls": "loop",
    "x": 346,
    "y": 622,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "AGT",
@@ -64,84 +64,84 @@
    "x": 362,
    "y": 858,
    "w": 234,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PI",
    "label": "改训练代码: BC / 在线-\n离线 RL /",
-   "sub": "启发式 / code-as-polic",
+   "sub": "启发式 / code-as-policy 自由\n组合",
    "icon": "refresh",
    "cls": "loop",
    "x": 647,
    "y": 1061,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "POL",
-   "label": "被训练的策略\nBC 正则单项 +10.8pp 最",
-   "sub": "大增益",
+   "label": "被训练的策略\nBC 正则单项 +10.8pp",
+   "sub": "最大增益",
    "icon": "lightning",
    "cls": "loop",
    "x": 348,
    "y": 1297,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "GIT",
-   "label": "共享 Git 仓库 = Evolut\nion 模块",
-   "sub": "cherry-pick/copy/merg",
+   "label": "共享 Git 仓库 =\nEvolution 模块",
+   "sub": "cherry-pick/copy/merge 正增益\n配方",
    "icon": "stack",
    "cls": "loop",
    "x": 345,
    "y": 1061,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ROBOT",
-   "label": "8 站双臂 YAM 真机 flee\nt",
-   "sub": "每站 RTX 5090, 无跨站",
+   "label": "8 站双臂 YAM 真机\nfleet",
+   "sub": "每站 RTX 5090, 无跨站共享算力",
    "icon": "robot",
    "cls": "loop",
    "x": 500,
    "y": 1533,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LOG",
-   "label": "rollout 日志: 轨迹 / \n视频 / 奖励信号 /",
+   "label": "rollout 日志: 轨迹 /\n视频 / 奖励信号 /",
    "sub": "逐动作来源标签",
    "icon": "reward",
    "cls": "loop",
    "x": 352,
    "y": 1769,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "EXP",
-   "label": "跨任务经验: markdown \n配方演化摘要",
-   "sub": "pin -> GPU insertion ",
+   "label": "跨任务经验: markdown\n配方演化摘要",
+   "sub": "pin -> GPU insertion 迁移",
    "icon": "db",
    "cls": "loop",
    "x": 46,
    "y": 1061,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACC",
    "label": "四接触任务 99% 真机成功\n率策略",
-   "sub": "MRU / MTU 度量物理 aut",
+   "sub": "MRU / MTU 度量物理\nautoresearch",
    "icon": "gear",
    "cls": "loop",
    "x": 197,
    "y": 1533,
    "w": 265,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -154,13 +154,13 @@
    "from": "SAFE",
    "to": "API",
    "style": "thick",
-   "label": "\"离线验证后固化\""
+   "label": "离线验证后固化"
   },
   {
    "from": "API",
    "to": "AGT",
    "style": "thick",
-   "label": "\"释放全自主\""
+   "label": "释放全自主"
   },
   {
    "from": "AGT",
@@ -176,13 +176,13 @@
    "from": "POL",
    "to": "ROBOT",
    "style": "thick",
-   "label": "\"提交动作目标\""
+   "label": "提交动作目标"
   },
   {
    "from": "API",
    "to": "ROBOT",
    "style": "fb",
-   "label": "\"reset-execu…"
+   "label": "reset-execute-verify 每集即…"
   },
   {
    "from": "ROBOT",
@@ -193,25 +193,25 @@
    "from": "LOG",
    "to": "AGT",
    "style": "fb",
-   "label": "\"失败信号驱动 hill…",
+   "label": "失败信号驱动 hill-climb",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "AGT",
    "to": "GIT",
    "style": "fb",
-   "label": "\"提交配方分支\""
+   "label": "提交配方分支"
   },
   {
    "from": "GIT",
    "to": "AGT",
    "style": "fb",
    "label": "Git 历史是单一事实来源",
-   "k": 1028,
+   "k": 84,
    "labpos": [
     740,
     893
@@ -221,18 +221,18 @@
    "from": "AGT",
    "to": "EXP",
    "style": "fb",
-   "label": "\"任务结束写经验摘要\""
+   "label": "任务结束写经验摘要"
   },
   {
    "from": "EXP",
    "to": "AGT",
    "style": "fb",
-   "label": "\"注入新任务 autor…",
+   "label": "注入新任务 autoresearch",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "POL",
@@ -242,18 +242,18 @@
  ],
  "panels": [
   {
-   "label": "Stage 1 EN: 人引导一",
+   "label": "Stage 1 EN: 人引导一次性搭真机环境",
    "x": 322,
-   "y": 150,
+   "y": 103,
    "w": 618,
-   "h": 444
+   "h": 491
   },
   {
-   "label": "Stage 2 PIRE: 完全",
+   "label": "Stage 2 PIRE: 完全无人的 autoresearch",
    "x": 319,
-   "y": 812,
+   "y": 811,
    "w": 620,
-   "h": 647
+   "h": 648
   }
  ],
  "canvas": [

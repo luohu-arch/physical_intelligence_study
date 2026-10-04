@@ -9,7 +9,7 @@
    "x": 680,
    "y": 150,
    "w": 221,
-   "h": 106
+   "h": 104
   },
   {
    "id": "VL",
@@ -20,7 +20,7 @@
    "x": 492,
    "y": 150,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ROB",
@@ -31,7 +31,7 @@
    "x": 256,
    "y": 150,
    "w": 198,
-   "h": 106
+   "h": 104
   },
   {
    "id": "AGI",
@@ -42,29 +42,29 @@
    "x": 46,
    "y": 150,
    "w": 172,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ENC",
-   "label": "逆动力学 ST-Transforme\nr",
+   "label": "逆动力学 ST-\nTransformer",
    "sub": "编码器",
    "icon": "eye",
    "cls": "train",
    "x": 342,
    "y": 353,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VQ",
-   "label": "VQ-VAE 码本\n每轨迹 k=4 个 latent t",
-   "sub": "oken",
+   "label": "VQ-VAE 码本\n每轨迹 k=4 个 latent",
+   "sub": "token",
    "icon": "noise",
    "cls": "key",
    "x": 467,
    "y": 589,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEC",
@@ -75,7 +75,7 @@
    "x": 495,
    "y": 826,
    "w": 180,
-   "h": 106
+   "h": 104
   },
   {
    "id": "DIJ",
@@ -86,7 +86,7 @@
    "x": 216,
    "y": 606,
    "w": 213,
-   "h": 106
+   "h": 104
   },
   {
    "id": "QW2",
@@ -97,7 +97,7 @@
    "x": 272,
    "y": 825,
    "w": 185,
-   "h": 107
+   "h": 105
   },
   {
    "id": "HEAD",
@@ -108,7 +108,7 @@
    "x": 398,
    "y": 1028,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "CTRL",
@@ -119,7 +119,7 @@
    "x": 396,
    "y": 1230,
    "w": 156,
-   "h": 106
+   "h": 104
   }
  ],
  "edges": [
@@ -152,7 +152,7 @@
    "from": "ENC",
    "to": "DIJ",
    "style": "fb",
-   "label": "\"latent 动作条件\""
+   "label": "latent 动作条件"
   },
   {
    "from": "VL",
@@ -176,45 +176,45 @@
    "from": "HEAD",
    "to": "CTRL",
    "style": "thick",
-   "label": "\"连续动作 chunk\""
+   "label": "连续动作 chunk"
   },
   {
    "from": "CTRL",
    "to": "DIJ",
    "style": "fb",
-   "label": "\"新观测\"",
+   "label": "新观测",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 708
+   "k": 84
   },
   {
    "from": "VQ",
    "to": "ENC",
    "style": "fb",
-   "label": "\"L_rec + L_dynamics\"",
+   "label": "L_rec + L_dynamics",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 927
+   "k": 84
   }
  ],
  "panels": [
   {
    "label": "预训练数据混合",
    "x": 20,
-   "y": 150,
+   "y": 103,
    "w": 907,
-   "h": 175
+   "h": 222
   },
   {
-   "label": "Stage 1: LAM 潜动作 · Stage 2: ViLLA 策",
+   "label": "Stage 1 · Stage 2",
    "x": 190,
-   "y": 307,
+   "y": 306,
    "w": 568,
-   "h": 849
+   "h": 850
   }
  ],
  "canvas": [

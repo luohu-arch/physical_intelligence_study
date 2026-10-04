@@ -112,7 +112,7 @@ def parse_mermaid(src):
         t = re.sub(r'-{2}\s*"([^"]*)"\s*-{2}>', keep("-->"), t)
         t = re.sub(r'-{2}\s+([^->][^>]*?)\s+-{2}>', keep("-->"), t)
         t = re.sub(r'(-{2,}>|-\.\->|==>|---)\|([^|]*)\|',
-                   lambda m: labs.append(re.sub(r"<br\s*/?>", " ", m.group(2)).strip()) or m.group(1), t)
+                   lambda m: labs.append(re.sub(r"<br\s*/?>", " ", m.group(2)).strip().strip('"').strip()) or m.group(1), t)
         return t, labs
 
     for t in lines:
@@ -227,23 +227,108 @@ def pick_icon(label, cls):
 
 GAPX, GAPY, SPACING, MARGIN_L, CONTENT_TOP = 104, 92, 40, 44, 130
 CROWD = 5  # 同 rank 节点数达到该值则加大间距
-TIGHT = {"gapx": 66, "gapy": 60, "spacing": 24, "max_units": 10, "wcap": 260}
+TIGHT = {"gapx": 66, "gapy": 60, "spacing": 24, "max_units": 10.6, "wcap": 260}
 
 
-def wrap_cjk(text, max_units=13.5):
-    units = 0
-    lines, cur = [], ""
-    for ch in text:
-        u = 1.0 if ord(ch) > 0x2E80 else 0.55
-        if units + u > max_units and cur:
-            lines.append(cur)
-            cur, units = ch, u
+# ASCII 词元(含 _ ^.+-*/ 等公式符号), 整词不可拆; 字母数字间的连字符处允许断行
+_WORD_RE = re.compile(r"[A-Za-z0-9](?:[A-Za-z0-9_.^+\-*/%&|=<>~@#]*[A-Za-z0-9])?")
+# 行首禁则: 这些字符不能出现在行首(断行时并入上一行)
+_NO_LINE_START = set("，。：；、）)】》>》」』！？…%~°.,;:!/·+×→=->")
+# 行尾禁则: 常见虚词/否定词不吊在行尾(断行时移到下一行行首)
+_NO_LINE_END = set("了着从与或和跟被把向对于由而且则也就都还很最更再又将不")
+
+
+def _units(s):
+    return sum(1.06 if ord(c) > 0x2E80 else 0.58 for c in s)
+
+
+def _tokens(text):
+    toks, i = [], 0
+    while i < len(text):
+        ch = text[i]
+        if ch == " ":
+            toks.append(" ")
+            i += 1
+        elif ord(ch) > 0x2E80:
+            toks.append(ch)
+            i += 1
         else:
-            cur += ch
-            units += u
+            m = _WORD_RE.match(text, i)
+            if m:
+                w = m.group(0)
+                parts = re.split(r"(?<=[A-Za-z0-9])-(?=[A-Za-z0-9])", w)
+                toks.extend(p + "-" if j < len(parts) - 1 else p for j, p in enumerate(parts))
+                i = m.end()
+            else:
+                toks.append(ch)
+                i += 1
+    return toks
+
+
+def _balance(lines, max_units):
+    """行尾禁则(虚词下移) + 孤字下行(上一行末 CJK 字推下组成两字行, 不超宽)。"""
+    for i in range(len(lines) - 1):
+        ln = lines[i]
+        while ln and ln[-1] in _NO_LINE_END and len(ln) > 1:
+            ln = ln[:-1]
+        if ln != lines[i]:
+            lines[i + 1] = lines[i][len(ln):].lstrip() + lines[i + 1]
+            lines[i] = ln.rstrip()
+    merged = [lines[0]]
+    for ln in lines[1:]:
+        if (len(ln) == 1 and ord(ln) > 0x2E80 and merged[-1] and len(merged[-1]) > 2):
+            toks = _tokens(merged[-1])
+            tail = toks[-1] if toks and toks[-1] != " " else ""
+            if tail and _units(tail) <= 7.0 and len(toks) > 1:
+                merged[-1] = merged[-1][: len(merged[-1]) - len(tail)].rstrip()
+                sep = " " if tail[-1].isascii() else ""
+                ln = tail + sep + ln
+        merged.append(ln)
+    return [l for l in merged if l]
+
+
+def wrap_cjk(text, max_units=14.3):
+    lines, cur, cu = [], "", 0.0
+    for tok in _tokens(text):
+        u = _units(tok)
+        if tok == " " and not cur:
+            continue
+        if cu + u > max_units and cur:
+            if tok in _NO_LINE_START and len(cur) > 2 and ord(cur[-1]) > 0x2E80:
+                # 禁则标点放不下: 行尾 CJK 字连带标点一起下移, 避免溢出
+                tail = cur[-1]
+                lines.append(cur[:-1].rstrip())
+                cur, cu = tail + tok, _units(tail + tok)
+            elif tok not in _NO_LINE_START:
+                lines.append(cur.rstrip())
+                cur, cu = ("", 0.0) if tok == " " else (tok, u)
+            else:
+                cur += tok
+                cu += u
+        else:
+            cur += tok
+            cu += u
     if cur:
-        lines.append(cur)
-    return lines[:3]
+        lines.append(cur.rstrip())
+    lines = _balance(lines, max_units)
+    # 单词仍超宽的兜底: 按字符硬拆(注意不能粘到上一行)
+    out = []
+    for ln in lines:
+        if _units(ln) <= max_units + 1e-9 or len(ln) <= 1:
+            out.append(ln)
+        else:
+            cur, cu = "", 0.0
+            for ch in ln:
+                u = _units(ch)
+                if cu + u > max_units and cur:
+                    out.append(cur)
+                    cur, cu = ch, u
+                else:
+                    cur += ch
+                    cu += u
+            if cur:
+                out.append(cur)
+    return out[:3]
 
 
 def layout(parsed, tight=False):
@@ -252,7 +337,7 @@ def layout(parsed, tight=False):
     gapx = TIGHT["gapx"] if tight else GAPX
     gapy = TIGHT["gapy"] if tight else GAPY
     spacing = TIGHT["spacing"] if tight else SPACING
-    max_units = TIGHT["max_units"] if tight else 13.5
+    max_units = TIGHT["max_units"] if tight else 14.3
     wcap = TIGHT["wcap"] if tight else 290
 
     # rank: 最长路径 (忽略回边)
@@ -395,7 +480,7 @@ def layout(parsed, tight=False):
         y0 = min(geom[m]["y"] for m in mem) - 44
         x1 = max(geom[m]["x"] + geom[m]["w"] for m in mem) + 24
         y1 = max(geom[m]["y"] + geom[m]["h"] for m in mem) + 20
-        panels.append({"label": wrap_cjk(p["label"], 22)[0] if p["label"] else sid,
+        panels.append({"label": wrap_cjk(p["label"], 23.3)[0] if p["label"] else sid,
                        "x": round(x0), "y": round(y0), "w": round(x1 - x0), "h": round(y1 - y0)})
 
     # 边

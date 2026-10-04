@@ -9,18 +9,18 @@
    "x": 59,
    "y": 150,
    "w": 241,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FB",
-   "label": "flow 行为策略 f_beta\n预测 h 步 chunk, 捕获",
-   "sub": "非马尔可夫时序结构",
+   "label": "flow 行为策略 f_beta\n预测 h 步 chunk",
+   "sub": "捕获非马尔可夫时序结构\nQC: best-of-N 隐式提取 /\nQC-FQL: 显式 actor + W2 约束",
    "icon": "stack",
    "cls": "train",
    "x": 53,
    "y": 353,
    "w": 253,
-   "h": 140
+   "h": 172
   },
   {
    "id": "BUF",
@@ -31,7 +31,7 @@
    "x": 66,
    "y": 1230,
    "w": 228,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ENV",
@@ -42,7 +42,7 @@
    "x": 90,
    "y": 1028,
    "w": 179,
-   "h": 106
+   "h": 104
   },
   {
    "id": "EXE",
@@ -53,29 +53,29 @@
    "x": 80,
    "y": 825,
    "w": 198,
-   "h": 107
+   "h": 105
   },
   {
    "id": "BON",
    "label": "best-of-N 选择\na* = argmax Q, KL 上界",
-   "sub": " log N",
+   "sub": "log N",
    "icon": "lightning",
    "cls": "act",
    "x": 46,
    "y": 589,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "KEYQ",
-   "label": "chunked critic Q_thet\na (核心)",
-   "sub": "Q(s_t, a_t:t+h)",
+   "label": "chunked critic\nQ_theta (核心)",
+   "sub": "Q(s_t, a_t:t+h)\nTD backup = 无偏 n-step\nreturn",
    "icon": "target",
    "cls": "key",
    "x": 49,
    "y": 1432,
    "w": 261,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [
@@ -97,7 +97,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 724
+   "k": 84
   },
   {
    "from": "EXE",
@@ -108,53 +108,57 @@
    "from": "FB",
    "to": "BON",
    "style": "thick",
-   "label": "\"采样 N 个 chunk (N = 16-"
+   "label": "采样 N 个 chunk (N = 16-64)"
   },
   {
    "from": "KEYQ",
    "to": "BON",
    "style": "thick",
-   "label": "\"为 chunk 排序\"",
+   "label": "为 chunk 排序",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 927
+   "k": 84,
+   "labpos": [
+    71,
+    1159
+   ]
   },
   {
    "from": "BON",
    "to": "EXE",
    "style": "thick",
-   "label": "\"选中的 chunk 块内开环执行\""
+   "label": "选中的 chunk 块内开环执行"
   },
   {
    "from": "ENV",
    "to": "BUF",
    "style": "thick",
-   "label": "\"(s_t, a*_t, s_t+1, r_"
+   "label": "(s_t, a*_t, s_t+1, r_t)"
   },
   {
    "from": "BUF",
    "to": "KEYQ",
    "style": "thick",
-   "label": "\"高层转移 w = (s_t, a_t:t+"
+   "label": "高层转移 w = (s_t, a_t:t+h,…"
   },
   {
    "from": "BUF",
    "to": "FB",
    "style": "loss",
-   "label": "\"flow-matching 损失\"",
+   "label": "flow-matching 损失",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1163
+   "k": 84
   },
   {
    "from": "KEYQ",
    "to": "KEYQ",
    "style": "loss",
-   "label": "\"TD: Q <- R^h + gamma^",
+   "label": "TD: Q <- R^h + gamma^h * Q…",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.7,
@@ -164,11 +168,11 @@
  ],
  "panels": [
   {
-   "label": "在线交互回路 (每 h = 5 ",
+   "label": "在线交互回路 (每 h = 5 步重规划)",
    "x": 54,
-   "y": 779,
+   "y": 778,
    "w": 250,
-   "h": 377
+   "h": 378
   }
  ],
  "canvas": [

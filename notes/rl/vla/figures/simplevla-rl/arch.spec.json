@@ -9,18 +9,18 @@
    "x": 57,
    "y": 150,
    "w": 248,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ENV",
    "label": "LIBERO / RoboTwin 多环\n境并行",
-   "sub": "chunk 8 / 25 步闭环交",
+   "sub": "chunk 8 / 25 步闭环交互",
    "icon": "stack",
    "cls": "env",
    "x": 48,
    "y": 353,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TR",
@@ -31,18 +31,18 @@
    "x": 49,
    "y": 589,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ADV",
-   "label": "组内优势归一化 (核心)\nA_i = (R_i - mu_R) / ",
-   "sub": "sigma_R",
+   "label": "组内优势归一化 (核心)\nA_i = (R_i - mu_R) /",
+   "sub": "sigma_R\n0/1 奖励均匀传播到全部动作\ntoken",
    "icon": "spark",
    "cls": "key",
    "x": 50,
    "y": 792,
    "w": 261,
-   "h": 140
+   "h": 172
   },
   {
    "id": "PPO",
@@ -53,18 +53,18 @@
    "x": 70,
    "y": 1028,
    "w": 221,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PUSH",
    "label": "pushcut 涌现现象\n长出示教数据中不存在的新",
-   "sub": "动作模式",
+   "sub": "动作模式\n(LIBERO 91% -> 99%, RoboTwin\n38.3% -> 68.8%)",
    "icon": "lightning",
    "cls": "act",
    "x": 46,
    "y": 1231,
    "w": 270,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [
@@ -72,7 +72,7 @@
    "from": "BASE",
    "to": "ENV",
    "style": "thick",
-   "label": "\"温度 1.6 + 熵正则探索\""
+   "label": "温度 1.6 + 熵正则探索"
   },
   {
    "from": "ENV",
@@ -87,7 +87,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 962
+   "k": 84
   },
   {
    "from": "TR",
@@ -98,7 +98,7 @@
    "from": "TR",
    "to": "ADV",
    "style": "fb",
-   "label": "\"动态采样: 丢弃全成功 / 全失败组 保住"
+   "label": "动态采样: 丢弃全成功 / 全失…"
   },
   {
    "from": "ADV",
@@ -109,27 +109,31 @@
    "from": "PPO",
    "to": "BASE",
    "style": "fb",
-   "label": "\"更新 theta\"",
+   "label": "更新 theta",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1198
+   "k": 84,
+   "labpos": [
+    75,
+    553
+   ]
   },
   {
    "from": "PPO",
    "to": "PUSH",
    "style": "fb",
-   "label": "\"支撑集扩张: supp(p_RL) = s"
+   "label": "支撑集扩张: supp(p_RL) = su…"
   }
  ],
  "panels": [
   {
-   "label": "并行仿真 rollout (ve",
+   "label": "并行仿真 rollout (veRL 框架)",
    "x": 22,
-   "y": 307,
+   "y": 306,
    "w": 319,
-   "h": 411
+   "h": 412
   }
  ],
  "canvas": [

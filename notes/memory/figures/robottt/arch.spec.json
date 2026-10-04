@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "OBS",
-   "label": "观测 o_t 3 路 RealSens\ne",
+   "label": "观测 o_t 3 路\nRealSense",
    "sub": "",
    "icon": "state",
    "cls": "loop",
    "x": 1381,
    "y": 150,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VLM",
@@ -20,18 +20,18 @@
    "x": 720,
    "y": 353,
    "w": 267,
-   "h": 107
+   "h": 105
   },
   {
    "id": "REG",
-   "label": "16 个 register token<\nbr/",
+   "label": "16 个 register\ntoken<br/",
    "sub": "",
    "icon": "stack",
    "cls": "loop",
    "x": 818,
    "y": 556,
    "w": 259,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PROPR",
@@ -42,7 +42,7 @@
    "x": 1685,
    "y": 150,
    "w": 165,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ENC",
@@ -53,7 +53,7 @@
    "x": 1026,
    "y": 354,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "NOISE",
@@ -64,18 +64,18 @@
    "x": 1138,
    "y": 150,
    "w": 205,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ATTN",
-   "label": "单步内 self / cross-at\ntention<br/",
+   "label": "单步内 self / cross-\nattention<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
    "x": 815,
    "y": 759,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FLAT",
@@ -86,18 +86,18 @@
    "x": 856,
    "y": 962,
    "w": 184,
-   "h": 106
+   "h": 104
   },
   {
    "id": "TTTU",
    "label": "TTT 内循环梯度写入\nW_t = W_(t-1) - eta *",
-   "sub": " grad L_FW",
+   "sub": "grad L_FW",
    "icon": "refresh",
    "cls": "loop",
    "x": 818,
    "y": 1164,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "FW",
@@ -108,7 +108,7 @@
    "x": 46,
    "y": 150,
    "w": 185,
-   "h": 106
+   "h": 104
   },
   {
    "id": "GATE",
@@ -119,29 +119,29 @@
    "x": 821,
    "y": 1400,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEC",
-   "label": "DiT 解码器 flow-matchi\nng",
+   "label": "DiT 解码器 flow-\nmatching",
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
    "x": 815,
    "y": 1636,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ACTOUT",
-   "label": "动作 chunk H=16 30Hz \n恒定延迟",
+   "label": "动作 chunk H=16 30Hz\n恒定延迟",
    "sub": "",
    "icon": "stack",
    "cls": "loop",
    "x": 819,
    "y": 1839,
    "w": 258,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LFW",
@@ -152,18 +152,18 @@
    "x": 563,
    "y": 150,
    "w": 261,
-   "h": 106
+   "h": 104
   },
   {
    "id": "LFM",
-   "label": "外循环 flow-matching \n动作损失",
+   "label": "外循环 flow-matching\n动作损失",
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
    "x": 269,
    "y": 150,
    "w": 256,
-   "h": 107
+   "h": 105
   },
   {
    "id": "MODES",
@@ -174,7 +174,7 @@
    "x": 862,
    "y": 150,
    "w": 238,
-   "h": 106
+   "h": 104
   }
  ],
  "edges": [
@@ -249,11 +249,11 @@
  ],
  "panels": [
   {
-   "label": "跨时间 TTT 层 x 16 -",
+   "label": "跨时间 TTT 层 x 16 - 记忆存于参数空间",
    "x": 20,
-   "y": 150,
+   "y": 103,
    "w": 1084,
-   "h": 1222
+   "h": 1269
   }
  ],
  "canvas": [

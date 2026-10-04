@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "DEMO",
-   "label": "演示数据: 约 115 demos\n/任务",
-   "sub": "总预算 < 100 小时",
+   "label": "演示数据: 约 115 demos\n/",
+   "sub": "任务\n总预算 < 100 小时",
    "icon": "db",
    "cls": "data",
    "x": 46,
    "y": 150,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "S1",
@@ -20,51 +20,51 @@
    "x": 215,
    "y": 386,
    "w": 223,
-   "h": 140
+   "h": 138
   },
   {
    "id": "S2",
-   "label": "阶段 2: 迭代离线 RL\nclipped PPO 直接作用于",
-   "sub": "去噪每一步",
+   "label": "阶段 2: 迭代离线 RL\nclipped PPO 直接作用",
+   "sub": "于去噪每一步\n修系统性偏差 (91.8%)",
    "icon": "eye",
    "cls": "train",
    "x": 196,
    "y": 622,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "OPE",
    "label": "OPE 门控 (保险丝)\n保守 Q 估计",
-   "sub": "Q_new >= Q_old + delt",
+   "sub": "Q_new >= Q_old + delta 才\n接受",
    "icon": "spark",
    "cls": "key",
    "x": 346,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "S3",
    "label": "阶段 3: 在线 RL\n小于 50 episodes",
-   "sub": "修最后 1% corner case ",
+   "sub": "修最后 1% corner case (100%)",
    "icon": "cpu",
    "cls": "train",
    "x": 194,
    "y": 858,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ROBOT",
    "label": "真实机器人 (8 任务)\nUR5 / Franka / xArm /",
-   "sub": " LeapHand",
+   "sub": "LeapHand",
    "icon": "robot",
    "cls": "env",
    "x": 196,
    "y": 1330,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "RW",
@@ -75,18 +75,18 @@
    "x": 210,
    "y": 1566,
    "w": 234,
-   "h": 106
+   "h": 104
   },
   {
    "id": "CD",
-   "label": "一致性蒸馏 (部署加速)\n多步 DDIM -> 1 步控制",
-   "sub": "器",
+   "label": "一致性蒸馏 (部署加速)\n多步 DDIM -> 1 步控",
+   "sub": "制器\n延迟降约 10 倍, 20 Hz 控制",
    "icon": "flask",
    "cls": "act",
    "x": 200,
    "y": 1094,
    "w": 253,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -104,7 +104,7 @@
    "from": "OPE",
    "to": "S2",
    "style": "fb",
-   "label": "\"拒绝降质更新, 防分布偏移崩溃\""
+   "label": "拒绝降质更新, 防分布偏移崩溃"
   },
   {
    "from": "S2",
@@ -135,12 +135,12 @@
    "from": "RW",
    "to": "S3",
    "style": "fb",
-   "label": "\"失败 / 成功对比样本\"",
+   "label": "失败 / 成功对比样本",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 758
+   "k": 84
   },
   {
    "from": "S3",
@@ -151,16 +151,16 @@
    "from": "CD",
    "to": "ROBOT",
    "style": "thick",
-   "label": "\"部署级可靠性: 1000/1000 商场 "
+   "label": "部署级可靠性: 1000/1000 商…"
   }
  ],
  "panels": [
   {
    "label": "真机在线回路",
    "x": 170,
-   "y": 1284,
+   "y": 1283,
    "w": 313,
-   "h": 410
+   "h": 411
   }
  ],
  "canvas": [

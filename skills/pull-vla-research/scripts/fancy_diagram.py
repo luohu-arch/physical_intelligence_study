@@ -282,13 +282,34 @@ def edge_path(sa, na, sb, nb, k=None, rects=(), canvas=None):
                    pts[i][1] + (pts[i + 1][1] - pts[i][1]) * t)
             break
         acc += L
-    return d, mid
+    return d, mid, pts
 
 
-def resolve_and_render_pills(jobs, nodes, W, H):
-    """标签药丸避障: 依次取第一个不压卡片/已放药丸/两端锚点禁区的候选偏移。"""
+def resolve_and_render_pills(jobs, nodes, W, H, path_segs=()):
+    """标签药丸避障: 依次取第一个不压卡片/已放药丸/连线/两端锚点禁区的候选偏移。"""
     placed = []
     node_rects = [(n["x"] - 2, n["y"] - 2, n["x"] + n["w"] + 2, n["y"] + n["h"] + 2) for n in nodes]
+    path_segs = list(path_segs)
+
+    def _seg_near_rect(p, q, r, pad=3.0):
+        x0, y0, x1, y1 = r[0] - pad, r[1] - pad, r[2] + pad, r[3] + pad
+        steps = max(2, int(max(abs(q[0] - p[0]), abs(q[1] - p[1])) / 6) + 1)
+        for i in range(steps + 1):
+            t = i / steps
+            x = p[0] + (q[0] - p[0]) * t
+            y = p[1] + (q[1] - p[1]) * t
+            if x0 <= x <= x1 and y0 <= y <= y1:
+                return True
+        return False
+
+    def _hits_path(r, own_ids):
+        for idx, (p, q) in enumerate(path_segs):
+            if idx in own_ids:
+                continue
+            if _seg_near_rect(p, q, r):
+                return True
+        return False
+
     CAND = [(0, 0), (0, -28), (0, 28), (0, -56), (0, 56), (26, -28), (-26, -28),
             (26, 28), (-26, 28), (0, -84), (0, 84), (0, -112), (0, 112),
             (64, 0), (-64, 0), (64, -28), (-64, -28), (64, 28), (-64, 28),
@@ -296,7 +317,8 @@ def resolve_and_render_pills(jobs, nodes, W, H):
             (90, 0), (-90, 0), (120, -28), (-120, -28), (120, 28), (-120, 28)]
     out = []
 
-    def _find(j, wl, allow_node):
+    def _find(j, wl, allow_node, avoid_path):
+        own_ids = set(j.get("own", ()))
         for dx, dy in CAND:
             cx, cy = j["cx"] + dx, j["cy"] + dy
             r = (cx - wl / 2, cy - 12, cx + wl / 2, cy + 12)
@@ -311,6 +333,8 @@ def resolve_and_render_pills(jobs, nodes, W, H):
             if any(abs(cx - ax) < wl / 2 + 18 and abs(cy - ay) < 30
                    for ax, ay in ((j["ax"], j["ay"]), (j["bx"], j["by"]))):
                 continue
+            if avoid_path and _hits_path(r, own_ids):
+                continue
             return cx, cy, r
         return None
 
@@ -321,12 +345,20 @@ def resolve_and_render_pills(jobs, nodes, W, H):
             placed.append(best[2])
             out.append(_pill_svg(j, best[0], best[1], wl))
             continue
-        best = _find(j, wl, allow_node=False)
-        if best is None:   # 全躲失败: 宁可压卡也不压别的药丸/箭头
-            best = _find(j, wl, allow_node=True)
+        best = _find(j, wl, allow_node=False, avoid_path=True)
+        tier = 1
+        if best is None:   # 允许压线(白底药丸会盖住线), 仍避卡与药丸
+            best = _find(j, wl, allow_node=False, avoid_path=False)
+            tier = 2
+        if best is None:   # 宁可压卡也不压别的药丸
+            best = _find(j, wl, allow_node=True, avoid_path=False)
+            tier = 3
         if best is None:   # 仍失败: 就地放
             best = (j["cx"], j["cy"], (j["cx"] - wl / 2, j["cy"] - 12, j["cx"] + wl / 2, j["cy"] + 12))
+            tier = 4
         cx, cy, r = best
+        if tier >= 2:
+            out.append(f"<!--WARN pill-tier{tier} {esc(j['text'])[:24]} -->")
         placed.append(r)
         out.append(_pill_svg(j, cx, cy, wl))
     return out
@@ -343,6 +375,23 @@ def _pill_svg(j, cx, cy, wl):
 
 def render(spec):
     W, H = spec["canvas"]
+    nodes0 = {n["id"]: n for n in spec["nodes"]}
+    # 画布兜底: 底部回边走廊(k)可能超出 canvas, 路径会被裁掉 -> 按需扩高/扩宽
+    for e in spec.get("edges", []):
+        if e["from"] not in nodes0 or e["to"] not in nodes0:
+            continue
+        a, b = nodes0[e["from"]], nodes0[e["to"]]
+        sa_, sb_ = auto_sides(a, b)
+        na, nb = e.get("out", sa_), e.get("in", sb_)
+        k = e.get("k", 60)
+        if na == nb == "bottom":
+            H = max(H, max(a["y"] + a["h"], b["y"] + b["h"]) + k + 100)
+        elif na == nb == "top":
+            H = max(H, min(a["y"], b["y"]) + 1)  # 顶出画布的情形不存在(标题区兜底)
+        elif na == nb == "right":
+            W = max(W, max(a["x"] + a["w"], b["x"] + b["w"]) + k + 100)
+        elif na == nb == "left":
+            W = max(W, 26)
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
            f'viewBox="0 0 {W} {H}" font-family="{FONT}">',
            f'<style>text{{font-family:{FONT};}} .lbl{{font-weight:700;}}</style>',
@@ -373,16 +422,19 @@ def render(spec):
     for p in spec.get("panels", []):
         out.append(f'<rect x="{p["x"]}" y="{p["y"]}" width="{p["w"]}" height="{p["h"]}" rx="18" '
                    f'fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>')
-        plw = tw(p["label"], 12.5) + 24
+        plabels = p["label"].split("\n") if "\n" in p["label"] else [p["label"]]
+        plw = max(tw(l, 12.5) for l in plabels) + 24
+        ph = 26 + 17 * (len(plabels) - 1)
         out.append(f'<rect x="{p["x"] + 16}" y="{p["y"] + 13}" width="{plw}" '
-                   f'height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>')
-        out.append(f'<text x="{p["x"] + 27}" y="{p["y"] + 30}" font-size="12.5" '
-                   f'fill="#4a6579">{esc(p["label"])}</text>')
+                   f'height="{ph}" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>')
+        for li, pl in enumerate(plabels):
+            out.append(f'<text x="{p["x"] + 27}" y="{p["y"] + 30 + li * 17}" font-size="12.5" '
+                       f'fill="#4a6579">{esc(pl)}</text>')
 
     nodes = {n["id"]: n for n in spec["nodes"]}
 
     # 边(先画, 压在卡片下; 标签最后)
-    pill_jobs, paths = [], []
+    pill_jobs, paths, path_segs = [], [], []
     for e in spec.get("edges", []):
         a, b = nodes[e["from"]], nodes[e["to"]]
         sa_, sb_ = auto_sides(a, b)
@@ -391,7 +443,9 @@ def render(spec):
         sb = anchor_pt(b, nb, e.get("pos_in", 0.5))
         rects = [(n2["x"], n2["y"], n2["x"] + n2["w"], n2["y"] + n2["h"])
                  for nid2, n2 in nodes.items() if nid2 not in (e["from"], e["to"])]
-        d, mid = edge_path(sa, na, sb, nb, e.get("k"), rects, (W, H))
+        d, mid, epts = edge_path(sa, na, sb, nb, e.get("k"), rects, (W, H))
+        seg_idx = list(range(len(path_segs), len(path_segs) + max(0, len(epts) - 1)))
+        path_segs.extend((epts[i], epts[i + 1]) for i in range(len(epts) - 1))
         st = e.get("style", "main")
         c, w, dash = EDGE_STYLE[st]
         dash_a = f' stroke-dasharray="{dash}"' if dash else ""
@@ -404,7 +458,8 @@ def render(spec):
                               "cx": (lp[0] if lp else mid[0] + off[0]),
                               "cy": (lp[1] if lp else mid[1] + off[1]),
                               "color": EDGE_STYLE[st][0], "ax": sa[0], "ay": sa[1],
-                              "bx": sb[0], "by": sb[1], "pin": bool(e.get("labpos"))})
+                              "bx": sb[0], "by": sb[1], "pin": bool(e.get("labpos")),
+                              "own": seg_idx})
     out += paths
 
     # 节点卡片

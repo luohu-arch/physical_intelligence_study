@@ -9,7 +9,7 @@
    "x": 46,
    "y": 166,
    "w": 185,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VENC",
@@ -20,18 +20,18 @@
    "x": 764,
    "y": 386,
    "w": 180,
-   "h": 107
+   "h": 105
   },
   {
    "id": "RDATA",
-   "label": "机器人数据 RoboMIND / \nOXE",
+   "label": "机器人数据 RoboMIND /\nOXE",
    "sub": "(带动作标注)",
    "icon": "robot",
    "cls": "data",
    "x": 269,
    "y": 150,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "MENC",
@@ -42,29 +42,29 @@
    "x": 546,
    "y": 386,
    "w": 180,
-   "h": 107
+   "h": 105
   },
   {
    "id": "CB",
-   "label": "共享离散 codebook 约 8\n192",
-   "sub": "具身无关: 同一码 = 抓取",
+   "label": "共享离散 codebook 约\n8192",
+   "sub": "具身无关: 同一码 = 抓取\n(UR5 与人形共用)",
    "icon": "stack",
    "cls": "key",
    "x": 612,
    "y": 589,
    "w": 265,
-   "h": 140
+   "h": 155
   },
   {
    "id": "KL",
-   "label": "KL 对齐损失 D_KL(q_vis\n || q_mot)",
-   "sub": "强制视觉分布靠拢运动分布",
+   "label": "KL 对齐损失 D_KL(q_vis\n|| q_mot)",
+   "sub": "强制视觉分布靠拢运动分布\n(去 KL: 66.7% -> 48.3%)",
    "icon": "camera",
    "cls": "loss",
    "x": 569,
    "y": 150,
    "w": 270,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LUVMC",
@@ -75,18 +75,18 @@
    "x": 1182,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "UVMC",
-   "label": "UVMC token\n视觉动态与运动模式的翻译",
-   "sub": "层",
+   "label": "UVMC token\n视觉动态与运动模式的翻",
+   "sub": "译层",
    "icon": "camera",
    "cls": "key",
    "x": 610,
    "y": 825,
    "w": 270,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VLM",
@@ -97,40 +97,40 @@
    "x": 615,
    "y": 1061,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LMSE",
-   "label": "Stage 2 损失: UVMC tok\nen 回归 MSE",
+   "label": "Stage 2 损失: UVMC\ntoken 回归 MSE",
    "sub": "+ 动作头 MSE 并行回归",
    "icon": "sigma",
    "cls": "loss",
    "x": 877,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "FT",
-   "label": "Stage 3: 任务适配 post\n-training",
+   "label": "Stage 3: 任务适配\npost-training",
    "sub": "新任务仅 20 demos",
    "icon": "db",
    "cls": "train",
    "x": 612,
    "y": 1297,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACT",
    "label": "动作预测\n6 具身 120+ 任务 14000",
-   "sub": "+ 真机 rollouts",
+   "sub": "+真机 rollouts\n平均 72.0% (pi0.5 为 41.0%)",
    "icon": "lightning",
    "cls": "act",
    "x": 612,
    "y": 1533,
    "w": 264,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -146,9 +146,8 @@
    "from": "RDATA",
    "to": "VENC",
    "style": "thick",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "out": "bottom",
+   "in": "top"
   },
   {
    "from": "RDATA",
@@ -184,7 +183,7 @@
    "from": "UVMC",
    "to": "VLM",
    "style": "loss",
-   "label": "\"Stage 2: 辅助监督注入\""
+   "label": "Stage 2: 辅助监督注入"
   },
   {
    "from": "LMSE",
@@ -204,11 +203,11 @@
  ],
  "panels": [
   {
-   "label": "UVMC: 统一视动编码 (核心",
+   "label": "UVMC: 统一视动编码 (核心)<br/>双分支 VQ-VAE, 共享\n离散空间",
    "x": 520,
-   "y": 340,
+   "y": 322,
    "w": 450,
-   "h": 411
+   "h": 429
   }
  ],
  "canvas": [

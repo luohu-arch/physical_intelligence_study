@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "CAM",
-   "label": "场景俯视图 + clip zoom\n-in",
+   "label": "场景俯视图 + clip\nzoom-in",
    "sub": "",
    "icon": "eye",
    "cls": "data",
    "x": 51,
    "y": 166,
    "w": 262,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VLM",
-   "label": "VLM 规划器 (GPT-5 + Co\nT)",
-   "sub": "进度推理 + 技能选择 + ",
+   "label": "VLM 规划器 (GPT-5 +\nCoT)",
+   "sub": "进度推理 + 技能选择 + 完成判定\n纯 in-context, 不参与梯度训练",
    "icon": "brain",
    "cls": "frozen",
    "x": 198,
    "y": 386,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "INSERT",
    "label": "Insert: SAC RL 低层\n7 参数运动原语, 接触敏",
-   "sub": "感区需闭环",
+   "sub": "感区需闭环\n(87% vs heuristic 45%)",
    "icon": "cpu",
    "cls": "train",
    "x": 204,
    "y": 858,
    "w": 256,
-   "h": 140
+   "h": 155
   },
   {
    "id": "PULL",
@@ -42,51 +42,51 @@
    "x": 372,
    "y": 638,
    "w": 218,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FLAT",
-   "label": "Flatten: 自动故障恢复 \n(核心)",
-   "sub": "重整线缆释放弯曲势能",
+   "label": "Flatten: 自动故障恢复\n(核心)",
+   "sub": "重整线缆释放弯曲势能\n把不可插入恢复成可插入",
    "icon": "spark",
    "cls": "key",
    "x": 73,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "CNT",
-   "label": "连续插入失败计数 + step\n limit",
+   "label": "连续插入失败计数 + step\nlimit",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
    "x": 46,
    "y": 1110,
    "w": 267,
-   "h": 107
+   "h": 105
   },
   {
    "id": "REW",
-   "label": "dense shaped 奖励\nrope_in / rope_out + ",
-   "sub": "碰撞惩罚",
+   "label": "dense shaped 奖励\nrope_in / rope_out +",
+   "sub": "碰撞惩罚\n+ 分段距离 + 前端平直度",
    "icon": "reward",
    "cls": "reward",
    "x": 351,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ROBOT",
-   "label": "Franka + D415 + SAM2 \n分割",
-   "sub": "零微调 sim-to-real (62",
+   "label": "Franka + D415 + SAM2\n分割",
+   "sub": "零微调 sim-to-real (62.5%)",
    "icon": "gear",
    "cls": "env",
    "x": 351,
    "y": 1094,
    "w": 266,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -114,30 +114,30 @@
    "from": "FLAT",
    "to": "INSERT",
    "style": "fb",
-   "label": "\"重整后重试\""
+   "label": "重整后重试"
   },
   {
    "from": "CNT",
    "to": "VLM",
    "style": "fb",
-   "label": "\"重复失败 -> 触发恢复\"",
+   "label": "重复失败 -> 触发恢复",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 792
+   "k": 84
   },
   {
    "from": "INSERT",
    "to": "CNT",
    "style": "fb",
-   "label": "\"失败反馈\""
+   "label": "失败反馈"
   },
   {
    "from": "REW",
    "to": "INSERT",
    "style": "fb",
-   "label": "\"SAC 训练信号 (6.2k 步)\""
+   "label": "SAC 训练信号 (6.2k 步)"
   },
   {
    "from": "INSERT",

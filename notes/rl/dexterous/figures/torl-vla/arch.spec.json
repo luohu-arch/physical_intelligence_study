@@ -9,62 +9,62 @@
    "x": 354,
    "y": 150,
    "w": 251,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FB",
    "label": "实测 wrench + 观测回流\n(12 维指尖 wrench, J =",
-   "sub": " 10 历史)",
+   "sub": "10 历史)",
    "icon": "state",
    "cls": "data",
    "x": 345,
    "y": 353,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VLA",
    "label": "冻结 wrench-aware VLA\n预测参考动作 chunk (50",
-   "sub": " 步, 执行前 10)",
+   "sub": "步, 执行前 10)\n+ 未来 wrench 序列 (事前物理\n先验)",
    "icon": "stack",
    "cls": "frozen",
    "x": 198,
    "y": 589,
    "w": 261,
-   "h": 140
+   "h": 172
   },
   {
    "id": "ACT",
-   "label": "轻量在线 RL actor\n学修正量: a = a_ref + ",
+   "label": "轻量在线 RL actor\n学修正量: a = a_ref +",
    "sub": "delta",
    "icon": "lightning",
    "cls": "train",
    "x": 196,
    "y": 825,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "MOE",
-   "label": "MoE 融合\n门控加权: 参考动作 / wr",
-   "sub": "ench 预测 / RL 修正",
+   "label": "MoE 融合\n门控加权: 参考动作 /",
+   "sub": "wrench 预测 / RL 修正",
    "icon": "lightning",
    "cls": "act",
    "x": 195,
    "y": 1061,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CEN",
-   "label": "intervention-censored\n critic (核心)",
-   "sub": "干预前策略动作回报记 0",
+   "label": "intervention-censored\ncritic (核心)",
+   "sub": "干预前策略动作回报记 0\n切分功劳归属, 防失败动作被奖励",
    "icon": "target",
    "cls": "key",
    "x": 46,
    "y": 353,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "HUM",
@@ -75,7 +75,7 @@
    "x": 52,
    "y": 150,
    "w": 264,
-   "h": 106
+   "h": 104
   }
  ],
  "edges": [
@@ -92,7 +92,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "FB",
@@ -122,7 +122,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "ROBOT",
@@ -133,22 +133,22 @@
    "from": "HUM",
    "to": "CEN",
    "style": "fb",
-   "label": "\"干预 mask\""
+   "label": "干预 mask"
   },
   {
    "from": "CEN",
    "to": "ACT",
    "style": "loss",
-   "label": "\"Q 梯度在线精调\""
+   "label": "Q 梯度在线精调"
   }
  ],
  "panels": [
   {
    "label": "真机在线回路 (20 Hz)",
    "x": 319,
-   "y": 150,
+   "y": 103,
    "w": 318,
-   "h": 411
+   "h": 458
   }
  ],
  "canvas": [

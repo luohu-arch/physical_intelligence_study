@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "Q",
-   "label": "动力学 f 是否开环 EISS?\n(如 EE 位置控制 + 高频",
-   "sub": "底层跟踪)",
+   "label": "动力学 f 是否开环 EISS?\n(如 EE 位置控制 + 高频底",
+   "sub": "层跟踪)",
    "icon": "gear",
    "cls": "env",
    "x": 345,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "P1",
-   "label": "Practice 1: 动作 chunk\ning",
+   "label": "Practice 1: 动作\nchunking",
    "sub": "",
    "icon": "stack",
    "cls": "key",
    "x": 46,
    "y": 402,
    "w": 267,
-   "h": 107
+   "h": 105
   },
   {
    "id": "P2",
-   "label": "Practice 2: 噪声注入采\n集",
+   "label": "Practice 2: 噪声注入\n采集",
    "sub": "",
    "icon": "noise",
    "cls": "key",
    "x": 351,
    "y": 402,
    "w": 262,
-   "h": 107
+   "h": 105
   },
   {
    "id": "C1",
@@ -42,18 +42,18 @@
    "x": 200,
    "y": 622,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "C2",
-   "label": "块长只需对数级\nl > log(1/rho)^-1 * l",
-   "sub": "og poly(L_pi, C_ISS)",
+   "label": "块长只需对数级\nl > log(1/rho)^-1 *",
+   "sub": "log poly(L_pi, C_ISS)",
    "icon": "stack",
    "cls": "train",
    "x": 222,
    "y": 825,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "S1",
@@ -64,18 +64,18 @@
    "x": 222,
    "y": 1061,
    "w": 251,
-   "h": 107
+   "h": 105
   },
   {
    "id": "R1",
-   "label": "J_TRAJ <= O(1) * J_DE\nMO",
-   "sub": "horizon-free 误差界 (T",
+   "label": "J_TRAJ <= O(1) *\nJ_DEMO",
+   "sub": "horizon-free 误差界 (Thm 1)",
    "icon": "refresh",
    "cls": "loop",
    "x": 220,
    "y": 1264,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "N1",
@@ -86,7 +86,7 @@
    "x": 502,
    "y": 622,
    "w": 258,
-   "h": 107
+   "h": 105
   },
   {
    "id": "N2",
@@ -97,7 +97,7 @@
    "x": 521,
    "y": 842,
    "w": 216,
-   "h": 107
+   "h": 105
   },
   {
    "id": "G",
@@ -108,7 +108,7 @@
    "x": 511,
    "y": 1061,
    "w": 226,
-   "h": 107
+   "h": 105
   },
   {
    "id": "G2",
@@ -119,40 +119,40 @@
    "x": 524,
    "y": 1280,
    "w": 216,
-   "h": 107
+   "h": 105
   },
   {
    "id": "R2",
-   "label": "J_TRAJ <= O*(T) * J_D\nEMO",
+   "label": "J_TRAJ <= O*(T) *\nJ_DEMO",
    "sub": "混合分布上的界 (Thm 2)",
    "icon": "refresh",
    "cls": "loop",
    "x": 349,
    "y": 1500,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "OK",
-   "label": "指数复合误差下界被绕开\n单次采集即可, 无需 DAgg",
-   "sub": "er 迭代",
+   "label": "指数复合误差下界被绕开\n单次采集即可, 无需",
+   "sub": "DAgger 迭代",
    "icon": "db",
    "cls": "act",
    "x": 346,
    "y": 1736,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "BAD",
-   "label": "块内发散\n(开环不稳定: HalfCheet",
-   "sub": "ah 反例)",
+   "label": "块内发散\n(开环不稳定:",
+   "sub": "HalfCheetah 反例)",
    "icon": "stack",
    "cls": "loss",
    "x": 651,
    "y": 386,
    "w": 262,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -160,13 +160,13 @@
    "from": "Q",
    "to": "P1",
    "style": "main",
-   "label": "\"是\""
+   "label": "是"
   },
   {
    "from": "Q",
    "to": "P2",
    "style": "main",
-   "label": "\"否\""
+   "label": "否"
   },
   {
    "from": "P1",
@@ -227,7 +227,7 @@
    "from": "Q",
    "to": "BAD",
    "style": "fb",
-   "label": "\"否却硬用朴素 chunking\""
+   "label": "否却硬用朴素 chunking"
   }
  ],
  "panels": [],

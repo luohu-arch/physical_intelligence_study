@@ -9,62 +9,62 @@
    "x": 362,
    "y": 166,
    "w": 246,
-   "h": 107
+   "h": 105
   },
   {
    "id": "EXPERT",
-   "label": "固定特权专家: PPO 教师 \n(seed 42)",
-   "sub": "43 维特权仿真观测, 永不",
+   "label": "固定特权专家: PPO 教师\n(seed 42)",
+   "sub": "43 维特权仿真观测, 永不暴露给\nVLA",
    "icon": "state",
    "cls": "loop",
    "x": 56,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "RESTORE",
-   "label": "restore-and-branch: \n仿真精确状态恢复",
-   "sub": "容差 2e-5, 5 步 warm-u",
+   "label": "restore-and-branch: 仿\n真精确状态恢复",
+   "sub": "容差 2e-5, 5 步 warm-up, 逐\ncheckpoint 分支重跑",
    "icon": "state",
    "cls": "loop",
    "x": 199,
    "y": 386,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LADDER",
-   "label": "自适应蒙特卡洛阶梯 5 ->\n 15 -> 30 次",
-   "sub": "Wilson 区间相对阈值三分",
+   "label": "自适应蒙特卡洛阶梯 5 ->\n15 -> 30 次",
+   "sub": "Wilson 区间相对阈值三分, 只细化\n未定槽",
    "icon": "tree",
    "cls": "loop",
    "x": 198,
    "y": 622,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "CURVE",
-   "label": "可恢复性曲线 p_rec(t)\n教师相对量 (rho 低至 0.",
-   "sub": "103), 均值 3.37 次穿阈",
+   "label": "可恢复性曲线 p_rec(t)\n教师相对量 (rho 低至",
+   "sub": "0.103), 均值 3.37 次穿阈",
    "icon": "refresh",
    "cls": "loop",
    "x": 198,
    "y": 858,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ISLAND",
    "label": "75.6% 非单调, 70.9% 含\n恢复岛屿",
-   "sub": "首次穿阈会漏掉后面的可恢",
+   "sub": "首次穿阈会漏掉后面的可恢复区",
    "icon": "refresh",
    "cls": "loop",
    "x": 348,
    "y": 1094,
    "w": 270,
-   "h": 140
+   "h": 138
   },
   {
    "id": "FRONTIER",
@@ -75,51 +75,51 @@
    "x": 46,
    "y": 1094,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEPTH",
-   "label": "目标深度采样: t_dev 到 \nt_f 之间",
-   "sub": "归一深度 0.15 / 0.50 /",
+   "label": "目标深度采样: t_dev 到\nt_f 之间",
+   "sub": "归一深度 0.15 / 0.50 / 0.85",
    "icon": "refresh",
    "cls": "loop",
    "x": 198,
    "y": 1330,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEMO",
    "label": "专家成功续跑 = 合成恢复\n演示",
-   "sub": "(难度匹配 + 帧预算匹配",
+   "sub": "(难度匹配 + 帧预算匹配对照)",
    "icon": "db",
    "cls": "loop",
    "x": 200,
    "y": 1566,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SFT",
-   "label": "SmolVLA 变体 V0 -> V3 \nSFT",
-   "sub": "V2 同窗口均匀 / V3 目标",
+   "label": "SmolVLA 变体 V0 -> V3\nSFT",
+   "sub": "V2 同窗口均匀 / V3 目标深度",
    "icon": "refresh",
    "cls": "loop",
    "x": 198,
    "y": 1802,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACC",
-   "label": "恢复 SR 34.6% / 38.4%,\n 比均匀采样 +5.8/+6.7p",
-   "sub": "p",
+   "label": "恢复 SR 34.6% / 38.4%,\n比均匀采样 +5.8/+6.7pp",
+   "sub": "省 30.6% 演示 / 33.7% 帧; 干净\n任务 -2.1pp",
    "icon": "refresh",
    "cls": "loop",
    "x": 198,
    "y": 2038,
    "w": 267,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -132,13 +132,13 @@
    "from": "EXPERT",
    "to": "RESTORE",
    "style": "fb",
-   "label": "\"在预算 H 内续跑原任务, 数成功\""
+   "label": "在预算 H 内续跑原任务, 数成功"
   },
   {
    "from": "RESTORE",
    "to": "LADDER",
    "style": "thick",
-   "label": "\"逐点成功计数\""
+   "label": "逐点成功计数"
   },
   {
    "from": "LADDER",
@@ -149,7 +149,7 @@
    "from": "CURVE",
    "to": "ISLAND",
    "style": "fb",
-   "label": "\"曲线结构\""
+   "label": "曲线结构"
   },
   {
    "from": "CURVE",

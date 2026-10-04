@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "TAC",
-   "label": "触觉阵列 200 taxels @ \n120 Hz",
+   "label": "触觉阵列 200 taxels @\n120 Hz",
    "sub": "(仅训练期的特权模态)",
    "icon": "db",
    "cls": "data",
    "x": 234,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "TEACHER",
-   "label": "SA-RWFM teacher (Smol\nVLA 0.45B)",
-   "sub": "safety-aware reward-w",
+   "label": "SA-RWFM teacher (\nSmolVLA 0.45B)",
+   "sub": "safety-aware reward-weighted\nflow matching 离线 RL",
    "icon": "reward",
    "cls": "frozen",
    "x": 287,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "DEMO",
@@ -31,18 +31,18 @@
    "x": 46,
    "y": 167,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "TDST",
-   "label": "Tactile Distillation \n(核心)",
-   "sub": "student 从视觉 + 本体",
+   "label": "Tactile Distillation\n(核心)",
+   "sub": "student 从视觉 + 本体预测\ncompact tactile token\n(预测的手感替代测出的手感)",
    "icon": "camera",
    "cls": "key",
    "x": 287,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 172
   },
   {
    "id": "VIS",
@@ -53,29 +53,29 @@
    "x": 536,
    "y": 166,
    "w": 253,
-   "h": 107
+   "h": 105
   },
   {
    "id": "STUDENT",
-   "label": "student VLA\n动作目标 = 0.5 * GT de",
-   "sub": "mo + 0.5 * teacher",
+   "label": "student VLA\n动作目标 = 0.5 * GT",
+   "sub": "demo + 0.5 * teacher\n从模仿平滑过渡到跟随 teacher",
    "icon": "flask",
    "cls": "train",
    "x": 286,
    "y": 858,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "DEPLOY",
-   "label": "纯视觉部署 (无触觉硬件)\nJetson Orin NX 边缘推",
-   "sub": "理",
+   "label": "纯视觉部署 (无触觉硬件)\nJetson Orin NX 边缘",
+   "sub": "推理\n86.7% 反超带触觉 teacher 75%",
    "icon": "camera",
    "cls": "act",
    "x": 286,
    "y": 1094,
    "w": 264,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -83,7 +83,7 @@
    "from": "TAC",
    "to": "TEACHER",
    "style": "fb",
-   "label": "\"安全奖励: 抓取力 / 压力峰值 / 滑移"
+   "label": "安全奖励: 抓取力 / 压力峰值 …"
   },
   {
    "from": "DEMO",
@@ -94,7 +94,7 @@
    "from": "TEACHER",
    "to": "TDST",
    "style": "loss",
-   "label": "\"蒸馏触觉内部表征 h^T\""
+   "label": "蒸馏触觉内部表征 h^T"
   },
   {
    "from": "VIS",

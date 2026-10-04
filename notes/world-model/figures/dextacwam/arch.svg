@@ -23,33 +23,33 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">dextacwam</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">DexTacWAM 把 TacWAM 一系的视触觉世界建模从平行夹爪推进到 22-DoF 双灵巧手：核心主张是**触觉接触演化本身要作为被预测世界状态的一部分**（$s_t=\</text>
 <text x="943" y="2884" font-size="11.5" fill="#a0aab4" text-anchor="end">dextacwam · arXiv 2609.24976 · v3 auto</text>
-<rect x="20" y="150" width="661" height="1727" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
-<rect x="36" y="163" width="188.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
-<text x="47" y="180" font-size="12.5" fill="#4a6579">触觉压缩器 (5:1 压缩, 保</text>
-<path d="M 136.0 257.0 L 136.0 353.0 L 250.5 353.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 250.5 460.0 L 250.5 556.0 L 488.5 556.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 488.5 696.0 L 488.5 792.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 488.5 899.0 L 489.0 995.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 346.5 256.0 L 346.5 353.0 L 534.5 353.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 489.0 1101.0 L 488.5 1197.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 534.5 460.0 L 643.0 460.0 L 643.0 1197.0 L 488.5 1197.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 488.5 1337.0 L 488.0 1433.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 488.0 1573.0 L 488.5 1669.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 810.5 256.0 L 810.5 354.0 L 772.5 354.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 772.5 460.0 L 772.5 1905.0 L 489.0 1905.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 488.5 1809.0 L 489.0 1905.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 489.0 2045.0 L 488.0 2141.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 488.0 2248.0 L 488.5 2344.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 559.5 256.0 L 669.0 256.0 L 669.0 2344.0 L 488.5 2344.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 488.5 2484.0 L 488.5 2580.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<rect x="48.5" y="153.5" width="180" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="150" width="180" height="107" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<rect x="20" y="103" width="661" height="1774" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
+<rect x="36" y="116" width="299.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
+<text x="47" y="133" font-size="12.5" fill="#4a6579">触觉压缩器 (5:1 压缩, 保 89.4% 接触召回)</text>
+<path d="M 136.0 255.0 L 136.0 353.0 L 250.5 353.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 250.5 458.0 L 250.5 556.0 L 488.5 556.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 488.5 694.0 L 488.5 792.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 488.5 897.0 L 489.0 995.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 346.5 254.0 L 346.5 353.0 L 534.5 353.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 489.0 1099.0 L 488.5 1197.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 534.5 458.0 L 643.0 458.0 L 643.0 1197.0 L 488.5 1197.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 488.5 1352.0 L 488.0 1433.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 488.0 1571.0 L 488.5 1669.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 810.5 254.0 L 810.5 354.0 L 772.5 354.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 772.5 458.0 L 772.5 1905.0 L 489.0 1905.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 488.5 1807.0 L 489.0 1905.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 489.0 2060.0 L 488.0 2141.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 488.0 2246.0 L 488.5 2344.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 559.5 254.0 L 669.0 254.0 L 669.0 2344.0 L 488.5 2344.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 488.5 2482.0 L 488.5 2580.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<rect x="48.5" y="153.5" width="180" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="150" width="180" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="136.0" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="136.0" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(122.5,136.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
 <text x="136.0" y="206" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="136.0" dy="0">十指指尖触觉图</tspan><tspan x="136.0" dy="20">单通道</tspan></text>
-<rect x="127.5" y="356.5" width="251" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="125" y="353" width="251" height="107" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="127.5" y="356.5" width="251" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="125" y="353" width="251" height="105" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="250.5" cy="353" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="250.5" cy="353" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(237.0,339.5) scale(1.1250)">
@@ -57,18 +57,18 @@
   <circle cx="12" cy="13" r="3" />
 </g>
 <text x="250.5" y="409" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="250.5" dy="0">1x1 灰度转 RGB 适配器</tspan><tspan x="250.5" dy="20">初始化为恒等拷贝</tspan></text>
-<rect x="360.5" y="559.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="358" y="556" width="261" height="140" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
+<rect x="360.5" y="559.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="358" y="556" width="261" height="138" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
 <circle cx="488.5" cy="556" r="24" fill="#ffffff" stroke="#1565c0" stroke-width="1.8"/>
 <circle cx="488.5" cy="556" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
 <g transform="translate(475.0,542.5) scale(1.1250)">
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="488.5" y="612" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="488.5" dy="0">冻结 LTX 视觉 VAE 编码</tspan><tspan x="488.5" dy="20">器</tspan></text>
+<text x="488.5" y="612" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="488.5" dy="0">冻结 LTX 视觉 VAE 编</tspan><tspan x="488.5" dy="20">码器</tspan></text>
 <text x="488.5" y="642" font-size="12" fill="#5f6b7a" text-anchor="middle">十指共享权重</text>
-<rect x="360.5" y="795.5" width="261" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="358" y="792" width="261" height="107" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<rect x="360.5" y="795.5" width="261" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="358" y="792" width="261" height="105" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="488.5" cy="792" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="488.5" cy="792" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(475.0,778.5) scale(1.1250)">
@@ -78,27 +78,27 @@
   <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
   <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
 </g>
-<text x="488.5" y="848" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="488.5" dy="0">每手 5 指各一份 latent</tspan><tspan x="488.5" dy="20"> 网格</tspan></text>
-<rect x="374.5" y="998.5" width="234" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="372" y="995" width="234" height="106" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="488.5" y="848" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="488.5" dy="0">每手 5 指各一份 latent</tspan><tspan x="488.5" dy="20">网格</tspan></text>
+<rect x="374.5" y="998.5" width="234" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="372" y="995" width="234" height="104" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="489.0" cy="995" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="489.0" cy="995" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(475.5,981.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
 <text x="489.0" y="1058" font-size="16" class="lbl" fill="#b34700" text-anchor="middle">加可学习手指身份嵌入</text>
-<rect x="266.5" y="153.5" width="165" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="264" y="150" width="165" height="106" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<rect x="266.5" y="153.5" width="165" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="264" y="150" width="165" height="104" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="346.5" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="346.5" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(333.0,136.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
 <text x="346.5" y="213" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">手部位姿 q_t</text>
-<rect x="416.5" y="356.5" width="241" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="414" y="353" width="241" height="107" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="416.5" y="356.5" width="241" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="414" y="353" width="241" height="105" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="534.5" cy="353" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="534.5" cy="353" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(521.0,339.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
 <text x="534.5" y="409" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="534.5" dy="0">位姿编码器</tspan><tspan x="534.5" dy="20">零初始化增益 alpha_q</tspan></text>
-<rect x="356.5" y="1200.5" width="269" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="354" y="1197" width="269" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="356.5" y="1200.5" width="269" height="155" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="354" y="1197" width="269" height="155" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="488.5" cy="1197" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="488.5" cy="1197" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(475.0,1183.5) scale(1.1250)">
@@ -106,17 +106,18 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="488.5" y="1253" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="488.5" dy="0">逐格 6-token 集合自注意</tspan><tspan x="488.5" dy="20">力</tspan></text>
-<text x="488.5" y="1283" font-size="12" fill="#5f6b7a" text-anchor="middle">手查询 + 5 指 token, </text>
-<rect x="358.5" y="1436.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="356" y="1433" width="264" height="140" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="488.5" y="1253" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="488.5" dy="0">逐格 6-token 集合自注</tspan><tspan x="488.5" dy="20">意力</tspan></text>
+<text x="488.5" y="1283" font-size="12" fill="#5f6b7a" text-anchor="middle">手查询 + 5 指 token, 保留手
+查询</text>
+<rect x="358.5" y="1436.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="356" y="1433" width="264" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="488.0" cy="1433" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="488.0" cy="1433" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(474.5,1419.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
-<text x="488.0" y="1489" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="488.0" dy="0">分治时空注意力</tspan><tspan x="488.0" dy="20">覆盖 T_lat 与 H x W 网</tspan></text>
-<text x="488.0" y="1519" font-size="12" fill="#5f6b7a" text-anchor="middle">格</text>
-<rect x="370.5" y="1672.5" width="241" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="368" y="1669" width="241" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="488.0" y="1489" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="488.0" dy="0">分治时空注意力</tspan><tspan x="488.0" dy="20">覆盖 T_lat 与 H x W</tspan></text>
+<text x="488.0" y="1519" font-size="12" fill="#5f6b7a" text-anchor="middle">网格</text>
+<rect x="370.5" y="1672.5" width="241" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="368" y="1669" width="241" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="488.5" cy="1669" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="488.5" cy="1669" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(475.0,1655.5) scale(1.1250)">
@@ -128,8 +129,8 @@
 </g>
 <text x="488.5" y="1725" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="488.5" dy="0">每手触觉 latent</tspan><tspan x="488.5" dy="20">128 x T_lat x 6 x 8</tspan></text>
 <text x="488.5" y="1755" font-size="12" fill="#5f6b7a" text-anchor="middle">作为额外一个视角</text>
-<rect x="692.5" y="153.5" width="241" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="690" y="150" width="241" height="106" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<rect x="692.5" y="153.5" width="241" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="690" y="150" width="241" height="104" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="810.5" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="810.5" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(797.0,136.5) scale(1.1250)">
@@ -137,8 +138,8 @@
   <circle cx="12" cy="13" r="3" />
 </g>
 <text x="810.5" y="213" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">头部 + 腕部 RGB 视角</text>
-<rect x="695.5" y="357.5" width="159" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="693" y="354" width="159" height="106" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<rect x="695.5" y="357.5" width="159" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="693" y="354" width="159" height="104" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="772.5" cy="354" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="772.5" cy="354" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(759.0,340.5) scale(1.1250)">
@@ -146,36 +147,37 @@
   <circle cx="12" cy="13" r="3" />
 </g>
 <text x="772.5" y="417" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">视觉 latent</text>
-<rect x="358.5" y="1908.5" width="266" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="356" y="1905" width="266" height="140" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="358.5" y="1908.5" width="266" height="155" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="356" y="1905" width="266" height="155" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="489.0" cy="1905" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="489.0" cy="1905" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(475.5,1891.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
 <text x="489.0" y="1961" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="489.0" dy="0">视频扩散 DiT</tspan><tspan x="489.0" dy="20">V = V_v + V_tau 视角联</tspan></text>
-<text x="489.0" y="1991" font-size="12" fill="#5f6b7a" text-anchor="middle">合去噪</text>
-<rect x="362.5" y="2144.5" width="256" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="360" y="2141" width="256" height="107" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<text x="489.0" y="1991" font-size="12" fill="#5f6b7a" text-anchor="middle">合去噪
+分模态加权 flow-matching 损失</text>
+<rect x="362.5" y="2144.5" width="256" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="360" y="2141" width="256" height="105" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="488.0" cy="2141" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="488.0" cy="2141" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(474.5,2127.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
 <text x="488.0" y="2197" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="488.0" dy="0">视触觉联合世界状态 s_t</tspan><tspan x="488.0" dy="20">触觉接触演化被显式预测</tspan></text>
-<rect x="360.5" y="2347.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="358" y="2344" width="261" height="140" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="360.5" y="2347.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="358" y="2344" width="261" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="488.5" cy="2344" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="488.5" cy="2344" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(475.0,2330.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
 <text x="488.5" y="2400" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="488.5" dy="0">动作专家</tspan><tspan x="488.5" dy="20">共享交叉注意力</tspan></text>
-<text x="488.5" y="2430" font-size="12" fill="#5f6b7a" text-anchor="middle">逐模态 K/V RMS 归一化(</text>
-<rect x="469.5" y="153.5" width="185" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="467" y="150" width="185" height="106" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="488.5" y="2430" font-size="12" fill="#5f6b7a" text-anchor="middle">逐模态 K/V RMS 归一化(硬依赖)</text>
+<rect x="469.5" y="153.5" width="185" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="467" y="150" width="185" height="104" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="559.5" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="559.5" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(546.0,136.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
 <text x="559.5" y="213" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">本体状态 token</text>
-<rect x="364.5" y="2583.5" width="253" height="140" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="362" y="2580" width="253" height="140" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<rect x="364.5" y="2583.5" width="253" height="155" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="362" y="2580" width="253" height="155" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="488.5" cy="2580" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
 <circle cx="488.5" cy="2580" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(475.0,2566.5) scale(1.1250)">
@@ -186,8 +188,9 @@
   <path d="M15 13v2" />
   <path d="M9 13v2" />
 </g>
-<text x="488.5" y="2636" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="488.5" dy="0">194 维动作</tspan><tspan x="488.5" dy="20">60 维指尖力 + 臂 EEF </tspan></text>
-<text x="488.5" y="2666" font-size="12" fill="#5f6b7a" text-anchor="middle">位姿</text>
+<text x="488.5" y="2636" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="488.5" dy="0">194 维动作</tspan><tspan x="488.5" dy="20">60 维指尖力 + 臂 EEF</tspan></text>
+<text x="488.5" y="2666" font-size="12" fill="#5f6b7a" text-anchor="middle">位姿
++ 手目标 + 本体</text>
 <text x="40" y="2850.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="2836" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="2847" r="4.2" fill="#6a1b9a"/><text x="110" y="2851" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="2836" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="2847" r="4.2" fill="#2e7d32"/><text x="208.76" y="2851" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

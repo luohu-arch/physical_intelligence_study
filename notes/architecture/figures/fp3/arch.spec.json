@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "PC1",
-   "label": "第三人称点云\n世界系 1m box, FPS 400",
-   "sub": "0 点",
+   "label": "第三人称点云\n世界系 1m box, FPS",
+   "sub": "4000 点",
    "icon": "db",
    "cls": "data",
    "x": 457,
    "y": 150,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "U1",
-   "label": "Uni3D ViT-L 编码器 300\nM",
-   "sub": "(DROID 预训练后微调, 不",
+   "label": "Uni3D ViT-L 编码器 300M\n(DROID 预训练后微调,",
+   "sub": "不冻结)",
    "icon": "eye",
    "cls": "train",
    "x": 650,
    "y": 386,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "PC2",
@@ -31,7 +31,7 @@
    "x": 761,
    "y": 166,
    "w": 175,
-   "h": 107
+   "h": 105
   },
   {
    "id": "U2",
@@ -42,7 +42,7 @@
    "x": 958,
    "y": 402,
    "w": 226,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LANG",
@@ -53,7 +53,7 @@
    "x": 46,
    "y": 167,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "CLIP",
@@ -64,7 +64,7 @@
    "x": 420,
    "y": 402,
    "w": 193,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PROP",
@@ -75,7 +75,7 @@
    "x": 974,
    "y": 167,
    "w": 165,
-   "h": 106
+   "h": 104
   },
   {
    "id": "MLPQ",
@@ -86,7 +86,7 @@
    "x": 1222,
    "y": 403,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "TENC",
@@ -97,7 +97,7 @@
    "x": 774,
    "y": 622,
    "w": 243,
-   "h": 107
+   "h": 105
   },
   {
    "id": "NOISE",
@@ -108,40 +108,40 @@
    "x": 234,
    "y": 167,
    "w": 185,
-   "h": 106
+   "h": 104
   },
   {
    "id": "DIT",
-   "label": "DiT decoder (causal m\nask)",
-   "sub": "动作 token 只看自身及之",
+   "label": "DiT decoder (causal\nmask)",
+   "sub": "动作 token 只看自身及之前",
    "icon": "stack",
    "cls": "key",
    "x": 762,
    "y": 825,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LDDPM",
-   "label": "损失 L_ddpm: 噪声回归 \nMSE",
+   "label": "损失 L_ddpm: 噪声回归\nMSE",
    "sub": "",
    "icon": "noise",
    "cls": "loss",
    "x": 1484,
    "y": 166,
    "w": 261,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LORA",
-   "label": "post-training: LoRA r\nank 32",
-   "sub": "80 条示教/任务, 单卡 2 ",
+   "label": "post-training: LoRA\nrank 32",
+   "sub": "80 条示教/任务, 单卡 2 小时",
    "icon": "cpu",
    "cls": "train",
    "x": 1177,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "OUT",
@@ -152,18 +152,18 @@
    "x": 768,
    "y": 1061,
    "w": 254,
-   "h": 106
+   "h": 104
   },
   {
    "id": "ROBOT",
-   "label": "机器人执行 15Hz Cartes\nian 控制",
+   "label": "机器人执行 15Hz\nCartesian 控制",
    "sub": "",
    "icon": "robot",
    "cls": "act",
    "x": 764,
    "y": 1263,
    "w": 262,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -219,7 +219,7 @@
    "from": "TENC",
    "to": "DIT",
    "style": "thick",
-   "label": "\"adaLN 条件注入\""
+   "label": "adaLN 条件注入"
   },
   {
    "from": "LDDPM",
@@ -230,39 +230,39 @@
    "from": "LORA",
    "to": "DIT",
    "style": "fb",
-   "label": "\"只训低秩增量\""
+   "label": "只训低秩增量"
   },
   {
    "from": "DIT",
    "to": "OUT",
    "style": "thick",
-   "label": "\"DDIM 16 步去噪\""
+   "label": "DDIM 16 步去噪"
   },
   {
    "from": "OUT",
    "to": "ROBOT",
    "style": "thick",
-   "label": "\"receding horizon 执行前 "
+   "label": "receding horizon 执行前 8 步"
   },
   {
    "from": "ROBOT",
    "to": "PC1",
    "style": "fb",
-   "label": "\"重观测 (obs 2 帧历史)\"",
+   "label": "重观测 (obs 2 帧历史)",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1164
+   "k": 84
   }
  ],
  "panels": [
   {
    "label": "多模态编码 (总参 1.3B)",
    "x": 394,
-   "y": 340,
+   "y": 339,
    "w": 1004,
-   "h": 411
+   "h": 412
   }
  ],
  "canvas": [

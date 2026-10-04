@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "POL",
-   "label": "被 RL 的策略 Qwen2.5 0\n.5B-7B / Llama3.2 / V",
-   "sub": "L",
+   "label": "被 RL 的策略 Qwen2.5\n0.5B-7B / Llama3.2 /",
+   "sub": "VL\nPPO / DAPO / GRPO / Dr.GRPO\n皆可插",
    "icon": "brain",
    "cls": "loop",
    "x": 196,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "ENV",
-   "label": "七环境测试台: Sokoban \n/ FrozenLake / MetaMa",
-   "sub": "thQA /",
+   "label": "七环境测试台: Sokoban \n/",
+   "sub": "FrozenLake /\nCountdown / SearchQA /\nWebShop / DeepCoder",
    "icon": "gear",
    "cls": "loop",
    "x": 198,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 172
   },
   {
    "id": "ROL",
-   "label": "rollout: P=8 prompt x\n G=16 轨迹/迭代",
+   "label": "rollout: P=8 prompt x\nG=16 轨迹/迭代",
    "sub": "(X, Z) 对复用训练数据",
    "icon": "chat",
    "cls": "loop",
    "x": 198,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "RV",
@@ -42,51 +42,51 @@
    "x": 355,
    "y": 874,
    "w": 253,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FILT",
    "label": "SNR-Aware Top-p 过滤 (\nrho=0.9)",
-   "sub": "按方差累积质量保留最小前",
+   "sub": "按方差累积质量保留最小前缀",
    "icon": "refresh",
    "cls": "loop",
    "x": 193,
    "y": 1533,
    "w": 270,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DROP",
    "label": "滤除近零 RV prompt: 此\n处任务梯度趋零",
-   "sub": "reward-agnostic 的 KL",
+   "sub": "reward-agnostic 的 KL/熵正\n则会主导更新",
    "icon": "chat",
    "cls": "loop",
    "x": 46,
    "y": 1769,
    "w": 262,
-   "h": 140
+   "h": 155
   },
   {
    "id": "UPD",
-   "label": "高信号子集上策略更新, l\noss 乘 rho",
+   "label": "高信号子集上策略更新,\nloss 乘 rho",
    "sub": "附带步时下降 26-41%",
    "icon": "lightning",
    "cls": "loop",
    "x": 346,
    "y": 1769,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "MI",
-   "label": "MI proxy (核心): in-ba\ntch cross-scoring",
-   "sub": "双轴分解 H(Z|X) 条件熵 ",
+   "label": "MI proxy (核心): in-\nbatch cross-scoring",
+   "sub": "双轴分解 H(Z|X) 条件熵 x I(X;Z\n)\n互信息, 无需外部模型",
    "icon": "refresh",
    "cls": "loop",
    "x": 48,
    "y": 858,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "DIAG",
@@ -97,29 +97,29 @@
    "x": 194,
    "y": 1094,
    "w": 267,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ACT",
    "label": "升高过滤压力 / 检查奖励\n信号",
-   "sub": "(MI 先于成功率下跌的预",
+   "sub": "(MI 先于成功率下跌的预警窗)",
    "icon": "reward",
    "cls": "loop",
    "x": 196,
    "y": 1297,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACC",
    "label": "11 组设置增益 +0.8 ~ +\n35.8 全正",
-   "sub": "MI proxy 与最终性能 Sp",
+   "sub": "MI proxy 与最终性能 Spearman \n+\n0.39, 熵类 -0.11 ~ -0.14",
    "icon": "refresh",
    "cls": "loop",
    "x": 197,
    "y": 2005,
    "w": 262,
-   "h": 140
+   "h": 172
   }
  ],
  "edges": [
@@ -127,7 +127,7 @@
    "from": "POL",
    "to": "ENV",
    "style": "fb",
-   "label": "\"rollout\""
+   "label": "rollout"
   },
   {
    "from": "ENV",
@@ -148,7 +148,7 @@
    "from": "FILT",
    "to": "UPD",
    "style": "thick",
-   "label": "\"保留高方差子集\""
+   "label": "保留高方差子集"
   },
   {
    "from": "FILT",
@@ -159,18 +159,18 @@
    "from": "UPD",
    "to": "POL",
    "style": "loss",
-   "label": "\"梯度更新\"",
+   "label": "梯度更新",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1939
+   "k": 84
   },
   {
    "from": "ROL",
    "to": "MI",
    "style": "thick",
-   "label": "\"teacher-forcing 全交叉打分"
+   "label": "teacher-forcing 全交叉打分"
   },
   {
    "from": "MI",
@@ -181,18 +181,18 @@
    "from": "DIAG",
    "to": "ACT",
    "style": "fb",
-   "label": "\"是: template collapse "
+   "label": "是: template collapse 早期预警"
   },
   {
    "from": "DIAG",
    "to": "POL",
    "style": "fb",
-   "label": "\"否: 正常迭代\"",
+   "label": "否: 正常迭代",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1939
+   "k": 84
   },
   {
    "from": "ACT",

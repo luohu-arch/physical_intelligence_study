@@ -3,13 +3,13 @@
   {
    "id": "OBS",
    "label": "观测 O_t\n最近 T_o 帧多视角 RGB ",
-   "sub": "+ 低维状态",
+   "sub": "+低维状态",
    "icon": "camera",
    "cls": "data",
    "x": 269,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "VENC",
@@ -20,7 +20,7 @@
    "x": 311,
    "y": 386,
    "w": 254,
-   "h": 140
+   "h": 138
   },
   {
    "id": "NOISE",
@@ -31,29 +31,29 @@
    "x": 46,
    "y": 166,
    "w": 185,
-   "h": 107
+   "h": 105
   },
   {
    "id": "EPS",
    "label": "噪声预测网络 eps_theta\n(O_t, A_t^k, k)",
-   "sub": "CNN + FiLM 或 Transfo",
+   "sub": "CNN + FiLM 或 Transformer",
    "icon": "noise",
    "cls": "key",
    "x": 308,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "STEP",
    "label": "去噪一步\nalpha*(A - gamma*eps)",
-   "sub": " + noise",
+   "sub": "+ noise",
    "icon": "noise",
    "cls": "train",
    "x": 308,
    "y": 858,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "KCHK",
@@ -64,7 +64,7 @@
    "x": 363,
    "y": 1094,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "0",
@@ -75,7 +75,7 @@
    "x": 252,
    "y": 1296,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "OUT",
@@ -86,7 +86,7 @@
    "x": 440,
    "y": 1296,
    "w": 185,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ACT",
@@ -97,18 +97,18 @@
    "x": 312,
    "y": 1499,
    "w": 253,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LMSE",
-   "label": "损失 L: 去噪 MSE\n(eps 预测 vs 真噪声, c",
-   "sub": "osine 调度)",
+   "label": "损失 L: 去噪 MSE\n(eps 预测 vs 真噪声,",
+   "sub": "cosine 调度)",
    "icon": "noise",
    "cls": "loss",
    "x": 568,
    "y": 150,
    "w": 262,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -146,35 +146,35 @@
    "from": "KCHK",
    "to": "EPS",
    "style": "fb",
-   "label": "\"否, k 递减\"",
+   "label": "否, k 递减",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 928
+   "k": 84
   },
   {
    "from": "KCHK",
    "to": "OUT",
    "style": "thick",
-   "label": "\"是\""
+   "label": "是"
   },
   {
    "from": "OUT",
    "to": "ACT",
    "style": "thick",
-   "label": "\"receding horizon 只执行前"
+   "label": "receding horizon 只执行前 T_a 步"
   },
   {
    "from": "ACT",
    "to": "OBS",
    "style": "fb",
-   "label": "\"新观测, 重新规划\"",
+   "label": "新观测, 重新规划",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1400
+   "k": 84
   },
   {
    "from": "LMSE",
@@ -184,11 +184,11 @@
  ],
  "panels": [
   {
-   "label": "条件去噪循环 (训练 100 步",
+   "label": "条件去噪循环 (训练 100 步, DDIM 推理 10-16\n步)",
    "x": 226,
-   "y": 340,
+   "y": 322,
    "w": 369,
-   "h": 1084
+   "h": 1102
   }
  ],
  "canvas": [

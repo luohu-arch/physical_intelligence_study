@@ -9,7 +9,7 @@
    "x": 368,
    "y": 167,
    "w": 175,
-   "h": 106
+   "h": 104
   },
   {
    "id": "GS",
@@ -20,7 +20,7 @@
    "x": 348,
    "y": 386,
    "w": 256,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SIM",
@@ -31,7 +31,7 @@
    "x": 520,
    "y": 638,
    "w": 215,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VLMP",
@@ -42,29 +42,29 @@
    "x": 642,
    "y": 386,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "GT",
-   "label": "仿真真值物理参数\n(Phase 1 GT / Phase 1",
-   "sub": ".5 带噪)",
+   "label": "仿真真值物理参数\n(Phase 1 GT / Phase",
+   "sub": "1.5 带噪)",
    "icon": "gear",
    "cls": "frozen",
    "x": 582,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "PPO",
-   "label": "PPO 策略 (asymmetric a\nctor-critic)",
-   "sub": "显式条件化于物理参数 th",
+   "label": "PPO 策略 (asymmetric\nactor-critic)",
+   "sub": "显式条件化于物理参数 theta\nPhase 2 冻结策略训 ensemble",
    "icon": "target",
    "cls": "train",
    "x": 344,
    "y": 858,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "INTER",
@@ -75,7 +75,7 @@
    "x": 112,
    "y": 166,
    "w": 218,
-   "h": 107
+   "h": 105
   },
   {
    "id": "RMA",
@@ -86,29 +86,29 @@
    "x": 46,
    "y": 402,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FUSE",
-   "label": "逆方差加权融合 (核心)\ntheta_hat = (theta_vl",
-   "sub": "m/sigma_vlm^2 + theta",
+   "label": "逆方差加权融合 (核心)\ntheta_hat = (",
+   "sub": "theta_vlm/sigma_vlm^2 +\n/ (1/sigma_vlm^2 +\n1/sigma_rma^2)",
    "icon": "brain",
    "cls": "key",
    "x": 220,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 172
   },
   {
    "id": "DEPLOY",
    "label": "真机部署 (sim-to-real)\nsigma_rma 小 -> 信交互",
-   "sub": "估计",
+   "sub": "估计\nsigma_rma 大 -> 回退 VLM 先验",
    "icon": "gear",
    "cls": "act",
    "x": 346,
    "y": 1094,
    "w": 264,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -134,7 +134,7 @@
    "from": "GT",
    "to": "PPO",
    "style": "fb",
-   "label": "\"特权条件化训练\""
+   "label": "特权条件化训练"
   },
   {
    "from": "SIM",
@@ -168,7 +168,7 @@
    "from": "FUSE",
    "to": "DEPLOY",
    "style": "thick",
-   "label": "\"融合估计实时条件化策略\""
+   "label": "融合估计实时条件化策略"
   }
  ],
  "panels": [],

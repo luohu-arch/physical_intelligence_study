@@ -9,40 +9,40 @@
    "x": 785,
    "y": 668,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "CARD",
    "label": "CA-ID Card 声明契约 (\n核心): 六字段 = credit",
-   "sub": " 单位与估计量 /",
+   "sub": "单位与估计量 /\n有效状态 / 干预来源 / 下游协议\n/ 支撑与不确定性 / 优化接口",
    "icon": "refresh",
    "cls": "loop",
    "x": 415,
    "y": 651,
    "w": 262,
-   "h": 140
+   "h": 172
   },
   {
    "id": "EVID",
-   "label": "四层证据分级: restored\n-interventional > obs",
-   "sub": "ervational-causal",
+   "label": "四层证据分级 (核心)",
+   "sub": "restored-interventional >\nobservational-causal >\nmodel-relative > predictive",
    "icon": "state",
    "cls": "loop",
    "x": 46,
    "y": 651,
    "w": 261,
-   "h": 140
+   "h": 151
   },
   {
    "id": "VER",
-   "label": "6 个已知 (task, method\n) 对回溯验证 6/6 命中",
-   "sub": "阈值是粗路由启发式, 叶",
+   "label": "6 个已知 (task, method\n)",
+   "sub": "对回溯验证 6/6 命中\n阈值是粗路由启发式, 叶节点非跨\n论文性能排名",
    "icon": "refresh",
    "cls": "loop",
    "x": 1043,
    "y": 867,
    "w": 266,
-   "h": 140
+   "h": 172
   },
   {
    "id": "RS",
@@ -53,7 +53,7 @@
    "x": 1090,
    "y": 723,
    "w": 172,
-   "h": 106
+   "h": 104
   },
   {
    "id": "AG",
@@ -64,7 +64,7 @@
    "x": 1100,
    "y": 435,
    "w": 153,
-   "h": 106
+   "h": 104
   },
   {
    "id": "MA",
@@ -75,40 +75,40 @@
    "x": 1095,
    "y": 579,
    "w": 162,
-   "h": 106
+   "h": 104
   },
   {
    "id": "RS1",
-   "label": "CoT <= 5K token:\nGRPO / PURE / SPO / S",
-   "sub": "PRO",
+   "label": "CoT <= 5K token:\nGRPO / PURE / SPO /",
+   "sub": "SPRO",
    "icon": "stack",
    "cls": "loop",
    "x": 1421,
    "y": 796,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "RS2",
    "label": "CoT > 5K token:\nHICRA / CAPO / SPRO /",
-   "sub": " GRPO-lambda",
+   "sub": "GRPO-lambda",
    "icon": "stack",
    "cls": "loop",
    "x": 1421,
    "y": 974,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "RS3",
-   "label": "算力充裕:\nVinePPO / SCAR / GRAI",
-   "sub": "L",
+   "label": "算力充裕:\nVinePPO / SCAR /",
+   "sub": "GRAIL",
    "icon": "refresh",
    "cls": "loop",
    "x": 1421,
    "y": 1152,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AG1",
@@ -119,7 +119,7 @@
    "x": 1421,
    "y": 150,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "AG2",
@@ -130,29 +130,29 @@
    "x": 1417,
    "y": 328,
    "w": 269,
-   "h": 107
+   "h": 105
   },
   {
    "id": "AG3",
-   "label": "> 30 轮:\nC3 / CCPO / HCAPO / I",
-   "sub": "GPO / CRAFT / APPO",
+   "label": "> 30 轮:\nC3 / CCPO / HCAPO /",
+   "sub": "IGPO / CRAFT / APPO",
    "icon": "refresh",
    "cls": "loop",
    "x": 1421,
    "y": 473,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "MA1",
-   "label": "M-GRPO / SHARP / MAPP\nA / Dr.MAS",
+   "label": "M-GRPO / SHARP /\nMAPPA / Dr.MAS",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
    "x": 1421,
    "y": 651,
    "w": 261,
-   "h": 107
+   "h": 105
   }
  ],
  "edges": [
@@ -160,19 +160,19 @@
    "from": "Q",
    "to": "RS",
    "style": "thick",
-   "label": "\"token 级 MDP, CoT 可验证\""
+   "label": "token 级 MDP, CoT 可验证"
   },
   {
    "from": "Q",
    "to": "AG",
    "style": "thick",
-   "label": "\"turn 级 POMDP, 稀疏终端奖励\""
+   "label": "turn 级 POMDP, 稀疏终端奖励"
   },
   {
    "from": "Q",
    "to": "MA",
    "style": "thick",
-   "label": "\"团队奖励, 跨智能体 credit\""
+   "label": "团队奖励, 跨智能体 credit"
   },
   {
    "from": "RS",
@@ -213,7 +213,7 @@
    "from": "CARD",
    "to": "Q",
    "style": "fb",
-   "label": "\"任何选型的 credit 声明不得超出证据"
+   "label": "任何选型的 credit 声明不得超…"
   },
   {
    "from": "EVID",
@@ -229,7 +229,7 @@
  "panels": [],
  "canvas": [
   1732,
-  1388
+  1408
  ],
  "legend": [
   "loop"

@@ -9,7 +9,7 @@
    "x": 1106,
    "y": 166,
    "w": 215,
-   "h": 107
+   "h": 105
   },
   {
    "id": "EMB",
@@ -20,7 +20,7 @@
    "x": 46,
    "y": 167,
    "w": 233,
-   "h": 106
+   "h": 104
   },
   {
    "id": "INS",
@@ -31,7 +31,7 @@
    "x": 317,
    "y": 167,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "PROP",
@@ -42,7 +42,7 @@
    "x": 505,
    "y": 167,
    "w": 261,
-   "h": 106
+   "h": 104
   },
   {
    "id": "EOC",
@@ -53,18 +53,18 @@
    "x": 760,
    "y": 386,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "COT",
-   "label": "可选原生 CoT\nSubtask / BBox / Trac",
-   "sub": "e / ActionHint",
+   "label": "可选原生 CoT\nSubtask / BBox /",
+   "sub": "Trace / ActionHint\n(8 种组合加权采样, 可开关)",
    "icon": "lightning",
    "cls": "key",
    "x": 705,
    "y": 588,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "EOV",
@@ -75,73 +75,73 @@
    "x": 760,
    "y": 824,
    "w": 150,
-   "h": 106
+   "h": 104
   },
   {
    "id": "R1N",
-   "label": "left_control 部件标记 \n+ 8 个 RVQ 码",
-   "sub": "",
+   "label": "left_control 部件标记 \n+",
+   "sub": "8 个 RVQ 码",
    "icon": "stack",
    "cls": "key",
    "x": 704,
    "y": 1026,
    "w": 264,
-   "h": 107
+   "h": 138
   },
   {
    "id": "R2N",
-   "label": "right_control 部件标记\n + 8 个 RVQ 码",
+   "label": "right_control 部件标记\n+ 8 个 RVQ 码",
    "sub": "",
    "icon": "stack",
    "cls": "key",
    "x": 704,
    "y": 1229,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "R3N",
-   "label": "left_gripper 部件标记 \n+ 8 个 RVQ 码",
-   "sub": "",
+   "label": "left_gripper 部件标记 \n+",
+   "sub": "8 个 RVQ 码",
    "icon": "stack",
    "cls": "key",
    "x": 704,
    "y": 1432,
    "w": 264,
-   "h": 107
+   "h": 138
   },
   {
    "id": "RR",
-   "label": "共 R 轮展开\nidle 部件整组跳过不出 t",
-   "sub": "oken",
+   "label": "共 R 轮展开\nidle 部件整组跳过不出",
+   "sub": "token",
    "icon": "spark",
    "cls": "key",
    "x": 702,
    "y": 1635,
    "w": 267,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DEC",
-   "label": "Qwen3.5 2B decoder\n(视觉塔不冻结, 全参训练",
-   "sub": ")",
+   "label": "Qwen3.5 2B decoder\n(视觉塔不冻结, 全参训",
+   "sub": "练)",
    "icon": "camera",
    "cls": "train",
    "x": 804,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LCE",
-   "label": "唯一损失: generative \n段",
-   "sub": "next-token 交叉熵 (Eq.",
+   "label": "唯一损失: generative 段\nnext-token 交叉熵 (",
+   "sub": "Eq.1)",
    "icon": "sigma",
    "cls": "loss",
    "x": 1359,
    "y": 150,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "DECODE",
@@ -152,18 +152,18 @@
    "x": 706,
    "y": 1871,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "ACT",
-   "label": "机器人执行\n下一轮动作块前重新 cond",
-   "sub": "itioning",
+   "label": "机器人执行\n下一轮动作块前重新",
+   "sub": "conditioning",
    "icon": "stack",
    "cls": "act",
    "x": 703,
    "y": 2107,
    "w": 265,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -221,7 +221,7 @@
    "from": "DEC",
    "to": "EOC",
    "style": "fb",
-   "label": "\"一次前向同流生成 推理 token 与动作"
+   "label": "一次前向同流生成 推理 token …"
   },
   {
    "from": "LCE",
@@ -242,28 +242,28 @@
    "from": "ACT",
    "to": "IMG",
    "style": "fb",
-   "label": "\"重观测 + 状态\"",
+   "label": "重观测 + 状态",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 2058
+   "k": 84
   }
  ],
  "panels": [
   {
-   "label": "conditioning 段 (",
+   "label": "conditioning 段 (用户 token)",
    "x": 20,
-   "y": 150,
+   "y": 103,
    "w": 1327,
-   "h": 175
+   "h": 222
   },
   {
-   "label": "单一自回归 token 流 (Q",
+   "label": "单一自回归 token 流 (Qwen3.5 2B 单\ndecoder)",
    "x": 676,
-   "y": 340,
+   "y": 322,
    "w": 319,
-   "h": 1457
+   "h": 1475
   }
  ],
  "canvas": [

@@ -115,7 +115,7 @@ def check(spec, svg_path):
         sa = anchor_pt(a, na, e.get("pos_out", 0.5))
         sb = anchor_pt(b, nb, e.get("pos_in", 0.5))
         rects_e = [nrect[i2] for i2 in nrect if i2 not in (e["from"], e["to"])]
-        d, _ = edge_path(sa, na, sb, nb, e.get("k"), rects_e, (W, H))
+        d, _, _ = edge_path(sa, na, sb, nb, e.get("k"), rects_e, (W, H))
         pts = [tuple(map(float, mm)) for mm in re.findall(r"([-.\d]+) ([-.\d]+)", d)]
         ends = {e["from"], e["to"]}
         for k in range(len(pts)-1):
@@ -127,11 +127,27 @@ def check(spec, svg_path):
                     break
     for n in nodes:
         labs = n["label"].split("\n")
-        subs = n.get("sub", "").split("\n") if n.get("sub") else []
+        subs = n.get("sub", "") .split("\n") if n.get("sub") else []
         for ln, fs in ([(l, 15.5) for l in labs] + [(l, 12) for l in subs]):
             if ln and tw(ln, fs) * 1.15 + 34 > n["w"]:
                 issues.append(("text-ovf", f'{n["id"]}'))
                 break
+    # panel 标签带不得压卡片(标签在 panel 顶部 13+行高 区域)
+    for p in spec.get("panels", []):
+        nl = p["label"].count("\n") + 1
+        plw = min(p["w"] - 24, max(tw(l, 12.5) for l in p["label"].split("\n")) + 46)
+        band = (p["x"] + 16, p["y"] + 8, p["x"] + 16 + plw, p["y"] + 13 + 22 + 17 * (nl - 1) + 6)
+        for nid, r in nrect.items():
+            if ov(band, r, pad=0):
+                issues.append(("panel-label-x-card", f'{nid}'))
+    # 渲染器自报告的药丸兜底告警(压线/压卡/就地放)
+    if svg_path:
+        try:
+            warn = re.findall(r"<!--WARN (pill-tier\d) ([^ ]*)", open(svg_path).read())
+            for tier, txt in warn:
+                issues.append((tier, txt))
+        except OSError:
+            pass
     return issues
 
 

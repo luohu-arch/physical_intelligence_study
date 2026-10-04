@@ -2,157 +2,157 @@
  "nodes": [
   {
    "id": "OBS",
-   "label": "观测: 多视角 RGB + TCP\n 位姿 + 夹爪状态",
+   "label": "观测: 多视角 RGB + TCP\n位姿 + 夹爪状态",
    "sub": "",
    "icon": "camera",
    "cls": "loop",
    "x": 46,
    "y": 166,
    "w": 262,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VLM",
-   "label": "冻结 VLM agent\nGemini 3.7 Flash / GP",
-   "sub": "T-6 Astra, 约 35 次调",
+   "label": "冻结 VLM agent\nGemini 3.7 Flash /",
+   "sub": "GPT-6 Astra, 约 35 次调用/\nepisode",
    "icon": "brain",
    "cls": "loop",
    "x": 502,
    "y": 386,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "CTX",
-   "label": "运行上下文 c: 工具回执 \n+ 决策注记",
-   "sub": "+ N=8 文本 + K=1 图像",
+   "label": "运行上下文 c: 工具回执 \n+",
+   "sub": "决策注记\n+ N=8 文本 + K=1 图像记忆 +\nsearch_history",
    "icon": "camera",
    "cls": "loop",
    "x": 348,
    "y": 1094,
    "w": 265,
-   "h": 140
+   "h": 172
   },
   {
    "id": "T1",
-   "label": "find_regions / inspec\nt_region",
-   "sub": "SAM 3 分区 + 持久掩码 ",
+   "label": "find_regions /\ninspect_region",
+   "sub": "SAM 3 分区 + 持久掩码 ID",
    "icon": "refresh",
    "cls": "loop",
    "x": 504,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "T2",
-   "label": "measure_depth / fit_g\neometry",
-   "sub": "标定反投影米制坐标 + TC",
+   "label": "measure_depth /\nfit_geometry",
+   "sub": "标定反投影米制坐标 + TCP 相\n对位移",
    "icon": "refresh",
    "cls": "loop",
    "x": 346,
    "y": 150,
    "w": 265,
-   "h": 140
+   "h": 155
   },
   {
    "id": "T3",
-   "label": "track_features: TAPNe\nxt++ 点跟踪",
-   "sub": "持久锚点 + 世界位移 + l",
+   "label": "track_features:\nTAPNext++ 点跟踪",
+   "sub": "持久锚点 + 世界位移 +\nlost_remeasure 旗",
    "icon": "robot",
    "cls": "loop",
    "x": 649,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "T4",
-   "label": "grasp_candidates: Gra\nspGen",
-   "sub": "抓取位姿提案, 最多呈现 ",
+   "label": "grasp_candidates:\nGraspGen",
+   "sub": "抓取位姿提案, 最多呈现 3 个",
    "icon": "refresh",
    "cls": "loop",
    "x": 954,
    "y": 150,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "RCPT",
-   "label": "工具回执 + 参考线叠加回\n RGB",
-   "sub": "(绿轮廓/橙主轴/紫连线):",
+   "label": "工具回执 + 参考线叠加回\nRGB",
+   "sub": "(绿轮廓/橙主轴/紫连线): 度量证\n据, 非深度数组",
    "icon": "camera",
    "cls": "loop",
    "x": 498,
    "y": 858,
    "w": 265,
-   "h": 140
+   "h": 155
   },
   {
    "id": "MOT",
-   "label": "有界运动语法: move_rel\native 每轴<=3cm",
-   "sub": "rotate_toward<=15 度 ",
+   "label": "有界运动语法:\nmove_relative 每轴<=",
+   "sub": "3cm\nrotate_toward<=15 度 /\nmove_toward 直达长移",
    "icon": "refresh",
    "cls": "loop",
    "x": 204,
    "y": 622,
    "w": 261,
-   "h": 140
+   "h": 172
   },
   {
    "id": "ENV",
    "label": "机器人 + embodiment 适\n配层",
-   "sub": "LIBERO / RoboSuite / ",
+   "sub": "LIBERO / RoboSuite /\nRoboTwin 全仿真",
    "icon": "robot",
    "cls": "loop",
    "x": 196,
    "y": 858,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "TRAJ",
-   "label": "教师工具调用轨迹: 139 \n条成功 episodes",
-   "sub": "32 条留出 -> 107 条训",
+   "label": "教师工具调用轨迹: 139\n条成功 episodes",
+   "sub": "32 条留出 -> 107 条训练",
    "icon": "check",
    "cls": "loop",
    "x": 802,
    "y": 622,
    "w": 257,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SFT",
-   "label": "SFT 目标 = next tool c\nall 交叉熵",
-   "sub": "与 VLM 原生 next-token",
+   "label": "SFT 目标 = next tool\ncall 交叉熵",
+   "sub": "与 VLM 原生 next-token 目标\n对齐",
    "icon": "brain",
    "cls": "loop",
    "x": 801,
    "y": 858,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "STU",
-   "label": "Qwen3.5-9B 学生 + 语言\n LoRA",
-   "sub": "冻结视觉编码器, 43.3M ",
+   "label": "Qwen3.5-9B 学生 + 语言\nLoRA",
+   "sub": "冻结视觉编码器, 43.3M 可训练\n参数",
    "icon": "camera",
    "cls": "loop",
    "x": 652,
    "y": 1094,
    "w": 264,
-   "h": 140
+   "h": 155
   },
   {
    "id": "ACC",
-   "label": "LIBERO-PRO 77.8% 超 R\nGB-only GPT-6 61.1%",
-   "sub": "Astra 加 K1 抬到 88.9%",
+   "label": "LIBERO-PRO 77.8% 超\nRGB-only GPT-6 61.1%",
+   "sub": "Astra 加 K1 抬到 88.9%; 学生新\n任务 13.9% 唯一非零",
    "icon": "brain",
    "cls": "loop",
    "x": 499,
    "y": 1330,
    "w": 266,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -165,7 +165,7 @@
    "from": "VLM",
    "to": "T1",
    "style": "fb",
-   "label": "\"推理步: 查询感知证据\""
+   "label": "推理步: 查询感知证据"
   },
   {
    "from": "T1",
@@ -181,18 +181,18 @@
    "from": "CTX",
    "to": "VLM",
    "style": "fb",
-   "label": "\"回执进上下文, 状态不变\"",
+   "label": "回执进上下文, 状态不变",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "VLM",
    "to": "MOT",
    "style": "fb",
-   "label": "\"动作步: 结构化运动命令\""
+   "label": "动作步: 结构化运动命令"
   },
   {
    "from": "MOT",
@@ -203,12 +203,12 @@
    "from": "ENV",
    "to": "VLM",
    "style": "fb",
-   "label": "\"新 RGB + 实际运动 + 残差误差\"",
+   "label": "新 RGB + 实际运动 + 残差误差",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1028
+   "k": 84
   },
   {
    "from": "VLM",
@@ -233,11 +233,11 @@
  ],
  "panels": [
   {
-   "label": "感知即工具四族: 深度与标定躲在",
+   "label": "感知即工具四族: 深度与标定躲在接口后",
    "x": 320,
-   "y": 150,
+   "y": 103,
    "w": 924,
-   "h": 680
+   "h": 727
   }
  ],
  "canvas": [

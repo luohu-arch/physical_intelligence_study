@@ -9,7 +9,7 @@
    "x": 46,
    "y": 166,
    "w": 251,
-   "h": 107
+   "h": 105
   },
   {
    "id": "GN",
@@ -20,7 +20,7 @@
    "x": 638,
    "y": 386,
    "w": 236,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VLM",
@@ -31,7 +31,7 @@
    "x": 642,
    "y": 166,
    "w": 257,
-   "h": 107
+   "h": 105
   },
   {
    "id": "RISK",
@@ -42,18 +42,18 @@
    "x": 937,
    "y": 166,
    "w": 225,
-   "h": 107
+   "h": 105
   },
   {
    "id": "SCORE",
-   "label": "抓取评分\ns_base + lambda*s_pri",
-   "sub": "or - beta*r_phi",
+   "label": "抓取评分\ns_base +",
+   "sub": "lambda*s_prior - beta*r_phi",
    "icon": "reward",
    "cls": "loop",
    "x": 626,
    "y": 589,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "GSEL",
@@ -64,18 +64,18 @@
    "x": 654,
    "y": 825,
    "w": 205,
-   "h": 107
+   "h": 105
   },
   {
    "id": "POL",
    "label": "下游策略 (通用接口)\nPPO / SAC / BC / DP /",
-   "sub": " pi0.5-LoRA",
+   "sub": "pi0.5-LoRA",
    "icon": "lightning",
    "cls": "train",
    "x": 751,
    "y": 1028,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "EMB",
@@ -86,7 +86,7 @@
    "x": 501,
    "y": 1044,
    "w": 212,
-   "h": 107
+   "h": 105
   },
   {
    "id": "EXEC",
@@ -97,18 +97,18 @@
    "x": 790,
    "y": 1264,
    "w": 200,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DIS",
    "label": "失败归因判别器 D\np_D: FM-G1 功能错配",
-   "sub": "FM-G2 失稳 / FM-P 规划",
+   "sub": "FM-G2 失稳 / FM-P 规划不足",
    "icon": "target",
    "cls": "key",
    "x": 624,
    "y": 1467,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "KNN",
@@ -119,62 +119,62 @@
    "x": 523,
    "y": 1264,
    "w": 229,
-   "h": 107
+   "h": 105
   },
   {
    "id": "FUSE",
-   "label": "融合 p_fuse\n(1-alpha)*p_D + alpha",
-   "sub": "*p_E",
+   "label": "融合 p_fuse\n(1-alpha)*p_D +",
+   "sub": "alpha*p_E\nalpha 由 D 置信度决定",
    "icon": "spark",
    "cls": "key",
    "x": 626,
    "y": 1703,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "GSIDE",
-   "label": "抓取侧优化\n任务先验强化 + 失稳风险",
-   "sub": "罚",
+   "label": "抓取侧优化\n任务先验强化 + 失稳风",
+   "sub": "险罚",
    "icon": "noise",
    "cls": "loop",
    "x": 472,
    "y": 1939,
    "w": 264,
-   "h": 140
+   "h": 138
   },
   {
    "id": "PSIDE",
-   "label": "规划侧优化\nhard-P 挖掘 top-200 + ",
-   "sub": "rho=0.2",
+   "label": "规划侧优化\nhard-P 挖掘 top-200 +",
+   "sub": "rho=0.2\n起始态重塑 + wP 加权损失",
    "icon": "tree",
    "cls": "loop",
    "x": 774,
    "y": 1939,
    "w": 267,
-   "h": 140
+   "h": 155
   },
   {
    "id": "WL",
-   "label": "弱标签: 固定抓取 K=100 \n次",
-   "sub": "重复试验成功率 q_end + ",
+   "label": "弱标签: 固定抓取\nK=100 次",
+   "sub": "重复试验成功率 q_end + 阈值规则",
    "icon": "check",
    "cls": "data",
    "x": 335,
    "y": 150,
    "w": 269,
-   "h": 140
+   "h": 138
   },
   {
    "id": "LD",
-   "label": "损失: L_D 伪标签交叉熵\nL_E 监督对比 + 辅助分类",
-   "sub": "头",
+   "label": "损失: L_D 伪标签交叉熵\nL_E 监督对比 + 辅助分",
+   "sub": "类头",
    "icon": "sigma",
    "cls": "loss",
    "x": 1200,
    "y": 150,
    "w": 267,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -222,7 +222,7 @@
    "from": "EXEC",
    "to": "DIS",
    "style": "fb",
-   "label": "\"执行摘要 xi: sl…"
+   "label": "执行摘要 xi: slip/drop/碰撞…"
   },
   {
    "from": "EMB",
@@ -243,7 +243,7 @@
    "from": "FUSE",
    "to": "GSIDE",
    "style": "fb",
-   "label": "\"wG 高: 抓取侧接收…"
+   "label": "wG 高: 抓取侧接收更新"
   },
   {
    "from": "FUSE",
@@ -263,7 +263,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1434
+   "k": 84
   },
   {
    "from": "PSIDE",
@@ -273,7 +273,7 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 995
+   "k": 84
   },
   {
    "from": "WL",

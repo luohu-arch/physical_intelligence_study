@@ -9,7 +9,7 @@
    "x": 268,
    "y": 150,
    "w": 259,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DEMO",
@@ -20,29 +20,29 @@
    "x": 46,
    "y": 150,
    "w": 184,
-   "h": 107
+   "h": 105
   },
   {
    "id": "STAT",
-   "label": "静态 ALOHA 数据 2.7K<b\nr/",
+   "label": "静态 ALOHA 数据\n2.7K<br/",
    "sub": "",
    "icon": "db",
    "cls": "data",
    "x": 565,
    "y": 150,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ENC",
-   "label": "CVAE 编码器 q(z|x,y)\nResNet18 + 4 层 Trans",
-   "sub": "former",
+   "label": "CVAE 编码器 q(z|x,y)\nResNet18 + 4 层",
+   "sub": "Transformer",
    "icon": "eye",
    "cls": "train",
    "x": 308,
    "y": 353,
    "w": 259,
-   "h": 140
+   "h": 138
   },
   {
    "id": "Z",
@@ -53,7 +53,7 @@
    "x": 330,
    "y": 589,
    "w": 216,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DEC",
@@ -64,7 +64,7 @@
    "x": 314,
    "y": 792,
    "w": 246,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ELBO",
@@ -75,7 +75,7 @@
    "x": 444,
    "y": 995,
    "w": 261,
-   "h": 140
+   "h": 138
   },
   {
    "id": "CHUNK",
@@ -86,18 +86,18 @@
    "x": 170,
    "y": 1012,
    "w": 236,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ROBOT",
    "label": "机器人执行\n双臂位置控制 + 底座速度",
-   "sub": "控制",
+   "sub": "控制\n延迟 d 步错位补偿",
    "icon": "robot",
    "cls": "act",
    "x": 306,
    "y": 1231,
    "w": 264,
-   "h": 140
+   "h": 155
   }
  ],
  "edges": [
@@ -115,7 +115,7 @@
    "from": "ENC",
    "to": "Z",
    "style": "thick",
-   "label": "\"风格采样\""
+   "label": "风格采样"
   },
   {
    "from": "Z",
@@ -126,19 +126,19 @@
    "from": "IMG",
    "to": "DEC",
    "style": "thick",
-   "label": "\"观测条件\""
+   "label": "观测条件"
   },
   {
    "from": "STAT",
    "to": "DEC",
    "style": "fb",
-   "label": "\"协同训练 复用视觉-动作表征\""
+   "label": "协同训练 复用视觉-动作表征"
   },
   {
    "from": "DEC",
    "to": "ELBO",
    "style": "fb",
-   "label": "\"重构 + KL(beta=10) ELBO"
+   "label": "重构 + KL(beta=10) ELBO 损失"
   },
   {
    "from": "DEMO",
@@ -154,13 +154,13 @@
    "from": "CHUNK",
    "to": "ROBOT",
    "style": "thick",
-   "label": "\"块间 temporal ensemble "
+   "label": "块间 temporal ensemble 重叠…"
   },
   {
    "from": "ROBOT",
    "to": "IMG",
    "style": "fb",
-   "label": "\"新观测闭环修正 无 SLAM 纠偏 ~10",
+   "label": "新观测闭环修正 无 SLAM 纠偏 ~10cm",
    "k": 60,
    "out": "top",
    "in": "top"
@@ -170,16 +170,16 @@
   {
    "label": "输入",
    "x": 20,
-   "y": 150,
+   "y": 103,
    "w": 835,
-   "h": 175
+   "h": 222
   },
   {
-   "label": "ACT 策略 = CVAE + ",
+   "label": "ACT 策略 = CVAE + Transformer",
    "x": 282,
-   "y": 307,
+   "y": 306,
    "w": 311,
-   "h": 614
+   "h": 615
   }
  ],
  "canvas": [

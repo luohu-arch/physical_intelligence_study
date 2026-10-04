@@ -23,38 +23,38 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">membodied</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">MemBodied（NTU declare-lab + Griffin Labs + École Centrale de Lyon，2026-09-23，Soujanya Po</text>
 <text x="1079" y="2444" font-size="11.5" fill="#a0aab4" text-anchor="end">membodied · arXiv 2609.28256 · v3 auto</text>
-<rect x="20" y="150" width="683" height="376" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
-<rect x="36" y="163" width="194.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
-<text x="47" y="180" font-size="12.5" fill="#4a6579">固定容量情节记忆 与 episo</text>
-<path d="M 936.5 257.0 L 936.5 555.0 L 557.0 555.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 556.5 459.0 L 557.0 555.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 557.0 662.0 L 557.0 758.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 936.5 257.0 L 936.5 960.0 L 557.0 960.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 557.0 864.0 L 557.0 960.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 557.0 1066.0 L 557.0 1162.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 557.0 1268.0 L 557.0 1364.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 557.0 1470.0 L 556.5 1566.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 556.5 1672.0 L 556.5 1768.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 556.5 1874.0 L 556.5 1970.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 556.5 2077.0 L 557.0 2173.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 636.0 257.0 L 701.0 257.0 L 701.0 960.0 L 557.0 960.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 367.5 256.0 L 367.5 353.0 L 556.5 353.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<rect x="808.5" y="153.5" width="261" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="806" y="150" width="261" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="20" y="103" width="683" height="423" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
+<rect x="36" y="116" width="268.75" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
+<text x="47" y="133" font-size="12.5" fill="#4a6579">固定容量情节记忆 与 episode 长度解耦</text>
+<path d="M 936.5 255.0 L 936.5 555.0 L 557.0 555.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 556.5 457.0 L 557.0 555.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 557.0 660.0 L 557.0 758.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 936.5 255.0 L 936.5 960.0 L 557.0 960.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 557.0 862.0 L 557.0 960.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 557.0 1064.0 L 557.0 1162.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 557.0 1266.0 L 557.0 1364.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 557.0 1468.0 L 556.5 1566.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 556.5 1670.0 L 556.5 1768.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 556.5 1872.0 L 556.5 1970.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 556.5 2075.0 L 557.0 2173.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 636.0 255.0 L 701.0 255.0 L 701.0 960.0 L 557.0 960.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 367.5 254.0 L 367.5 353.0 L 556.5 353.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<rect x="808.5" y="153.5" width="261" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="806" y="150" width="261" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="936.5" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="936.5" cy="150" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(923.0,136.5) scale(1.1250)">
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
 </g>
-<text x="936.5" y="206" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="936.5" dy="0">当前观测 I_t + 状态 s_</tspan><tspan x="936.5" dy="20">t + 语言</tspan></text>
-<rect x="438.5" y="356.5" width="241" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="436" y="353" width="241" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="936.5" y="206" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="936.5" dy="0">当前观测 I_t + 状态</tspan><tspan x="936.5" dy="20">s_t + 语言</tspan></text>
+<rect x="438.5" y="356.5" width="241" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="436" y="353" width="241" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="556.5" cy="353" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="556.5" cy="353" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.0,339.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
 <text x="556.5" y="416" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">关联矩阵状态 M_t&lt;br/</text>
-<rect x="48.5" y="153.5" width="185" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="150" width="185" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="48.5" y="153.5" width="185" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="150" width="185" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="138.5" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="138.5" cy="150" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(125.0,136.5) scale(1.1250)">
@@ -64,8 +64,8 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="138.5" y="213" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">情节锚点 A&lt;br/</text>
-<rect x="448.5" y="558.5" width="222" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="446" y="555" width="222" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="448.5" y="558.5" width="222" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="446" y="555" width="222" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="557.0" cy="555" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="557.0" cy="555" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.5,541.5) scale(1.1250)">
@@ -75,22 +75,22 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="557.0" y="611" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="557.0" dy="0">逐层读取</tspan><tspan x="557.0" dy="20">r_t = S_(t-1) q_t</tspan></text>
-<rect x="430.5" y="761.5" width="258" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="428" y="758" width="258" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="430.5" y="761.5" width="258" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="428" y="758" width="258" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="557.0" cy="758" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="557.0" cy="758" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.5,744.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
 <text x="557.0" y="821" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">memory token 注入&lt;br/</text>
-<rect x="458.5" y="963.5" width="202" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="456" y="960" width="202" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="458.5" y="963.5" width="202" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="456" y="960" width="202" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="557.0" cy="960" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="557.0" cy="960" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.5,946.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
 <text x="557.0" y="1023" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">动作专家后缀&lt;br/</text>
-<rect x="460.5" y="1165.5" width="198" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="458" y="1162" width="198" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="460.5" y="1165.5" width="198" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="458" y="1162" width="198" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="557.0" cy="1162" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="557.0" cy="1162" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.5,1148.5) scale(1.1250)">
@@ -99,8 +99,8 @@
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
 <text x="557.0" y="1225" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">动作 chunk H=50</text>
-<rect x="484.5" y="1367.5" width="150" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="482" y="1364" width="150" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="484.5" y="1367.5" width="150" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="482" y="1364" width="150" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="557.0" cy="1364" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="557.0" cy="1364" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.5,1350.5) scale(1.1250)">
@@ -108,14 +108,14 @@
   <circle cx="12" cy="12" r="3" />
 </g>
 <text x="557.0" y="1427" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">环境执行</text>
-<rect x="466.5" y="1569.5" width="185" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="464" y="1566" width="185" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="466.5" y="1569.5" width="185" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="464" y="1566" width="185" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="556.5" cy="1566" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="556.5" cy="1566" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.0,1552.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
 <text x="556.5" y="1629" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">下一观测 I_t+1</text>
-<rect x="456.5" y="1771.5" width="205" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="454" y="1768" width="205" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="456.5" y="1771.5" width="205" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="454" y="1768" width="205" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="556.5" cy="1768" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="556.5" cy="1768" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.0,1754.5) scale(1.1250)">
@@ -125,8 +125,8 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="556.5" y="1831" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">写值构造 y_t&lt;br/</text>
-<rect x="424.5" y="1973.5" width="269" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="422" y="1970" width="269" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="424.5" y="1973.5" width="269" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="422" y="1970" width="269" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="556.5" cy="1970" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="556.5" cy="1970" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.0,1956.5) scale(1.1250)">
@@ -136,8 +136,8 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="556.5" y="2026" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="556.5" dy="0">写 key 与保留/写入门&lt;br</tspan><tspan x="556.5" dy="20">/</tspan></text>
-<rect x="428.5" y="2176.5" width="262" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="426" y="2173" width="262" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="428.5" y="2176.5" width="262" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="426" y="2173" width="262" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="557.0" cy="2173" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="557.0" cy="2173" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(543.5,2159.5) scale(1.1250)">
@@ -147,16 +147,16 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="557.0" y="2229" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="557.0" dy="0">gated delta 误差修正写</tspan><tspan x="557.0" dy="20">入&lt;br/</tspan></text>
-<rect x="506.5" y="153.5" width="264" height="107" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="504" y="150" width="264" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="506.5" y="153.5" width="264" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="504" y="150" width="264" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="636.0" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="636.0" cy="150" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(622.5,136.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
 <text x="636.0" y="206" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="636.0" dy="0">纯动作目标端到端学习&lt;br</tspan><tspan x="636.0" dy="20">/</tspan></text>
-<rect x="271.5" y="153.5" width="197" height="106" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="269" y="150" width="197" height="106" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<rect x="271.5" y="153.5" width="197" height="104" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="269" y="150" width="197" height="104" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="367.5" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="367.5" cy="150" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(354.0,136.5) scale(1.1250)">

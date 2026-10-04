@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "IN",
-   "label": "3 相机 RGB + 语言 + 本\n体",
+   "label": "3 相机 RGB + 语言 +\n本体",
    "sub": "",
    "icon": "camera",
    "cls": "data",
    "x": 349,
    "y": 150,
    "w": 262,
-   "h": 107
+   "h": 105
   },
   {
    "id": "VLA",
-   "label": "冻结 pi0.6\nSigLIP 400M + Gemma 4",
-   "sub": "B",
+   "label": "冻结 pi0.6\nSigLIP 400M + Gemma",
+   "sub": "4B\n+ 860M action expert",
    "icon": "brain",
    "cls": "frozen",
    "x": 198,
    "y": 353,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "EMB",
-   "label": "最终层 embeddings z_1.\n.z_M",
+   "label": "最终层 embeddings\nz_1..z_M",
    "sub": "",
    "icon": "db",
    "cls": "data",
    "x": 46,
    "y": 589,
    "w": 266,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ENC",
@@ -42,18 +42,18 @@
    "x": 205,
    "y": 792,
    "w": 248,
-   "h": 107
+   "h": 105
   },
   {
    "id": "TOK",
-   "label": "RL Token: 1 x 2048 读\n出 (核心)",
-   "sub": "decoder 自回归重建监督 ",
+   "label": "RL Token: 1 x 2048 读出\n(核心)",
+   "sub": "decoder 自回归重建监督 (stop-\ngradient)\n压缩有损但信息保真",
    "icon": "sigma",
    "cls": "key",
    "x": 194,
    "y": 995,
    "w": 269,
-   "h": 140
+   "h": 172
   },
   {
    "id": "X",
@@ -64,7 +64,7 @@
    "x": 201,
    "y": 1231,
    "w": 256,
-   "h": 107
+   "h": 105
   },
   {
    "id": "REF",
@@ -75,18 +75,18 @@
    "x": 350,
    "y": 589,
    "w": 262,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ACT",
-   "label": "小高斯 actor (2-3 层 M\nLP)",
-   "sub": "条件于 (x, a~), 输出 C",
+   "label": "小高斯 actor\n(2-3 层 MLP)",
+   "sub": "条件于 (x, a~), 输出 C=10 块\n(140 维) beta 正则锚定\n+ 50% 参考 dropout",
    "icon": "lightning",
    "cls": "train",
    "x": 197,
    "y": 1434,
    "w": 264,
-   "h": 140
+   "h": 172
   },
   {
    "id": "EXEC",
@@ -97,7 +97,7 @@
    "x": 236,
    "y": 1670,
    "w": 185,
-   "h": 106
+   "h": 104
   },
   {
    "id": "HUM",
@@ -108,29 +108,29 @@
    "x": 47,
    "y": 150,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "BUF",
-   "label": "回放缓冲\nVLA warmup + RL rollo",
-   "sub": "ut + 人工接管",
+   "label": "回放缓冲\nVLA warmup + RL",
+   "sub": "rollout + 人工接管\nstride-2 子采样",
    "icon": "db",
    "cls": "mem",
    "x": 198,
    "y": 1872,
    "w": 261,
-   "h": 140
+   "h": 155
   },
   {
    "id": "UPD",
-   "label": "异步 off-policy 更新\n双 Q critic, C 步块级 ",
+   "label": "异步 off-policy 更新\n双 Q critic, C 步块级",
    "sub": "TD, UTD = 5",
    "icon": "target",
    "cls": "loss",
    "x": 197,
    "y": 2108,
    "w": 264,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -183,7 +183,7 @@
    "from": "HUM",
    "to": "BUF",
    "style": "fb",
-   "label": "\"干预 / 奖励\""
+   "label": "干预 / 奖励"
   },
   {
    "from": "EXEC",
@@ -199,12 +199,12 @@
    "from": "UPD",
    "to": "ENC",
    "style": "loss",
-   "label": "\"蒸馏 loss 更新 phi 后冻结\"",
+   "label": "蒸馏 loss 更新 phi 后冻结",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1433
+   "k": 84
   }
  ],
  "panels": [],

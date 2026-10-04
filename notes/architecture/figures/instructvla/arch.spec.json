@@ -9,7 +9,7 @@
    "x": 46,
    "y": 150,
    "w": 256,
-   "h": 140
+   "h": 138
   },
   {
    "id": "SL",
@@ -20,18 +20,18 @@
    "x": 807,
    "y": 386,
    "w": 159,
-   "h": 106
+   "h": 104
   },
   {
    "id": "TXT",
-   "label": "指令\n(可先做 test-time thin",
-   "sub": "king 文字分析)",
+   "label": "指令\n(可先做 test-time",
+   "sub": "thinking 文字分析)",
    "icon": "chat",
    "cls": "data",
    "x": 570,
    "y": 150,
    "w": 266,
-   "h": 140
+   "h": 138
   },
   {
    "id": "BB",
@@ -42,7 +42,7 @@
    "x": 758,
    "y": 588,
    "w": 256,
-   "h": 107
+   "h": 105
   },
   {
    "id": "PROP",
@@ -53,18 +53,18 @@
    "x": 340,
    "y": 167,
    "w": 192,
-   "h": 106
+   "h": 104
   },
   {
    "id": "EXP",
-   "label": "动作专家 134M transfor\nmer",
+   "label": "动作专家 134M\ntransformer",
    "sub": "",
    "icon": "lightning",
    "cls": "train",
    "x": 754,
    "y": 1263,
    "w": 264,
-   "h": 107
+   "h": 105
   },
   {
    "id": "DINO",
@@ -75,18 +75,18 @@
    "x": 874,
    "y": 167,
    "w": 267,
-   "h": 106
+   "h": 104
   },
   {
    "id": "MOE",
-   "label": "MoE 适配: 双 LoRA adap\nter",
-   "sub": "+ scalar gate 逐 toke",
+   "label": "MoE 适配: 双 LoRA\nadapter",
+   "sub": "+ scalar gate 逐 token 切换\n(Stage 2 仅 220M 可训练)",
    "icon": "spark",
    "cls": "key",
    "x": 754,
    "y": 791,
    "w": 266,
-   "h": 140
+   "h": 155
   },
   {
    "id": "LANGOUT",
@@ -97,18 +97,18 @@
    "x": 914,
    "y": 1044,
    "w": 246,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LAT",
-   "label": "N = 64 latent action \nquery",
-   "sub": "从冻结主干抽取任务意图 ",
+   "label": "N = 64 latent action\nquery",
+   "sub": "从冻结主干抽取任务意图 C",
    "icon": "brain",
    "cls": "key",
    "x": 614,
    "y": 1027,
    "w": 262,
-   "h": 140
+   "h": 138
   },
   {
    "id": "FM",
@@ -119,7 +119,7 @@
    "x": 772,
    "y": 1466,
    "w": 228,
-   "h": 107
+   "h": 105
   },
   {
    "id": "ACT",
@@ -130,7 +130,7 @@
    "x": 772,
    "y": 1669,
    "w": 228,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LLMM",
@@ -141,18 +141,18 @@
    "x": 1179,
    "y": 166,
    "w": 248,
-   "h": 107
+   "h": 105
   },
   {
    "id": "LMOT",
    "label": "language motion 监督\n位移三值化 {-1,0,1}^6 ",
-   "sub": "-> 运动口令",
+   "sub": "->运动口令",
    "icon": "sigma",
    "cls": "loss",
    "x": 1465,
    "y": 150,
    "w": 262,
-   "h": 140
+   "h": 138
   }
  ],
  "edges": [
@@ -223,12 +223,12 @@
    "from": "ACT",
    "to": "IMG",
    "style": "fb",
-   "label": "\"激进闭环 2.51-4.96 Hz (A1",
+   "label": "激进闭环 2.51-4.96 Hz (A100)",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 1570
+   "k": 84
   },
   {
    "from": "LLMM",
@@ -244,10 +244,10 @@
  "panels": [
   {
    "label": "双视觉通路",
-   "x": 781,
-   "y": 150,
+   "x": 826,
+   "y": 120,
    "w": 386,
-   "h": 393
+   "h": 423
   }
  ],
  "canvas": [
