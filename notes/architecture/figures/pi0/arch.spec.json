@@ -1,169 +1,27 @@
 {
- "title": "π0：VLM 主干 + Flow Matching 动作专家",
- "subtitle": "异步双系统 —— 3B VLM 慢速推理提供多模态 latent，300M 动作专家以 50Hz 输出连续动作块",
- "foot": "π0 · Physical Intelligence · arXiv 2410.24164",
- "canvas": [
-  1280,
-  702
- ],
- "nodes": [
-  {
-   "id": "img",
-   "label": "多视角 RGB",
-   "sub": "3 相机 · 224×224",
-   "icon": "camera",
-   "cls": "data",
-   "x": 44,
-   "y": 192,
-   "w": 200,
-   "h": 104
-  },
-  {
-   "id": "lang",
-   "label": "语言指令",
-   "sub": "把盘子放进烘干机",
-   "icon": "chat",
-   "cls": "data",
-   "x": 44,
-   "y": 328,
-   "w": 200,
-   "h": 104
-  },
-  {
-   "id": "prop",
-   "label": "本体状态 q_t",
-   "sub": "关节角 + 夹爪开度",
-   "icon": "activity",
-   "cls": "data",
-   "x": 44,
-   "y": 446,
-   "w": 200,
-   "h": 104
-  },
-  {
-   "id": "vlm",
-   "label": "PaliGemma VLM 主干",
-   "sub": "SigLIP 视觉编码 + Gemma LM\n约 3B 参数 · 端到端微调",
-   "icon": "brain",
-   "cls": "frozen",
-   "x": 340,
-   "y": 292,
-   "w": 260,
-   "h": 162,
-   "tag": "3B"
-  },
-  {
-   "id": "noise",
-   "label": "噪声 x_0",
-   "sub": "从 N(0, I) 采样",
-   "icon": "noise",
-   "cls": "loop",
-   "x": 720,
-   "y": 150,
-   "w": 200,
-   "h": 96
-  },
-  {
-   "id": "expert",
-   "label": "动作专家",
-   "sub": "Flow Matching 去噪\nv(x_t, t) · 10 步积分",
-   "icon": "lightning",
-   "cls": "act",
-   "x": 700,
-   "y": 312,
-   "w": 240,
-   "h": 140,
-   "tag": "300M"
-  },
-  {
-   "id": "act",
-   "label": "连续动作块",
-   "sub": "平移 + 旋转 + 夹爪\n50 Hz 覆盖连续域",
-   "icon": "flow",
-   "cls": "key",
-   "x": 1000,
-   "y": 182,
-   "w": 224,
-   "h": 124
-  },
-  {
-   "id": "robot",
-   "label": "机器人执行",
-   "sub": "灵巧操作任务",
-   "icon": "robot",
-   "cls": "env",
-   "x": 1000,
-   "y": 392,
-   "w": 224,
-   "h": 112
-  }
- ],
- "edges": [
-  {
-   "from": "img",
-   "to": "vlm",
-   "style": "thin",
-   "pos_out": 0.5,
-   "pos_in": 0.28
-  },
-  {
-   "from": "lang",
-   "to": "vlm",
-   "style": "thin"
-  },
-  {
-   "from": "prop",
-   "to": "vlm",
-   "style": "thin",
-   "pos_out": 0.5,
-   "pos_in": 0.72
-  },
-  {
-   "from": "vlm",
-   "to": "expert",
-   "style": "main",
-   "label": "跨注意力条件"
-  },
-  {
-   "from": "noise",
-   "to": "expert",
-   "style": "thin",
-   "out": "bottom",
-   "in": "top",
-   "pos_out": 0.4,
-   "pos_in": 0.72,
-   "k": 40
-  },
-  {
-   "from": "expert",
-   "to": "act",
-   "style": "thick",
-   "label": "去噪 10 步",
-   "pos_out": 0.3,
-   "pos_in": 0.5
-  },
-  {
-   "from": "act",
-   "to": "robot",
-   "style": "main"
-  },
-  {
-   "from": "robot",
-   "to": "img",
-   "style": "fb",
-   "label": "新观测反馈（异步）",
-   "out": "bottom",
-   "in": "bottom",
-   "pos_out": 0.32,
-   "pos_in": 0.35,
-   "k": 88
-  }
- ],
- "legend": [
-  "data",
-  "frozen",
-  "act",
-  "key",
-  "env"
- ]
+  "title": "π0：VLM 主干 + Flow Matching 动作专家",
+  "subtitle": "异步双系统 —— 3B VLM 慢速推理提供多模态 latent，300M 动作专家以 50Hz 输出连续动作块",
+  "foot": "π0 · Physical Intelligence · arXiv 2410.24164",
+  "canvas": [1280, 660],
+  "nodes": [
+    {"id": "img", "label": "多视角 RGB", "sub": "3 相机 · 224×224", "icon": "camera", "cls": "data", "x": 44, "y": 150, "w": 200, "h": 92},
+    {"id": "lang", "label": "语言指令", "sub": "\"把盘子放进烘干机\"", "icon": "chat", "cls": "data", "x": 44, "y": 286, "w": 200, "h": 92},
+    {"id": "prop", "label": "本体状态 q_t", "sub": "关节角 + 夹爪开度", "icon": "activity", "cls": "data", "x": 44, "y": 404, "w": 200, "h": 92},
+    {"id": "vlm", "label": "PaliGemma VLM 主干", "sub": "SigLIP 视觉编码 + Gemma LM\n约 3B 参数 · 端到端微调", "icon": "brain", "cls": "frozen", "x": 340, "y": 250, "w": 260, "h": 150, "tag": "3B"},
+    {"id": "noise", "label": "噪声 x_0", "sub": "从 N(0, I) 采样", "icon": "noise", "cls": "loop", "x": 720, "y": 108, "w": 200, "h": 84},
+    {"id": "expert", "label": "动作专家", "sub": "Flow Matching 去噪\nv(x_t, t) · 10 步积分", "icon": "lightning", "cls": "act", "x": 700, "y": 270, "w": 240, "h": 128, "tag": "300M"},
+    {"id": "act", "label": "连续动作块", "sub": "平移 + 旋转 + 夹爪\n50 Hz 覆盖连续域", "icon": "flow", "cls": "key", "x": 1000, "y": 140, "w": 224, "h": 112},
+    {"id": "robot", "label": "机器人执行", "sub": "灵巧操作任务", "icon": "robot", "cls": "env", "x": 1000, "y": 350, "w": 224, "h": 100}
+  ],
+  "edges": [
+    {"from": "img", "to": "vlm", "style": "thin", "pos_out": 0.5, "pos_in": 0.28},
+    {"from": "lang", "to": "vlm", "style": "thin"},
+    {"from": "prop", "to": "vlm", "style": "thin", "pos_out": 0.5, "pos_in": 0.72},
+    {"from": "vlm", "to": "expert", "style": "main", "label": "跨注意力条件"},
+    {"from": "noise", "to": "expert", "style": "thin", "out": "bottom", "in": "top", "pos_out": 0.4, "pos_in": 0.72, "k": 40},
+    {"from": "expert", "to": "act", "style": "thick", "label": "去噪 10 步", "pos_out": 0.3, "pos_in": 0.5},
+    {"from": "act", "to": "robot", "style": "main"},
+    {"from": "robot", "to": "img", "style": "fb", "label": "新观测反馈（异步）", "out": "bottom", "in": "bottom", "pos_out": 0.32, "pos_in": 0.35, "k": 88}
+  ],
+  "legend": ["data", "frozen", "act", "key", "env"]
 }
