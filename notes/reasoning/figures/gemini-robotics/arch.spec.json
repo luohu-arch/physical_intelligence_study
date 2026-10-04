@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "IMG",
-   "label": "多视角 RGB + 语言指令<\nbr/",
+   "label": "多视角 RGB + 语言指令<br/",
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 823,
-   "y": 150,
-   "w": 269,
-   "h": 105
+   "x": 12,
+   "y": 130,
+   "w": 290,
+   "h": 92
   },
   {
    "id": "GEM",
-   "label": "Gemini 2.0 多模态基座<\nbr/",
+   "label": "Gemini 2.0 多模态基座<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 590,
-   "y": 353,
-   "w": 262,
-   "h": 105
+   "x": 602,
+   "y": 314,
+   "w": 290,
+   "h": 92
   },
   {
    "id": "ER",
-   "label": "Gemini Robotics-ER<br\n/",
+   "label": "Gemini Robotics-ER<br/",
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 590,
-   "y": 556,
-   "w": 261,
-   "h": 105
+   "x": 610,
+   "y": 498,
+   "w": 273,
+   "h": 92
   },
   {
    "id": "RB",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 772,
-   "y": 760,
-   "w": 202,
-   "h": 104
+   "x": 480,
+   "y": 682,
+   "w": 204,
+   "h": 92
   },
   {
    "id": "DEC",
@@ -50,43 +50,43 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 598,
-   "y": 962,
-   "w": 244,
-   "h": 104
+   "x": 624,
+   "y": 867,
+   "w": 246,
+   "h": 92
   },
   {
    "id": "EROUT",
-   "label": "检测 / 指向 / 抓取位姿 \n/",
-   "sub": "<br/",
+   "label": "检测 / 指向 / 抓取位姿 /<\nbr/",
+   "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 467,
-   "y": 759,
-   "w": 267,
-   "h": 138
+   "x": 724,
+   "y": 682,
+   "w": 289,
+   "h": 93
   },
   {
    "id": "ROBOT",
-   "label": "ALOHA 2 机器人 50Hz 动\n作块",
+   "label": "ALOHA 2 机器人 50Hz 动作\n块",
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 588,
-   "y": 1164,
-   "w": 264,
-   "h": 105
+   "x": 605,
+   "y": 1051,
+   "w": 284,
+   "h": 93
   },
   {
    "id": "PRE",
-   "label": "12 个月车队遥操作数据<\nbr/",
+   "label": "12 个月车队遥操作数据<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1130,
-   "y": 150,
-   "w": 265,
-   "h": 105
+   "x": 358,
+   "y": 130,
+   "w": 287,
+   "h": 92
   },
   {
    "id": "FT",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 340,
-   "y": 150,
-   "w": 184,
-   "h": 104
+   "x": 701,
+   "y": 130,
+   "w": 186,
+   "h": 92
   },
   {
    "id": "ICL",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 562,
-   "y": 150,
-   "w": 223,
-   "h": 104
+   "x": 943,
+   "y": 130,
+   "w": 225,
+   "h": 92
   },
   {
    "id": "CODE",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 150,
-   "w": 256,
-   "h": 104
+   "x": 1224,
+   "y": 130,
+   "w": 258,
+   "h": 92
   }
  ],
  "edges": [
@@ -167,22 +167,26 @@
  "panels": [
   {
    "label": "双模型解耦 - 推理与动作分离",
-   "x": 564,
-   "y": 509,
-   "w": 436,
-   "h": 581
+   "x": 456,
+   "y": 454,
+   "w": 451,
+   "h": 525
   }
  ],
  "canvas": [
-  1441,
-  1453
+  1494,
+  1234
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1494,
+  1234
+ ],
  "title": "gemini-robotics",
  "subtitle": "Gemini Robotics 是 Google DeepMind 基于 Gemini 2.0 构建的双模型 VLA 家族——Gemini Robotics 直接输出机器人动作",
  "foot": "gemini-robotics · arXiv 2503.20020 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    IMG[多视角 RGB + 语言指令<br/>+ 机器人状态]:::data\n    GEM[Gemini 2.0 多模态基座<br/>互联网规模预训练]:::frozen\n\n    subgraph DUAL[\"双模型解耦 - 推理与动作分离\"]\n        ER[Gemini Robotics-ER<br/>具身推理 空间理解]:::train\n        RB[云侧动作骨干<br/>ER 蒸馏版 延迟低于 160ms]:::train\n        DEC[本地动作 decoder<br/>chunking 补偿延迟达 50Hz]:::key\n    end\n\n    IMG ==> GEM\n    GEM ==> ER\n    ER ==> EROUT[检测 / 指向 / 抓取位姿 /<br/>2D 轨迹 / 3D 边界框]:::env\n    ER ==> RB\n    RB ==> DEC\n    DEC ==> ROBOT([ALOHA 2 机器人 50Hz 动作块]):::act\n    PRE[12 个月车队遥操作数据<br/>数千小时 ALOHA 2]:::data -.预训练.-> RB\n    FT[少样本微调<br/>约 100 条示范]:::loss -.-> RB\n    ICL[ICL 上下文示范<br/>位姿文本序列化 10 条]:::data -.-> ER\n    CODE[零样本代码生成模式<br/>拍摄-生成-执行-反馈]:::loop\n    CODE -.每步重规划.-> ER\n    ROBOT -.chunk 执行完重新预测.-> IMG\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

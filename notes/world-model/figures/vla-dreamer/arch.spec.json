@@ -6,54 +6,54 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 46,
-   "y": 167,
-   "w": 221,
-   "h": 104
+   "x": 25,
+   "y": 147,
+   "w": 223,
+   "h": 92
   },
   {
    "id": "FT",
-   "label": "VLA 微调\n冻结视觉编码器 + 正则化",
-   "sub": "LLM 骨干",
+   "label": "VLA 微调\n冻结视觉编码器 + 正",
+   "sub": "则化 LLM 骨干",
    "icon": "camera",
    "cls": "train",
-   "x": 370,
-   "y": 386,
-   "w": 264,
-   "h": 138
+   "x": 332,
+   "y": 316,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "VLA",
-   "label": "VLA 策略\npi0-FAST 或 OpenVLA",
-   "sub": "token 概率动作",
+   "label": "VLA 策略\npi0-FAST 或 OpenVL",
+   "sub": "A",
    "icon": "gear",
    "cls": "train",
-   "x": 278,
-   "y": 622,
-   "w": 240,
-   "h": 138
+   "x": 238,
+   "y": 502,
+   "w": 232,
+   "h": 126
   },
   {
    "id": "MIX",
-   "label": "随机动作 + 半专家与专家\n演示",
+   "label": "随机动作 + 半专家与\n专家演示",
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 681,
-   "y": 166,
-   "w": 264,
-   "h": 105
+   "x": 281,
+   "y": 146,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "WM",
    "label": "嵌入空间世界模型训练\nJEPA 式动作条件前推",
-   "sub": "检验 VLA 隐式世界模型假设",
+   "sub": "检验 VLA 隐式世界模",
    "icon": "graph",
    "cls": "key",
-   "x": 512,
-   "y": 858,
-   "w": 265,
-   "h": 138
+   "x": 457,
+   "y": 688,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "FRAME",
@@ -61,43 +61,43 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 305,
-   "y": 167,
-   "w": 150,
-   "h": 104
+   "x": 545,
+   "y": 147,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "ENC",
-   "label": "冻结 VLA 视觉编码器 E",
+   "label": "冻结 VLA 视觉编码器\n E",
    "sub": "",
    "icon": "camera",
    "cls": "frozen",
-   "x": 672,
-   "y": 403,
-   "w": 249,
-   "h": 104
+   "x": 586,
+   "y": 332,
+   "w": 231,
+   "h": 93
   },
   {
    "id": "HIST",
-   "label": "嵌入历史 e_(t-h+1):t\n+ 本体 p_t + 动作 a_t",
-   "sub": "",
+   "label": "嵌入历史 e_(t-h+1)\n:t",
+   "sub": "+ 本体 p_t + 动作 ",
    "icon": "state",
    "cls": "env",
-   "x": 758,
-   "y": 638,
-   "w": 254,
-   "h": 105
+   "x": 494,
+   "y": 502,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "NEXTE",
-   "label": "预测下一观测嵌入 hat\ne_t+1",
+   "label": "预测下一观测嵌入 ha\nt e_t+1",
    "sub": "",
    "icon": "state",
    "cls": "env",
-   "x": 512,
-   "y": 1094,
-   "w": 267,
-   "h": 105
+   "x": 460,
+   "y": 874,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "GOAL",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 493,
-   "y": 167,
-   "w": 150,
-   "h": 104
+   "x": 719,
+   "y": 147,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "EG",
@@ -116,21 +116,21 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 556,
-   "y": 639,
-   "w": 165,
-   "h": 104
+   "x": 745,
+   "y": 519,
+   "w": 167,
+   "h": 92
   },
   {
    "id": "ROLL",
-   "label": "有界视野 H 的想象\nrollout",
+   "label": "有界视野 H 的想象 r\nollout",
    "sub": "",
    "icon": "graph",
    "cls": "loop",
-   "x": 510,
-   "y": 1297,
-   "w": 269,
-   "h": 105
+   "x": 460,
+   "y": 1027,
+   "w": 231,
+   "h": 93
   },
   {
    "id": "REW",
@@ -138,32 +138,32 @@
    "sub": "",
    "icon": "reward",
    "cls": "reward",
-   "x": 534,
-   "y": 1500,
-   "w": 221,
-   "h": 105
+   "x": 464,
+   "y": 1180,
+   "w": 223,
+   "h": 93
   },
   {
    "id": "RL",
-   "label": "PPO 在世界模型内精修\nVLA",
+   "label": "PPO 在世界模型内精\n修 VLA",
    "sub": "",
    "icon": "graph",
    "cls": "train",
-   "x": 512,
-   "y": 1703,
-   "w": 267,
-   "h": 105
+   "x": 464,
+   "y": 1333,
+   "w": 222,
+   "h": 93
   },
   {
    "id": "PROBE",
-   "label": "探针检验: 分割 mIoU\n+ 深度 RMSE + 图像解",
-   "sub": "码器",
+   "label": "探针检验: 分割 mIoU\n+ 深度 RMSE + 图像",
+   "sub": "解码器",
    "icon": "camera",
    "cls": "loss",
-   "x": 983,
-   "y": 150,
-   "w": 261,
-   "h": 138
+   "x": 892,
+   "y": 130,
+   "w": 233,
+   "h": 126
   }
  ],
  "edges": [
@@ -180,18 +180,12 @@
   {
    "from": "MIX",
    "to": "WM",
-   "style": "thick",
-   "out": "top",
-   "in": "top",
-   "k": 60
+   "style": "thick"
   },
   {
    "from": "FRAME",
    "to": "ENC",
-   "style": "thick",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "style": "thick"
   },
   {
    "from": "ENC",
@@ -226,10 +220,7 @@
   {
    "from": "EG",
    "to": "REW",
-   "style": "thick",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "style": "thick"
   },
   {
    "from": "ROLL",
@@ -254,8 +245,8 @@
  ],
  "panels": [],
  "canvas": [
-  1290,
-  1992
+  1150,
+  1516
  ],
  "legend": [
   "data",
@@ -267,9 +258,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  1150,
+  1516
+ ],
  "title": "vla-dreamer",
  "subtitle": "这是一篇**概念论文**（concept paper，正文自述 \"In this concept paper, we propose...\"，无任何实验结果）：VLA-Drea",
  "foot": "vla-dreamer · arXiv 2609.31313 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    DEMO[(NICOL 遥操作数据集)] ==> FT[\"VLA 微调<br/>冻结视觉编码器 + 正则化 LLM 骨干\"]\n    FT ==> VLA[\"VLA 策略<br/>pi0-FAST 或 OpenVLA<br/>token 概率动作\"]\n    MIX([\"随机动作 + 半专家与专家演示\"]) ==> WM[\"嵌入空间世界模型训练<br/>JEPA 式动作条件前推<br/>检验 VLA 隐式世界模型假设\"]\n    FRAME([\"相机帧\"]) ==> ENC[\"冻结 VLA 视觉编码器 E\"]\n    ENC ==> HIST[\"嵌入历史 e_(t-h+1):t<br/>+ 本体 p_t + 动作 a_t\"]\n    HIST ==> WM\n    WM ==> NEXTE[\"预测下一观测嵌入 hat e_t+1\"]\n    GOAL([\"目标图像\"]) ==> ENC\n    ENC ==> EG[\"目标嵌入 e_g\"]\n    NEXTE ==> ROLL[\"有界视野 H 的想象 rollout\"]\n    EG ==> REW[\"稠密奖励<br/>r = - 嵌入距离均方\"]\n    ROLL ==> REW\n    REW ==> RL[\"PPO 在世界模型内精修 VLA\"]\n    PROBE[\"探针检验: 分割 mIoU<br/>+ 深度 RMSE + 图像解码器\"] -.-> ENC\n    PROBE -.-> NEXTE\n\n    class DEMO,MIX,FRAME,GOAL data\n    class ENC frozen\n    class FT,VLA,RL train\n    class WM key\n    class HIST,NEXTE,EG env\n    class REW reward\n    class ROLL loop\n    class PROBE loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

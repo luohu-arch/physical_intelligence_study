@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "OBS",
-   "label": "当前观测 I_t + 状态\ns_t + 语言",
+   "label": "当前观测 I_t + 状态\n s_t + 语言",
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 806,
-   "y": 150,
-   "w": 261,
-   "h": 105
+   "x": 44,
+   "y": 130,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "MS",
-   "label": "关联矩阵状态 M_t<br/",
+   "label": "关联矩阵状态 M_t<br\n/",
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 436,
-   "y": 353,
-   "w": 241,
-   "h": 104
+   "x": 391,
+   "y": 283,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "ANC",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 150,
-   "w": 185,
-   "h": 104
+   "x": 524,
+   "y": 130,
+   "w": 187,
+   "h": 92
   },
   {
    "id": "READ",
@@ -39,21 +39,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 446,
-   "y": 555,
-   "w": 222,
-   "h": 105
+   "x": 396,
+   "y": 436,
+   "w": 224,
+   "h": 93
   },
   {
    "id": "MTOK",
-   "label": "memory token 注入<br/",
+   "label": "memory token 注入<\nbr/",
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 428,
-   "y": 758,
-   "w": 258,
-   "h": 104
+   "x": 392,
+   "y": 589,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "SUFFIX",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 456,
-   "y": 960,
-   "w": 202,
-   "h": 104
+   "x": 406,
+   "y": 742,
+   "w": 204,
+   "h": 92
   },
   {
    "id": "ACT",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 458,
-   "y": 1162,
-   "w": 198,
-   "h": 104
+   "x": 408,
+   "y": 894,
+   "w": 200,
+   "h": 92
   },
   {
    "id": "EXEC",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "loop",
-   "x": 482,
-   "y": 1364,
-   "w": 150,
-   "h": 104
+   "x": 438,
+   "y": 1046,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "NEXT",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 464,
-   "y": 1566,
-   "w": 185,
-   "h": 104
+   "x": 414,
+   "y": 1198,
+   "w": 187,
+   "h": 92
   },
   {
    "id": "WV",
@@ -105,43 +105,43 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 454,
-   "y": 1768,
-   "w": 205,
-   "h": 104
+   "x": 404,
+   "y": 1350,
+   "w": 207,
+   "h": 92
   },
   {
    "id": "GATES",
-   "label": "写 key 与保留/写入门<br\n/",
+   "label": "写 key 与保留/写入\n门<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 422,
-   "y": 1970,
-   "w": 269,
-   "h": 105
+   "x": 396,
+   "y": 1502,
+   "w": 223,
+   "h": 93
   },
   {
    "id": "DELTA",
-   "label": "gated delta 误差修正写\n入<br/",
+   "label": "gated delta 误差修\n正写入<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 426,
-   "y": 2173,
-   "w": 262,
-   "h": 105
+   "x": 394,
+   "y": 1655,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "LOSS",
-   "label": "纯动作目标端到端学习<br\n/",
+   "label": "纯动作目标端到端学习\n<br/",
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 504,
-   "y": 150,
-   "w": 264,
-   "h": 105
+   "x": 735,
+   "y": 130,
+   "w": 236,
+   "h": 93
   },
   {
    "id": "BPTT",
@@ -149,10 +149,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 269,
-   "y": 150,
-   "w": 197,
-   "h": 104
+   "x": 301,
+   "y": 130,
+   "w": 199,
+   "h": 92
   }
  ],
  "edges": [
@@ -225,22 +225,26 @@
  "panels": [
   {
    "label": "固定容量情节记忆 与 episode 长度解耦",
-   "x": 20,
-   "y": 103,
-   "w": 683,
-   "h": 423
+   "x": 367,
+   "y": 86,
+   "w": 368,
+   "h": 310
   }
  ],
  "canvas": [
-  1113,
-  2462
+  1015,
+  1838
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1015,
+  1838
+ ],
  "title": "membodied",
  "subtitle": "MemBodied（NTU declare-lab + Griffin Labs + École Centrale de Lyon，2026-09-23，Soujanya Po",
  "foot": "membodied · arXiv 2609.28256 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS[当前观测 I_t + 状态 s_t + 语言]:::data\n\n    subgraph MEM[\"固定容量情节记忆 与 episode 长度解耦\"]\n        MS[关联矩阵状态 M_t<br/>动作专家每层 r x r 矩阵 r=128]:::mem\n        ANC[情节锚点 A<br/>首帧冻结 token 16x16 池化到 4x4]:::mem\n    end\n\n    READ[\"逐层读取<br/>r_t = S_(t-1) q_t\"]:::train\n    MTOK[memory token 注入<br/>读出作为上下文内容暴露给动作 token]:::key\n    SUFFIX[动作专家后缀<br/>state + memory + H 个动作 token<br/>flow-matching 去噪]:::act\n    OBS ==> READ\n    MS ==> READ\n    READ ==> MTOK\n    OBS ==> SUFFIX\n    MTOK ==> SUFFIX\n    ANC -.rank-64 交叉注意力选择性检索.-> SUFFIX\n    SUFFIX ==> ACT([动作 chunk H=50]):::act\n    ACT ==> EXEC[环境执行]:::env\n    EXEC ==> NEXT[下一观测 I_t+1]:::data\n    WV[写值构造 y_t<br/>状态 query 池化视觉后果 + 动作 chunk 汇总]:::train\n    NEXT ==> WV\n    GATES[写 key 与保留/写入门<br/>由缓存层输出与 y_t 生成]:::train\n    SUFFIX -.缓存末个去噪步层输出.-> GATES\n    WV ==> GATES\n    DELTA[gated delta 误差修正写入<br/>新值减该 key 已关联旧值]:::key\n    GATES ==> DELTA\n    DELTA -.延迟写 存动作加后果的因果片段.-> MS\n    LOSS[纯动作目标端到端学习<br/>无独立记忆损失]:::loss\n    LOSS -.-> SUFFIX\n    BPTT[序列级 BPTT<br/>梯度穿过全序列]:::loss\n    BPTT -.-> MS\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

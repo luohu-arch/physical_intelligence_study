@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 251,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 76,
+   "y": 111,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "IMG",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 46,
-   "y": 150,
-   "w": 167,
-   "h": 104
+   "x": 62,
+   "y": 236,
+   "w": 169,
+   "h": 92
   },
   {
    "id": "PTS",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 867,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 76,
+   "y": 362,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "PRP",
@@ -39,32 +39,32 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 679,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 76,
+   "y": 488,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "SIG",
-   "label": "SigLIP 语言塔 + 视觉塔\n<br/",
+   "label": "SigLIP 语言塔 + 视\n觉塔<br/",
    "sub": "",
-   "icon": "camera",
+   "icon": "chat",
    "cls": "loop",
-   "x": 156,
-   "y": 352,
-   "w": 261,
-   "h": 105
+   "x": 314,
+   "y": 245,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "PA",
-   "label": "PointAttn 点云编码<br/",
+   "label": "PointAttn 点云编码\n<br/",
    "sub": "",
    "icon": "eye",
    "cls": "loop",
-   "x": 643,
-   "y": 352,
-   "w": 264,
-   "h": 104
+   "x": 314,
+   "y": 362,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "MLP",
@@ -72,65 +72,65 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 455,
-   "y": 352,
-   "w": 150,
-   "h": 104
+   "x": 353,
+   "y": 479,
+   "w": 149,
+   "h": 92
   },
   {
    "id": "ST",
-   "label": "统一 token 序列 S_t",
+   "label": "统一 token 序列 S_\nt",
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 414,
-   "y": 555,
-   "w": 234,
-   "h": 104
+   "x": 607,
+   "y": 362,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "SMEM",
-   "label": "Scene Memory 场景记忆<\nbr/",
+   "label": "Scene Memory 场景\n记忆<br/",
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 552,
-   "y": 757,
-   "w": 264,
-   "h": 105
+   "x": 906,
+   "y": 303,
+   "w": 220,
+   "h": 93
   },
   {
    "id": "EMEM",
-   "label": "Episodic Memory 情景记\n忆<br/",
+   "label": "Episodic Memory 情\n景记忆<br/",
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 248,
-   "y": 757,
-   "w": 266,
-   "h": 105
+   "x": 900,
+   "y": 420,
+   "w": 232,
+   "h": 93
   },
   {
    "id": "COARSE",
-   "label": "coarse cross-\nattention<br/",
+   "label": "coarse cross-atten\ntion<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 550,
-   "y": 960,
-   "w": 261,
-   "h": 105
+   "x": 1198,
+   "y": 303,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "FINE",
-   "label": "fine cross-\nattention<br/",
+   "label": "fine cross-attenti\non<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 252,
-   "y": 960,
-   "w": 261,
-   "h": 105
+   "x": 1198,
+   "y": 420,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "HT",
@@ -138,10 +138,10 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 430,
-   "y": 1163,
-   "w": 202,
-   "h": 104
+   "x": 1497,
+   "y": 362,
+   "w": 204,
+   "h": 92
   },
   {
    "id": "ARM",
@@ -149,10 +149,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 324,
-   "y": 1365,
-   "w": 184,
-   "h": 104
+   "x": 1772,
+   "y": 304,
+   "w": 186,
+   "h": 92
   },
   {
    "id": "BAS",
@@ -160,21 +160,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 546,
-   "y": 1365,
-   "w": 193,
-   "h": 104
+   "x": 1767,
+   "y": 420,
+   "w": 195,
+   "h": 92
   },
   {
    "id": "OUT",
-   "label": "base / arm 动作 chunk",
+   "label": "base / arm 动作 ch\nunk",
    "sub": "",
-   "icon": "stack",
+   "icon": "lightning",
    "cls": "loop",
-   "x": 402,
-   "y": 1567,
-   "w": 258,
-   "h": 104
+   "x": 2028,
+   "y": 362,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "LD",
@@ -182,10 +182,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 439,
-   "y": 150,
-   "w": 202,
-   "h": 104
+   "x": 44,
+   "y": 613,
+   "w": 204,
+   "h": 92
   }
  ],
  "edges": [
@@ -238,13 +238,21 @@
    "from": "SMEM",
    "to": "COARSE",
    "style": "thick",
-   "label": "top-k cosine 检索"
+   "label": "top-k cosine 检索",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "EMEM",
    "to": "FINE",
    "style": "thick",
-   "label": "top-k cosine 检索"
+   "label": "top-k cosine 检索",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "COARSE",
@@ -279,10 +287,7 @@
   {
    "from": "LD",
    "to": "ARM",
-   "style": "fb",
-   "out": "top",
-   "in": "top",
-   "k": 60
+   "style": "fb"
   },
   {
    "from": "LD",
@@ -293,22 +298,26 @@
  "panels": [
   {
    "label": "多模态统一 token 编码",
-   "x": 130,
-   "y": 305,
-   "w": 803,
-   "h": 176
+   "x": 290,
+   "y": 201,
+   "w": 275,
+   "h": 390
   }
  ],
  "canvas": [
-  1063,
-  1855
+  2302,
+  776
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  2302,
+  776
+ ],
  "title": "echovla",
  "subtitle": "把人脑陈述性记忆的双系统搬进 VLA：scene memory 维护跨 episode 持久演化的 voxel 3D 特征图提供缓慢变化的空间结构，episodic memor",
  "foot": "echovla · arXiv 2511.18112 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    LANG[语言指令]:::data\n    IMG[3 路固定 RGB]:::data\n    PTS[深度点云]:::data\n    PRP[本体感知]:::data\n\n    subgraph ENC[\"多模态统一 token 编码\"]\n        SIG[SigLIP 语言塔 + 视觉塔<br/>冻结保住跨模态对齐]:::frozen\n        PA[PointAttn 点云编码<br/>可训练适配本体]:::train\n        MLP[本体小 MLP]:::train\n    end\n\n    ST[统一 token 序列 S_t]\n    LANG ==> SIG\n    IMG ==> SIG\n    SIG ==> ST\n    PTS ==> PA\n    PA ==> ST\n    PRP ==> MLP\n    MLP ==> ST\n\n    SMEM[Scene Memory 场景记忆<br/>voxel 3D 特征图 跨 episode 持久演化<br/>discrepancy 门控更新 阈值 tau]:::mem\n    EMEM[Episodic Memory 情景记忆<br/>FIFO 最近 L 条带时间戳 token 序列]:::mem\n    ST ==> SMEM\n    ST ==> EMEM\n    COARSE[coarse cross-attention<br/>query 为当前 voxel 图 空间粗粒度]:::key\n    FINE[fine cross-attention<br/>query 为当前 S_t 时间细粒度]:::key\n    SMEM ==>|top-k cosine 检索| COARSE\n    EMEM ==>|top-k cosine 检索| FINE\n    HT[融合记忆条件 H_t]\n    COARSE ==> HT\n    FINE ==> HT\n    ARM[arm 扩散去噪器]:::act\n    BAS[base 扩散去噪器]:::act\n    HT ==> ARM\n    HT ==> BAS\n    ARM ==> OUT([base / arm 动作 chunk]):::act\n    BAS ==> OUT\n    LD[扩散去噪损失<br/>base 与 arm 各一个去噪器]:::loss\n    LD -.-> ARM\n    LD -.-> BAS\n    OUT -.闭环新观测写入双记忆.-> PTS\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

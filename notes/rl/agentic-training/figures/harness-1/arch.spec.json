@@ -6,32 +6,32 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 547,
-   "y": 167,
-   "w": 150,
-   "h": 104
+   "x": 208,
+   "y": 147,
+   "w": 151,
+   "h": 92
   },
   {
    "id": "WM",
-   "label": "WORKING MEMORY\n七槽位渲染",
-   "sub": "候选池 / curated 集(容量30)\n重要性 / 证据图 / 验证缓存\n历史 / 预算 — 状态外化",
+   "label": "WORKINGMEMORY 七槽\n位渲染: 候选池 / cu",
+   "sub": "rated 集(容量30) /",
    "icon": "db",
    "cls": "loop",
-   "x": 492,
-   "y": 386,
-   "w": 264,
-   "h": 172
+   "x": 426,
+   "y": 316,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "POLICY",
-   "label": "策略 gpt-oss-20b +\nLoRA",
-   "sub": "只做语义决策: 搜什么/留什么/验\n什么/何时停",
+   "label": "策略 gpt-oss-20b +\n LoRA",
+   "sub": "只做语义决策: 搜什",
    "icon": "brain",
    "cls": "loop",
-   "x": 491,
-   "y": 622,
-   "w": 267,
-   "h": 155
+   "x": 427,
+   "y": 502,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "ACT",
@@ -39,98 +39,98 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 534,
-   "y": 858,
-   "w": 180,
-   "h": 105
+   "x": 451,
+   "y": 688,
+   "w": 182,
+   "h": 93
   },
   {
    "id": "RET",
-   "label": "检索三件:\nfan_out_search /",
-   "sub": "search_corpus /\n句级 BM25 压缩 + 两级去\n重 + 首搜 auto-seed",
+   "label": "检索三件: fan_out_\nsearch / search_co",
+   "sub": "rpus / grep_corpus",
    "icon": "db",
    "cls": "loop",
-   "x": 645,
-   "y": 1061,
-   "w": 264,
-   "h": 172
+   "x": 44,
+   "y": 841,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "READ",
-   "label": "记忆检查:\nread_document /",
-   "sub": "review_docs\n零 corpus 调用",
+   "label": "记忆检查: read_doc\nument / review_doc",
+   "sub": "s",
    "icon": "db",
    "cls": "loop",
-   "x": 492,
-   "y": 1533,
-   "w": 264,
-   "h": 155
+   "x": 426,
+   "y": 1213,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "CUR",
-   "label": "curate: 增/删/四级重要\n性标签",
-   "sub": "满员按 rank 驱逐最劣",
+   "label": "curate: 增/删/四级\n重要性标签",
+   "sub": "满员按 rank 驱逐最",
    "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 1061,
-   "w": 261,
-   "h": 138
+   "x": 301,
+   "y": 841,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "VER",
-   "label": "verify: 对 claim 逐文\n档 LLM 蕴含判定",
-   "sub": "写入验证缓存 V, 过关才升格",
+   "label": "verify: 对 claim \n逐文档 LLM 蕴含判定",
+   "sub": "写入验证缓存 V, 过",
    "icon": "brain",
    "cls": "loop",
-   "x": 947,
-   "y": 1061,
-   "w": 256,
-   "h": 138
+   "x": 809,
+   "y": 841,
+   "w": 231,
+   "h": 126
   },
   {
    "id": "CORPUS",
-   "label": "本地语料库约 3200 万页\nBM25 + dense + rerank",
-   "sub": "",
+   "label": "本地语料库约 3200 \n万页",
+   "sub": "BM25 + dense + rer",
    "icon": "refresh",
    "cls": "loop",
-   "x": 248,
-   "y": 166,
-   "w": 261,
-   "h": 105
+   "x": 384,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "STORE",
-   "label": "外层全文库 D: 全部取回\nchunk",
+   "label": "外层全文库 D: 全部\n取回 chunk",
    "sub": "回看不占 prompt",
    "icon": "chat",
    "cls": "loop",
-   "x": 796,
-   "y": 1297,
-   "w": 265,
-   "h": 138
+   "x": 174,
+   "y": 1027,
+   "w": 222,
+   "h": 126
   },
   {
    "id": "OUT",
-   "label": "end_search: 提交按重要\n性排序的 curated 集",
-   "sub": "",
+   "label": "end_search: 提交按\n重要性排序的 curate",
+   "sub": "d 集",
    "icon": "refresh",
    "cls": "loop",
-   "x": 345,
-   "y": 1078,
-   "w": 262,
-   "h": 105
+   "x": 552,
+   "y": 841,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "NUDGE",
-   "label": "程序化结果摘要 + 条件\nnudge",
-   "sub": "[WARN]/[TIP]/[ACTION\nREQUIRED], 无 LLM 调用",
+   "label": "程序化结果摘要 + 条\n件 nudge",
+   "sub": "[WARN]/[TIP]/[ACTI",
    "icon": "lightning",
    "cls": "loop",
-   "x": 492,
-   "y": 1769,
-   "w": 265,
-   "h": 155
+   "x": 426,
+   "y": 1399,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "BUD",
@@ -138,54 +138,54 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 518,
-   "y": 2005,
-   "w": 213,
-   "h": 104
+   "x": 434,
+   "y": 1585,
+   "w": 215,
+   "h": 92
   },
   {
    "id": "DEG",
-   "label": "5-pass 渐进截断\ncurated set 最后被裁",
-   "sub": "",
+   "label": "5-pass 渐进截断\ncurated set 最后被",
+   "sub": "裁",
    "icon": "refresh",
    "cls": "loop",
-   "x": 502,
-   "y": 2207,
-   "w": 244,
-   "h": 105
+   "x": 428,
+   "y": 1737,
+   "w": 228,
+   "h": 126
   },
   {
    "id": "TCH",
-   "label": "教师 GPT-5.4 在同一\nharness 内跑 899 条轨迹",
-   "sub": "约 26K turn 样本 (SFT 教接口操\n作)",
+   "label": "教师 GPT-5.4 在同一\n harness 内跑 899 ",
+   "sub": "条轨迹",
    "icon": "brain",
    "cls": "loop",
-   "x": 735,
-   "y": 150,
-   "w": 266,
-   "h": 155
+   "x": 640,
+   "y": 130,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "RWD",
-   "label": "终局组合奖励: F2 + 轨\n迹/答案 recall + 工具多",
-   "sub": "样性\n- 漏答罚 - turn 罚, 发现与选择\n分开记账",
+   "label": "终局组合奖励: F2 + \n轨迹/答案 recall +",
+   "sub": " 工具多样性",
    "icon": "reward",
    "cls": "loop",
-   "x": 490,
-   "y": 1297,
-   "w": 267,
-   "h": 172
+   "x": 420,
+   "y": 1027,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ACC",
-   "label": "8 基准平均 curated\nrecall 0.730, 超",
-   "sub": "Tongyi 30B 11.4 分\nheld-out 增益 +17.0 是源域\n2.2 倍",
+   "label": "8 基准平均 curated\n recall 0.730, 超 ",
+   "sub": "Tongyi 30B 11.4 分",
    "icon": "refresh",
    "cls": "loop",
-   "x": 188,
-   "y": 1297,
-   "w": 264,
-   "h": 172
+   "x": 678,
+   "y": 1027,
+   "w": 232,
+   "h": 126
   }
  ],
  "edges": [
@@ -203,43 +203,47 @@
    "from": "POLICY",
    "to": "ACT",
    "style": "fb",
-   "label": "emit 一个结构化动作"
+   "label": "\"emit 一个结构化动作\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "ACT",
    "to": "RET",
    "style": "fb",
-   "label": "搜索类"
+   "label": "\"搜索类\""
   },
   {
    "from": "ACT",
    "to": "READ",
    "style": "fb",
-   "label": "记忆检查"
+   "label": "\"记忆检查\""
   },
   {
    "from": "ACT",
    "to": "CUR",
    "style": "fb",
-   "label": "curation"
+   "label": "\"curation\""
   },
   {
    "from": "ACT",
    "to": "VER",
    "style": "fb",
-   "label": "验证"
+   "label": "\"验证\""
   },
   {
    "from": "ACT",
    "to": "OUT",
    "style": "thick",
-   "label": "终止"
+   "label": "\"终止\""
   },
   {
    "from": "CORPUS",
    "to": "RET",
    "style": "thick",
-   "label": "混合检索取回"
+   "label": "\"混合检索取回\""
   },
   {
    "from": "STORE",
@@ -255,7 +259,11 @@
    "from": "RET",
    "to": "NUDGE",
    "style": "thick",
-   "label": "更新候选池 + auto-seed 初稿"
+   "label": "\"更新候选池 + auto-seed 初稿\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "READ",
@@ -266,13 +274,17 @@
    "from": "CUR",
    "to": "NUDGE",
    "style": "thick",
-   "label": "更新 curated 集与重要性"
+   "label": "\"更新 curated 集与重要性\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "VER",
    "to": "NUDGE",
    "style": "thick",
-   "label": "写验证记录"
+   "label": "\"写验证记录\""
   },
   {
    "from": "NUDGE",
@@ -283,28 +295,28 @@
    "from": "BUD",
    "to": "WM",
    "style": "thick",
-   "label": "是",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"是\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "BUD",
    "to": "DEG",
    "style": "fb",
-   "label": "否"
+   "label": "\"否\""
   },
   {
    "from": "DEG",
    "to": "WM",
    "style": "thick",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "OUT",
@@ -315,22 +327,22 @@
    "from": "RWD",
    "to": "POLICY",
    "style": "fb",
-   "label": "on-policy CISPO, SEC 单域 …",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"on-policy CISPO, SEC 单域",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 259,
-   "labpos": [
-    963,
-    1785
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
    ]
   },
   {
    "from": "TCH",
    "to": "POLICY",
    "style": "fb",
-   "label": "SFT 初始化"
+   "label": "\"SFT 初始化\""
   },
   {
    "from": "OUT",
@@ -340,15 +352,19 @@
  ],
  "panels": [],
  "canvas": [
-  1249,
-  2496
+  1084,
+  1953
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1084,
+  1953
+ ],
  "title": "harness-1",
  "subtitle": "把多轮搜索 agent 里\"可恢复的记账\"从策略上下文搬进环境侧：Harness-1 是基于 gpt-oss-20b 的 20B 检索 subagent（UIUC + UC B",
  "foot": "harness-1 · arXiv 2606.02373 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    Q([\"query 查询\"]):::data\n    WM[\"WORKINGMEMORY 七槽位渲染: 候选池 / curated 集(容量30) /<br/>重要性 / 证据图 / 验证缓存 / 历史 / 预算标记 — 状态外化归 harness\"]:::key\n    POLICY[\"策略 gpt-oss-20b + LoRA<br/>只做语义决策: 搜什么/留什么/验什么/何时停\"]:::train\n    ACT{\"动作类型<br/>动作即状态编辑\"}:::loop\n    RET[\"检索三件: fan_out_search / search_corpus / grep_corpus<br/>句级 BM25 压缩 + 两级去重 + 首搜 auto-seed\"]:::act\n    READ[\"记忆检查: read_document / review_docs<br/>零 corpus 调用\"]:::act\n    CUR[\"curate: 增/删/四级重要性标签<br/>满员按 rank 驱逐最劣\"]:::act\n    VER[\"verify: 对 claim 逐文档 LLM 蕴含判定<br/>写入验证缓存 V, 过关才升格\"]:::reward\n    CORPUS[\"本地语料库约 3200 万页<br/>BM25 + dense + rerank\"]:::env\n    STORE[\"外层全文库 D: 全部取回 chunk<br/>回看不占 prompt\"]:::mem\n    OUT([\"end_search: 提交按重要性排序的 curated 集\"]):::data\n    NUDGE[\"程序化结果摘要 + 条件 nudge<br/>[WARN]/[TIP]/[ACTION REQUIRED], 无 LLM 调用\"]:::loop\n    BUD{\"上下文预算 30720?\"}:::loop\n    DEG[\"5-pass 渐进截断<br/>curated set 最后被裁\"]:::loop\n    TCH[\"教师 GPT-5.4 在同一 harness 内跑 899 条轨迹<br/>约 26K turn 样本 (SFT 教接口操作)\"]:::frozen\n    RWD[\"终局组合奖励: F2 + 轨迹/答案 recall + 工具多样性<br/>- 漏答罚 - turn 罚, 发现与选择分开记账\"]:::reward\n    ACC([\"8 基准平均 curated recall 0.730, 超 Tongyi 30B 11.4 分<br/>held-out 增益 +17.0 是源域 2.2 倍\"]):::data\n\n    Q ==> WM\n    WM ==> POLICY\n    POLICY -.->|\"emit 一个结构化动作\"| ACT\n    ACT -.->|\"搜索类\"| RET\n    ACT -.->|\"记忆检查\"| READ\n    ACT -.->|\"curation\"| CUR\n    ACT -.->|\"验证\"| VER\n    ACT ==>|\"终止\"| OUT\n    CORPUS ==>|\"混合检索取回\"| RET\n    STORE ==> READ\n    RET ==> STORE\n    RET ==>|\"更新候选池 + auto-seed 初稿\"| NUDGE\n    READ ==> NUDGE\n    CUR ==>|\"更新 curated 集与重要性\"| NUDGE\n    VER ==>|\"写验证记录\"| NUDGE\n    NUDGE ==> BUD\n    BUD ==>|\"是\"| WM\n    BUD -.->|\"否\"| DEG\n    DEG ==> WM\n    OUT ==> RWD\n    RWD -.->|\"on-policy CISPO, SEC 单域 3453 查询, 80 步\"| POLICY\n    TCH -.->|\"SFT 初始化\"| POLICY\n    OUT ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "OBS",
-   "label": "RGB-D 观测 + 相机位姿",
+   "label": "RGB-D 观测 + 相机位\n姿",
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 346,
-   "y": 150,
-   "w": 251,
-   "h": 104
+   "x": 44,
+   "y": 111,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "LIFT",
-   "label": "反投影 patch 中心到世\n界系",
+   "label": "反投影 patch 中心到\n世界系",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 118,
-   "y": 353,
-   "w": 267,
-   "h": 105
+   "x": 345,
+   "y": 188,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "REG",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 402,
-   "y": 573,
-   "w": 207,
-   "h": 104
+   "x": 648,
+   "y": 288,
+   "w": 209,
+   "h": 92
   },
   {
    "id": "SEG",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1098,
-   "y": 150,
-   "w": 165,
-   "h": 104
+   "x": 78,
+   "y": 237,
+   "w": 167,
+   "h": 92
   },
   {
    "id": "OFF",
@@ -50,21 +50,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 635,
-   "y": 150,
-   "w": 202,
-   "h": 104
+   "x": 60,
+   "y": 363,
+   "w": 204,
+   "h": 92
   },
   {
    "id": "FEAT",
-   "label": "latent 特征 64 维<br/",
+   "label": "latent 特征 64 维<\nbr/",
    "sub": "",
    "icon": "noise",
    "cls": "loop",
-   "x": 424,
-   "y": 354,
-   "w": 256,
-   "h": 104
+   "x": 348,
+   "y": 421,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "TRK",
@@ -72,32 +72,32 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 970,
-   "y": 354,
-   "w": 220,
-   "h": 104
+   "x": 350,
+   "y": 305,
+   "w": 222,
+   "h": 92
   },
   {
    "id": "EST",
-   "label": "物体 SE(3) 估计\nFGR 初始化 + ICP 精化",
-   "sub": "质心位移小于 0.015m 跳过",
+   "label": "物体 SE(3) 估计\nFGR 初始化 + ICP ",
+   "sub": "精化",
    "icon": "refresh",
    "cls": "loop",
-   "x": 648,
-   "y": 556,
-   "w": 259,
-   "h": 138
+   "x": 644,
+   "y": 404,
+   "w": 218,
+   "h": 126
   },
   {
    "id": "MOVE",
-   "label": "整组刚体搬移环境点<br/",
+   "label": "整组刚体搬移环境点<\nbr/",
    "sub": "",
    "icon": "gear",
    "cls": "loop",
-   "x": 526,
-   "y": 792,
-   "w": 256,
-   "h": 104
+   "x": 928,
+   "y": 362,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "PROP",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 875,
-   "y": 150,
-   "w": 185,
-   "h": 104
+   "x": 68,
+   "y": 489,
+   "w": 187,
+   "h": 92
   },
   {
    "id": "FK",
@@ -116,98 +116,98 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 718,
-   "y": 354,
-   "w": 215,
-   "h": 104
+   "x": 353,
+   "y": 538,
+   "w": 217,
+   "h": 92
   },
   {
    "id": "MAP",
-   "label": "SERF 4D 神经点地图<br/",
+   "label": "SERF 4D 神经点地图<\nbr/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 524,
-   "y": 994,
-   "w": 262,
-   "h": 104
+   "x": 1222,
+   "y": 362,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "FILT",
-   "label": "按 BDDL 任务过滤<br/",
+   "label": "按 BDDL 任务过滤<br\n/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 533,
-   "y": 1196,
-   "w": 243,
-   "h": 104
+   "x": 1523,
+   "y": 362,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "TOK",
-   "label": "Point Transformer 共享\n骨干<br/",
+   "label": "Point Transformer \n共享骨干<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 521,
-   "y": 1398,
-   "w": 267,
-   "h": 105
+   "x": 1824,
+   "y": 362,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "TK8",
-   "label": "8 个 map token 各 2048\n维<br/",
+   "label": "8 个 map token 各 \n2048 维<br/",
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 521,
-   "y": 1601,
-   "w": 267,
-   "h": 105
+   "x": 2123,
+   "y": 362,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "PI05",
-   "label": "pi_0.5 VLM + action\nexpert<br/",
+   "label": "pi_0.5 VLM + actio\nn expert<br/",
    "sub": "",
    "icon": "brain",
    "cls": "loop",
-   "x": 524,
-   "y": 1804,
-   "w": 261,
-   "h": 105
+   "x": 2419,
+   "y": 362,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "IMG",
-   "label": "当前图像经 vision\nencoder",
+   "label": "当前图像经 vision e\nncoder",
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 46,
-   "y": 150,
-   "w": 262,
-   "h": 105
+   "x": 44,
+   "y": 614,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "ACT",
-   "label": "flow matching 20 步\nEuler 积分<br/",
+   "label": "flow matching 20 \n步 Euler 积分<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 525,
-   "y": 2007,
-   "w": 259,
-   "h": 105
+   "x": 2718,
+   "y": 362,
+   "w": 224,
+   "h": 93
   },
   {
    "id": "ROBOT",
-   "label": "BEHAVIOR-1K 机器人执行",
+   "label": "BEHAVIOR-1K 机器人\n执行",
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 524,
-   "y": 2210,
-   "w": 262,
-   "h": 104
+   "x": 3008,
+   "y": 362,
+   "w": 228,
+   "h": 93
   }
  ],
  "edges": [
@@ -224,10 +224,7 @@
   {
    "from": "SEG",
    "to": "REG",
-   "style": "main",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "style": "main"
   },
   {
    "from": "OFF",
@@ -237,10 +234,7 @@
   {
    "from": "FEAT",
    "to": "MAP",
-   "style": "thick",
-   "out": "left",
-   "in": "left",
-   "k": 60
+   "style": "thick"
   },
   {
    "from": "SEG",
@@ -315,15 +309,19 @@
  ],
  "panels": [],
  "canvas": [
-  1309,
-  2498
+  3280,
+  778
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  3280,
+  778
+ ],
  "title": "serf",
  "subtitle": "把工作空间表示成一堆带可学习 latent 特征的 neural points：离线学好的特征在执行期完全冻结，只靠 object-level SE(3) 跟踪挪环境点、靠 f",
  "foot": "serf · arXiv 2606.12956 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    OBS[RGB-D 观测 + 相机位姿]:::data\n    LIFT[反投影 patch 中心到世界系]:::train\n    REG[0.02m 体素化<br/>新占据体素注册 neural point 进哈希表]:::train\n    SEG[实例标签<br/>仿真器特权 / SAM 2]:::data\n    OFF[离线建图学习<br/>重建 + 类间/类内对比损失]:::loss\n    FEAT[latent 特征 64 维<br/>执行期完全冻结 身份证不换]:::frozen\n    TRK[仅跟踪可动实例<br/>Shi-Tomasi 角点 + CoTracker3]:::loop\n    EST[\"物体 SE(3) 估计<br/>FGR 初始化 + ICP 精化<br/>质心位移小于 0.015m 跳过\"]:::train\n    MOVE[整组刚体搬移环境点<br/>只动坐标不动特征 语义慢变量位置快变量]:::key\n    PROP[本体状态 s_tau]:::data\n    FK[URDF 正运动学<br/>机器人表面点入世界系 永远精确]:::key\n    MAP[SERF 4D 神经点地图<br/>语义特征固定 坐标随时间移动]:::mem\n    FILT[按 BDDL 任务过滤<br/>机器人 + 任务相关物体 采 25000 点]:::train\n    TOK[Point Transformer 共享骨干<br/>+ 8 分支头 attention pooling]:::train\n    TK8[8 个 map token 各 2048 维<br/>base x3 半径 夹爪 x2 robot-only env-only global]:::train\n    PI05[pi_0.5 VLM + action expert<br/>主干冻结 仅插 LoRA]:::frozen\n    IMG[当前图像经 vision encoder]:::data\n\n    OBS ==> LIFT\n    LIFT ==> REG\n    SEG --> REG\n    OFF -.-> FEAT\n    FEAT ==> MAP\n    SEG ==> TRK\n    TRK ==> EST\n    EST ==> MOVE\n    MOVE ==> MAP\n    PROP ==> FK\n    FK ==> MAP\n    REG ==> MAP\n    MAP ==> FILT\n    FILT ==> TOK\n    TOK ==> TK8\n    TK8 ==> PI05\n    IMG ==> PI05\n    ACT([flow matching 20 步 Euler 积分<br/>30 步动作块]):::act\n    PI05 ==> ACT\n    ROBOT([BEHAVIOR-1K 机器人执行]):::env\n    ACT ==> ROBOT\n    ROBOT -.每 query 重算 map token.-> OBS\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

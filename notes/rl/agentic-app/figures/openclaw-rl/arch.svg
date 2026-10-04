@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="659" height="2124" viewBox="0 0 659 2124" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="2405" height="496" viewBox="0 0 2405 496" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
 <style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
 <defs>
 <linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
@@ -12,138 +12,135 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
-<marker id="arr-fb" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
-<marker id="arr-loss" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
+<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
-<rect width="659" height="2124" fill="#ffffff"/>
+<rect width="2405" height="496" fill="#ffffff"/>
 <rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">openclaw-rl</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">把 agent 每次交互自然产生的**下一状态信号**（next-state signal：用户回复、工具输出、终端或 GUI 状态变化）就地转化为两类互补训练信号——评价性（</text>
-<text x="625" y="2106" font-size="11.5" fill="#a0aab4" text-anchor="end">openclaw-rl · arXiv 2603.10165 · v3 auto</text>
-<rect x="37" y="103" width="585" height="255" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
-<rect x="53" y="116" width="259.25" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
-<text x="64" y="133" font-size="12.5" fill="#4a6579">Client 侧: 任意 agent 框架即数据源</text>
-<rect x="20" y="339" width="619" height="1389" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
-<rect x="36" y="352" width="240.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
-<text x="47" y="369" font-size="12.5" fill="#4a6579">RL Server: slime 异步四组件解耦</text>
-<path d="M 178.5 271.0 L 178.5 386.0 L 329.0 386.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 464.0 288.0 L 464.0 386.0 L 329.0 386.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 329.0 524.0 L 329.5 622.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 329.5 760.0 L 330.0 858.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 330.0 1013.0 L 330.0 1094.0 L 179.5 1094.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 330.0 1013.0 L 330.0 1094.0 L 482.0 1094.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 179.5 1232.0 L 179.5 1566.0 L 330.0 1566.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 482.0 1249.0 L 482.0 1330.0 L 329.5 1330.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 329.5 1485.0 L 330.0 1566.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 277.2 1704.0 L 277.2 1788.0 L 633.0 1788.0 L 633.0 524.0 L 355.6 524.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 330.0 1704.0 L 329.5 1802.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<rect x="65.5" y="169.5" width="231" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="63" y="166" width="231" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="178.5" cy="166" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="178.5" cy="166" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(165.0,152.5) scale(1.1250)">
+<text x="2371" y="478" font-size="11.5" fill="#a0aab4" text-anchor="end">openclaw-rl · arXiv 2603.10165 · v3 auto</text>
+<rect x="20" y="102" width="281" height="307" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
+<rect x="36" y="115" width="259.25" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
+<text x="47" y="132" font-size="12.5" fill="#4a6579">Client 侧: 任意 agent 框架即数据源</text>
+<rect x="319" y="86" width="1767" height="340" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
+<rect x="335" y="99" width="240.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
+<text x="346" y="116" font-size="12.5" fill="#4a6579">RL Server: slime 异步四组件解耦</text>
+<path d="M 277.0 192.5 C 336.4 192.5, 283.6 268.0, 343.0 268.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 277.0 327.0 C 329.5 327.0, 290.5 268.0, 343.0 268.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 571.0 268.0 C 617.0 268.0, 591.0 268.0, 637.0 268.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 867.0 268.0 C 913.0 268.0, 887.0 268.0, 933.0 268.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1163.0 268.0 C 1222.6 268.0, 1170.4 193.0, 1230.0 193.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1163.0 268.0 C 1222.2 268.0, 1169.8 343.0, 1229.0 343.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1463.0 193.0 C 1648.2 193.0, 1643.8 268.0, 1829.0 268.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1464.0 343.0 C 1523.2 343.0, 1470.8 268.0, 1530.0 268.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1763.0 268.0 C 1809.0 268.0, 1783.0 268.0, 1829.0 268.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1898.9 331.0 C 1898.9 405.0, 468.4 405.0, 468.4 331.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 2062.0 268.0 C 2108.0 268.0, 2082.0 268.0, 2128.0 268.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<rect x="46.5" y="149.5" width="233" height="93" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="44" y="146" width="233" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="160.5" cy="146" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="160.5" cy="146" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(147.0,132.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="178.5" y="222" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="178.5" dy="0">个人 Agent 用户终端</tspan><tspan x="178.5" dy="20">用户回复 / 工具输出</tspan></text>
-<rect x="334.5" y="153.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="332" y="150" width="264" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="464.0" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="464.0" cy="150" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(450.5,136.5) scale(1.1250)">
+<text x="160.5" y="190" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="160.5" dy="0">个人 Agent 用户终端</tspan><tspan x="160.5" dy="20">用户回复 / 工具输出</tspan></text>
+<rect x="46.5" y="267.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="44" y="264" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="160.5" cy="264" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="160.5" cy="264" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(147.0,250.5) scale(1.1250)">
   <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
   <circle cx="12" cy="12" r="3" />
 </g>
-<text x="464.0" y="206" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="464.0" dy="0">Terminal / GUI / SWE /</tspan><tspan x="464.0" dy="20">Tool-call</tspan></text>
-<text x="464.0" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">云环境 128/64/64/32 并行</text>
-<rect x="198.5" y="389.5" width="266" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="196" y="386" width="266" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="329.0" cy="386" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="329.0" cy="386" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(315.5,372.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="329.0" y="442" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="329.0" dy="0">Policy Server (被训策略</tspan><tspan x="329.0" dy="20">挂载)</tspan></text>
-<text x="329.0" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">SGLang 无状态 completion API</text>
-<rect x="199.5" y="625.5" width="265" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="197" y="622" width="265" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="329.5" cy="622" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="329.5" cy="622" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(316.0,608.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
-<text x="329.5" y="678" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="329.5" dy="0">主线/侧线分流: 主线回合</tspan><tspan x="329.5" dy="20">可训练</tspan></text>
-<text x="329.5" y="708" font-size="12" fill="#5f6b7a" text-anchor="middle">侧线 (记忆/辅助查询) 只转发</text>
-<rect x="204.5" y="861.5" width="256" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="202" y="858" width="256" height="155" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="330.0" cy="858" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="330.0" cy="858" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(316.5,844.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="330.0" y="914" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="330.0" dy="0">PRM Server (核心): 下</tspan><tspan x="330.0" dy="20">一状态信号就地提取</tspan></text>
-<text x="330.0" y="944" font-size="12" fill="#5f6b7a" text-anchor="middle">用户回复/工具输出/状态变化 =
-免费裁判</text>
-<rect x="48.5" y="1097.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="1094" width="267" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="179.5" cy="1094" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="179.5" cy="1094" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(166.0,1080.5) scale(1.1250)">
+<text x="160.5" y="308" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="160.5" dy="0">Terminal / GUI / S</tspan><tspan x="160.5" dy="20">WE / Tool-call</tspan></text>
+<text x="160.5" y="338" font-size="12" fill="#5f6b7a" text-anchor="middle">云环境 128/64/64/3</text>
+<rect x="345.5" y="208.5" width="228" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="343" y="205" width="228" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="457.0" cy="205" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="457.0" cy="205" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(443.5,191.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
+<text x="457.0" y="249" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="457.0" dy="0">Policy Server (被</tspan><tspan x="457.0" dy="20">训策略挂载)</tspan></text>
+<text x="457.0" y="279" font-size="12" fill="#5f6b7a" text-anchor="middle">SGLang 无状态 comp</text>
+<rect x="639.5" y="208.5" width="230" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="637" y="205" width="230" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="752.0" cy="205" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="752.0" cy="205" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(738.5,191.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
+<text x="752.0" y="249" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="752.0" dy="0">主线/侧线分流: 主线</tspan><tspan x="752.0" dy="20">回合可训练</tspan></text>
+<text x="752.0" y="279" font-size="12" fill="#5f6b7a" text-anchor="middle">侧线 (记忆/辅助查询</text>
+<rect x="935.5" y="208.5" width="230" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="933" y="205" width="230" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="1048.0" cy="205" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="1048.0" cy="205" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1034.5,191.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
+<text x="1048.0" y="249" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1048.0" dy="0">PRM Server (核心):</tspan><tspan x="1048.0" dy="20"> 下一状态信号就地提</tspan></text>
+<text x="1048.0" y="279" font-size="12" fill="#5f6b7a" text-anchor="middle">取</text>
+<rect x="1232.5" y="133.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1230" y="130" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="1346.5" cy="130" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="1346.5" cy="130" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1333.0,116.5) scale(1.1250)">
   <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
   <path d="M21 3v5h-5" />
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="179.5" y="1150" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="179.5" dy="0">评价性: 标量 PRM 多数</tspan><tspan x="179.5" dy="20">投票</tspan></text>
-<text x="179.5" y="1180" font-size="12" fill="#5f6b7a" text-anchor="middle">r_t in {+1, -1, 0}</text>
-<rect x="353.5" y="1097.5" width="262" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="351" y="1094" width="262" height="155" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="482.0" cy="1094" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="482.0" cy="1094" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(468.5,1080.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="482.0" y="1150" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="482.0" dy="0">指导性: 下一状态含修</tspan><tspan x="482.0" dy="20">正时</tspan></text>
-<text x="482.0" y="1180" font-size="12" fill="#5f6b7a" text-anchor="middle">蒸馏 [HINT] 包裹的 token 级
-hint</text>
-<rect x="201.5" y="1333.5" width="261" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="199" y="1330" width="261" height="155" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="329.5" cy="1330" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="329.5" cy="1330" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(316.0,1316.5) scale(1.1250)">
+<text x="1346.5" y="174" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1346.5" dy="0">评价性: 标量 PRM 多</tspan><tspan x="1346.5" dy="20">数投票</tspan></text>
+<text x="1346.5" y="204" font-size="12" fill="#5f6b7a" text-anchor="middle">r_t in {+1, -1, 0}</text>
+<rect x="1231.5" y="283.5" width="235" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1229" y="280" width="235" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="1346.5" cy="280" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="1346.5" cy="280" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1333.0,266.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
+<text x="1346.5" y="324" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1346.5" dy="0">指导性: 下一状态含</tspan><tspan x="1346.5" dy="20">修正时</tspan></text>
+<text x="1346.5" y="354" font-size="12" fill="#5f6b7a" text-anchor="middle">蒸馏 [HINT] 包裹的 </text>
+<rect x="1532.5" y="208.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1530" y="205" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="1646.5" cy="205" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="1646.5" cy="205" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1633.0,191.5) scale(1.1250)">
   <path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" />
   <path d="M6.453 15h11.094" />
   <path d="M8.5 2h7" />
 </g>
-<text x="329.5" y="1386" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="329.5" dy="0">PRM Actor (teacher</tspan><tspan x="329.5" dy="20">log-prob)</tspan></text>
-<text x="329.5" y="1416" font-size="12" fill="#5f6b7a" text-anchor="middle">overlap 选 hint + Delta clip
-锁比率</text>
-<rect x="200.5" y="1569.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="198" y="1566" width="264" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="330.0" cy="1566" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="330.0" cy="1566" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(316.5,1552.5) scale(1.1250)">
+<text x="1646.5" y="249" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1646.5" dy="0">PRM Actor (teacher</tspan><tspan x="1646.5" dy="20"> log-prob)</tspan></text>
+<text x="1646.5" y="279" font-size="12" fill="#5f6b7a" text-anchor="middle">overlap 选 hint + </text>
+<rect x="1831.5" y="208.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1829" y="205" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="1945.5" cy="205" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="1945.5" cy="205" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1932.0,191.5) scale(1.1250)">
   <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
   <path d="M21 3v5h-5" />
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="330.0" y="1622" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="330.0" dy="0">Megatron 训练引擎</tspan><tspan x="330.0" dy="20">混合目标 L =</tspan></text>
-<text x="330.0" y="1652" font-size="12" fill="#5f6b7a" text-anchor="middle">w_RL*L_GRPO + w_OPD*L_OPD</text>
-<rect x="201.5" y="1805.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="199" y="1802" width="261" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="329.5" cy="1802" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="329.5" cy="1802" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(316.0,1788.5) scale(1.1250)">
+<text x="1945.5" y="249" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1945.5" dy="0">Megatron 训练引擎</tspan><tspan x="1945.5" dy="20">混合目标 L = w_RL*</tspan></text>
+<text x="1945.5" y="279" font-size="12" fill="#5f6b7a" text-anchor="middle">L_GRPO + w_OPD*L_O</text>
+<rect x="2130.5" y="208.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="2128" y="205" width="233" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
+<circle cx="2244.5" cy="205" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="2244.5" cy="205" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(2231.0,191.5) scale(1.1250)">
   <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
   <path d="M21 3v5h-5" />
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="329.5" y="1858" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="329.5" dy="0">偏好对齐 10.3 会话 vs</tspan><tspan x="329.5" dy="20">GRPO 14.1 / Mem0 14.5</tspan></text>
-<text x="329.5" y="1888" font-size="12" fill="#5f6b7a" text-anchor="middle">部署中在线学习: 被使用就在变强</text>
-<g transform="translate(196.2,358.0)"><rect x="-83.1" y="-11" width="166.2" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">HTTP API + session id</text></g>
-<g transform="translate(445.5,358.0)"><rect x="-29.1" y="-11" width="58.2" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">交互流</text></g>
-<g transform="translate(179.5,1502.2)"><rect x="-67.2" y="-11" width="134.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">稠密但薄的标量优势</text></g>
-<g transform="translate(393.8,1525.5)"><rect x="-85.2" y="-11" width="170.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">稀疏但厚的 token 级优势</text></g>
-<g transform="translate(543.0,1293.2)"><rect x="-93.3" y="-11" width="186.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">同步边界推权重, 零服务中断</text></g>
-<text x="40" y="2072.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="2058" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="2069" r="4.2" fill="#546e7a"/><text x="110" y="2073" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<text x="40" y="2112" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 2108 h 44" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)"/><text x="132" y="2112" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 212.76 2108 h 44" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)"/><text x="264.76" y="2112" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<text x="2244.5" y="249" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="2244.5" dy="0">偏好对齐 10.3 会话 </tspan><tspan x="2244.5" dy="20">vs GRPO 14.1 / Mem</tspan></text>
+<text x="2244.5" y="279" font-size="12" fill="#5f6b7a" text-anchor="middle">0 14.5</text>
+<g transform="translate(310.0,212.2)"><rect x="-89.0" y="-11" width="178.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;HTTP API + session id&quot;</text></g>
+<g transform="translate(310.0,297.5)"><rect x="-35.0" y="-11" width="70.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;交互流&quot;</text></g>
+<g transform="translate(1646.0,212.5)"><rect x="-73.2" y="-11" width="146.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;稠密但薄的标量优势&quot;</text></g>
+<g transform="translate(1796.0,250.0)"><rect x="-91.2" y="-11" width="182.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;稀疏但厚的 token 级优势&quot;</text></g>
+<g transform="translate(1183.6,350.0)"><rect x="-99.2" y="-11" width="198.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;同步边界推权重, 零服务中断&quot;</text></g>
+<text x="40" y="444.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="430" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="441" r="4.2" fill="#546e7a"/><text x="110" y="445" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<text x="40" y="484" font-size="11.5" fill="#78909c">线型</text>
+<g><path d="M 80 480 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="484" font-size="11.5" fill="#263238">主数据流</text></g>
+<g><path d="M 202.76 480 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="484" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
 </svg>

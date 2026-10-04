@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 46,
-   "y": 167,
-   "w": 251,
-   "h": 104
+   "x": 44,
+   "y": 147,
+   "w": 253,
+   "h": 92
   },
   {
    "id": "POL",
-   "label": "pi 0.5\nbackbone 冻结, 只训",
-   "sub": "action expert\n不覆盖预训练知识",
+   "label": "pi 0.5\nbackbone 冻结, 只训 actio",
+   "sub": "n expert",
    "icon": "brain",
    "cls": "train",
-   "x": 193,
-   "y": 386,
-   "w": 264,
-   "h": 155
+   "x": 190,
+   "y": 348,
+   "w": 290,
+   "h": 126
   },
   {
    "id": "ENV",
@@ -28,43 +28,43 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 208,
-   "y": 622,
-   "w": 234,
-   "h": 105
+   "x": 218,
+   "y": 566,
+   "w": 236,
+   "h": 93
   },
   {
    "id": "TR",
-   "label": "G = 8 条 rollout / 组\nshared-prefix 共享采样",
-   "sub": "路径\n+ 分歧点 tree branching",
+   "label": "G = 8 条 rollout / 组\nshared-prefix 共享采样路",
+   "sub": "径",
    "icon": "refresh",
    "cls": "loop",
-   "x": 193,
-   "y": 825,
-   "w": 264,
-   "h": 155
+   "x": 194,
+   "y": 751,
+   "w": 284,
+   "h": 126
   },
   {
    "id": "GRPO",
-   "label": "任务级 GRPO (核心)\n组内归一化限制在同一任务",
-   "sub": "内:\nA_i = (R_i - mu_R) / sigma_R\n防简单任务抢梯度 / 难任务饿死",
+   "label": "任务级 GRPO (核心)\n组内归一化限制在同一任务内",
+   "sub": ":",
    "icon": "spark",
    "cls": "key",
    "x": 190,
-   "y": 1061,
-   "w": 270,
-   "h": 172
+   "y": 969,
+   "w": 290,
+   "h": 126
   },
   {
    "id": "DECAY",
-   "label": "success-aware reward\ndecay",
-   "sub": "奖励权重 x 0.998^累计成功率\n已掌握任务自动让出梯度预算",
+   "label": "success-aware reward dec\nay",
+   "sub": "奖励权重 x 0.998^累计成功",
    "icon": "reward",
    "cls": "reward",
-   "x": 335,
-   "y": 150,
-   "w": 269,
-   "h": 155
+   "x": 337,
+   "y": 130,
+   "w": 290,
+   "h": 126
   }
  ],
  "edges": [
@@ -82,17 +82,17 @@
    "from": "TR",
    "to": "ENV",
    "style": "main",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "POL",
    "to": "ENV",
    "style": "thick",
-   "label": "在线交互"
+   "label": "\"在线交互\""
   },
   {
    "from": "TR",
@@ -103,32 +103,40 @@
    "from": "DECAY",
    "to": "GRPO",
    "style": "loss",
-   "label": "防过度优化简单任务"
+   "label": "\"防过度优化简单任务\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "GRPO",
    "to": "POL",
    "style": "fb",
-   "label": "clipped 更新 (无 critic, 无 KL)",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"clipped 更新 (无 critic, 无",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [
   {
    "label": "任务级在线 rollout (64 并行 env)",
-   "x": 167,
-   "y": 575,
-   "w": 316,
-   "h": 412
+   "x": 170,
+   "y": 522,
+   "w": 332,
+   "h": 375
   }
  ],
  "canvas": [
-  650,
-  1383
+  671,
+  1185
  ],
  "legend": [
   "data",
@@ -138,9 +146,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  671,
+  1185
+ ],
  "title": "z-1",
  "subtitle": "Z-1 提出基于 π0.5 的模块化 RL 后训练框架：SFT 阶段只用公开 RoboCasa 演示数据，然后按任务粒度（task-wise）做 GRPO 在线精调，冻结 VL",
  "foot": "z-1 · arXiv 2606.31846 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    DATA[(\"RoboCasa 公开演示数据\")] ==> POL[\"pi 0.5<br/>backbone 冻结, 只训 action expert<br/>不覆盖预训练知识\"]\n    subgraph LOOP[\"任务级在线 rollout (64 并行 env)\"]\n        ENV[\"RoboCasa 仿真场景 k<br/>成功自动判定 (二值)\"] --> TR([\"G = 8 条 rollout / 组<br/>shared-prefix 共享采样路径<br/>+ 分歧点 tree branching\"])\n        TR --> ENV\n    end\n    POL ==>|\"在线交互\"| ENV\n    TR ==> GRPO[\"任务级 GRPO (核心)<br/>组内归一化限制在同一任务内:<br/>A_i = (R_i - mu_R) / sigma_R<br/>防简单任务抢梯度 / 难任务饿死\"]\n    DECAY[\"success-aware reward decay<br/>奖励权重 x 0.998^累计成功率<br/>已掌握任务自动让出梯度预算\"] -.->|\"防过度优化简单任务\"| GRPO\n    GRPO -.->|\"clipped 更新 (无 critic, 无 KL)\"| POL\n\n    class DATA data\n    class POL train\n    class ENV env\n    class TR loop\n    class GRPO key\n    class DECAY reward\n    class LOOP loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f"
 }

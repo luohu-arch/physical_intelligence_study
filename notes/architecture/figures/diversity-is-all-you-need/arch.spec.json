@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "RAW",
-   "label": "原始演示数据\n动作速率混杂 (快手/慢",
-   "sub": "手)",
+   "label": "原始演示数据\n动作速率混杂 (快手/",
+   "sub": "慢手)",
    "icon": "db",
    "cls": "data",
-   "x": 46,
-   "y": 150,
-   "w": 264,
-   "h": 138
+   "x": 44,
+   "y": 130,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "SL",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "eye",
    "cls": "frozen",
-   "x": 390,
-   "y": 386,
-   "w": 177,
-   "h": 105
+   "x": 340,
+   "y": 296,
+   "w": 179,
+   "h": 93
   },
   {
    "id": "ARM",
@@ -28,21 +28,21 @@
    "sub": "",
    "icon": "lightning",
    "cls": "key",
-   "x": 380,
-   "y": 589,
-   "w": 198,
-   "h": 105
+   "x": 585,
+   "y": 296,
+   "w": 200,
+   "h": 93
   },
   {
    "id": "SRCH",
-   "label": "逐样本搜索最优 chunk 长\n度 L",
-   "sub": "min | ARM(o_t) - v(a_t:t+L) |\nL 限定在 [0.5T, 1.5T]",
-   "icon": "stack",
+   "label": "逐样本搜索最优 chun\nk 长度 L",
+   "sub": "min | ARM(o_t) - v",
+   "icon": "tree",
    "cls": "key",
-   "x": 346,
-   "y": 792,
-   "w": 267,
-   "h": 155
+   "x": 851,
+   "y": 280,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "INTERP",
@@ -50,54 +50,54 @@
    "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 379,
-   "y": 1028,
-   "w": 200,
-   "h": 105
+   "x": 1150,
+   "y": 296,
+   "w": 202,
+   "h": 93
   },
   {
    "id": "LARM",
-   "label": "损失 L_ARM: MSE\nv = chunk 内 L1 位移",
-   "sub": "总量",
+   "label": "损失 L_ARM: MSE\nv = chunk 内 L1 位",
+   "sub": "移总量",
    "icon": "sigma",
    "cls": "loss",
-   "x": 648,
-   "y": 150,
-   "w": 264,
-   "h": 138
+   "x": 44,
+   "y": 280,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "PT",
-   "label": "策略训练\n(预训练 + 微调两阶段一",
-   "sub": "致去偏)",
+   "label": "策略训练\n(预训练 + 微调两阶",
+   "sub": "段一致去偏)",
    "icon": "lightning",
    "cls": "train",
-   "x": 351,
-   "y": 1231,
-   "w": 256,
-   "h": 138
+   "x": 1418,
+   "y": 280,
+   "w": 222,
+   "h": 126
   },
   {
    "id": "SPATIAL",
-   "label": "空间多模态\n左/右绕行等真实策略差异",
-   "sub": "",
+   "label": "空间多模态\n左/右绕行等真实策略",
+   "sub": "差异",
    "icon": "lightning",
    "cls": "data",
-   "x": 348,
-   "y": 166,
-   "w": 262,
-   "h": 105
+   "x": 45,
+   "y": 430,
+   "w": 228,
+   "h": 126
   },
   {
    "id": "GO1PRO",
-   "label": "GO-1-Pro\n平均 +15% ~= 2.5 倍预",
-   "sub": "训练数据",
+   "label": "GO-1-Pro\n平均 +15% ~= 2.5 ",
+   "sub": "倍预训练数据",
    "icon": "lightning",
    "cls": "act",
-   "x": 352,
-   "y": 1467,
-   "w": 254,
-   "h": 138
+   "x": 1706,
+   "y": 280,
+   "w": 220,
+   "h": 126
   }
  ],
  "edges": [
@@ -140,7 +140,7 @@
    "from": "SPATIAL",
    "to": "PT",
    "style": "thick",
-   "label": "保留不动"
+   "label": "\"保留不动\""
   },
   {
    "from": "PT",
@@ -151,15 +151,15 @@
  "panels": [
   {
    "label": "Action Rate Model (ARM) 分布去偏",
-   "x": 320,
-   "y": 339,
-   "w": 319,
-   "h": 818
+   "x": 316,
+   "y": 236,
+   "w": 1060,
+   "h": 190
   }
  ],
  "canvas": [
-  958,
-  1789
+  1970,
+  646
  ],
  "legend": [
   "act",
@@ -169,9 +169,13 @@
   "loss",
   "train"
  ],
+ "layout_wh": [
+  1970,
+  646
+ ],
  "title": "diversity-is-all-you-need",
  "subtitle": "用同规模不同采样方式构造的预训练集做受控对比，发现：任务多样性里**场景多样性比技能多样性更能带来分布偏移下的鲁棒性**（GO-1 上 10% episode 采样平均分 0.",
  "foot": "diversity-is-all-you-need · arXiv 2507.06219 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    RAW([\"原始演示数据<br/>动作速率混杂 (快手/慢手)\"])\n    subgraph ARMSTG[\"Action Rate Model (ARM) 分布去偏\"]\n        SL[\"SigLIP 编码器<br/>(全程冻结)\"]\n        ARM[\"三层 MLP<br/>回归期望动作速率\"]\n        SRCH[\"逐样本搜索最优 chunk 长度 L<br/>min | ARM(o_t) - v(a_t:t+L) |<br/>L 限定在 [0.5T, 1.5T]\"]\n        INTERP[\"时间插值回长度 T<br/>得到去偏目标\"]\n    end\n    RAW ==> SL\n    RAW ==> SRCH\n    SL --> ARM --> SRCH --> INTERP\n    LARM[\"损失 L_ARM: MSE<br/>v = chunk 内 L1 位移总量\"] -.-> ARM\n    INTERP ==> PT[\"策略训练<br/>(预训练 + 微调两阶段一致去偏)\"]\n    SPATIAL([\"空间多模态<br/>左/右绕行等真实策略差异\"]) ==>|\"保留不动\"| PT\n    PT ==> GO1PRO([\"GO-1-Pro<br/>平均 +15% ~= 2.5 倍预训练数据\"])\n\n    class RAW,SPATIAL data\n    class SL frozen\n    class ARM,SRCH,INTERP key\n    class PT train\n    class GO1PRO act\n    class LARM loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

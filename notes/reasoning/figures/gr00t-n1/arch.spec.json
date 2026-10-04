@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "IMG",
-   "label": "多视角 RGB 224x224<br/",
+   "label": "多视角 RGB 224x224\n<br/",
    "sub": "",
    "icon": "camera",
    "cls": "loop",
    "x": 46,
-   "y": 150,
-   "w": 266,
-   "h": 104
+   "y": 106,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "LANG",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 350,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 90,
+   "y": 233,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "STATE",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 1444,
-   "y": 150,
-   "w": 202,
-   "h": 104
+   "x": 58,
+   "y": 358,
+   "w": 204,
+   "h": 92
   },
   {
    "id": "VIS",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 738,
-   "y": 353,
-   "w": 215,
-   "h": 104
+   "x": 343,
+   "y": 422,
+   "w": 217,
+   "h": 92
   },
   {
    "id": "VLM",
@@ -50,21 +50,21 @@
    "sub": "",
    "icon": "brain",
    "cls": "loop",
-   "x": 745,
-   "y": 555,
-   "w": 202,
-   "h": 104
+   "x": 626,
+   "y": 422,
+   "w": 204,
+   "h": 92
   },
   {
    "id": "DIT",
-   "label": "DiT + Flow\nMatching<br/",
+   "label": "DiT + Flow Matchin\ng<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 716,
-   "y": 959,
-   "w": 261,
-   "h": 105
+   "x": 1184,
+   "y": 422,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "XATT",
@@ -72,54 +72,54 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 736,
-   "y": 757,
-   "w": 220,
-   "h": 104
+   "x": 896,
+   "y": 422,
+   "w": 222,
+   "h": 92
   },
   {
    "id": "ROBOT",
-   "label": "人形机器人 120Hz 连续\n动作",
+   "label": "人形机器人 120Hz 连\n续动作",
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 712,
-   "y": 1162,
-   "w": 267,
-   "h": 105
+   "x": 1483,
+   "y": 422,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "LFM",
-   "label": "Flow Matching 向量场\n损失",
-   "sub": "",
-   "icon": "refresh",
-   "cls": "loop",
-   "x": 843,
-   "y": 150,
-   "w": 264,
-   "h": 105
-  },
-  {
-   "id": "LDET",
-   "label": "OWL-v2 目标检测辅助损失",
+   "label": "Flow Matching 向量\n场损失",
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 538,
-   "y": 150,
-   "w": 267,
-   "h": 104
+   "x": 46,
+   "y": 484,
+   "w": 230,
+   "h": 93
+  },
+  {
+   "id": "LDET",
+   "label": "OWL-v2 目标检测辅助\n损失",
+   "sub": "",
+   "icon": "sigma",
+   "cls": "loop",
+   "x": 44,
+   "y": 610,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "PYRAMID",
-   "label": "数据金字塔 592.9M 帧<\nbr/",
+   "label": "数据金字塔 592.9M \n帧<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1145,
-   "y": 150,
-   "w": 261,
-   "h": 105
+   "x": 48,
+   "y": 737,
+   "w": 225,
+   "h": 93
   }
  ],
  "edges": [
@@ -172,29 +172,33 @@
  "panels": [
   {
    "label": "System 2 慢思考 10Hz",
-   "x": 712,
-   "y": 306,
-   "w": 267,
-   "h": 377
+   "x": 319,
+   "y": 378,
+   "w": 535,
+   "h": 156
   },
   {
    "label": "System 1 快控制 120Hz",
-   "x": 690,
-   "y": 912,
-   "w": 313,
-   "h": 176
+   "x": 1160,
+   "y": 378,
+   "w": 281,
+   "h": 157
   }
  ],
  "canvas": [
-  1692,
-  1451
+  1760,
+  896
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1760,
+  896
+ ],
  "title": "gr00t-n1",
  "subtitle": "GR00T N1 是首个开源（CC BY 4.0）2.2B 参数人形机器人基础模型，采用 System 2（Eagle-2 VLM, 10Hz）+ System 1（DiT +",
  "foot": "gr00t-n1 · arXiv 2503.14734 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    IMG[多视角 RGB 224x224<br/>历史帧堆叠]:::data\n    LANG[语言指令]:::data\n    STATE[本体关节状态 q_t]:::data\n\n    subgraph SYS2[\"System 2 慢思考 10Hz\"]\n        VIS[SigLIP-2 视觉编码]:::frozen\n        VLM[Eagle-2 VLM<br/>SmolLM2 取第 12 层特征]:::frozen\n    end\n\n    subgraph SYS1[\"System 1 快控制 120Hz\"]\n        DIT[DiT + Flow Matching<br/>K=4 去噪 H=16 动作块]:::train\n    end\n\n    IMG ==> VIS\n    LANG ==> VLM\n    VIS ==> VLM\n    XATT[交叉注意力注入<br/>双系统耦合 每 100ms 刷新]:::key\n    VLM ==> XATT\n    XATT ==> DIT\n    STATE ==> DIT\n    DIT ==> ROBOT([人形机器人 120Hz 连续动作]):::act\n    LFM[Flow Matching 向量场损失]:::loss\n    LDET[OWL-v2 目标检测辅助损失]:::loss\n    LFM -.-> DIT\n    LDET -.-> VLM\n    PYRAMID[数据金字塔 592.9M 帧<br/>人类视频+神经轨迹+仿真+真实]:::data\n    PYRAMID -.异构数据共训.-> DIT\n    ROBOT -.每 8ms 高频重规划.-> IMG\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

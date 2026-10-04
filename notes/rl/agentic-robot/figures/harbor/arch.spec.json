@@ -2,113 +2,113 @@
  "nodes": [
   {
    "id": "REQ",
-   "label": "用户请求: 仿真器代码库 \n+",
-   "sub": "任务规格",
+   "label": "用户请求: 仿真器代\n码库 + 任务规格",
+   "sub": "",
    "icon": "gear",
    "cls": "loop",
-   "x": 200,
-   "y": 150,
-   "w": 264,
-   "h": 138
+   "x": 180,
+   "y": 130,
+   "w": 220,
+   "h": 93
   },
   {
    "id": "MAIN",
-   "label": "主 agent\n检索经验与 artifact,",
-   "sub": "分解有界阶段",
+   "label": "主 agent\n检索经验与 artifact",
+   "sub": ", 分解有界阶段",
    "icon": "db",
    "cls": "loop",
-   "x": 206,
-   "y": 353,
-   "w": 253,
-   "h": 138
+   "x": 172,
+   "y": 283,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "KNOW",
-   "label": "可复用经验库: 模板/参考/\n人类启发式/历史要点",
-   "sub": "stack-cube 复用 4h -> 30min",
+   "label": "可复用经验库: 模板/\n参考/人类启发式/历",
+   "sub": "史要点",
    "icon": "db",
    "cls": "loop",
-   "x": 94,
-   "y": 1297,
-   "w": 267,
-   "h": 138
+   "x": 76,
+   "y": 1027,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "SIM",
-   "label": "仿真器环境\n6 benchmark x 16 任务",
-   "sub": "",
+   "label": "仿真器环境\n6 benchmark x 16 ",
+   "sub": "任务",
    "icon": "gear",
    "cls": "loop",
-   "x": 357,
-   "y": 1078,
-   "w": 258,
-   "h": 105
+   "x": 48,
+   "y": 841,
+   "w": 224,
+   "h": 126
   },
   {
    "id": "CCDE",
-   "label": "CCDE 并行调参: 主 agent\n中央决策",
-   "sub": "N=4 子 agent 隔离 trial 异步执\n行 (6.3x)",
+   "label": "CCDE 并行调参: 主 a\ngent 中央决策",
+   "sub": "N=4 子 agent 隔离 ",
    "icon": "refresh",
    "cls": "loop",
-   "x": 353,
-   "y": 589,
-   "w": 266,
-   "h": 155
+   "x": 44,
+   "y": 469,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "ESC",
-   "label": "标记 unresolved, 请人\n工介入",
+   "label": "标记 unresolved, \n请人工介入",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 358,
-   "y": 842,
-   "w": 254,
-   "h": 105
+   "x": 52,
+   "y": 672,
+   "w": 220,
+   "h": 93
   },
   {
    "id": "DONE",
-   "label": "可训练策略 + 全程可审计\n产物",
-   "sub": "+ 系统辨识/DR 真机迁移栈",
+   "label": "可训练策略 + 全程可\n审计产物",
+   "sub": "+ 系统辨识/DR 真机",
    "icon": "lightning",
    "cls": "loop",
-   "x": 200,
-   "y": 1533,
-   "w": 264,
-   "h": 138
+   "x": 175,
+   "y": 1213,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "AG",
-   "label": "阶段 agent (有界上下文)\n依赖->任务->奖励->RL 集",
-   "sub": "成->DR->调参 六阶段",
+   "label": "阶段 agent (有界上\n下文)",
+   "sub": "依赖->任务->奖励->R",
    "icon": "reward",
    "cls": "loop",
-   "x": 46,
-   "y": 589,
-   "w": 269,
-   "h": 138
+   "x": 303,
+   "y": 469,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ART",
-   "label": "mutable artifact: task\nspec / reward 代码 /",
-   "sub": "曲线 / rollout MP4 / install\nlog",
+   "label": "mutable artifact: \ntask spec / reward",
+   "sub": " 代码 /",
    "icon": "reward",
    "cls": "loop",
-   "x": 53,
-   "y": 825,
-   "w": 267,
-   "h": 155
+   "x": 296,
+   "y": 655,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "GATE",
-   "label": "gate: 硬接口 + 软语义\n检查",
-   "sub": "import / reset / obs-act 形状\n/ 渲染",
-   "icon": "state",
+   "label": "gate: 硬接口 + 软语\n义检查",
+   "sub": "import / reset / o",
+   "icon": "refresh",
    "cls": "loop",
-   "x": 50,
-   "y": 1061,
-   "w": 269,
-   "h": 155
+   "x": 296,
+   "y": 841,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "NEXT",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 399,
-   "y": 1314,
-   "w": 172,
-   "h": 104
+   "x": 330,
+   "y": 1044,
+   "w": 174,
+   "h": 92
   }
  ],
  "edges": [
@@ -127,7 +127,11 @@
    "from": "AG",
    "to": "ART",
    "style": "thick",
-   "label": "标准化命令修改/创建 artifact"
+   "label": "\"标准化命令修改/创建 artifact\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "ART",
@@ -138,12 +142,16 @@
    "from": "GATE",
    "to": "AG",
    "style": "loss",
-   "label": "失败: 结构化摘要回传就地修复",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"失败: 结构化摘要回传就地修复\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "REQ",
@@ -159,120 +167,129 @@
    "from": "KNOW",
    "to": "AG",
    "style": "fb",
-   "label": "按 simulator/task/算法标签…",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"按 simulator/task/算法标签阶段",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84,
-   "labpos": [
-    560,
-    1484
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
    ]
   },
   {
    "from": "GATE",
    "to": "KNOW",
    "style": "thick",
-   "label": "通过: 提交 artifact + 摘要写回",
-   "labpos": [
-    205,
-    1256
+   "label": "\"通过: 提交 artifact + 摘要写回\"",
+   "loff": [
+    0,
+    -18
    ]
   },
   {
    "from": "ART",
    "to": "SIM",
    "style": "fb",
-   "label": "短训练 / rollout / 渲染可执行反馈"
+   "label": "\"短训练 / rollout / 渲染可执行反馈",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "SIM",
    "to": "ART",
    "style": "fb",
-   "label": "学习曲线与视频供 gate 与 age…",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"学习曲线与视频供 gate 与 agent 诊",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84,
-   "labpos": [
-    205,
-    1484
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
    ]
   },
   {
    "from": "AG",
    "to": "ESC",
    "style": "fb",
-   "label": "重试预算耗尽"
+   "label": "\"重试预算耗尽\""
   },
   {
    "from": "MAIN",
    "to": "CCDE",
    "style": "fb",
-   "label": "迭代密集阶段"
+   "label": "\"迭代密集阶段\""
   },
   {
    "from": "CCDE",
    "to": "MAIN",
    "style": "fb",
-   "label": "聚合决策写回首 agent",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"聚合决策写回首 agent\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84,
-   "labpos": [
-    98,
-    479
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
    ]
   },
   {
    "from": "GATE",
    "to": "NEXT",
-   "style": "thick",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "style": "thick"
   },
   {
    "from": "NEXT",
    "to": "MAIN",
    "style": "fb",
-   "label": "是: 推进下一有界阶段",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"是: 推进下一有界阶段\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "NEXT",
    "to": "DONE",
    "style": "thick",
-   "label": "否"
+   "label": "\"否\""
   }
  ],
  "panels": [
   {
-   "label": "五元组 harness: agents / commands /\nartifacts / gates / knowledge",
-   "x": 20,
-   "y": 525,
-   "w": 326,
-   "h": 698
+   "label": "五元组 harness: agents / commands / arti",
+   "x": 272,
+   "y": 425,
+   "w": 288,
+   "h": 562
   }
  ],
  "canvas": [
-  665,
-  1855
+  580,
+  1429
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  580,
+  1429
+ ],
  "title": "harbor",
  "subtitle": "HARBOR 把机器人 RL 的\"周边工程\"（装依赖、建任务、写奖励、配 DR、接算法、调超参）整体当作一个 harness engineering 问题：主 agent 把自",
  "foot": "harbor · arXiv 2606.08610 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    REQ([\"用户请求: 仿真器代码库 + 任务规格\"]):::data\n    MAIN[\"主 agent<br/>检索经验与 artifact, 分解有界阶段\"]:::frozen\n    KNOW[\"可复用经验库: 模板/参考/人类启发式/历史要点<br/>stack-cube 复用 4h -> 30min\"]:::mem\n    SIM[\"仿真器环境<br/>6 benchmark x 16 任务\"]:::env\n    CCDE[\"CCDE 并行调参: 主 agent 中央决策<br/>N=4 子 agent 隔离 trial 异步执行 (6.3x)\"]:::loop\n    ESC([\"标记 unresolved, 请人工介入\"]):::loop\n    DONE([\"可训练策略 + 全程可审计产物<br/>+ 系统辨识/DR 真机迁移栈\"]):::data\n\n    subgraph HARNESS[\"五元组 harness: agents / commands / artifacts / gates / knowledge\"]\n        direction TB\n        AG[\"阶段 agent (有界上下文)<br/>依赖->任务->奖励->RL 集成->DR->调参 六阶段\"]:::frozen\n        ART[\"mutable artifact: task spec / reward 代码 /<br/>曲线 / rollout MP4 / install log\"]:::mem\n        GATE{\"gate: 硬接口 + 软语义检查<br/>import / reset / obs-act 形状 / 渲染\"}:::key\n        AG ==>|\"标准化命令修改/创建 artifact\"| ART\n        ART ==> GATE\n        GATE -.->|\"失败: 结构化摘要回传就地修复\"| AG\n    end\n\n    REQ ==> MAIN\n    MAIN ==> AG\n    KNOW -.->|\"按 simulator/task/算法标签阶段匹配检索\"| AG\n    GATE ==>|\"通过: 提交 artifact + 摘要写回\"| KNOW\n    ART -.->|\"短训练 / rollout / 渲染可执行反馈\"| SIM\n    SIM -.->|\"学习曲线与视频供 gate 与 agent 诊断\"| ART\n    AG -.->|\"重试预算耗尽\"| ESC\n    MAIN -.->|\"迭代密集阶段\"| CCDE\n    CCDE -.->|\"聚合决策写回首 agent\"| MAIN\n    GATE ==> NEXT{\"还有下一阶段?\"}\n    NEXT -.->|\"是: 推进下一有界阶段\"| MAIN\n    NEXT ==>|\"否\"| DONE\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

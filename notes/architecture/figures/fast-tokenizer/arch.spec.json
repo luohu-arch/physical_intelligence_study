@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "data",
-   "x": 46,
-   "y": 150,
-   "w": 221,
-   "h": 105
+   "x": 44,
+   "y": 130,
+   "w": 223,
+   "h": 93
   },
   {
    "id": "DCT",
@@ -17,65 +17,65 @@
    "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 215,
-   "y": 353,
-   "w": 175,
-   "h": 105
+   "x": 333,
+   "y": 188,
+   "w": 177,
+   "h": 93
   },
   {
    "id": "TRUNC",
-   "label": "截断高频系数\n保留前 M = 10 个低频 (",
-   "sub": "95% 以上能量)",
+   "label": "截断高频系数\n保留前 M = 10 个低",
+   "sub": "频 (95% 以上能量)",
    "icon": "spark",
    "cls": "key",
-   "x": 172,
-   "y": 556,
-   "w": 261,
-   "h": 138
+   "x": 576,
+   "y": 172,
+   "w": 225,
+   "h": 126
   },
   {
    "id": "BPE",
    "label": "BPE 量化建库\n词表 1024, 压成密集",
-   "sub": "token\n(FAST+: 1M 真机轨迹训通用\ntokenizer)",
-   "icon": "spark",
+   "sub": " token",
+   "icon": "stack",
    "cls": "key",
-   "x": 172,
-   "y": 792,
-   "w": 261,
-   "h": 172
+   "x": 867,
+   "y": 172,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "TR",
-   "label": "Transformer 自回归骨干\n(pi0-FAST, next-token",
-   "sub": "预测)",
-   "icon": "stack",
+   "label": "Transformer 自回归\n骨干",
+   "sub": "(pi0-FAST, next-to",
+   "icon": "cpu",
    "cls": "train",
-   "x": 172,
-   "y": 1028,
-   "w": 262,
-   "h": 138
+   "x": 1166,
+   "y": 172,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "LCE",
-   "label": "损失: next-token 交\n叉熵",
+   "label": "损失: next-token \n交叉熵",
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 305,
-   "y": 150,
-   "w": 254,
-   "h": 105
+   "x": 46,
+   "y": 247,
+   "w": 220,
+   "h": 93
   },
   {
    "id": "PRED",
-   "label": "自回归生成频域 token\n(每 chunk 约 30-60",
-   "sub": "token)",
+   "label": "自回归生成频域 toke\nn",
+   "sub": "(每 chunk 约 30-60",
    "icon": "stack",
    "cls": "act",
-   "x": 169,
-   "y": 1264,
-   "w": 267,
-   "h": 138
+   "x": 1465,
+   "y": 172,
+   "w": 231,
+   "h": 126
   },
   {
    "id": "IDCT",
@@ -83,21 +83,21 @@
    "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 222,
-   "y": 1500,
-   "w": 162,
-   "h": 105
+   "x": 1762,
+   "y": 188,
+   "w": 164,
+   "h": 93
   },
   {
    "id": "ROBOT",
-   "label": "机器人执行 1 秒动作\nchunk",
+   "label": "机器人执行 1 秒动作\n chunk",
    "sub": "",
-   "icon": "robot",
+   "icon": "stack",
    "cls": "act",
-   "x": 169,
-   "y": 1703,
-   "w": 267,
-   "h": 105
+   "x": 1992,
+   "y": 188,
+   "w": 230,
+   "h": 93
   }
  ],
  "edges": [
@@ -145,26 +145,30 @@
    "from": "ROBOT",
    "to": "SEQ",
    "style": "fb",
-   "label": "执行后重观测 (与 pi0 相同执…",
+   "label": "\"执行后重观测 (与 pi0 相同执行协议)\"",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [
   {
    "label": "FAST 频域压缩 (核心 token 化)",
-   "x": 146,
-   "y": 306,
-   "w": 313,
-   "h": 648
+   "x": 309,
+   "y": 128,
+   "w": 815,
+   "h": 190
   }
  ],
  "canvas": [
-  605,
-  1992
+  2266,
+  430
  ],
  "legend": [
   "act",
@@ -173,9 +177,13 @@
   "loss",
   "train"
  ],
+ "layout_wh": [
+  2266,
+  430
+ ],
  "title": "fast-tokenizer",
  "subtitle": "FAST Tokenizer 通过离散余弦变换（DCT）将机器人动作轨迹从时域压缩到频域，保留前 10% 的低频系数即可覆盖 95% 以上能量，将序列长度缩短 80%，从根本上",
  "foot": "fast-tokenizer · arXiv 2501.09747 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    SEQ([\"时域动作序列 chunk<br/>长度 N = 50\"]) ==> DCT\n    subgraph FAST[\"FAST 频域压缩 (核心 token 化)\"]\n        DCT[\"一维 DCT 变换<br/>时域 转 频域\"]\n        TRUNC[\"截断高频系数<br/>保留前 M = 10 个低频 (95% 以上能量)\"]\n        BPE[\"BPE 量化建库<br/>词表 1024, 压成密集 token<br/>(FAST+: 1M 真机轨迹训通用 tokenizer)\"]\n    end\n    DCT --> TRUNC --> BPE\n    BPE ==> TR[\"Transformer 自回归骨干<br/>(pi0-FAST, next-token 预测)\"]\n    LCE[\"损失: next-token 交叉熵\"] -.-> TR\n    TR ==> PRED[\"自回归生成频域 token<br/>(每 chunk 约 30-60 token)\"]\n    PRED ==> IDCT[\"逆 DCT 还原<br/>高频部分补零\"]\n    IDCT ==> ROBOT([\"机器人执行 1 秒动作 chunk\"])\n    ROBOT -.->|\"执行后重观测<br/>(与 pi0 相同执行协议)\"| SEQ\n\n    class SEQ data\n    class DCT,TRUNC,BPE key\n    class TR train\n    class PRED,IDCT,ROBOT act\n    class LCE loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

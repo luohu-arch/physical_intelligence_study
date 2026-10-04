@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 98,
-   "y": 562,
-   "w": 150,
-   "h": 104
+   "x": 504,
+   "y": 130,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "ENC",
-   "label": "编码器 q_phi\n离散化 32 类 x 16 向量",
-   "sub": "",
+   "label": "编码器 q_phi\n离散化 32 类 x 16 ",
+   "sub": "向量",
    "icon": "eye",
    "cls": "train",
-   "x": 407,
-   "y": 489,
-   "w": 261,
-   "h": 105
+   "x": 510,
+   "y": 283,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "Z",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "noise",
    "cls": "env",
-   "x": 810,
-   "y": 150,
-   "w": 184,
-   "h": 104
+   "x": 15,
+   "y": 486,
+   "w": 186,
+   "h": 92
   },
   {
    "id": "A",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 98,
-   "y": 418,
-   "w": 150,
-   "h": 104
+   "x": 668,
+   "y": 130,
+   "w": 151,
+   "h": 92
   },
   {
    "id": "SM",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 435,
-   "y": 634,
-   "w": 205,
-   "h": 105
+   "x": 761,
+   "y": 300,
+   "w": 207,
+   "h": 93
   },
   {
    "id": "ZP",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 98,
-   "y": 706,
-   "w": 150,
-   "h": 104
+   "x": 842,
+   "y": 130,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "DP",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "train",
-   "x": 792,
-   "y": 472,
-   "w": 221,
-   "h": 105
+   "x": 235,
+   "y": 486,
+   "w": 223,
+   "h": 93
   },
   {
    "id": "RP",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "reward",
    "cls": "reward",
-   "x": 804,
-   "y": 762,
-   "w": 195,
-   "h": 105
+   "x": 491,
+   "y": 486,
+   "w": 197,
+   "h": 93
   },
   {
    "id": "CP",
@@ -94,21 +94,21 @@
    "sub": "",
    "icon": "medal",
    "cls": "reward",
-   "x": 802,
-   "y": 617,
-   "w": 200,
-   "h": 105
+   "x": 722,
+   "y": 486,
+   "w": 202,
+   "h": 93
   },
   {
    "id": "DEC",
    "label": "解码器\n重建 x_hat_t",
-   "sub": "去掉重建梯度几乎无影响",
+   "sub": "去掉重建梯度几乎无影",
    "icon": "lightning",
    "cls": "train",
-   "x": 776,
-   "y": 294,
-   "w": 252,
-   "h": 138
+   "x": 958,
+   "y": 469,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "KLQ",
@@ -116,21 +116,21 @@
    "sub": "",
    "icon": "graph",
    "cls": "key",
-   "x": 1136,
-   "y": 634,
-   "w": 180,
-   "h": 105
+   "x": 778,
+   "y": 655,
+   "w": 182,
+   "h": 93
   },
   {
    "id": "S",
-   "label": "模型状态 s_t = h_t 拼\n接 z_t",
+   "label": "模型状态 s_t = h_t\n 拼接 z_t",
    "sub": "",
    "icon": "state",
    "cls": "env",
-   "x": 46,
-   "y": 850,
-   "w": 253,
-   "h": 105
+   "x": 1006,
+   "y": 130,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "AC",
@@ -138,10 +138,10 @@
    "sub": "",
    "icon": "graph",
    "cls": "loop",
-   "x": 421,
-   "y": 779,
-   "w": 233,
-   "h": 105
+   "x": 992,
+   "y": 300,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "ACT",
@@ -149,21 +149,21 @@
    "sub": "切断 value 梯度",
    "icon": "target",
    "cls": "act",
-   "x": 789,
-   "y": 907,
-   "w": 226,
-   "h": 138
+   "x": 1227,
+   "y": 469,
+   "w": 228,
+   "h": 126
   },
   {
    "id": "CRIT",
-   "label": "critic\ntwohot lambda-return",
-   "sub": "symlog 编码目标",
-   "icon": "eye",
+   "label": "critic\ntwohot lambda-retu",
+   "sub": "rn",
+   "icon": "target",
    "cls": "reward",
-   "x": 776,
-   "y": 1085,
-   "w": 251,
-   "h": 138
+   "x": 1489,
+   "y": 469,
+   "w": 233,
+   "h": 126
   }
  ],
  "edges": [
@@ -211,7 +211,11 @@
    "from": "Z",
    "to": "KLQ",
    "style": "fb",
-   "label": "KL 平衡: dyn 1.0 vs rep 0.…"
+   "label": "\"KL 平衡: dyn 1.0 vs rep 0",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "DP",
@@ -236,8 +240,8 @@
  ],
  "panels": [],
  "canvas": [
-  1362,
-  1341
+  1737,
+  838
  ],
  "legend": [
   "act",
@@ -248,9 +252,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  1737,
+  838
+ ],
  "title": "dreamer-v3",
  "subtitle": "Dreamer v3 用一组固定超参数（归一化、KL 平衡 + free bits、symlog 变换三大类鲁棒技术）在 Atari、ProcGen、DMLab、DMContr",
  "foot": "dreamer-v3 · arXiv 2301.04104 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TB\n    X([\"观测 x_t\"]) --> ENC[\"编码器 q_phi<br/>离散化 32 类 x 16 向量\"]\n    ENC ==> Z[\"离散隐变量 z_t\"]\n    A([\"动作 a_t-1\"]) ==> SM[\"序列模型 f_phi<br/>GRU 循环状态 h_t\"]\n    ZP([\"z_t-1\"]) ==> SM\n    SM --> DP[\"动力学预测器 p_phi<br/>先验 z 分布\"]\n    SM --> RP[\"奖励头 r_t<br/>symlog 两值回归\"]\n    SM --> CP[\"continue 头 c_t<br/>二分类\"]\n    SM --> DEC[\"解码器<br/>重建 x_hat_t<br/>去掉重建梯度几乎无影响\"]\n    Z -.->|\"KL 平衡: dyn 1.0 vs rep 0.1<br/>free bits 1 nat 关闭小梯度\"| KLQ[\"世界模型损失<br/>免调参核心之一\"]\n    DP -.-> KLQ\n    S[\"模型状态 s_t = h_t 拼接 z_t\"] ==> AC[\"想象 rollout H=15<br/>批 50% 批量 16 序列\"]\n    AC --> ACT[\"actor<br/>Reinforce + 熵正则<br/>切断 value 梯度\"]\n    AC --> CRIT[\"critic<br/>twohot lambda-return<br/>symlog 编码目标\"]\n\n    class X,A,ZP data\n    class ENC,SM,DP,DEC,ACT train\n    class Z,S env\n    class KLQ key\n    class AC loop\n    class RP,CP,CRIT reward\n    class ACT act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f"
 }

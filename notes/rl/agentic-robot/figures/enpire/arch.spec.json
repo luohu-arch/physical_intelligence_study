@@ -2,58 +2,58 @@
  "nodes": [
   {
    "id": "HUMAN",
-   "label": "人: 任务目标 + 几分钟成\n功/失败演示",
-   "sub": "一次性投入, 被后续摊薄",
+   "label": "人: 任务目标 + 几分\n钟成功/失败演示",
+   "sub": "一次性投入, 被后续",
    "icon": "db",
    "cls": "loop",
-   "x": 46,
-   "y": 150,
-   "w": 265,
-   "h": 138
+   "x": 44,
+   "y": 130,
+   "w": 231,
+   "h": 126
   },
   {
    "id": "SAFE",
-   "label": "硬安全约束\n越界即任务失败 + 自动",
-   "sub": "重置",
+   "label": "硬安全约束\n越界即任务失败 + 自",
+   "sub": "动重置",
    "icon": "refresh",
    "cls": "loop",
-   "x": 348,
-   "y": 386,
-   "w": 264,
-   "h": 138
+   "x": 299,
+   "y": 130,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "VER",
-   "label": "自动验证: agent 合成二\n值奖励",
-   "sub": "SAM3 + 本体感知 + 力, 延迟 <=\n150 ms",
+   "label": "自动验证: agent 合\n成二值奖励",
+   "sub": "SAM3 + 本体感知 + ",
    "icon": "state",
    "cls": "loop",
-   "x": 651,
-   "y": 150,
-   "w": 262,
-   "h": 155
+   "x": 553,
+   "y": 130,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "RES",
-   "label": "自动重置: modular\nskills",
+   "label": "自动重置: modular \nskills",
    "sub": "复位到最难阶段起点",
-   "icon": "refresh",
+   "icon": "tree",
    "cls": "loop",
-   "x": 349,
-   "y": 150,
-   "w": 264,
-   "h": 138
+   "x": 804,
+   "y": 130,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "API",
-   "label": "不可变 Gym API +\nRollout 模块 R",
-   "sub": "30 Hz 策略, 单 rollout 8 次重\n试内计成功",
+   "label": "不可变 Gym API + R\nollout 模块 R",
+   "sub": "30 Hz 策略, 单 rol",
    "icon": "stack",
    "cls": "loop",
-   "x": 346,
-   "y": 622,
-   "w": 266,
-   "h": 155
+   "x": 424,
+   "y": 468,
+   "w": 228,
+   "h": 126
   },
   {
    "id": "AGT",
@@ -61,106 +61,128 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 362,
-   "y": 858,
-   "w": 234,
-   "h": 105
+   "x": 420,
+   "y": 1026,
+   "w": 236,
+   "h": 93
   },
   {
    "id": "PI",
-   "label": "改训练代码: BC / 在线-\n离线 RL /",
-   "sub": "启发式 / code-as-policy 自由\n组合",
+   "label": "改训练代码: BC / 在\n线-离线 RL /",
+   "sub": "启发式 / code-as-p",
    "icon": "refresh",
    "cls": "loop",
-   "x": 647,
-   "y": 1061,
-   "w": 266,
-   "h": 155
+   "x": 163,
+   "y": 1179,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "POL",
-   "label": "被训练的策略\nBC 正则单项 +10.8pp",
-   "sub": "最大增益",
+   "label": "被训练的策略\nBC 正则单项 +10.8p",
+   "sub": "p 最大增益",
    "icon": "lightning",
    "cls": "loop",
-   "x": 348,
-   "y": 1297,
-   "w": 262,
-   "h": 138
+   "x": 424,
+   "y": 1365,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "GIT",
-   "label": "共享 Git 仓库 =\nEvolution 模块",
-   "sub": "cherry-pick/copy/merge 正增益\n配方",
+   "label": "共享 Git 仓库 = Ev\nolution 模块",
+   "sub": "cherry-pick/copy/m",
    "icon": "stack",
    "cls": "loop",
-   "x": 345,
-   "y": 1061,
-   "w": 264,
-   "h": 155
+   "x": 420,
+   "y": 1179,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ROBOT",
-   "label": "8 站双臂 YAM 真机\nfleet",
-   "sub": "每站 RTX 5090, 无跨站共享算力",
+   "label": "8 站双臂 YAM 真机 f\nleet",
+   "sub": "每站 RTX 5090, 无",
    "icon": "robot",
    "cls": "loop",
-   "x": 500,
-   "y": 1533,
-   "w": 262,
-   "h": 138
+   "x": 338,
+   "y": 654,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "LOG",
-   "label": "rollout 日志: 轨迹 /\n视频 / 奖励信号 /",
-   "sub": "逐动作来源标签",
+   "label": "rollout 日志: 轨迹\n / 视频 / 奖励信号 ",
+   "sub": "/",
    "icon": "reward",
    "cls": "loop",
-   "x": 352,
-   "y": 1769,
-   "w": 254,
-   "h": 138
+   "x": 421,
+   "y": 840,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "EXP",
-   "label": "跨任务经验: markdown\n配方演化摘要",
-   "sub": "pin -> GPU insertion 迁移",
+   "label": "跨任务经验: markdow\nn 配方演化摘要",
+   "sub": "pin -> GPU inserti",
    "icon": "db",
    "cls": "loop",
-   "x": 46,
-   "y": 1061,
-   "w": 261,
-   "h": 138
+   "x": 677,
+   "y": 1179,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "ACC",
-   "label": "四接触任务 99% 真机成功\n率策略",
-   "sub": "MRU / MTU 度量物理\nautoresearch",
+   "label": "四接触任务 99% 真机\n成功率策略",
+   "sub": "MRU / MTU 度量物理",
    "icon": "gear",
    "cls": "loop",
-   "x": 197,
-   "y": 1533,
-   "w": 265,
-   "h": 155
+   "x": 422,
+   "y": 1551,
+   "w": 231,
+   "h": 126
+  },
+  {
+   "id": "EN",
+   "label": "EN",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 468,
+   "y": 316,
+   "w": 140,
+   "h": 92
+  },
+  {
+   "id": "PIRE",
+   "label": "PIRE",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 597,
+   "y": 671,
+   "w": 140,
+   "h": 92
   }
  ],
  "edges": [
   {
    "from": "HUMAN",
-   "to": "SAFE",
+   "to": "EN",
    "style": "thick"
   },
   {
-   "from": "SAFE",
+   "from": "EN",
    "to": "API",
    "style": "thick",
-   "label": "离线验证后固化"
+   "label": "\"离线验证后固化\""
   },
   {
    "from": "API",
-   "to": "AGT",
+   "to": "PIRE",
    "style": "thick",
-   "label": "释放全自主"
+   "label": "\"释放全自主\""
   },
   {
    "from": "AGT",
@@ -176,13 +198,22 @@
    "from": "POL",
    "to": "ROBOT",
    "style": "thick",
-   "label": "提交动作目标"
+   "label": "\"提交动作目标\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "API",
    "to": "ROBOT",
    "style": "fb",
-   "label": "reset-execute-verify 每集即…"
+   "label": "\"reset-execute-verify 每集",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "ROBOT",
@@ -193,46 +224,57 @@
    "from": "LOG",
    "to": "AGT",
    "style": "fb",
-   "label": "失败信号驱动 hill-climb",
-   "out": "bottom",
-   "in": "bottom",
-   "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "label": "\"失败信号驱动 hill-climb\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "AGT",
    "to": "GIT",
    "style": "fb",
-   "label": "提交配方分支"
+   "label": "\"提交配方分支\""
   },
   {
    "from": "GIT",
    "to": "AGT",
    "style": "fb",
-   "label": "Git 历史是单一事实来源",
-   "k": 84,
-   "labpos": [
-    740,
-    893
+   "label": "\"Git 历史是单一事实来源, 吸收队友正增益\"",
+   "out": "top",
+   "in": "top",
+   "pos_out": 0.3,
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
    ]
   },
   {
    "from": "AGT",
    "to": "EXP",
    "style": "fb",
-   "label": "任务结束写经验摘要"
+   "label": "\"任务结束写经验摘要\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "EXP",
    "to": "AGT",
    "style": "fb",
-   "label": "注入新任务 autoresearch",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"注入新任务 autoresearch\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "POL",
@@ -243,29 +285,33 @@
  "panels": [
   {
    "label": "Stage 1 EN: 人引导一次性搭真机环境",
-   "x": 322,
-   "y": 103,
-   "w": 618,
-   "h": 491
+   "x": 275,
+   "y": 86,
+   "w": 780,
+   "h": 190
   },
   {
    "label": "Stage 2 PIRE: 完全无人的 autoresearch",
-   "x": 319,
-   "y": 811,
-   "w": 620,
-   "h": 648
+   "x": 139,
+   "y": 982,
+   "w": 540,
+   "h": 529
   }
  ],
  "canvas": [
-  959,
-  2091
+  1075,
+  1767
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1075,
+  1767
+ ],
  "title": "enpire",
  "subtitle": "NVIDIA + CMU + UC Berkeley 把「reset → execute → verify → refine」做成 coding agent 可直接调用的真机闭",
  "foot": "enpire · arXiv 2606.19980 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    HUMAN([\"人: 任务目标 + 几分钟成功/失败演示<br/>一次性投入, 被后续摊薄\"]):::data\n\n    subgraph EN[\"Stage 1 EN: 人引导一次性搭真机环境\"]\n        direction LR\n        SAFE[\"硬安全约束<br/>越界即任务失败 + 自动重置\"]:::env\n        VER[\"自动验证: agent 合成二值奖励<br/>SAM3 + 本体感知 + 力, 延迟 <=150 ms\"]:::reward\n        RES[\"自动重置: modular skills<br/>复位到最难阶段起点\"]:::env\n    end\n\n    API[\"不可变 Gym API + Rollout 模块 R<br/>30 Hz 策略, 单 rollout 8 次重试内计成功\"]:::key\n\n    subgraph PIRE[\"Stage 2 PIRE: 完全无人的 autoresearch\"]\n        direction TB\n        AGT[\"N 个 coding agent<br/>每站一分支异步试假设\"]:::frozen\n        PI[\"改训练代码: BC / 在线-离线 RL /<br/>启发式 / code-as-policy 自由组合\"]:::act\n        POL[\"被训练的策略<br/>BC 正则单项 +10.8pp 最大增益\"]:::train\n        GIT[\"共享 Git 仓库 = Evolution 模块<br/>cherry-pick/copy/merge 正增益配方\"]:::mem\n    end\n\n    ROBOT[\"8 站双臂 YAM 真机 fleet<br/>每站 RTX 5090, 无跨站共享算力\"]:::env\n    LOG[\"rollout 日志: 轨迹 / 视频 / 奖励信号 /<br/>逐动作来源标签\"]:::data\n    EXP[\"跨任务经验: markdown 配方演化摘要<br/>pin -> GPU insertion 迁移\"]:::mem\n    ACC([\"四接触任务 99% 真机成功率策略<br/>MRU / MTU 度量物理 autoresearch\"]):::data\n\n    HUMAN ==> EN\n    EN ==>|\"离线验证后固化\"| API\n    API ==>|\"释放全自主\"| PIRE\n    AGT ==> PI\n    PI ==> POL\n    POL ==>|\"提交动作目标\"| ROBOT\n    API -.->|\"reset-execute-verify 每集即时判成败\"| ROBOT\n    ROBOT ==> LOG\n    LOG -.->|\"失败信号驱动 hill-climb\"| AGT\n    AGT -.->|\"提交配方分支\"| GIT\n    GIT -.->|\"Git 历史是单一事实来源, 吸收队友正增益\"| AGT\n    AGT -.->|\"任务结束写经验摘要\"| EXP\n    EXP -.->|\"注入新任务 autoresearch\"| AGT\n    POL ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

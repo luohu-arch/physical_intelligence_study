@@ -6,32 +6,32 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 46,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 44,
+   "y": 130,
+   "w": 148,
+   "h": 92
   },
   {
    "id": "REF",
-   "label": "Refiner Agent\n改写提示词 (SOPHIA 迭",
-   "sub": "代)",
+   "label": "Refiner Agent\n改写提示词 (SOPHIA ",
+   "sub": "迭代)",
    "icon": "cpu",
    "cls": "train",
-   "x": 80,
-   "y": 352,
-   "w": 269,
-   "h": 138
+   "x": 87,
+   "y": 282,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "P",
-   "label": "物理细节化提示词 p_k",
+   "label": "物理细节化提示词 p_\nk",
    "sub": "",
    "icon": "gear",
    "cls": "data",
-   "x": 96,
-   "y": 588,
-   "w": 238,
-   "h": 104
+   "x": 90,
+   "y": 468,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "OBS",
@@ -39,76 +39,76 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 234,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 216,
+   "y": 130,
+   "w": 149,
+   "h": 92
   },
   {
    "id": "GEN",
-   "label": "WoW DiT 14B\nT5 文本条件 + Haar 小",
-   "sub": "波 VAE latent\n+ DINOv2 中间层注入\n203 万真机轨迹训练",
+   "label": "WoW DiT 14B\nT5 文本条件 + Haar",
+   "sub": " 小波 VAE latent",
    "icon": "chat",
    "cls": "train",
-   "x": 88,
-   "y": 790,
-   "w": 253,
-   "h": 172
+   "x": 91,
+   "y": 621,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "VID",
-   "label": "候选视频 hat x\n扩散学的是合理结果分布",
-   "sub": "无因果兜底",
+   "label": "候选视频 hat x\n扩散学的是合理结果分",
+   "sub": "布",
    "icon": "gear",
    "cls": "env",
-   "x": 89,
-   "y": 1026,
-   "w": 252,
-   "h": 138
+   "x": 86,
+   "y": 807,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "CRIT",
-   "label": "Critic Team: 物理/运\n动/语义/质量",
+   "label": "Critic Team: 物理/\n运动/语义/质量",
    "sub": "四模板各 1-5 分打分",
    "icon": "target",
    "cls": "key",
-   "x": 83,
-   "y": 1262,
-   "w": 264,
-   "h": 138
+   "x": 89,
+   "y": 993,
+   "w": 231,
+   "h": 126
   },
   {
    "id": "IDM",
-   "label": "FM-IDM 逆动力学\n掩码帧 SAM 分支 +",
-   "sub": "CoTracker3 光流分支\n+ DINO 特征",
+   "label": "FM-IDM 逆动力学\n掩码帧 SAM 分支 + C",
+   "sub": "oTracker3 光流分支",
    "icon": "gear",
    "cls": "key",
-   "x": 84,
-   "y": 1498,
-   "w": 262,
-   "h": 155
+   "x": 87,
+   "y": 1179,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "ACT",
-   "label": "7 自由度增量末端动作",
+   "label": "7 自由度增量末端动\n作",
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 97,
-   "y": 1734,
-   "w": 236,
-   "h": 104
+   "x": 94,
+   "y": 1365,
+   "w": 220,
+   "h": 93
   },
   {
    "id": "ROBOT",
-   "label": "真机执行: 成功率/位置\n误差",
-   "sub": "/力矩稳定/能耗\nEasy 94.5% Mid 75.2%",
+   "label": "真机执行: 成功率/位\n置误差",
+   "sub": "/力矩稳定/能耗",
    "icon": "robot",
    "cls": "act",
-   "x": 83,
-   "y": 1936,
-   "w": 264,
-   "h": 155
+   "x": 90,
+   "y": 1518,
+   "w": 230,
+   "h": 126
   }
  ],
  "edges": [
@@ -146,22 +146,22 @@
    "from": "CRIT",
    "to": "REF",
    "style": "fb",
-   "label": "不通过: 文字反馈退回重抽 对…",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"不通过: 文字反馈退回重抽 对分布筛样本而非修",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84,
-   "labpos": [
-    111,
-    991
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
    ]
   },
   {
    "from": "CRIT",
    "to": "IDM",
    "style": "thick",
-   "label": "通过"
+   "label": "\"通过\""
   },
   {
    "from": "IDM",
@@ -177,18 +177,22 @@
    "from": "ROBOT",
    "to": "GEN",
    "style": "loss",
-   "label": "GRPO 奖励信号回传",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"GRPO 奖励信号回传\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [],
  "canvas": [
-  430,
-  2258
+  409,
+  1734
  ],
  "legend": [
   "act",
@@ -197,9 +201,13 @@
   "key",
   "train"
  ],
+ "layout_wh": [
+  409,
+  1734
+ ],
  "title": "wow",
  "subtitle": "WoW 是一个 14B 参数的视频扩散世界模型，用 203 万条真机交互轨迹（约 7300 小时、6.33 亿帧 @24fps、12 种机器人本体、过滤掉约 75% 原始数据）",
  "foot": "wow · arXiv 2509.22642 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    INST([\"用户指令 g\"]) ==> REF[\"Refiner Agent<br/>改写提示词 (SOPHIA 迭代)\"]\n    REF ==> P[\"物理细节化提示词 p_k\"]\n    OBS([\"初始帧 o_t\"]) ==> GEN\n    P ==> GEN[\"WoW DiT 14B<br/>T5 文本条件 + Haar 小波 VAE latent<br/>+ DINOv2 中间层注入<br/>203 万真机轨迹训练\"]\n    GEN ==> VID[\"候选视频 hat x<br/>扩散学的是合理结果分布<br/>无因果兜底\"]\n    VID ==> CRIT[\"Critic Team: 物理/运动/语义/质量<br/>四模板各 1-5 分打分\"]\n    CRIT -.->|\"不通过: 文字反馈退回重抽<br/>对分布筛样本而非修权重\"| REF\n    CRIT ==>|\"通过\"| IDM[\"FM-IDM 逆动力学<br/>掩码帧 SAM 分支 + CoTracker3 光流分支<br/>+ DINO 特征\"]\n    IDM ==> ACT[\"7 自由度增量末端动作\"]\n    ACT ==> ROBOT[\"真机执行: 成功率/位置误差<br/>/力矩稳定/能耗<br/>Easy 94.5% Mid 75.2%\"]\n    ROBOT -.->|\"GRPO 奖励信号回传\"| GEN\n\n    class INST,OBS data\n    class REF,GEN train\n    class P data\n    class VID env\n    class CRIT,IDM key\n    class ACT,ROBOT act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

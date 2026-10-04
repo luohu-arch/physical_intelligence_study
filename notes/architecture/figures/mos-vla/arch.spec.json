@@ -6,109 +6,109 @@
    "sub": "",
    "icon": "robot",
    "cls": "data",
-   "x": 46,
-   "y": 166,
-   "w": 222,
-   "h": 105
+   "x": 44,
+   "y": 146,
+   "w": 224,
+   "h": 93
   },
   {
    "id": "BB",
    "label": "OpenVLA backbone\nLlama 2 + SigLIP +",
-   "sub": "DinoV2, LoRA 微调",
+   "sub": " DinoV2, LoRA 微调",
    "icon": "brain",
    "cls": "train",
-   "x": 466,
-   "y": 386,
-   "w": 261,
-   "h": 138
+   "x": 423,
+   "y": 316,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "BASIS",
-   "label": "k = 16 个可学习基函数头\n(function encoder 头,",
-   "sub": "MLPResNet)",
+   "label": "k = 16 个可学习基函\n数头",
+   "sub": "(function encoder ",
    "icon": "eye",
    "cls": "key",
-   "x": 463,
-   "y": 622,
-   "w": 267,
-   "h": 138
+   "x": 423,
+   "y": 502,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "L1L",
-   "label": "训练损失 L: L1 范数\n(抗 OXE 噪声, 替代 L2)",
-   "sub": "",
+   "label": "训练损失 L: L1 范数\n(抗 OXE 噪声, 替代 ",
+   "sub": "L2)",
    "icon": "noise",
    "cls": "loss",
-   "x": 613,
-   "y": 166,
-   "w": 262,
-   "h": 105
+   "x": 292,
+   "y": 130,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "ORTHO",
-   "label": "Gram 正交正则 L_reg\n保持基函数多样性",
-   "sub": "",
+   "label": "Gram 正交正则 L_re\ng",
+   "sub": "保持基函数多样性",
    "icon": "sigma",
    "cls": "loss",
-   "x": 913,
-   "y": 166,
-   "w": 234,
-   "h": 105
+   "x": 551,
+   "y": 130,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "CAL",
-   "label": "calibration buffer\n每数据集 512 样本, 每",
-   "sub": "16 步重算系数",
+   "label": "calibration buffer\n每数据集 512 样本, ",
+   "sub": "每 16 步重算系数",
    "icon": "db",
    "cls": "loop",
-   "x": 306,
-   "y": 150,
-   "w": 269,
-   "h": 138
+   "x": 802,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "DEMO",
-   "label": "单次专家演示\n(未见环境/任务/本体)",
-   "sub": "",
+   "label": "单次专家演示\n(未见环境/任务/本体",
+   "sub": ")",
    "icon": "state",
    "cls": "data",
-   "x": 478,
-   "y": 1736,
-   "w": 238,
-   "h": 105
+   "x": 424,
+   "y": 1366,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "OPT",
-   "label": "L1 凸优化求权重\n线性规划 CVXPY, 无梯度",
-   "sub": "数秒完成",
+   "label": "L1 凸优化求权重\n线性规划 CVXPY, 无",
+   "sub": "梯度数秒完成",
    "icon": "tree",
    "cls": "key",
-   "x": 467,
-   "y": 858,
-   "w": 259,
-   "h": 138
+   "x": 427,
+   "y": 688,
+   "w": 225,
+   "h": 126
   },
   {
    "id": "W",
-   "label": "基函数权重 alpha (k\n维)",
+   "label": "基函数权重 alpha (k\n 维)",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 466,
-   "y": 1094,
-   "w": 261,
-   "h": 105
+   "x": 422,
+   "y": 874,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "POL",
-   "label": "策略 = sum alpha_i *\ng_i",
-   "sub": "推理 O(1), 与演示长度无关",
+   "label": "策略 = sum alpha_i\n * g_i",
+   "sub": "推理 O(1), 与演示长",
    "icon": "brain",
    "cls": "key",
-   "x": 463,
-   "y": 1297,
-   "w": 267,
-   "h": 138
+   "x": 423,
+   "y": 1027,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ROBOT",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "state",
    "cls": "act",
-   "x": 522,
-   "y": 1533,
-   "w": 150,
-   "h": 105
+   "x": 466,
+   "y": 1213,
+   "w": 146,
+   "h": 93
   }
  ],
  "edges": [
@@ -152,11 +152,11 @@
    "from": "DEMO",
    "to": "OPT",
    "style": "main",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "BASIS",
@@ -182,21 +182,25 @@
    "from": "ROBOT",
    "to": "DEMO",
    "style": "fb",
-   "label": "上下文变化需再给一条演示 重新标定系数"
+   "label": "\"上下文变化需再给一条演示 重新标定系数\"",
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [
   {
    "label": "OXE 27 数据集跨上下文预训练",
    "x": 20,
-   "y": 103,
-   "w": 1153,
-   "h": 727
+   "y": 86,
+   "w": 1039,
+   "h": 562
   }
  ],
  "canvas": [
-  1193,
-  2025
+  1079,
+  1582
  ],
  "legend": [
   "act",
@@ -206,9 +210,13 @@
   "loss",
   "train"
  ],
+ "layout_wh": [
+  1079,
+  1582
+ ],
  "title": "mos-vla",
  "subtitle": "MoS-VLA 将机器人操作策略表示为一组可学习基函数的线性组合（Mixture-of-Skills），在 Open X-Embodiment 上跨数据集联合预训练后，给定一次",
  "foot": "mos-vla · arXiv 2510.16617 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    subgraph PRE[\"OXE 27 数据集跨上下文预训练\"]\n        OXE([\"多机器人混合数据<br/>(Magic Soup Plus)\"]) --> BB\n        BB[\"OpenVLA backbone<br/>Llama 2 + SigLIP + DinoV2, LoRA 微调\"]\n        BB --> BASIS[\"k = 16 个可学习基函数头<br/>(function encoder 头, MLPResNet)\"]\n        L1L[\"训练损失 L: L1 范数<br/>(抗 OXE 噪声, 替代 L2)\"] -.-> BASIS\n        ORTHO[\"Gram 正交正则 L_reg<br/>保持基函数多样性\"] -.-> BASIS\n        CAL[\"calibration buffer<br/>每数据集 512 样本, 每 16 步重算系数\"] -.-> BASIS\n    end\n    DEMO([\"单次专家演示<br/>(未见环境/任务/本体)\"]) --> OPT[\"L1 凸优化求权重<br/>线性规划 CVXPY, 无梯度数秒完成\"]\n    BASIS ==> OPT\n    OPT --> W([\"基函数权重 alpha (k 维)\"])\n    W ==> POL[\"策略 = sum alpha_i * g_i<br/>推理 O(1), 与演示长度无关\"]\n    POL ==> ROBOT([\"机器人执行<br/>逐帧重观测\"])\n    ROBOT -.->|\"上下文变化需再给一条演示<br/>重新标定系数\"| DEMO\n\n    class OXE,DEMO data\n    class BB train\n    class BASIS,POL key\n    class OPT key\n    class ROBOT act\n    class L1L,ORTHO loss\n    class CAL loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

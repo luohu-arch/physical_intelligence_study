@@ -6,43 +6,43 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 785,
-   "y": 668,
-   "w": 150,
-   "h": 104
+   "x": 862,
+   "y": 502,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "CARD",
-   "label": "CA-ID Card 声明契约 (\n核心): 六字段 = credit",
-   "sub": "单位与估计量 /\n有效状态 / 干预来源 / 下游协议\n/ 支撑与不确定性 / 优化接口",
+   "label": "CA-ID Card 声明契\n约 (核心): 六字段 =",
+   "sub": " credit 单位与估计",
    "icon": "refresh",
    "cls": "loop",
-   "x": 415,
-   "y": 651,
-   "w": 262,
-   "h": 172
+   "x": 815,
+   "y": 316,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "EVID",
-   "label": "四层证据分级 (核心)",
-   "sub": "restored-interventional >\nobservational-causal >\nmodel-relative > predictive",
-   "icon": "state",
+   "label": "四层证据分级: resto\nred-interventional",
+   "sub": " > observational-c",
+   "icon": "camera",
    "cls": "loop",
-   "x": 46,
-   "y": 651,
-   "w": 261,
-   "h": 151
+   "x": 815,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "VER",
-   "label": "6 个已知 (task, method\n)",
-   "sub": "对回溯验证 6/6 命中\n阈值是粗路由启发式, 叶节点非跨\n论文性能排名",
+   "label": "6 个已知 (task, me\nthod) 对回溯验证 6/",
+   "sub": "6 命中",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1043,
-   "y": 867,
-   "w": 266,
-   "h": 172
+   "x": 532,
+   "y": 654,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "RS",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "brain",
    "cls": "loop",
-   "x": 1090,
-   "y": 723,
-   "w": 172,
-   "h": 104
+   "x": 790,
+   "y": 671,
+   "w": 174,
+   "h": 92
   },
   {
    "id": "AG",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1100,
-   "y": 435,
-   "w": 153,
-   "h": 104
+   "x": 988,
+   "y": 671,
+   "w": 155,
+   "h": 92
   },
   {
    "id": "MA",
@@ -72,87 +72,87 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1095,
-   "y": 579,
-   "w": 162,
-   "h": 104
+   "x": 1168,
+   "y": 671,
+   "w": 164,
+   "h": 92
   },
   {
    "id": "RS1",
-   "label": "CoT <= 5K token:\nGRPO / PURE / SPO /",
-   "sub": "SPRO",
+   "label": "CoT <= 5K token:\nGRPO / PURE / SPO ",
+   "sub": "/ SPRO",
    "icon": "stack",
    "cls": "loop",
-   "x": 1421,
-   "y": 796,
-   "w": 261,
-   "h": 138
+   "x": 15,
+   "y": 840,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "RS2",
-   "label": "CoT > 5K token:\nHICRA / CAPO / SPRO /",
-   "sub": "GRPO-lambda",
+   "label": "CoT > 5K token:\nHICRA / CAPO / SPR",
+   "sub": "O / GRPO-lambda",
    "icon": "stack",
    "cls": "loop",
-   "x": 1421,
-   "y": 974,
-   "w": 261,
-   "h": 138
+   "x": 282,
+   "y": 840,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "RS3",
-   "label": "算力充裕:\nVinePPO / SCAR /",
-   "sub": "GRAIL",
+   "label": "算力充裕:\nVinePPO / SCAR / G",
+   "sub": "RAIL",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1421,
-   "y": 1152,
-   "w": 261,
-   "h": 138
+   "x": 548,
+   "y": 840,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "AG1",
-   "label": "<= 30 轮, 无辅助模型:\nGiGPO / CARL / iStar ",
-   "sub": "/ POAD",
+   "label": "<= 30 轮, 无辅助模\n型:",
+   "sub": "GiGPO / CARL / iSt",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1421,
-   "y": 150,
-   "w": 261,
-   "h": 138
+   "x": 815,
+   "y": 840,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "AG2",
-   "label": "<= 30 轮, 可用辅助模型:\nAgentPRM / SWEET-RL",
-   "sub": "",
+   "label": "<= 30 轮, 可用辅助\n模型:",
+   "sub": "AgentPRM / SWEET-R",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1417,
-   "y": 328,
-   "w": 269,
-   "h": 105
+   "x": 1082,
+   "y": 840,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "AG3",
-   "label": "> 30 轮:\nC3 / CCPO / HCAPO /",
-   "sub": "IGPO / CRAFT / APPO",
+   "label": "> 30 轮:\nC3 / CCPO / HCAPO ",
+   "sub": "/ IGPO / CRAFT / A",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1421,
-   "y": 473,
-   "w": 261,
-   "h": 138
+   "x": 1348,
+   "y": 840,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "MA1",
-   "label": "M-GRPO / SHARP /\nMAPPA / Dr.MAS",
+   "label": "M-GRPO / SHARP / M\nAPPA / Dr.MAS",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1421,
-   "y": 651,
-   "w": 261,
-   "h": 105
+   "x": 1615,
+   "y": 856,
+   "w": 233,
+   "h": 93
   }
  ],
  "edges": [
@@ -160,19 +160,31 @@
    "from": "Q",
    "to": "RS",
    "style": "thick",
-   "label": "token 级 MDP, CoT 可验证"
+   "label": "\"token 级 MDP, CoT 可验证\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "Q",
    "to": "AG",
    "style": "thick",
-   "label": "turn 级 POMDP, 稀疏终端奖励"
+   "label": "\"turn 级 POMDP, 稀疏终端奖励\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "Q",
    "to": "MA",
    "style": "thick",
-   "label": "团队奖励, 跨智能体 credit"
+   "label": "\"团队奖励, 跨智能体 credit\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "RS",
@@ -213,7 +225,11 @@
    "from": "CARD",
    "to": "Q",
    "style": "fb",
-   "label": "任何选型的 credit 声明不得超…"
+   "label": "\"任何选型的 credit 声明不得超出证据层级",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "EVID",
@@ -228,15 +244,19 @@
  ],
  "panels": [],
  "canvas": [
-  1732,
-  1408
+  1863,
+  1056
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1863,
+  1056
+ ],
  "title": "reasoning-to-agentic",
  "subtitle": "独立作者的分析型综述（50 页，arXiv v3 2026-08，单作者、无同行评审信息）：把 credit assignment（CA）设为审视 LLM RL 的中心透镜，冻",
  "foot": "reasoning-to-agentic · arXiv 2604.09459 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    Q{\"任务设定?\"}:::loop\n    CARD[\"CA-ID Card 声明契约 (核心): 六字段 = credit 单位与估计量 /<br/>有效状态 / 干预来源 / 下游协议 / 支撑与不确定性 / 优化接口\"]:::key\n    EVID[\"四层证据分级: restored-interventional > observational-causal<br/>> model-relative > predictive; text-only 历史连符号都不可识别\"]:::reward\n    VER([\"6 个已知 (task, method) 对回溯验证 6/6 命中<br/>阈值是粗路由启发式, 叶节点非跨论文性能排名\"]):::data\n\n    Q ==>|\"token 级 MDP, CoT 可验证\"| RS[\"Reasoning RL\"]:::data\n    Q ==>|\"turn 级 POMDP, 稀疏终端奖励\"| AG[\"Agentic RL\"]:::data\n    Q ==>|\"团队奖励, 跨智能体 credit\"| MA[\"Multi-Agent\"]:::data\n\n    RS ==> RS1[\"CoT <= 5K token:<br/>GRPO / PURE / SPO / SPRO\"]:::loss\n    RS ==> RS2[\"CoT > 5K token:<br/>HICRA / CAPO / SPRO / GRPO-lambda\"]:::loss\n    RS ==> RS3[\"算力充裕:<br/>VinePPO / SCAR / GRAIL\"]:::loss\n    AG ==> AG1[\"<= 30 轮, 无辅助模型:<br/>GiGPO / CARL / iStar / POAD\"]:::loss\n    AG ==> AG2[\"<= 30 轮, 可用辅助模型:<br/>AgentPRM / SWEET-RL\"]:::loss\n    AG ==> AG3[\"> 30 轮:<br/>C3 / CCPO / HCAPO / IGPO / CRAFT / APPO\"]:::loss\n    MA ==> MA1[\"M-GRPO / SHARP / MAPPA / Dr.MAS\"]:::loss\n\n    CARD -.->|\"任何选型的 credit 声明不得超出证据层级\"| Q\n    EVID -.-> CARD\n    Q ==> VER\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

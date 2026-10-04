@@ -2,113 +2,113 @@
  "nodes": [
   {
    "id": "PRE",
-   "label": "Qwen3-30B-A3B-Base\n30.5B 总参 / 每 token",
-   "sub": "激活 3.3B MoE",
+   "label": "Qwen3-30B-A3B-Base\n30.5B 总参 / 每 to",
+   "sub": "ken 激活 3.3B MoE",
    "icon": "brain",
    "cls": "loop",
-   "x": 957,
-   "y": 150,
-   "w": 266,
-   "h": 138
+   "x": 44,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "CPT1",
-   "label": "Agentic CPT Stage 1:\n32K 上下文",
-   "sub": "合成数据注入 agentic 行为先验",
+   "label": "Agentic CPT Stage \n1: 32K 上下文",
+   "sub": "合成数据注入 agenti",
    "icon": "db",
    "cls": "loop",
-   "x": 500,
-   "y": 386,
-   "w": 269,
-   "h": 138
+   "x": 431,
+   "y": 316,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "CPT2",
-   "label": "Agentic CPT Stage 2:\n128K 上下文",
-   "sub": "64K-128K 长轨迹 + 少量通用数据\n防遗忘",
+   "label": "Agentic CPT Stage \n2: 128K 上下文",
+   "sub": "64K-128K 长轨迹 + ",
    "icon": "db",
    "cls": "loop",
-   "x": 504,
-   "y": 622,
-   "w": 262,
-   "h": 155
+   "x": 431,
+   "y": 502,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "SFTN",
-   "label": "SFT 冷启动: 40K ->\n128K",
-   "sub": "ReAct + Context Management 双\n模式轨迹",
+   "label": "SFT 冷启动: 40K ->\n 128K",
+   "sub": "ReAct + Context Ma",
    "icon": "chat",
    "cls": "loop",
-   "x": 502,
-   "y": 858,
-   "w": 266,
-   "h": 155
+   "x": 431,
+   "y": 688,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "RLS",
-   "label": "Agentic RL: 严格 on-\npolicy GRPO 变体",
-   "sub": "IS 比恒 1.0 + clip-higher +\nleave-one-out",
+   "label": "Agentic RL: 严格 o\nn-policy GRPO 变体",
+   "sub": "IS 比恒 1.0 + clip",
    "icon": "eye",
    "cls": "loop",
-   "x": 501,
-   "y": 1094,
-   "w": 267,
-   "h": 155
+   "x": 432,
+   "y": 874,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "OBJ",
-   "label": "目标: 纯 0/1 答案正确性,\n无格式项",
-   "sub": "超长未答负样本从损失剔除",
+   "label": "目标: 纯 0/1 答案正\n确性, 无格式项",
+   "sub": "超长未答负样本从损失",
    "icon": "sigma",
    "cls": "loop",
-   "x": 649,
-   "y": 150,
-   "w": 270,
-   "h": 138
+   "x": 301,
+   "y": 130,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "ENV3",
-   "label": "三级环境 (核心): prior\nworld 零成本无限扩 /",
-   "sub": "simulated 离线 wiki 风洞 /\nreal-world 非平稳终训",
+   "label": "三级环境 (核心): pr\nior world 零成本无",
+   "sub": "限扩 /",
    "icon": "gear",
    "cls": "loop",
-   "x": 345,
-   "y": 150,
-   "w": 266,
-   "h": 155
+   "x": 561,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "SANDBOX",
-   "label": "统一 sandbox: QPS 限速 \n/",
-   "sub": "缓存 / 重试 /\n降级 / 备份源, 工具调用确定性化",
+   "label": "统一 sandbox: QPS \n限速 / 缓存 / 重试 ",
+   "sub": "/",
    "icon": "refresh",
    "cls": "loop",
-   "x": 805,
-   "y": 1566,
-   "w": 265,
-   "h": 155
+   "x": 180,
+   "y": 1246,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "CM",
-   "label": "Context Management: 只\n看 q + 滚动摘要 S_t +",
-   "sub": "最近一轮交互, Markovian 状态\n重建防膨胀",
+   "label": "Context Management\n: 只看 q + 滚动摘要",
+   "sub": " S_t +",
    "icon": "chat",
    "cls": "loop",
-   "x": 46,
-   "y": 150,
-   "w": 261,
-   "h": 155
+   "x": 818,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "TOOLS",
-   "label": "5 工具: Search / Visit\n/ Python Interpreter /",
-   "sub": "Scholar / File Parser, 每任务\n<=128 次调用",
+   "label": "5 工具: Search / V\nisit / Python Inte",
+   "sub": "rpreter /",
    "icon": "refresh",
    "cls": "loop",
-   "x": 757,
-   "y": 1330,
-   "w": 267,
-   "h": 155
+   "x": 205,
+   "y": 1060,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "CHK",
@@ -116,54 +116,54 @@
    "sub": "",
    "icon": "reward",
    "cls": "loop",
-   "x": 245,
-   "y": 1346,
-   "w": 177,
-   "h": 105
+   "x": 711,
+   "y": 1076,
+   "w": 179,
+   "h": 93
   },
   {
    "id": "CUR",
-   "label": "动态数据策划: 剔除全对/\n全错无信号题",
-   "sub": "checkpoint 回采补难度适中新题,\n刷新 D'",
+   "label": "动态数据策划: 剔除\n全对/全错无信号题",
+   "sub": "checkpoint 回采补",
    "icon": "refresh",
    "cls": "loop",
-   "x": 199,
-   "y": 1566,
-   "w": 264,
-   "h": 155
+   "x": 694,
+   "y": 1246,
+   "w": 220,
+   "h": 126
   },
   {
    "id": "MG",
-   "label": "模型合并: 同 base 变体\n参数加权平均",
+   "label": "模型合并: 同 base \n变体参数加权平均",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 460,
-   "y": 1346,
-   "w": 259,
-   "h": 105
+   "x": 462,
+   "y": 1076,
+   "w": 225,
+   "h": 93
   },
   {
    "id": "HM",
-   "label": "Heavy Mode: n 个并行\nagent 各产压缩报告",
-   "sub": "综合模型只消费 S_T 合成答案 (\ntest-time scaling)",
+   "label": "Heavy Mode: n 个并\n行 agent 各产压缩报",
+   "sub": "告",
    "icon": "refresh",
    "cls": "loop",
-   "x": 501,
-   "y": 1566,
-   "w": 266,
-   "h": 155
+   "x": 438,
+   "y": 1246,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ACC",
-   "label": "7 基准 5 项第一: HLE\n32.9 / GAIA 70.9 /",
-   "sub": "xbench 75.0\nHeavy Mode 把 BrowseComp\n43.4 拉到 58.3",
+   "label": "7 基准 5 项第一: HL\nE 32.9 / GAIA 70.9",
+   "sub": " / xbench 75.0",
    "icon": "refresh",
    "cls": "loop",
-   "x": 504,
-   "y": 1802,
-   "w": 262,
-   "h": 172
+   "x": 430,
+   "y": 1432,
+   "w": 235,
+   "h": 126
   }
  ],
  "edges": [
@@ -191,31 +191,39 @@
    "from": "OBJ",
    "to": "RLS",
    "style": "fb",
-   "label": "目标函数"
+   "label": "\"目标函数\""
   },
   {
    "from": "ENV3",
    "to": "RLS",
    "style": "fb",
-   "label": "mid-training 用前两级, RL …"
+   "label": "\"mid-training 用前两级, RL 先",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "RLS",
    "to": "TOOLS",
    "style": "fb",
-   "label": "rollout 交互"
+   "label": "\"rollout 交互\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "TOOLS",
    "to": "SANDBOX",
    "style": "fb",
-   "label": "经确定性接口"
+   "label": "\"经确定性接口\""
   },
   {
    "from": "CM",
    "to": "RLS",
    "style": "fb",
-   "label": "S_t 滚动摘要"
+   "label": "\"S_t 滚动摘要\""
   },
   {
    "from": "RLS",
@@ -226,29 +234,29 @@
    "from": "CHK",
    "to": "RLS",
    "style": "fb",
-   "label": "否: 继续训练",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"否: 继续训练\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "CHK",
    "to": "CUR",
    "style": "thick",
-   "label": "是"
+   "label": "\"是\""
   },
   {
    "from": "CUR",
    "to": "RLS",
    "style": "fb",
-   "label": "刷新训练集",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"刷新训练集\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "RLS",
@@ -268,15 +276,19 @@
  ],
  "panels": [],
  "canvas": [
-  1269,
-  2124
+  1095,
+  1648
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1095,
+  1648
+ ],
  "title": "tongyi-deepresearch",
  "subtitle": "技术报告，无同行评审，数字为自报。阿里通义实验室（Tongyi Lab）开源 deep research agent：30.5B 总参数、每 token 仅激活 3.3B 的 ",
  "foot": "tongyi-deepresearch · arXiv 2510.24701 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    PRE([\"Qwen3-30B-A3B-Base<br/>30.5B 总参 / 每 token 激活 3.3B MoE\"]):::data\n    CPT1[\"Agentic CPT Stage 1: 32K 上下文<br/>合成数据注入 agentic 行为先验\"]:::train\n    CPT2[\"Agentic CPT Stage 2: 128K 上下文<br/>64K-128K 长轨迹 + 少量通用数据防遗忘\"]:::train\n    SFTN[\"SFT 冷启动: 40K -> 128K<br/>ReAct + Context Management 双模式轨迹\"]:::train\n    RLS[\"Agentic RL: 严格 on-policy GRPO 变体<br/>IS 比恒 1.0 + clip-higher + leave-one-out\"]:::train\n    OBJ[\"目标: 纯 0/1 答案正确性, 无格式项<br/>超长未答负样本从损失剔除\"]:::loss\n    ENV3[\"三级环境 (核心): prior world 零成本无限扩 /<br/>simulated 离线 wiki 风洞 / real-world 非平稳终训\"]:::key\n    SANDBOX[\"统一 sandbox: QPS 限速 / 缓存 / 重试 /<br/>降级 / 备份源, 工具调用确定性化\"]:::env\n    CM[\"Context Management: 只看 q + 滚动摘要 S_t +<br/>最近一轮交互, Markovian 状态重建防膨胀\"]:::mem\n    TOOLS[\"5 工具: Search / Visit / Python Interpreter /<br/>Scholar / File Parser, 每任务 <=128 次调用\"]:::act\n    CHK{\"reward 平台期<br/>或步数预算?\"}:::loop\n    CUR[\"动态数据策划: 剔除全对/全错无信号题<br/>checkpoint 回采补难度适中新题, 刷新 D'\"]:::loop\n    MG[\"模型合并: 同 base 变体参数加权平均\"]:::train\n    HM[\"Heavy Mode: n 个并行 agent 各产压缩报告<br/>综合模型只消费 S_T 合成答案 (test-time scaling)\"]:::loop\n    ACC([\"7 基准 5 项第一: HLE 32.9 / GAIA 70.9 / xbench 75.0<br/>Heavy Mode 把 BrowseComp 43.4 拉到 58.3\"]):::data\n\n    PRE ==> CPT1\n    CPT1 ==> CPT2\n    CPT2 ==> SFTN\n    SFTN ==> RLS\n    OBJ -.->|\"目标函数\"| RLS\n    ENV3 -.->|\"mid-training 用前两级, RL 先风洞后真实\"| RLS\n    RLS -.->|\"rollout 交互\"| TOOLS\n    TOOLS -.->|\"经确定性接口\"| SANDBOX\n    CM -.->|\"S_t 滚动摘要\"| RLS\n    RLS ==> CHK\n    CHK -.->|\"否: 继续训练\"| RLS\n    CHK ==>|\"是\"| CUR\n    CUR -.->|\"刷新训练集\"| RLS\n    RLS ==> MG\n    MG ==> HM\n    HM ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

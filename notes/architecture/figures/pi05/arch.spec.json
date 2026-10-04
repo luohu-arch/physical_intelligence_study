@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "OBS",
-   "label": "4 路 RGB + 本体状态\n18-19 维",
+   "label": "4 路 RGB + 本体状态\n 18-19 维",
    "sub": "(2 腕 + 前 + 后)",
    "icon": "camera",
    "cls": "data",
-   "x": 302,
-   "y": 150,
-   "w": 262,
-   "h": 138
+   "x": 44,
+   "y": 130,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "VLM",
-   "label": "SigLIP 400M + Gemma\n2.6B",
+   "label": "SigLIP 400M + Gemm\na 2.6B",
    "sub": "VLM 主干",
    "icon": "brain",
    "cls": "frozen",
-   "x": 475,
-   "y": 386,
-   "w": 261,
-   "h": 138
+   "x": 345,
+   "y": 338,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "CMD",
@@ -28,21 +28,21 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 46,
-   "y": 166,
-   "w": 218,
-   "h": 105
+   "x": 52,
+   "y": 280,
+   "w": 220,
+   "h": 93
   },
   {
    "id": "CODATA",
-   "label": "异构数据联合训练\n跨具身机器人 + 网页多",
-   "sub": "模态\n+ 子任务标注 + 口头指令\n(97.6% 非目标平台)",
+   "label": "异构数据联合训练\n跨具身机器人 + 网页",
+   "sub": "多模态",
    "icon": "robot",
    "cls": "key",
-   "x": 602,
-   "y": 150,
-   "w": 264,
-   "h": 172
+   "x": 46,
+   "y": 397,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "SUBTASK",
@@ -50,43 +50,43 @@
    "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 514,
-   "y": 622,
-   "w": 184,
-   "h": 105
+   "x": 644,
+   "y": 355,
+   "w": 186,
+   "h": 93
   },
   {
    "id": "EXP",
-   "label": "Action Expert 300M\nflow matching 去噪出连",
-   "sub": "续动作",
+   "label": "Action Expert 300M\nflow matching 去噪",
+   "sub": "出连续动作",
    "icon": "lightning",
    "cls": "train",
-   "x": 474,
-   "y": 825,
-   "w": 264,
-   "h": 138
+   "x": 896,
+   "y": 338,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "LFM",
-   "label": "联合损失: token 预测\n+ flow matching (",
-   "sub": "alpha = 10)",
+   "label": "联合损失: token 预\n测",
+   "sub": "+ flow matching (a",
    "icon": "sigma",
    "cls": "loss",
-   "x": 904,
-   "y": 150,
-   "w": 261,
-   "h": 138
+   "x": 45,
+   "y": 547,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ACTION",
-   "label": "连续动作 chunk H = 50\n双臂位姿 + 夹爪 + 基座",
-   "sub": "速度",
+   "label": "连续动作 chunk H =\n 50",
+   "sub": "双臂位姿 + 夹爪 + ",
    "icon": "stack",
    "cls": "act",
-   "x": 477,
-   "y": 1061,
-   "w": 257,
-   "h": 138
+   "x": 1195,
+   "y": 338,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "ROBOT",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 491,
-   "y": 1297,
-   "w": 229,
-   "h": 105
+   "x": 1488,
+   "y": 355,
+   "w": 231,
+   "h": 93
   }
  ],
  "edges": [
@@ -115,19 +115,27 @@
    "from": "CODATA",
    "to": "VLM",
    "style": "fb",
-   "label": "co-training 多层次知识迁移"
+   "label": "\"co-training 多层次知识迁移\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "VLM",
    "to": "SUBTASK",
    "style": "thick",
-   "label": "每步先预测"
+   "label": "\"每步先预测\""
   },
   {
    "from": "SUBTASK",
    "to": "EXP",
    "style": "thick",
-   "label": "子任务作 condition"
+   "label": "\"子任务作 condition\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "OBS",
@@ -158,18 +166,22 @@
    "from": "ROBOT",
    "to": "OBS",
    "style": "fb",
-   "label": "闭环重观测 高层子任务逐步重预测",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"闭环重观测 高层子任务逐步重预测\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [],
  "canvas": [
-  1211,
-  1586
+  1763,
+  763
  ],
  "legend": [
   "act",
@@ -179,9 +191,13 @@
   "loss",
   "train"
  ],
+ "layout_wh": [
+  1763,
+  763
+ ],
  "title": "pi05",
  "subtitle": "π0.5 基于 π0 构建，通过跨具身联合训练（co-training）——97.6% 的训练数据来自非目标平台的机器人数据和网页数据——首次让端到端学习系统在从未见过的家庭环",
  "foot": "pi05 · arXiv 2504.16054 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    OBS([\"4 路 RGB + 本体状态 18-19 维<br/>(2 腕 + 前 + 后)\"]) --> VLM\n    CMD([\"高层指令<br/>(可为人类口头指导)\"]) --> VLM\n    CODATA([\"异构数据联合训练<br/>跨具身机器人 + 网页多模态<br/>+ 子任务标注 + 口头指令<br/>(97.6% 非目标平台)\"])\n    CODATA -.->|\"co-training 多层次知识迁移\"| VLM\n    VLM[\"SigLIP 400M + Gemma 2.6B<br/>VLM 主干\"]\n    VLM ==>|\"每步先预测\"| SUBTASK[\"高层语义子任务<br/>(如: 拿起枕头)\"]\n    SUBTASK ==>|\"子任务作 condition\"| EXP[\"Action Expert 300M<br/>flow matching 去噪出连续动作\"]\n    OBS --> EXP\n    LFM[\"联合损失: token 预测<br/>+ flow matching (alpha = 10)\"] -.-> EXP\n    LFM -.-> VLM\n    EXP ==> ACTION([\"连续动作 chunk H = 50<br/>双臂位姿 + 夹爪 + 基座速度\"])\n    ACTION ==> ROBOT([\"移动操作机器人 50Hz<br/>PD 控制器跟踪\"])\n    ROBOT -.->|\"闭环重观测<br/>高层子任务逐步重预测\"| OBS\n\n    class OBS,CMD data\n    class VLM frozen\n    class SUBTASK,CODATA key\n    class EXP train\n    class ACTION,ROBOT act\n    class LFM loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

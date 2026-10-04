@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "PLAY",
-   "label": "无标注无分段 play 数据<\nbr/",
+   "label": "无标注无分段 play \n数据<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 546,
-   "y": 150,
-   "w": 267,
-   "h": 105
+   "x": 20,
+   "y": 130,
+   "w": 223,
+   "h": 93
   },
   {
    "id": "SEG",
@@ -17,21 +17,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 605,
-   "y": 353,
-   "w": 202,
-   "h": 104
+   "x": 517,
+   "y": 284,
+   "w": 204,
+   "h": 92
   },
   {
    "id": "VLM",
-   "label": "离线 Gemini-2.5-Pro<br\n/",
+   "label": "离线 Gemini-2.5-Pr\no<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1153,
-   "y": 150,
-   "w": 267,
-   "h": 105
+   "x": 277,
+   "y": 130,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "PRED",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 508,
-   "y": 556,
-   "w": 165,
-   "h": 104
+   "x": 430,
+   "y": 453,
+   "w": 167,
+   "h": 92
   },
   {
    "id": "OPR",
@@ -50,21 +50,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 606,
-   "y": 758,
-   "w": 184,
-   "h": 104
+   "x": 528,
+   "y": 622,
+   "w": 186,
+   "h": 92
   },
   {
    "id": "SKILLLIB",
-   "label": "SE(3) LPV-DS 技能库\n全局渐近稳定反馈场",
-   "sub": "",
+   "label": "SE(3) LPV-DS 技能\n库",
+   "sub": "全局渐近稳定反馈场",
    "icon": "tree",
    "cls": "loop",
-   "x": 712,
-   "y": 555,
-   "w": 236,
-   "h": 105
+   "x": 622,
+   "y": 436,
+   "w": 220,
+   "h": 126
   },
   {
    "id": "X",
@@ -72,21 +72,21 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 1458,
-   "y": 150,
-   "w": 185,
-   "h": 104
+   "x": 540,
+   "y": 130,
+   "w": 187,
+   "h": 92
   },
   {
    "id": "ABS",
-   "label": "抽象为符号状态 s<br/",
+   "label": "抽象为符号状态 s<br\n/",
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 845,
-   "y": 353,
-   "w": 239,
-   "h": 104
+   "x": 745,
+   "y": 283,
+   "w": 231,
+   "h": 93
   },
   {
    "id": "GOAL",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 328,
-   "y": 150,
-   "w": 180,
-   "h": 104
+   "x": 761,
+   "y": 130,
+   "w": 182,
+   "h": 92
   },
   {
    "id": "PLAN",
@@ -105,32 +105,32 @@
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 986,
-   "y": 556,
-   "w": 195,
-   "h": 104
+   "x": 866,
+   "y": 453,
+   "w": 197,
+   "h": 92
   },
   {
    "id": "RUN",
-   "label": "执行当前操作符技能<br/",
+   "label": "执行当前操作符技能<\nbr/",
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 828,
-   "y": 758,
-   "w": 256,
-   "h": 104
+   "x": 738,
+   "y": 622,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "IMP",
-   "label": "被动阻抗控制\nF = G - D 乘 v_ee 减 f",
-   "sub": "",
+   "label": "被动阻抗控制\nF = G - D 乘 v_ee ",
+   "sub": "减 f",
    "icon": "robot",
    "cls": "loop",
-   "x": 711,
-   "y": 960,
-   "w": 267,
-   "h": 105
+   "x": 630,
+   "y": 775,
+   "w": 232,
+   "h": 126
   },
   {
    "id": "OBSAVOID",
@@ -138,32 +138,32 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 764,
-   "y": 1163,
-   "w": 162,
-   "h": 105
+   "x": 664,
+   "y": 961,
+   "w": 164,
+   "h": 93
   },
   {
    "id": "C1",
-   "label": "maintain 条件仍成立?",
+   "label": "maintain 条件仍成立\n?",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 723,
-   "y": 1366,
-   "w": 243,
-   "h": 104
+   "x": 629,
+   "y": 1114,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "REPLAN",
-   "label": "标记操作符失败重规划<br\n/",
+   "label": "标记操作符失败重规划\n<br/",
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 851,
-   "y": 150,
-   "w": 264,
-   "h": 105
+   "x": 976,
+   "y": 130,
+   "w": 236,
+   "h": 93
   },
   {
    "id": "C2",
@@ -171,10 +171,10 @@
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 736,
-   "y": 1568,
-   "w": 218,
-   "h": 104
+   "x": 636,
+   "y": 1267,
+   "w": 220,
+   "h": 92
   },
   {
    "id": "C3",
@@ -182,21 +182,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 758,
-   "y": 1770,
-   "w": 172,
-   "h": 104
+   "x": 660,
+   "y": 1419,
+   "w": 174,
+   "h": 92
   },
   {
    "id": "FAILMEM",
-   "label": "失败记忆 failmem<br/",
+   "label": "失败记忆 failmem<b\nr/",
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 46,
-   "y": 150,
-   "w": 244,
-   "h": 104
+   "x": 1246,
+   "y": 130,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "NEXT",
@@ -204,10 +204,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 746,
-   "y": 1972,
-   "w": 198,
-   "h": 104
+   "x": 646,
+   "y": 1571,
+   "w": 200,
+   "h": 92
   },
   {
    "id": "STOP",
@@ -215,10 +215,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 750,
-   "y": 2174,
-   "w": 190,
-   "h": 104
+   "x": 650,
+   "y": 1723,
+   "w": 192,
+   "h": 92
   },
   {
    "id": "DONE",
@@ -226,10 +226,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 770,
-   "y": 2376,
-   "w": 150,
-   "h": 104
+   "x": 676,
+   "y": 1875,
+   "w": 140,
+   "h": 92
   }
  ],
  "edges": [
@@ -266,10 +266,7 @@
   {
    "from": "GOAL",
    "to": "PLAN",
-   "style": "thick",
-   "k": 60,
-   "out": "left",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "ABS",
@@ -335,22 +332,26 @@
  "panels": [
   {
    "label": "离线 - 符号与技能共同发明",
-   "x": 482,
-   "y": 103,
-   "w": 964,
-   "h": 829
+   "x": 253,
+   "y": 86,
+   "w": 613,
+   "h": 648
   }
  ],
  "canvas": [
-  1689,
-  2664
+  1493,
+  2057
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1493,
+  2057
+ ],
  "title": "symskill",
  "subtitle": "SymSkill 把模仿学习与经典 TAMP 各取一半拼起来：离线阶段只给「5 条左右示教」就能自动切分出 premotion/motion 片段、用相对位姿聚类发明谓词、跟踪",
  "foot": "symskill · arXiv 2510.01661 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    PLAY[无标注无分段 play 数据<br/>每任务 5-10 条示教]:::data\n\n    subgraph OFFLINE[\"离线 - 符号与技能共同发明\"]\n        SEG[速度变点切分<br/>premotion / motion 片段]:::train\n        VLM[离线 Gemini-2.5-Pro<br/>选静止参考物一次询问]:::frozen\n        PRED[谓词发明<br/>相对位姿端点高斯聚类]:::key\n        OPR[操作符归纳<br/>pre / eff / maintain 交集]:::key\n        SKILLLIB[\"SE(3) LPV-DS 技能库<br/>全局渐近稳定反馈场\"]:::train\n    end\n\n    PLAY ==> SEG\n    VLM -.限定场景物体集合抑制幻觉.-> SEG\n    SEG ==> PRED\n    SEG ==> OPR\n    PRED ==> OPR\n    SEG ==> SKILLLIB\n\n    X[连续状态 x<br/>全物体 6D 位姿]:::data\n    ABS[抽象为符号状态 s<br/>马氏距离双阈值判定]:::train\n    GOAL[目标谓词合取式]:::data\n    X ==> ABS\n    PRED -.谓词库供状态判定.-> ABS\n    PLAN[A* 符号规划<br/>计划时间低于 100ms]\n    OPR -.操作符库.-> PLAN\n    GOAL ==> PLAN\n    ABS ==> PLAN\n    RUN[执行当前操作符技能<br/>LPV-DS 收敛速度场]:::act\n    SKILLLIB ==> RUN\n    PLAN ==> RUN\n    IMP[\"被动阻抗控制<br/>F = G - D 乘 v_ee 减 f\"]:::act\n    OBSAVOID[\"调制矩阵避障<br/>f' = M f\"]:::act\n    RUN ==> IMP\n    IMP ==> OBSAVOID\n    C1{maintain 条件仍成立?}:::loop\n    OBSAVOID ==> C1\n    REPLAN[标记操作符失败重规划<br/>上限 20 次]:::loop\n    C1 -.否.-> REPLAN\n    REPLAN -.-> PLAN\n    C2{速度近零 技能完成?}:::loop\n    C1 ==> C2\n    C2 -.否 继续收敛.-> RUN\n    C3{预期效果满足?}:::loop\n    C2 ==> C3\n    FAILMEM[失败记忆 failmem<br/>从效果高斯重采吸引子]:::mem\n    C3 -.否 写入失败记忆.-> FAILMEM\n    FAILMEM -.重定位吸引子换落点.-> RUN\n    NEXT[推进到下一操作符]\n    C3 ==> NEXT\n    STOP{目标合取式达成?}:::loop\n    NEXT ==> STOP\n    STOP -.否.-> RUN\n    STOP ==> DONE([任务完成]):::act\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

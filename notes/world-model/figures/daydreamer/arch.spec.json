@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 362,
-   "y": 150,
-   "w": 228,
-   "h": 105
+   "x": 44,
+   "y": 222,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "ENC",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 264,
-   "y": 353,
-   "w": 234,
-   "h": 105
+   "x": 340,
+   "y": 280,
+   "w": 236,
+   "h": 93
   },
   {
    "id": "POLICY",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 268,
-   "y": 1634,
-   "w": 228,
-   "h": 105
+   "x": 2021,
+   "y": 280,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "S0",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 292,
-   "y": 1837,
-   "w": 180,
-   "h": 104
+   "x": 2317,
+   "y": 280,
+   "w": 182,
+   "h": 92
   },
   {
    "id": "ENC2",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 272,
-   "y": 556,
-   "w": 220,
-   "h": 104
+   "x": 642,
+   "y": 280,
+   "w": 222,
+   "h": 92
   },
   {
    "id": "WM",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 274,
-   "y": 960,
-   "w": 215,
-   "h": 104
+   "x": 1145,
+   "y": 280,
+   "w": 217,
+   "h": 92
   },
   {
    "id": "DEC",
@@ -72,10 +72,10 @@
    "sub": "行为学习阶段不调用",
    "icon": "state",
    "cls": "train",
-   "x": 46,
-   "y": 1162,
-   "w": 216,
-   "h": 138
+   "x": 1434,
+   "y": 130,
+   "w": 218,
+   "h": 126
   },
   {
    "id": "RWD",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "reward",
    "cls": "reward",
-   "x": 567,
-   "y": 1179,
-   "w": 150,
-   "h": 104
+   "x": 1470,
+   "y": 430,
+   "w": 146,
+   "h": 92
   },
   {
    "id": "TRAIN",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "graph",
    "cls": "train",
-   "x": 282,
-   "y": 2039,
-   "w": 198,
-   "h": 104
+   "x": 2565,
+   "y": 280,
+   "w": 200,
+   "h": 92
   },
   {
    "id": "Z",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 306,
-   "y": 758,
-   "w": 150,
-   "h": 104
+   "x": 930,
+   "y": 280,
+   "w": 149,
+   "h": 92
   },
   {
    "id": "A",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 174,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 89,
+   "y": 338,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "IMAG",
@@ -127,10 +127,10 @@
    "sub": "无需环境步进",
    "icon": "gear",
    "cls": "key",
-   "x": 300,
-   "y": 1162,
-   "w": 229,
-   "h": 138
+   "x": 1428,
+   "y": 280,
+   "w": 231,
+   "h": 126
   },
   {
    "id": "ACT",
@@ -138,10 +138,10 @@
    "sub": "纯潜空间更新",
    "icon": "lightning",
    "cls": "act",
-   "x": 136,
-   "y": 1398,
-   "w": 226,
-   "h": 138
+   "x": 1726,
+   "y": 204,
+   "w": 228,
+   "h": 126
   },
   {
    "id": "CRIT",
@@ -149,10 +149,10 @@
    "sub": "",
    "icon": "target",
    "cls": "reward",
-   "x": 400,
-   "y": 1414,
-   "w": 228,
-   "h": 105
+   "x": 1725,
+   "y": 354,
+   "w": 230,
+   "h": 93
   }
  ],
  "edges": [
@@ -165,7 +165,7 @@
    "from": "POLICY",
    "to": "S0",
    "style": "fb",
-   "label": "新真机经验入池"
+   "label": "\"新真机经验入池\""
   },
   {
    "from": "ENC",
@@ -206,11 +206,11 @@
    "from": "TRAIN",
    "to": "IMAG",
    "style": "thick",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "WM",
@@ -235,16 +235,23 @@
  ],
  "panels": [
   {
-   "label": "真机物理世界 (4 平台同一组超参) · RSSM 世界模型 (单 GPU 训练)",
+   "label": "真机物理世界 (4 平台同一组超参)",
    "x": 20,
-   "y": 92,
-   "w": 723,
-   "h": 2121
+   "y": 178,
+   "w": 2503,
+   "h": 215
+  },
+  {
+   "label": "RSSM 世界模型 (单 GPU 训练)",
+   "x": 618,
+   "y": 86,
+   "w": 2171,
+   "h": 456
   }
  ],
  "canvas": [
-  763,
-  2331
+  2809,
+  612
  ],
  "legend": [
   "act",
@@ -253,9 +260,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  2809,
+  612
+ ],
  "title": "daydreamer",
  "subtitle": "把 Dreamer（基于 DreamerV2 实现 + 异步 actor/learner）原封不动部署到 A1 四足、UR5 与 XArm 机械臂、Sphero 轮式机器人共 ",
  "foot": "daydreamer · arXiv 2206.14176 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph REAL[\"真机物理世界 (4 平台同一组超参)\"]\n        SENS([\"传感器<br/>相机图像 + 本体感知\"]) --> ENC[\"编码器<br/>多模态融合为观测表征\"]\n        POLICY[\"策略部署到真机硬件<br/>异步 actor-learner\"] -.->|\"新真机经验入池\"| S0[(\"真机经验回放池\")]\n    end\n\n    subgraph WMT[\"RSSM 世界模型 (单 GPU 训练)\"]\n        ENC2[\"编码为离散隐码 z_t\"]\n        WM[\"RSSM 循环状态 h_t\"]\n        DEC[\"解码器<br/>仅训练期重建观测<br/>行为学习阶段不调用\"]\n        RWD[\"奖励预测头\"]\n        TRAIN[\"世界模型监督训练\"]\n    end\n\n    ENC ==> ENC2\n    ENC2 ==> Z[\"隐状态 z_t\"]\n    A([\"动作 a_t\"]) ==> WM\n    Z ==> WM\n    WM --> DEC\n    WM --> RWD\n    S0 ==> TRAIN\n    TRAIN ==> IMAG[\"潜空间想象 rollout<br/>批量并行至 16K 轨迹<br/>无需环境步进\"]\n    WM ==> IMAG\n    IMAG ==> ACT[\"actor pi<br/>Reinforce + 熵正则<br/>纯潜空间更新\"]\n    IMAG ==> CRIT[\"critic v<br/>lambda-return 回归\"]\n    ACT ==> POLICY\n\n    class SENS,A data\n    class S0 data\n    class ENC,ENC2,Z,WM,DEC,TRAIN train\n    class IMAG key\n    class RWD,CRIT reward\n    class ACT,POLICY act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f"
 }

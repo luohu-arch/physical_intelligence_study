@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 56,
-   "y": 760,
-   "w": 249,
-   "h": 104
+   "x": 55,
+   "y": 90,
+   "w": 251,
+   "h": 92
   },
   {
    "id": "POL",
-   "label": "Linear Attention 策略<\nbr/",
+   "label": "Linear Attention 策略<br\n/",
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 423,
-   "y": 526,
-   "w": 267,
-   "h": 105
+   "x": 421,
+   "y": 460,
+   "w": 289,
+   "h": 93
   },
   {
    "id": "MEM",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 46,
-   "y": 582,
-   "w": 269,
-   "h": 105
+   "x": 44,
+   "y": 386,
+   "w": 273,
+   "h": 93
   },
   {
    "id": "ACT",
@@ -39,21 +39,21 @@
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 798,
-   "y": 527,
-   "w": 162,
-   "h": 104
+   "x": 814,
+   "y": 460,
+   "w": 164,
+   "h": 92
   },
   {
    "id": "ENV",
-   "label": "MAZE / ProcTHOR 连续环\n境<br/",
+   "label": "MAZE / ProcTHOR 连续环境<\nbr/",
    "sub": "",
-   "icon": "refresh",
+   "icon": "gear",
    "cls": "loop",
-   "x": 1068,
-   "y": 526,
-   "w": 266,
-   "h": 105
+   "x": 1082,
+   "y": 460,
+   "w": 290,
+   "h": 93
   },
   {
    "id": "STATE",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 54,
-   "y": 904,
-   "w": 254,
-   "h": 104
+   "x": 52,
+   "y": 535,
+   "w": 256,
+   "h": 92
   },
   {
    "id": "CONTRAST",
@@ -73,9 +73,9 @@
    "icon": "state",
    "cls": "loop",
    "x": 66,
-   "y": 150,
-   "w": 228,
-   "h": 104
+   "y": 683,
+   "w": 230,
+   "h": 92
   },
   {
    "id": "LOSS",
@@ -84,9 +84,9 @@
    "icon": "lightning",
    "cls": "loop",
    "x": 72,
-   "y": 438,
-   "w": 216,
-   "h": 104
+   "y": 238,
+   "w": 218,
+   "h": 92
   },
   {
    "id": "ICL",
@@ -95,9 +95,9 @@
    "icon": "db",
    "cls": "loop",
    "x": 70,
-   "y": 294,
-   "w": 220,
-   "h": 104
+   "y": 831,
+   "w": 222,
+   "h": 92
   }
  ],
  "edges": [
@@ -124,15 +124,19 @@
  ],
  "panels": [],
  "canvas": [
-  1380,
-  1126
+  1416,
+  973
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1416,
+  973
+ ],
  "title": "statelinformation",
  "subtitle": "StateLinFormer 证明序列模型的\"健忘\"不一定是架构问题，而是训练协议问题。当前几乎所有 VLA 和序列策略用 stateless training——每个训练 b",
  "foot": "statelinformation · arXiv 2603.23571 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    OBS[观测 + 顺序指令流<br/>第一人称 RGB 无预告逐个给目标]:::data\n    POL[Linear Attention 策略<br/>核化线性注意力 约 0.2B]:::train\n    MEM[\"记忆状态 M_t d x d 矩阵<br/>秩 1 增量更新 O(1) 恒容\"]:::mem\n    OBS ==> POL\n    POL -.每步秩 1 增量更新 M_t.-> MEM\n    MEM -.读出 h_t 供策略.-> POL\n    ACT([离散导航动作]):::act\n    POL ==> ACT\n    ENV([MAZE / ProcTHOR 连续环境<br/>刻意无 reset]):::env\n    ACT ==> ENV\n    ENV -.下一观测.-> OBS\n    STATE[stateful 训练协议<br/>batch 终止状态 M_T 传给下一 batch 初始 M_0<br/>梯度 batch 内截断]:::key\n    STATE -.训练时对齐部署记忆分布.-> MEM\n    CONTRAST[stateless 对照<br/>每 batch 清零 只会用空白记忆思考]:::loop\n    CONTRAST -.零初始化退化分布.-> MEM\n    LOSS[每步动作负对数似然]:::loss\n    LOSS -.-> POL\n    ICL[涌现上下文学习<br/>同环境交互越长成功率越高 参数不变]:::mem\n    MEM -.支撑.-> ICL\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 46,
-   "y": 167,
-   "w": 150,
-   "h": 104
+   "x": 44,
+   "y": 147,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "ENV",
@@ -17,65 +17,65 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 333,
-   "y": 1330,
-   "w": 150,
-   "h": 104
+   "x": 300,
+   "y": 1060,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "Z",
-   "label": "技能 z: 固定均匀先验 p(\nz)",
-   "sub": "(每回合采样一次, 不学 p(z) 防\nMatthew Effect)",
-   "icon": "noise",
+   "label": "技能 z: 固定均匀先\n验 p(z)",
+   "sub": "(每回合采样一次, 不",
+   "icon": "tree",
    "cls": "data",
-   "x": 234,
-   "y": 150,
-   "w": 267,
-   "h": 155
+   "x": 465,
+   "y": 130,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "PI",
-   "label": "技能策略 pi(a | s, z)\nSAC 最大熵, 熵系数",
-   "sub": "alpha = 0.1\nz 直接拼接到状态后输入",
+   "label": "技能策略 pi(a | s,\n z)",
+   "sub": "SAC 最大熵, 熵系数 ",
    "icon": "tree",
    "cls": "train",
-   "x": 278,
-   "y": 1094,
-   "w": 261,
-   "h": 155
+   "x": 253,
+   "y": 874,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "DIS",
-   "label": "判别器 q_phi(z | s)\n从状态反推技能 (状态判",
-   "sub": "别而非动作判别)",
+   "label": "判别器 q_phi(z | s\n)",
+   "sub": "从状态反推技能 (状",
    "icon": "state",
    "cls": "reward",
-   "x": 281,
-   "y": 386,
-   "w": 254,
-   "h": 138
+   "x": 256,
+   "y": 316,
+   "w": 228,
+   "h": 126
   },
   {
    "id": "KEY",
-   "label": "伪奖励 (核心)\nr = log q_phi(z|s) -",
-   "sub": "log p(z)\n互信息下界的逐时刻形式",
+   "label": "伪奖励 (核心)\nr = log q_phi(z|s)",
+   "sub": " - log p(z)",
    "icon": "reward",
    "cls": "key",
-   "x": 278,
-   "y": 622,
-   "w": 261,
-   "h": 155
+   "x": 253,
+   "y": 502,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "UPD",
-   "label": "SAC actor-critic 更新\n无监督目标退化为普通",
-   "sub": "off-policy RL",
+   "label": "SAC actor-critic \n更新",
+   "sub": "无监督目标退化为普通",
    "icon": "target",
    "cls": "loss",
-   "x": 276,
-   "y": 858,
-   "w": 264,
-   "h": 138
+   "x": 252,
+   "y": 688,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "DISL",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "target",
    "cls": "loss",
-   "x": 539,
-   "y": 166,
-   "w": 231,
-   "h": 105
+   "x": 208,
+   "y": 146,
+   "w": 233,
+   "h": 93
   }
  ],
  "edges": [
@@ -99,11 +99,11 @@
    "from": "ENV",
    "to": "S",
    "style": "main",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "Z",
@@ -119,7 +119,11 @@
    "from": "PI",
    "to": "ENV",
    "style": "thick",
-   "label": "动作 a_t (块内高熵探索)"
+   "label": "\"动作 a_t (块内高熵探索)\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "S",
@@ -140,13 +144,21 @@
    "from": "UPD",
    "to": "PI",
    "style": "fb",
-   "label": "更新策略 theta"
+   "label": "\"更新策略 theta\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "DISL",
    "to": "DIS",
    "style": "fb",
-   "label": "更新 phi (合作博弈, 非对抗)"
+   "label": "\"更新 phi (合作博弈, 非对抗)\"",
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [
@@ -154,13 +166,13 @@
    "label": "技能 rollout 回路 (MuJoCo 5 环境)",
    "x": 20,
    "y": 103,
-   "w": 489,
-   "h": 1384
+   "w": 444,
+   "h": 1069
   }
  ],
  "canvas": [
-  816,
-  1618
+  739,
+  1242
  ],
  "legend": [
   "data",
@@ -170,9 +182,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  739,
+  1242
+ ],
  "title": "diayn",
  "subtitle": "不给出任何任务奖励，只用一个信息论目标——最大化技能与状态的互信息 $I(S;Z)$、同时压低给定状态下技能与动作的互信息 $I(A;Z|S)$、再加上最大熵正则——就能让 S",
  "foot": "diayn · arXiv 1802.06070 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TB\n    subgraph LOOP[\"技能 rollout 回路 (MuJoCo 5 环境)\"]\n        S([\"状态 s_t\"]) --> ENV[\"环境转移\"]\n        ENV --> S\n    end\n\n    Z[\"技能 z: 固定均匀先验 p(z)<br/>(每回合采样一次, 不学 p(z) 防 Matthew Effect)\"] --> PI[\"技能策略 pi(a | s, z)<br/>SAC 最大熵, 熵系数 alpha = 0.1<br/>z 直接拼接到状态后输入\"]\n    S --> PI\n    PI ==>|\"动作 a_t (块内高熵探索)\"| ENV\n\n    S --> DIS[\"判别器 q_phi(z | s)<br/>从状态反推技能 (状态判别而非动作判别)\"]\n    DIS ==> KEY[\"伪奖励 (核心)<br/>r = log q_phi(z|s) - log p(z)<br/>互信息下界的逐时刻形式\"]\n    KEY ==> UPD[\"SAC actor-critic 更新<br/>无监督目标退化为普通 off-policy RL\"]\n    UPD -.->|\"更新策略 theta\"| PI\n    DISL[\"判别器 SGD 分类损失<br/>max log q_phi(z|s)\"] -.->|\"更新 phi (合作博弈, 非对抗)\"| DIS\n\n    class S,Z data\n    class PI train\n    class DIS reward\n    class KEY key\n    class UPD,DISL loss\n    class ENV env\n    class LOOP loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f"
 }

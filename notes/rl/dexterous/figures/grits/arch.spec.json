@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "PC",
-   "label": "分割点云\nfood: 深度 + SAM2 分割",
-   "sub": "spoon / bowl: CAD 模型\n(DP3 式 PointNet++ 编码)",
+   "label": "分割点云\nfood: 深度 + SAM2 ",
+   "sub": "分割",
    "icon": "db",
    "cls": "data",
-   "x": 46,
-   "y": 150,
-   "w": 267,
-   "h": 155
+   "x": 45,
+   "y": 130,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "DP",
@@ -17,32 +17,32 @@
    "sub": "(只有成功经验)",
    "icon": "db",
    "cls": "train",
-   "x": 64,
-   "y": 386,
-   "w": 233,
-   "h": 138
+   "x": 342,
+   "y": 130,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "SIM",
-   "label": "4K 仿真轨迹 (Isaac Lab\n)",
-   "sub": "4 种 primitive shapes + 随机\n物理参数\n2000 洒 / 2000 不洒",
+   "label": "4K 仿真轨迹 (Isaac\n Lab)",
+   "sub": "4 种 primitive sha",
    "icon": "gear",
    "cls": "data",
-   "x": 351,
-   "y": 150,
-   "w": 264,
-   "h": 172
+   "x": 44,
+   "y": 280,
+   "w": 232,
+   "h": 126
   },
   {
    "id": "PRED",
-   "label": "spillage predictor\n点云 -> 溅洒概率",
-   "sub": "p_spill\n(廉价获得失败经验)",
+   "label": "spillage predictor\n点云 -> 溅洒概率 p_",
+   "sub": "spill",
    "icon": "cpu",
    "cls": "train",
-   "x": 336,
-   "y": 386,
-   "w": 261,
-   "h": 155
+   "x": 343,
+   "y": 280,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "DEN",
@@ -50,43 +50,43 @@
    "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 243,
-   "y": 858,
-   "w": 175,
-   "h": 104
+   "x": 931,
+   "y": 222,
+   "w": 177,
+   "h": 92
   },
   {
    "id": "GUIDE",
-   "label": "可微分溅洒引导 (核心)\n去噪 30 步后延迟激活:",
-   "sub": "x <- x - rho * grad log(1 -\np_spill)\nrho = 2.5, 轨迹推离溅洒区",
+   "label": "可微分溅洒引导 (核\n心)",
+   "sub": "去噪 30 步后延迟激",
    "icon": "spark",
    "cls": "key",
-   "x": 200,
-   "y": 622,
-   "w": 261,
-   "h": 172
+   "x": 643,
+   "y": 205,
+   "w": 222,
+   "h": 126
   },
   {
    "id": "ACTN",
-   "label": "安全舀取动作 (10 Hz)",
+   "label": "安全舀取动作 (10 Hz\n)",
    "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 210,
-   "y": 1060,
-   "w": 241,
-   "h": 104
+   "x": 1174,
+   "y": 222,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "ROBOT",
-   "label": "Franka 真机\n10 类 unseen 食物 82%",
-   "sub": "成功 / 4% 溅洒",
+   "label": "Franka 真机\n10 类 unseen 食物 ",
+   "sub": "82% 成功 / 4% 溅洒",
    "icon": "check",
    "cls": "env",
-   "x": 198,
-   "y": 1262,
-   "w": 266,
-   "h": 138
+   "x": 1473,
+   "y": 205,
+   "w": 228,
+   "h": 126
   }
  ],
  "edges": [
@@ -114,7 +114,11 @@
    "from": "GUIDE",
    "to": "DEN",
    "style": "loss",
-   "label": "梯度注入去噪后期 (约束参与生…"
+   "label": "\"梯度注入去噪后期 (约束参与生成, 而非事后补",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "DEN",
@@ -129,8 +133,8 @@
  ],
  "panels": [],
  "canvas": [
-  661,
-  1584
+  1745,
+  496
  ],
  "legend": [
   "act",
@@ -139,9 +143,13 @@
   "key",
   "train"
  ],
+ "layout_wh": [
+  1745,
+  496
+ ],
  "title": "grits",
  "subtitle": "GRITS 提出溅洒感知的引导扩散策略：先训练 spillage predictor（4K 仿真轨迹 + 4 种 primitive shapes 生成、随机物理参数），再在 ",
  "foot": "grits · arXiv 2510.00573 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    PC([\"分割点云<br/>food: 深度 + SAM2 分割<br/>spoon / bowl: CAD 模型<br/>(DP3 式 PointNet++ 编码)\"]) ==> DP[\"扩散策略<br/>80 条真机 demo 训练<br/>(只有成功经验)\"]\n    SIM[(\"4K 仿真轨迹 (Isaac Lab)<br/>4 种 primitive shapes + 随机物理参数<br/>2000 洒 / 2000 不洒\")] ==> PRED[\"spillage predictor<br/>点云 -> 溅洒概率 p_spill<br/>(廉价获得失败经验)\"]\n    DP ==> DEN[\"DDIM 去噪过程\"]\n    PRED ==> GUIDE[\"可微分溅洒引导 (核心)<br/>去噪 30 步后延迟激活:<br/>x <- x - rho * grad log(1 - p_spill)<br/>rho = 2.5, 轨迹推离溅洒区\"]\n    GUIDE -.->|\"梯度注入去噪后期<br/>(约束参与生成, 而非事后补救)\"| DEN\n    DEN ==> ACTN([\"安全舀取动作 (10 Hz)\"])\n    ACTN ==> ROBOT[\"Franka 真机<br/>10 类 unseen 食物 82% 成功 / 4% 溅洒\"]\n\n    class PC data\n    class SIM data\n    class DP,PRED train\n    class DEN,ACTN act\n    class GUIDE key\n    class ROBOT env\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40"
 }

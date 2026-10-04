@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "LINK",
-   "label": "link 位姿 x_t + 速度\nv_t",
+   "label": "link 位姿 x_t + 速\n度 v_t",
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 353,
-   "y": 166,
-   "w": 264,
-   "h": 105
+   "x": 20,
+   "y": 146,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "CTRL",
@@ -17,43 +17,43 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 808,
-   "y": 1734,
-   "w": 180,
-   "h": 104
+   "x": 682,
+   "y": 1364,
+   "w": 182,
+   "h": 92
   },
   {
    "id": "GEO",
-   "label": "物体几何\nMoCap 网格 / 自我中心",
-   "sub": "深度",
+   "label": "物体几何\nMoCap 网格 / 自我中",
+   "sub": "心深度",
    "icon": "db",
    "cls": "data",
-   "x": 46,
-   "y": 150,
-   "w": 269,
-   "h": 138
+   "x": 282,
+   "y": 130,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "DF",
-   "label": "物体距离场 DF: Phi\n(连续 / 可微 / O(1) 查",
-   "sub": "询)",
+   "label": "物体距离场 DF: Phi\n(连续 / 可微 / O(1",
+   "sub": ") 查询)",
    "icon": "db",
    "cls": "data",
-   "x": 651,
-   "y": 386,
-   "w": 262,
-   "h": 138
+   "x": 549,
+   "y": 316,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "TUP",
-   "label": "逐 link DF 四元组\nu_t (核心表征)",
-   "sub": "[Phi,gradPhi,v_norm,v_tan]\n法向=接近强度, 切向=滑移\n不含全局坐标 -> 位姿不变",
+   "label": "逐 link DF 四元组 \nu_t (核心表征)",
+   "sub": "[Phi, grad Phi, v_",
    "icon": "spark",
    "cls": "key",
-   "x": 646,
-   "y": 622,
-   "w": 264,
-   "h": 172
+   "x": 542,
+   "y": 502,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "WIN",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "db",
    "cls": "mem",
-   "x": 632,
-   "y": 875,
-   "w": 233,
-   "h": 104
+   "x": 530,
+   "y": 705,
+   "w": 235,
+   "h": 92
   },
   {
    "id": "VAE",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 824,
-   "y": 1094,
-   "w": 150,
-   "h": 104
+   "x": 698,
+   "y": 874,
+   "w": 149,
+   "h": 92
   },
   {
    "id": "Z",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "noise",
    "cls": "data",
-   "x": 800,
-   "y": 1296,
-   "w": 198,
-   "h": 104
+   "x": 673,
+   "y": 1026,
+   "w": 200,
+   "h": 92
   },
   {
    "id": "PROP",
@@ -94,43 +94,43 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 655,
-   "y": 167,
-   "w": 195,
-   "h": 104
+   "x": 814,
+   "y": 147,
+   "w": 197,
+   "h": 92
   },
   {
    "id": "POL",
-   "label": "Transformer 策略\n输入 [o_prop, c_root,",
-   "sub": "z_t] 拼接\n单策略连续执行多技能",
+   "label": "Transformer 策略\n输入 [o_prop, c_ro",
+   "sub": "ot, z_t] 拼接",
    "icon": "lightning",
    "cls": "train",
-   "x": 765,
-   "y": 1498,
-   "w": 267,
-   "h": 155
+   "x": 658,
+   "y": 1178,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "ROOT",
-   "label": "根轨迹命令 c_root\n唯一任务输入, 无全身",
-   "sub": "参考",
+   "label": "根轨迹命令 c_root\n唯一任务输入, 无全",
+   "sub": "身参考",
    "icon": "chat",
    "cls": "data",
-   "x": 888,
-   "y": 150,
-   "w": 254,
-   "h": 138
+   "x": 1044,
+   "y": 130,
+   "w": 220,
+   "h": 126
   },
   {
    "id": "TEACH",
-   "label": "教师 pi_mimic =\nResMimic",
-   "sub": "(特权全身参考, 仅数据生成器)",
+   "label": "教师 pi_mimic = Re\nsMimic",
+   "sub": "(特权全身参考, 仅数",
    "icon": "brain",
    "cls": "frozen",
-   "x": 1180,
-   "y": 150,
-   "w": 267,
-   "h": 138
+   "x": 550,
+   "y": 130,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "T1",
@@ -138,21 +138,21 @@
    "sub": "",
    "icon": "flask",
    "cls": "loss",
-   "x": 951,
-   "y": 402,
-   "w": 195,
-   "h": 105
+   "x": 800,
+   "y": 332,
+   "w": 197,
+   "h": 93
   },
   {
    "id": "AIPD",
-   "label": "AIP 判别器 (LSGAN)\n只判别 DF latent z_t,",
-   "sub": "不判关节状态\n允许为新几何合成全新姿态",
+   "label": "AIP 判别器 (LSGAN)\n只判别 DF latent z",
+   "sub": "_t, 不判关节状态",
    "icon": "state",
    "cls": "reward",
-   "x": 1485,
-   "y": 150,
-   "w": 266,
-   "h": 155
+   "x": 1298,
+   "y": 130,
+   "w": 228,
+   "h": 126
   },
   {
    "id": "T2",
@@ -160,21 +160,21 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 948,
-   "y": 638,
-   "w": 203,
-   "h": 105
+   "x": 799,
+   "y": 518,
+   "w": 205,
+   "h": 93
   },
   {
    "id": "T3",
-   "label": "3. 视觉蒸馏\n冻结 pi_full -> 纯深度",
-   "sub": "pi_vis",
+   "label": "3. 视觉蒸馏\n冻结 pi_full -> 纯",
+   "sub": "深度 pi_vis",
    "icon": "camera",
    "cls": "loss",
-   "x": 903,
-   "y": 858,
-   "w": 262,
-   "h": 138
+   "x": 788,
+   "y": 688,
+   "w": 228,
+   "h": 126
   }
  ],
  "edges": [
@@ -187,11 +187,11 @@
    "from": "CTRL",
    "to": "LINK",
    "style": "main",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "GEO",
@@ -247,13 +247,21 @@
    "from": "TEACH",
    "to": "T1",
    "style": "loss",
-   "label": "DAgger 蒸馏"
+   "label": "\"DAgger 蒸馏\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "AIPD",
    "to": "T2",
    "style": "fb",
-   "label": "交互风格奖励 r_interact(z_t)"
+   "label": "\"交互风格奖励 r_interact(z_t)\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "T1",
@@ -268,16 +276,23 @@
  ],
  "panels": [
   {
-   "label": "人形交互回路 · 三阶段训练 (同一架构)",
-   "x": 327,
-   "y": 103,
-   "w": 864,
-   "h": 1789
+   "label": "人形交互回路",
+   "x": -4,
+   "y": 102,
+   "w": 892,
+   "h": 1374
+  },
+  {
+   "label": "三阶段训练 (同一架构)",
+   "x": 764,
+   "y": 288,
+   "w": 276,
+   "h": 546
   }
  ],
  "canvas": [
-  1797,
-  2022
+  1546,
+  1546
  ],
  "legend": [
   "act",
@@ -289,9 +304,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  1546,
+  1546
+ ],
  "title": "lessmimic",
  "subtitle": "问题**：人形长程物体交互策略被示范轨迹耦合到特定几何——参考基方法换形状/尺度即崩且偏离参考即判失败，免参考方法又逐任务手写奖励、策略互相孤立；**洞察**：局部距离场（DF",
  "foot": "lessmimic · arXiv 2602.21723 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    subgraph LOOP[\"人形交互回路\"]\n        LINK([\"link 位姿 x_t + 速度 v_t\"]) --> CTRL[\"底层全身控制器\"]\n        CTRL --> LINK\n    end\n    GEO([\"物体几何<br/>MoCap 网格 / 自我中心深度\"]) ==> DF[\"物体距离场 DF: Phi<br/>(连续 / 可微 / O(1) 查询)\"]\n    LINK ==> TUP[\"逐 link DF 四元组 u_t (核心表征)<br/>[Phi, grad Phi, v_norm, v_tan]<br/>法向 = 接近强度, 切向 = 表面滑移<br/>不含全局坐标 -> 位姿 / 尺度不变\"]\n    DF ==> TUP\n    TUP ==> WIN[\"时间窗 I_t (长度 l)\"]\n    WIN ==> VAE[\"VAE 编码器\"]\n    VAE ==> Z[\"交互 latent z_t\"]\n    PROP([\"本体感知 o_prop\"]) --> POL\n    ROOT([\"根轨迹命令 c_root<br/>唯一任务输入, 无全身参考\"]) --> POL\n    Z ==> POL[\"Transformer 策略<br/>输入 [o_prop, c_root, z_t] 拼接<br/>单策略连续执行多技能\"]\n    POL ==> CTRL\n    TEACH[\"教师 pi_mimic = ResMimic<br/>(特权全身参考, 仅数据生成器)\"] -.->|\"DAgger 蒸馏\"| T1\n    AIPD[\"AIP 判别器 (LSGAN)<br/>只判别 DF latent z_t, 不判关节状态<br/>允许为新几何合成全新姿态\"] -.->|\"交互风格奖励 r_interact(z_t)\"| T2\n    subgraph TRAIN[\"三阶段训练 (同一架构)\"]\n        T1[\"1. BC 预训练<br/>DAgger 蒸馏教师\"]\n        T2[\"2. RL 微调<br/>AIP + 几何随机化\"]\n        T3[\"3. 视觉蒸馏<br/>冻结 pi_full -> 纯深度 pi_vis\"]\n        T1 --> T2 --> T3\n    end\n\n    class LINK,GEO,PROP,ROOT data\n    class DF data\n    class TUP key\n    class WIN mem\n    class VAE train\n    class Z data\n    class POL train\n    class CTRL act\n    class TEACH frozen\n    class AIPD reward\n    class T1,T2,T3 loss\n    class LOOP loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f"
 }

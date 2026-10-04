@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 304,
-   "y": 150,
-   "w": 223,
-   "h": 104
+   "x": 44,
+   "y": 147,
+   "w": 225,
+   "h": 92
   },
   {
    "id": "ROLL",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 461,
-   "y": 353,
-   "w": 169,
-   "h": 104
+   "x": 432,
+   "y": 316,
+   "w": 171,
+   "h": 92
   },
   {
    "id": "OBS",
@@ -28,32 +28,32 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 46,
-   "y": 150,
-   "w": 220,
-   "h": 104
+   "x": 293,
+   "y": 147,
+   "w": 222,
+   "h": 92
   },
   {
    "id": "POLR",
-   "label": "rollout 策略\npi_rollout",
+   "label": "rollout 策略 pi_ro\nllout",
    "sub": "行为策略的 EMA",
    "icon": "lightning",
    "cls": "train",
-   "x": 412,
-   "y": 555,
-   "w": 267,
-   "h": 138
+   "x": 402,
+   "y": 468,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "ADV1",
-   "label": "提示最优 advantage=1\n即我要变好条件",
-   "sub": "",
+   "label": "提示最优 advantage\n=1",
+   "sub": "即我要变好条件",
    "icon": "medal",
    "cls": "reward",
-   "x": 801,
-   "y": 150,
-   "w": 244,
-   "h": 105
+   "x": 539,
+   "y": 130,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "ACT",
@@ -61,32 +61,32 @@
    "sub": "",
    "icon": "stack",
    "cls": "act",
-   "x": 462,
-   "y": 791,
-   "w": 167,
-   "h": 104
+   "x": 432,
+   "y": 654,
+   "w": 169,
+   "h": 92
   },
   {
    "id": "DYN",
-   "label": "动力学模型 D\n可控多视角视频扩散世界",
-   "sub": "模型\n充当组合环境",
+   "label": "动力学模型 D\n可控多视角视频扩散世",
+   "sub": "界模型",
    "icon": "camera",
    "cls": "key",
-   "x": 410,
-   "y": 993,
-   "w": 270,
-   "h": 155
+   "x": 399,
+   "y": 806,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "FUT",
-   "label": "想象帧 hat o_(t+1..t+H\n)",
+   "label": "想象帧 hat o_(t+1.\n.t+H)",
    "sub": "",
    "icon": "graph",
    "cls": "env",
-   "x": 412,
-   "y": 1229,
-   "w": 266,
-   "h": 105
+   "x": 403,
+   "y": 992,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "VAL",
@@ -94,21 +94,21 @@
    "sub": "",
    "icon": "sigma",
    "cls": "reward",
-   "x": 370,
-   "y": 1432,
-   "w": 150,
-   "h": 105
+   "x": 349,
+   "y": 1145,
+   "w": 148,
+   "h": 93
   },
   {
    "id": "AEV",
-   "label": "评估优势 A 离散 10\nbins",
+   "label": "评估优势 A 离散 10 \nbins",
    "sub": "",
    "icon": "target",
    "cls": "reward",
-   "x": 415,
-   "y": 1635,
-   "w": 261,
-   "h": 105
+   "x": 400,
+   "y": 1298,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "OBS2",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "state",
    "cls": "env",
-   "x": 558,
-   "y": 1432,
-   "w": 162,
-   "h": 104
+   "x": 521,
+   "y": 1146,
+   "w": 164,
+   "h": 92
   },
   {
    "id": "BUF",
@@ -127,10 +127,10 @@
    "sub": "",
    "icon": "db",
    "cls": "mem",
-   "x": 432,
-   "y": 1838,
-   "w": 228,
-   "h": 104
+   "x": 402,
+   "y": 1451,
+   "w": 230,
+   "h": 92
   },
   {
    "id": "BEH",
@@ -138,10 +138,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "train",
-   "x": 565,
-   "y": 150,
-   "w": 198,
-   "h": 105
+   "x": 790,
+   "y": 146,
+   "w": 200,
+   "h": 93
   },
   {
    "id": "TRAIN",
@@ -149,10 +149,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "train",
-   "x": 470,
-   "y": 2040,
-   "w": 150,
-   "h": 104
+   "x": 447,
+   "y": 1603,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "LOSS",
@@ -160,10 +160,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 432,
-   "y": 2242,
-   "w": 228,
-   "h": 105
+   "x": 402,
+   "y": 1755,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "OUT",
@@ -171,10 +171,10 @@
    "sub": "",
    "icon": "graph",
    "cls": "act",
-   "x": 456,
-   "y": 2445,
-   "w": 180,
-   "h": 105
+   "x": 426,
+   "y": 1908,
+   "w": 182,
+   "h": 93
   }
  ],
  "edges": [
@@ -227,11 +227,11 @@
    "from": "OBS2",
    "to": "POLR",
    "style": "fb",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "ROLL",
@@ -271,16 +271,23 @@
  ],
  "panels": [
   {
-   "label": "想象环境闭环 (每帧最多复用 2 次, 零真机风险) · 训练阶段",
-   "x": 20,
-   "y": 92,
-   "w": 1051,
-   "h": 2528
+   "label": "想象环境闭环 (每帧最多复用 2 次, 零真机风险",
+   "x": 269,
+   "y": 86,
+   "w": 521,
+   "h": 1325
+  },
+  {
+   "label": "训练阶段",
+   "x": 378,
+   "y": 102,
+   "w": 636,
+   "h": 1918
   }
  ],
  "canvas": [
-  1091,
-  2738
+  1034,
+  2091
  ],
  "legend": [
   "act",
@@ -293,9 +300,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  1034,
+  2091
+ ],
  "title": "rise",
  "subtitle": "RISE 用一个「组合世界模型」替换真实环境来做 on-policy RL：可控多视角视频扩散模型（由 Genie Envisioner GE-Base 改造）负责\"这个动作会",
  "foot": "rise · arXiv 2602.11075 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OFF([\"Warm-up 离线数据集\"]) ==> ROLL[\"Rollout 阶段\"]\n\n    subgraph IMAG[\"想象环境闭环 (每帧最多复用 2 次, 零真机风险)\"]\n        OBS([\"当前多视角观测 O_t\"])\n        POLR[\"rollout 策略 pi_rollout<br/>行为策略的 EMA\"]\n        ADV1[\"提示最优 advantage=1<br/>即我要变好条件\"]\n        ACT[\"动作块 hat a\"]\n        DYN[\"动力学模型 D<br/>可控多视角视频扩散世界模型<br/>充当组合环境\"]\n        FUT[\"想象帧 hat o_(t+1..t+H)\"]\n        VAL[\"价值模型 V<br/>进度 + TD\"]\n        AEV[\"评估优势 A 离散 10 bins\"]\n        OBS2[\"下一想象观测\"]\n        ADV1 -.-> POLR\n        POLR ==> ACT\n        ACT ==> DYN\n        OBS ==> DYN\n        DYN ==> FUT\n        FUT ==> VAL\n        VAL ==> AEV\n        FUT ==> OBS2\n        OBS2 -.-> POLR\n    end\n\n    subgraph TRA[\"训练阶段\"]\n        BUF[\"(o, hat a, A) 缓冲\"]\n        BEH[\"行为策略 pi<br/>VLA pi_0.5 底座\"]\n        TRAIN[\"策略训练\"]\n        LOSS[\"flow matching 损失<br/>优势条件加权\"]\n        OUT[\"更新后策略部署<br/>零世界模型开销\"]\n    end\n\n    ROLL ==> POLR\n    ROLL ==> BUF\n    AEV ==> BUF\n    BEH ==> TRAIN\n    BUF ==> TRAIN\n    TRAIN -.-> LOSS\n    LOSS ==> OUT\n\n    class OFF,OBS data\n    class ADV1,VAL,AEV reward\n    class DYN key\n    class FUT,OBS2 env\n    class POLR,BEH,TRAIN train\n    class ACT,OUT act\n    class LOSS loss\n    class ROLL loop\n    class BUF mem\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

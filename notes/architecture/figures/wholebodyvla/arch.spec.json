@@ -2,80 +2,80 @@
  "nodes": [
   {
    "id": "EGO",
-   "label": "自采 300h egocentric\n行走视频",
-   "sub": "头戴相机, 无 MoCap / 无遥操作",
+   "label": "自采 300h egocentr\nic 行走视频",
+   "sub": "头戴相机, 无 MoCap ",
    "icon": "camera",
    "cls": "data",
-   "x": 338,
-   "y": 150,
-   "w": 258,
-   "h": 138
+   "x": 25,
+   "y": 130,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "LAM1",
-   "label": "locomotion LAM (VQ-VAE\n)",
-   "sub": "整幅场景变化 -> 离散码 c_loco",
+   "label": "locomotion LAM (VQ\n-VAE)",
+   "sub": "整幅场景变化 -> 离",
    "icon": "stack",
    "cls": "key",
-   "x": 790,
-   "y": 386,
-   "w": 265,
-   "h": 138
+   "x": 421,
+   "y": 316,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "AGI",
-   "label": "AgiBot World 操作数据\n(相机基本静止)",
-   "sub": "",
+   "label": "AgiBot World 操作\n数据",
+   "sub": "(相机基本静止)",
    "icon": "camera",
    "cls": "data",
-   "x": 46,
-   "y": 166,
-   "w": 254,
-   "h": 105
+   "x": 554,
+   "y": 130,
+   "w": 220,
+   "h": 126
   },
   {
    "id": "LAM2",
-   "label": "manipulation LAM (VQ-\nVAE)",
-   "sub": "手臂区域变化 -> 离散码 c_mani",
+   "label": "manipulation LAM (\nVQ-VAE)",
+   "sub": "手臂区域变化 -> 离",
    "icon": "stack",
    "cls": "key",
-   "x": 487,
-   "y": 386,
-   "w": 265,
-   "h": 138
+   "x": 678,
+   "y": 316,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "LLAM",
-   "label": "损失 L_LAM:\nDINOv2 特征重建 MSE +",
-   "sub": "VQ 目标",
+   "label": "损失 L_LAM:\nDINOv2 特征重建 MS",
+   "sub": "E + VQ 目标",
    "icon": "sigma",
    "cls": "loss",
-   "x": 1232,
-   "y": 150,
-   "w": 264,
-   "h": 138
+   "x": 293,
+   "y": 130,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "VLA",
-   "label": "VLM 主干 (Prismatic-7B\n初始化)",
-   "sub": "联合预测两类 latent token\n(约 10Hz@RTX 4090)",
+   "label": "VLM 主干 (Prismati\nc-7B 初始化)",
+   "sub": "联合预测两类 latent",
    "icon": "brain",
    "cls": "train",
-   "x": 638,
-   "y": 622,
-   "w": 267,
-   "h": 155
+   "x": 550,
+   "y": 502,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "LCE",
-   "label": "交叉熵联合监督\nmin -log pi(c_mani,",
-   "sub": "c_loco | o, l)",
+   "label": "交叉熵联合监督\nmin -log pi(c_mani",
+   "sub": ", c_loco | o, l)",
    "icon": "sigma",
    "cls": "loss",
-   "x": 933,
-   "y": 150,
-   "w": 261,
-   "h": 138
+   "x": 808,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "DEC",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "train",
-   "x": 657,
-   "y": 858,
-   "w": 228,
-   "h": 105
+   "x": 551,
+   "y": 688,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "UB",
@@ -94,43 +94,43 @@
    "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 830,
-   "y": 1078,
-   "w": 184,
-   "h": 104
+   "x": 448,
+   "y": 858,
+   "w": 186,
+   "h": 92
   },
   {
    "id": "CMD",
-   "label": "移动指令 s_x, s_y,\ns_yaw, h*",
-   "sub": "离散三元 flag + 目标站姿高度",
+   "label": "移动指令 s_x, s_y,\n s_yaw, h*",
+   "sub": "离散三元 flag + 目",
    "icon": "chat",
    "cls": "act",
-   "x": 528,
-   "y": 1061,
-   "w": 264,
-   "h": 138
+   "x": 658,
+   "y": 841,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "LMO",
-   "label": "LMO RL 控制器 50Hz (板\n载)",
-   "sub": "goal-conditioned regulation\ntanh 软门控参考整形",
+   "label": "LMO RL 控制器 50Hz\n (板载)",
+   "sub": "goal-conditioned r",
    "icon": "robot",
    "cls": "train",
-   "x": 639,
-   "y": 1297,
-   "w": 264,
-   "h": 155
+   "x": 550,
+   "y": 1027,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "REW",
-   "label": "LMO 奖励: 方向保真\nJ_dir",
+   "label": "LMO 奖励: 方向保真 \nJ_dir",
    "sub": "+ 站姿稳定惩罚",
    "icon": "reward",
    "cls": "reward",
-   "x": 634,
-   "y": 150,
-   "w": 261,
-   "h": 138
+   "x": 1074,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ROBOT",
@@ -138,20 +138,17 @@
    "sub": "三任务平均 78.0%",
    "icon": "robot",
    "cls": "act",
-   "x": 657,
-   "y": 1533,
-   "w": 228,
-   "h": 138
+   "x": 551,
+   "y": 1213,
+   "w": 230,
+   "h": 126
   }
  ],
  "edges": [
   {
    "from": "EGO",
    "to": "LAM1",
-   "style": "thick",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "style": "thick"
   },
   {
    "from": "AGI",
@@ -166,22 +163,19 @@
   {
    "from": "LLAM",
    "to": "LAM2",
-   "style": "fb",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "style": "fb"
   },
   {
    "from": "LAM1",
    "to": "VLA",
    "style": "thick",
-   "label": "伪动作标签"
+   "label": "\"伪动作标签\""
   },
   {
    "from": "LAM2",
    "to": "VLA",
    "style": "thick",
-   "label": "伪动作标签"
+   "label": "\"伪动作标签\""
   },
   {
    "from": "LCE",
@@ -227,26 +221,30 @@
    "from": "ROBOT",
    "to": "EGO",
    "style": "fb",
-   "label": "分层闭环: 10Hz 决策 + 50Hz …",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"分层闭环: 10Hz 决策 + 50Hz 低层",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [
   {
    "label": "分离式统一潜在学习 (核心)",
-   "x": 461,
-   "y": 339,
-   "w": 620,
-   "h": 209
+   "x": 397,
+   "y": 272,
+   "w": 538,
+   "h": 190
   }
  ],
  "canvas": [
-  1542,
-  1855
+  1332,
+  1429
  ],
  "legend": [
   "act",
@@ -256,9 +254,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  1332,
+  1429
+ ],
  "title": "wholebodyvla",
  "subtitle": "WholeBodyVLA 在 AgiBot X2 人形上实现首个大空间端到端 loco-manipulation：用一个 VQ-VAE 式的 manipulation LAM（",
  "foot": "wholebodyvla · arXiv 2512.11047 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    EGO([\"自采 300h egocentric 行走视频<br/>头戴相机, 无 MoCap / 无遥操作\"]) ==> LAM1\n    AGI([\"AgiBot World 操作数据<br/>(相机基本静止)\"]) ==> LAM2\n    subgraph LAMS[\"分离式统一潜在学习 (核心)\"]\n        LAM1[\"locomotion LAM (VQ-VAE)<br/>整幅场景变化 -> 离散码 c_loco\"]\n        LAM2[\"manipulation LAM (VQ-VAE)<br/>手臂区域变化 -> 离散码 c_mani\"]\n    end\n    LLAM[\"损失 L_LAM:<br/>DINOv2 特征重建 MSE + VQ 目标\"] -.-> LAM1\n    LLAM -.-> LAM2\n    LAM1 ==>|\"伪动作标签\"| VLA[\"VLM 主干 (Prismatic-7B 初始化)<br/>联合预测两类 latent token<br/>(约 10Hz@RTX 4090)\"]\n    LAM2 ==>|\"伪动作标签\"| VLA\n    LCE[\"交叉熵联合监督<br/>min -log pi(c_mani, c_loco | o, l)\"] -.-> VLA\n    VLA ==> DEC[\"轻量 decoder<br/>上身目标 + 移动指令\"]\n    DEC ==> UB([\"上身 14 关节角\"])\n    DEC ==> CMD([\"移动指令 s_x, s_y, s_yaw, h*<br/>离散三元 flag + 目标站姿高度\"])\n    CMD ==> LMO[\"LMO RL 控制器 50Hz (板载)<br/>goal-conditioned regulation<br/>tanh 软门控参考整形\"]\n    REW[\"LMO 奖励: 方向保真 J_dir<br/>+ 站姿稳定惩罚\"] -.-> LMO\n    UB ==> ROBOT([\"AgiBot X2 全身执行<br/>上身关节 + 下身力矩<br/>三任务平均 78.0%\"])\n    LMO ==> ROBOT\n    ROBOT -.->|\"分层闭环: 10Hz 决策<br/>+ 50Hz 低层控制\"| EGO\n\n    class EGO,AGI data\n    class LAM1,LAM2 key\n    class VLA,DEC,LMO train\n    class UB,CMD,ROBOT act\n    class LLAM,LCE loss\n    class REW reward\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

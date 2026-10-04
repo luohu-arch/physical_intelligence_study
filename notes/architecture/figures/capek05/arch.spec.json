@@ -2,14 +2,14 @@
  "nodes": [
   {
    "id": "SEED",
-   "label": "共享 Qwen backbone\n起点",
-   "sub": "(2B dense / 35B-A3B MoE)",
+   "label": "共享 Qwen backbone 起点\n(2B dense / 35B-A3B MoE)",
+   "sub": "",
    "icon": "brain",
    "cls": "frozen",
-   "x": 46,
-   "y": 150,
-   "w": 261,
-   "h": 138
+   "x": 4,
+   "y": 146,
+   "w": 290,
+   "h": 93
   },
   {
    "id": "SP",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 632,
-   "y": 386,
-   "w": 175,
-   "h": 105
+   "x": 681,
+   "y": 348,
+   "w": 177,
+   "h": 93
   },
   {
    "id": "TP",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 834,
-   "y": 166,
-   "w": 179,
-   "h": 105
+   "x": 1042,
+   "y": 146,
+   "w": 181,
+   "h": 93
   },
   {
    "id": "GP",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 617,
-   "y": 166,
-   "w": 179,
-   "h": 105
+   "x": 1279,
+   "y": 146,
+   "w": 181,
+   "h": 93
   },
   {
    "id": "VP",
@@ -50,32 +50,32 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 845,
-   "y": 386,
-   "w": 175,
-   "h": 105
+   "x": 898,
+   "y": 348,
+   "w": 177,
+   "h": 93
   },
   {
    "id": "REWARD",
-   "label": "GRPO 组相对奖励\nR_fmt 格式 + R_acc 正",
-   "sub": "确性",
+   "label": "GRPO 组相对奖励\nR_fmt 格式 + R_acc 正确性",
+   "sub": "",
    "icon": "reward",
    "cls": "reward",
-   "x": 1051,
-   "y": 150,
-   "w": 256,
-   "h": 138
+   "x": 350,
+   "y": 146,
+   "w": 290,
+   "h": 93
   },
   {
    "id": "TIES",
-   "label": "TIES 权重合并\n裁掉低幅值 80% + 符号投",
-   "sub": "票 + 平均",
+   "label": "TIES 权重合并\n裁掉低幅值 80% + 符号投票 ",
+   "sub": "+ 平均",
    "icon": "spark",
    "cls": "key",
-   "x": 692,
-   "y": 589,
-   "w": 267,
-   "h": 138
+   "x": 733,
+   "y": 533,
+   "w": 290,
+   "h": 126
   },
   {
    "id": "STUDENT",
@@ -83,21 +83,21 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 751,
-   "y": 825,
-   "w": 150,
-   "h": 104
+   "x": 805,
+   "y": 751,
+   "w": 146,
+   "h": 92
   },
   {
    "id": "MOPD",
-   "label": "routed MOPD 在线策略\n蒸馏",
-   "sub": "学生 rollout 前缀上逐样本路由",
-   "icon": "lightning",
+   "label": "routed MOPD 在线策略蒸馏\n学生 rollout 前缀上逐样本",
+   "sub": "路由",
+   "icon": "flask",
    "cls": "key",
-   "x": 692,
-   "y": 1027,
-   "w": 269,
-   "h": 138
+   "x": 734,
+   "y": 935,
+   "w": 289,
+   "h": 126
   },
   {
    "id": "TEACHER",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "brain",
    "cls": "frozen",
-   "x": 345,
-   "y": 167,
-   "w": 234,
-   "h": 104
+   "x": 1516,
+   "y": 147,
+   "w": 236,
+   "h": 92
   },
   {
    "id": "FINAL",
@@ -116,21 +116,21 @@
    "sub": "",
    "icon": "brain",
    "cls": "key",
-   "x": 709,
-   "y": 1263,
-   "w": 234,
-   "h": 105
+   "x": 760,
+   "y": 1153,
+   "w": 236,
+   "h": 93
   },
   {
    "id": "REWARD2",
-   "label": "进度奖励 R_prog+act\n(PVE: 0.5 r_value +",
-   "sub": "0.4 r_action + 0.1 r_fmt)",
+   "label": "进度奖励 R_prog+act\n(PVE: 0.5 r_value + 0.4 ",
+   "sub": "r_action + 0.1 r_fmt)",
    "icon": "target",
    "cls": "reward",
-   "x": 1345,
-   "y": 150,
-   "w": 261,
-   "h": 138
+   "x": 696,
+   "y": 130,
+   "w": 290,
+   "h": 126
   }
  ],
  "edges": [
@@ -142,10 +142,7 @@
   {
    "from": "REWARD",
    "to": "SP",
-   "style": "fb",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "style": "fb"
   },
   {
    "from": "SP",
@@ -166,7 +163,11 @@
    "from": "TEACHER",
    "to": "MOPD",
    "style": "fb",
-   "label": "token 级反向 KL"
+   "label": "\"token 级反向 KL\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "MOPD",
@@ -181,16 +182,23 @@
  ],
  "panels": [
   {
-   "label": "阶段一 · 阶段二",
-   "x": 319,
-   "y": 119,
-   "w": 727,
-   "h": 1100
+   "label": "阶段一: 按执行循环四族各训一个专家",
+   "x": 657,
+   "y": 102,
+   "w": 827,
+   "h": 358
+  },
+  {
+   "label": "阶段二: 合并成单一模型",
+   "x": 709,
+   "y": 103,
+   "w": 1067,
+   "h": 978
   }
  ],
  "canvas": [
-  1652,
-  1552
+  1756,
+  1336
  ],
  "legend": [
   "frozen",
@@ -198,9 +206,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  1756,
+  1336
+ ],
  "title": "capek05",
  "subtitle": "Capek 0.5 是一个以\"执行\"为组织原则的具身 VLM：把机器人在执行循环中反复调用的能力分成 Spatial Reasoning、Temporal Understand",
  "foot": "capek05 · arXiv 2608.06756 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    SEED([\"共享 Qwen backbone 起点<br/>(2B dense / 35B-A3B MoE)\"])\n    subgraph SPEC[\"阶段一: 按执行循环四族各训一个专家\"]\n        SP[\"Spatial 专家<br/>GRPO 强化学习\"]\n        TP[\"Temporal 专家<br/>GRPO 强化学习\"]\n        GP[\"Guidance 专家<br/>GRPO 强化学习\"]\n        VP[\"State 专家<br/>GRPO 强化学习\"]\n    end\n    SEED ==> SP & TP & GP & VP\n    REWARD[\"GRPO 组相对奖励<br/>R_fmt 格式 + R_acc 正确性\"] -.-> SP & TP & GP & VP\n    subgraph CONS[\"阶段二: 合并成单一模型\"]\n        TIES[\"TIES 权重合并<br/>裁掉低幅值 80% + 符号投票 + 平均\"]\n        STUDENT[\"学生初始化\"]\n        MOPD[\"routed MOPD 在线策略蒸馏<br/>学生 rollout 前缀上逐样本路由\"]\n        TEACHER[\"冻结的按能力路由教师\"]\n    end\n    SP & TP & GP & VP --> TIES\n    TIES --> STUDENT --> MOPD\n    TEACHER -.->|\"token 级反向 KL\"| MOPD\n    MOPD ==> FINAL([\"单一推理 checkpoint<br/>四族能力合一\"])\n    REWARD2[\"进度奖励 R_prog+act<br/>(PVE: 0.5 r_value + 0.4 r_action + 0.1 r_fmt)\"] -.-> VP\n\n    class SEED frozen\n    class SP,TP,GP,VP,STUDENT train\n    class TIES,MOPD,FINAL key\n    class TEACHER frozen\n    class REWARD,REWARD2 reward\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

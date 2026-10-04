@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 680,
-   "y": 150,
-   "w": 221,
-   "h": 104
+   "x": 44,
+   "y": 130,
+   "w": 223,
+   "h": 92
   },
   {
    "id": "VL",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 492,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 761,
+   "y": 130,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "ROB",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 256,
-   "y": 150,
-   "w": 198,
-   "h": 104
+   "x": 307,
+   "y": 130,
+   "w": 200,
+   "h": 92
   },
   {
    "id": "AGI",
@@ -39,32 +39,32 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 46,
-   "y": 150,
-   "w": 172,
-   "h": 105
+   "x": 547,
+   "y": 130,
+   "w": 174,
+   "h": 93
   },
   {
    "id": "ENC",
-   "label": "逆动力学 ST-\nTransformer",
-   "sub": "编码器",
+   "label": "逆动力学 ST-Transformer\n编码器",
+   "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 342,
-   "y": 353,
-   "w": 264,
-   "h": 138
+   "x": 334,
+   "y": 315,
+   "w": 276,
+   "h": 93
   },
   {
    "id": "VQ",
-   "label": "VQ-VAE 码本\n每轨迹 k=4 个 latent",
-   "sub": "token",
+   "label": "VQ-VAE 码本\n每轨迹 k=4 个 latent toke",
+   "sub": "n",
    "icon": "noise",
    "cls": "key",
-   "x": 467,
-   "y": 589,
-   "w": 264,
-   "h": 138
+   "x": 200,
+   "y": 500,
+   "w": 290,
+   "h": 126
   },
   {
    "id": "DEC",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "train",
-   "x": 495,
-   "y": 826,
-   "w": 180,
-   "h": 104
+   "x": 268,
+   "y": 718,
+   "w": 182,
+   "h": 92
   },
   {
    "id": "DIJ",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "frozen",
-   "x": 216,
-   "y": 606,
-   "w": 213,
-   "h": 104
+   "x": 530,
+   "y": 517,
+   "w": 215,
+   "h": 92
   },
   {
    "id": "QW2",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "brain",
    "cls": "frozen",
-   "x": 272,
-   "y": 825,
-   "w": 185,
-   "h": 105
+   "x": 490,
+   "y": 718,
+   "w": 187,
+   "h": 93
   },
   {
    "id": "HEAD",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "train",
-   "x": 398,
-   "y": 1028,
-   "w": 150,
-   "h": 104
+   "x": 400,
+   "y": 903,
+   "w": 146,
+   "h": 92
   },
   {
    "id": "CTRL",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 396,
-   "y": 1230,
-   "w": 156,
-   "h": 104
+   "x": 394,
+   "y": 1087,
+   "w": 158,
+   "h": 92
   }
  ],
  "edges": [
@@ -152,15 +152,16 @@
    "from": "ENC",
    "to": "DIJ",
    "style": "fb",
-   "label": "latent 动作条件"
+   "label": "\"latent 动作条件\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "VL",
    "to": "QW2",
-   "style": "thick",
-   "out": "left",
-   "in": "left",
-   "k": 60
+   "style": "thick"
   },
   {
    "from": "DIJ",
@@ -176,50 +177,65 @@
    "from": "HEAD",
    "to": "CTRL",
    "style": "thick",
-   "label": "连续动作 chunk"
+   "label": "\"连续动作 chunk\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "CTRL",
    "to": "DIJ",
    "style": "fb",
-   "label": "新观测",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"新观测\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "VQ",
    "to": "ENC",
    "style": "fb",
-   "label": "L_rec + L_dynamics",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"L_rec + L_dynamics\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [
   {
    "label": "预训练数据混合",
    "x": 20,
-   "y": 103,
-   "w": 907,
-   "h": 222
+   "y": 86,
+   "w": 905,
+   "h": 157
   },
   {
-   "label": "Stage 1 · Stage 2",
-   "x": 190,
-   "y": 306,
-   "w": 568,
-   "h": 850
+   "label": "Stage 1: LAM 潜动作模块 (离线)",
+   "x": 176,
+   "y": 271,
+   "w": 458,
+   "h": 560
+  },
+  {
+   "label": "Stage 2: ViLLA 策略主干",
+   "x": 376,
+   "y": 473,
+   "w": 394,
+   "h": 542
   }
  ],
  "canvas": [
-  947,
-  1518
+  945,
+  1269
  ],
  "legend": [
   "act",
@@ -228,9 +244,13 @@
   "key",
   "train"
  ],
+ "layout_wh": [
+  945,
+  1269
+ ],
  "title": "agibot-world-go1",
  "subtitle": "机器人操作缺高质量大规模数据（Problem），AgiBot 用 4000 m² 场地、100+ 台同构 G1 人形、标准化采集 + 人为环校验造出 1,001,552 条轨迹",
  "foot": "agibot-world-go1 · arXiv 2503.06669 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TB\n    subgraph DATA[\"预训练数据混合\"]\n        WEB([\"网络人类视频 Ego4D\"])\n        VL([\"网络图文\"])\n        ROB([\"跨本体机器人数据\"])\n        AGI[(\"AgiBot World<br/>1M+ 真机轨迹\")]\n    end\n\n    subgraph S1[\"Stage 1: LAM 潜动作模块 (离线)\"]\n        ENC[\"逆动力学 ST-Transformer<br/>编码器\"]\n        VQ[\"VQ-VAE 码本<br/>每轨迹 k=4 个 latent token\"]\n        DEC[\"正动力学解码器\"]\n        ENC ==> VQ ==> DEC\n    end\n\n    subgraph S2[\"Stage 2: ViLLA 策略主干\"]\n        DIJ[\"DiJepa 视觉编码器\"]\n        QW2[\"Qwen2.5-VL 7B<br/>(MoE 路由专家)\"]\n        HEAD[\"动作专家头\"]\n    end\n\n    WEB --> ENC\n    ROB --> ENC\n    AGI --> ENC\n    ENC -.->|\"latent 动作条件\"| DIJ\n    VL ==> QW2\n    DIJ ==> QW2\n    QW2 ==> HEAD\n    HEAD ==>|\"连续动作 chunk\"| CTRL[\"G1 真机执行\"]\n    CTRL -.->|\"新观测\"| DIJ\n    VQ -.->|\"L_rec + L_dynamics\"| ENC\n\n    class WEB,VL,ROB data\n    class AGI data\n    class VQ key\n    class ENC,DEC train\n    class DIJ,QW2 frozen\n    class HEAD train\n    class CTRL act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

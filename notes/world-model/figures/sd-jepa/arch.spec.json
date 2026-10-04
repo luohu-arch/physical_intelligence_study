@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "noise",
    "cls": "env",
-   "x": 306,
-   "y": 150,
-   "w": 228,
-   "h": 104
+   "x": 313,
+   "y": 130,
+   "w": 230,
+   "h": 92
   },
   {
    "id": "SP",
    "label": "固定正交分解 (不可学习)\nP = 前 k 维, Q = 其余",
-   "sub": "两类防坍塌力的梯度支撑集正交",
+   "sub": "两类防坍塌力的梯度支撑集正",
    "icon": "spark",
    "cls": "key",
-   "x": 285,
-   "y": 352,
-   "w": 270,
-   "h": 138
+   "x": 283,
+   "y": 314,
+   "w": 290,
+   "h": 126
   },
   {
    "id": "ZP",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 400,
-   "y": 588,
-   "w": 267,
-   "h": 105
+   "x": 178,
+   "y": 532,
+   "w": 269,
+   "h": 93
   },
   {
    "id": "ZC",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 172,
-   "y": 588,
-   "w": 190,
-   "h": 105
+   "x": 486,
+   "y": 532,
+   "w": 192,
+   "h": 93
   },
   {
    "id": "SR",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 46,
-   "y": 808,
-   "w": 203,
-   "h": 105
+   "x": 289,
+   "y": 734,
+   "w": 205,
+   "h": 93
   },
   {
    "id": "TR",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 287,
-   "y": 808,
-   "w": 203,
-   "h": 105
+   "x": 44,
+   "y": 734,
+   "w": 205,
+   "h": 93
   },
   {
    "id": "ORTH",
@@ -72,21 +72,21 @@
    "sub": "加性组合 Push-T 96->97.3",
    "icon": "spark",
    "cls": "key",
-   "x": 288,
-   "y": 1027,
-   "w": 264,
-   "h": 138
+   "x": 285,
+   "y": 935,
+   "w": 286,
+   "h": 126
   },
   {
    "id": "TH",
-   "label": "theta_t = atan2(前两\n维)",
-   "sub": "任务相位罗盘\n事件定位 AUROC +0.176",
+   "label": "theta_t = atan2(前两维)\n任务相位罗盘",
+   "sub": "事件定位 AUROC +0.176",
    "icon": "gear",
    "cls": "env",
-   "x": 528,
-   "y": 791,
-   "w": 266,
-   "h": 155
+   "x": 534,
+   "y": 717,
+   "w": 278,
+   "h": 126
   }
  ],
  "edges": [
@@ -109,13 +109,21 @@
    "from": "ZC",
    "to": "SR",
    "style": "fb",
-   "label": "各向同性高斯匹配 只作用 z_cont"
+   "label": "\"各向同性高斯匹配 只作用 z_cont\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "ZP",
    "to": "TR",
    "style": "fb",
-   "label": "余弦间隔 triplet 沿轨迹排序 …"
+   "label": "\"余弦间隔 triplet 沿轨迹排序 late",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "SR",
@@ -135,17 +143,21 @@
  ],
  "panels": [],
  "canvas": [
-  840,
-  1349
+  856,
+  1151
  ],
  "legend": [
   "env",
   "key",
   "loss"
  ],
+ "layout_wh": [
+  856,
+  1151
+ ],
  "title": "sd-jepa",
  "subtitle": "在 LeWM 的 encoder-predictor + SIGReg 框架上插入一次固定的正交分解 $z_t = P z^{\\text{prog}}_t + Q z^{\\te",
  "foot": "sd-jepa · arXiv 2605.31111 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    Z[\"latent z_t, 维度 D\"] ==> SP[\"固定正交分解 (不可学习)<br/>P = 前 k 维, Q = 其余<br/>两类防坍塌力的梯度支撑集正交\"]\n    SP ==> ZP[\"z_prog: k 维<br/>进展几何 (2-8 维子空间)\"]\n    SP ==> ZC[\"z_cont: D-k 维<br/>内容几何\"]\n    ZC -.->|\"各向同性高斯匹配<br/>只作用 z_cont\"| SR[\"SIGReg 正则<br/>梯度只活在 col Q\"]\n    ZP -.->|\"余弦间隔 triplet<br/>沿轨迹排序 latent\"| TR[\"进展排序损失<br/>梯度只活在 col P\"]\n    SR --> ORTH[\"col P 垂直 col Q<br/>两种力不可互相补偿<br/>加性组合 Push-T 96->97.3\"]\n    TR --> ORTH\n    ZP ==> TH[\"theta_t = atan2(前两维)<br/>任务相位罗盘<br/>事件定位 AUROC +0.176\"]\n\n    class Z,ZP,ZC,TH env\n    class SP,ORTH key\n    class SR,TR loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

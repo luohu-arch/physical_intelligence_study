@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 306,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 48,
+   "y": 147,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "EN",
-   "label": "编码器 (与 LeWM 相同)",
+   "label": "编码器 (与 LeWM 相\n同)",
    "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 162,
-   "y": 352,
-   "w": 251,
-   "h": 104
+   "x": 259,
+   "y": 204,
+   "w": 225,
+   "h": 93
   },
   {
    "id": "A",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "data",
-   "x": 118,
-   "y": 150,
-   "w": 150,
-   "h": 104
+   "x": 44,
+   "y": 263,
+   "w": 149,
+   "h": 92
   },
   {
    "id": "FW",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 46,
-   "y": 773,
-   "w": 184,
-   "h": 104
+   "x": 780,
+   "y": 130,
+   "w": 186,
+   "h": 92
   },
   {
    "id": "ZT",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 118,
-   "y": 554,
-   "w": 150,
-   "h": 104
+   "x": 550,
+   "y": 147,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "LH",
@@ -61,21 +61,21 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 64,
-   "y": 992,
-   "w": 150,
-   "h": 104
+   "x": 1104,
+   "y": 130,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "IV",
-   "label": "逆动力学头 inv_psi (仅\n训练期)",
-   "sub": "z_t 与 z_t+1 -> hat a",
+   "label": "逆动力学头 inv_psi \n(仅训练期)",
+   "sub": "z_t 与 z_t+1 -> ha",
    "icon": "gear",
    "cls": "train",
-   "x": 268,
-   "y": 756,
-   "w": 261,
-   "h": 138
+   "x": 756,
+   "y": 246,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "ZZ",
@@ -83,32 +83,32 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 306,
-   "y": 554,
-   "w": 150,
-   "h": 104
+   "x": 550,
+   "y": 263,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "NC",
-   "label": "Action-NCE (InfoNCE)\n替代 SIGReg 免高斯假设",
-   "sub": "",
+   "label": "Action-NCE (InfoNC\nE)",
+   "sub": "替代 SIGReg 免高斯",
    "icon": "lightning",
    "cls": "key",
-   "x": 252,
-   "y": 992,
-   "w": 259,
-   "h": 105
+   "x": 1057,
+   "y": 246,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "SUM",
-   "label": "总损失 = L_fwd +\nlambda*L_NCE",
+   "label": "总损失 = L_fwd + l\nambda*L_NCE",
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 154,
-   "y": 1195,
-   "w": 266,
-   "h": 105
+   "x": 1356,
+   "y": 204,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "DR",
@@ -116,21 +116,21 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 188,
-   "y": 1398,
-   "w": 198,
-   "h": 104
+   "x": 1650,
+   "y": 205,
+   "w": 200,
+   "h": 92
   },
   {
    "id": "DP",
-   "label": "部署: 与 LeWM 同款\nencoder + predictor +",
-   "sub": "CEM 规划器\nOGBench Scene 80.0 vs SIGReg\n58.0",
+   "label": "部署: 与 LeWM 同款\nencoder + predicto",
+   "sub": "r + CEM 规划器",
    "icon": "eye",
    "cls": "loop",
-   "x": 157,
-   "y": 1600,
-   "w": 261,
-   "h": 172
+   "x": 1916,
+   "y": 188,
+   "w": 233,
+   "h": 126
   }
  ],
  "edges": [
@@ -158,7 +158,11 @@
    "from": "FW",
    "to": "LH",
    "style": "fb",
-   "label": "L_fwd: latent 预测 MSE"
+   "label": "\"L_fwd: latent 预测 MSE\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "ZT",
@@ -179,7 +183,11 @@
    "from": "IV",
    "to": "NC",
    "style": "fb",
-   "label": "batch 内 N 条动作中辨出真 a…"
+   "label": "\"batch 内 N 条动作中辨出真 a_t 让",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "A",
@@ -209,8 +217,8 @@
  ],
  "panels": [],
  "canvas": [
-  575,
-  1922
+  2193,
+  462
  ],
  "legend": [
   "data",
@@ -220,9 +228,13 @@
   "loss",
   "train"
  ],
+ "layout_wh": [
+  2193,
+  462
+ ],
  "title": "no-gaussian-required",
  "subtitle": "保留 LeWM 的前向 latent 预测目标 $\\mathcal L_{fwd}=\\|\\hat z_{t+1}-z_{t+1}\\|^2_2$，在训练期额外挂一个 MLP 逆动",
  "foot": "no-gaussian-required · arXiv 2608.17542 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    OT([\"观测 o_t\"]) ==> EN[\"编码器 (与 LeWM 相同)\"]\n    A([\"动作块 a_t\"]) ==> FW[\"前向预测器 fwd\"]\n    EN ==> ZT[\"z_t\"]\n    ZT ==> FW\n    FW -.->|\"L_fwd: latent 预测 MSE\"| LH[\"前向损失\"]\n    ZT ==> IV[\"逆动力学头 inv_psi (仅训练期)<br/>z_t 与 z_t+1 -> hat a\"]\n    EN ==> ZZ[\"z_t+1\"]\n    ZZ ==> IV\n    IV -.->|\"batch 内 N 条动作中辨出真 a_t<br/>让坍塌变成必然失败的判别题\"| NC[\"Action-NCE (InfoNCE)<br/>替代 SIGReg 免高斯假设\"]\n    A -.-> NC\n    LH --> SUM[\"总损失 = L_fwd + lambda*L_NCE\"]\n    NC --> SUM\n    SUM ==> DR[\"训练后丢弃逆分支\"]\n    DR ==> DP[\"部署: 与 LeWM 同款<br/>encoder + predictor + CEM 规划器<br/>OGBench Scene 80.0 vs SIGReg 58.0\"]\n\n    class OT,A data\n    class EN,FW,IV,DR train\n    class ZT,ZZ env\n    class NC key\n    class LH,SUM loss\n    class DP loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

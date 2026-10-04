@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "gear",
    "cls": "data",
-   "x": 644,
-   "y": 150,
-   "w": 246,
-   "h": 105
+   "x": 373,
+   "y": 130,
+   "w": 248,
+   "h": 93
   },
   {
    "id": "PRETRAIN",
-   "label": "预训练完整 latent 世界\n模型",
+   "label": "预训练完整 latent 世界模型",
    "sub": "",
-   "icon": "noise",
+   "icon": "graph",
    "cls": "train",
-   "x": 637,
-   "y": 370,
-   "w": 259,
-   "h": 105
+   "x": 353,
+   "y": 332,
+   "w": 290,
+   "h": 92
   },
   {
    "id": "ENC",
@@ -28,54 +28,54 @@
    "sub": "",
    "icon": "eye",
    "cls": "frozen",
-   "x": 348,
-   "y": 606,
-   "w": 247,
-   "h": 104
+   "x": 44,
+   "y": 550,
+   "w": 249,
+   "h": 92
   },
   {
    "id": "REW",
-   "label": "奖励模型 (冻结, 零样本\n迁移)",
+   "label": "奖励模型 (冻结, 零样本迁移\n)",
    "sub": "",
    "icon": "reward",
    "cls": "frozen",
-   "x": 633,
-   "y": 606,
-   "w": 256,
-   "h": 105
+   "x": 333,
+   "y": 550,
+   "w": 290,
+   "h": 93
   },
   {
    "id": "VAL",
-   "label": "价值模型 (冻结, 零样本\n迁移)",
+   "label": "价值模型 (冻结, 零样本迁移\n)",
    "sub": "",
    "icon": "brain",
    "cls": "frozen",
-   "x": 927,
-   "y": 606,
-   "w": 256,
-   "h": 105
+   "x": 663,
+   "y": 550,
+   "w": 290,
+   "h": 93
   },
   {
    "id": "DYN",
-   "label": "动力学模型 (唯一可微调\n项)",
-   "sub": "gap 集中在 dynamics 的假设",
+   "label": "动力学模型 (唯一可微调项)\ngap 集中在 dynamics 的假",
+   "sub": "设",
    "icon": "gear",
    "cls": "key",
-   "x": 46,
-   "y": 589,
-   "w": 264,
-   "h": 138
+   "x": 993,
+   "y": 533,
+   "w": 284,
+   "h": 126
   },
   {
    "id": "REAL",
-   "label": "真实机器人 15-30 分钟\n数据",
+   "label": "真实机器人 15-30 分钟数据",
    "sub": "",
    "icon": "robot",
    "cls": "data",
-   "x": 339,
-   "y": 150,
-   "w": 267,
-   "h": 105
+   "x": 661,
+   "y": 130,
+   "w": 287,
+   "h": 92
   },
   {
    "id": "FINETUNE",
@@ -83,10 +83,10 @@
    "sub": "加像素重构损失反掉到 0.32",
    "icon": "camera",
    "cls": "train",
-   "x": 333,
-   "y": 353,
-   "w": 266,
-   "h": 138
+   "x": 683,
+   "y": 315,
+   "w": 285,
+   "h": 126
   },
   {
    "id": "PLANNER",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 530,
-   "y": 825,
-   "w": 169,
-   "h": 104
+   "x": 575,
+   "y": 751,
+   "w": 171,
+   "h": 92
   },
   {
    "id": "ACTION",
@@ -105,10 +105,10 @@
    "sub": "真机吞吐提升 1.5-2x",
    "icon": "lightning",
    "cls": "act",
-   "x": 499,
-   "y": 1027,
-   "w": 231,
-   "h": 138
+   "x": 544,
+   "y": 935,
+   "w": 233,
+   "h": 126
   }
  ],
  "edges": [
@@ -135,10 +135,7 @@
   {
    "from": "PRETRAIN",
    "to": "DYN",
-   "style": "thick",
-   "out": "left",
-   "in": "left",
-   "k": 60
+   "style": "thick"
   },
   {
    "from": "REAL",
@@ -178,8 +175,8 @@
  ],
  "panels": [],
  "canvas": [
-  1229,
-  1349
+  1321,
+  1151
  ],
  "legend": [
   "act",
@@ -189,9 +186,13 @@
   "loop",
   "train"
  ],
+ "layout_wh": [
+  1321,
+  1151
+ ],
  "title": "simdist",
  "subtitle": "SimDist 提出仿真蒸馏框架：在仿真中预训练完整世界模型管线（编码器 + 动力学 + 奖励 + 价值），将结构化先验蒸馏到 latent world model。真实部署时",
  "foot": "simdist · arXiv 2603.15759 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    SIM([\"仿真环境 (丰富动力学)<br/>特权专家产数据\"]) ==> PRETRAIN[\"预训练完整 latent 世界模型\"]\n    PRETRAIN ==> ENC[\"编码器 (冻结, 零迁移)\"]\n    PRETRAIN ==> REW[\"奖励模型 (冻结, 零样本迁移)\"]\n    PRETRAIN ==> VAL[\"价值模型 (冻结, 零样本迁移)\"]\n    PRETRAIN ==> DYN[\"动力学模型 (唯一可微调项)<br/>gap 集中在 dynamics 的假设\"]\n    REAL([\"真实机器人 15-30 分钟数据\"]) ==> FINETUNE[\"仅微调 latent dynamics<br/>等价于系统辨识<br/>加像素重构损失反掉到 0.32\"]\n    FINETUNE ==> DYN\n    ENC ==> PLANNER[\"在线 Planner\"]\n    REW ==> PLANNER\n    VAL ==> PLANNER\n    DYN ==> PLANNER\n    PLANNER ==> ACTION[\"动作输出<br/>Peg Insertion 0.90<br/>真机吞吐提升 1.5-2x\"]\n\n    class SIM,REAL data\n    class ENC,REW,VAL frozen\n    class PRETRAIN,FINETUNE train\n    class DYN key\n    class PLANNER loop\n    class ACTION act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

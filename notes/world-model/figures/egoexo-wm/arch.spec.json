@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 46,
-   "y": 150,
-   "w": 223,
-   "h": 104
+   "x": 44,
+   "y": 146,
+   "w": 225,
+   "h": 92
   },
   {
    "id": "B",
-   "label": "SAM-Body4D 人体姿态\nMHR -> SMPL-X",
-   "sub": "视角无关的动作坐标系",
-   "icon": "lightning",
+   "label": "SAM-Body4D 人体姿\n态",
+   "sub": "MHR -> SMPL-X",
+   "icon": "spark",
    "cls": "key",
-   "x": 70,
-   "y": 353,
-   "w": 234,
-   "h": 138
+   "x": 335,
+   "y": 130,
+   "w": 218,
+   "h": 126
   },
   {
    "id": "C",
@@ -28,43 +28,43 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 342,
-   "y": 370,
-   "w": 205,
-   "h": 104
+   "x": 340,
+   "y": 280,
+   "w": 207,
+   "h": 92
   },
   {
    "id": "D",
-   "label": "EgoX-Body 转换器\n骨架叠加 + ego 手部先验",
-   "sub": "Wan DiT + LoRA",
+   "label": "EgoX-Body 转换器\n骨架叠加 + ego 手部",
+   "sub": "先验",
    "icon": "noise",
    "cls": "key",
-   "x": 175,
-   "y": 589,
-   "w": 267,
-   "h": 138
+   "x": 619,
+   "y": 188,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "E",
-   "label": "时域降采样 16->8Hz\n裁剪 85%, resize 224",
-   "sub": "",
+   "label": "时域降采样 16->8Hz\n裁剪 85%, resize 2",
+   "sub": "24",
    "icon": "db",
    "cls": "data",
-   "x": 184,
-   "y": 825,
-   "w": 248,
-   "h": 105
+   "x": 918,
+   "y": 188,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "G",
-   "label": "冻结 DINOv3-L 编码器\nz_t patch tokens",
-   "sub": "",
+   "label": "冻结 DINOv3-L 编码\n器",
+   "sub": "z_t patch tokens",
    "icon": "eye",
    "cls": "frozen",
-   "x": 187,
-   "y": 1028,
-   "w": 243,
-   "h": 105
+   "x": 1214,
+   "y": 188,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "F",
@@ -72,21 +72,21 @@
    "sub": "",
    "icon": "graph",
    "cls": "train",
-   "x": 205,
-   "y": 1231,
-   "w": 207,
-   "h": 105
+   "x": 1507,
+   "y": 204,
+   "w": 209,
+   "h": 93
   },
   {
    "id": "H",
-   "label": "Nymeria 真实 ego 数据<\nbr/",
+   "label": "Nymeria 真实 ego \n数据<br/",
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 307,
-   "y": 150,
-   "w": 264,
-   "h": 105
+   "x": 46,
+   "y": 262,
+   "w": 220,
+   "h": 93
   },
   {
    "id": "LOSS",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 108,
-   "y": 1434,
-   "w": 150,
-   "h": 104
+   "x": 1820,
+   "y": 147,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "I",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "noise",
    "cls": "env",
-   "x": 296,
-   "y": 1434,
-   "w": 213,
-   "h": 104
+   "x": 1782,
+   "y": 263,
+   "w": 215,
+   "h": 92
   },
   {
    "id": "J",
@@ -116,21 +116,21 @@
    "sub": "运动先验负责提议",
    "icon": "noise",
    "cls": "act",
-   "x": 192,
-   "y": 1636,
-   "w": 233,
-   "h": 138
+   "x": 2063,
+   "y": 188,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "K",
    "label": "想象 rollout 2s\n取到目标 latent L2",
-   "sub": "最小者\nWM 只当裁判不开车",
+   "sub": " 最小者",
    "icon": "graph",
    "cls": "loop",
-   "x": 182,
-   "y": 1872,
-   "w": 253,
-   "h": 155
+   "x": 2364,
+   "y": 188,
+   "w": 227,
+   "h": 126
   }
  ],
  "edges": [
@@ -142,10 +142,7 @@
   {
    "from": "A",
    "to": "C",
-   "style": "main",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "style": "main"
   },
   {
    "from": "B",
@@ -161,7 +158,11 @@
    "from": "D",
    "to": "E",
    "style": "thick",
-   "label": "合成 ego 视频"
+   "label": "\"合成 ego 视频\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "E",
@@ -172,7 +173,11 @@
    "from": "B",
    "to": "F",
    "style": "thick",
-   "label": "69 维动作 a_t 一份数据两用"
+   "label": "\"69 维动作 a_t 一份数据两用\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "G",
@@ -188,7 +193,11 @@
    "from": "F",
    "to": "LOSS",
    "style": "fb",
-   "label": "L_latent + L_wrist 腕部 he…"
+   "label": "\"L_latent + L_wrist 腕部 h",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "F",
@@ -210,14 +219,14 @@
   {
    "label": "互联网 exo 视频转化为 ego 母语",
    "x": 20,
-   "y": 103,
-   "w": 553,
-   "h": 1099
+   "y": 86,
+   "w": 1445,
+   "h": 306
   }
  ],
  "canvas": [
-  617,
-  2194
+  2635,
+  462
  ],
  "legend": [
   "act",
@@ -229,9 +238,13 @@
   "loss",
   "train"
  ],
+ "layout_wh": [
+  2635,
+  462
+ ],
  "title": "egoexo-wm",
  "subtitle": "ego 世界模型被「ego 数据稀缺 + ego 视角身体大部分不可见（动作标注难）」双重卡死的问题，被 EgoExo-WM 用「3D 人体姿态当桥」解决：从海量第三方视角视频",
  "foot": "egoexo-wm · arXiv 2605.15477 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph EXO[\"互联网 exo 视频转化为 ego 母语\"]\n        A[(Exo 互联网视频<br/>HowTo100M / CrossTask / 100DaysOfHands)] --> B[\"SAM-Body4D 人体姿态<br/>MHR -> SMPL-X<br/>视角无关的动作坐标系\"]\n        A --> C[\"ViPE 4D 场景重建\"]\n        B ==> D[\"EgoX-Body 转换器<br/>骨架叠加 + ego 手部先验<br/>Wan DiT + LoRA\"]\n        C ==> D\n        D ==>|\"合成 ego 视频\"| E[\"时域降采样 16->8Hz<br/>裁剪 85%, resize 224\"]\n        E ==> G[\"冻结 DINOv3-L 编码器<br/>z_t patch tokens\"]\n    end\n\n    B ==>|\"69 维动作 a_t<br/>一份数据两用\"| F[\"世界模型 f_theta<br/>CDiT-L/2, 可训练\"]\n    G ==> F\n    H[(Nymeria 真实 ego 数据<br/>190h + Xsens 动捕)] ==> F\n    F -.->|\"L_latent + L_wrist<br/>腕部 heatmap 当缰绳\"| LOSS[\"预测损失\"]\n    F ==> I[\"预测的下一 latent\"]\n    I ==> J[\"UniEgoMotion 采样<br/>N=4 候选, 视野 8 帧<br/>运动先验负责提议\"]\n    J ==> K[\"想象 rollout 2s<br/>取到目标 latent L2 最小者<br/>WM 只当裁判不开车\"]\n\n    class A,H data\n    class B,D key\n    class C train\n    class G frozen\n    class E data\n    class F train\n    class LOSS loss\n    class I env\n    class J act\n    class K loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f"
 }

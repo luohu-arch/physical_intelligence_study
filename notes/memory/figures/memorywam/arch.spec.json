@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "CLEAN",
-   "label": "当前 clean latent\nz_t<br/",
+   "label": "当前 clean latent \nz_t<br/",
    "sub": "",
    "icon": "noise",
    "cls": "loop",
-   "x": 46,
-   "y": 439,
-   "w": 267,
-   "h": 105
+   "x": 20,
+   "y": 130,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "NOISY",
-   "label": "加噪 latent 视频预测目\n标<br/",
+   "label": "加噪 latent 视频预\n测目标<br/",
    "sub": "",
    "icon": "noise",
    "cls": "loop",
-   "x": 50,
-   "y": 729,
-   "w": 259,
-   "h": 105
+   "x": 284,
+   "y": 130,
+   "w": 225,
+   "h": 93
   },
   {
    "id": "ANCHOR",
@@ -28,54 +28,54 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 70,
-   "y": 295,
-   "w": 218,
-   "h": 104
+   "x": 542,
+   "y": 130,
+   "w": 220,
+   "h": 92
   },
   {
    "id": "RECENT",
-   "label": "近期滑动窗\nN_recent=4<br/",
+   "label": "近期滑动窗 N_recent\n=4<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 48,
-   "y": 874,
-   "w": 262,
-   "h": 105
+   "x": 796,
+   "y": 130,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "GIST",
-   "label": "Gist token 每帧\nM_v=8<br/",
+   "label": "Gist token 每帧 M_\nv=8<br/",
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 46,
-   "y": 584,
-   "w": 267,
-   "h": 105
+   "x": 1064,
+   "y": 130,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "VDIT",
-   "label": "Video DiT Wan2.2 约\n5B<br/",
+   "label": "Video DiT Wan2.2 \n约 5B<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 421,
-   "y": 512,
-   "w": 259,
-   "h": 105
+   "x": 677,
+   "y": 283,
+   "w": 224,
+   "h": 93
   },
   {
    "id": "ADIT",
-   "label": "Action DiT 约 1B<br/",
+   "label": "Action DiT 约 1B<b\nr/",
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 788,
-   "y": 512,
-   "w": 249,
-   "h": 104
+   "x": 673,
+   "y": 436,
+   "w": 232,
+   "h": 93
   },
   {
    "id": "ACTOUT",
@@ -83,21 +83,21 @@
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 1145,
-   "y": 512,
-   "w": 233,
-   "h": 104
+   "x": 672,
+   "y": 589,
+   "w": 235,
+   "h": 92
   },
   {
    "id": "ALOSS",
-   "label": "动作 flow-matching\n损失",
+   "label": "动作 flow-matching\n 损失",
    "sub": "",
-   "icon": "lightning",
+   "icon": "sigma",
    "cls": "loop",
-   "x": 52,
-   "y": 150,
-   "w": 256,
-   "h": 105
+   "x": 1328,
+   "y": 130,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "ROBOT",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 1486,
-   "y": 512,
-   "w": 165,
-   "h": 104
+   "x": 706,
+   "y": 741,
+   "w": 167,
+   "h": 92
   }
  ],
  "edges": [
@@ -116,13 +116,21 @@
    "from": "CLEAN",
    "to": "VDIT",
    "style": "thick",
-   "label": "看锚帧加近期帧加全部 gist"
+   "label": "看锚帧加近期帧加全部 gist",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "VDIT",
    "to": "ADIT",
    "style": "thick",
-   "label": "缓存 video key 同一位置空间"
+   "label": "缓存 video key 同一位置空间",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "RECENT",
@@ -153,29 +161,33 @@
  "panels": [
   {
    "label": "三层混合记忆 KV cache",
-   "x": 20,
-   "y": 248,
-   "w": 319,
-   "h": 755
+   "x": 518,
+   "y": 86,
+   "w": 800,
+   "h": 157
   },
   {
    "label": "MoT 双 DiT 共享 3D RoPE",
-   "x": 395,
-   "y": 465,
-   "w": 668,
-   "h": 176
+   "x": 649,
+   "y": 239,
+   "w": 280,
+   "h": 310
   }
  ],
  "canvas": [
-  1697,
-  1121
+  1578,
+  923
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  1578,
+  923
+ ],
  "title": "memorywam",
  "subtitle": "MemoryWAM 提出三层混合记忆：4 帧滑动窗口（短期高保真, N_recent=4）、2 帧任务起始锚帧（事件边界, N_init=2）、8 个可学习 Gist toke",
  "foot": "memorywam · arXiv 2606.20562 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    CLEAN[当前 clean latent z_t<br/>推理仅单次前向不生成视频]:::data\n    NOISY[加噪 latent 视频预测目标<br/>仅训练期]:::loss\n\n    subgraph STORES[\"三层混合记忆 KV cache\"]\n        ANCHOR[锚帧 N_init=2<br/>任务起始完整视觉 token]:::mem\n        RECENT[近期滑动窗 N_recent=4<br/>高保真闭环控制]:::mem\n        GIST[Gist token 每帧 M_v=8<br/>可学习参数 15 倍压缩长历史]:::key\n    end\n\n    subgraph MOT[\"MoT 双 DiT 共享 3D RoPE\"]\n        VDIT[Video DiT Wan2.2 约 5B<br/>处理观测并维护记忆缓存]:::train\n        ADIT[Action DiT 约 1B<br/>从缓存解码动作]:::act\n    end\n\n    ANCHOR -.仅自注意力 场景锚点不被污染.-> VDIT\n    RECENT -.看自身加锚帧.-> VDIT\n    GIST -.看自身加锚帧加近期帧.-> VDIT\n    CLEAN ==>|看锚帧加近期帧加全部 gist| VDIT\n    NOISY -.视频 flow-matching 损失.-> VDIT\n    VDIT ==>|缓存 video key 同一位置空间| ADIT\n    ANCHOR -.动作去噪 attend 全部历史.-> ADIT\n    RECENT -.-> ADIT\n    GIST -.-> ADIT\n    ACTOUT([16 步双臂动作 chunk]):::act\n    ADIT ==> ACTOUT\n    ALOSS[动作 flow-matching 损失]:::loss\n    ALOSS -.-> ADIT\n    ROBOT([ARX 双臂执行]):::env\n    ACTOUT ==> ROBOT\n    ROBOT -.新观测单次前向更新记忆.-> CLEAN\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

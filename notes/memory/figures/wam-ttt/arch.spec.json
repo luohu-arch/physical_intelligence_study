@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "HVID",
-   "label": "人类 GoPro 第一视角视频\n<br/",
+   "label": "人类 GoPro 第一视角\n视频<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
    "x": 46,
-   "y": 166,
-   "w": 267,
-   "h": 105
+   "y": 237,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "ROBS",
-   "label": "机器人多视角 RGB + 本体\n状态 + 语言",
+   "label": "机器人多视角 RGB + \n本体状态 + 语言",
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 1169,
-   "y": 166,
-   "w": 267,
-   "h": 105
+   "x": 46,
+   "y": 111,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "VLMC",
@@ -28,54 +28,54 @@
    "sub": "",
    "icon": "brain",
    "cls": "loop",
-   "x": 816,
-   "y": 403,
-   "w": 150,
-   "h": 104
+   "x": 388,
+   "y": 305,
+   "w": 149,
+   "h": 92
   },
   {
    "id": "VE",
-   "label": "video expert DiT<br/",
+   "label": "video expert DiT<b\nr/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 616,
-   "y": 825,
-   "w": 251,
-   "h": 104
+   "x": 935,
+   "y": 380,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "AE",
-   "label": "action expert DiT<br/",
+   "label": "action expert DiT<\nbr/",
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 610,
-   "y": 1027,
-   "w": 261,
-   "h": 104
+   "x": 1234,
+   "y": 380,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "TTT",
-   "label": "部署时内循环 SGD\nW_(i+1) = W_i - eta *",
-   "sub": "grad L_adapt",
+   "label": "部署时内循环 SGD\nW_(i+1) = W_i - et",
+   "sub": "a * grad L_adapt",
    "icon": "refresh",
    "cls": "loop",
-   "x": 516,
-   "y": 386,
-   "w": 261,
-   "h": 138
+   "x": 346,
+   "y": 421,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "FW",
-   "label": "TTT fast weights 快速\n权重记忆<br/",
+   "label": "TTT fast weights \n快速权重记忆<br/",
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 612,
-   "y": 622,
-   "w": 258,
-   "h": 105
+   "x": 645,
+   "y": 380,
+   "w": 224,
+   "h": 93
   },
   {
    "id": "LTT",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 653,
-   "y": 167,
-   "w": 220,
-   "h": 104
+   "x": 51,
+   "y": 364,
+   "w": 222,
+   "h": 92
   },
   {
    "id": "META",
@@ -94,21 +94,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 911,
-   "y": 167,
-   "w": 220,
-   "h": 104
+   "x": 51,
+   "y": 490,
+   "w": 222,
+   "h": 92
   },
   {
    "id": "ICL",
    "label": "对照 WAM-ICL\n同一视频塞进上下文仅",
-   "sub": "7.1 百分比",
+   "sub": " 7.1 百分比",
    "icon": "db",
    "cls": "loop",
-   "x": 351,
-   "y": 150,
-   "w": 264,
-   "h": 138
+   "x": 44,
+   "y": 615,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "ACT",
@@ -116,21 +116,21 @@
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 648,
-   "y": 1229,
-   "w": 185,
-   "h": 104
+   "x": 1533,
+   "y": 380,
+   "w": 187,
+   "h": 92
   },
   {
    "id": "ROBOT",
-   "label": "G1 人形 / Galbot 夹爪 \n/",
-   "sub": "22-DoF 灵巧手",
+   "label": "G1 人形 / Galbot \n夹爪 / 22-DoF 灵巧",
+   "sub": "手",
    "icon": "robot",
    "cls": "loop",
-   "x": 609,
-   "y": 1431,
-   "w": 264,
-   "h": 138
+   "x": 1786,
+   "y": 363,
+   "w": 227,
+   "h": 126
   }
  ],
  "edges": [
@@ -153,7 +153,11 @@
    "from": "FW",
    "to": "VE",
    "style": "thick",
-   "label": "rollout 期间固定 注入视频流残差"
+   "label": "rollout 期间固定 注入视频流残差",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "ROBS",
@@ -184,22 +188,26 @@
  "panels": [
   {
    "label": "LDA 基座 WAM 部署期全部冻结",
-   "x": 584,
-   "y": 339,
-   "w": 407,
-   "h": 816
+   "x": 364,
+   "y": 261,
+   "w": 1127,
+   "h": 232
   }
  ],
  "canvas": [
-  1482,
-  1720
+  2057,
+  812
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  2057,
+  812
+ ],
  "title": "wam-ttt",
  "subtitle": "WAM-TTT 是面向具身世界模型的测试时训练框架：机器人部署后只需一段未标注的人类第一视角操作视频，就能通过视频预测自监督损失把人类行为\"吸收\"进轻量级 TTT fast w",
  "foot": "wam-ttt · arXiv 2607.06988 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    HVID[人类 GoPro 第一视角视频<br/>无动作/姿态标注]:::data\n    ROBS[机器人多视角 RGB + 本体状态 + 语言]:::data\n\n    subgraph LDA[\"LDA 基座 WAM 部署期全部冻结\"]\n        VLMC[VLM 条件化]:::frozen\n        VE[video expert DiT<br/>每个块挂 TTT 残差分支]:::frozen\n        AE[action expert DiT<br/>经 joint attention 通信]:::frozen\n    end\n\n    TTT[\"部署时内循环 SGD<br/>W_(i+1) = W_i - eta * grad L_adapt\"]:::key\n    FW[TTT fast weights 快速权重记忆<br/>人类行为吸收进权重 分钟-小时级世界模型适应]:::mem\n    LTT[自监督适应损失<br/>L_vg 视频预测 + lambda * L_KVM 记忆重建]:::loss\n    META[人机配对元训练<br/>2286 条 episode 相位对齐学 Q/K/V 接口]:::key\n    ICL[\"对照 WAM-ICL<br/>同一视频塞进上下文仅 7.1 百分比\"]:::loop\n\n    HVID ==> TTT\n    HVID -.塞进上下文对照 吸收进权重达 46.2.-> ICL\n    LTT -.-> TTT\n    META -.预对齐人类 Key Value 与机器人 Query.-> TTT\n    TTT ==> FW\n    FW ==>|rollout 期间固定 注入视频流残差| VE\n    ROBS ==> VLMC\n    VLMC ==> VE\n    VE ==> AE\n    ACT([连续动作 chunk]):::act\n    AE ==> ACT\n    ROBOT([G1 人形 / Galbot 夹爪 / 22-DoF 灵巧手]):::env\n    ACT ==> ROBOT\n    ROBOT -.人类演示任务变体或纠错 不中断部署持续吸收.-> HVID\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

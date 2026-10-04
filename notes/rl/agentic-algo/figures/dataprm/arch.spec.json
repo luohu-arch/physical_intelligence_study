@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "CRAWL",
-   "label": "AutoSDT GitHub 抓取任\n务与文件",
+   "label": "AutoSDT GitHub 抓\n取任务与文件",
    "sub": "+ 人类专家修订",
    "icon": "refresh",
    "cls": "loop",
-   "x": 355,
-   "y": 150,
-   "w": 256,
-   "h": 138
+   "x": 310,
+   "y": 130,
+   "w": 222,
+   "h": 126
   },
   {
    "id": "QUERY",
-   "label": "DeepSeek-V3.2 合成推理\n型查询",
+   "label": "DeepSeek-V3.2 合成\n推理型查询",
    "sub": "",
    "icon": "brain",
    "cls": "loop",
-   "x": 351,
-   "y": 386,
-   "w": 264,
-   "h": 105
+   "x": 306,
+   "y": 316,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "SAMP",
-   "label": "policy Qwen3-235B 每查\n询并行采 K=4 条轨迹",
-   "sub": "",
+   "label": "policy Qwen3-235B \n每查询并行采 K=4 条",
+   "sub": "轨迹",
    "icon": "brain",
    "cls": "loop",
-   "x": 350,
-   "y": 589,
-   "w": 267,
-   "h": 105
+   "x": 304,
+   "y": 469,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "JUDGE",
@@ -39,131 +39,131 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 387,
-   "y": 792,
-   "w": 192,
-   "h": 104
+   "x": 324,
+   "y": 655,
+   "w": 194,
+   "h": 92
   },
   {
    "id": "SPLIT",
-   "label": "步级切分 + Qwen3-235B\n初标注",
+   "label": "步级切分 + Qwen3-2\n35B 初标注",
    "sub": "",
    "icon": "brain",
    "cls": "loop",
-   "x": 351,
-   "y": 994,
-   "w": 264,
-   "h": 105
+   "x": 307,
+   "y": 807,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "MERGE",
-   "label": "AutoManual 合并错误类别\n人工核验 (86.0%,",
-   "sub": "kappa=0.83) 注回 few- shot",
+   "label": "AutoManual 合并错\n误类别",
+   "sub": "人工核验 (86.0%, k",
    "icon": "refresh",
    "cls": "loop",
-   "x": 351,
-   "y": 1197,
-   "w": 264,
-   "h": 138
+   "x": 307,
+   "y": 960,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "TAG",
-   "label": "DeepSeek-V3.2 打三元分\n1 严格正确 / 0.5 可修正",
-   "sub": "试错 / 0 不可恢复",
+   "label": "DeepSeek-V3.2 打三\n元分",
+   "sub": "1 严格正确 / 0.5 可",
    "icon": "refresh",
    "cls": "loop",
-   "x": 348,
-   "y": 1433,
-   "w": 269,
-   "h": 138
+   "x": 303,
+   "y": 1146,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "SFT",
-   "label": "SFT 训 DataPRM 4B (\nms-swift)",
+   "label": "SFT 训 DataPRM 4B \n(ms-swift)",
    "sub": "7K+ 边界样本",
    "icon": "refresh",
    "cls": "loop",
-   "x": 354,
-   "y": 1669,
-   "w": 259,
-   "h": 138
+   "x": 304,
+   "y": 1332,
+   "w": 232,
+   "h": 126
   },
   {
    "id": "PRM",
-   "label": "DataPRM 4B (核心):\nenvironment-aware 生成",
-   "sub": "式 PRM\n与 policy 同 ReAct 范式, 验证\n反馈元组跨步拼接",
+   "label": "DataPRM 4B (核心):\n environment-aware",
+   "sub": " 生成式 PRM",
    "icon": "gear",
    "cls": "loop",
-   "x": 350,
-   "y": 1905,
-   "w": 267,
-   "h": 172
+   "x": 304,
+   "y": 1518,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "SANDBOX",
-   "label": "代码解释器 + 隔离文件系\n统沙箱",
-   "sub": "主动跑探查代码核对中间状态 (抓\nsilent error)",
+   "label": "代码解释器 + 隔离文\n件系统沙箱",
+   "sub": "主动跑探查代码核对中",
    "icon": "refresh",
    "cls": "loop",
-   "x": 351,
-   "y": 2141,
-   "w": 270,
-   "h": 155
+   "x": 44,
+   "y": 1704,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "TOOL",
-   "label": "query_document /\nquery_image 工具",
+   "label": "query_document / q\nuery_image 工具",
    "sub": "补长文档与多模态感知",
    "icon": "camera",
    "cls": "loop",
-   "x": 659,
-   "y": 2141,
-   "w": 261,
-   "h": 138
+   "x": 561,
+   "y": 1704,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "POL",
-   "label": "数据分析 policy (ReAct\n写代码)",
-   "sub": "BoN 场景 235B / RL 场景\nQwen2.5-Coder-7B",
+   "label": "数据分析 policy (R\neAct 写代码)",
+   "sub": "BoN 场景 235B / RL",
    "icon": "lightning",
    "cls": "loop",
-   "x": 351,
-   "y": 2377,
-   "w": 264,
-   "h": 155
+   "x": 306,
+   "y": 1890,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "TTS",
-   "label": "TTS 消费: Best-of-N /\nBeam / DVTS",
-   "sub": "按步分聚合选轨迹, 保护先试错后\n收敛",
+   "label": "TTS 消费: Best-of-\nN / Beam / DVTS",
+   "sub": "按步分聚合选轨迹, ",
    "icon": "refresh",
    "cls": "loop",
-   "x": 350,
-   "y": 2613,
-   "w": 267,
-   "h": 155
+   "x": 306,
+   "y": 2076,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "RL",
-   "label": "RL 消费: GRPO + clip-\nhigher",
-   "sub": "r_total = (1-beta)*outcome +\nbeta*PRM 均值, 终步覆写",
-   "icon": "eye",
+   "label": "RL 消费: GRPO + cl\nip-higher",
+   "sub": "r_total = (1-beta)",
+   "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 2141,
-   "w": 267,
-   "h": 155
+   "x": 304,
+   "y": 1704,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ACC",
-   "label": "BoN: DABStep\n40.89@N=16 唯一单调升,",
-   "sub": "4B 压 32B/72B\nRL: DABench 78.73%, 训练熵\n0.18 不塌缩",
+   "label": "BoN: DABStep 40.89\n@N=16 唯一单调升, 4",
+   "sub": "B 压 32B/72B",
    "icon": "refresh",
    "cls": "loop",
-   "x": 352,
-   "y": 2849,
-   "w": 261,
-   "h": 172
+   "x": 303,
+   "y": 2262,
+   "w": 235,
+   "h": 126
   }
  ],
  "edges": [
@@ -186,18 +186,26 @@
    "from": "JUDGE",
    "to": "SAMP",
    "style": "fb",
-   "label": "全一致: 无判别信号, 丢弃重采",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"全一致: 无判别信号, 丢弃重采\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "JUDGE",
    "to": "SPLIT",
    "style": "thick",
-   "label": "多样: 保留边界样本"
+   "label": "\"多样: 保留边界样本\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "SPLIT",
@@ -223,80 +231,100 @@
    "from": "POL",
    "to": "PRM",
    "style": "thick",
-   "label": "完整轨迹 h_t + 当前步",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"完整轨迹 h_t + 当前步\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "PRM",
    "to": "SANDBOX",
    "style": "fb",
-   "label": "写取证代码 (均值 0.87 次工具…"
+   "label": "\"写取证代码 (均值 0.87 次工具调用/步)",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "SANDBOX",
    "to": "PRM",
    "style": "fb",
-   "label": "中间执行状态观测",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"中间执行状态观测\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "PRM",
    "to": "TOOL",
    "style": "fb",
-   "label": "查询手册 / 图像"
+   "label": "\"查询手册 / 图像\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "TOOL",
    "to": "PRM",
    "style": "fb",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "PRM",
    "to": "TTS",
    "style": "thick",
-   "label": "三元步分 + rationale"
+   "label": "\"三元步分 + rationale\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "POL",
    "to": "TTS",
    "style": "fb",
-   "label": "N 候选轨迹"
+   "label": "\"N 候选轨迹\""
   },
   {
    "from": "PRM",
    "to": "RL",
    "style": "fb",
-   "label": "过程奖励注入"
+   "label": "\"过程奖励注入\""
   },
   {
    "from": "POL",
    "to": "RL",
    "style": "fb",
-   "label": "rollout",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"rollout\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "RL",
    "to": "POL",
    "style": "fb",
-   "label": "更新 policy"
+   "label": "\"更新 policy\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "TTS",
@@ -311,15 +339,19 @@
  ],
  "panels": [],
  "canvas": [
-  966,
-  3171
+  841,
+  2478
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  841,
+  2478
+ ],
  "title": "dataprm",
  "subtitle": "用先导实验证明通用域 PRM 监督不了数据分析 agent——静态 PRM 抓不住\"解释器不报错但结果错误\"的 silent error，还会把必要的试错探索（groundin",
  "foot": "dataprm · arXiv 2604.24198 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    CRAWL[\"AutoSDT GitHub 抓取任务与文件<br/>+ 人类专家修订\"]:::data\n    QUERY[\"DeepSeek-V3.2 合成推理型查询\"]:::frozen\n    SAMP[\"policy Qwen3-235B 每查询并行采 K=4 条轨迹\"]:::frozen\n    JUDGE{\"4 条终答全一致?\"}:::reward\n    SPLIT[\"步级切分 + Qwen3-235B 初标注\"]:::frozen\n    MERGE[\"AutoManual 合并错误类别<br/>人工核验 (86.0%, kappa=0.83) 注回 few-shot\"]:::mem\n    TAG[\"DeepSeek-V3.2 打三元分<br/>1 严格正确 / 0.5 可修正试错 / 0 不可恢复\"]:::reward\n    SFT[\"SFT 训 DataPRM 4B (ms-swift)<br/>7K+ 边界样本\"]:::loss\n\n    PRM[\"DataPRM 4B (核心): environment-aware 生成式 PRM<br/>与 policy 同 ReAct 范式, 验证反馈元组跨步拼接\"]:::key\n    SANDBOX[\"代码解释器 + 隔离文件系统沙箱<br/>主动跑探查代码核对中间状态 (抓 silent error)\"]:::env\n    TOOL[\"query_document / query_image 工具<br/>补长文档与多模态感知\"]:::act\n    POL[\"数据分析 policy (ReAct 写代码)<br/>BoN 场景 235B / RL 场景 Qwen2.5-Coder-7B\"]:::train\n    TTS[\"TTS 消费: Best-of-N / Beam / DVTS<br/>按步分聚合选轨迹, 保护先试错后收敛\"]:::loop\n    RL[\"RL 消费: GRPO + clip-higher<br/>r_total = (1-beta)*outcome + beta*PRM 均值, 终步覆写\"]:::loss\n    ACC([\"BoN: DABStep 40.89@N=16 唯一单调升, 4B 压 32B/72B<br/>RL: DABench 78.73%, 训练熵 0.18 不塌缩\"]):::data\n\n    CRAWL ==> QUERY ==> SAMP ==> JUDGE\n    JUDGE -.->|\"全一致: 无判别信号, 丢弃重采\"| SAMP\n    JUDGE ==>|\"多样: 保留边界样本\"| SPLIT\n    SPLIT ==> MERGE ==> TAG ==> SFT\n    SFT ==> PRM\n    POL ==>|\"完整轨迹 h_t + 当前步\"| PRM\n    PRM -.->|\"写取证代码 (均值 0.87 次工具调用/步)\"| SANDBOX\n    SANDBOX -.->|\"中间执行状态观测\"| PRM\n    PRM -.->|\"查询手册 / 图像\"| TOOL\n    TOOL -.-> PRM\n    PRM ==>|\"三元步分 + rationale\"| TTS\n    POL -.->|\"N 候选轨迹\"| TTS\n    PRM -.->|\"过程奖励注入\"| RL\n    POL -.->|\"rollout\"| RL\n    RL -.->|\"更新 policy\"| POL\n    TTS ==> ACC\n    RL ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

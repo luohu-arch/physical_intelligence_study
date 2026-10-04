@@ -2,124 +2,124 @@
  "nodes": [
   {
    "id": "POL",
-   "label": "被 RL 的策略 Qwen2.5\n0.5B-7B / Llama3.2 /",
-   "sub": "VL\nPPO / DAPO / GRPO / Dr.GRPO\n皆可插",
+   "label": "被 RL 的策略 Qwen2\n.5 0.5B-7B / Llama",
+   "sub": "3.2 / VL",
    "icon": "brain",
    "cls": "loop",
-   "x": 196,
-   "y": 150,
-   "w": 264,
-   "h": 172
+   "x": 174,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ENV",
-   "label": "七环境测试台: Sokoban \n/",
-   "sub": "FrozenLake /\nCountdown / SearchQA /\nWebShop / DeepCoder",
+   "label": "七环境测试台: Sokob\nan / FrozenLake / ",
+   "sub": "MetaMathQA /",
    "icon": "gear",
    "cls": "loop",
-   "x": 198,
-   "y": 386,
-   "w": 261,
-   "h": 172
+   "x": 174,
+   "y": 316,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ROL",
-   "label": "rollout: P=8 prompt x\nG=16 轨迹/迭代",
-   "sub": "(X, Z) 对复用训练数据",
-   "icon": "chat",
+   "label": "rollout: P=8 promp\nt x G=16 轨迹/迭代",
+   "sub": "(X, Z) 对复用训练数",
+   "icon": "refresh",
    "cls": "loop",
-   "x": 198,
-   "y": 622,
-   "w": 261,
-   "h": 138
+   "x": 174,
+   "y": 502,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "RV",
-   "label": "逐 prompt 奖励方差 RV\n信号强度上界 sqrt(RV)",
-   "sub": "",
+   "label": "逐 prompt 奖励方差 \nRV",
+   "sub": "信号强度上界 sqrt(R",
    "icon": "chat",
    "cls": "loop",
-   "x": 355,
-   "y": 874,
-   "w": 253,
-   "h": 105
+   "x": 44,
+   "y": 688,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "FILT",
-   "label": "SNR-Aware Top-p 过滤 (\nrho=0.9)",
-   "sub": "按方差累积质量保留最小前缀",
+   "label": "SNR-Aware Top-p 过\n滤 (rho=0.9)",
+   "sub": "按方差累积质量保留最",
    "icon": "refresh",
    "cls": "loop",
-   "x": 193,
-   "y": 1533,
-   "w": 270,
-   "h": 138
+   "x": 172,
+   "y": 1246,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "DROP",
-   "label": "滤除近零 RV prompt: 此\n处任务梯度趋零",
-   "sub": "reward-agnostic 的 KL/熵正\n则会主导更新",
+   "label": "滤除近零 RV prompt\n: 此处任务梯度趋零",
+   "sub": "reward-agnostic 的",
    "icon": "chat",
    "cls": "loop",
-   "x": 46,
-   "y": 1769,
-   "w": 262,
-   "h": 155
+   "x": 44,
+   "y": 1432,
+   "w": 232,
+   "h": 126
   },
   {
    "id": "UPD",
-   "label": "高信号子集上策略更新,\nloss 乘 rho",
+   "label": "高信号子集上策略更新\n, loss 乘 rho",
    "sub": "附带步时下降 26-41%",
-   "icon": "lightning",
+   "icon": "sigma",
    "cls": "loop",
-   "x": 346,
-   "y": 1769,
-   "w": 264,
-   "h": 138
+   "x": 300,
+   "y": 1432,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "MI",
-   "label": "MI proxy (核心): in-\nbatch cross-scoring",
-   "sub": "双轴分解 H(Z|X) 条件熵 x I(X;Z\n)\n互信息, 无需外部模型",
+   "label": "MI proxy (核心): i\nn-batch cross-scor",
+   "sub": "ing",
    "icon": "refresh",
    "cls": "loop",
-   "x": 48,
-   "y": 858,
-   "w": 269,
-   "h": 172
+   "x": 303,
+   "y": 688,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "DIAG",
-   "label": "Retrieval-Acc 跌向 1/P\n而条件熵仍高?",
-   "sub": "",
+   "label": "Retrieval-Acc 跌向\n 1/P",
+   "sub": "而条件熵仍高?",
    "icon": "refresh",
    "cls": "loop",
-   "x": 194,
-   "y": 1094,
-   "w": 267,
-   "h": 105
+   "x": 175,
+   "y": 874,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "ACT",
-   "label": "升高过滤压力 / 检查奖励\n信号",
-   "sub": "(MI 先于成功率下跌的预警窗)",
+   "label": "升高过滤压力 / 检查\n奖励信号",
+   "sub": "(MI 先于成功率下跌",
    "icon": "reward",
    "cls": "loop",
-   "x": 196,
-   "y": 1297,
-   "w": 264,
-   "h": 138
+   "x": 175,
+   "y": 1060,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "ACC",
-   "label": "11 组设置增益 +0.8 ~ +\n35.8 全正",
-   "sub": "MI proxy 与最终性能 Spearman \n+\n0.39, 熵类 -0.11 ~ -0.14",
+   "label": "11 组设置增益 +0.8 \n~ +35.8 全正",
+   "sub": "MI proxy 与最终性能",
    "icon": "refresh",
    "cls": "loop",
-   "x": 197,
-   "y": 2005,
-   "w": 262,
-   "h": 172
+   "x": 172,
+   "y": 1618,
+   "w": 235,
+   "h": 126
   }
  ],
  "edges": [
@@ -127,7 +127,7 @@
    "from": "POL",
    "to": "ENV",
    "style": "fb",
-   "label": "rollout"
+   "label": "\"rollout\""
   },
   {
    "from": "ENV",
@@ -148,7 +148,7 @@
    "from": "FILT",
    "to": "UPD",
    "style": "thick",
-   "label": "保留高方差子集"
+   "label": "\"保留高方差子集\""
   },
   {
    "from": "FILT",
@@ -159,18 +159,22 @@
    "from": "UPD",
    "to": "POL",
    "style": "loss",
-   "label": "梯度更新",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"梯度更新\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "ROL",
    "to": "MI",
    "style": "thick",
-   "label": "teacher-forcing 全交叉打分"
+   "label": "\"teacher-forcing 全交叉打分\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "MI",
@@ -181,18 +185,22 @@
    "from": "DIAG",
    "to": "ACT",
    "style": "fb",
-   "label": "是: template collapse 早期预警"
+   "label": "\"是: template collapse 早期",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "DIAG",
    "to": "POL",
    "style": "fb",
-   "label": "否: 正常迭代",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"否: 正常迭代\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "ACT",
@@ -207,15 +215,19 @@
  ],
  "panels": [],
  "canvas": [
-  656,
-  2327
+  580,
+  1834
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  580,
+  1834
+ ],
  "title": "ragen-2",
  "subtitle": "RAGEN-2 发现多轮 agent RL 存在一类对熵完全不可见的失败模式——template collapse（推理在单个输入内看似多样、跨输入却完全 input-agno",
  "foot": "ragen-2 · arXiv 2604.06268 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    POL[\"被 RL 的策略 Qwen2.5 0.5B-7B / Llama3.2 / VL<br/>PPO / DAPO / GRPO / Dr.GRPO 皆可插\"]:::train\n    ENV[\"七环境测试台: Sokoban / FrozenLake / MetaMathQA /<br/>Countdown / SearchQA / WebShop / DeepCoder\"]:::env\n    ROL[\"rollout: P=8 prompt x G=16 轨迹/迭代<br/>(X, Z) 对复用训练数据\"]:::data\n    RV[\"逐 prompt 奖励方差 RV<br/>信号强度上界 sqrt(RV)\"]:::reward\n    FILT{\"SNR-Aware Top-p 过滤 (rho=0.9)<br/>按方差累积质量保留最小前缀\"}:::loop\n    DROP[\"滤除近零 RV prompt: 此处任务梯度趋零<br/>reward-agnostic 的 KL/熵正则会主导更新\"]:::loop\n    UPD[\"高信号子集上策略更新, loss 乘 rho<br/>附带步时下降 26-41%\"]:::loss\n    MI[\"MI proxy (核心): in-batch cross-scoring<br/>双轴分解 H(Z|X) 条件熵 x I(X;Z) 互信息, 无需外部模型\"]:::key\n    DIAG{\"Retrieval-Acc 跌向 1/P<br/>而条件熵仍高?\"}:::reward\n    ACT[\"升高过滤压力 / 检查奖励信号<br/>(MI 先于成功率下跌的预警窗)\"]:::loop\n    ACC([\"11 组设置增益 +0.8 ~ +35.8 全正<br/>MI proxy 与最终性能 Spearman +0.39, 熵类 -0.11 ~ -0.14\"]):::data\n\n    POL -.->|\"rollout\"| ENV\n    ENV ==> ROL\n    ROL ==> RV\n    RV ==> FILT\n    FILT ==>|\"保留高方差子集\"| UPD\n    FILT -.-> DROP\n    UPD -.->|\"梯度更新\"| POL\n    ROL ==>|\"teacher-forcing 全交叉打分\"| MI\n    MI ==> DIAG\n    DIAG -.->|\"是: template collapse 早期预警\"| ACT\n    DIAG -.->|\"否: 正常迭代\"| POL\n    ACT -.-> FILT\n    UPD ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

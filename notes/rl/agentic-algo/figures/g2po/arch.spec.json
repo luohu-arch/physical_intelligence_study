@@ -2,124 +2,124 @@
  "nodes": [
   {
    "id": "POL",
-   "label": "被 RL 的策略 Qwen2.5-\n1.5B/7B/14B",
-   "sub": "(critic-free, 不养 value 网\n络)",
+   "label": "被 RL 的策略 Qwen2\n.5-1.5B/7B/14B",
+   "sub": "(critic-free, 不养",
    "icon": "brain",
    "cls": "loop",
-   "x": 200,
-   "y": 150,
-   "w": 267,
-   "h": 155
+   "x": 174,
+   "y": 130,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "ENV",
-   "label": "文本环境: WebShop /\nALFWorld / AppWorld",
-   "sub": "稀疏终局奖励, 中间步零奖励",
+   "label": "文本环境: WebShop \n/ ALFWorld / AppWo",
+   "sub": "rld",
    "icon": "chat",
    "cls": "loop",
-   "x": 202,
-   "y": 386,
-   "w": 264,
-   "h": 138
+   "x": 172,
+   "y": 316,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "TRAJ",
-   "label": "每任务 N=8 条并行轨迹\n多宇宙探索天然共享状态",
-   "sub": "",
-   "icon": "state",
+   "label": "每任务 N=8 条并行轨\n迹",
+   "sub": "多宇宙探索天然共享状",
+   "icon": "refresh",
    "cls": "loop",
-   "x": 208,
-   "y": 622,
-   "w": 252,
-   "h": 105
+   "x": 171,
+   "y": 502,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "GRAPH",
-   "label": "状态转移图 (核心): 相同\nobservation 聚为状态组",
-   "sub": "节点\n动作 (G_s, a, G_t) 为有向边,\n线性轨迹在图上重新连通",
+   "label": "状态转移图 (核心): \n相同 observation ",
+   "sub": "聚为状态组节点",
    "icon": "camera",
    "cls": "loop",
-   "x": 354,
-   "y": 825,
-   "w": 265,
-   "h": 172
+   "x": 45,
+   "y": 688,
+   "w": 231,
+   "h": 126
   },
   {
    "id": "GA",
-   "label": "组聚合状态价值 V(G_k) =\n组内折扣回报平均",
-   "sub": "方差 sigma^2 -> sigma^2/|G_k|\n,\n跨轨迹抹掉运气",
+   "label": "组聚合状态价值 V(G_\nk) = 组内折扣回报平",
+   "sub": "均",
    "icon": "state",
    "cls": "loop",
-   "x": 199,
-   "y": 1061,
-   "w": 269,
-   "h": 172
+   "x": 174,
+   "y": 874,
+   "w": 231,
+   "h": 126
   },
   {
    "id": "AEC",
-   "label": "edge-centric 优势 A_EC\n:",
-   "sub": "组间 1-step TD error\n在全图所有转移上均值-方差标准化\n(全局标尺)",
-   "icon": "gear",
+   "label": "edge-centric 优势 \nA_EC: 组间 1-step ",
+   "sub": "TD error",
+   "icon": "sigma",
    "cls": "loop",
-   "x": 46,
-   "y": 1297,
-   "w": 267,
-   "h": 172
+   "x": 44,
+   "y": 1060,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "ANC",
-   "label": "node-centric 优势 A_NC\n同源状态各动作的局部相",
-   "sub": "对比较",
+   "label": "node-centric 优势 \nA_NC",
+   "sub": "同源状态各动作的局部",
    "icon": "state",
    "cls": "loop",
-   "x": 351,
-   "y": 1297,
-   "w": 270,
-   "h": 138
+   "x": 298,
+   "y": 1060,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "AEP",
-   "label": "episode 级优势 A_EP\nGRPO 式终局归一化, 锚定",
-   "sub": "任务目标",
+   "label": "episode 级优势 A_E\nP",
+   "sub": "GRPO 式终局归一化, ",
    "icon": "refresh",
    "cls": "loop",
-   "x": 48,
-   "y": 825,
-   "w": 267,
-   "h": 138
+   "x": 300,
+   "y": 688,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ADV",
-   "label": "三粒度合成\nA = A_EP + w*(A_NC +",
-   "sub": "A_EC)",
+   "label": "三粒度合成\nA = A_EP + w*(A_NC",
+   "sub": " + A_EC)",
    "icon": "refresh",
    "cls": "loop",
-   "x": 203,
-   "y": 1533,
-   "w": 261,
-   "h": 138
+   "x": 172,
+   "y": 1246,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "OBJ",
-   "label": "G2PO 目标: 逐样本裁剪代\n理 + KL 惩罚",
-   "sub": "w=0 时退化为 GRPO; 优势计算纯\nCPU 仅 +1s/步",
+   "label": "G2PO 目标: 逐样本裁\n剪代理 + KL 惩罚",
+   "sub": "w=0 时退化为 GRPO;",
    "icon": "refresh",
    "cls": "loop",
-   "x": 200,
-   "y": 1769,
-   "w": 267,
-   "h": 155
+   "x": 172,
+   "y": 1432,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ACC",
-   "label": "1.5B ALFWorld 95.0 vs\nGRPO 72.8 / GiGPO",
-   "sub": "86.7\n关键突破型子任务 Look +42.6;\n交互步数 9 -> 5.4",
+   "label": "1.5B ALFWorld 95.0\n vs GRPO 72.8 / Gi",
+   "sub": "GPO 86.7",
    "icon": "refresh",
    "cls": "loop",
-   "x": 203,
-   "y": 2005,
-   "w": 261,
-   "h": 172
+   "x": 172,
+   "y": 1618,
+   "w": 233,
+   "h": 126
   }
  ],
  "edges": [
@@ -127,7 +127,7 @@
    "from": "POL",
    "to": "ENV",
    "style": "fb",
-   "label": "rollout"
+   "label": "\"rollout\""
   },
   {
    "from": "ENV",
@@ -138,7 +138,11 @@
    "from": "TRAJ",
    "to": "GRAPH",
    "style": "thick",
-   "label": "收集全部中间 observation, …"
+   "label": "\"收集全部中间 observation, 完全相",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "GRAPH",
@@ -184,16 +188,12 @@
    "from": "OBJ",
    "to": "POL",
    "style": "fb",
-   "label": "逐步策略更新",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"逐步策略更新\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84,
-   "labpos": [
-    381,
-    1457
-   ]
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "OBJ",
@@ -203,15 +203,19 @@
  ],
  "panels": [],
  "canvas": [
-  667,
-  2327
+  578,
+  1834
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  578,
+  1834
+ ],
  "title": "g2po",
  "subtitle": "G2PO（微软 + 北大）把多轮 agent RL 的线性轨迹重构为全局状态转移图——相同 observation 聚为状态组节点、动作作为有向边——用 group-aggre",
  "foot": "g2po · arXiv 2606.22995 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    POL[\"被 RL 的策略 Qwen2.5-1.5B/7B/14B<br/>(critic-free, 不养 value 网络)\"]:::train\n    ENV[\"文本环境: WebShop / ALFWorld / AppWorld<br/>稀疏终局奖励, 中间步零奖励\"]:::env\n    TRAJ[\"每任务 N=8 条并行轨迹<br/>多宇宙探索天然共享状态\"]:::data\n    GRAPH[\"状态转移图 (核心): 相同 observation 聚为状态组节点<br/>动作 (G_s, a, G_t) 为有向边, 线性轨迹在图上重新连通\"]:::key\n    GA[\"组聚合状态价值 V(G_k) = 组内折扣回报平均<br/>方差 sigma^2 -> sigma^2/|G_k|, 跨轨迹抹掉运气\"]:::reward\n    AEC[\"edge-centric 优势 A_EC: 组间 1-step TD error<br/>在全图所有转移上均值-方差标准化 (全局标尺)\"]:::reward\n    ANC[\"node-centric 优势 A_NC<br/>同源状态各动作的局部相对比较\"]:::reward\n    AEP[\"episode 级优势 A_EP<br/>GRPO 式终局归一化, 锚定任务目标\"]:::reward\n    ADV[\"三粒度合成<br/>A = A_EP + w*(A_NC + A_EC)\"]:::reward\n    OBJ[\"G2PO 目标: 逐样本裁剪代理 + KL 惩罚<br/>w=0 时退化为 GRPO; 优势计算纯 CPU 仅 +1s/步\"]:::loss\n    ACC([\"1.5B ALFWorld 95.0 vs GRPO 72.8 / GiGPO 86.7<br/>关键突破型子任务 Look +42.6; 交互步数 9 -> 5.4\"]):::data\n\n    POL -.->|\"rollout\"| ENV\n    ENV ==> TRAJ\n    TRAJ ==>|\"收集全部中间 observation, 完全相同者聚类\"| GRAPH\n    GRAPH ==> GA\n    GA ==> AEC\n    GA ==> ANC\n    TRAJ ==> AEP\n    AEC ==> ADV\n    ANC ==> ADV\n    AEP ==> ADV\n    ADV ==> OBJ\n    OBJ -.->|\"逐步策略更新\"| POL\n    OBJ ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

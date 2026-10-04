@@ -2,91 +2,91 @@
  "nodes": [
   {
    "id": "ROBOT",
-   "label": "机器人 (Astribot S1)\nlatency budget n = 6",
-   "sub": "帧 = 200 ms",
+   "label": "机器人 (Astribot S\n1)",
+   "sub": "latency budget n =",
    "icon": "robot",
    "cls": "env",
-   "x": 348,
-   "y": 150,
-   "w": 261,
-   "h": 138
+   "x": 44,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "OBS",
-   "label": "观测 s_t\n+ 在飞动作前缀 a_tilde",
-   "sub": "[0,n)",
+   "label": "观测 s_t\n+ 在飞动作前缀 a_ti",
+   "sub": "lde[0,n)",
    "icon": "state",
    "cls": "data",
-   "x": 348,
-   "y": 386,
-   "w": 261,
-   "h": 138
+   "x": 343,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "BASE",
-   "label": "冻结 pi_base (pi 0.5)\n输出参考 chunk a_bar (",
-   "sub": "H = 32) + RL token z_t",
+   "label": "冻结 pi_base (pi 0\n.5)",
+   "sub": "输出参考 chunk a_b",
    "icon": "stack",
    "cls": "frozen",
-   "x": 351,
-   "y": 622,
-   "w": 264,
-   "h": 138
+   "x": 642,
+   "y": 130,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "THREE",
-   "label": "chunk 三区划分 (核心)",
-   "sub": "committed [0,n): 已占用\nexecution [n,2n): 唯一执行\ndiscarded [2n,H): 被覆盖",
+   "label": "chunk 三区划分 (核\n心)",
+   "sub": "committed [0,n): ",
    "icon": "stack",
    "cls": "key",
-   "x": 197,
-   "y": 858,
-   "w": 267,
-   "h": 151
+   "x": 938,
+   "y": 205,
+   "w": 225,
+   "h": 126
   },
   {
    "id": "ACT",
-   "label": "残差 actor (3 层 MLP)\na = a_bar + 有界 delta",
-   "sub": "(界 0.05)\n梯度只流经 execution 区",
+   "label": "残差 actor (3 层 M\nLP)",
+   "sub": "a = a_bar + 有界 d",
    "icon": "lightning",
    "cls": "train",
-   "x": 197,
-   "y": 1094,
-   "w": 267,
-   "h": 155
+   "x": 1229,
+   "y": 205,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "BUF",
-   "label": "回放缓冲\nbase policy 50 eps 初",
-   "sub": "始化\n+ 在线 rollout + 人工干预",
+   "label": "回放缓冲\nbase policy 50 eps",
+   "sub": " 初始化",
    "icon": "lightning",
    "cls": "mem",
-   "x": 52,
-   "y": 386,
-   "w": 259,
-   "h": 155
+   "x": 343,
+   "y": 280,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "HUM",
-   "label": "人工干预 (绝对 / 残差)\n+ 二值终局奖励",
-   "sub": "",
+   "label": "人工干预 (绝对 / 残\n差)",
+   "sub": "+ 二值终局奖励",
    "icon": "reward",
    "cls": "data",
-   "x": 52,
-   "y": 166,
-   "w": 257,
-   "h": 105
+   "x": 45,
+   "y": 280,
+   "w": 231,
+   "h": 126
   },
   {
    "id": "CRITIC",
-   "label": "critic 集成 (REDQ)\n输入 [z, s, a_tilde[0,",
-   "sub": "n), a[n,2n)]\ncommitted 区 stop-gradient 状\n态增广",
+   "label": "critic 集成 (REDQ)\n输入 [z, s, a_tild",
+   "sub": "e[0,n), a[n,2n)]",
    "icon": "target",
    "cls": "reward",
-   "x": 46,
-   "y": 622,
-   "w": 267,
-   "h": 172
+   "x": 642,
+   "y": 280,
+   "w": 230,
+   "h": 126
   }
  ],
  "edges": [
@@ -102,8 +102,8 @@
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "OBS",
@@ -124,15 +124,15 @@
    "from": "ACT",
    "to": "ROBOT",
    "style": "thick",
-   "label": "execution 区 6 帧生效 训练 …",
+   "label": "\"execution 区 6 帧生效 训练 = ",
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84,
-   "labpos": [
-    373,
-    810
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
    ]
   },
   {
@@ -143,8 +143,12 @@
   {
    "from": "HUM",
    "to": "BUF",
-   "style": "fb",
-   "label": "干预 chunk 既作 BC 目标 又…"
+   "style": "loss",
+   "label": "\"干预 chunk 既作 BC 目标 又作 TD",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "BUF",
@@ -155,27 +159,40 @@
    "from": "CRITIC",
    "to": "ACT",
    "style": "loss",
-   "label": "actor 损失: -Q + w_bc * MS…"
+   "label": "\"actor 损失: -Q + w_bc * M",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "CRITIC",
    "to": "CRITIC",
    "style": "loss",
-   "label": "chunk-skip TD: y = r + gam…"
+   "label": "\"chunk-skip TD: y = r + ",
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.25,
+   "pos_in": 0.75,
+   "k": 52,
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [
   {
    "label": "异步执行循环 (30 Hz 控制 / 5 Hz 推理)",
-   "x": 322,
-   "y": 103,
-   "w": 314,
-   "h": 491
+   "x": 20,
+   "y": 86,
+   "w": 580,
+   "h": 190
   }
  ],
  "canvas": [
-  661,
-  1416
+  1503,
+  496
  ],
  "legend": [
   "data",
@@ -186,9 +203,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  1503,
+  496
+ ],
  "title": "smoothrl",
  "subtitle": "Problem**：VLA/WAM 推理延迟高 → 部署标配是\"异步推理 + action chunk\"（推理与执行重叠），但现有在线 RL 全部假设同步执行——训练目标与部署",
  "foot": "smoothrl · arXiv 2608.29768 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph LOOP[\"异步执行循环 (30 Hz 控制 / 5 Hz 推理)\"]\n        ROBOT[\"机器人 (Astribot S1)<br/>latency budget n = 6 帧 = 200 ms\"] --> OBS([\"观测 s_t<br/>+ 在飞动作前缀 a_tilde[0,n)\"])\n        OBS --> ROBOT\n    end\n    OBS ==> BASE[\"冻结 pi_base (pi 0.5)<br/>输出参考 chunk a_bar (H = 32) + RL token z_t\"]\n    BASE ==> THREE[\"chunk 三区划分 (核心)<br/>committed [0,n): 上一 chunk 已占用<br/>execution [n,2n): 唯一真正执行的 6 帧<br/>discarded [2n,H): 被下一 chunk 覆盖\"]\n    THREE ==> ACT[\"残差 actor (3 层 MLP)<br/>a = a_bar + 有界 delta (界 0.05)<br/>梯度只流经 execution 区\"]\n    ACT ==>|\"execution 区 6 帧生效<br/>训练 = 部署同一动力学\"| ROBOT\n    ROBOT ==> BUF[(\"回放缓冲<br/>base policy 50 eps 初始化<br/>+ 在线 rollout + 人工干预\")]\n    HUM[\"人工干预 (绝对 / 残差)<br/>+ 二值终局奖励\"] -.->|\"干预 chunk 既作 BC 目标<br/>又作 TD transition\"| BUF\n    BUF ==> CRITIC[\"critic 集成 (REDQ)<br/>输入 [z, s, a_tilde[0,n), a[n,2n)]<br/>committed 区 stop-gradient 状态增广\"]\n    CRITIC ==>|\"actor 损失: -Q + w_bc * MSE + w_smooth * jerk 惩罚\"| ACT\n    CRITIC -.->|\"chunk-skip TD: y = r + gamma^2n * min_M Q_bar\"| CRITIC\n\n    class OBS data\n    class BASE frozen\n    class THREE key\n    class ACT train\n    class ROBOT env\n    class BUF mem\n    class HUM data\n    class CRITIC reward\n    class LOOP loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f"
 }

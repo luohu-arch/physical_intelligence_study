@@ -2,58 +2,58 @@
  "nodes": [
   {
    "id": "USER",
-   "label": "语言指令 + 图像观测<br/",
+   "label": "语言指令 + 图像观测\n<br/",
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 586,
-   "y": 150,
-   "w": 267,
-   "h": 104
+   "x": 44,
+   "y": 130,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "M",
-   "label": "Embodied-R1.5 8B\nVLM<br/",
+   "label": "Embodied-R1.5 8B V\nLM<br/",
    "sub": "",
-   "icon": "brain",
+   "icon": "refresh",
    "cls": "loop",
-   "x": 319,
-   "y": 353,
-   "w": 261,
-   "h": 105
+   "x": 282,
+   "y": 283,
+   "w": 233,
+   "h": 93
   },
   {
    "id": "P",
-   "label": "Planner 高层规划<br/",
+   "label": "Planner 高层规划<b\nr/",
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 192,
-   "y": 556,
-   "w": 244,
-   "h": 104
+   "x": 156,
+   "y": 436,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "G",
-   "label": "Grounder 指位定位<br/",
+   "label": "Grounder 指位定位<\nbr/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 322,
-   "y": 758,
-   "w": 254,
-   "h": 104
+   "x": 286,
+   "y": 589,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "CORR",
-   "label": "Corrector 异步轮询<br/",
+   "label": "Corrector 异步轮询\n<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 318,
-   "y": 1567,
-   "w": 264,
-   "h": 104
+   "x": 286,
+   "y": 1199,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "EXE",
@@ -61,21 +61,21 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 340,
-   "y": 960,
-   "w": 220,
-   "h": 104
+   "x": 288,
+   "y": 742,
+   "w": 222,
+   "h": 92
   },
   {
    "id": "ROBOT",
-   "label": "机器人 XArm6 / ARX\nLift2s / RM75",
+   "label": "机器人 XArm6 / ARX\n Lift2s / RM75",
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 316,
-   "y": 1162,
-   "w": 266,
-   "h": 105
+   "x": 285,
+   "y": 894,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "MEM",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 342,
-   "y": 1365,
-   "w": 215,
-   "h": 104
+   "x": 290,
+   "y": 1047,
+   "w": 217,
+   "h": 92
   },
   {
    "id": "VLA",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 474,
-   "y": 556,
-   "w": 233,
-   "h": 104
+   "x": 407,
+   "y": 436,
+   "w": 235,
+   "h": 92
   },
   {
    "id": "SFT",
@@ -105,21 +105,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 346,
-   "y": 150,
-   "w": 202,
-   "h": 104
+   "x": 298,
+   "y": 130,
+   "w": 204,
+   "h": 92
   },
   {
    "id": "RFT",
-   "label": "Stage 2 RFT 多任务均衡\nGRPO<br/",
+   "label": "Stage 2 RFT 多任务\n均衡 GRPO<br/",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 150,
-   "w": 262,
-   "h": 105
+   "x": 526,
+   "y": 130,
+   "w": 228,
+   "h": 93
   }
  ],
  "edges": [
@@ -182,22 +182,26 @@
  "panels": [
   {
    "label": "System 2 - 单模型三角色闭环 PGC",
-   "x": 166,
-   "y": 306,
-   "w": 442,
-   "h": 1389
+   "x": 132,
+   "y": 239,
+   "w": 408,
+   "h": 1073
   }
  ],
  "canvas": [
-  899,
-  1855
+  798,
+  1382
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  798,
+  1382
+ ],
  "title": "embodied-r15",
  "subtitle": "（Problem）具身能力碎片化、多任务训练相互干扰、缺少长程闭环验证 →（Insight）认知/规划纠错/指位三类能力可在单一 8B VLM 内统一，且内部化的具身推理可大幅",
  "foot": "embodied-r15 · arXiv 2606.11324 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    USER[语言指令 + 图像观测<br/>可选 SOP 文档]:::data\n\n    subgraph PGC[\"System 2 - 单模型三角色闭环 PGC\"]\n        M[Embodied-R1.5 8B VLM<br/>一个模型分饰三角色]:::key\n        P[Planner 高层规划<br/>任务分解 + next-step 规划]:::train\n        G[Grounder 指位定位<br/>OFG / REG / RRG / VTG]:::train\n        CORR[Corrector 异步轮询<br/>检测-定位-纠错三层]:::train\n        M ==> P\n        M ==> G\n        M ==> CORR\n    end\n\n    USER ==> M\n    P ==> G\n    G ==> EXE[低层技能执行器<br/>统一运动逻辑]:::act\n    EXE ==> ROBOT([机器人 XArm6 / ARX Lift2s / RM75]):::act\n    MEM[FIFO 记忆缓冲<br/>图像帧 + 状态日志]:::mem\n    ROBOT --> MEM\n    MEM --> CORR\n    CORR -.SUCCESS / PROCESS 继续当前子任务.-> P\n    CORR -.FAIL + 错误归因触发重试或重规划.-> P\n    VLA[可选 VLA 动作头<br/>DiT-B flow-matching 专家]:::act\n    M ==> VLA\n    VLA ==> ROBOT\n    SFT[Stage 1 SFT<br/>15B token 因果 LM 交叉熵]:::loss\n    RFT[Stage 2 RFT 多任务均衡 GRPO<br/>批级奖励归一化 + 可验证奖励]:::loss\n    SFT -.监督微调.-> M\n    RFT -.强化训练.-> M\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

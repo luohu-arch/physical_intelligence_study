@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "data",
-   "x": 46,
-   "y": 167,
-   "w": 215,
-   "h": 104
+   "x": 50,
+   "y": 130,
+   "w": 217,
+   "h": 92
   },
   {
    "id": "DCT",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 368,
-   "y": 386,
-   "w": 165,
-   "h": 104
+   "x": 340,
+   "y": 280,
+   "w": 167,
+   "h": 92
   },
   {
    "id": "LOW",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 475,
-   "y": 588,
-   "w": 216,
-   "h": 105
+   "x": 579,
+   "y": 221,
+   "w": 218,
+   "h": 93
   },
   {
    "id": "HIGH",
@@ -39,87 +39,87 @@
    "sub": "",
    "icon": "robot",
    "cls": "data",
-   "x": 209,
-   "y": 588,
-   "w": 228,
-   "h": 105
+   "x": 573,
+   "y": 338,
+   "w": 230,
+   "h": 93
   },
   {
    "id": "VQ1",
-   "label": "Scale 1: Intent Token\n最粗尺度仅 1 个 token",
-   "sub": "",
-   "icon": "stack",
+   "label": "Scale 1: Intent To\nken",
+   "sub": "最粗尺度仅 1 个 tok",
+   "icon": "spark",
    "cls": "key",
-   "x": 469,
-   "y": 808,
-   "w": 261,
-   "h": 105
+   "x": 869,
+   "y": 188,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "VQK",
-   "label": "Scale 2..k: Execution\nTokens",
+   "label": "Scale 2..k: Execut\nion Tokens",
    "sub": "逐级捕获残差",
    "icon": "stack",
    "cls": "train",
-   "x": 170,
-   "y": 791,
-   "w": 261,
-   "h": 138
+   "x": 869,
+   "y": 338,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "RECON",
-   "label": "渐进重建 S1 -> Sk\n(i) 仅 S1 (ii) S1+S2",
-   "sub": "(iii) S1+S2+S3 ...",
+   "label": "渐进重建 S1 -> Sk\n(i) 仅 S1 (ii) S1+",
+   "sub": "S2 (iii) S1+S2+S3 ",
    "icon": "cpu",
    "cls": "train",
-   "x": 470,
-   "y": 1027,
-   "w": 259,
-   "h": 138
+   "x": 1168,
+   "y": 188,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "LFREQ",
-   "label": "Scale-Wise 频域重建\n损失",
+   "label": "Scale-Wise 频域重\n建损失",
    "sub": "(强制频谱分离)",
    "icon": "sigma",
    "cls": "loss",
-   "x": 601,
-   "y": 150,
-   "w": 253,
-   "h": 138
+   "x": 50,
+   "y": 246,
+   "w": 218,
+   "h": 126
   },
   {
    "id": "POL",
-   "label": "策略解码\n300M decoder-only",
+   "label": "策略解码\n300M decoder-only ",
    "sub": "Transformer",
    "icon": "lightning",
    "cls": "train",
-   "x": 171,
-   "y": 1027,
-   "w": 261,
-   "h": 138
+   "x": 1168,
+   "y": 338,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ROBOT",
-   "label": "机器人执行\n延迟比标准 VLA 低 43%",
-   "sub": "",
+   "label": "机器人执行\n延迟比标准 VLA 低 4",
+   "sub": "3%",
    "icon": "robot",
    "cls": "act",
-   "x": 324,
-   "y": 1263,
-   "w": 251,
-   "h": 105
+   "x": 1467,
+   "y": 263,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "ONESHOT",
-   "label": "one-shot 迁移: 从单次\n演示",
-   "sub": "提取 Intent token 固定注入",
+   "label": "one-shot 迁移: 从\n单次演示",
+   "sub": "提取 Intent token ",
    "icon": "db",
    "cls": "data",
-   "x": 299,
-   "y": 150,
-   "w": 264,
-   "h": 138
+   "x": 44,
+   "y": 396,
+   "w": 230,
+   "h": 126
   }
  ],
  "edges": [
@@ -167,7 +167,11 @@
    "from": "VQ1",
    "to": "POL",
    "style": "thick",
-   "label": "next-scale 自回归 先意图后执行"
+   "label": "\"next-scale 自回归 先意图后执行\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "VQK",
@@ -183,35 +187,40 @@
    "from": "ROBOT",
    "to": "AC",
    "style": "fb",
-   "label": "重叠 chunk 滑窗 意图 ensemb…",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"重叠 chunk 滑窗 意图 ensemble",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "ONESHOT",
    "to": "VQ1",
    "style": "fb",
-   "label": "意图复用, 迁移 +60%",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "label": "\"意图复用, 迁移 +60%\"",
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [
   {
    "label": "频谱解耦动作 tokenizer (多尺度 VQ-VAE)",
-   "x": 144,
-   "y": 744,
-   "w": 612,
-   "h": 445
+   "x": 845,
+   "y": 144,
+   "w": 580,
+   "h": 340
   }
  ],
  "canvas": [
-  900,
-  1552
+  1744,
+  612
  ],
  "legend": [
   "act",
@@ -220,9 +229,13 @@
   "loss",
   "train"
  ],
+ "layout_wh": [
+  1744,
+  612
+ ],
  "title": "mint",
  "subtitle": "MINT 提出模仿学习应模仿\"行为意图\"而非\"轨迹细节\"。用 DCT 将 action chunk 分解为低频 Intent Token 和高频 Execution Token",
  "foot": "mint · arXiv 2602.08602 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    AC([\"动作 chunk (时域)\"]) ==> DCT[\"DCT 频谱分解\"]\n    DCT --> LOW([\"低频系数<br/>整段动作的宏观趋势\"])\n    DCT --> HIGH([\"高频系数<br/>执行残差 / 局部抖动\"])\n    subgraph SDAT[\"频谱解耦动作 tokenizer (多尺度 VQ-VAE)\"]\n        VQ1[\"Scale 1: Intent Token<br/>最粗尺度仅 1 个 token\"]\n        VQK[\"Scale 2..k: Execution Tokens<br/>逐级捕获残差\"]\n        RECON[\"渐进重建 S1 -> Sk<br/>(i) 仅 S1 (ii) S1+S2 (iii) S1+S2+S3 ...\"]\n    end\n    LOW ==> VQ1\n    HIGH ==> VQK\n    VQ1 --> RECON\n    VQK --> RECON\n    LFREQ[\"Scale-Wise 频域重建损失<br/>(强制频谱分离)\"] -.-> RECON\n    VQ1 ==>|\"next-scale 自回归<br/>先意图后执行\"| POL[\"策略解码<br/>300M decoder-only Transformer\"]\n    VQK ==> POL\n    POL ==> ROBOT([\"机器人执行<br/>延迟比标准 VLA 低 43%\"])\n    ROBOT -.->|\"重叠 chunk 滑窗<br/>意图 ensemble 仲裁聚合\"| AC\n    ONESHOT([\"one-shot 迁移: 从单次演示<br/>提取 Intent token 固定注入\"]) -.->|\"意图复用, 迁移 +60%\"| VQ1\n\n    class AC,LOW,HIGH,ONESHOT data\n    class DCT,VQ1 key\n    class VQK,RECON,POL train\n    class ROBOT act\n    class LFREQ loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

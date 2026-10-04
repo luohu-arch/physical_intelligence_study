@@ -3,24 +3,24 @@
   {
    "id": "PC1",
    "label": "第三人称点云\n世界系 1m box, FPS",
-   "sub": "4000 点",
+   "sub": " 4000 点",
    "icon": "db",
    "cls": "data",
-   "x": 457,
-   "y": 150,
-   "w": 266,
-   "h": 138
+   "x": 48,
+   "y": 101,
+   "w": 228,
+   "h": 126
   },
   {
    "id": "U1",
-   "label": "Uni3D ViT-L 编码器 300M\n(DROID 预训练后微调,",
-   "sub": "不冻结)",
+   "label": "Uni3D ViT-L 编码器\n 300M",
+   "sub": "(DROID 预训练后微调",
    "icon": "eye",
    "cls": "train",
-   "x": 650,
-   "y": 386,
-   "w": 269,
-   "h": 138
+   "x": 345,
+   "y": 321,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "PC2",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 761,
-   "y": 166,
-   "w": 175,
-   "h": 105
+   "x": 73,
+   "y": 261,
+   "w": 177,
+   "h": 93
   },
   {
    "id": "U2",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 958,
-   "y": 402,
-   "w": 226,
-   "h": 105
+   "x": 348,
+   "y": 471,
+   "w": 228,
+   "h": 93
   },
   {
    "id": "LANG",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 46,
-   "y": 167,
-   "w": 150,
-   "h": 104
+   "x": 92,
+   "y": 387,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "CLIP",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "frozen",
-   "x": 420,
-   "y": 402,
-   "w": 193,
-   "h": 105
+   "x": 364,
+   "y": 588,
+   "w": 195,
+   "h": 93
   },
   {
    "id": "PROP",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 974,
-   "y": 167,
-   "w": 165,
-   "h": 104
+   "x": 78,
+   "y": 513,
+   "w": 167,
+   "h": 92
   },
   {
    "id": "MLPQ",
@@ -83,21 +83,21 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 1222,
-   "y": 403,
-   "w": 150,
-   "h": 104
+   "x": 392,
+   "y": 705,
+   "w": 140,
+   "h": 92
   },
   {
    "id": "TENC",
-   "label": "Transformer Encoder\n融合多模态 embedding",
-   "sub": "",
-   "icon": "eye",
+   "label": "Transformer Encode\nr",
+   "sub": "融合多模态 embeddin",
+   "icon": "cpu",
    "cls": "train",
-   "x": 774,
-   "y": 622,
-   "w": 243,
-   "h": 105
+   "x": 644,
+   "y": 496,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "NOISE",
@@ -105,65 +105,65 @@
    "sub": "",
    "icon": "noise",
    "cls": "data",
-   "x": 234,
-   "y": 167,
-   "w": 185,
-   "h": 104
+   "x": 68,
+   "y": 639,
+   "w": 187,
+   "h": 92
   },
   {
    "id": "DIT",
-   "label": "DiT decoder (causal\nmask)",
-   "sub": "动作 token 只看自身及之前",
+   "label": "DiT decoder (causa\nl mask)",
+   "sub": "动作 token 只看自身",
    "icon": "stack",
    "cls": "key",
-   "x": 762,
-   "y": 825,
-   "w": 267,
-   "h": 138
+   "x": 945,
+   "y": 496,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "LDDPM",
-   "label": "损失 L_ddpm: 噪声回归\nMSE",
+   "label": "损失 L_ddpm: 噪声回\n归 MSE",
    "sub": "",
    "icon": "noise",
    "cls": "loss",
-   "x": 1484,
-   "y": 166,
-   "w": 261,
-   "h": 105
+   "x": 44,
+   "y": 764,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "LORA",
-   "label": "post-training: LoRA\nrank 32",
-   "sub": "80 条示教/任务, 单卡 2 小时",
+   "label": "post-training: LoR\nA rank 32",
+   "sub": "80 条示教/任务, 单",
    "icon": "cpu",
    "cls": "train",
-   "x": 1177,
-   "y": 150,
-   "w": 269,
-   "h": 138
+   "x": 45,
+   "y": 891,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "OUT",
-   "label": "去噪动作 chunk H = 16",
+   "label": "去噪动作 chunk H =\n 16",
    "sub": "",
    "icon": "stack",
    "cls": "act",
-   "x": 768,
-   "y": 1061,
-   "w": 254,
-   "h": 104
+   "x": 1244,
+   "y": 512,
+   "w": 227,
+   "h": 93
   },
   {
    "id": "ROBOT",
-   "label": "机器人执行 15Hz\nCartesian 控制",
+   "label": "机器人执行 15Hz Car\ntesian 控制",
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 764,
-   "y": 1263,
-   "w": 262,
-   "h": 105
+   "x": 1537,
+   "y": 512,
+   "w": 235,
+   "h": 93
   }
  ],
  "edges": [
@@ -185,10 +185,7 @@
   {
    "from": "PROP",
    "to": "MLPQ",
-   "style": "thick",
-   "out": "right",
-   "in": "right",
-   "k": 60
+   "style": "thick"
   },
   {
    "from": "U1",
@@ -219,7 +216,11 @@
    "from": "TENC",
    "to": "DIT",
    "style": "thick",
-   "label": "adaLN 条件注入"
+   "label": "\"adaLN 条件注入\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "LDDPM",
@@ -230,44 +231,56 @@
    "from": "LORA",
    "to": "DIT",
    "style": "fb",
-   "label": "只训低秩增量"
+   "label": "\"只训低秩增量\""
   },
   {
    "from": "DIT",
    "to": "OUT",
    "style": "thick",
-   "label": "DDIM 16 步去噪"
+   "label": "\"DDIM 16 步去噪\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "OUT",
    "to": "ROBOT",
    "style": "thick",
-   "label": "receding horizon 执行前 8 步"
+   "label": "\"receding horizon 执行前 8 ",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "ROBOT",
    "to": "PC1",
    "style": "fb",
-   "label": "重观测 (obs 2 帧历史)",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"重观测 (obs 2 帧历史)\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   }
  ],
  "panels": [
   {
    "label": "多模态编码 (总参 1.3B)",
-   "x": 394,
-   "y": 339,
-   "w": 1004,
-   "h": 412
+   "x": 321,
+   "y": 277,
+   "w": 582,
+   "h": 540
   }
  ],
  "canvas": [
-  1791,
-  1552
+  1816,
+  1078
  ],
  "legend": [
   "act",
@@ -277,9 +290,13 @@
   "loss",
   "train"
  ],
+ "layout_wh": [
+  1816,
+  1078
+ ],
  "title": "fp3",
  "subtitle": "FP3 用 Uni3D ViT-L 编码点云（每视角 4000 点、带颜色）、CLIP 编码语言、MLP 编码本体状态，经 Transformer Encoder 融合成 la",
  "foot": "fp3 · arXiv 2503.08950 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    PC1([\"第三人称点云<br/>世界系 1m box, FPS 4000 点\"]) ==> U1\n    PC2([\"腕部点云<br/>4000 点带颜色\"]) ==> U2\n    LANG([\"语言指令\"]) ==> CLIP\n    PROP([\"本体状态 q_t\"]) ==> MLPQ\n    subgraph ENC[\"多模态编码 (总参 1.3B)\"]\n        U1[\"Uni3D ViT-L 编码器 300M<br/>(DROID 预训练后微调, 不冻结)\"]\n        U2[\"Uni3D ViT-L 编码器<br/>(腕部独立一套)\"]\n        CLIP[\"CLIP 文本编码器<br/>(冻结)\"]\n        MLPQ[\"2 层 MLP\"]\n        TENC[\"Transformer Encoder<br/>融合多模态 embedding\"]\n    end\n    U1 --> TENC\n    U2 --> TENC\n    CLIP --> TENC\n    MLPQ --> TENC\n    NOISE([\"噪声动作 chunk\"]) ==> DIT\n    TENC ==>|\"adaLN 条件注入\"| DIT[\"DiT decoder (causal mask)<br/>动作 token 只看自身及之前\"]\n    LDDPM[\"损失 L_ddpm: 噪声回归 MSE\"] -.-> DIT\n    LORA[\"post-training: LoRA rank 32<br/>80 条示教/任务, 单卡 2 小时\"] -.->|\"只训低秩增量\"| DIT\n    DIT ==>|\"DDIM 16 步去噪\"| OUT([\"去噪动作 chunk H = 16\"])\n    OUT ==>|\"receding horizon<br/>执行前 8 步\"| ROBOT([\"机器人执行 15Hz Cartesian 控制\"])\n    ROBOT -.->|\"重观测 (obs 2 帧历史)\"| PC1\n\n    class PC1,PC2,LANG,PROP,NOISE data\n    class CLIP frozen\n    class U1,U2,MLPQ,TENC,LORA train\n    class DIT key\n    class OUT,ROBOT act\n    class LDDPM loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "CAM",
-   "label": "场景俯视图 + clip\nzoom-in",
+   "label": "场景俯视图 + clip zoom-in",
    "sub": "",
    "icon": "eye",
    "cls": "data",
-   "x": 51,
-   "y": 166,
-   "w": 262,
-   "h": 105
+   "x": 48,
+   "y": 147,
+   "w": 290,
+   "h": 92
   },
   {
    "id": "VLM",
-   "label": "VLM 规划器 (GPT-5 +\nCoT)",
-   "sub": "进度推理 + 技能选择 + 完成判定\n纯 in-context, 不参与梯度训练",
+   "label": "VLM 规划器 (GPT-5 + CoT)\n进度推理 + 技能选择 + 完成",
+   "sub": "判定",
    "icon": "brain",
    "cls": "frozen",
-   "x": 198,
-   "y": 386,
-   "w": 266,
-   "h": 155
+   "x": 208,
+   "y": 348,
+   "w": 290,
+   "h": 126
   },
   {
    "id": "INSERT",
-   "label": "Insert: SAC RL 低层\n7 参数运动原语, 接触敏",
-   "sub": "感区需闭环\n(87% vs heuristic 45%)",
+   "label": "Insert: SAC RL 低层\n7 参数运动原语, 接触敏感区",
+   "sub": "需闭环",
    "icon": "cpu",
    "cls": "train",
-   "x": 204,
-   "y": 858,
-   "w": 256,
-   "h": 155
+   "x": 208,
+   "y": 784,
+   "w": 290,
+   "h": 126
   },
   {
    "id": "PULL",
@@ -39,54 +39,54 @@
    "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 372,
-   "y": 638,
-   "w": 218,
-   "h": 105
+   "x": 78,
+   "y": 582,
+   "w": 220,
+   "h": 93
   },
   {
    "id": "FLAT",
-   "label": "Flatten: 自动故障恢复\n(核心)",
-   "sub": "重整线缆释放弯曲势能\n把不可插入恢复成可插入",
+   "label": "Flatten: 自动故障恢复 (核\n心)",
+   "sub": "重整线缆释放弯曲势能",
    "icon": "spark",
    "cls": "key",
-   "x": 73,
-   "y": 622,
-   "w": 261,
-   "h": 155
+   "x": 338,
+   "y": 566,
+   "w": 290,
+   "h": 126
   },
   {
    "id": "CNT",
-   "label": "连续插入失败计数 + step\nlimit",
+   "label": "连续插入失败计数 + step l\nimit",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 1110,
-   "w": 267,
-   "h": 105
+   "x": 44,
+   "y": 1018,
+   "w": 289,
+   "h": 93
   },
   {
    "id": "REW",
-   "label": "dense shaped 奖励\nrope_in / rope_out +",
-   "sub": "碰撞惩罚\n+ 分段距离 + 前端平直度",
+   "label": "dense shaped 奖励\nrope_in / rope_out + 碰",
+   "sub": "撞惩罚",
    "icon": "reward",
    "cls": "reward",
-   "x": 351,
-   "y": 150,
-   "w": 261,
-   "h": 155
+   "x": 378,
+   "y": 130,
+   "w": 281,
+   "h": 126
   },
   {
    "id": "ROBOT",
-   "label": "Franka + D415 + SAM2\n分割",
-   "sub": "零微调 sim-to-real (62.5%)",
+   "label": "Franka + D415 + SAM2 分\n割",
+   "sub": "零微调 sim-to-real (62.5%",
    "icon": "gear",
    "cls": "env",
-   "x": 351,
-   "y": 1094,
-   "w": 266,
-   "h": 138
+   "x": 373,
+   "y": 1002,
+   "w": 290,
+   "h": 126
   }
  ],
  "edges": [
@@ -114,30 +114,38 @@
    "from": "FLAT",
    "to": "INSERT",
    "style": "fb",
-   "label": "重整后重试"
+   "label": "\"重整后重试\""
   },
   {
    "from": "CNT",
    "to": "VLM",
    "style": "fb",
-   "label": "重复失败 -> 触发恢复",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"重复失败 -> 触发恢复\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "INSERT",
    "to": "CNT",
    "style": "fb",
-   "label": "失败反馈"
+   "label": "\"失败反馈\""
   },
   {
    "from": "REW",
    "to": "INSERT",
    "style": "fb",
-   "label": "SAC 训练信号 (6.2k 步)"
+   "label": "\"SAC 训练信号 (6.2k 步)\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "INSERT",
@@ -157,8 +165,8 @@
  ],
  "panels": [],
  "canvas": [
-  663,
-  1416
+  707,
+  1218
  ],
  "legend": [
   "act",
@@ -170,9 +178,13 @@
   "reward",
   "train"
  ],
+ "layout_wh": [
+  707,
+  1218
+ ],
  "title": "dlo-routing",
  "subtitle": "提出分层框架处理可变形线性物体（线缆/绳子）的多夹点路由：高层 VLM (GPT-5, CoT prompting) 做任务进度推理和技能选择，低层 SAC RL 执行 Ins",
  "foot": "dlo-routing · arXiv 2510.19268 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    CAM([\"场景俯视图 + clip zoom-in\"]) ==> VLM[\"VLM 规划器 (GPT-5 + CoT)<br/>进度推理 + 技能选择 + 完成判定<br/>纯 in-context, 不参与梯度训练\"]\n    VLM ==> INSERT[\"Insert: SAC RL 低层<br/>7 参数运动原语, 接触敏感区需闭环<br/>(87% vs heuristic 45%)\"]\n    VLM ==> PULL[\"Pull: 脚本原语<br/>自由空间, 无需学习\"]\n    VLM ==> FLAT[\"Flatten: 自动故障恢复 (核心)<br/>重整线缆释放弯曲势能<br/>把不可插入恢复成可插入\"]\n    FLAT -.->|\"重整后重试\"| INSERT\n    CNT[\"连续插入失败计数 + step limit\"] -.->|\"重复失败 -> 触发恢复\"| VLM\n    INSERT -.->|\"失败反馈\"| CNT\n    REW[\"dense shaped 奖励<br/>rope_in / rope_out + 碰撞惩罚<br/>+ 分段距离 + 前端平直度\"] -.->|\"SAC 训练信号 (6.2k 步)\"| INSERT\n    INSERT ==> ROBOT[\"Franka + D415 + SAM2 分割<br/>零微调 sim-to-real (62.5%)\"]\n    PULL ==> ROBOT\n    FLAT ==> ROBOT\n\n    class CAM data\n    class VLM frozen\n    class INSERT train\n    class PULL act\n    class FLAT key\n    class CNT loop\n    class REW reward\n    class ROBOT env\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40"
 }

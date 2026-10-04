@@ -2,69 +2,69 @@
  "nodes": [
   {
    "id": "RAW",
-   "label": "原始数据池\n90K h 真机 + 20K h ego",
-   "sub": "视频",
+   "label": "原始数据池\n90K h 真机 + 20K h",
+   "sub": " ego 视频",
    "icon": "db",
    "cls": "data",
-   "x": 46,
-   "y": 150,
-   "w": 267,
-   "h": 138
+   "x": 44,
+   "y": 111,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "FILT",
-   "label": "三段清洗: jerk/速度 Z-\nscore",
-   "sub": "静止占比超 95% 剔除\nURDF 投影重放 + SLAM 校验",
+   "label": "三段清洗: jerk/速度\n Z-score",
+   "sub": "静止占比超 95% 剔除",
    "icon": "reward",
    "cls": "data",
-   "x": 478,
-   "y": 386,
-   "w": 261,
-   "h": 155
+   "x": 340,
+   "y": 338,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "COR",
-   "label": "高质量语料\n50K h x 20 构型 + 10K",
-   "sub": "h ego",
+   "label": "高质量语料\n50K h x 20 构型 + ",
+   "sub": "10K h ego",
    "icon": "db",
    "cls": "data",
-   "x": 622,
-   "y": 622,
-   "w": 267,
-   "h": 138
+   "x": 639,
+   "y": 414,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "ANNO",
-   "label": "自动标注: Qwen3.6-27B\n子任务切分 + 18 类封闭",
-   "sub": "动作词表",
+   "label": "自动标注: Qwen3.6-\n27B",
+   "sub": "子任务切分 + 18 类",
    "icon": "brain",
    "cls": "frozen",
-   "x": 626,
-   "y": 858,
-   "w": 257,
-   "h": 138
+   "x": 935,
+   "y": 414,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "UNI",
-   "label": "55 维统一动作向量\n臂/末端/夹爪/灵巧手/腰/",
-   "sub": "头/底盘\n低维构型补零共享专家",
+   "label": "55 维统一动作向量\n臂/末端/夹爪/灵巧手",
+   "sub": "/腰/头/底盘",
    "icon": "robot",
    "cls": "data",
-   "x": 622,
-   "y": 1094,
-   "w": 265,
-   "h": 155
+   "x": 1228,
+   "y": 414,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "MOE",
-   "label": "动作专家: 稀疏 MoE 层\nSigmoid 路由 + 修正偏",
-   "sub": "置只进 Top-K\n无辅助损失负载均衡",
+   "label": "动作专家: 稀疏 MoE \n层",
+   "sub": "Sigmoid 路由 + 修",
    "icon": "lightning",
    "cls": "train",
-   "x": 628,
-   "y": 1330,
-   "w": 253,
-   "h": 155
+   "x": 1524,
+   "y": 414,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "VLM",
@@ -72,65 +72,65 @@
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 957,
-   "y": 166,
-   "w": 215,
-   "h": 105
+   "x": 50,
+   "y": 270,
+   "w": 217,
+   "h": 93
   },
   {
    "id": "QT",
-   "label": "双 query 预测蒸馏\nQ_t 当前观测 + Q_t+T",
-   "sub": "前瞻 T 步",
+   "label": "双 query 预测蒸馏\nQ_t 当前观测 + Q_t",
+   "sub": "+T 前瞻 T 步",
    "icon": "state",
    "cls": "key",
-   "x": 778,
-   "y": 386,
-   "w": 254,
-   "h": 138
+   "x": 343,
+   "y": 488,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "DTEA",
-   "label": "LingBot-Depth 深度教师\n(L1 几何监督)",
-   "sub": "",
+   "label": "LingBot-Depth 深度\n教师",
+   "sub": "(L1 几何监督)",
    "icon": "sigma",
    "cls": "frozen",
-   "x": 351,
-   "y": 166,
-   "w": 264,
-   "h": 105
+   "x": 44,
+   "y": 397,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "VTEA",
-   "label": "DINO-Video 因果视频教师\n(DINOv3 初始化,",
-   "sub": "Frobenius 范数)",
+   "label": "DINO-Video 因果视\n频教师",
+   "sub": "(DINOv3 初始化, Fr",
    "icon": "brain",
    "cls": "frozen",
-   "x": 653,
-   "y": 150,
-   "w": 266,
-   "h": 138
+   "x": 45,
+   "y": 557,
+   "w": 228,
+   "h": 126
   },
   {
    "id": "LREL",
-   "label": "相对目标 + MeanStd 归\n一化",
-   "sub": "L2 回归损失 (relQpos 方差降\n65%)",
+   "label": "相对目标 + MeanStd\n 归一化",
+   "sub": "L2 回归损失 (relQp",
    "icon": "sigma",
    "cls": "loss",
-   "x": 1210,
-   "y": 150,
-   "w": 254,
-   "h": 155
+   "x": 46,
+   "y": 716,
+   "w": 227,
+   "h": 126
   },
   {
    "id": "POL",
-   "label": "全身策略输出\n头/腰/底盘/灵巧手/双臂",
-   "sub": "30Hz (R1 系 15Hz)",
+   "label": "全身策略输出\n头/腰/底盘/灵巧手/",
+   "sub": "双臂",
    "icon": "robot",
    "cls": "act",
-   "x": 627,
-   "y": 1566,
-   "w": 256,
-   "h": 138
+   "x": 1823,
+   "y": 414,
+   "w": 222,
+   "h": 126
   }
  ],
  "edges": [
@@ -172,10 +172,7 @@
   {
    "from": "DTEA",
    "to": "QT",
-   "style": "fb",
-   "k": 90,
-   "out": "bottom",
-   "in": "bottom"
+   "style": "fb"
   },
   {
    "from": "VTEA",
@@ -195,8 +192,8 @@
  ],
  "panels": [],
  "canvas": [
-  1510,
-  1888
+  2089,
+  913
  ],
  "legend": [
   "act",
@@ -207,9 +204,13 @@
   "loss",
   "train"
  ],
+ "layout_wh": [
+  2089,
+  913
+ ],
  "title": "lingbot-vla2",
  "subtitle": "LingBot-VLA 2.0 沿三个功能域推进前代：重构数据管线并整理约 60,000 小时预训练语料（约 90K 小时原始真机数据清洗出 50K 小时、覆盖 20 个机器人",
  "foot": "lingbot-vla2 · arXiv 2607.06403 · v3 auto",
- "source": "relayout-v2+T",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    RAW([\"原始数据池<br/>90K h 真机 + 20K h ego 视频\"]) --> FILT[\"三段清洗: jerk/速度 Z-score<br/>静止占比超 95% 剔除<br/>URDF 投影重放 + SLAM 校验\"]\n    FILT --> COR([\"高质量语料<br/>50K h x 20 构型 + 10K h ego\"])\n    COR --> ANNO[\"自动标注: Qwen3.6-27B<br/>子任务切分 + 18 类封闭动作词表\"]\n    ANNO --> UNI[\"55 维统一动作向量<br/>臂/末端/夹爪/灵巧手/腰/头/底盘<br/>低维构型补零共享专家\"]\n    UNI ==> MOE\n    VLM[\"VLM backbone<br/>视觉 + 文本 token\"] --> QT\n    QT[\"双 query 预测蒸馏<br/>Q_t 当前观测 + Q_t+T 前瞻 T 步\"]\n    QT --> MOE[\"动作专家: 稀疏 MoE 层<br/>Sigmoid 路由 + 修正偏置只进 Top-K<br/>无辅助损失负载均衡\"]\n    DTEA[\"LingBot-Depth 深度教师<br/>(L1 几何监督)\"] -.-> QT\n    VTEA[\"DINO-Video 因果视频教师<br/>(DINOv3 初始化, Frobenius 范数)\"] -.-> QT\n    LREL[\"相对目标 + MeanStd 归一化<br/>L2 回归损失 (relQpos 方差降 65%)\"] -.-> MOE\n    MOE ==> POL([\"全身策略输出<br/>头/腰/底盘/灵巧手/双臂<br/>30Hz (R1 系 15Hz)\"])\n\n    class RAW,FILT,COR,UNI data\n    class ANNO,DTEA,VTEA frozen\n    class MOE train\n    class QT key\n    class POL act\n    class LREL loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

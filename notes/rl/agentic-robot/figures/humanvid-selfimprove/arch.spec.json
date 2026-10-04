@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "HV",
-   "label": "人类视频约 100 万样本\nHOI4D / Arti4D /",
-   "sub": "EgoDex",
+   "label": "人类视频约 100 万样\n本",
+   "sub": "HOI4D / Arti4D / E",
    "icon": "refresh",
    "cls": "loop",
-   "x": 46,
-   "y": 150,
-   "w": 261,
-   "h": 138
+   "x": 44,
+   "y": 130,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "REP",
-   "label": "具身无关表征\n动作 = 6-DoF 腕位姿 +",
-   "sub": "手部闭合标量\n状态 = DINO-v3 token + 短时程\n3D 点流",
+   "label": "具身无关表征\n动作 = 6-DoF 腕位姿",
+   "sub": " + 手部闭合标量",
    "icon": "lightning",
    "cls": "loop",
-   "x": 302,
-   "y": 386,
-   "w": 262,
-   "h": 172
+   "x": 230,
+   "y": 316,
+   "w": 235,
+   "h": 126
   },
   {
    "id": "POL0",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 358,
-   "y": 622,
-   "w": 150,
-   "h": 105
+   "x": 301,
+   "y": 146,
+   "w": 146,
+   "h": 93
   },
   {
    "id": "DYN",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 334,
-   "y": 1061,
-   "w": 198,
-   "h": 105
+   "x": 454,
+   "y": 502,
+   "w": 200,
+   "h": 93
   },
   {
    "id": "VAL",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "target",
    "cls": "loop",
-   "x": 483,
-   "y": 2174,
-   "w": 198,
-   "h": 105
+   "x": 242,
+   "y": 1365,
+   "w": 200,
+   "h": 93
   },
   {
    "id": "VLM",
@@ -61,43 +61,43 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 639,
-   "y": 166,
-   "w": 180,
-   "h": 105
+   "x": 471,
+   "y": 146,
+   "w": 182,
+   "h": 93
   },
   {
    "id": "GND",
-   "label": "自主接地: 冻结人类预训\n练 policy 真机滚动",
-   "sub": "约 400 回合 / 约 3 小时, 专\n门见自然失败",
+   "label": "自主接地: 冻结人类\n预训练 policy 真机",
+   "sub": "滚动",
    "icon": "lightning",
    "cls": "loop",
-   "x": 306,
-   "y": 825,
-   "w": 254,
-   "h": 155
+   "x": 488,
+   "y": 316,
+   "w": 225,
+   "h": 126
   },
   {
    "id": "TEL",
-   "label": "每任务 25 条遥操作演示",
+   "label": "每任务 25 条遥操作\n演示",
    "sub": "",
    "icon": "db",
    "cls": "loop",
-   "x": 345,
-   "y": 167,
-   "w": 256,
-   "h": 104
+   "x": 677,
+   "y": 146,
+   "w": 222,
+   "h": 93
   },
   {
    "id": "POL",
-   "label": "任务 policy (骨干可换:\n自建 / pi0.5)",
+   "label": "任务 policy (骨干可\n换: 自建 / pi0.5)",
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 184,
-   "y": 2174,
-   "w": 261,
-   "h": 105
+   "x": 466,
+   "y": 1365,
+   "w": 235,
+   "h": 93
   },
   {
    "id": "ROL",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 468,
-   "y": 2394,
-   "w": 234,
-   "h": 105
+   "x": 225,
+   "y": 1534,
+   "w": 236,
+   "h": 93
   },
   {
    "id": "SPLIT",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 358,
-   "y": 2613,
-   "w": 150,
-   "h": 105
+   "x": 398,
+   "y": 1704,
+   "w": 148,
+   "h": 93
   },
   {
    "id": "DS",
@@ -127,10 +127,10 @@
    "sub": "",
    "icon": "check",
    "cls": "loop",
-   "x": 452,
-   "y": 2816,
-   "w": 177,
-   "h": 104
+   "x": 280,
+   "y": 1857,
+   "w": 179,
+   "h": 92
   },
   {
    "id": "DF",
@@ -138,21 +138,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 236,
-   "y": 2816,
-   "w": 177,
-   "h": 104
+   "x": 484,
+   "y": 1857,
+   "w": 179,
+   "h": 92
   },
   {
    "id": "DGAC",
-   "label": "DGAC 免训练修复 (核心)",
-   "sub": "检索成功参考 -> 速度场组合\n-> 动力学想象 -> value 择优\n-> 重标记; 门控放弃不可恢复",
+   "label": "DGAC 免训练修复 (核\n心): 检索成功参考 -",
+   "sub": "> 速度场组合 N 候选",
    "icon": "search",
    "cls": "loop",
-   "x": 298,
-   "y": 1264,
-   "w": 269,
-   "h": 151
+   "x": 355,
+   "y": 655,
+   "w": 233,
+   "h": 126
   },
   {
    "id": "DR",
@@ -160,43 +160,54 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 334,
-   "y": 1500,
-   "w": 197,
-   "h": 104
+   "x": 372,
+   "y": 841,
+   "w": 199,
+   "h": 92
   },
   {
    "id": "ADV",
-   "label": "块级优势: 块内奖励 + 块\n尾价值差",
+   "label": "块级优势: 块内奖励 \n+ 块尾价值差",
    "sub": "cutoff 取 70 分位",
    "icon": "reward",
    "cls": "loop",
-   "x": 300,
-   "y": 1702,
-   "w": 265,
-   "h": 138
+   "x": 356,
+   "y": 993,
+   "w": 230,
+   "h": 126
   },
   {
    "id": "UPD",
-   "label": "优势条件化策略提取 (\nCFGRL)",
-   "sub": "全流程唯一策略梯度式更新",
+   "label": "优势条件化策略提取 \n(CFGRL)",
+   "sub": "全流程唯一策略梯度式",
    "icon": "lightning",
    "cls": "loop",
-   "x": 298,
-   "y": 1938,
-   "w": 270,
-   "h": 138
+   "x": 354,
+   "y": 1179,
+   "w": 236,
+   "h": 126
   },
   {
    "id": "ACC",
-   "label": "Stretch 3 五任务 41.3%\n-> 85.3%",
-   "sub": "pi0.5 62.7% -> 88.0%, Franka\n36.7% -> 70.0%",
+   "label": "Stretch 3 五任务 4\n1.3% -> 85.3%",
+   "sub": "pi0.5 62.7% -> 88.",
    "icon": "refresh",
    "cls": "loop",
-   "x": 164,
-   "y": 2377,
-   "w": 266,
-   "h": 155
+   "x": 485,
+   "y": 1518,
+   "w": 233,
+   "h": 126
+  },
+  {
+   "id": "PRE",
+   "label": "PRE",
+   "sub": "",
+   "icon": "refresh",
+   "cls": "loop",
+   "x": 290,
+   "y": 502,
+   "w": 140,
+   "h": 92
   }
  ],
  "edges": [
@@ -214,23 +225,23 @@
    "from": "SPLIT",
    "to": "DS",
    "style": "thick",
-   "label": "成功"
+   "label": "\"成功\""
   },
   {
    "from": "SPLIT",
    "to": "DF",
    "style": "thick",
-   "label": "失败"
+   "label": "\"失败\""
   },
   {
    "from": "DF",
    "to": "DGAC",
    "style": "thick",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "DGAC",
@@ -244,26 +255,34 @@
   },
   {
    "from": "REP",
-   "to": "POL0",
+   "to": "PRE",
    "style": "thick"
   },
   {
    "from": "VLM",
    "to": "GND",
    "style": "fb",
-   "label": "提指令"
+   "label": "\"提指令\""
   },
   {
    "from": "POL0",
    "to": "GND",
    "style": "fb",
-   "label": "冻结执行 + VidBot affordanc…"
+   "label": "\"冻结执行 + VidBot affordanc",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "GND",
    "to": "DYN",
    "style": "thick",
-   "label": "接地到机器人本体分布"
+   "label": "\"接地到机器人本体分布\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "GND",
@@ -274,54 +293,63 @@
    "from": "POL0",
    "to": "POL",
    "style": "thick",
-   "label": "预训练权重迁移"
+   "label": "\"预训练权重迁移\""
   },
   {
    "from": "TEL",
    "to": "POL",
    "style": "thick",
-   "label": "初始化任务 policy",
-   "out": "left",
-   "in": "left",
-   "k": 60
+   "label": "\"初始化任务 policy\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "DS",
    "to": "DGAC",
    "style": "fb",
-   "label": "两阶段检索参考",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"两阶段检索参考\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "DYN",
    "to": "DGAC",
    "style": "fb",
-   "label": "想象 rollout 4 Hz"
+   "label": "\"想象 rollout 4 Hz\"",
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "VAL",
    "to": "DGAC",
    "style": "fb",
-   "label": "排序: 比 VLM 选高 21.3pp",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"排序: 比 VLM 选高 21.3pp\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74,
+   "loff": [
+    0,
+    -18
+   ]
   },
   {
    "from": "DS",
    "to": "ADV",
    "style": "thick",
-   "out": "bottom",
-   "in": "bottom",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "DR",
@@ -332,12 +360,12 @@
    "from": "VAL",
    "to": "ADV",
    "style": "fb",
-   "label": "价值差",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"价值差\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "ADV",
@@ -353,12 +381,12 @@
    "from": "UPD",
    "to": "DYN",
    "style": "fb",
-   "label": "每轮微调跟上分布",
-   "out": "bottom",
-   "in": "bottom",
+   "label": "\"每轮微调跟上分布\"",
+   "out": "top",
+   "in": "top",
    "pos_out": 0.3,
-   "pos_in": 0.6,
-   "k": 84
+   "pos_in": 0.55,
+   "k": 74
   },
   {
    "from": "UPD",
@@ -373,23 +401,34 @@
  ],
  "panels": [
   {
-   "label": "人类视频联合预训练 (flow matching, 250k iters) · 迭代自改进循环",
-   "x": 158,
-   "y": 558,
-   "w": 570,
-   "h": 2386
+   "label": "人类视频联合预训练 (flow matching, 250k i",
+   "x": 218,
+   "y": 102,
+   "w": 460,
+   "h": 1376
+  },
+  {
+   "label": "迭代自改进循环: 2 轮 x 20 回合",
+   "x": 201,
+   "y": 611,
+   "w": 524,
+   "h": 1358
   }
  ],
  "canvas": [
-  865,
-  3104
+  943,
+  2039
  ],
  "legend": [
   "loop"
  ],
+ "layout_wh": [
+  943,
+  2039
+ ],
  "title": "humanvid-selfimprove",
  "subtitle": "把人类视频的用途从\"策略初始化燃料\"升级为\"自我改进的预测基座\"：在 HOI4D/Arti4D/EgoDex 约 100 万条人类视频样本上联合预训练三个具身无关模型——pol",
  "foot": "humanvid-selfimprove · arXiv 2606.21406 · v3 auto",
- "source": "relayout-v2",
+ "source": "mermaid-auto",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    HV([\"人类视频约 100 万样本<br/>HOI4D / Arti4D / EgoDex\"]):::data\n    REP[\"具身无关表征<br/>动作 = 6-DoF 腕位姿 + 手部闭合标量<br/>状态 = DINO-v3 token + 短时程 3D 点流\"]:::data\n\n    subgraph PRE[\"人类视频联合预训练 (flow matching, 250k iters)\"]\n        direction LR\n        POL0[\"policy<br/>动作块生成\"]:::train\n        DYN[\"dynamics 模型<br/>预测未来世界状态\"]:::env\n        VAL[\"value 模型<br/>稀疏终局折扣回报\"]:::reward\n    end\n\n    VLM[\"VLM (GPT-4o)<br/>提原子交互指令\"]:::frozen\n    GND[\"自主接地: 冻结人类预训练 policy 真机滚动<br/>约 400 回合 / 约 3 小时, 专门见自然失败\"]:::env\n    TEL[\"每任务 25 条遥操作演示\"]:::data\n    POL[\"任务 policy (骨干可换: 自建 / pi0.5)\"]:::train\n\n    subgraph SI[\"迭代自改进循环: 2 轮 x 20 回合\"]\n        direction TB\n        ROL[\"真机 rollout 采集<br/>当前策略诱导状态分布\"]:::env\n        SPLIT{\"按结局划分<br/>(人工标注)\"}:::loop\n        DS[\"D_succ 成功集\"]:::data\n        DF[\"D_fail 失败集\"]:::data\n        DGAC[\"DGAC 免训练修复 (核心): 检索成功参考 -> 速度场组合 N 候选<br/>-> 动力学想象 -> value 排序择优 -> 重标记; 门控放弃不可恢复失败\"]:::key\n        DR[\"D_repair 修复集\"]:::data\n        ADV[\"块级优势: 块内奖励 + 块尾价值差<br/>cutoff 取 70 分位\"]:::reward\n        UPD[\"优势条件化策略提取 (CFGRL)<br/>全流程唯一策略梯度式更新\"]:::loss\n        POL ==> ROL\n        ROL ==> SPLIT\n        SPLIT ==>|\"成功\"| DS\n        SPLIT ==>|\"失败\"| DF\n        DF ==> DGAC\n        DGAC ==> DR\n    end\n\n    ACC([\"Stretch 3 五任务 41.3% -> 85.3%<br/>pi0.5 62.7% -> 88.0%, Franka 36.7% -> 70.0%\"]):::data\n\n    HV ==> REP\n    REP ==> PRE\n    VLM -.->|\"提指令\"| GND\n    POL0 -.->|\"冻结执行 + VidBot affordance 开环\"| GND\n    GND ==>|\"接地到机器人本体分布\"| DYN\n    GND ==> VAL\n    POL0 ==>|\"预训练权重迁移\"| POL\n    TEL ==>|\"初始化任务 policy\"| POL\n    DS -.->|\"两阶段检索参考\"| DGAC\n    DYN -.->|\"想象 rollout 4 Hz\"| DGAC\n    VAL -.->|\"排序: 比 VLM 选高 21.3pp\"| DGAC\n    DS ==> ADV\n    DR ==> ADV\n    VAL -.->|\"价值差\"| ADV\n    ADV ==> UPD\n    UPD ==> POL\n    UPD -.->|\"每轮微调跟上分布\"| DYN\n    UPD -.-> VAL\n    POL ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }
