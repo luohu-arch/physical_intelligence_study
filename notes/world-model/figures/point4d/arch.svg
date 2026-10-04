@@ -23,26 +23,26 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">point4d</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">前馈式 4D 重建只能吃几打帧的短窗口、且遮挡点无法跨块续接的问题，被 Point4D 用「查 3D 点、不查 2D 像素」解决：把 D4RT 的 2D 像素 query 换成</text>
 <text x="733" y="1615" font-size="11.5" fill="#a0aab4" text-anchor="end">point4d · arXiv 2609.09145 · v3 auto</text>
-<path d="M 268.5 141.0 L 268.5 197.5 L 138.0 197.5 L 138.0 254.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 138.0 349.0 L 138.0 405.0 L 383.5 405.0 L 383.5 461.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 268.5 151.0 L 268.5 202.5 L 138.0 202.5 L 138.0 254.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 138.0 359.0 L 138.0 410.0 L 383.5 410.0 L 383.5 461.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 478.0 140.0 L 478.0 188.5 L 393.5 188.5 L 393.5 237.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
 <path d="M 478.0 140.0 L 478.0 197.0 L 639.0 197.0 L 639.0 254.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 383.5 589.0 L 383.5 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 393.5 365.0 L 383.5 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 639.0 349.0 L 639.0 449.0 L 383.5 449.0 L 383.5 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 383.5 813.0 L 383.5 909.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 383.5 599.0 L 383.5 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 393.5 375.0 L 383.5 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 639.0 359.0 L 639.0 449.0 L 383.5 449.0 L 383.5 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 383.5 823.0 L 383.5 909.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 383.5 1003.0 L 383.5 1099.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 383.5 1227.0 L 383.5 1275.0 L 229.0 1275.0 L 229.0 1323.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 191.0 1451.0 L 191.0 2173.0 L 410.2 2173.0 L 410.2 813.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 383.5 1227.0 L 383.5 1275.0 L 497.0 1275.0 L 497.0 1323.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<rect x="195.5" y="49.5" width="151" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="193" y="46" width="151" height="95" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<path d="M 383.5 1237.0 L 383.5 1280.0 L 229.0 1280.0 L 229.0 1323.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 191.0 1461.0 L 191.0 2183.0 L 410.2 2183.0 L 410.2 823.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 383.5 1237.0 L 383.5 1280.0 L 497.0 1280.0 L 497.0 1323.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<rect x="195.5" y="49.5" width="151" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="193" y="46" width="151" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="268.5" cy="46" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="268.5" cy="46" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(255.0,32.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
-<text x="268.5" y="90" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="268.5" dy="0">单目长视频</tspan><tspan x="268.5" dy="20">200-500 帧</tspan></text>
-<rect x="48.5" y="257.5" width="184" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="254" width="184" height="95" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="268.5" y="102" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="268.5" dy="0">单目长视频</tspan><tspan x="268.5" dy="20">200-500 帧</tspan></text>
+<rect x="48.5" y="257.5" width="184" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="254" width="184" height="105" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="138.0" cy="254" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="138.0" cy="254" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(124.5,240.5) scale(1.1250)">
@@ -50,14 +50,14 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="138.0" y="298" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="138.0" dy="0">切成 48 帧的块</tspan><tspan x="138.0" dy="20">8 帧重叠</tspan></text>
-<rect x="255.5" y="464.5" width="261" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="253" y="461" width="261" height="128" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="138.0" y="310" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="138.0" dy="0">切成 48 帧的块</tspan><tspan x="138.0" dy="20">8 帧重叠</tspan></text>
+<rect x="255.5" y="464.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="253" y="461" width="261" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="383.5" cy="461" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="383.5" cy="461" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(370.0,447.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
-<text x="383.5" y="505" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="383.5" dy="0">编码器 E: DA3 初始化 V</tspan><tspan x="383.5" dy="20">iT</tspan></text>
-<text x="383.5" y="535" font-size="12" fill="#5f6b7a" text-anchor="middle">场景表征 F + 深度 D + </text>
+<text x="383.5" y="517" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="383.5" dy="0">编码器 E: DA3 初始化 V</tspan><tspan x="383.5" dy="20">iT</tspan></text>
+<text x="383.5" y="547" font-size="12" fill="#5f6b7a" text-anchor="middle">场景表征 F + 深度 D + </text>
 <rect x="384.5" y="49.5" width="192" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="382" y="46" width="192" height="94" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="478.0" cy="46" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -66,36 +66,36 @@
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="478.0" y="97" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">第 0 帧查询像素</text>
-<rect x="270.5" y="240.5" width="251" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="268" y="237" width="251" height="128" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="478.0" y="109" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">第 0 帧查询像素</text>
+<rect x="270.5" y="240.5" width="251" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="268" y="237" width="251" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="393.5" cy="237" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="393.5" cy="237" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(380.0,223.5) scale(1.1250)">
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="393.5" y="281" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="393.5" dy="0">3D query p = (x,y,z)</tspan><tspan x="393.5" dy="20">query 3D 点而非像素</tspan></text>
-<text x="393.5" y="311" font-size="12" fill="#5f6b7a" text-anchor="middle">坐标不依赖可见性</text>
-<rect x="559.5" y="257.5" width="164" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="557" y="254" width="164" height="95" rx="14" fill="url(#g-mem)" stroke="#b8860b" stroke-width="2.0"/>
+<text x="393.5" y="293" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="393.5" dy="0">3D query p = (x,y,z)</tspan><tspan x="393.5" dy="20">query 3D 点而非像素</tspan></text>
+<text x="393.5" y="323" font-size="12" fill="#5f6b7a" text-anchor="middle">坐标不依赖可见性</text>
+<rect x="559.5" y="257.5" width="164" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="557" y="254" width="164" height="105" rx="14" fill="url(#g-mem)" stroke="#b8860b" stroke-width="2.0"/>
 <circle cx="639.0" cy="254" r="24" fill="#ffffff" stroke="#b8860b" stroke-width="1.8"/>
 <circle cx="639.0" cy="254" r="27.5" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.35"/>
 <g transform="translate(625.5,240.5) scale(1.1250)">
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="639.0" y="298" font-size="15" class="lbl" fill="#8a6d00" text-anchor="middle"><tspan x="639.0" dy="0">视觉描述子 S</tspan><tspan x="639.0" dy="20">跨所有块复用</tspan></text>
-<rect x="252.5" y="688.5" width="267" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="250" y="685" width="267" height="128" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="639.0" y="310" font-size="15" class="lbl" fill="#8a6d00" text-anchor="middle"><tspan x="639.0" dy="0">视觉描述子 S</tspan><tspan x="639.0" dy="20">跨所有块复用</tspan></text>
+<rect x="252.5" y="688.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="250" y="685" width="267" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="383.5" cy="685" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="383.5" cy="685" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(370.0,671.5) scale(1.1250)">
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="383.5" y="729" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="383.5" dy="0">交叉注意力解码器</tspan><tspan x="383.5" dy="20">q = PE(p) + 相机 token</tspan></text>
-<text x="383.5" y="759" font-size="12" fill="#5f6b7a" text-anchor="middle"> + 时间 token + emb(S)</text>
+<text x="383.5" y="741" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="383.5" dy="0">交叉注意力解码器</tspan><tspan x="383.5" dy="20">q = PE(p) + 相机 token</tspan></text>
+<text x="383.5" y="771" font-size="12" fill="#5f6b7a" text-anchor="middle"> + 时间 token + emb(S)</text>
 <rect x="303.5" y="912.5" width="165" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="301" y="909" width="165" height="94" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="383.5" cy="909" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
@@ -105,19 +105,19 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="383.5" y="960" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">每块 3D 轨迹</text>
-<rect x="251.5" y="1102.5" width="269" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="249" y="1099" width="269" height="128" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="383.5" y="972" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">每块 3D 轨迹</text>
+<rect x="251.5" y="1102.5" width="269" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="249" y="1099" width="269" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="383.5" cy="1099" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="383.5" cy="1099" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(370.0,1085.5) scale(1.1250)">
   <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
   <circle cx="12" cy="12" r="3" />
 </g>
-<text x="383.5" y="1143" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="383.5" dy="0">Sim(3) 对齐: 用重叠帧深</tspan><tspan x="383.5" dy="20">度</tspan></text>
-<text x="383.5" y="1173" font-size="12" fill="#5f6b7a" text-anchor="middle">Umeyama 求变换</text>
-<rect x="136.5" y="1326.5" width="190" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="134" y="1323" width="190" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="383.5" y="1155" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="383.5" dy="0">Sim(3) 对齐: 用重叠帧深</tspan><tspan x="383.5" dy="20">度</tspan></text>
+<text x="383.5" y="1185" font-size="12" fill="#5f6b7a" text-anchor="middle">Umeyama 求变换</text>
+<rect x="136.5" y="1326.5" width="190" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="134" y="1323" width="190" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="229.0" cy="1323" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="229.0" cy="1323" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(215.5,1309.5) scale(1.1250)">
@@ -125,10 +125,10 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="229.0" y="1367" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="229.0" dy="0">下一块重查询</tspan><tspan x="229.0" dy="20">无重投影无匹配</tspan></text>
-<text x="229.0" y="1397" font-size="12" fill="#5f6b7a" text-anchor="middle">遮挡/出画不断链</text>
-<rect x="364.5" y="1326.5" width="270" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="362" y="1323" width="270" height="128" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<text x="229.0" y="1379" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="229.0" dy="0">下一块重查询</tspan><tspan x="229.0" dy="20">无重投影无匹配</tspan></text>
+<text x="229.0" y="1409" font-size="12" fill="#5f6b7a" text-anchor="middle">遮挡/出画不断链</text>
+<rect x="364.5" y="1326.5" width="270" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="362" y="1323" width="270" height="138" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="497.0" cy="1323" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="497.0" cy="1323" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(483.5,1309.5) scale(1.1250)">
@@ -139,12 +139,12 @@
   <path d="M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2" />
   <path d="M12 12l0 4" />
 </g>
-<text x="497.0" y="1367" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="497.0" dy="0">全局系长程稠密 3D 轨迹</tspan><tspan x="497.0" dy="20">200 帧三基准平均第一</tspan></text>
-<text x="497.0" y="1397" font-size="12" fill="#5f6b7a" text-anchor="middle">可作世界模型稠密运动监督</text>
+<text x="497.0" y="1379" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="497.0" dy="0">全局系长程稠密 3D 轨迹</tspan><tspan x="497.0" dy="20">200 帧三基准平均第一</tspan></text>
+<text x="497.0" y="1409" font-size="12" fill="#5f6b7a" text-anchor="middle">可作世界模型稠密运动监督</text>
 <g transform="translate(435.8,188.5)"><rect x="-59.8" y="-11" width="119.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;用 D_0 反投影&quot;</text></g>
 <g transform="translate(622.5,197.0)"><rect x="-82.4" y="-11" width="164.7" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;取首次可见帧的 patch&quot;</text></g>
-<g transform="translate(383.5,861.0)"><rect x="-56.9" y="-11" width="113.8" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;块内扫 t_tgt&quot;</text></g>
-<g transform="translate(306.2,1275.0)"><rect x="-69.0" y="-11" width="138.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;直接变换 3D 端点&quot;</text></g>
+<g transform="translate(383.5,866.0)"><rect x="-56.9" y="-11" width="113.8" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;块内扫 t_tgt&quot;</text></g>
+<g transform="translate(306.2,1280.0)"><rect x="-69.0" y="-11" width="138.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;直接变换 3D 端点&quot;</text></g>
 <text x="40" y="1581.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1567" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1578" r="4.2" fill="#2e7d32"/><text x="110" y="1582" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
 <g><rect x="191.43" y="1567" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="1578" r="4.2" fill="#00695c"/><text x="215.43" y="1582" font-size="11.5" fill="#004d40">环境</text></g>

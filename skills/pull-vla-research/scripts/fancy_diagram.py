@@ -369,7 +369,7 @@ def render(spec):
             out.append(f'<circle cx="{bx}" cy="{by}" r="27.5" fill="none" stroke="{s}" '
                        f'stroke-width="1" opacity="0.35"/>')
             out.append(icon_g(icon, ink, bx, by, 27))
-            ty = y + 44
+            ty = y + 56
         else:
             ty = y + h / 2 - 8
         lines = n["label"].split("\n")

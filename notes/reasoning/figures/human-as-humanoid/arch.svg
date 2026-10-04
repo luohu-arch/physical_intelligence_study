@@ -26,13 +26,13 @@
 <rect x="28" y="614" width="290" height="162" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="44" y="627" width="154.25" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="55" y="644" font-size="12.5" fill="#4a6579">PrimeU 比例对齐人形</text>
-<path d="M 292.0 311.0 L 349.5 311.0 L 349.5 509.5 L 407.0 509.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 292.0 575.0 L 349.5 575.0 L 349.5 509.5 L 407.0 509.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 668.0 509.5 L 776.0 509.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1037.0 509.5 L 1091.0 509.5 L 1091.0 443.0 L 1145.0 443.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 292.0 311.0 L 349.5 311.0 L 349.5 514.5 L 407.0 514.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 292.0 575.0 L 349.5 575.0 L 349.5 514.5 L 407.0 514.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 668.0 514.5 L 776.0 514.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1037.0 514.5 L 1091.0 514.5 L 1091.0 443.0 L 1145.0 443.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 299.0 179.0 L 356.5 179.0 L 356.5 377.0 L 414.0 377.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
 <path d="M 289.0 443.0 L 351.5 443.0 L 351.5 377.0 L 414.0 377.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 662.0 377.0 L 778.0 376.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 662.0 377.0 L 778.0 381.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="56.5" y="267.5" width="238" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="54" y="264" width="238" height="94" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="173.0" cy="264" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -43,7 +43,7 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="173.0" y="315" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Egocentric 视频&lt;br/</text>
+<text x="173.0" y="327" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Egocentric 视频&lt;br/</text>
 <rect x="56.5" y="531.5" width="238" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="54" y="528" width="238" height="94" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="173.0" cy="528" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -54,9 +54,9 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="173.0" y="579" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Exocentric 视频&lt;br/</text>
-<rect x="409.5" y="465.5" width="261" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="407" y="462" width="261" height="95" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="173.0" y="591" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Exocentric 视频&lt;br/</text>
+<rect x="409.5" y="465.5" width="261" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="407" y="462" width="261" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="537.5" cy="462" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="537.5" cy="462" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(524.0,448.5) scale(1.1250)">
@@ -67,9 +67,9 @@
   <path d="M15 13v2" />
   <path d="M9 13v2" />
 </g>
-<text x="537.5" y="506" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="537.5" dy="0">人体跟踪 + Mesh 重建&lt;b</tspan><tspan x="537.5" dy="20">r/</tspan></text>
-<rect x="778.5" y="465.5" width="261" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="776" y="462" width="261" height="95" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="537.5" y="518" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="537.5" dy="0">人体跟踪 + Mesh 重建&lt;b</tspan><tspan x="537.5" dy="20">r/</tspan></text>
+<rect x="778.5" y="465.5" width="261" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="776" y="462" width="261" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="906.5" cy="462" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="906.5" cy="462" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(893.0,448.5) scale(1.1250)">
@@ -78,7 +78,7 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="906.5" y="506" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="906.5" dy="0">Staged IK 分阶段重映射</tspan><tspan x="906.5" dy="20">&lt;br/</tspan></text>
+<text x="906.5" y="518" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="906.5" dy="0">Staged IK 分阶段重映射</tspan><tspan x="906.5" dy="20">&lt;br/</tspan></text>
 <rect x="1147.5" y="399.5" width="253" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="1145" y="396" width="253" height="94" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1271.5" cy="396" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -88,7 +88,7 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="1271.5" y="447" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">60-DoF 动作块标签&lt;br/</text>
+<text x="1271.5" y="459" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">60-DoF 动作块标签&lt;br/</text>
 <rect x="56.5" y="663.5" width="238" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="54" y="660" width="238" height="94" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="173.0" cy="660" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -99,7 +99,7 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="173.0" y="711" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">硬件身体比例对齐&lt;br/</text>
+<text x="173.0" y="723" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">硬件身体比例对齐&lt;br/</text>
 <rect x="416.5" y="333.5" width="248" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="414" y="330" width="248" height="94" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="538.0" cy="330" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -107,21 +107,21 @@
 <g transform="translate(524.5,316.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="538.0" y="381" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">PhysDex VLA 策略&lt;br/</text>
+<text x="538.0" y="393" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">PhysDex VLA 策略&lt;br/</text>
 <rect x="48.5" y="135.5" width="253" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="46" y="132" width="253" height="94" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="172.5" cy="132" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="172.5" cy="132" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(159.0,118.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="172.5" y="183" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">DS-HKC 双空间损失&lt;br/</text>
+<text x="172.5" y="195" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">DS-HKC 双空间损失&lt;br/</text>
 <rect x="58.5" y="399.5" width="233" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="56" y="396" width="233" height="94" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="172.5" cy="396" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="172.5" cy="396" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(159.0,382.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="172.5" y="447" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">部署期 Ego 观测&lt;br/</text>
-<rect x="780.5" y="332.5" width="256" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="778" y="329" width="256" height="95" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="172.5" y="459" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">部署期 Ego 观测&lt;br/</text>
+<rect x="780.5" y="332.5" width="256" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="778" y="329" width="256" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="906.0" cy="329" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="906.0" cy="329" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(892.5,315.5) scale(1.1250)">
@@ -130,7 +130,7 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="906.0" y="373" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="906.0" dy="0">PrimeU 上身 60-DoF 动</tspan><tspan x="906.0" dy="20">作</tspan></text>
+<text x="906.0" y="385" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="906.0" dy="0">PrimeU 上身 60-DoF 动</tspan><tspan x="906.0" dy="20">作</tspan></text>
 <text x="40" y="798.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="784" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="795" r="4.2" fill="#546e7a"/><text x="110" y="799" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 <text x="40" y="838" font-size="11.5" fill="#78909c">线型</text>

@@ -28,11 +28,11 @@
 <text x="121" y="30" font-size="12.5" fill="#4a6579">多视角输入 (相机内外参标定已知)</text>
 <path d="M 209.5 140.0 L 209.5 188.0 L 317.0 188.0 L 317.0 236.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 425.5 140.0 L 425.5 188.0 L 317.0 188.0 L 317.0 236.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 317.0 364.0 L 317.5 460.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 317.5 555.0 L 317.0 651.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 317.0 374.0 L 317.5 460.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 317.5 565.0 L 317.0 651.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 317.0 745.0 L 317.0 793.0 L 179.5 793.0 L 179.5 841.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 317.0 745.0 L 317.0 801.5 L 470.0 801.5 L 470.0 858.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 179.5 969.0 L 179.5 1017.0 L 317.0 1017.0 L 317.0 1065.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 179.5 979.0 L 179.5 1022.0 L 317.0 1022.0 L 317.0 1065.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="122.5" y="49.5" width="179" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="120" y="46" width="179" height="94" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="209.5" cy="46" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -42,7 +42,7 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="209.5" y="97" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">视角 1 tokens</text>
+<text x="209.5" y="109" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">视角 1 tokens</text>
 <rect x="338.5" y="49.5" width="179" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="336" y="46" width="179" height="94" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="425.5" cy="46" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -52,9 +52,9 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="425.5" y="97" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">视角 2 tokens</text>
-<rect x="186.5" y="239.5" width="266" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="184" y="236" width="266" height="128" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="425.5" y="109" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">视角 2 tokens</text>
+<rect x="186.5" y="239.5" width="266" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="184" y="236" width="266" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="317.0" cy="236" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="317.0" cy="236" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(303.5,222.5) scale(1.1250)">
@@ -63,14 +63,14 @@
   <path d="M22 4h-4" />
   <circle cx="4" cy="20" r="2" />
 </g>
-<text x="317.0" y="280" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="317.0" dy="0">Geo-RoPE 跨视角 Attent</tspan><tspan x="317.0" dy="20">ion</tspan></text>
-<text x="317.0" y="310" font-size="12" fill="#5f6b7a" text-anchor="middle">ray 子空间 + pose 子空</text>
-<rect x="189.5" y="463.5" width="261" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="187" y="460" width="261" height="95" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="317.0" y="292" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="317.0" dy="0">Geo-RoPE 跨视角 Attent</tspan><tspan x="317.0" dy="20">ion</tspan></text>
+<text x="317.0" y="322" font-size="12" fill="#5f6b7a" text-anchor="middle">ray 子空间 + pose 子空</text>
+<rect x="189.5" y="463.5" width="261" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="187" y="460" width="261" height="105" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="317.5" cy="460" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="317.5" cy="460" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(304.0,446.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
-<text x="317.5" y="504" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="317.5" dy="0">DiT 骨干</tspan><tspan x="317.5" dy="20">Cosmos-Predict2.5 14B</tspan></text>
+<text x="317.5" y="516" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="317.5" dy="0">DiT 骨干</tspan><tspan x="317.5" dy="20">Cosmos-Predict2.5 14B</tspan></text>
 <rect x="244.5" y="654.5" width="150" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="242" y="651" width="150" height="94" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="317.0" cy="651" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
@@ -79,9 +79,9 @@
   <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
   <circle cx="12" cy="12" r="3" />
 </g>
-<text x="317.0" y="702" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">中间特征</text>
-<rect x="48.5" y="844.5" width="267" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="841" width="267" height="128" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="317.0" y="714" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">中间特征</text>
+<rect x="48.5" y="844.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="841" width="267" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="179.5" cy="841" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="179.5" cy="841" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(166.0,827.5) scale(1.1250)">
@@ -91,24 +91,24 @@
   <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
   <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
 </g>
-<text x="179.5" y="885" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="179.5" dy="0">Latent 3D-REPA 蒸馏</tspan><tspan x="179.5" dy="20">冻结 Depth Anything 3 </tspan></text>
-<text x="179.5" y="915" font-size="12" fill="#5f6b7a" text-anchor="middle">老师 仅此 +0.72</text>
-<rect x="353.5" y="861.5" width="238" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="351" y="858" width="238" height="95" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<text x="179.5" y="897" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="179.5" dy="0">Latent 3D-REPA 蒸馏</tspan><tspan x="179.5" dy="20">冻结 Depth Anything 3 </tspan></text>
+<text x="179.5" y="927" font-size="12" fill="#5f6b7a" text-anchor="middle">老师 仅此 +0.72</text>
+<rect x="353.5" y="861.5" width="238" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="351" y="858" width="238" height="105" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="470.0" cy="858" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="470.0" cy="858" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(456.5,844.5) scale(1.1250)">
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="470.0" y="902" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="470.0" dy="0">未来帧预测</tspan><tspan x="470.0" dy="20">多视角 3D 一致不漂移</tspan></text>
+<text x="470.0" y="914" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="470.0" dy="0">未来帧预测</tspan><tspan x="470.0" dy="20">多视角 3D 一致不漂移</tspan></text>
 <rect x="232.5" y="1068.5" width="174" height="94" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="230" y="1065" width="174" height="94" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
 <circle cx="317.0" cy="1065" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
 <circle cx="317.0" cy="1065" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
 <g transform="translate(303.5,1051.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="317.0" y="1116" font-size="16" class="lbl" fill="#b71c1c" text-anchor="middle">3D 一致性损失</text>
-<g transform="translate(248.2,1017.0)"><rect x="-124.0" y="-11" width="248.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;联合 +2.64 超加性 两个耦合缺一不可</text></g>
+<text x="317.0" y="1128" font-size="16" class="lbl" fill="#b71c1c" text-anchor="middle">3D 一致性损失</text>
+<g transform="translate(248.2,1022.0)"><rect x="-124.0" y="-11" width="248.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;联合 +2.64 超加性 两个耦合缺一不可</text></g>
 <text x="40" y="1289.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1275" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1286" r="4.2" fill="#2e7d32"/><text x="110" y="1290" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
 <g><rect x="191.43" y="1275" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="1286" r="4.2" fill="#00695c"/><text x="215.43" y="1290" font-size="11.5" fill="#004d40">环境</text></g>

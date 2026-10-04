@@ -23,32 +23,32 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">llada-vla</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">LLaDA-VLA 是首个基于预训练扩散 VLM（扩散 VLM）而非自回归 VLM 构建的 VLA 模型，通过局部特殊 token 分类（LSC）将连续动作映射为 32 个离散</text>
 <text x="1546" y="762" font-size="11.5" fill="#a0aab4" text-anchor="end">llada-vla · arXiv 2509.06932 · v3 auto</text>
-<path d="M 268.0 281.5 L 309.0 281.5 L 309.0 384.1 L 350.0 384.1" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 268.0 287.5 L 309.0 287.5 L 309.0 388.3 L 350.0 388.3" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
 <path d="M 420.0 262.0 L 420.0 301.0 L 465.5 301.0 L 465.5 340.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 668.0 560.0 L 668.0 513.0 L 707.8 513.0 L 707.8 466.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 560.0 403.0 L 670.0 403.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 880.0 403.0 L 1000.0 403.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 668.0 560.0 L 668.0 519.0 L 707.8 519.0 L 707.8 478.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 560.0 409.0 L 670.0 409.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 880.0 409.0 L 1000.0 409.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
 <path d="M 1051.2 340.0 L 1051.2 266.0 L 817.0 266.0 L 817.0 340.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 968.1 560.0 L 968.1 513.0 L 842.2 513.0 L 842.2 466.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1205.0 403.0 L 1315.0 403.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1335.0 466.0 L 1335.0 513.0 L 1312.2 513.0 L 1312.2 560.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 968.1 560.0 L 968.1 519.0 L 842.2 519.0 L 842.2 478.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1205.0 409.0 L 1315.0 409.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1335.0 478.0 L 1335.0 519.0 L 1312.2 519.0 L 1312.2 560.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 1217.3 560.0 L 1217.3 140.0 L 166.0 140.0 L 166.0 235.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<rect x="66.5" y="238.5" width="204" height="93" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="64" y="235" width="204" height="93" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<rect x="66.5" y="238.5" width="204" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="64" y="235" width="204" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="166.0" cy="235" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="166.0" cy="235" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(152.5,221.5) scale(1.1250)">
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="166.0" y="279" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="166.0" dy="0">视觉</tspan><tspan x="166.0" dy="20">单路第三人称 RGB</tspan></text>
-<rect x="352.5" y="343.5" width="210" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="350" y="340" width="210" height="126" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="166.0" y="291" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="166.0" dy="0">视觉</tspan><tspan x="166.0" dy="20">单路第三人称 RGB</tspan></text>
+<rect x="352.5" y="343.5" width="210" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="350" y="340" width="210" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="455.0" cy="340" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="455.0" cy="340" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(441.5,326.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="455.0" y="384" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="455.0" dy="0">LLaDA-V 预训练扩散 </tspan><tspan x="455.0" dy="20">VLM</tspan></text>
-<text x="455.0" y="414" font-size="12" fill="#5f6b7a" text-anchor="middle">掩码扩散, 非自回归</text>
+<text x="455.0" y="396" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="455.0" dy="0">LLaDA-V 预训练扩散 </tspan><tspan x="455.0" dy="20">VLM</tspan></text>
+<text x="455.0" y="426" font-size="12" fill="#5f6b7a" text-anchor="middle">掩码扩散, 非自回归</text>
 <rect x="352.5" y="173.5" width="140" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="350" y="170" width="140" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="420.0" cy="170" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -56,9 +56,9 @@
 <g transform="translate(406.5,156.5) scale(1.1250)">
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
 </g>
-<text x="420.0" y="221" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">语言指令</text>
-<rect x="472.5" y="563.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="470" y="560" width="233" height="126" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="420.0" y="233" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">语言指令</text>
+<rect x="472.5" y="563.5" width="233" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="470" y="560" width="233" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="586.5" cy="560" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="586.5" cy="560" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(573.0,546.5) scale(1.1250)">
@@ -66,10 +66,10 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="586.5" y="604" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="586.5" dy="0">完全掩码的动作序列</tspan><tspan x="586.5" dy="20">K x D token (K=5, </tspan></text>
-<text x="586.5" y="634" font-size="12" fill="#5f6b7a" text-anchor="middle">D=7)</text>
-<rect x="672.5" y="343.5" width="210" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="670" y="340" width="210" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="586.5" y="616" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="586.5" dy="0">完全掩码的动作序列</tspan><tspan x="586.5" dy="20">K x D token (K=5, </tspan></text>
+<text x="586.5" y="646" font-size="12" fill="#5f6b7a" text-anchor="middle">D=7)</text>
+<rect x="672.5" y="343.5" width="210" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="670" y="340" width="210" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="775.0" cy="340" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="775.0" cy="340" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(761.5,326.5) scale(1.1250)">
@@ -77,33 +77,33 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="775.0" y="384" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="775.0" dy="0">LSC 局部特殊 token</tspan><tspan x="775.0" dy="20"> 分类</tspan></text>
-<text x="775.0" y="414" font-size="12" fill="#5f6b7a" text-anchor="middle">仅在 32 个动作 bin </text>
-<rect x="1002.5" y="343.5" width="205" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1000" y="340" width="205" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="775.0" y="396" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="775.0" dy="0">LSC 局部特殊 token</tspan><tspan x="775.0" dy="20"> 分类</tspan></text>
+<text x="775.0" y="426" font-size="12" fill="#5f6b7a" text-anchor="middle">仅在 32 个动作 bin </text>
+<rect x="1002.5" y="343.5" width="205" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1000" y="340" width="205" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="1102.5" cy="340" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="1102.5" cy="340" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1089.0,326.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="1102.5" y="384" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="1102.5" dy="0">HAD 层次化动作解码</tspan><tspan x="1102.5" dy="20">动作级置信度排序 re</tspan></text>
-<text x="1102.5" y="414" font-size="12" fill="#5f6b7a" text-anchor="middle">mask</text>
-<rect x="902.5" y="563.5" width="227" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="900" y="560" width="227" height="126" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
+<text x="1102.5" y="396" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="1102.5" dy="0">HAD 层次化动作解码</tspan><tspan x="1102.5" dy="20">动作级置信度排序 re</tspan></text>
+<text x="1102.5" y="426" font-size="12" fill="#5f6b7a" text-anchor="middle">mask</text>
+<rect x="902.5" y="563.5" width="227" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="900" y="560" width="227" height="138" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
 <circle cx="1013.5" cy="560" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
 <circle cx="1013.5" cy="560" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1000.0,546.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="1013.5" y="604" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1013.5" dy="0">损失: 掩码预测交叉</tspan><tspan x="1013.5" dy="20">熵</tspan></text>
-<text x="1013.5" y="634" font-size="12" fill="#5f6b7a" text-anchor="middle">L_token 只算动作 t</text>
-<rect x="1317.5" y="343.5" width="200" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1315" y="340" width="200" height="126" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<text x="1013.5" y="616" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1013.5" dy="0">损失: 掩码预测交叉</tspan><tspan x="1013.5" dy="20">熵</tspan></text>
+<text x="1013.5" y="646" font-size="12" fill="#5f6b7a" text-anchor="middle">L_token 只算动作 t</text>
+<rect x="1317.5" y="343.5" width="200" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1315" y="340" width="200" height="138" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="1415.0" cy="340" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
 <circle cx="1415.0" cy="340" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1401.5,326.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="1415.0" y="384" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="1415.0" dy="0">动作序列</tspan><tspan x="1415.0" dy="20">delta 动作, 固定长</tspan></text>
-<text x="1415.0" y="414" font-size="12" fill="#5f6b7a" text-anchor="middle">度无 EOS</text>
+<text x="1415.0" y="396" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="1415.0" dy="0">动作序列</tspan><tspan x="1415.0" dy="20">delta 动作, 固定长</tspan></text>
+<text x="1415.0" y="426" font-size="12" fill="#5f6b7a" text-anchor="middle">度无 EOS</text>
 <rect x="1212.5" y="563.5" width="146" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="1210" y="560" width="146" height="92" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="1283.0" cy="560" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
@@ -116,7 +116,7 @@
   <path d="M15 13v2" />
   <path d="M9 13v2" />
 </g>
-<text x="1283.0" y="611" font-size="16" class="lbl" fill="#4a148c" text-anchor="middle">机器人执行</text>
+<text x="1283.0" y="623" font-size="16" class="lbl" fill="#4a148c" text-anchor="middle">机器人执行</text>
 <g transform="translate(934.1,248.0)"><rect x="-117.0" y="-11" width="234.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;低置信度重掩码 迭代去噪约 10 步&quot;</text></g>
 <g transform="translate(854.1,122.0)"><rect x="-67.8" y="-11" width="135.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;逐动作块重新观测&quot;</text></g>
 <text x="40" y="728.5" font-size="12" fill="#78909c">图例</text>

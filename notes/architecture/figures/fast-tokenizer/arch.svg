@@ -26,17 +26,17 @@
 <rect x="146" y="191" width="313" height="611" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="162" y="204" width="225.5" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="173" y="221" font-size="12.5" fill="#4a6579">FAST 频域压缩 (核心 token 化)</text>
-<path d="M 156.5 141.0 L 156.5 189.0 L 302.5 189.0 L 302.5 237.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 302.5 332.0 L 302.5 428.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 302.5 556.0 L 302.5 652.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 302.5 780.0 L 303.0 876.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 432.0 141.0 L 432.0 568.0 L 303.0 568.0 L 303.0 876.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 303.0 1004.0 L 302.5 1100.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 302.5 1228.0 L 303.0 1324.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 303.0 1419.0 L 302.5 1515.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 249.1 1610.0 L 249.1 3163.0 L 178.6 3163.0 L 178.6 141.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<rect x="48.5" y="49.5" width="221" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="46" width="221" height="95" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<path d="M 156.5 151.0 L 156.5 194.0 L 302.5 194.0 L 302.5 237.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 302.5 342.0 L 302.5 428.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 302.5 566.0 L 302.5 652.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 302.5 790.0 L 303.0 876.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 432.0 151.0 L 432.0 578.0 L 303.0 578.0 L 303.0 876.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 303.0 1014.0 L 302.5 1100.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 302.5 1238.0 L 303.0 1324.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 303.0 1429.0 L 302.5 1515.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 249.1 1620.0 L 249.1 3173.0 L 178.6 3173.0 L 178.6 151.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<rect x="48.5" y="49.5" width="221" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="46" width="221" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="156.5" cy="46" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="156.5" cy="46" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(143.0,32.5) scale(1.1250)">
@@ -44,9 +44,9 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="156.5" y="90" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="156.5" dy="0">时域动作序列 chunk</tspan><tspan x="156.5" dy="20">长度 N = 50</tspan></text>
-<rect x="217.5" y="240.5" width="175" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="215" y="237" width="175" height="95" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="156.5" y="102" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="156.5" dy="0">时域动作序列 chunk</tspan><tspan x="156.5" dy="20">长度 N = 50</tspan></text>
+<rect x="217.5" y="240.5" width="175" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="215" y="237" width="175" height="105" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="302.5" cy="237" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="302.5" cy="237" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(289.0,223.5) scale(1.1250)">
@@ -55,9 +55,9 @@
   <path d="M22 4h-4" />
   <circle cx="4" cy="20" r="2" />
 </g>
-<text x="302.5" y="281" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="302.5" dy="0">一维 DCT 变换</tspan><tspan x="302.5" dy="20">时域 转 频域</tspan></text>
-<rect x="174.5" y="431.5" width="261" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="172" y="428" width="261" height="128" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="302.5" y="293" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="302.5" dy="0">一维 DCT 变换</tspan><tspan x="302.5" dy="20">时域 转 频域</tspan></text>
+<rect x="174.5" y="431.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="172" y="428" width="261" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="302.5" cy="428" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="302.5" cy="428" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(289.0,414.5) scale(1.1250)">
@@ -66,10 +66,10 @@
   <path d="M22 4h-4" />
   <circle cx="4" cy="20" r="2" />
 </g>
-<text x="302.5" y="472" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="302.5" dy="0">截断高频系数</tspan><tspan x="302.5" dy="20">保留前 M = 10 个低频 (</tspan></text>
-<text x="302.5" y="502" font-size="12" fill="#5f6b7a" text-anchor="middle">95% 以上能量)</text>
-<rect x="174.5" y="655.5" width="261" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="172" y="652" width="261" height="128" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="302.5" y="484" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="302.5" dy="0">截断高频系数</tspan><tspan x="302.5" dy="20">保留前 M = 10 个低频 (</tspan></text>
+<text x="302.5" y="514" font-size="12" fill="#5f6b7a" text-anchor="middle">95% 以上能量)</text>
+<rect x="174.5" y="655.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="172" y="652" width="261" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="302.5" cy="652" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="302.5" cy="652" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(289.0,638.5) scale(1.1250)">
@@ -78,10 +78,10 @@
   <path d="M22 4h-4" />
   <circle cx="4" cy="20" r="2" />
 </g>
-<text x="302.5" y="696" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="302.5" dy="0">BPE 量化建库</tspan><tspan x="302.5" dy="20">词表 1024, 压成密集 to</tspan></text>
-<text x="302.5" y="726" font-size="12" fill="#5f6b7a" text-anchor="middle">ken</text>
-<rect x="174.5" y="879.5" width="262" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="172" y="876" width="262" height="128" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="302.5" y="708" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="302.5" dy="0">BPE 量化建库</tspan><tspan x="302.5" dy="20">词表 1024, 压成密集 to</tspan></text>
+<text x="302.5" y="738" font-size="12" fill="#5f6b7a" text-anchor="middle">ken</text>
+<rect x="174.5" y="879.5" width="262" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="172" y="876" width="262" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="303.0" cy="876" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="303.0" cy="876" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(289.5,862.5) scale(1.1250)">
@@ -89,16 +89,16 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="303.0" y="920" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="303.0" dy="0">Transformer 自回归骨干</tspan><tspan x="303.0" dy="20">(pi0-FAST, next-token</tspan></text>
-<text x="303.0" y="950" font-size="12" fill="#5f6b7a" text-anchor="middle"> 预测)</text>
-<rect x="307.5" y="49.5" width="254" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="305" y="46" width="254" height="95" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
+<text x="303.0" y="932" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="303.0" dy="0">Transformer 自回归骨干</tspan><tspan x="303.0" dy="20">(pi0-FAST, next-token</tspan></text>
+<text x="303.0" y="962" font-size="12" fill="#5f6b7a" text-anchor="middle"> 预测)</text>
+<rect x="307.5" y="49.5" width="254" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="305" y="46" width="254" height="105" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
 <circle cx="432.0" cy="46" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
 <circle cx="432.0" cy="46" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
 <g transform="translate(418.5,32.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="432.0" y="90" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="432.0" dy="0">损失: next-token 交叉</tspan><tspan x="432.0" dy="20">熵</tspan></text>
-<rect x="171.5" y="1103.5" width="267" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="169" y="1100" width="267" height="128" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<text x="432.0" y="102" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="432.0" dy="0">损失: next-token 交叉</tspan><tspan x="432.0" dy="20">熵</tspan></text>
+<rect x="171.5" y="1103.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="169" y="1100" width="267" height="138" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="302.5" cy="1100" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
 <circle cx="302.5" cy="1100" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(289.0,1086.5) scale(1.1250)">
@@ -106,18 +106,18 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="302.5" y="1144" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="302.5" dy="0">自回归生成频域 token</tspan><tspan x="302.5" dy="20">(每 chunk 约 30-60 tok</tspan></text>
-<text x="302.5" y="1174" font-size="12" fill="#5f6b7a" text-anchor="middle">en)</text>
-<rect x="224.5" y="1327.5" width="162" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="222" y="1324" width="162" height="95" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<text x="302.5" y="1156" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="302.5" dy="0">自回归生成频域 token</tspan><tspan x="302.5" dy="20">(每 chunk 约 30-60 tok</tspan></text>
+<text x="302.5" y="1186" font-size="12" fill="#5f6b7a" text-anchor="middle">en)</text>
+<rect x="224.5" y="1327.5" width="162" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="222" y="1324" width="162" height="105" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="303.0" cy="1324" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
 <circle cx="303.0" cy="1324" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(289.5,1310.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="303.0" y="1368" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="303.0" dy="0">逆 DCT 还原</tspan><tspan x="303.0" dy="20">高频部分补零</tspan></text>
-<rect x="171.5" y="1518.5" width="267" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="169" y="1515" width="267" height="95" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<text x="303.0" y="1380" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="303.0" dy="0">逆 DCT 还原</tspan><tspan x="303.0" dy="20">高频部分补零</tspan></text>
+<rect x="171.5" y="1518.5" width="267" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="169" y="1515" width="267" height="105" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
 <circle cx="302.5" cy="1515" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
 <circle cx="302.5" cy="1515" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(289.0,1501.5) scale(1.1250)">
@@ -128,8 +128,8 @@
   <path d="M15 13v2" />
   <path d="M9 13v2" />
 </g>
-<text x="302.5" y="1559" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="302.5" dy="0">机器人执行 1 秒动作 chu</tspan><tspan x="302.5" dy="20">nk</tspan></text>
-<g transform="translate(178.6,2463.8)"><rect x="-124.0" y="-11" width="248.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;执行后重观测 (与 pi0 相同执行协议)</text></g>
+<text x="302.5" y="1571" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="302.5" dy="0">机器人执行 1 秒动作 chu</tspan><tspan x="302.5" dy="20">nk</tspan></text>
+<g transform="translate(178.6,2473.8)"><rect x="-124.0" y="-11" width="248.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;执行后重观测 (与 pi0 相同执行协议)</text></g>
 <text x="40" y="1740.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1726" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1737" r="4.2" fill="#6a1b9a"/><text x="110" y="1741" font-size="11.5" fill="#4a148c">动作生成</text></g>
 <g><rect x="184.76" y="1726" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1737" r="4.2" fill="#2e7d32"/><text x="208.76" y="1741" font-size="11.5" fill="#1b5e20">数据/输入</text></g>

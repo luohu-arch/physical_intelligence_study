@@ -25,20 +25,20 @@
 <text x="1566" y="762" font-size="11.5" fill="#a0aab4" text-anchor="end">diayn · arXiv 1802.06070 · v3 auto</text>
 <path d="M 145.0 260.0 L 145.0 95.0 L 1450.0 95.0 L 1450.0 260.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
 <path d="M 1530.0 352.0 L 1530.0 690.0 L 77.5 690.0 L 77.5 352.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 400.0 163.0 L 415.0 163.0 L 415.0 306.0 L 430.0 306.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 220.0 306.0 L 430.0 306.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 663.0 306.0 L 1370.0 306.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 220.0 306.0 L 401.5 306.0 L 401.5 608.0 L 583.0 608.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 811.0 608.0 L 911.0 608.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1144.0 608.0 L 1244.0 608.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1362.0 545.0 L 1362.0 457.0 L 546.5 457.0 L 546.5 369.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 333.0 606.5 L 583.0 608.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 400.0 169.0 L 415.0 169.0 L 415.0 312.0 L 430.0 312.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 220.0 306.0 L 430.0 312.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 663.0 312.0 L 1370.0 306.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 220.0 306.0 L 401.5 306.0 L 401.5 614.0 L 583.0 614.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 811.0 614.0 L 911.0 614.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1144.0 614.0 L 1244.0 614.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1362.0 545.0 L 1362.0 463.0 L 546.5 463.0 L 546.5 381.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 333.0 612.5 L 583.0 614.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="72.5" y="263.5" width="150" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="70" y="260" width="150" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="145.0" cy="260" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="145.0" cy="260" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(131.5,246.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="145.0" y="311" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">状态 s_t</text>
+<text x="145.0" y="323" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">状态 s_t</text>
 <rect x="1372.5" y="263.5" width="160" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="1370" y="260" width="160" height="92" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="1450.0" cy="260" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
@@ -47,9 +47,9 @@
   <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
   <circle cx="12" cy="12" r="3" />
 </g>
-<text x="1450.0" y="311" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">环境转移</text>
-<rect x="172.5" y="103.5" width="230" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="170" y="100" width="230" height="126" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="1450.0" y="323" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">环境转移</text>
+<rect x="172.5" y="103.5" width="230" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="170" y="100" width="230" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="285.0" cy="100" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="285.0" cy="100" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(271.5,86.5) scale(1.1250)">
@@ -59,10 +59,10 @@
   <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" />
   <path d="M12 12V8" />
 </g>
-<text x="285.0" y="144" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="285.0" dy="0">技能 z: 固定均匀先</tspan><tspan x="285.0" dy="20">验 p(z)</tspan></text>
-<text x="285.0" y="174" font-size="12" fill="#5f6b7a" text-anchor="middle">(每回合采样一次, 不</text>
-<rect x="432.5" y="246.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="430" y="243" width="233" height="126" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="285.0" y="156" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="285.0" dy="0">技能 z: 固定均匀先</tspan><tspan x="285.0" dy="20">验 p(z)</tspan></text>
+<text x="285.0" y="186" font-size="12" fill="#5f6b7a" text-anchor="middle">(每回合采样一次, 不</text>
+<rect x="432.5" y="246.5" width="233" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="430" y="243" width="233" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="546.5" cy="243" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="546.5" cy="243" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(533.0,229.5) scale(1.1250)">
@@ -72,38 +72,38 @@
   <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" />
   <path d="M12 12V8" />
 </g>
-<text x="546.5" y="287" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="546.5" dy="0">技能策略 pi(a | s,</tspan><tspan x="546.5" dy="20"> z)</tspan></text>
-<text x="546.5" y="317" font-size="12" fill="#5f6b7a" text-anchor="middle">SAC 最大熵, 熵系数 </text>
-<rect x="585.5" y="548.5" width="228" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="583" y="545" width="228" height="126" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
+<text x="546.5" y="299" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="546.5" dy="0">技能策略 pi(a | s,</tspan><tspan x="546.5" dy="20"> z)</tspan></text>
+<text x="546.5" y="329" font-size="12" fill="#5f6b7a" text-anchor="middle">SAC 最大熵, 熵系数 </text>
+<rect x="585.5" y="548.5" width="228" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="583" y="545" width="228" height="138" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
 <circle cx="697.0" cy="545" r="24" fill="#ffffff" stroke="#ad1457" stroke-width="1.8"/>
 <circle cx="697.0" cy="545" r="27.5" fill="none" stroke="#ad1457" stroke-width="1" opacity="0.35"/>
 <g transform="translate(683.5,531.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="697.0" y="589" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="697.0" dy="0">判别器 q_phi(z | s</tspan><tspan x="697.0" dy="20">)</tspan></text>
-<text x="697.0" y="619" font-size="12" fill="#5f6b7a" text-anchor="middle">从状态反推技能 (状</text>
-<rect x="913.5" y="548.5" width="233" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="911" y="545" width="233" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="697.0" y="601" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="697.0" dy="0">判别器 q_phi(z | s</tspan><tspan x="697.0" dy="20">)</tspan></text>
+<text x="697.0" y="631" font-size="12" fill="#5f6b7a" text-anchor="middle">从状态反推技能 (状</text>
+<rect x="913.5" y="548.5" width="233" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="911" y="545" width="233" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="1027.5" cy="545" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="1027.5" cy="545" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1014.0,531.5) scale(0.1055)"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" opacity="0.2"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></g>
-<text x="1027.5" y="589" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="1027.5" dy="0">伪奖励 (核心)</tspan><tspan x="1027.5" dy="20">r = log q_phi(z|s)</tspan></text>
-<text x="1027.5" y="619" font-size="12" fill="#5f6b7a" text-anchor="middle"> - log p(z)</text>
-<rect x="1246.5" y="548.5" width="236" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1244" y="545" width="236" height="126" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
+<text x="1027.5" y="601" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="1027.5" dy="0">伪奖励 (核心)</tspan><tspan x="1027.5" dy="20">r = log q_phi(z|s)</tspan></text>
+<text x="1027.5" y="631" font-size="12" fill="#5f6b7a" text-anchor="middle"> - log p(z)</text>
+<rect x="1246.5" y="548.5" width="236" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1244" y="545" width="236" height="138" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
 <circle cx="1362.0" cy="545" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
 <circle cx="1362.0" cy="545" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1348.5,531.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
-<text x="1362.0" y="589" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1362.0" dy="0">SAC actor-critic </tspan><tspan x="1362.0" dy="20">更新</tspan></text>
-<text x="1362.0" y="619" font-size="12" fill="#5f6b7a" text-anchor="middle">无监督目标退化为普通</text>
-<rect x="102.5" y="563.5" width="233" height="93" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="100" y="560" width="233" height="93" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
+<text x="1362.0" y="601" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1362.0" dy="0">SAC actor-critic </tspan><tspan x="1362.0" dy="20">更新</tspan></text>
+<text x="1362.0" y="631" font-size="12" fill="#5f6b7a" text-anchor="middle">无监督目标退化为普通</text>
+<rect x="102.5" y="563.5" width="233" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="100" y="560" width="233" height="105" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
 <circle cx="216.5" cy="560" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
 <circle cx="216.5" cy="560" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
 <g transform="translate(203.0,546.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
-<text x="216.5" y="604" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="216.5" dy="0">判别器 SGD 分类损失</tspan><tspan x="216.5" dy="20">max log q_phi(z|s)</tspan></text>
-<g transform="translate(1016.5,288.0)"><rect x="-92.2" y="-11" width="184.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;动作 a_t (块内高熵探索)&quot;</text></g>
-<g transform="translate(954.2,439.0)"><rect x="-63.3" y="-11" width="126.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;更新策略 theta&quot;</text></g>
-<g transform="translate(458.0,587.2)"><rect x="-105.5" y="-11" width="211.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;更新 phi (合作博弈, 非对抗)&quot;</text></g>
+<text x="216.5" y="616" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="216.5" dy="0">判别器 SGD 分类损失</tspan><tspan x="216.5" dy="20">max log q_phi(z|s)</tspan></text>
+<g transform="translate(1016.5,291.0)"><rect x="-92.2" y="-11" width="184.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;动作 a_t (块内高熵探索)&quot;</text></g>
+<g transform="translate(954.2,445.0)"><rect x="-63.3" y="-11" width="126.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;更新策略 theta&quot;</text></g>
+<g transform="translate(458.0,593.2)"><rect x="-105.5" y="-11" width="211.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;更新 phi (合作博弈, 非对抗)&quot;</text></g>
 <text x="40" y="728.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="714" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="725" r="4.2" fill="#2e7d32"/><text x="110" y="729" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
 <g><rect x="191.43" y="714" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="725" r="4.2" fill="#00695c"/><text x="215.43" y="729" font-size="11.5" fill="#004d40">环境</text></g>

@@ -305,7 +305,7 @@ def layout(parsed, tight=False):
         sub_l = lines[2:]
         w = max(140, min(wcap, max(tw(l, 16.5) for l in lines) * 1.03 + 56))
         L, S = len(label_l), len(sub_l)
-        h = max(92, 50 + (L - 1) * 21 + (24 if S else 8) + S * 17 + 14)
+        h = max(104, 62 + (L - 1) * 21 + (24 if S else 8) + S * 17 + 14)
         geom[nid] = {"w": round(w), "h": round(h), "label": "\n".join(label_l),
                      "sub": "\n".join(sub_l), "cls": n["cls"], "rank": rank[nid]}
 

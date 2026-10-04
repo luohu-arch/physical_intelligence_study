@@ -23,38 +23,38 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">arlarena</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">ICML 2026 的 agentic RL 稳定性系统研究：先把多回合 ARL 训练拆成四个正交设计维度（损失聚合、IS 裁剪、轨迹过滤重采样、优势设计），在标准化测试床上逐</text>
 <text x="1201" y="1649" font-size="11.5" fill="#a0aab4" text-anchor="end">arlarena · arXiv 2602.21534 · v3 auto</text>
-<path d="M 484.0 749.0 L 333.0 749.0 L 333.0 973.0 L 307.0 973.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 617.5 813.0 L 617.5 861.0 L 476.0 861.0 L 476.0 909.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 617.5 813.0 L 617.5 861.0 L 778.5 861.0 L 778.5 909.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 751.0 749.0 L 924.0 749.0 L 924.0 973.0 L 950.0 973.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 770.5 174.0 L 770.5 222.0 L 618.0 222.0 L 618.0 270.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 618.0 398.0 L 617.5 494.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 617.5 589.0 L 617.5 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 307.0 973.0 L 333.0 973.0 L 333.0 1197.0 L 487.0 1197.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 476.0 1037.0 L 476.0 1085.0 L 617.5 1085.0 L 617.5 1133.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 778.5 1037.0 L 778.5 1085.0 L 617.5 1085.0 L 617.5 1133.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 950.0 973.0 L 924.0 973.0 L 924.0 1197.0 L 748.0 1197.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 464.5 174.0 L 476.0 909.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 617.5 1261.0 L 617.5 1357.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 564.1 813.0 L 564.1 2208.0 L 797.4 2208.0 L 797.4 174.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<rect x="638.5" y="49.5" width="269" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="636" y="46" width="269" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<path d="M 484.0 754.0 L 333.0 754.0 L 333.0 978.0 L 307.0 978.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 617.5 823.0 L 617.5 866.0 L 476.0 866.0 L 476.0 909.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 617.5 823.0 L 617.5 866.0 L 778.5 866.0 L 778.5 909.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 751.0 754.0 L 924.0 754.0 L 924.0 978.0 L 950.0 978.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 770.5 184.0 L 770.5 227.0 L 618.0 227.0 L 618.0 270.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 618.0 408.0 L 617.5 494.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 617.5 599.0 L 617.5 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 307.0 978.0 L 333.0 978.0 L 333.0 1202.0 L 487.0 1202.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 476.0 1047.0 L 476.0 1090.0 L 617.5 1090.0 L 617.5 1133.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 778.5 1047.0 L 778.5 1090.0 L 617.5 1090.0 L 617.5 1133.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 950.0 978.0 L 924.0 978.0 L 924.0 1202.0 L 748.0 1202.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 464.5 184.0 L 476.0 909.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 617.5 1271.0 L 617.5 1357.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 564.1 823.0 L 564.1 2218.0 L 797.4 2218.0 L 797.4 184.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<rect x="638.5" y="49.5" width="269" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="636" y="46" width="269" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="770.5" cy="46" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="770.5" cy="46" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(757.0,32.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="770.5" y="90" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="770.5" dy="0">被 RL 的策略: Qwen3-4B</tspan><tspan x="770.5" dy="20">BC 冷启动 + 格式惩罚 + </tspan></text>
-<text x="770.5" y="120" font-size="12" fill="#5f6b7a" text-anchor="middle">k3 KL 正则测试床</text>
-<rect x="488.5" y="273.5" width="264" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="486" y="270" width="264" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="770.5" y="102" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="770.5" dy="0">被 RL 的策略: Qwen3-4B</tspan><tspan x="770.5" dy="20">BC 冷启动 + 格式惩罚 + </tspan></text>
+<text x="770.5" y="132" font-size="12" fill="#5f6b7a" text-anchor="middle">k3 KL 正则测试床</text>
+<rect x="488.5" y="273.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="486" y="270" width="264" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="618.0" cy="270" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="618.0" cy="270" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(604.5,256.5) scale(1.1250)">
   <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
 </g>
-<text x="618.0" y="314" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="618.0" dy="0">文本环境: ALFWorld / W</tspan><tspan x="618.0" dy="20">ebShop / Sokoban / TI</tspan></text>
-<text x="618.0" y="344" font-size="12" fill="#5f6b7a" text-anchor="middle">R Math</text>
-<rect x="490.5" y="497.5" width="259" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="488" y="494" width="259" height="95" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="618.0" y="326" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="618.0" dy="0">文本环境: ALFWorld / W</tspan><tspan x="618.0" dy="20">ebShop / Sokoban / TI</tspan></text>
+<text x="618.0" y="356" font-size="12" fill="#5f6b7a" text-anchor="middle">R Math</text>
+<rect x="490.5" y="497.5" width="259" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="488" y="494" width="259" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="617.5" cy="494" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="617.5" cy="494" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(604.0,480.5) scale(1.1250)">
@@ -63,25 +63,25 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="617.5" y="538" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="617.5" dy="0">多回合轨迹, 逐 turn 切</tspan><tspan x="617.5" dy="20">分成单回合样本</tspan></text>
-<rect x="486.5" y="688.5" width="267" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="484" y="685" width="267" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="617.5" y="550" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="617.5" dy="0">多回合轨迹, 逐 turn 切</tspan><tspan x="617.5" dy="20">分成单回合样本</tspan></text>
+<rect x="486.5" y="688.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="484" y="685" width="267" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="617.5" cy="685" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="617.5" cy="685" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(604.0,671.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="617.5" y="729" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="617.5" dy="0">agentic 策略梯度</tspan><tspan x="617.5" dy="20">IS 权重 x log-prob x a</tspan></text>
-<text x="617.5" y="759" font-size="12" fill="#5f6b7a" text-anchor="middle">dvantage</text>
-<rect x="48.5" y="912.5" width="261" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="909" width="261" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="617.5" y="741" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="617.5" dy="0">agentic 策略梯度</tspan><tspan x="617.5" dy="20">IS 权重 x log-prob x a</tspan></text>
+<text x="617.5" y="771" font-size="12" fill="#5f6b7a" text-anchor="middle">dvantage</text>
+<rect x="48.5" y="912.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="909" width="261" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="176.5" cy="909" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="176.5" cy="909" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(163.0,895.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="176.5" y="953" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="176.5" dy="0">维度 1 损失聚合</tspan><tspan x="176.5" dy="20">seq-mean vs token-mea</tspan></text>
-<text x="176.5" y="983" font-size="12" fill="#5f6b7a" text-anchor="middle">n</text>
-<rect x="347.5" y="912.5" width="262" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="345" y="909" width="262" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="176.5" y="965" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="176.5" dy="0">维度 1 损失聚合</tspan><tspan x="176.5" dy="20">seq-mean vs token-mea</tspan></text>
+<text x="176.5" y="995" font-size="12" fill="#5f6b7a" text-anchor="middle">n</text>
+<rect x="347.5" y="912.5" width="262" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="345" y="909" width="262" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="476.0" cy="909" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="476.0" cy="909" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(462.5,895.5) scale(1.1250)">
@@ -89,10 +89,10 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="476.0" y="953" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="476.0" dy="0">维度 2 IS 裁剪</tspan><tspan x="476.0" dy="20">token 级 / 容错 / 序列</tspan></text>
-<text x="476.0" y="983" font-size="12" fill="#5f6b7a" text-anchor="middle">级</text>
-<rect x="647.5" y="912.5" width="267" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="645" y="909" width="267" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="476.0" y="965" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="476.0" dy="0">维度 2 IS 裁剪</tspan><tspan x="476.0" dy="20">token 级 / 容错 / 序列</tspan></text>
+<text x="476.0" y="995" font-size="12" fill="#5f6b7a" text-anchor="middle">级</text>
+<rect x="647.5" y="912.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="645" y="909" width="267" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="778.5" cy="909" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="778.5" cy="909" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(765.0,895.5) scale(1.1250)">
@@ -101,10 +101,10 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="778.5" y="953" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="778.5" dy="0">维度 3 轨迹过滤重采样</tspan><tspan x="778.5" dy="20">DAPO 动态采样</tspan></text>
-<text x="778.5" y="983" font-size="12" fill="#5f6b7a" text-anchor="middle">配 GIGPO +11.0%, 配 GR</text>
-<rect x="952.5" y="912.5" width="239" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="950" y="909" width="239" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="778.5" y="965" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="778.5" dy="0">维度 3 轨迹过滤重采样</tspan><tspan x="778.5" dy="20">DAPO 动态采样</tspan></text>
+<text x="778.5" y="995" font-size="12" fill="#5f6b7a" text-anchor="middle">配 GIGPO +11.0%, 配 GR</text>
+<rect x="952.5" y="912.5" width="239" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="950" y="909" width="239" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1069.5" cy="909" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1069.5" cy="909" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1056.0,895.5) scale(1.1250)">
@@ -113,10 +113,10 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="1069.5" y="953" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1069.5" dy="0">维度 4 优势设计</tspan><tspan x="1069.5" dy="20">全局 / 步级 / 熵调制</tspan></text>
-<text x="1069.5" y="983" font-size="12" fill="#5f6b7a" text-anchor="middle">细粒度 +3.4%</text>
-<rect x="332.5" y="49.5" width="269" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="330" y="46" width="269" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="1069.5" y="965" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1069.5" dy="0">维度 4 优势设计</tspan><tspan x="1069.5" dy="20">全局 / 步级 / 熵调制</tspan></text>
+<text x="1069.5" y="995" font-size="12" fill="#5f6b7a" text-anchor="middle">细粒度 +3.4%</text>
+<rect x="332.5" y="49.5" width="269" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="330" y="46" width="269" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="464.5" cy="46" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="464.5" cy="46" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(451.0,32.5) scale(1.1250)">
@@ -125,10 +125,10 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="464.5" y="90" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="464.5" dy="0">崩溃根因诊断: 负优势 + </tspan><tspan x="464.5" dy="20">低 IS 比率序列累积</tspan></text>
-<text x="464.5" y="120" font-size="12" fill="#5f6b7a" text-anchor="middle">序列掩码一招把 CISPO/SA</text>
-<rect x="489.5" y="1136.5" width="261" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="487" y="1133" width="261" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="464.5" y="102" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="464.5" dy="0">崩溃根因诊断: 负优势 + </tspan><tspan x="464.5" dy="20">低 IS 比率序列累积</tspan></text>
+<text x="464.5" y="132" font-size="12" fill="#5f6b7a" text-anchor="middle">序列掩码一招把 CISPO/SA</text>
+<rect x="489.5" y="1136.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="487" y="1133" width="261" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="617.5" cy="1133" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="617.5" cy="1133" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(604.0,1119.5) scale(1.1250)">
@@ -137,10 +137,10 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="617.5" y="1177" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="617.5" dy="0">SAMPO 三合一: 序列级 s</tspan><tspan x="617.5" dy="20">_i 裁剪 +</tspan></text>
-<text x="617.5" y="1207" font-size="12" fill="#5f6b7a" text-anchor="middle">步级优势 A&#x27; + 动态过滤</text>
-<rect x="486.5" y="1360.5" width="267" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="484" y="1357" width="267" height="128" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="617.5" y="1189" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="617.5" dy="0">SAMPO 三合一: 序列级 s</tspan><tspan x="617.5" dy="20">_i 裁剪 +</tspan></text>
+<text x="617.5" y="1219" font-size="12" fill="#5f6b7a" text-anchor="middle">步级优势 A&#x27; + 动态过滤</text>
+<rect x="486.5" y="1360.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="484" y="1357" width="267" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="617.5" cy="1357" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="617.5" cy="1357" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(604.0,1343.5) scale(1.1250)">
@@ -149,11 +149,11 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="617.5" y="1401" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="617.5" dy="0">四任务平均 60.21, 比 G</tspan><tspan x="617.5" dy="20">RPO +25.2%</tspan></text>
-<text x="617.5" y="1431" font-size="12" fill="#5f6b7a" text-anchor="middle">ALFWorld 92.72% 反超 G</text>
-<g transform="translate(694.2,222.0)"><rect x="-57.5" y="-11" width="115.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;rollout 交互&quot;</text></g>
-<g transform="translate(470.2,457.5)"><rect x="-81.8" y="-11" width="163.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;八组 KL 贡献分解锁定&quot;</text></g>
-<g transform="translate(797.4,2005.1)"><rect x="-42.4" y="-11" width="84.8" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;梯度更新&quot;</text></g>
+<text x="617.5" y="1413" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="617.5" dy="0">四任务平均 60.21, 比 G</tspan><tspan x="617.5" dy="20">RPO +25.2%</tspan></text>
+<text x="617.5" y="1443" font-size="12" fill="#5f6b7a" text-anchor="middle">ALFWorld 92.72% 反超 G</text>
+<g transform="translate(694.2,227.0)"><rect x="-57.5" y="-11" width="115.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;rollout 交互&quot;</text></g>
+<g transform="translate(470.2,462.5)"><rect x="-81.8" y="-11" width="163.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;八组 KL 贡献分解锁定&quot;</text></g>
+<g transform="translate(797.4,2015.1)"><rect x="-42.4" y="-11" width="84.8" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;梯度更新&quot;</text></g>
 <text x="40" y="1615.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1601" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1612" r="4.2" fill="#546e7a"/><text x="110" y="1616" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 <text x="40" y="1655" font-size="11.5" fill="#78909c">线型</text>

@@ -26,31 +26,31 @@
 <rect x="36" y="200" width="610" height="197" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="52" y="213" width="243.5" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="63" y="230" font-size="12.5" fill="#4a6579">GPU 仿真交互回路 (1024 并行环境)</text>
-<path d="M 295.0 322.5 L 395.0 322.5" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 295.0 328.5 L 395.0 328.5" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
 <path d="M 527.0 276.0 L 527.0 256.0 L 197.0 256.0 L 197.0 276.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1607.2 386.0 L 1607.2 675.0 L 62.2 675.0 L 62.2 369.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1445.0 520.0 L 1445.0 453.0 L 1507.5 453.0 L 1507.5 386.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 615.0 322.5 L 715.0 322.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 885.0 322.5 L 985.0 323.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 850.0 583.0 L 917.5 583.0 L 917.5 323.0 L 985.0 323.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1265.0 323.0 L 1365.0 323.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<rect x="52.5" y="279.5" width="245" height="93" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="50" y="276" width="245" height="93" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<path d="M 1607.2 398.0 L 1607.2 687.0 L 62.2 687.0 L 62.2 381.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1445.0 520.0 L 1445.0 459.0 L 1507.5 459.0 L 1507.5 398.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 615.0 328.5 L 715.0 328.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 885.0 328.5 L 985.0 329.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 850.0 589.0 L 917.5 589.0 L 917.5 329.0 L 985.0 329.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1265.0 329.0 L 1365.0 329.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<rect x="52.5" y="279.5" width="245" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="50" y="276" width="245" height="105" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="172.5" cy="276" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="172.5" cy="276" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(159.0,262.5) scale(1.1250)">
   <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
   <circle cx="12" cy="12" r="3" />
 </g>
-<text x="172.5" y="320" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="172.5" dy="0">仿真环境 IsaacLab</tspan><tspan x="172.5" dy="20">60+ 任务 / 10 仿真器</tspan></text>
-<rect x="397.5" y="279.5" width="220" height="93" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="395" y="276" width="220" height="93" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="172.5" y="332" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="172.5" dy="0">仿真环境 IsaacLab</tspan><tspan x="172.5" dy="20">60+ 任务 / 10 仿真器</tspan></text>
+<rect x="397.5" y="279.5" width="220" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="395" y="276" width="220" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="505.0" cy="276" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="505.0" cy="276" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(491.5,262.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="505.0" y="320" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="505.0" dy="0">观测: 本体感知向量</tspan><tspan x="505.0" dy="20">+ CENet 历史编码</tspan></text>
-<rect x="1367.5" y="263.5" width="285" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1365" y="260" width="285" height="126" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="505.0" y="332" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="505.0" dy="0">观测: 本体感知向量</tspan><tspan x="505.0" dy="20">+ CENet 历史编码</tspan></text>
+<rect x="1367.5" y="263.5" width="285" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1365" y="260" width="285" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="1507.5" cy="260" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="1507.5" cy="260" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1494.0,246.5) scale(1.1250)">
@@ -58,10 +58,10 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="1507.5" y="304" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="1507.5" dy="0">Actor: 2.5M 参数 6 层</tspan><tspan x="1507.5" dy="20">倒置残差块 + RMSNorm + 预</tspan></text>
-<text x="1507.5" y="334" font-size="12" fill="#5f6b7a" text-anchor="middle">激活 BN</text>
-<rect x="1302.5" y="523.5" width="290" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1300" y="520" width="290" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="1507.5" y="316" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="1507.5" dy="0">Actor: 2.5M 参数 6 层</tspan><tspan x="1507.5" dy="20">倒置残差块 + RMSNorm + 预</tspan></text>
+<text x="1507.5" y="346" font-size="12" fill="#5f6b7a" text-anchor="middle">激活 BN</text>
+<rect x="1302.5" y="523.5" width="290" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1300" y="520" width="290" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1445.0" cy="520" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1445.0" cy="520" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1431.5,506.5) scale(1.1250)">
@@ -71,32 +71,32 @@
   <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
   <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
 </g>
-<text x="1445.0" y="564" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1445.0" dy="0">Zeta 噪声重复探索</tspan><tspan x="1445.0" dy="20">一个噪声向量保持 k 步 (P(k</tspan></text>
-<text x="1445.0" y="594" font-size="12" fill="#5f6b7a" text-anchor="middle">) ~ k^-2, 最长 16 步)</text>
-<rect x="717.5" y="279.5" width="170" height="93" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="715" y="276" width="170" height="93" rx="14" fill="url(#g-mem)" stroke="#b8860b" stroke-width="2.0"/>
+<text x="1445.0" y="576" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1445.0" dy="0">Zeta 噪声重复探索</tspan><tspan x="1445.0" dy="20">一个噪声向量保持 k 步 (P(k</tspan></text>
+<text x="1445.0" y="606" font-size="12" fill="#5f6b7a" text-anchor="middle">) ~ k^-2, 最长 16 步)</text>
+<rect x="717.5" y="279.5" width="170" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="715" y="276" width="170" height="105" rx="14" fill="url(#g-mem)" stroke="#b8860b" stroke-width="2.0"/>
 <circle cx="800.0" cy="276" r="24" fill="#ffffff" stroke="#b8860b" stroke-width="1.8"/>
 <circle cx="800.0" cy="276" r="27.5" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.35"/>
 <g transform="translate(786.5,262.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
-<text x="800.0" y="320" font-size="15" class="lbl" fill="#8a6d00" text-anchor="middle"><tspan x="800.0" dy="0">回放缓冲 10^7</tspan><tspan x="800.0" dy="20">batch 2048</tspan></text>
-<rect x="987.5" y="263.5" width="280" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="985" y="260" width="280" height="126" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
+<text x="800.0" y="332" font-size="15" class="lbl" fill="#8a6d00" text-anchor="middle"><tspan x="800.0" dy="0">回放缓冲 10^7</tspan><tspan x="800.0" dy="20">batch 2048</tspan></text>
+<rect x="987.5" y="263.5" width="280" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="985" y="260" width="280" height="138" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
 <circle cx="1125.0" cy="260" r="24" fill="#ffffff" stroke="#ad1457" stroke-width="1.8"/>
 <circle cx="1125.0" cy="260" r="27.5" fill="none" stroke="#ad1457" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1111.5,246.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
-<text x="1125.0" y="304" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="1125.0" dy="0">分布式 critic</tspan><tspan x="1125.0" dy="20">101 bins [-5,5] + 自适应</tspan></text>
-<text x="1125.0" y="334" font-size="12" fill="#5f6b7a" text-anchor="middle">奖励缩放</text>
-<rect x="562.5" y="523.5" width="290" height="126" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="560" y="520" width="290" height="126" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="1125.0" y="316" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="1125.0" dy="0">分布式 critic</tspan><tspan x="1125.0" dy="20">101 bins [-5,5] + 自适应</tspan></text>
+<text x="1125.0" y="346" font-size="12" fill="#5f6b7a" text-anchor="middle">奖励缩放</text>
+<rect x="562.5" y="523.5" width="290" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="560" y="520" width="290" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="705.0" cy="520" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="705.0" cy="520" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(691.5,506.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
-<text x="705.0" y="564" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="705.0" dy="0">三重范数约束 (核心)</tspan><tspan x="705.0" dy="20">权重 / 特征 / 梯度归一化</tspan></text>
-<text x="705.0" y="594" font-size="12" fill="#5f6b7a" text-anchor="middle">压低 critic 条件数, 驯服 </text>
-<g transform="translate(996.2,649.0)"><rect x="-116.6" y="-11" width="233.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;目标关节位置 50 Hz 底层 PD 200 </text></g>
-<g transform="translate(1476.2,453.0)"><rect x="-55.1" y="-11" width="110.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;连贯探索笔触&quot;</text></g>
-<g transform="translate(917.5,435.0)"><rect x="-74.2" y="-11" width="148.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;防误差递归放大发散&quot;</text></g>
-<g transform="translate(1315.0,237.0)"><rect x="-113.7" y="-11" width="227.4" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;低 UTD: 每 1024 步仅 2 次更新 </text></g>
+<text x="705.0" y="576" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="705.0" dy="0">三重范数约束 (核心)</tspan><tspan x="705.0" dy="20">权重 / 特征 / 梯度归一化</tspan></text>
+<text x="705.0" y="606" font-size="12" fill="#5f6b7a" text-anchor="middle">压低 critic 条件数, 驯服 </text>
+<g transform="translate(996.2,661.0)"><rect x="-116.6" y="-11" width="233.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;目标关节位置 50 Hz 底层 PD 200 </text></g>
+<g transform="translate(1476.2,459.0)"><rect x="-55.1" y="-11" width="110.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;连贯探索笔触&quot;</text></g>
+<g transform="translate(917.5,441.0)"><rect x="-74.2" y="-11" width="148.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;防误差递归放大发散&quot;</text></g>
+<g transform="translate(1315.0,243.0)"><rect x="-113.7" y="-11" width="227.4" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;低 UTD: 每 1024 步仅 2 次更新 </text></g>
 <text x="40" y="728.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="714" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="725" r="4.2" fill="#2e7d32"/><text x="110" y="729" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
 <g><rect x="191.43" y="714" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="725" r="4.2" fill="#00695c"/><text x="215.43" y="729" font-size="11.5" fill="#004d40">环境</text></g>

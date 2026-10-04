@@ -31,10 +31,10 @@
 <text x="67" y="330" font-size="12.5" fill="#4a6579">数据与适配</text>
 <path d="M 350.0 196.0 L 430.0 196.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 720.0 196.0 L 850.0 196.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1123.0 196.0 L 1220.0 196.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1123.0 196.0 L 1220.0 202.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 986.5 242.0 L 986.5 291.0 L 952.0 291.0 L 952.0 340.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 952.0 432.0 L 952.0 481.0 L 973.0 481.0 L 973.0 530.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1096.0 576.0 L 1220.0 576.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1096.0 576.0 L 1220.0 582.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
 <path d="M 276.0 526.0 L 563.0 526.0 L 563.0 386.0 L 850.0 386.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
 <path d="M 1287.5 340.0 L 1287.5 291.0 L 882.8 291.0 L 882.8 242.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="62.5" y="153.5" width="290" height="92" rx="14" fill="#37474f" opacity="0.13"/>
@@ -45,7 +45,7 @@
   <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
   <circle cx="12" cy="13" r="3" />
 </g>
-<text x="205.0" y="201" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">多视角 RGB + 语言指令&lt;br/</text>
+<text x="205.0" y="213" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">多视角 RGB + 语言指令&lt;br/</text>
 <rect x="432.5" y="153.5" width="290" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="430" y="150" width="290" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="575.0" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -56,7 +56,7 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="575.0" y="201" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Gemini 2.0 多模态基座&lt;br/</text>
+<text x="575.0" y="213" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Gemini 2.0 多模态基座&lt;br/</text>
 <rect x="852.5" y="153.5" width="273" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="850" y="150" width="273" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="986.5" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -69,7 +69,7 @@
   <path d="M15 13v2" />
   <path d="M9 13v2" />
 </g>
-<text x="986.5" y="201" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Gemini Robotics-ER&lt;br/</text>
+<text x="986.5" y="213" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">Gemini Robotics-ER&lt;br/</text>
 <rect x="852.5" y="343.5" width="204" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="850" y="340" width="204" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="952.0" cy="340" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -77,7 +77,7 @@
 <g transform="translate(938.5,326.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="952.0" y="391" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">云侧动作骨干&lt;br/</text>
+<text x="952.0" y="403" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">云侧动作骨干&lt;br/</text>
 <rect x="852.5" y="533.5" width="246" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="850" y="530" width="246" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="973.0" cy="530" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -85,9 +85,9 @@
 <g transform="translate(959.5,516.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="973.0" y="581" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">本地动作 decoder&lt;br/</text>
-<rect x="1222.5" y="153.5" width="289" height="93" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1220" y="150" width="289" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="973.0" y="593" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">本地动作 decoder&lt;br/</text>
+<rect x="1222.5" y="153.5" width="289" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1220" y="150" width="289" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1364.5" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1364.5" cy="150" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1351.0,136.5) scale(1.1250)">
@@ -96,9 +96,9 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="1364.5" y="194" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1364.5" dy="0">检测 / 指向 / 抓取位姿 /&lt;</tspan><tspan x="1364.5" dy="20">br/</tspan></text>
-<rect x="1222.5" y="533.5" width="284" height="93" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1220" y="530" width="284" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<text x="1364.5" y="206" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1364.5" dy="0">检测 / 指向 / 抓取位姿 /&lt;</tspan><tspan x="1364.5" dy="20">br/</tspan></text>
+<rect x="1222.5" y="533.5" width="284" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="1220" y="530" width="284" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1362.0" cy="530" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1362.0" cy="530" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1348.5,516.5) scale(1.1250)">
@@ -106,7 +106,7 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="1362.0" y="574" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1362.0" dy="0">ALOHA 2 机器人 50Hz 动作</tspan><tspan x="1362.0" dy="20">块</tspan></text>
+<text x="1362.0" y="586" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1362.0" dy="0">ALOHA 2 机器人 50Hz 动作</tspan><tspan x="1362.0" dy="20">块</tspan></text>
 <rect x="62.5" y="333.5" width="287" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="60" y="330" width="287" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="203.5" cy="330" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -117,7 +117,7 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="203.5" y="381" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">12 个月车队遥操作数据&lt;br/</text>
+<text x="203.5" y="393" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">12 个月车队遥操作数据&lt;br/</text>
 <rect x="92.5" y="483.5" width="186" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="90" y="480" width="186" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="183.0" cy="480" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -128,13 +128,13 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="183.0" y="531" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">少样本微调&lt;br/</text>
+<text x="183.0" y="543" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">少样本微调&lt;br/</text>
 <rect x="1222.5" y="343.5" width="225" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="1220" y="340" width="225" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="1332.5" cy="340" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
 <circle cx="1332.5" cy="340" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1319.0,326.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
-<text x="1332.5" y="391" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">ICL 上下文示范&lt;br/</text>
+<text x="1332.5" y="403" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">ICL 上下文示范&lt;br/</text>
 <rect x="62.5" y="633.5" width="258" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="60" y="630" width="258" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
 <circle cx="189.0" cy="630" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -145,7 +145,7 @@
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="189.0" y="681" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">零样本代码生成模式&lt;br/</text>
+<text x="189.0" y="693" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">零样本代码生成模式&lt;br/</text>
 <text x="40" y="828.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="814" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="825" r="4.2" fill="#546e7a"/><text x="110" y="829" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 <text x="40" y="868" font-size="11.5" fill="#78909c">线型</text>

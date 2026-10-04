@@ -26,19 +26,19 @@
 <rect x="322" y="0" width="314" height="420" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="338" y="13" width="279.75" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="349" y="30" font-size="12.5" fill="#4a6579">异步执行循环 (30 Hz 控制 / 5 Hz 推理)</text>
-<path d="M 478.5 174.0 L 478.5 270.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 426.3 398.0 L 426.3 1378.0 L 504.6 1378.0 L 504.6 174.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 478.5 398.0 L 483.0 494.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 483.0 622.0 L 483.0 670.0 L 330.5 670.0 L 330.5 718.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 330.5 846.0 L 330.5 942.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 277.1 1070.0 L 277.1 2050.0 L 504.6 2050.0 L 504.6 174.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 348.0 110.0 L 329.5 110.0 L 329.5 334.0 L 311.0 334.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 180.5 157.0 L 181.5 270.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 181.5 398.0 L 179.5 494.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 179.5 622.0 L 179.5 858.0 L 330.5 858.0 L 330.5 942.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<path d="M 179.5 494.0 L 179.5 622.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<rect x="350.5" y="49.5" width="261" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="348" y="46" width="261" height="128" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<path d="M 478.5 184.0 L 478.5 270.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 426.3 408.0 L 426.3 1388.0 L 504.6 1388.0 L 504.6 184.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 478.5 408.0 L 483.0 494.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 483.0 632.0 L 483.0 675.0 L 330.5 675.0 L 330.5 718.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 330.5 856.0 L 330.5 942.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 277.1 1080.0 L 277.1 2060.0 L 504.6 2060.0 L 504.6 184.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 348.0 115.0 L 329.5 115.0 L 329.5 339.0 L 311.0 339.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 180.5 167.0 L 181.5 270.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 181.5 408.0 L 179.5 494.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 179.5 632.0 L 179.5 868.0 L 330.5 868.0 L 330.5 942.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<path d="M 179.5 494.0 L 179.5 632.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<rect x="350.5" y="49.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="348" y="46" width="261" height="138" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="478.5" cy="46" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="478.5" cy="46" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(465.0,32.5) scale(1.1250)">
@@ -49,17 +49,17 @@
   <path d="M15 13v2" />
   <path d="M9 13v2" />
 </g>
-<text x="478.5" y="90" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="478.5" dy="0">机器人 (Astribot S1)</tspan><tspan x="478.5" dy="20">latency budget n = 6 </tspan></text>
-<text x="478.5" y="120" font-size="12" fill="#5f6b7a" text-anchor="middle">帧 = 200 ms</text>
-<rect x="350.5" y="273.5" width="261" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="348" y="270" width="261" height="128" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="478.5" y="102" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="478.5" dy="0">机器人 (Astribot S1)</tspan><tspan x="478.5" dy="20">latency budget n = 6 </tspan></text>
+<text x="478.5" y="132" font-size="12" fill="#5f6b7a" text-anchor="middle">帧 = 200 ms</text>
+<rect x="350.5" y="273.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="348" y="270" width="261" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="478.5" cy="270" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="478.5" cy="270" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(465.0,256.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="478.5" y="314" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="478.5" dy="0">观测 s_t</tspan><tspan x="478.5" dy="20">+ 在飞动作前缀 a_tilde</tspan></text>
-<text x="478.5" y="344" font-size="12" fill="#5f6b7a" text-anchor="middle">[0,n)</text>
-<rect x="353.5" y="497.5" width="264" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="351" y="494" width="264" height="128" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
+<text x="478.5" y="326" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="478.5" dy="0">观测 s_t</tspan><tspan x="478.5" dy="20">+ 在飞动作前缀 a_tilde</tspan></text>
+<text x="478.5" y="356" font-size="12" fill="#5f6b7a" text-anchor="middle">[0,n)</text>
+<rect x="353.5" y="497.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="351" y="494" width="264" height="138" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
 <circle cx="483.0" cy="494" r="24" fill="#ffffff" stroke="#1565c0" stroke-width="1.8"/>
 <circle cx="483.0" cy="494" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
 <g transform="translate(469.5,480.5) scale(1.1250)">
@@ -67,10 +67,10 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="483.0" y="538" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="483.0" dy="0">冻结 pi_base (pi 0.5)</tspan><tspan x="483.0" dy="20">输出参考 chunk a_bar (</tspan></text>
-<text x="483.0" y="568" font-size="12" fill="#5f6b7a" text-anchor="middle">H = 32) + RL token z_</text>
-<rect x="199.5" y="721.5" width="267" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="197" y="718" width="267" height="128" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="483.0" y="550" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="483.0" dy="0">冻结 pi_base (pi 0.5)</tspan><tspan x="483.0" dy="20">输出参考 chunk a_bar (</tspan></text>
+<text x="483.0" y="580" font-size="12" fill="#5f6b7a" text-anchor="middle">H = 32) + RL token z_</text>
+<rect x="199.5" y="721.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="197" y="718" width="267" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="330.5" cy="718" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="330.5" cy="718" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(317.0,704.5) scale(1.1250)">
@@ -78,43 +78,43 @@
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="330.5" y="762" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="330.5" dy="0">chunk 三区划分 (核心)</tspan><tspan x="330.5" dy="20">committed [0,n): 上一 </tspan></text>
-<text x="330.5" y="792" font-size="12" fill="#5f6b7a" text-anchor="middle">chunk 已占用</text>
-<rect x="199.5" y="945.5" width="267" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="197" y="942" width="267" height="128" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<text x="330.5" y="774" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="330.5" dy="0">chunk 三区划分 (核心)</tspan><tspan x="330.5" dy="20">committed [0,n): 上一 </tspan></text>
+<text x="330.5" y="804" font-size="12" fill="#5f6b7a" text-anchor="middle">chunk 已占用</text>
+<rect x="199.5" y="945.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="197" y="942" width="267" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="330.5" cy="942" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="330.5" cy="942" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(317.0,928.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="330.5" y="986" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="330.5" dy="0">残差 actor (3 层 MLP)</tspan><tspan x="330.5" dy="20">a = a_bar + 有界 delta</tspan></text>
-<text x="330.5" y="1016" font-size="12" fill="#5f6b7a" text-anchor="middle"> (界 0.05)</text>
-<rect x="54.5" y="273.5" width="259" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="52" y="270" width="259" height="128" rx="14" fill="url(#g-mem)" stroke="#b8860b" stroke-width="2.0"/>
+<text x="330.5" y="998" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="330.5" dy="0">残差 actor (3 层 MLP)</tspan><tspan x="330.5" dy="20">a = a_bar + 有界 delta</tspan></text>
+<text x="330.5" y="1028" font-size="12" fill="#5f6b7a" text-anchor="middle"> (界 0.05)</text>
+<rect x="54.5" y="273.5" width="259" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="52" y="270" width="259" height="138" rx="14" fill="url(#g-mem)" stroke="#b8860b" stroke-width="2.0"/>
 <circle cx="181.5" cy="270" r="24" fill="#ffffff" stroke="#b8860b" stroke-width="1.8"/>
 <circle cx="181.5" cy="270" r="27.5" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.35"/>
 <g transform="translate(168.0,256.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="181.5" y="314" font-size="15" class="lbl" fill="#8a6d00" text-anchor="middle"><tspan x="181.5" dy="0">回放缓冲</tspan><tspan x="181.5" dy="20">base policy 50 eps 初</tspan></text>
-<text x="181.5" y="344" font-size="12" fill="#5f6b7a" text-anchor="middle">始化</text>
-<rect x="54.5" y="65.5" width="257" height="95" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="52" y="62" width="257" height="95" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="181.5" y="326" font-size="15" class="lbl" fill="#8a6d00" text-anchor="middle"><tspan x="181.5" dy="0">回放缓冲</tspan><tspan x="181.5" dy="20">base policy 50 eps 初</tspan></text>
+<text x="181.5" y="356" font-size="12" fill="#5f6b7a" text-anchor="middle">始化</text>
+<rect x="54.5" y="65.5" width="257" height="105" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="52" y="62" width="257" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="180.5" cy="62" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="180.5" cy="62" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(167.0,48.5) scale(0.1055)"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" opacity="0.2"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></g>
-<text x="180.5" y="106" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="180.5" dy="0">人工干预 (绝对 / 残差)</tspan><tspan x="180.5" dy="20">+ 二值终局奖励</tspan></text>
-<rect x="48.5" y="497.5" width="267" height="128" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="494" width="267" height="128" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
+<text x="180.5" y="118" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="180.5" dy="0">人工干预 (绝对 / 残差)</tspan><tspan x="180.5" dy="20">+ 二值终局奖励</tspan></text>
+<rect x="48.5" y="497.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="494" width="267" height="138" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
 <circle cx="179.5" cy="494" r="24" fill="#ffffff" stroke="#ad1457" stroke-width="1.8"/>
 <circle cx="179.5" cy="494" r="27.5" fill="none" stroke="#ad1457" stroke-width="1" opacity="0.35"/>
 <g transform="translate(166.0,480.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
-<text x="179.5" y="538" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="179.5" dy="0">critic 集成 (REDQ)</tspan><tspan x="179.5" dy="20">输入 [z, s, a_tilde[0,</tspan></text>
-<text x="179.5" y="568" font-size="12" fill="#5f6b7a" text-anchor="middle">n), a[n,2n)]</text>
-<g transform="translate(504.6,1715.8)"><rect x="-103.8" y="-11" width="207.7" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;execution 区 6 帧生效 训练 </text></g>
-<g transform="translate(181.0,213.5)"><rect x="-109.6" y="-11" width="219.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;干预 chunk 既作 BC 目标 又作 </text></g>
-<g transform="translate(179.5,885.5)"><rect x="-92.3" y="-11" width="184.6" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;actor 损失: -Q + w_bc *</text></g>
-<g transform="translate(179.5,446.0)"><rect x="-86.6" y="-11" width="173.1" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;chunk-skip TD: y = r </text></g>
+<text x="179.5" y="550" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="179.5" dy="0">critic 集成 (REDQ)</tspan><tspan x="179.5" dy="20">输入 [z, s, a_tilde[0,</tspan></text>
+<text x="179.5" y="580" font-size="12" fill="#5f6b7a" text-anchor="middle">n), a[n,2n)]</text>
+<g transform="translate(504.6,1725.8)"><rect x="-103.8" y="-11" width="207.7" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;execution 区 6 帧生效 训练 </text></g>
+<g transform="translate(181.0,218.5)"><rect x="-109.6" y="-11" width="219.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;干预 chunk 既作 BC 目标 又作 </text></g>
+<g transform="translate(179.5,890.5)"><rect x="-92.3" y="-11" width="184.6" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;actor 损失: -Q + w_bc *</text></g>
+<g transform="translate(179.5,451.0)"><rect x="-86.6" y="-11" width="173.1" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;chunk-skip TD: y = r </text></g>
 <text x="40" y="1200.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="1186" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1197" r="4.2" fill="#2e7d32"/><text x="110" y="1201" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
 <g><rect x="191.43" y="1186" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="1197" r="4.2" fill="#00695c"/><text x="215.43" y="1201" font-size="11.5" fill="#004d40">环境</text></g>
