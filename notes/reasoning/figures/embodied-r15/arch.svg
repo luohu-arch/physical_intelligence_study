@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -26,17 +26,17 @@
 <rect x="132" y="239" width="408" height="1073" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="148" y="252" width="238.75" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="159" y="269" font-size="12.5" fill="#4a6579">System 2 - 单模型三角色闭环 PGC</text>
-<path d="M 398.5 376.0 C 398.5 455.4, 269.5 356.6, 269.5 436.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 398.5 376.0 C 398.5 465.9, 399.5 499.1, 399.5 589.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 398.5 376.0 C 398.5 722.1, 399.5 852.9, 399.5 1199.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 274.0 176.5 C 341.6 176.5, 214.4 329.5, 282.0 329.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 269.5 529.0 C 269.5 608.8, 399.5 509.2, 399.5 589.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 399.5 682.0 C 399.5 728.0, 399.0 696.0, 399.0 742.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 399.0 834.0 C 399.0 880.0, 399.0 848.0, 399.0 894.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 399.0 987.0 C 399.0 1033.0, 398.5 1001.0, 398.5 1047.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 398.5 1139.0 C 398.5 1185.0, 399.5 1153.0, 399.5 1199.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 398.5 376.0 C 398.5 454.1, 524.5 357.9, 524.5 436.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 524.5 528.0 C 524.5 734.4, 399.0 687.6, 399.0 894.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 398.5 376.0 C 398.5 455.4, 269.5 356.6, 269.5 436.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 398.5 376.0 C 398.5 465.9, 399.5 499.1, 399.5 589.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 398.5 376.0 C 398.5 722.1, 399.5 852.9, 399.5 1199.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 274.0 176.5 C 341.6 176.5, 214.4 329.5, 282.0 329.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 269.5 529.0 C 269.5 608.8, 399.5 509.2, 399.5 589.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 399.5 682.0 C 399.5 728.0, 399.0 696.0, 399.0 742.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 399.0 834.0 C 399.0 880.0, 399.0 848.0, 399.0 894.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 399.0 987.0 C 399.0 1033.0, 398.5 1001.0, 398.5 1047.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 398.5 1139.0 C 398.5 1185.0, 399.5 1153.0, 399.5 1199.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 398.5 376.0 C 398.5 454.1, 524.5 357.9, 524.5 436.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 524.5 528.0 C 524.5 734.4, 399.0 687.6, 399.0 894.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="46.5" y="133.5" width="230" height="93" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="44" y="130" width="230" height="93" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
 <circle cx="159.0" cy="130" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -153,9 +153,6 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="640.0" y="174" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="640.0" dy="0">Stage 2 RFT 多任务</tspan><tspan x="640.0" dy="20">均衡 GRPO&lt;br/</tspan></text>
-<text x="40" y="1330.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1316" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1327" r="4.2" fill="#546e7a"/><text x="110" y="1331" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<text x="40" y="1370" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1366 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1370" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 1366 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="244.76" y="1370" font-size="11.5" fill="#546e7a">信息流</text></g>
+<text x="40" y="1352.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1338" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1349" r="4.2" fill="#546e7a"/><text x="110" y="1353" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 </svg>

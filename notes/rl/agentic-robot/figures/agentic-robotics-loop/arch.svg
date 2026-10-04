@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -29,22 +29,22 @@
 <rect x="791" y="103" width="746" height="156" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="807" y="116" width="311.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="818" y="133" font-size="12.5" fill="#4a6579">工具边界: 世界执行皆工具 (MCP 调用面, back</text>
-<path d="M 898.5 409.0 C 898.5 455.0, 898.5 423.0, 898.5 469.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 898.5 595.0 C 898.5 641.0, 898.0 609.0, 898.0 655.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 898.0 748.0 C 898.0 837.0, 898.0 871.0, 898.0 960.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 898.0 1086.0 C 898.0 1132.0, 898.0 1100.0, 898.0 1146.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 898.0 1239.0 C 898.0 1285.0, 898.0 1253.0, 898.0 1299.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 250.0 193.0 C 553.5 193.0, 499.6 362.5, 803.0 362.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 520.0 193.0 C 710.0 193.0, 613.0 362.5, 803.0 362.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 781.0 193.0 C 861.4 193.0, 722.6 362.5, 803.0 362.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 898.0 748.0 C 898.0 794.0, 898.0 762.0, 898.0 808.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 898.0 900.0 C 898.0 946.0, 898.0 914.0, 898.0 960.0" fill="none" stroke="#c62828" stroke-width="2.2" stroke-dasharray="2 3.5 8 3.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<path d="M 1664.5 256.0 C 1664.5 951.7, 898.0 450.3, 898.0 1146.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 748.1 1452.0 C 748.1 1378.0, 909.4 581.0, 909.4 655.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 898.0 1392.0 C 898.0 1461.1, 793.5 1382.9, 793.5 1452.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 898.0 1392.0 C 898.0 1477.0, 1023.5 1384.0, 1023.5 1469.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 986.1 1469.0 C 986.1 1395.0, 910.1 395.0, 910.1 469.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1023.5 1561.0 C 1023.5 1645.8, 898.5 1553.2, 898.5 1638.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 898.5 409.0 C 898.5 455.0, 898.5 423.0, 898.5 469.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 898.5 595.0 C 898.5 641.0, 898.0 609.0, 898.0 655.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 898.0 748.0 C 898.0 837.0, 898.0 871.0, 898.0 960.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 898.0 1086.0 C 898.0 1132.0, 898.0 1100.0, 898.0 1146.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 898.0 1239.0 C 898.0 1285.0, 898.0 1253.0, 898.0 1299.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 250.0 193.0 C 553.5 193.0, 499.6 362.5, 803.0 362.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 520.0 193.0 C 710.0 193.0, 613.0 362.5, 803.0 362.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 781.0 193.0 C 861.4 193.0, 722.6 362.5, 803.0 362.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 898.0 748.0 C 898.0 794.0, 898.0 762.0, 898.0 808.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 898.0 900.0 C 898.0 946.0, 898.0 914.0, 898.0 960.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1664.5 256.0 C 1664.5 951.7, 898.0 450.3, 898.0 1146.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 748.1 1452.0 C 748.1 1378.0, 909.4 581.0, 909.4 655.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 898.0 1392.0 C 898.0 1461.1, 793.5 1382.9, 793.5 1452.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 898.0 1392.0 C 898.0 1477.0, 1023.5 1384.0, 1023.5 1469.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 986.1 1469.0 C 986.1 1395.0, 910.1 395.0, 910.1 469.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1023.5 1561.0 C 1023.5 1645.8, 898.5 1553.2, 898.5 1638.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="17.5" y="133.5" width="235" height="126" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="15" y="130" width="235" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
 <circle cx="132.5" cy="130" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -219,19 +219,15 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="898.0" y="859" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">TOOLS</text>
-<g transform="translate(661.5,259.8)"><rect x="-98.6" y="-11" width="197.3" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;十一不变式约束下的管环决策&quot;</text></g>
-<g transform="translate(792.0,259.8)"><rect x="-78.5" y="-11" width="157.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;bind 时读, 不作指令&quot;</text></g>
-<g transform="translate(898.0,760.0)"><rect x="-118.4" y="-11" width="236.9" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;skill 决定怎么做, tool 真正干活&quot;</text></g>
-<g transform="translate(898.0,912.0)"><rect x="-118.3" y="-11" width="236.6" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;结果信封回传: 失败与超时也是结果&quot;</text></g>
-<g transform="translate(1281.2,683.0)"><rect x="-121.3" y="-11" width="242.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;拦截错误晋升: 假晋升率 0.001/run&quot;</text></g>
-<g transform="translate(828.8,998.5)"><rect x="-104.0" y="-11" width="208.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;unvalidated 或 stale 禁入无</text></g>
-<g transform="translate(845.8,1404.0)"><rect x="-109.8" y="-11" width="219.6" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;质量按 benchmark 分 key 更新&quot;</text></g>
-<g transform="translate(948.1,914.0)"><rect x="-86.5" y="-11" width="173.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;否: 停滞强制切换策略类&quot;</text></g>
-<g transform="translate(961.0,1599.5)"><rect x="-22.3" y="-11" width="44.6" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;是&quot;</text></g>
-<text x="40" y="1802.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1788" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1799" r="4.2" fill="#546e7a"/><text x="110" y="1803" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<text x="40" y="1842" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1838 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1842" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 1838 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="1842" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
-<g><path d="M 325.52 1838 h 34" stroke="#c62828" stroke-width="2.2" stroke-dasharray="2 3.5 8 3.5" marker-end="url(#arr-loss)"/><text x="367.52" y="1842" font-size="11.5" fill="#c62828">损失/监督</text></g>
+<g transform="translate(661.5,259.8)"><rect x="-98.6" y="-11" width="197.3" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;十一不变式约束下的管环决策&quot;</text></g>
+<g transform="translate(792.0,259.8)"><rect x="-78.5" y="-11" width="157.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;bind 时读, 不作指令&quot;</text></g>
+<g transform="translate(898.0,760.0)"><rect x="-118.4" y="-11" width="236.9" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;skill 决定怎么做, tool 真正干活&quot;</text></g>
+<g transform="translate(898.0,912.0)"><rect x="-118.3" y="-11" width="236.6" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;结果信封回传: 失败与超时也是结果&quot;</text></g>
+<g transform="translate(1281.2,683.0)"><rect x="-121.3" y="-11" width="242.6" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;拦截错误晋升: 假晋升率 0.001/run&quot;</text></g>
+<g transform="translate(828.8,998.5)"><rect x="-104.0" y="-11" width="208.1" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;unvalidated 或 stale 禁入无</text></g>
+<g transform="translate(845.8,1404.0)"><rect x="-109.8" y="-11" width="219.6" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;质量按 benchmark 分 key 更新&quot;</text></g>
+<g transform="translate(948.1,914.0)"><rect x="-86.5" y="-11" width="173.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;否: 停滞强制切换策略类&quot;</text></g>
+<g transform="translate(961.0,1599.5)"><rect x="-22.3" y="-11" width="44.6" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;是&quot;</text></g>
+<text x="40" y="1824.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1810" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1821" r="4.2" fill="#546e7a"/><text x="110" y="1825" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 </svg>

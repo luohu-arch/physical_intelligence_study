@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,17 +23,17 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">worldarena</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">WorldArena 的核心主张是：**视觉保真度不等于具身可用性**。它对 14 个代表性世界模型（通用视频生成模型 CogvideoX/Wan 2.2/Wan 2.6/Ve</text>
 <text x="1221" y="1284" font-size="11.5" fill="#a0aab4" text-anchor="end">worldarena · arXiv 2602.08971 · v3 auto</text>
-<path d="M 627.0 222.0 C 627.0 268.0, 627.0 268.0, 627.0 314.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 536.0 360.5 C 361.9 360.5, 497.1 562.0, 323.0 562.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 627.0 407.0 C 627.0 503.4, 489.5 402.6, 489.5 499.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 627.0 407.0 C 627.0 505.1, 768.5 400.9, 768.5 499.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 718.0 360.5 C 887.9 360.5, 751.1 562.0, 921.0 562.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 323.0 562.0 C 496.2 562.0, 360.8 763.5, 534.0 763.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 627.5 810.0 C 627.5 856.0, 628.0 856.0, 628.0 902.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 628.0 994.0 C 628.0 1040.0, 627.0 1040.0, 627.0 1086.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 489.5 625.0 C 489.5 876.4, 627.0 834.6, 627.0 1086.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 768.5 625.0 C 768.5 878.0, 627.0 833.0, 627.0 1086.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1066.0 625.0 C 1066.0 1003.0, 627.0 708.0, 627.0 1086.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 627.0 222.0 C 627.0 268.0, 627.0 268.0, 627.0 314.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 536.0 360.5 C 361.9 360.5, 497.1 562.0, 323.0 562.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 627.0 407.0 C 627.0 503.4, 489.5 402.6, 489.5 499.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 627.0 407.0 C 627.0 505.1, 768.5 400.9, 768.5 499.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 718.0 360.5 C 887.9 360.5, 751.1 562.0, 921.0 562.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 323.0 562.0 C 496.2 562.0, 360.8 763.5, 534.0 763.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 627.5 810.0 C 627.5 856.0, 628.0 856.0, 628.0 902.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 628.0 994.0 C 628.0 1040.0, 627.0 1040.0, 627.0 1086.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 489.5 625.0 C 489.5 876.4, 627.0 834.6, 627.0 1086.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 768.5 625.0 C 768.5 878.0, 627.0 833.0, 627.0 1086.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1066.0 625.0 C 1066.0 1003.0, 627.0 708.0, 627.0 1086.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="522.5" y="133.5" width="214" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="520" y="130" width="214" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="627.0" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -114,15 +114,11 @@
 </g>
 <text x="627.0" y="1130" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="627.0" dy="0">与人评及三功能分做相关</tspan><tspan x="627.0" dy="20">人评 r=0.825 / 数据引擎 r</tspan></text>
 <text x="627.0" y="1160" font-size="12" fill="#5f6b7a" text-anchor="middle">=0.600</text>
-<text x="40" y="1250.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1236" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1247" r="4.2" fill="#6a1b9a"/><text x="110" y="1251" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="184.76" y="1236" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1247" r="4.2" fill="#2e7d32"/><text x="208.76" y="1251" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="290.19" y="1236" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="1247" r="4.2" fill="#ef6c00"/><text x="314.19" y="1251" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="388.95" y="1236" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="401.95" cy="1247" r="4.2" fill="#546e7a"/><text x="412.95" y="1251" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<g><rect x="494.38" y="1236" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="507.38" cy="1247" r="4.2" fill="#c62828"/><text x="518.38" y="1251" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
-<g><rect x="599.81" y="1236" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="612.81" cy="1247" r="4.2" fill="#ef6c00"/><text x="623.81" y="1251" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="1290" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1286 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1290" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 1286 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="244.76" y="1290" font-size="11.5" fill="#546e7a">信息流</text></g>
-<g><path d="M 313.33 1286 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="355.33" y="1290" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<text x="40" y="1272.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1258" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1269" r="4.2" fill="#6a1b9a"/><text x="110" y="1273" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="1258" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1269" r="4.2" fill="#2e7d32"/><text x="208.76" y="1273" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="1258" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="1269" r="4.2" fill="#ef6c00"/><text x="314.19" y="1273" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="388.95" y="1258" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="401.95" cy="1269" r="4.2" fill="#546e7a"/><text x="412.95" y="1273" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g><rect x="494.38" y="1258" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="507.38" cy="1269" r="4.2" fill="#c62828"/><text x="518.38" y="1273" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
+<g><rect x="599.81" y="1258" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="612.81" cy="1269" r="4.2" fill="#ef6c00"/><text x="623.81" y="1273" font-size="11.5" fill="#b34700">可训练模块</text></g>
 </svg>

@@ -164,7 +164,7 @@ spec 是 JSON：title/subtitle/foot、canvas、panels（虚线分组）、nodes�
 
 **4b) 文本规则**（2026-10-05 拆词事故后固化）：换行一律走 `wrap_cjk`（词边界：ASCII 词元不拆、连字符挂行尾、行首禁则 + 虚词行尾禁则、孤字下行），宽度预算 label=(w-34)/17.8、sub=(w-34)/13.8 em，与 collide_check 的 text-ovf 公式严格一致，不留容差；边标签不得带引号（解析器已剥，存量用脚本清）；mermaid 转换的 `[:3]` 截断与 `<br/` 形状残片由 `repair_wrap.py` 从 spec 内嵌的 mermaid_original 幂等重排修复；pill 放置分 4 级兜底，落到 tier≥2 会在 SVG 里写 `<!--WARN pill-tierN -->`，collide_check 读取并计为 issue（全库必须 0 WARN）。
 
-**4c) 图形风格已由用户锁定（2026-10-05，最高优先级）**：全库 138 张 arch.svg 钉在 **0529328 状态**——斜直连线、原始线宽（主 2.2px 级）、双行图例、原始文字密度。用户明确否决了此后的 orthogonal 直角折线路由、加粗线、pill 重排、正文恢复加长等全部"改进"（"我没让你变直线"）。**不要再对这些 SVG 做任何批量重渲染或"优化"**；用户点名某张有问题时单张手修 spec 后仅重渲染那一张，且必须保持斜线风格。管线脚本（fancy_diagram/relayout_v2/repair_wrap/fix_pills/collide_check）保留作工具箱，但默认输出风格与锁定版本不一致，动图前先与用户确认。
+**4c) 图形风格已由用户锁定（2026-10-05，最高优先级）**：全库 138 张 arch.svg 钉在 **3f15aa9 状态**——v3 铺开第一版：斜直连线、原始线宽、**无图例行**、原始文字密度（π0/dqc 保持 6feb8b8 试点原版，与 3f15aa9 时一致）。用户依次否决了此后的全部改动：线型图例行与语义强化（0529328）、orthogonal 直角折线与加粗（93291a9）、pill 重排、正文恢复加长等（"我没让你变直线"）。**不要再对这些 SVG 做任何批量重渲染、加图例或"优化"**；用户点名某张有问题时单张手修 spec 后仅重渲染那一张，且必须保持斜线无图例风格。管线脚本（fancy_diagram/relayout_v2/repair_wrap/fix_pills/collide_check）保留作工具箱，但默认输出风格与锁定版本不一致，动图前先与用户确认。
 
 **5) 外部画图 skill 路线图**（2026-10 评估结论）：
 - K-Dense `pptx-posters`：强门禁 manifest 审批工作流，面向**印刷级会议海报**（打印/无障碍/包安全检查），不适合笔记内嵌图；真要做 poster 时再启用。

@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,14 +23,14 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">v-jepa2</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">先用 V-JEPA 目标在约 100 万小时互联网视频上把视觉编码器扩到 ViT-g/1B 并得到通用运动理解表征，再冻结该编码器、只用 Droid 数据集不到 62 小时的无</text>
 <text x="1771" y="561" font-size="11.5" fill="#a0aab4" text-anchor="end">v-jepa2 · arXiv 2506.09985 · v3 auto</text>
-<path d="M 254.0 251.0 C 316.6 251.0, 282.4 309.0, 345.0 309.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 578.0 309.0 C 624.0 309.0, 598.0 309.0, 644.0 309.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 877.0 309.0 C 960.4 309.0, 859.6 176.5, 943.0 176.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 877.0 309.0 C 963.1 309.0, 861.9 443.0, 948.0 443.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 279.0 367.5 C 583.3 367.5, 641.7 310.0, 946.0 310.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 877.0 309.0 C 923.0 309.0, 900.0 310.0, 946.0 310.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1174.0 310.0 C 1220.0 310.0, 1196.0 309.0, 1242.0 309.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1460.0 309.0 C 1506.0 309.0, 1480.0 309.0, 1526.0 309.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 254.0 251.0 C 316.6 251.0, 282.4 309.0, 345.0 309.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 578.0 309.0 C 624.0 309.0, 598.0 309.0, 644.0 309.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 877.0 309.0 C 960.4 309.0, 859.6 176.5, 943.0 176.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 877.0 309.0 C 963.1 309.0, 861.9 443.0, 948.0 443.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 279.0 367.5 C 583.3 367.5, 641.7 310.0, 946.0 310.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 877.0 309.0 C 923.0 309.0, 900.0 310.0, 946.0 310.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1174.0 310.0 C 1220.0 310.0, 1196.0 309.0, 1242.0 309.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1460.0 309.0 C 1506.0 309.0, 1480.0 309.0, 1526.0 309.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="70.5" y="208.5" width="186" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="68" y="205" width="186" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="161.0" cy="205" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -119,14 +119,11 @@
 </g>
 <text x="1643.5" y="290" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="1643.5" dy="0">零样本 pick&amp;place</tspan><tspan x="1643.5" dy="20">两实验室 Franka 各 </tspan></text>
 <text x="1643.5" y="320" font-size="12" fill="#5f6b7a" text-anchor="middle">10 trials</text>
-<text x="40" y="527.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="513" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="524" r="4.2" fill="#6a1b9a"/><text x="110" y="528" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="184.76" y="513" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="524" r="4.2" fill="#2e7d32"/><text x="208.76" y="528" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="290.19" y="513" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="303.19" cy="524" r="4.2" fill="#1565c0"/><text x="314.19" y="528" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
-<g><rect x="388.95" y="513" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="401.95" cy="524" r="4.2" fill="#ef6c00"/><text x="412.95" y="528" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="487.71" y="513" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="500.71" cy="524" r="4.2" fill="#546e7a"/><text x="511.71" y="528" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<g><rect x="593.14" y="513" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="606.14" cy="524" r="4.2" fill="#ef6c00"/><text x="617.14" y="528" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="567" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 563 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="567" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 563 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="244.76" y="567" font-size="11.5" fill="#546e7a">信息流</text></g>
+<text x="40" y="549.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="535" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="546" r="4.2" fill="#6a1b9a"/><text x="110" y="550" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="535" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="546" r="4.2" fill="#2e7d32"/><text x="208.76" y="550" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="535" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="303.19" cy="546" r="4.2" fill="#1565c0"/><text x="314.19" y="550" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
+<g><rect x="388.95" y="535" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="401.95" cy="546" r="4.2" fill="#ef6c00"/><text x="412.95" y="550" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="487.71" y="535" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="500.71" cy="546" r="4.2" fill="#546e7a"/><text x="511.71" y="550" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g><rect x="593.14" y="535" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="606.14" cy="546" r="4.2" fill="#ef6c00"/><text x="617.14" y="550" font-size="11.5" fill="#b34700">可训练模块</text></g>
 </svg>

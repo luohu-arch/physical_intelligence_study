@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,14 +23,14 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">π0：VLM 主干 + Flow Matching 动作专家</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">异步双系统 —— 3B VLM 慢速推理提供多模态 latent，300M 动作专家以 50Hz 输出连续动作块</text>
 <text x="1246" y="642" font-size="11.5" fill="#a0aab4" text-anchor="end">π0 · Physical Intelligence · arXiv 2410.24164</text>
-<path d="M 244.0 196.0 C 324.6 196.0, 259.4 292.0, 340.0 292.0" fill="none" stroke="#9fb0bb" stroke-width="1.6" marker-end="url(#arr-thin)" opacity="0.92"/>
-<path d="M 244.0 332.0 C 290.0 332.0, 294.0 325.0, 340.0 325.0" fill="none" stroke="#9fb0bb" stroke-width="1.6" marker-end="url(#arr-thin)" opacity="0.92"/>
-<path d="M 244.0 450.0 C 323.0 450.0, 261.0 358.0, 340.0 358.0" fill="none" stroke="#9fb0bb" stroke-width="1.6" marker-end="url(#arr-thin)" opacity="0.92"/>
-<path d="M 600.0 325.0 C 646.0 325.0, 654.0 334.0, 700.0 334.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 800.0 192.0 C 800.0 232.0, 872.8 230.0, 872.8 270.0" fill="none" stroke="#9fb0bb" stroke-width="1.6" marker-end="url(#arr-thin)" opacity="0.92"/>
-<path d="M 940.0 308.4 C 1012.4 308.4, 927.6 196.0, 1000.0 196.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1112.0 252.0 C 1112.0 298.0, 1112.0 304.0, 1112.0 350.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1071.7 450.0 C 1071.7 538.0, 114.0 330.0, 114.0 242.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 244.0 196.0 C 324.6 196.0, 259.4 292.0, 340.0 292.0" fill="none" stroke="#90a4ae" stroke-width="1.8" marker-end="url(#arr-thin)" opacity="0.92"/>
+<path d="M 244.0 332.0 C 290.0 332.0, 294.0 325.0, 340.0 325.0" fill="none" stroke="#90a4ae" stroke-width="1.8" marker-end="url(#arr-thin)" opacity="0.92"/>
+<path d="M 244.0 450.0 C 323.0 450.0, 261.0 358.0, 340.0 358.0" fill="none" stroke="#90a4ae" stroke-width="1.8" marker-end="url(#arr-thin)" opacity="0.92"/>
+<path d="M 600.0 325.0 C 646.0 325.0, 654.0 334.0, 700.0 334.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 800.0 192.0 C 800.0 232.0, 872.8 230.0, 872.8 270.0" fill="none" stroke="#90a4ae" stroke-width="1.8" marker-end="url(#arr-thin)" opacity="0.92"/>
+<path d="M 940.0 308.4 C 1012.4 308.4, 927.6 196.0, 1000.0 196.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1112.0 252.0 C 1112.0 298.0, 1112.0 304.0, 1112.0 350.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1071.7 450.0 C 1071.7 538.0, 114.0 330.0, 114.0 242.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="46.5" y="153.5" width="200" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="44" y="150" width="200" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="144.0" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -67,7 +67,7 @@
 <text x="470.0" y="301" font-size="16" class="lbl" fill="#0d47a1" text-anchor="middle">PaliGemma VLM 主干</text>
 <text x="470.0" y="320" font-size="12" fill="#5f6b7a" text-anchor="middle">SigLIP 视觉编码 + Gemma LM</text>
 <text x="470.0" y="337" font-size="12" fill="#5f6b7a" text-anchor="middle">约 3B 参数 · 端到端微调</text>
-<g><rect x="560.66" y="258" width="31.3" height="21" rx="10.5" fill="#1565c0" opacity="0.14"/><text x="576.3" y="272.5" font-size="11.5" font-weight="700" fill="#0d47a1" text-anchor="middle">3B</text></g>
+<g><rect x="561.35" y="258" width="30.6" height="21" rx="10.5" fill="#1565c0" opacity="0.14"/><text x="576.7" y="272.5" font-size="11.5" font-weight="700" fill="#0d47a1" text-anchor="middle">3B</text></g>
 <rect x="722.5" y="111.5" width="200" height="84" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="720" y="108" width="200" height="84" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
 <circle cx="820.0" cy="108" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -91,7 +91,7 @@
 <text x="820.0" y="321" font-size="16" class="lbl" fill="#4a148c" text-anchor="middle">动作专家</text>
 <text x="820.0" y="340" font-size="12" fill="#5f6b7a" text-anchor="middle">Flow Matching 去噪</text>
 <text x="820.0" y="357" font-size="12" fill="#5f6b7a" text-anchor="middle">v(x_t, t) · 10 步积分</text>
-<g><rect x="887.32" y="278" width="44.7" height="21" rx="10.5" fill="#6a1b9a" opacity="0.14"/><text x="909.7" y="292.5" font-size="11.5" font-weight="700" fill="#4a148c" text-anchor="middle">300M</text></g>
+<g><rect x="888.7" y="278" width="43.3" height="21" rx="10.5" fill="#6a1b9a" opacity="0.14"/><text x="910.4" y="292.5" font-size="11.5" font-weight="700" fill="#4a148c" text-anchor="middle">300M</text></g>
 <rect x="1002.5" y="143.5" width="224" height="112" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="1000" y="140" width="224" height="112" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="2.8"/>
 <circle cx="1112.0" cy="140" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
@@ -117,18 +117,13 @@
 </g>
 <text x="1112.0" y="401" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">机器人执行</text>
 <text x="1112.0" y="420" font-size="12" fill="#5f6b7a" text-anchor="middle">灵巧操作任务</text>
-<g transform="translate(650.0,329.5)"><rect x="-47.2" y="-11" width="94.3" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">跨注意力条件</text></g>
-<g transform="translate(970.0,252.2)"><rect x="-42.0" y="-11" width="84.0" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">去噪 10 步</text></g>
-<g transform="translate(592.8,390.0)"><rect x="-66.2" y="-11" width="132.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">新观测反馈（异步）</text></g>
-<text x="40" y="608.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="594" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="605" r="4.2" fill="#2e7d32"/><text x="110" y="609" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="191.43" y="594" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="204.43" cy="605" r="4.2" fill="#1565c0"/><text x="215.43" y="609" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
-<g><rect x="290.19" y="594" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="303.19" cy="605" r="4.2" fill="#6a1b9a"/><text x="314.19" y="609" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="388.95" y="594" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="401.95" cy="605" r="4.2" fill="#ef6c00"/><text x="412.95" y="609" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="487.71" y="594" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="500.71" cy="605" r="4.2" fill="#00695c"/><text x="511.71" y="609" font-size="11.5" fill="#004d40">环境</text></g>
-<text x="40" y="648" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 644 h 34" stroke="#9fb0bb" stroke-width="1.6" marker-end="url(#arr-thin)"/><text x="122" y="648" font-size="11.5" fill="#9fb0bb">弱关联</text></g>
-<g><path d="M 190.57 644 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="232.57" y="648" font-size="11.5" fill="#546e7a">信息流</text></g>
-<g><path d="M 301.14 644 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="343.14" y="648" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 423.9 644 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="465.9" y="648" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g transform="translate(650.0,329.5)"><rect x="-45.7" y="-11" width="91.4" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">跨注意力条件</text></g>
+<g transform="translate(970.0,252.2)"><rect x="-40.6" y="-11" width="81.1" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">去噪 10 步</text></g>
+<g transform="translate(592.8,390.0)"><rect x="-64.1" y="-11" width="128.2" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">新观测反馈（异步）</text></g>
+<text x="40" y="630.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="616" width="91.245" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="627" r="4.2" fill="#2e7d32"/><text x="110" y="631" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="189.245" y="616" width="84.92" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="202.245" cy="627" r="4.2" fill="#1565c0"/><text x="213.245" y="631" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
+<g><rect x="286.165" y="616" width="84.92" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="299.165" cy="627" r="4.2" fill="#6a1b9a"/><text x="310.165" y="631" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="383.08500000000004" y="616" width="84.92" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="396.08500000000004" cy="627" r="4.2" fill="#ef6c00"/><text x="407.08500000000004" y="631" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="480.00500000000005" y="616" width="61.46" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="493.00500000000005" cy="627" r="4.2" fill="#00695c"/><text x="504.00500000000005" y="631" font-size="11.5" fill="#004d40">环境</text></g>
 </svg>

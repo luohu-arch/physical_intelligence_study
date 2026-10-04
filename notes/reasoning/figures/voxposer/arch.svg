@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,16 +23,16 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">voxposer</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">VoxPoser 让 GPT-4 以 Python 代码调用开放词汇检测（OWL-ViT）、分割（Segment Anything）与追踪（XMem），再把指令蕴含的 affo</text>
 <text x="2281" y="645" font-size="11.5" fill="#a0aab4" text-anchor="end">voxposer · arXiv 2307.05973 · v3 auto</text>
-<path d="M 251.0 176.0 C 339.8 176.0, 257.2 292.5, 346.0 292.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 274.0 292.5 C 351.3 292.5, 262.7 410.5, 340.0 410.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 570.0 410.5 C 622.3 410.5, 583.7 352.0, 636.0 352.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 564.0 292.5 C 732.4 292.5, 737.6 351.5, 906.0 351.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 840.0 352.0 C 886.0 352.0, 860.0 351.5, 906.0 351.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1141.0 351.5 C 1187.0 351.5, 1161.0 351.0, 1207.0 351.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1437.0 351.0 C 1483.0 351.0, 1457.0 351.5, 1503.0 351.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1733.0 351.5 C 1779.0 351.5, 1753.0 352.0, 1799.0 352.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 271.0 409.5 C 936.9 409.5, 1133.1 352.0, 1799.0 352.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1985.0 352.0 C 2031.0 352.0, 2005.0 352.0, 2051.0 352.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 251.0 176.0 C 339.8 176.0, 257.2 292.5, 346.0 292.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 274.0 292.5 C 351.3 292.5, 262.7 410.5, 340.0 410.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 570.0 410.5 C 622.3 410.5, 583.7 352.0, 636.0 352.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 564.0 292.5 C 732.4 292.5, 737.6 351.5, 906.0 351.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 840.0 352.0 C 886.0 352.0, 860.0 351.5, 906.0 351.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1141.0 351.5 C 1187.0 351.5, 1161.0 351.0, 1207.0 351.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1437.0 351.0 C 1483.0 351.0, 1457.0 351.5, 1503.0 351.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1733.0 351.5 C 1779.0 351.5, 1753.0 352.0, 1799.0 352.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 271.0 409.5 C 936.9 409.5, 1133.1 352.0, 1799.0 352.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1985.0 352.0 C 2031.0 352.0, 2005.0 352.0, 2051.0 352.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="69.5" y="133.5" width="184" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="67" y="130" width="184" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
 <circle cx="159.0" cy="130" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -157,9 +157,7 @@
   <circle cx="12" cy="12" r="3" />
 </g>
 <text x="159.0" y="524" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="159.0" dy="0">在线动力学学习扩展&lt;</tspan><tspan x="159.0" dy="20">br/</tspan></text>
-<g transform="translate(735.0,304.0)"><rect x="-112.7" y="-11" width="225.4" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">写 Python 代码调感知 API 与 Num</text></g>
-<text x="40" y="611.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="597" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="608" r="4.2" fill="#546e7a"/><text x="110" y="612" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<text x="40" y="651" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 647 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="651" font-size="11.5" fill="#263238">主数据流</text></g>
+<g transform="translate(735.0,304.0)"><rect x="-112.7" y="-11" width="225.4" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">写 Python 代码调感知 API 与 Num</text></g>
+<text x="40" y="633.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="619" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="630" r="4.2" fill="#546e7a"/><text x="110" y="634" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 </svg>

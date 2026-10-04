@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,18 +23,18 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">point4d</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">前馈式 4D 重建只能吃几打帧的短窗口、且遮挡点无法跨块续接的问题，被 Point4D 用「查 3D 点、不查 2D 像素」解决：把 D4RT 的 2D 像素 query 换成</text>
 <text x="1966" y="562" font-size="11.5" fill="#a0aab4" text-anchor="end">point4d · arXiv 2609.09145 · v3 auto</text>
-<path d="M 217.0 252.5 C 295.5 252.5, 249.5 176.5, 328.0 176.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 514.0 176.5 C 608.3 176.5, 510.7 310.0, 605.0 310.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 238.0 368.0 C 290.1 368.0, 251.9 310.0, 304.0 310.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 238.0 368.0 C 311.7 368.0, 264.3 443.5, 338.0 443.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 838.0 310.0 C 884.0 310.0, 858.0 310.0, 904.0 310.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 539.0 310.0 C 692.3 310.0, 750.7 310.0, 904.0 310.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 504.0 443.5 C 728.1 443.5, 679.9 310.0, 904.0 310.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1134.0 310.0 C 1180.0 310.0, 1154.0 310.0, 1200.0 310.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1367.0 310.0 C 1413.0 310.0, 1387.0 310.0, 1433.0 310.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1668.0 310.0 C 1733.5 310.0, 1683.5 235.0, 1749.0 235.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1806.6 298.0 C 1806.6 372.0, 1030.5 447.0, 1030.5 373.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1668.0 310.0 C 1727.2 310.0, 1674.8 385.0, 1734.0 385.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 217.0 252.5 C 295.5 252.5, 249.5 176.5, 328.0 176.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 514.0 176.5 C 608.3 176.5, 510.7 310.0, 605.0 310.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 238.0 368.0 C 290.1 368.0, 251.9 310.0, 304.0 310.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 238.0 368.0 C 311.7 368.0, 264.3 443.5, 338.0 443.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 838.0 310.0 C 884.0 310.0, 858.0 310.0, 904.0 310.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 539.0 310.0 C 692.3 310.0, 750.7 310.0, 904.0 310.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 504.0 443.5 C 728.1 443.5, 679.9 310.0, 904.0 310.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1134.0 310.0 C 1180.0 310.0, 1154.0 310.0, 1200.0 310.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1367.0 310.0 C 1413.0 310.0, 1387.0 310.0, 1433.0 310.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1668.0 310.0 C 1733.5 310.0, 1683.5 235.0, 1749.0 235.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1806.6 298.0 C 1806.6 372.0, 1030.5 447.0, 1030.5 373.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1668.0 310.0 C 1727.2 310.0, 1674.8 385.0, 1734.0 385.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="66.5" y="209.5" width="153" height="93" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="64" y="206" width="153" height="93" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="140.5" cy="206" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -137,19 +137,15 @@
 </g>
 <text x="1845.0" y="366" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="1845.0" dy="0">全局系长程稠密 3D </tspan><tspan x="1845.0" dy="20">轨迹</tspan></text>
 <text x="1845.0" y="396" font-size="12" fill="#5f6b7a" text-anchor="middle">200 帧三基准平均第</text>
-<g transform="translate(271.0,321.0)"><rect x="-58.8" y="-11" width="117.6" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;用 D_0 反投影&quot;</text></g>
-<g transform="translate(288.0,387.8)"><rect x="-81.4" y="-11" width="162.7" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">&quot;取首次可见帧的 patch&quot;</text></g>
-<g transform="translate(1167.0,292.0)"><rect x="-55.9" y="-11" width="111.8" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;块内扫 t_tgt&quot;</text></g>
-<g transform="translate(1708.5,254.5)"><rect x="-68.0" y="-11" width="136.1" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;直接变换 3D 端点&quot;</text></g>
-<text x="40" y="528.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="514" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="525" r="4.2" fill="#2e7d32"/><text x="110" y="529" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="191.43" y="514" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="525" r="4.2" fill="#00695c"/><text x="215.43" y="529" font-size="11.5" fill="#004d40">环境</text></g>
-<g><rect x="265.81" y="514" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="278.81" cy="525" r="4.2" fill="#ef6c00"/><text x="289.81" y="529" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="364.57" y="514" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="377.57" cy="525" r="4.2" fill="#546e7a"/><text x="388.57" y="529" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<g><rect x="470.0" y="514" width="62.38" height="22" rx="11" fill="url(#g-mem)" stroke="#b8860b" stroke-width="1.3"/><circle cx="483.0" cy="525" r="4.2" fill="#b8860b"/><text x="494.0" y="529" font-size="11.5" fill="#8a6d00">记忆</text></g>
-<g><rect x="544.38" y="514" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="557.38" cy="525" r="4.2" fill="#ef6c00"/><text x="568.38" y="529" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="568" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 564 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="122" y="568" font-size="11.5" fill="#546e7a">信息流</text></g>
-<g><path d="M 190.57 564 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="232.57" y="568" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 313.33 564 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="355.33" y="568" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g transform="translate(271.0,321.0)"><rect x="-58.8" y="-11" width="117.6" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;用 D_0 反投影&quot;</text></g>
+<g transform="translate(288.0,387.8)"><rect x="-81.4" y="-11" width="162.7" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;取首次可见帧的 patch&quot;</text></g>
+<g transform="translate(1167.0,292.0)"><rect x="-55.9" y="-11" width="111.8" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;块内扫 t_tgt&quot;</text></g>
+<g transform="translate(1708.5,254.5)"><rect x="-68.0" y="-11" width="136.1" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;直接变换 3D 端点&quot;</text></g>
+<text x="40" y="550.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="536" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="547" r="4.2" fill="#2e7d32"/><text x="110" y="551" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="191.43" y="536" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="547" r="4.2" fill="#00695c"/><text x="215.43" y="551" font-size="11.5" fill="#004d40">环境</text></g>
+<g><rect x="265.81" y="536" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="278.81" cy="547" r="4.2" fill="#ef6c00"/><text x="289.81" y="551" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="364.57" y="536" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="377.57" cy="547" r="4.2" fill="#546e7a"/><text x="388.57" y="551" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g><rect x="470.0" y="536" width="62.38" height="22" rx="11" fill="url(#g-mem)" stroke="#b8860b" stroke-width="1.3"/><circle cx="483.0" cy="547" r="4.2" fill="#b8860b"/><text x="494.0" y="551" font-size="11.5" fill="#8a6d00">记忆</text></g>
+<g><rect x="544.38" y="536" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="557.38" cy="547" r="4.2" fill="#ef6c00"/><text x="568.38" y="551" font-size="11.5" fill="#b34700">可训练模块</text></g>
 </svg>

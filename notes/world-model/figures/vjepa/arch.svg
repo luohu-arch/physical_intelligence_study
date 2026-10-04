@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,16 +23,16 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">vjepa</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">V-JEPA 把 I-JEPA 的 &quot;EMA target 表征回归&quot; 目标搬到时空 token 上（损失换成更稳的 L1），配合覆盖约 90% token 的 short-r</text>
 <text x="543" y="1411" font-size="11.5" fill="#a0aab4" text-anchor="end">vjepa · arXiv 2404.08471 · v3 auto</text>
-<path d="M 162.5 239.0 C 162.5 324.1, 288.0 230.9, 288.0 316.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 288.0 442.0 C 288.0 520.1, 162.0 423.9, 162.0 502.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 162.0 628.0 C 162.0 674.0, 161.5 642.0, 161.5 688.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 288.0 442.0 C 288.0 520.1, 414.0 423.9, 414.0 502.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 414.0 628.0 C 414.0 674.0, 418.0 642.0, 418.0 688.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 418.0 256.0 C 418.0 570.0, 288.5 560.0, 288.5 874.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 161.5 814.0 C 161.5 892.5, 288.5 795.5, 288.5 874.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 288.5 1000.0 C 288.5 1046.0, 288.0 1014.0, 288.0 1060.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 418.0 814.0 C 418.0 971.9, 288.0 902.1, 288.0 1060.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 288.0 1153.0 C 288.0 1199.0, 288.0 1167.0, 288.0 1213.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 162.5 239.0 C 162.5 324.1, 288.0 230.9, 288.0 316.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 288.0 442.0 C 288.0 520.1, 162.0 423.9, 162.0 502.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 162.0 628.0 C 162.0 674.0, 161.5 642.0, 161.5 688.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 288.0 442.0 C 288.0 520.1, 414.0 423.9, 414.0 502.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 414.0 628.0 C 414.0 674.0, 418.0 642.0, 418.0 688.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 418.0 256.0 C 418.0 570.0, 288.5 560.0, 288.5 874.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 161.5 814.0 C 161.5 892.5, 288.5 795.5, 288.5 874.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 288.5 1000.0 C 288.5 1046.0, 288.0 1014.0, 288.0 1060.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 418.0 814.0 C 418.0 971.9, 288.0 902.1, 288.0 1060.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 288.0 1153.0 C 288.0 1199.0, 288.0 1167.0, 288.0 1213.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="47.5" y="149.5" width="235" height="93" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="45" y="146" width="235" height="93" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="162.5" cy="146" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -120,13 +120,10 @@
 <g transform="translate(274.5,1199.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
 <text x="288.0" y="1257" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="288.0" dy="0">AdamW 更新 theta/p</tspan><tspan x="288.0" dy="20">hi</tspan></text>
 <text x="288.0" y="1287" font-size="12" fill="#5f6b7a" text-anchor="middle">theta_bar 走 EMA 0</text>
-<text x="40" y="1377.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1363" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1374" r="4.2" fill="#2e7d32"/><text x="110" y="1378" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="191.43" y="1363" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="204.43" cy="1374" r="4.2" fill="#1565c0"/><text x="215.43" y="1378" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
-<g><rect x="290.19" y="1363" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="1374" r="4.2" fill="#ef6c00"/><text x="314.19" y="1378" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="388.95" y="1363" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="401.95" cy="1374" r="4.2" fill="#c62828"/><text x="412.95" y="1378" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
-<g><rect x="494.38" y="1363" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="507.38" cy="1374" r="4.2" fill="#ef6c00"/><text x="518.38" y="1378" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="1417" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1413 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1417" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 1413 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="1417" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<text x="40" y="1399.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1385" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1396" r="4.2" fill="#2e7d32"/><text x="110" y="1400" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="191.43" y="1385" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="204.43" cy="1396" r="4.2" fill="#1565c0"/><text x="215.43" y="1400" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
+<g><rect x="290.19" y="1385" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="1396" r="4.2" fill="#ef6c00"/><text x="314.19" y="1400" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="388.95" y="1385" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="401.95" cy="1396" r="4.2" fill="#c62828"/><text x="412.95" y="1400" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
+<g><rect x="494.38" y="1385" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="507.38" cy="1396" r="4.2" fill="#ef6c00"/><text x="518.38" y="1400" font-size="11.5" fill="#b34700">可训练模块</text></g>
 </svg>

@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -26,13 +26,13 @@
 <rect x="102" y="86" width="450" height="156" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="118" y="99" width="231.25" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="129" y="116" font-size="12.5" fill="#4a6579">多视角输入 (相机内外参标定已知)</text>
-<path d="M 216.5 222.0 C 216.5 307.1, 327.0 228.9, 327.0 314.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 438.5 222.0 C 438.5 307.5, 327.0 228.5, 327.0 314.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 327.0 440.0 C 327.0 486.0, 327.5 486.0, 327.5 532.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 327.5 625.0 C 327.5 671.0, 328.0 671.0, 328.0 717.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 328.0 809.0 C 328.0 906.6, 187.5 803.4, 187.5 901.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 328.0 809.0 C 328.0 923.2, 491.0 803.8, 491.0 918.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 187.5 1027.0 C 187.5 1124.7, 328.0 1021.4, 328.0 1119.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 216.5 222.0 C 216.5 307.1, 327.0 228.9, 327.0 314.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 438.5 222.0 C 438.5 307.5, 327.0 228.5, 327.0 314.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 327.0 440.0 C 327.0 486.0, 327.5 486.0, 327.5 532.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 327.5 625.0 C 327.5 671.0, 328.0 671.0, 328.0 717.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 328.0 809.0 C 328.0 906.6, 187.5 803.4, 187.5 901.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 328.0 809.0 C 328.0 923.2, 491.0 803.8, 491.0 918.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 187.5 1027.0 C 187.5 1124.7, 328.0 1021.4, 328.0 1119.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="128.5" y="133.5" width="181" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="126" y="130" width="181" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="216.5" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -108,14 +108,11 @@
 <circle cx="328.0" cy="1119" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
 <g transform="translate(314.5,1105.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
 <text x="328.0" y="1170" font-size="16" class="lbl" fill="#b71c1c" text-anchor="middle">3D 一致性损失</text>
-<g transform="translate(257.8,1055.0)"><rect x="-126.5" y="-11" width="253.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;联合 +2.64 超加性 两个耦合缺一不可&quot;</text></g>
-<text x="40" y="1249.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1235" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1246" r="4.2" fill="#2e7d32"/><text x="110" y="1250" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="191.43" y="1235" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="1246" r="4.2" fill="#00695c"/><text x="215.43" y="1250" font-size="11.5" fill="#004d40">环境</text></g>
-<g><rect x="265.81" y="1235" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="278.81" cy="1246" r="4.2" fill="#ef6c00"/><text x="289.81" y="1250" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="364.57" y="1235" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="377.57" cy="1246" r="4.2" fill="#c62828"/><text x="388.57" y="1250" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
-<g><rect x="470.0" y="1235" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="483.0" cy="1246" r="4.2" fill="#ef6c00"/><text x="494.0" y="1250" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="1289" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1285 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1289" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 1285 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="1289" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g transform="translate(257.8,1055.0)"><rect x="-126.5" y="-11" width="253.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;联合 +2.64 超加性 两个耦合缺一不可&quot;</text></g>
+<text x="40" y="1271.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1257" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1268" r="4.2" fill="#2e7d32"/><text x="110" y="1272" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="191.43" y="1257" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="1268" r="4.2" fill="#00695c"/><text x="215.43" y="1272" font-size="11.5" fill="#004d40">环境</text></g>
+<g><rect x="265.81" y="1257" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="278.81" cy="1268" r="4.2" fill="#ef6c00"/><text x="289.81" y="1272" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="364.57" y="1257" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="377.57" cy="1268" r="4.2" fill="#c62828"/><text x="388.57" y="1272" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
+<g><rect x="470.0" y="1257" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="483.0" cy="1268" r="4.2" fill="#ef6c00"/><text x="494.0" y="1272" font-size="11.5" fill="#b34700">可训练模块</text></g>
 </svg>

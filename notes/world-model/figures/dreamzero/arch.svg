@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,18 +23,18 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">dreamzero</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">DreamZero 把一个 14B 的预训练 image-to-video 扩散模型（Wan2.1-I2V-14B-480P）直接改造成自回归 World Action Mod</text>
 <text x="603" y="1462" font-size="11.5" fill="#a0aab4" text-anchor="end">dreamzero · arXiv 2602.15922 · v3 auto</text>
-<path d="M 146.5 222.0 C 146.5 319.4, 318.5 184.6, 318.5 282.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 318.5 374.0 C 318.5 420.0, 318.5 388.0, 318.5 434.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 347.0 222.0 C 347.0 323.0, 318.5 333.0, 318.5 434.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 519.0 222.0 C 519.0 395.2, 318.5 260.8, 318.5 434.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 318.5 560.0 C 318.5 621.7, 231.5 558.3, 231.5 620.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 318.5 560.0 C 318.5 645.3, 444.5 551.7, 444.5 637.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 231.5 746.0 C 231.5 792.0, 193.0 760.0, 193.0 806.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 444.5 729.0 C 444.5 775.0, 424.0 760.0, 424.0 806.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 424.0 899.0 C 424.0 968.7, 318.0 889.3, 318.0 959.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 318.0 1085.0 C 318.0 1131.0, 318.0 1099.0, 318.0 1145.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 318.0 1237.0 C 318.0 1283.0, 318.0 1251.0, 318.0 1297.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 278.0 1297.0 C 278.0 1223.0, 330.1 360.0, 330.1 434.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 146.5 222.0 C 146.5 319.4, 318.5 184.6, 318.5 282.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 318.5 374.0 C 318.5 420.0, 318.5 388.0, 318.5 434.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 347.0 222.0 C 347.0 323.0, 318.5 333.0, 318.5 434.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 519.0 222.0 C 519.0 395.2, 318.5 260.8, 318.5 434.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 318.5 560.0 C 318.5 621.7, 231.5 558.3, 231.5 620.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 318.5 560.0 C 318.5 645.3, 444.5 551.7, 444.5 637.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 231.5 746.0 C 231.5 792.0, 193.0 760.0, 193.0 806.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 444.5 729.0 C 444.5 775.0, 424.0 760.0, 424.0 806.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 424.0 899.0 C 424.0 968.7, 318.0 889.3, 318.0 959.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 318.0 1085.0 C 318.0 1131.0, 318.0 1099.0, 318.0 1145.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 318.0 1237.0 C 318.0 1283.0, 318.0 1251.0, 318.0 1297.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 278.0 1297.0 C 278.0 1223.0, 330.1 360.0, 330.1 434.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="46.5" y="133.5" width="205" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="44" y="130" width="205" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="146.5" cy="130" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -130,16 +130,12 @@
 <circle cx="318.0" cy="1297" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(304.5,1283.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
 <text x="318.0" y="1341" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="318.0" dy="0">KV 缓存</tspan><tspan x="318.0" dy="20">世界状态滚动更新</tspan></text>
-<g transform="translate(318.0,1249.0)"><rect x="-122.4" y="-11" width="244.8" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;真帧写入 KV 缓存 丢弃预测帧防漂移&quot;</text></g>
-<text x="40" y="1428.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1414" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1425" r="4.2" fill="#6a1b9a"/><text x="110" y="1429" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="184.76" y="1414" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1425" r="4.2" fill="#2e7d32"/><text x="208.76" y="1429" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="290.19" y="1414" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="303.19" cy="1425" r="4.2" fill="#00695c"/><text x="314.19" y="1429" font-size="11.5" fill="#004d40">环境</text></g>
-<g><rect x="364.57" y="1414" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="377.57" cy="1425" r="4.2" fill="#1565c0"/><text x="388.57" y="1429" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
-<g><rect x="463.33" y="1414" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="476.33" cy="1425" r="4.2" fill="#ef6c00"/><text x="487.33" y="1429" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="562.09" y="1414" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="575.09" cy="1425" r="4.2" fill="#546e7a"/><text x="586.09" y="1429" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<text x="40" y="1468" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1464 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="122" y="1468" font-size="11.5" fill="#546e7a">信息流</text></g>
-<g><path d="M 190.57 1464 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="232.57" y="1468" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 313.33 1464 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="355.33" y="1468" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g transform="translate(318.0,1249.0)"><rect x="-122.4" y="-11" width="244.8" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;真帧写入 KV 缓存 丢弃预测帧防漂移&quot;</text></g>
+<text x="40" y="1450.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1436" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1447" r="4.2" fill="#6a1b9a"/><text x="110" y="1451" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="1436" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1447" r="4.2" fill="#2e7d32"/><text x="208.76" y="1451" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="1436" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="303.19" cy="1447" r="4.2" fill="#00695c"/><text x="314.19" y="1451" font-size="11.5" fill="#004d40">环境</text></g>
+<g><rect x="364.57" y="1436" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="377.57" cy="1447" r="4.2" fill="#1565c0"/><text x="388.57" y="1451" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
+<g><rect x="463.33" y="1436" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="476.33" cy="1447" r="4.2" fill="#ef6c00"/><text x="487.33" y="1451" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="562.09" y="1436" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="575.09" cy="1447" r="4.2" fill="#546e7a"/><text x="586.09" y="1451" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 </svg>

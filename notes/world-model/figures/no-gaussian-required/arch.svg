@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,20 +23,20 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">no-gaussian-required</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">保留 LeWM 的前向 latent 预测目标 $\mathcal L_{fwd}=\|\hat z_{t+1}-z_{t+1}\|^2_2$，在训练期额外挂一个 MLP 逆动</text>
 <text x="2159" y="444" font-size="11.5" fill="#a0aab4" text-anchor="end">no-gaussian-required · arXiv 2608.17542 · v3 auto</text>
-<path d="M 188.0 193.0 C 242.0 193.0, 205.0 250.5, 259.0 250.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 193.0 309.0 C 495.4 309.0, 477.6 176.0, 780.0 176.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 484.0 250.5 C 535.9 250.5, 498.1 193.0, 550.0 193.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 690.0 193.0 C 736.0 193.0, 734.0 176.0, 780.0 176.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 966.0 176.0 C 1024.0 176.0, 1046.0 176.0, 1104.0 176.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 690.0 193.0 C 766.4 193.0, 679.6 309.0, 756.0 309.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 484.0 250.5 C 536.3 250.5, 497.7 309.0, 550.0 309.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 690.0 309.0 C 736.0 309.0, 710.0 309.0, 756.0 309.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 991.0 309.0 C 1037.0 309.0, 1011.0 309.0, 1057.0 309.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 193.0 309.0 C 555.9 309.0, 694.1 309.0, 1057.0 309.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1244.0 176.0 C 1322.3 176.0, 1277.7 250.5, 1356.0 250.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1290.0 309.0 C 1342.3 309.0, 1303.7 250.5, 1356.0 250.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1584.0 250.5 C 1630.0 250.5, 1604.0 251.0, 1650.0 251.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1850.0 251.0 C 1896.0 251.0, 1870.0 251.0, 1916.0 251.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 188.0 193.0 C 242.0 193.0, 205.0 250.5, 259.0 250.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 193.0 309.0 C 495.4 309.0, 477.6 176.0, 780.0 176.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 484.0 250.5 C 535.9 250.5, 498.1 193.0, 550.0 193.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 690.0 193.0 C 736.0 193.0, 734.0 176.0, 780.0 176.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 966.0 176.0 C 1024.0 176.0, 1046.0 176.0, 1104.0 176.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 690.0 193.0 C 766.4 193.0, 679.6 309.0, 756.0 309.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 484.0 250.5 C 536.3 250.5, 497.7 309.0, 550.0 309.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 690.0 309.0 C 736.0 309.0, 710.0 309.0, 756.0 309.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 991.0 309.0 C 1037.0 309.0, 1011.0 309.0, 1057.0 309.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 193.0 309.0 C 555.9 309.0, 694.1 309.0, 1057.0 309.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1244.0 176.0 C 1322.3 176.0, 1277.7 250.5, 1356.0 250.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1290.0 309.0 C 1342.3 309.0, 1303.7 250.5, 1356.0 250.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1584.0 250.5 C 1630.0 250.5, 1604.0 251.0, 1650.0 251.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1850.0 251.0 C 1896.0 251.0, 1870.0 251.0, 1916.0 251.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="50.5" y="150.5" width="140" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="48" y="147" width="140" height="92" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="118.0" cy="147" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -127,17 +127,13 @@
 <g transform="translate(2019.0,174.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
 <text x="2032.5" y="232" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="2032.5" dy="0">部署: 与 LeWM 同款</tspan><tspan x="2032.5" dy="20">encoder + predicto</tspan></text>
 <text x="2032.5" y="262" font-size="12" fill="#5f6b7a" text-anchor="middle">r + CEM 规划器</text>
-<g transform="translate(1035.0,158.0)"><rect x="-91.3" y="-11" width="182.6" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;L_fwd: latent 预测 MSE&quot;</text></g>
-<g transform="translate(1024.0,291.0)"><rect x="-118.4" y="-11" width="236.9" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;batch 内 N 条动作中辨出真 a_t 让</text></g>
-<text x="40" y="410.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="396" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="407" r="4.2" fill="#2e7d32"/><text x="110" y="411" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="191.43" y="396" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="407" r="4.2" fill="#00695c"/><text x="215.43" y="411" font-size="11.5" fill="#004d40">环境</text></g>
-<g><rect x="265.81" y="396" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="278.81" cy="407" r="4.2" fill="#ef6c00"/><text x="289.81" y="411" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="364.57" y="396" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="377.57" cy="407" r="4.2" fill="#546e7a"/><text x="388.57" y="411" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<g><rect x="470.0" y="396" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="483.0" cy="407" r="4.2" fill="#c62828"/><text x="494.0" y="411" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
-<g><rect x="575.4300000000001" y="396" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="588.4300000000001" cy="407" r="4.2" fill="#ef6c00"/><text x="599.4300000000001" y="411" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="450" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 446 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="450" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 446 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="450" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
-<g><path d="M 325.52 446 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="367.52" y="450" font-size="11.5" fill="#546e7a">信息流</text></g>
+<g transform="translate(1035.0,158.0)"><rect x="-91.3" y="-11" width="182.6" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;L_fwd: latent 预测 MSE&quot;</text></g>
+<g transform="translate(1024.0,291.0)"><rect x="-118.4" y="-11" width="236.9" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;batch 内 N 条动作中辨出真 a_t 让</text></g>
+<text x="40" y="432.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="418" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="429" r="4.2" fill="#2e7d32"/><text x="110" y="433" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="191.43" y="418" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="429" r="4.2" fill="#00695c"/><text x="215.43" y="433" font-size="11.5" fill="#004d40">环境</text></g>
+<g><rect x="265.81" y="418" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="278.81" cy="429" r="4.2" fill="#ef6c00"/><text x="289.81" y="433" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="364.57" y="418" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="377.57" cy="429" r="4.2" fill="#546e7a"/><text x="388.57" y="433" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g><rect x="470.0" y="418" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="483.0" cy="429" r="4.2" fill="#c62828"/><text x="494.0" y="433" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
+<g><rect x="575.4300000000001" y="418" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="588.4300000000001" cy="429" r="4.2" fill="#ef6c00"/><text x="599.4300000000001" y="433" font-size="11.5" fill="#b34700">可训练模块</text></g>
 </svg>

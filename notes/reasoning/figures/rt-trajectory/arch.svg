@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,16 +23,16 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">rt-trajectory</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">RT-Trajectory 提出将粗粒度 2D 轨迹草图画到 RGB 图像上作为策略的条件输入，从而让机器人泛化到训练中从未见过的全新操作任务——这是 VLA 中「任务表征」维</text>
 <text x="1984" y="875" font-size="11.5" fill="#a0aab4" text-anchor="end">rt-trajectory · arXiv 2311.01977 · v3 auto</text>
-<path d="M 271.0 152.0 C 556.6 152.0, 351.4 466.0, 637.0 466.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 571.0 466.5 C 617.0 466.5, 591.0 466.0, 637.0 466.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 785.0 466.0 C 831.0 466.0, 805.0 466.5, 851.0 466.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1084.0 466.5 C 1130.0 466.5, 1104.0 466.5, 1150.0 466.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1383.0 466.5 C 1429.0 466.5, 1403.0 466.5, 1449.0 466.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1676.0 466.5 C 1722.0 466.5, 1696.0 466.5, 1742.0 466.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 269.0 278.0 C 380.5 278.0, 234.5 466.5, 346.0 466.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 280.0 403.0 C 334.4 403.0, 291.6 466.5, 346.0 466.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 275.0 529.5 C 331.3 529.5, 289.7 466.5, 346.0 466.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 253.0 781.0 C 761.8 781.0, 641.2 466.5, 1150.0 466.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 271.0 152.0 C 556.6 152.0, 351.4 466.0, 637.0 466.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 571.0 466.5 C 617.0 466.5, 591.0 466.0, 637.0 466.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 785.0 466.0 C 831.0 466.0, 805.0 466.5, 851.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1084.0 466.5 C 1130.0 466.5, 1104.0 466.5, 1150.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1383.0 466.5 C 1429.0 466.5, 1403.0 466.5, 1449.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1676.0 466.5 C 1722.0 466.5, 1696.0 466.5, 1742.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 269.0 278.0 C 380.5 278.0, 234.5 466.5, 346.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 280.0 403.0 C 334.4 403.0, 291.6 466.5, 346.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 275.0 529.5 C 331.3 529.5, 289.7 466.5, 346.0 466.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 253.0 781.0 C 761.8 781.0, 641.2 466.5, 1150.0 466.5" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="56.5" y="109.5" width="217" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="54" y="106" width="217" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
 <circle cx="162.5" cy="106" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -159,9 +159,6 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="162.0" y="786" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">行为克隆交叉熵</text>
-<text x="40" y="841.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="827" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="838" r="4.2" fill="#546e7a"/><text x="110" y="842" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<text x="40" y="881" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 877 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="881" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 877 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="881" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<text x="40" y="863.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="849" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="860" r="4.2" fill="#546e7a"/><text x="110" y="864" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 </svg>

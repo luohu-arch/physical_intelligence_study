@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -23,16 +23,16 @@
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">kintsugi-vla</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">利用仿真器的精确状态恢复与分支能力，对失败轨迹上的每个 checkpoint 反复交给固定特权专家续跑，用自适应蒙特卡洛阶梯（5→15→30 次 + 逐点 Wilson 区间）</text>
 <text x="544" y="1816" font-size="11.5" fill="#a0aab4" text-anchor="end">kintsugi-vla · arXiv 2609.31048 · v3 auto</text>
-<path d="M 161.0 256.0 C 161.0 334.8, 288.5 237.2, 288.5 316.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 415.5 256.0 C 415.5 334.5, 288.5 237.5, 288.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 288.5 442.0 C 288.5 488.0, 288.5 456.0, 288.5 502.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 288.5 628.0 C 288.5 674.0, 288.5 642.0, 288.5 688.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 288.5 814.0 C 288.5 892.3, 162.0 795.7, 162.0 874.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 288.5 814.0 C 288.5 894.0, 419.0 794.0, 419.0 874.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 419.0 1000.0 C 419.0 1080.0, 288.5 980.0, 288.5 1060.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 288.5 1186.0 C 288.5 1232.0, 289.0 1200.0, 289.0 1246.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 289.0 1372.0 C 289.0 1418.0, 289.5 1386.0, 289.5 1432.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 289.5 1558.0 C 289.5 1604.0, 289.5 1572.0, 289.5 1618.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 161.0 256.0 C 161.0 334.8, 288.5 237.2, 288.5 316.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 415.5 256.0 C 415.5 334.5, 288.5 237.5, 288.5 316.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 288.5 442.0 C 288.5 488.0, 288.5 456.0, 288.5 502.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 288.5 628.0 C 288.5 674.0, 288.5 642.0, 288.5 688.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 288.5 814.0 C 288.5 892.3, 162.0 795.7, 162.0 874.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 288.5 814.0 C 288.5 894.0, 419.0 794.0, 419.0 874.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 419.0 1000.0 C 419.0 1080.0, 288.5 980.0, 288.5 1060.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 288.5 1186.0 C 288.5 1232.0, 289.0 1200.0, 289.0 1246.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 289.0 1372.0 C 289.0 1418.0, 289.5 1386.0, 289.5 1432.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 289.5 1558.0 C 289.5 1604.0, 289.5 1572.0, 289.5 1618.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="48.5" y="133.5" width="230" height="126" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="46" y="130" width="230" height="126" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
 <circle cx="161.0" cy="130" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -151,12 +151,9 @@
 </g>
 <text x="289.5" y="1662" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="289.5" dy="0">恢复 SR 34.6% / 38</tspan><tspan x="289.5" dy="20">.4%, 比均匀采样 +5.</tspan></text>
 <text x="289.5" y="1692" font-size="12" fill="#5f6b7a" text-anchor="middle">8/+6.7pp</text>
-<g transform="translate(352.0,268.0)"><rect x="-109.7" y="-11" width="219.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;在预算 H 内续跑原任务, 数成功&quot;</text></g>
-<g transform="translate(288.5,472.0)"><rect x="-54.1" y="-11" width="108.2" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;逐点成功计数&quot;</text></g>
-<g transform="translate(225.2,844.0)"><rect x="-41.4" y="-11" width="82.8" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;曲线结构&quot;</text></g>
-<text x="40" y="1782.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1768" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1779" r="4.2" fill="#546e7a"/><text x="110" y="1783" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<text x="40" y="1822" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1818 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1822" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 1818 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="1822" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g transform="translate(352.0,268.0)"><rect x="-109.7" y="-11" width="219.4" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;在预算 H 内续跑原任务, 数成功&quot;</text></g>
+<g transform="translate(288.5,472.0)"><rect x="-54.1" y="-11" width="108.2" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;逐点成功计数&quot;</text></g>
+<g transform="translate(225.2,844.0)"><rect x="-41.4" y="-11" width="82.8" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;曲线结构&quot;</text></g>
+<text x="40" y="1804.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1790" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1801" r="4.2" fill="#546e7a"/><text x="110" y="1805" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 </svg>

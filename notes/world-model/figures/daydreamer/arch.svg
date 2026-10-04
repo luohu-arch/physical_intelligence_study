@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -29,20 +29,20 @@
 <rect x="618" y="86" width="2171" height="456" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="634" y="99" width="211.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="645" y="116" font-size="12.5" fill="#4a6579">RSSM 世界模型 (单 GPU 训练)</text>
-<path d="M 274.0 268.5 C 326.1 268.5, 287.9 326.5, 340.0 326.5" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 2251.0 326.5 C 2297.0 326.5, 2271.0 326.0, 2317.0 326.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 576.0 326.5 C 622.0 326.5, 596.0 326.0, 642.0 326.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 864.0 326.0 C 910.0 326.0, 884.0 326.0, 930.0 326.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 229.0 384.0 C 638.1 384.0, 735.9 326.0, 1145.0 326.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1079.0 326.0 C 1125.0 326.0, 1099.0 326.0, 1145.0 326.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1362.0 326.0 C 1448.1 326.0, 1347.9 193.0, 1434.0 193.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 1362.0 326.0 C 1470.4 326.0, 1361.6 476.0, 1470.0 476.0" fill="none" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 2499.0 326.0 C 2545.0 326.0, 2519.0 326.0, 2565.0 326.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 2625.0 280.0 C 2625.0 206.0, 1555.0 206.0, 1555.0 280.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1362.0 326.0 C 1408.0 326.0, 1382.0 343.0, 1428.0 343.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1659.0 343.0 C 1719.1 343.0, 1665.9 267.0, 1726.0 267.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1659.0 343.0 C 1710.9 343.0, 1673.1 400.5, 1725.0 400.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1954.0 267.0 C 2007.1 267.0, 1967.9 326.5, 2021.0 326.5" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 274.0 268.5 C 326.1 268.5, 287.9 326.5, 340.0 326.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 2251.0 326.5 C 2297.0 326.5, 2271.0 326.0, 2317.0 326.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 576.0 326.5 C 622.0 326.5, 596.0 326.0, 642.0 326.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 864.0 326.0 C 910.0 326.0, 884.0 326.0, 930.0 326.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 229.0 384.0 C 638.1 384.0, 735.9 326.0, 1145.0 326.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1079.0 326.0 C 1125.0 326.0, 1099.0 326.0, 1145.0 326.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1362.0 326.0 C 1448.1 326.0, 1347.9 193.0, 1434.0 193.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 1362.0 326.0 C 1470.4 326.0, 1361.6 476.0, 1470.0 476.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 2499.0 326.0 C 2545.0 326.0, 2519.0 326.0, 2565.0 326.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 2625.0 280.0 C 2625.0 206.0, 1555.0 206.0, 1555.0 280.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1362.0 326.0 C 1408.0 326.0, 1382.0 343.0, 1428.0 343.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1659.0 343.0 C 1719.1 343.0, 1665.9 267.0, 1726.0 267.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1659.0 343.0 C 1710.9 343.0, 1673.1 400.5, 1725.0 400.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 1954.0 267.0 C 2007.1 267.0, 1967.9 326.5, 2021.0 326.5" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
 <rect x="46.5" y="225.5" width="230" height="93" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="44" y="222" width="230" height="93" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.6"/>
 <circle cx="159.0" cy="222" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
@@ -149,15 +149,11 @@
 <circle cx="1840.0" cy="354" r="27.5" fill="none" stroke="#ad1457" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1826.5,340.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
 <text x="1840.0" y="398" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="1840.0" dy="0">critic v</tspan><tspan x="1840.0" dy="20">lambda-return 回归</tspan></text>
-<g transform="translate(2284.0,326.2)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;新真机经验入池&quot;</text></g>
-<text x="40" y="560.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="546" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="557" r="4.2" fill="#6a1b9a"/><text x="110" y="561" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="184.76" y="546" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="557" r="4.2" fill="#2e7d32"/><text x="208.76" y="561" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="290.19" y="546" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="557" r="4.2" fill="#ef6c00"/><text x="314.19" y="561" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="388.95" y="546" width="62.38" height="22" rx="11" fill="url(#g-reward)" stroke="#ad1457" stroke-width="1.3"/><circle cx="401.95" cy="557" r="4.2" fill="#ad1457"/><text x="412.95" y="561" font-size="11.5" fill="#880e4f">奖励</text></g>
-<g><rect x="463.33" y="546" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="476.33" cy="557" r="4.2" fill="#ef6c00"/><text x="487.33" y="561" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="600" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 596 h 34" stroke="#546e7a" stroke-width="2.4" marker-end="url(#arr-main)"/><text x="122" y="600" font-size="11.5" fill="#546e7a">信息流</text></g>
-<g><path d="M 190.57 596 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="232.57" y="600" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
-<g><path d="M 313.33 596 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="355.33" y="600" font-size="11.5" fill="#263238">主数据流</text></g>
+<g transform="translate(2284.0,326.2)"><rect x="-60.5" y="-11" width="121.0" height="22" rx="11" fill="#ffffff" stroke="#cfd8dc"/><text y="4" font-size="12" fill="#455a64" text-anchor="middle">&quot;新真机经验入池&quot;</text></g>
+<text x="40" y="582.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="568" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="579" r="4.2" fill="#6a1b9a"/><text x="110" y="583" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="568" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="579" r="4.2" fill="#2e7d32"/><text x="208.76" y="583" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="568" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="579" r="4.2" fill="#ef6c00"/><text x="314.19" y="583" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="388.95" y="568" width="62.38" height="22" rx="11" fill="url(#g-reward)" stroke="#ad1457" stroke-width="1.3"/><circle cx="401.95" cy="579" r="4.2" fill="#ad1457"/><text x="412.95" y="583" font-size="11.5" fill="#880e4f">奖励</text></g>
+<g><rect x="463.33" y="568" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="476.33" cy="579" r="4.2" fill="#ef6c00"/><text x="487.33" y="583" font-size="11.5" fill="#b34700">可训练模块</text></g>
 </svg>

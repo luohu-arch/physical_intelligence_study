@@ -12,9 +12,9 @@
 <linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
 <linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
 <linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#546e7a"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#263238"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#9fb0bb"/></marker>
+<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
+<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
+<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
 <marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
@@ -26,14 +26,14 @@
 <rect x="456" y="454" width="451" height="525" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="472" y="467" width="204.75" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="483" y="484" font-size="12.5" fill="#4a6579">双模型解耦 - 推理与动作分离</text>
-<path d="M 302.0 176.0 C 505.3 176.0, 398.7 360.0, 602.0 360.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 747.0 406.0 C 747.0 452.0, 746.5 452.0, 746.5 498.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 746.5 590.0 C 746.5 679.9, 868.5 592.1, 868.5 682.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 746.5 590.0 C 746.5 697.7, 582.0 574.3, 582.0 682.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 582.0 774.0 C 582.0 882.4, 747.0 758.6, 747.0 867.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 747.0 959.0 C 747.0 1005.0, 747.0 1005.0, 747.0 1051.0" fill="none" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 794.0 222.0 C 794.0 504.2, 582.0 399.8, 582.0 682.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1055.5 222.0 C 1055.5 467.7, 746.5 252.3, 746.5 498.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 302.0 176.0 C 505.3 176.0, 398.7 360.0, 602.0 360.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 747.0 406.0 C 747.0 452.0, 746.5 452.0, 746.5 498.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 746.5 590.0 C 746.5 679.9, 868.5 592.1, 868.5 682.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 746.5 590.0 C 746.5 697.7, 582.0 574.3, 582.0 682.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 582.0 774.0 C 582.0 882.4, 747.0 758.6, 747.0 867.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 747.0 959.0 C 747.0 1005.0, 747.0 1005.0, 747.0 1051.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 794.0 222.0 C 794.0 504.2, 582.0 399.8, 582.0 682.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1055.5 222.0 C 1055.5 467.7, 746.5 252.3, 746.5 498.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
 <rect x="14.5" y="133.5" width="290" height="92" rx="14" fill="#37474f" opacity="0.13"/>
 <rect x="12" y="130" width="290" height="92" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.6"/>
 <circle cx="157.0" cy="130" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
@@ -143,9 +143,6 @@
   <path d="M8 16H3v5" />
 </g>
 <text x="1353.0" y="181" font-size="16" class="lbl" fill="#37474f" text-anchor="middle">零样本代码生成模式&lt;br/</text>
-<text x="40" y="1182.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1168" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1179" r="4.2" fill="#546e7a"/><text x="110" y="1183" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<text x="40" y="1222" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1218 h 34" stroke="#263238" stroke-width="3.4" marker-end="url(#arr-thick)"/><text x="122" y="1222" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 202.76 1218 h 34" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="9 5" marker-end="url(#arr-fb)"/><text x="244.76" y="1222" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<text x="40" y="1204.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1190" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="99" cy="1201" r="4.2" fill="#546e7a"/><text x="110" y="1205" font-size="11.5" fill="#37474f">循环/反馈</text></g>
 </svg>
