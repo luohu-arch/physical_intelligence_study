@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 58,
-   "y": 190,
-   "w": 205,
-   "h": 92
+   "x": 318,
+   "y": 63,
+   "w": 213,
+   "h": 106
   },
   {
    "id": "CAND",
@@ -17,256 +17,218 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 58,
-   "y": 314,
-   "w": 215,
-   "h": 93
+   "x": 46,
+   "y": 62,
+   "w": 234,
+   "h": 107
   },
   {
    "id": "WM",
    "label": "冻结预测骨干\nLeWM + TD-JEPA",
-   "sub": "(可选 JEPA-WM / DI",
+   "sub": "(可选 JEPA-WM / DINO-W",
    "icon": "sigma",
    "cls": "frozen",
-   "x": 400,
-   "y": 210,
-   "w": 230,
-   "h": 126
+   "x": 304,
+   "y": 282,
+   "w": 267,
+   "h": 140
   },
   {
    "id": "DESC",
-   "label": "目标相对描述符 d_i\n每条 192 维 + 序数",
-   "sub": "排名 r_i",
+   "label": "目标相对描述符 d_i\n每条 192 维 + 序数排名 ",
+   "sub": "r_i",
    "icon": "gear",
    "cls": "env",
-   "x": 730,
-   "y": 210,
-   "w": 225,
-   "h": 126
+   "x": 304,
+   "y": 518,
+   "w": 269,
+   "h": 140
   },
   {
    "id": "TOKEN",
-   "label": "token v_i = concat\n(dL, dT, rL, rT)",
+   "label": "token v_i = concat(dL\n, dT, rL, rT)",
    "sub": "386 维",
    "icon": "stack",
    "cls": "env",
-   "x": 1060,
-   "y": 210,
-   "w": 233,
-   "h": 126
+   "x": 308,
+   "y": 754,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "SET",
-   "label": "置换等变集合 Transf\normer",
+   "label": "置换等变集合 Transform\ner",
    "sub": "2 层 4 头",
    "icon": "spark",
    "cls": "key",
-   "x": 1395,
-   "y": 210,
-   "w": 233,
-   "h": 126
+   "x": 308,
+   "y": 990,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "HEAD",
-   "label": "零初始化 rank-8 修\n正头",
-   "sub": "有界输出 eps=0.2",
+   "label": "零初始化 rank-8 修正头\n有界输出 eps=0.2",
+   "sub": "",
    "icon": "lightning",
    "cls": "key",
-   "x": 60,
-   "y": 580,
-   "w": 225,
-   "h": 126
+   "x": 308,
+   "y": 1226,
+   "w": 259,
+   "h": 107
   },
   {
    "id": "BASE",
-   "label": "序数基础分\nb_i = alpha*rL + (",
-   "sub": "1-alpha)*rT",
+   "label": "序数基础分\nb_i = alpha*rL + (1-a",
+   "sub": "lpha)*rT",
    "icon": "medal",
    "cls": "reward",
-   "x": 395,
-   "y": 770,
-   "w": 233,
-   "h": 126
+   "x": 569,
+   "y": 46,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "SCORE",
-   "label": "对齐分数\ns_i = b_i + delta_",
-   "sub": "i",
+   "label": "对齐分数\ns_i = b_i + delta_i",
+   "sub": "",
    "icon": "medal",
    "cls": "reward",
-   "x": 395,
-   "y": 580,
-   "w": 233,
-   "h": 126
+   "x": 318,
+   "y": 1429,
+   "w": 241,
+   "h": 107
   },
   {
    "id": "GATE",
-   "label": "校准门控\n关系胜者 vs 可塑提",
-   "sub": "案",
+   "label": "校准门控\n关系胜者 vs 可塑提案",
+   "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 728,
-   "y": 580,
-   "w": 222,
-   "h": 126
+   "x": 319,
+   "y": 1632,
+   "w": 238,
+   "h": 107
   },
   {
    "id": "LIFT",
-   "label": "表征提升回写\n时序传输 + 精确序数",
-   "sub": "实现",
+   "label": "表征提升回写\n时序传输 + 精确序数实现",
+   "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 1050,
-   "y": 580,
-   "w": 230,
-   "h": 126
+   "x": 306,
+   "y": 1835,
+   "w": 264,
+   "h": 107
   },
   {
    "id": "PLAN",
-   "label": "原生潜距离规划\nargmin 到目标 late",
-   "sub": "nt 距离",
-   "icon": "tree",
+   "label": "原生潜距离规划\nargmin 到目标 latent ",
+   "sub": "距离",
+   "icon": "noise",
    "cls": "act",
-   "x": 1380,
-   "y": 580,
-   "w": 228,
-   "h": 126
+   "x": 310,
+   "y": 2038,
+   "w": 256,
+   "h": 140
   },
   {
    "id": "EXEC",
-   "label": "执行选中的 25 步控\n制序列",
+   "label": "执行选中的 25 步控制序\n列",
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 1382,
-   "y": 800,
-   "w": 222,
-   "h": 93
+   "x": 310,
+   "y": 2274,
+   "w": 256,
+   "h": 107
   }
  ],
  "edges": [
   {
    "from": "CTX",
    "to": "WM",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.4
+   "style": "thick"
   },
   {
    "from": "CAND",
    "to": "WM",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.85
+   "style": "thick"
   },
   {
    "from": "WM",
    "to": "DESC",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "DESC",
    "to": "TOKEN",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "TOKEN",
    "to": "SET",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "SET",
    "to": "HEAD",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "BASE",
    "to": "SCORE",
-   "style": "main",
-   "out": "top",
-   "pos_out": 0.5,
-   "in": "bottom",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "HEAD",
    "to": "SCORE",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "SCORE",
    "to": "GATE",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "GATE",
    "to": "LIFT",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "LIFT",
    "to": "PLAN",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "PLAN",
    "to": "EXEC",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "EXEC",
    "to": "SET",
    "style": "loss",
-   "label": "\"执行结果监督关系对齐 消融 +10.16pp ",
-   "out": "right",
-   "in": "right",
-   "pos_out": 0.5,
-   "pos_in": 0.5,
-   "k": 45,
-   "loff": [
-    -150,
-    -80
-   ]
+   "label": "\"执行结果监督关系对齐 消融 +10.16p",
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 1335
   }
  ],
  "panels": [
   {
    "label": "输入",
-   "x": 40,
-   "y": 130,
-   "w": 253,
-   "h": 301
+   "x": 20,
+   "y": 16,
+   "w": 537,
+   "h": 175
   }
  ],
  "canvas": [
-  1700,
-  1000
+  876,
+  2563
  ],
  "legend": [
   "act",
@@ -276,13 +238,9 @@
   "key",
   "reward"
  ],
- "layout_wh": [
-  820,
-  2173
- ],
  "title": "d-jepa",
  "subtitle": "D-JEPA 抓住了 JEPA 潜空间世界模型一个被忽视的失效模式——**决策局部预测鸿沟**：LeWM 对 63 个候选的全集排序与真实结果的 within-start Sp",
  "foot": "d-jepa · arXiv 2609.24749 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    subgraph IN[\"输入\"]\n        direction TB\n        CTX([\"上下文 x + 目标 g\"])\n        CAND([\"K=63 候选动作序列<br/>只重排序不生成新候选\"])\n    end\n\n    WM[\"冻结预测骨干<br/>LeWM + TD-JEPA<br/>(可选 JEPA-WM / DINO-WM)\"]\n    CTX ==> WM\n    CAND ==> WM\n    WM ==> DESC[\"目标相对描述符 d_i<br/>每条 192 维 + 序数排名 r_i\"]\n    DESC ==> TOKEN[\"token v_i = concat(dL, dT, rL, rT)<br/>386 维\"]\n    TOKEN ==> SET[\"置换等变集合 Transformer<br/>2 层 4 头\"]\n    SET ==> HEAD[\"零初始化 rank-8 修正头<br/>有界输出 eps=0.2\"]\n    BASE[\"序数基础分<br/>b_i = alpha*rL + (1-alpha)*rT\"] --> SCORE[\"对齐分数<br/>s_i = b_i + delta_i\"]\n    HEAD ==> SCORE\n    SCORE ==> GATE{\"校准门控<br/>关系胜者 vs 可塑提案\"}\n    GATE ==> LIFT[\"表征提升回写<br/>时序传输 + 精确序数实现\"]\n    LIFT ==> PLAN[\"原生潜距离规划<br/>argmin 到目标 latent 距离\"]\n    PLAN ==> EXEC[\"执行选中的 25 步控制序列\"]\n    EXEC -.->|\"执行结果监督关系对齐<br/>消融 +10.16pp 最大干预\"| SET\n\n    class CTX,CAND data\n    class WM frozen\n    class DESC,TOKEN env\n    class SET,HEAD,GATE,LIFT key\n    class BASE,SCORE reward\n    class PLAN,EXEC act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f"
 }

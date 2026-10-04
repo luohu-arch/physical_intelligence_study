@@ -29,22 +29,22 @@
 <rect x="950" y="132" width="274" height="352" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="966" y="145" width="135.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="977" y="162" font-size="12.5" fill="#4a6579">OGBench 长程操作</text>
-<path d="M 262.0 358.5 L 315.0 358.5 L 315.0 231.6 L 368.0 231.6" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 262.0 358.5 L 356.0 358.5 L 356.0 231.6 L 650.0 231.6" fill="none" stroke="#9fb0bb" stroke-width="2.2" marker-end="url(#arr-thin)" opacity="0.92"/>
-<path d="M 556.8 312.0 L 556.8 358.5 L 986.0 358.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 986.0 372.5 L 262.0 358.5" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 650.0 245.0 L 610.0 245.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<path d="M 703.2 312.0 L 703.2 339.0 L 578.6 339.0 L 578.6 366.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<path d="M 704.6 366.0 L 704.6 339.0 L 855.7 339.0 L 855.7 312.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<rect x="52.5" y="303.5" width="212" height="117" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="50" y="300" width="212" height="117" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<path d="M 262.0 354.0 L 315.0 354.0 L 315.0 227.6 L 368.0 227.6" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 262.0 354.0 L 952.0 354.0 L 952.0 240.0 L 892.0 240.0" fill="none" stroke="#9fb0bb" stroke-width="2.2" marker-end="url(#arr-thin)" opacity="0.92"/>
+<path d="M 556.8 302.0 L 556.8 354.0 L 986.0 354.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 986.0 367.0 L 784.0 367.0 L 784.0 354.0 L 262.0 354.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 650.0 240.0 L 610.0 240.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<path d="M 703.2 302.0 L 703.2 366.0 L 578.6 366.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<path d="M 704.6 366.0 L 704.6 302.0 L 855.7 302.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<rect x="52.5" y="303.5" width="212" height="108" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="50" y="300" width="212" height="108" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="156.0" cy="300" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="156.0" cy="300" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(142.5,286.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
 <text x="156.0" y="363" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">状态 s_t</text>
 <text x="156.0" y="382" font-size="12" fill="#5f6b7a" text-anchor="middle">部分可观测环境</text>
-<rect x="370.5" y="181.5" width="242" height="134" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="368" y="178" width="242" height="134" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<rect x="370.5" y="181.5" width="242" height="124" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="368" y="178" width="242" height="124" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
 <circle cx="489.0" cy="178" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
 <circle cx="489.0" cy="178" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
 <g transform="translate(475.5,164.5) scale(1.1250)">
@@ -54,8 +54,8 @@
 <text x="489.0" y="260" font-size="12" fill="#5f6b7a" text-anchor="middle">动作块长度 4</text>
 <text x="489.0" y="277" font-size="12" fill="#5f6b7a" text-anchor="middle">在线执行，不等 critic</text>
 <g><rect x="550.65" y="186" width="51.4" height="21" rx="10.5" fill="#ef6c00" opacity="0.14"/><text x="576.3" y="200.5" font-size="11.5" font-weight="700" fill="#b34700" text-anchor="middle">h_a=4</text></g>
-<rect x="652.5" y="181.5" width="242" height="134" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="650" y="178" width="242" height="134" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
+<rect x="652.5" y="181.5" width="242" height="124" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="650" y="178" width="242" height="124" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
 <circle cx="771.0" cy="178" r="24" fill="#ffffff" stroke="#1565c0" stroke-width="1.8"/>
 <circle cx="771.0" cy="178" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
 <g transform="translate(757.5,164.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
@@ -63,8 +63,8 @@
 <text x="771.0" y="260" font-size="12" fill="#5f6b7a" text-anchor="middle">子序列长度 16</text>
 <text x="771.0" y="277" font-size="12" fill="#5f6b7a" text-anchor="middle">只看 o(t..t+16) 的 Q</text>
 <g><rect x="825.98" y="186" width="58.0" height="21" rx="10.5" fill="#1565c0" opacity="0.14"/><text x="855.0" y="200.5" font-size="11.5" font-weight="700" fill="#0d47a1" text-anchor="middle">h_c=16</text></g>
-<rect x="510.5" y="369.5" width="252" height="117" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="508" y="366" width="252" height="117" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
+<rect x="510.5" y="369.5" width="252" height="112" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="508" y="366" width="252" height="112" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
 <circle cx="634.0" cy="366" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
 <circle cx="634.0" cy="366" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
 <g transform="translate(620.5,352.5) scale(1.1250)">
@@ -74,8 +74,8 @@
 </g>
 <text x="634.0" y="429" font-size="16" class="lbl" fill="#b71c1c" text-anchor="middle">partial critic 蒸馏</text>
 <text x="634.0" y="448" font-size="12" fill="#5f6b7a" text-anchor="middle">expectile 乐观回归</text>
-<rect x="988.5" y="303.5" width="200" height="117" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="986" y="300" width="200" height="117" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<rect x="988.5" y="303.5" width="200" height="108" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="986" y="300" width="200" height="108" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="1086.0" cy="300" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="1086.0" cy="300" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(1072.5,286.5) scale(1.1250)">
@@ -84,13 +84,13 @@
 </g>
 <text x="1086.0" y="363" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">环境转移</text>
 <text x="1086.0" y="382" font-size="12" fill="#5f6b7a" text-anchor="middle">执行 a(t..t+4)</text>
-<g transform="translate(315.0,295.1)"><rect x="-36.6" y="-11" width="73.3" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">观测 s_t</text></g>
-<g transform="translate(392.5,341.6)"><rect x="-41.8" y="-11" width="83.6" height="22" rx="11" fill="#ffffff" stroke="#9fb0bb" stroke-width="1.2"/><text y="4" font-size="12" fill="#9fb0bb" font-weight="600" text-anchor="middle">子序列观测</text></g>
-<g transform="translate(748.1,330.5)"><rect x="-49.4" y="-11" width="98.7" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">短块 ×4 执行</text></g>
-<g transform="translate(624.0,337.5)"><rect x="-35.4" y="-11" width="70.9" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">下一状态</text></g>
-<g transform="translate(630.0,155.0)"><rect x="-83.0" y="-11" width="165.9" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">TD 信号（无偏 n-step）</text></g>
-<g transform="translate(568.9,287.0)"><rect x="-57.5" y="-11" width="115.0" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">expectile 优化</text></g>
-<g transform="translate(858.1,343.0)"><rect x="-45.9" y="-11" width="91.8" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">部分-Q 蒸馏</text></g>
+<g transform="translate(315.0,290.8)"><rect x="-36.6" y="-11" width="73.3" height="22" rx="11" fill="#ffffff" stroke="#546e7a" stroke-width="1.2"/><text y="4" font-size="12" fill="#546e7a" font-weight="600" text-anchor="middle">观测 s_t</text></g>
+<g transform="translate(694.0,352.0)"><rect x="-41.8" y="-11" width="83.6" height="22" rx="11" fill="#ffffff" stroke="#9fb0bb" stroke-width="1.2"/><text y="4" font-size="12" fill="#9fb0bb" font-weight="600" text-anchor="middle">子序列观测</text></g>
+<g transform="translate(809.4,326.0)"><rect x="-49.4" y="-11" width="98.7" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">短块 ×4 执行</text></g>
+<g transform="translate(604.5,326.0)"><rect x="-35.4" y="-11" width="70.9" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">下一状态</text></g>
+<g transform="translate(630.0,150.0)"><rect x="-83.0" y="-11" width="165.9" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">TD 信号（无偏 n-step）</text></g>
+<g transform="translate(600.9,510.0)"><rect x="-57.5" y="-11" width="115.0" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">expectile 优化</text></g>
+<g transform="translate(826.1,362.0)"><rect x="-45.9" y="-11" width="91.8" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">部分-Q 蒸馏</text></g>
 <text x="40" y="608.5" font-size="12" fill="#78909c">图例</text>
 <g><rect x="86" y="594" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="605" r="4.2" fill="#2e7d32"/><text x="110" y="609" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
 <g><rect x="191.43" y="594" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="204.43" cy="605" r="4.2" fill="#ef6c00"/><text x="215.43" y="609" font-size="11.5" fill="#b34700">可训练模块</text></g>

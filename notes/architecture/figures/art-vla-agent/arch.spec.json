@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "OBS",
-   "label": "原始观测 o_t\n视觉 / 语言 / 本体",
-   "sub": "状态",
+   "label": "原始观测 o_t\n视觉 / 语言 / 本体状态",
+   "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 418,
-   "y": 104,
-   "w": 223,
-   "h": 126
+   "x": 77,
+   "y": 62,
+   "w": 257,
+   "h": 107
   },
   {
    "id": "LORA",
-   "label": "LoRA 推理分支\n生成推理 token + 工",
-   "sub": "具决策",
+   "label": "LoRA 推理分支\n生成推理 token + 工具决",
+   "sub": "策",
    "icon": "brain",
    "cls": "key",
-   "x": 412,
-   "y": 272,
-   "w": 235,
-   "h": 126
+   "x": 346,
+   "y": 282,
+   "w": 269,
+   "h": 140
   },
   {
    "id": "TOOLSEL",
-   "label": "工具开关选择\n(词表尾 N 个离散 to",
-   "sub": "ken)",
+   "label": "工具开关选择\n(词表尾 N 个离散 token",
+   "sub": ")",
    "icon": "stack",
    "cls": "key",
-   "x": 414,
-   "y": 440,
-   "w": 233,
-   "h": 126
+   "x": 350,
+   "y": 518,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "TOOLDISP",
@@ -39,43 +39,43 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 460,
-   "y": 608,
-   "w": 140,
-   "h": 92
+   "x": 406,
+   "y": 754,
+   "w": 150,
+   "h": 106
   },
   {
    "id": "VIS",
-   "label": "视觉增强工具\n暗光 / 去噪 / 去模",
-   "sub": "糊 / 防抖",
+   "label": "视觉增强工具\n暗光 / 去噪 / 去模糊 / ",
+   "sub": "防抖",
    "icon": "camera",
    "cls": "frozen",
-   "x": 132,
-   "y": 762,
-   "w": 223,
-   "h": 126
+   "x": 646,
+   "y": 956,
+   "w": 269,
+   "h": 140
   },
   {
    "id": "AFF",
-   "label": "Affordance 工具\nMetric3D 深度 + DI",
-   "sub": "NO-X 检测",
+   "label": "Affordance 工具\nMetric3D 深度 + DINO-X",
+   "sub": " 检测",
    "icon": "check",
    "cls": "frozen",
-   "x": 415,
-   "y": 762,
-   "w": 230,
-   "h": 126
+   "x": 46,
+   "y": 956,
+   "w": 267,
+   "h": 140
   },
   {
    "id": "EMB",
-   "label": "具身工具\n相机旋转 / 变焦 / ",
-   "sub": "本体重置",
+   "label": "具身工具\n相机旋转 / 变焦 / 本体",
+   "sub": "重置",
    "icon": "camera",
    "cls": "frozen",
-   "x": 705,
-   "y": 762,
-   "w": 223,
-   "h": 126
+   "x": 351,
+   "y": 956,
+   "w": 257,
+   "h": 140
   },
   {
    "id": "ENH",
@@ -83,21 +83,21 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 457,
-   "y": 948,
-   "w": 146,
-   "h": 92
+   "x": 406,
+   "y": 1192,
+   "w": 150,
+   "h": 106
   },
   {
    "id": "VLA",
-   "label": "VLA 主干\n动作生成阶段屏蔽 Lo",
-   "sub": "RA 输出",
+   "label": "VLA 主干\n动作生成阶段屏蔽 LoRA ",
+   "sub": "输出",
    "icon": "brain",
    "cls": "frozen",
-   "x": 415,
-   "y": 1098,
-   "w": 230,
-   "h": 126
+   "x": 352,
+   "y": 1394,
+   "w": 257,
+   "h": 140
   },
   {
    "id": "ACT",
@@ -105,21 +105,21 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 433,
-   "y": 1272,
-   "w": 194,
-   "h": 92
+   "x": 384,
+   "y": 1630,
+   "w": 192,
+   "h": 106
   },
   {
    "id": "LTOOL",
-   "label": "损失 L_tool\n推理 + 工具 token ",
-   "sub": "交叉熵",
+   "label": "损失 L_tool\n推理 + 工具 token 交叉",
+   "sub": "熵",
    "icon": "brain",
    "cls": "loop",
-   "x": 100,
-   "y": 104,
-   "w": 227,
-   "h": 126
+   "x": 623,
+   "y": 46,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "LACT",
@@ -127,10 +127,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 745,
-   "y": 1114,
-   "w": 215,
-   "h": 93
+   "x": 372,
+   "y": 62,
+   "w": 213,
+   "h": 107
   }
  ],
  "edges": [
@@ -153,10 +153,7 @@
    "from": "TOOLDISP",
    "to": "VIS",
    "style": "main",
-   "label": "\"视觉\"",
-   "out": "left",
-   "in": "top",
-   "pos_in": 0.5
+   "label": "\"视觉\""
   },
   {
    "from": "TOOLDISP",
@@ -168,10 +165,7 @@
    "from": "TOOLDISP",
    "to": "EMB",
    "style": "main",
-   "label": "\"具身\"",
-   "out": "right",
-   "in": "top",
-   "pos_in": 0.5
+   "label": "\"具身\""
   },
   {
    "from": "VIS",
@@ -203,24 +197,18 @@
    "from": "ACT",
    "to": "OBS",
    "style": "fb",
-   "label": "\"下一 chunk 开头重新观测 (chunk ",
-   "out": "right",
-   "in": "right",
-   "pos_in": 0.5,
-   "k": 359,
-   "loff": [
-    -140,
-    0
-   ],
-   "pos_out": 0.5
+   "label": "\"下一 chunk 开头重新观测 (chun",
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 1650
   },
   {
    "from": "LTOOL",
    "to": "LORA",
    "style": "fb",
-   "label": "\"只更新 LoRA\"",
-   "out": "bottom",
-   "pos_out": 0.7
+   "label": "\"只更新 LoRA\""
   },
   {
    "from": "LACT",
@@ -231,23 +219,23 @@
  ],
  "panels": [
   {
-   "label": "工具旁路 (Adaptive LoRA)",
-   "x": 106,
-   "y": 252,
-   "w": 850,
-   "h": 664
+   "label": "工具旁路 (Adaptive L",
+   "x": 20,
+   "y": 236,
+   "w": 921,
+   "h": 882
   },
   {
-   "label": "冻结基座 (3B pi0-FAST, FAST/DCT 动作 toke",
-   "x": 389,
-   "y": 1078,
-   "w": 282,
-   "h": 166
+   "label": "冻结基座 (3B pi0-FAS",
+   "x": 326,
+   "y": 1348,
+   "w": 309,
+   "h": 208
   }
  ],
  "canvas": [
-  1060,
-  1450
+  961,
+  1918
  ],
  "legend": [
   "act",
@@ -256,13 +244,9 @@
   "key",
   "loop"
  ],
- "layout_wh": [
-  812,
-  1546
- ],
  "title": "art-vla-agent",
  "subtitle": "ART（Agentic Robot with Tool-use）是一个 tool-injection 微调框架：把三类现成工具模块（低层视觉增强 / 高层 affordance",
  "foot": "art-vla-agent · arXiv 2608.14047 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBS([\"原始观测 o_t<br/>视觉 / 语言 / 本体状态\"]) --> LORA\n    subgraph TOOLS[\"工具旁路 (Adaptive LoRA)\"]\n        LORA[\"LoRA 推理分支<br/>生成推理 token + 工具决策\"]\n        TOOLSEL[\"工具开关选择<br/>(词表尾 N 个离散 token)\"]\n        TOOLDISP{\"工具类别\"}\n        VIS[\"视觉增强工具<br/>暗光 / 去噪 / 去模糊 / 防抖\"]\n        AFF[\"Affordance 工具<br/>Metric3D 深度 + DINO-X 检测\"]\n        EMB[\"具身工具<br/>相机旋转 / 变焦 / 本体重置\"]\n    end\n    LORA --> TOOLSEL --> TOOLDISP\n    TOOLDISP -->|\"视觉\"| VIS\n    TOOLDISP -->|\"affordance\"| AFF\n    TOOLDISP -->|\"具身\"| EMB\n    VIS --> ENH([\"增强后观测\"])\n    AFF --> ENH\n    EMB --> ENH\n    ENH ==> VLA\n    subgraph BASE[\"冻结基座 (3B pi0-FAST, FAST/DCT 动作 token)\"]\n        VLA[\"VLA 主干<br/>动作生成阶段屏蔽 LoRA 输出\"]\n    end\n    VLA ==>|\"动作 chunk: H 步具身动作\"| ACT([\"机器人执行 H 步\"])\n    ACT -.->|\"下一 chunk 开头重新观测<br/>(chunk 级闭环)\"| OBS\n    LTOOL[\"损失 L_tool<br/>推理 + 工具 token 交叉熵\"] -.->|\"只更新 LoRA\"| LORA\n    LACT[\"损失 L_action<br/>动作 token 交叉熵\"] -.->|\"只走主干\"| VLA\n\n    class OBS,ENH data\n    class VLA,VIS,AFF,EMB frozen\n    class LORA,TOOLSEL key\n    class ACT act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

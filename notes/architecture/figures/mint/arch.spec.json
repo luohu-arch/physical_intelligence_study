@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "data",
-   "x": 64,
-   "y": 407,
-   "w": 200,
-   "h": 92
+   "x": 46,
+   "y": 63,
+   "w": 215,
+   "h": 106
   },
   {
    "id": "DCT",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 360,
-   "y": 407,
-   "w": 160,
-   "h": 92
+   "x": 368,
+   "y": 282,
+   "w": 165,
+   "h": 106
   },
   {
    "id": "LOW",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 560,
-   "y": 256,
-   "w": 218,
-   "h": 93
+   "x": 475,
+   "y": 484,
+   "w": 216,
+   "h": 107
   },
   {
    "id": "HIGH",
@@ -39,237 +39,179 @@
    "sub": "",
    "icon": "robot",
    "cls": "data",
-   "x": 576,
-   "y": 610,
-   "w": 210,
-   "h": 93
+   "x": 209,
+   "y": 484,
+   "w": 228,
+   "h": 107
   },
   {
    "id": "VQ1",
-   "label": "Scale 1: Intent To\nken",
-   "sub": "最粗尺度仅 1 个 tok",
-   "icon": "spark",
+   "label": "Scale 1: Intent Token\n最粗尺度仅 1 个 token",
+   "sub": "",
+   "icon": "stack",
    "cls": "key",
-   "x": 880,
-   "y": 240,
-   "w": 205,
-   "h": 126
+   "x": 469,
+   "y": 704,
+   "w": 261,
+   "h": 107
   },
   {
    "id": "VQK",
-   "label": "Scale 2..k: Execut\nion Tokens",
+   "label": "Scale 2..k: Execution\n Tokens",
    "sub": "逐级捕获残差",
    "icon": "stack",
    "cls": "train",
-   "x": 895,
-   "y": 540,
-   "w": 205,
-   "h": 126
+   "x": 170,
+   "y": 687,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "RECON",
-   "label": "渐进重建 S1 -> Sk\n(i) 仅 S1 (ii) S1+",
-   "sub": "S2 (iii) S1+S2+S3 ",
+   "label": "渐进重建 S1 -> Sk\n(i) 仅 S1 (ii) S1+S2 ",
+   "sub": "(iii) S1+S2+S3 ...",
    "icon": "cpu",
    "cls": "train",
-   "x": 1190,
-   "y": 396,
-   "w": 205,
-   "h": 126
+   "x": 470,
+   "y": 923,
+   "w": 259,
+   "h": 140
   },
   {
    "id": "LFREQ",
-   "label": "Scale-Wise 频域重\n建损失",
+   "label": "Scale-Wise 频域重建损\n失",
    "sub": "(强制频谱分离)",
    "icon": "sigma",
    "cls": "loss",
-   "x": 64,
-   "y": 560,
-   "w": 218,
-   "h": 126
+   "x": 601,
+   "y": 46,
+   "w": 253,
+   "h": 140
   },
   {
    "id": "POL",
-   "label": "策略解码\n300M decoder-only ",
-   "sub": "Transformer",
+   "label": "策略解码\n300M decoder-only Tra",
+   "sub": "nsformer",
    "icon": "lightning",
    "cls": "train",
-   "x": 1490,
-   "y": 540,
-   "w": 185,
-   "h": 126
+   "x": 171,
+   "y": 923,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "ROBOT",
-   "label": "机器人执行\n延迟比标准 VLA 低 4",
-   "sub": "3%",
+   "label": "机器人执行\n延迟比标准 VLA 低 43%",
+   "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 1500,
-   "y": 240,
-   "w": 180,
-   "h": 126
+   "x": 324,
+   "y": 1159,
+   "w": 251,
+   "h": 107
   },
   {
    "id": "ONESHOT",
-   "label": "one-shot 迁移: 从\n单次演示",
-   "sub": "提取 Intent token ",
+   "label": "one-shot 迁移: 从单次\n演示",
+   "sub": "提取 Intent token 固定",
    "icon": "db",
    "cls": "data",
-   "x": 310,
-   "y": 590,
-   "w": 230,
-   "h": 126
+   "x": 299,
+   "y": 46,
+   "w": 264,
+   "h": 140
   }
  ],
  "edges": [
   {
    "from": "AC",
    "to": "DCT",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "DCT",
    "to": "LOW",
-   "style": "main",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "DCT",
    "to": "HIGH",
-   "style": "main",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "LOW",
    "to": "VQ1",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "HIGH",
    "to": "VQK",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "VQ1",
    "to": "RECON",
-   "style": "main",
-   "out": "right",
-   "pos_out": 0.3,
-   "in": "left",
-   "pos_in": 0.2
+   "style": "main"
   },
   {
    "from": "VQK",
    "to": "RECON",
-   "style": "main",
-   "out": "right",
-   "pos_out": 0.7,
-   "in": "left",
-   "pos_in": 0.7
+   "style": "main"
   },
   {
    "from": "LFREQ",
    "to": "RECON",
-   "style": "fb",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "bottom",
-   "pos_in": 0.5,
-   "k": 50
+   "style": "fb"
   },
   {
    "from": "VQ1",
    "to": "POL",
    "style": "thick",
-   "label": "\"next-scale 自回归 先意图后执行\"",
-   "loff": [
-    -64,
-    0
-   ],
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.0
+   "label": "\"next-scale 自回归 先意图后执行"
   },
   {
    "from": "VQK",
    "to": "POL",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "POL",
    "to": "ROBOT",
-   "style": "thick",
-   "out": "top",
-   "pos_out": 0.35,
-   "in": "bottom",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "ROBOT",
    "to": "AC",
    "style": "fb",
-   "label": "\"重叠 chunk 滑窗 意图 ensemble",
-   "out": "top",
-   "in": "top",
-   "pos_out": 0.5,
-   "pos_in": 0.5,
-   "k": 60,
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"重叠 chunk 滑窗 意图 ensemb",
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 1181
   },
   {
    "from": "ONESHOT",
    "to": "VQ1",
    "style": "fb",
    "label": "\"意图复用, 迁移 +60%\"",
-   "loff": [
-    -64,
-    0
-   ],
    "out": "right",
-   "pos_out": 0.02,
-   "in": "bottom",
-   "pos_in": 0.03
+   "in": "right",
+   "k": 60
   }
  ],
  "panels": [
   {
-   "label": "频谱解耦动作 tokenizer (多尺度 VQ-VAE)",
-   "x": 856,
-   "y": 214,
-   "w": 564,
-   "h": 476
+   "label": "频谱解耦动作 tokenizer",
+   "x": 144,
+   "y": 641,
+   "w": 612,
+   "h": 444
   }
  ],
  "canvas": [
-  1700,
-  820
+  900,
+  1448
  ],
  "legend": [
   "act",
@@ -278,13 +220,9 @@
   "loss",
   "train"
  ],
- "layout_wh": [
-  1700,
-  820
- ],
  "title": "mint",
  "subtitle": "MINT 提出模仿学习应模仿\"行为意图\"而非\"轨迹细节\"。用 DCT 将 action chunk 分解为低频 Intent Token 和高频 Execution Token",
  "foot": "mint · arXiv 2602.08602 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    AC([\"动作 chunk (时域)\"]) ==> DCT[\"DCT 频谱分解\"]\n    DCT --> LOW([\"低频系数<br/>整段动作的宏观趋势\"])\n    DCT --> HIGH([\"高频系数<br/>执行残差 / 局部抖动\"])\n    subgraph SDAT[\"频谱解耦动作 tokenizer (多尺度 VQ-VAE)\"]\n        VQ1[\"Scale 1: Intent Token<br/>最粗尺度仅 1 个 token\"]\n        VQK[\"Scale 2..k: Execution Tokens<br/>逐级捕获残差\"]\n        RECON[\"渐进重建 S1 -> Sk<br/>(i) 仅 S1 (ii) S1+S2 (iii) S1+S2+S3 ...\"]\n    end\n    LOW ==> VQ1\n    HIGH ==> VQK\n    VQ1 --> RECON\n    VQK --> RECON\n    LFREQ[\"Scale-Wise 频域重建损失<br/>(强制频谱分离)\"] -.-> RECON\n    VQ1 ==>|\"next-scale 自回归<br/>先意图后执行\"| POL[\"策略解码<br/>300M decoder-only Transformer\"]\n    VQK ==> POL\n    POL ==> ROBOT([\"机器人执行<br/>延迟比标准 VLA 低 43%\"])\n    ROBOT -.->|\"重叠 chunk 滑窗<br/>意图 ensemble 仲裁聚合\"| AC\n    ONESHOT([\"one-shot 迁移: 从单次演示<br/>提取 Intent token 固定注入\"]) -.->|\"意图复用, 迁移 +60%\"| VQ1\n\n    class AC,LOW,HIGH,ONESHOT data\n    class DCT,VQ1 key\n    class VQK,RECON,POL train\n    class ROBOT act\n    class LFREQ loss\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

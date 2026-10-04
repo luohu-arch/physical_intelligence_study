@@ -2,36 +2,36 @@
  "nodes": [
   {
    "id": "RAW",
-   "label": "夹爪侧双触觉传感器\n图像 + 力场 + mesh",
-   "sub": " 流 30Hz",
+   "label": "夹爪侧双触觉传感器\n图像 + 力场 + mesh 流 ",
+   "sub": "30Hz",
    "icon": "camera",
    "cls": "data",
-   "x": 40,
-   "y": 180,
-   "w": 227,
-   "h": 126
+   "x": 282,
+   "y": 46,
+   "w": 262,
+   "h": 140
   },
   {
    "id": "SAF",
-   "label": "SAF 编码器\n图像 + 力场 + mesh",
-   "sub": " 流",
+   "label": "SAF 编码器\n图像 + 力场 + mesh 流",
+   "sub": "",
    "icon": "camera",
    "cls": "train",
-   "x": 40,
-   "y": 380,
-   "w": 227,
-   "h": 126
+   "x": 407,
+   "y": 282,
+   "w": 253,
+   "h": 107
   },
   {
    "id": "Z",
-   "label": "共享触觉 latent z_\ntac",
+   "label": "共享触觉 latent z_tac",
    "sub": "",
    "icon": "noise",
    "cls": "env",
-   "x": 40,
-   "y": 576,
-   "w": 227,
-   "h": 93
+   "x": 406,
+   "y": 485,
+   "w": 254,
+   "h": 106
   },
   {
    "id": "HIST",
@@ -39,10 +39,10 @@
    "sub": "单帧力歧义靠历史消歧",
    "icon": "eye",
    "cls": "mem",
-   "x": 36,
-   "y": 800,
-   "w": 236,
-   "h": 126
+   "x": 566,
+   "y": 687,
+   "w": 234,
+   "h": 140
   },
   {
    "id": "MOD",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "db",
    "cls": "mem",
-   "x": 72,
-   "y": 990,
-   "w": 164,
-   "h": 93
+   "x": 859,
+   "y": 940,
+   "w": 162,
+   "h": 107
   },
   {
    "id": "V",
@@ -61,32 +61,32 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 405,
-   "y": 340,
-   "w": 204,
-   "h": 92
+   "x": 582,
+   "y": 63,
+   "w": 202,
+   "h": 106
   },
   {
    "id": "GEN",
-   "label": "三模态生成器\nVideo DiT + Action",
-   "sub": " DiT + Tactile DiT",
+   "label": "三模态生成器\nVideo DiT + Action Di",
+   "sub": "T + Tactile DiT",
    "icon": "lightning",
    "cls": "key",
-   "x": 390,
-   "y": 560,
-   "w": 233,
-   "h": 126
+   "x": 267,
+   "y": 687,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "TF",
-   "label": "未来触觉 token T_1\n:H",
-   "sub": "只作预测监督目标",
+   "label": "未来触觉 token T_1:H\n只作预测监督目标",
+   "sub": "不进动作分支防特权泄漏",
    "icon": "sigma",
    "cls": "loss",
-   "x": 390,
-   "y": 780,
-   "w": 227,
-   "h": 126
+   "x": 346,
+   "y": 923,
+   "w": 252,
+   "h": 140
   },
   {
    "id": "VF",
@@ -94,21 +94,21 @@
    "sub": "",
    "icon": "camera",
    "cls": "env",
-   "x": 723,
-   "y": 340,
-   "w": 187,
-   "h": 92
+   "x": 636,
+   "y": 940,
+   "w": 185,
+   "h": 106
   },
   {
    "id": "A",
-   "label": "动作 token 只读 V_\n0 与 T_0",
-   "sub": "掩码纪律: 放宽即 7.",
+   "label": "动作 token 只读 V_0 与\n T_0",
+   "sub": "掩码纪律: 放宽即 7.5%",
    "icon": "stack",
    "cls": "act",
-   "x": 723,
-   "y": 560,
-   "w": 231,
-   "h": 126
+   "x": 46,
+   "y": 923,
+   "w": 262,
+   "h": 140
   },
   {
    "id": "DEC",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "frozen",
-   "x": 390,
-   "y": 990,
-   "w": 228,
-   "h": 93
+   "x": 563,
+   "y": 1176,
+   "w": 226,
+   "h": 107
   },
   {
    "id": "LOSS",
@@ -127,115 +127,92 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loss",
-   "x": 660,
-   "y": 991,
-   "w": 182,
-   "h": 92
+   "x": 444,
+   "y": 1395,
+   "w": 180,
+   "h": 106
   },
   {
    "id": "EXEC",
-   "label": "闭环滚动视野执行 30\nHz",
-   "sub": "四真机任务均值 75.0",
+   "label": "闭环滚动视野执行 30Hz\n四真机任务均值 75.0%",
+   "sub": "超 VT-WAM 37.5pp",
    "icon": "robot",
    "cls": "loop",
-   "x": 1054,
-   "y": 560,
-   "w": 231,
-   "h": 126
+   "x": 278,
+   "y": 1159,
+   "w": 247,
+   "h": 140
   }
  ],
  "edges": [
   {
    "from": "RAW",
    "to": "SAF",
-   "style": "thick",
-   "out": "bottom",
-   "in": "top"
+   "style": "thick"
   },
   {
    "from": "SAF",
    "to": "Z",
-   "style": "thick",
-   "out": "bottom",
-   "in": "top"
+   "style": "thick"
   },
   {
    "from": "Z",
    "to": "HIST",
-   "style": "thick",
-   "out": "bottom",
-   "in": "top"
+   "style": "thick"
   },
   {
    "from": "HIST",
    "to": "MOD",
-   "style": "thick",
-   "out": "bottom",
-   "in": "top"
+   "style": "thick"
   },
   {
    "from": "V",
    "to": "GEN",
-   "style": "thick",
-   "out": "bottom",
-   "in": "top"
+   "style": "thick"
   },
   {
    "from": "Z",
    "to": "GEN",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "GEN",
    "to": "TF",
-   "style": "thick",
-   "out": "bottom",
-   "in": "top"
+   "style": "thick"
   },
   {
    "from": "GEN",
    "to": "VF",
    "style": "thick",
    "out": "right",
-   "pos_out": 0.2,
-   "in": "left",
-   "pos_in": 0.5
+   "in": "right",
+   "k": 60
   },
   {
    "from": "GEN",
    "to": "A",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "TF",
    "to": "DEC",
-   "style": "fb",
-   "out": "bottom",
-   "in": "top"
+   "style": "fb"
   },
   {
    "from": "DEC",
    "to": "LOSS",
-   "style": "fb",
-   "out": "right",
-   "in": "left"
+   "style": "fb"
   },
   {
    "from": "A",
    "to": "EXEC",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   }
  ],
  "panels": [],
  "canvas": [
-  1325,
-  1173
+  1067,
+  1683
  ],
  "legend": [
   "act",
@@ -248,13 +225,9 @@
   "mem",
   "train"
  ],
- "layout_wh": [
-  1325,
-  1173
- ],
  "title": "tacwam",
  "subtitle": "TacWAM 回答了一个此前 WAM 工作都回避的问题：**触觉未来该不该进 WAM、以什么方式进**。纯视觉 WAM 看得到场景怎么变，看不到力、变形、剪切与滑移——一张\"看",
  "foot": "tacwam · arXiv 2607.28391 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    RAW([\"夹爪侧双触觉传感器<br/>图像 + 力场 + mesh 流 30Hz\"]) ==> SAF[\"SAF 编码器<br/>图像 + 力场 + mesh 流\"]\n    SAF ==> Z[\"共享触觉 latent z_tac\"]\n    Z ==> HIST[\"历史编码器 E_hist<br/>最近 T_hist 帧<br/>单帧力歧义靠历史消歧\"]\n    HIST ==> MOD[\"自适应归一化<br/>调制触觉专家\"]\n    V([\"当前视觉锚点 V_0\"]) ==> GEN[\"三模态生成器<br/>Video DiT + Action DiT + Tactile DiT<br/>AGT 掩码隔离锚点/未来/动作四类 token\"]\n    Z ==> GEN\n    GEN ==> TF[\"未来触觉 token T_1:H<br/>只作预测监督目标<br/>不进动作分支防特权泄漏\"]\n    GEN ==> VF[\"未来视觉 token\"]\n    GEN ==> A[\"动作 token 只读 V_0 与 T_0<br/>掩码纪律: 放宽即 7.5%\"]\n    TF -.-> DEC[\"冻结 R_tac 解码器<br/>力场 + wrench + 流\"]\n    DEC -.-> LOSS[\"触觉一致性损失\"]\n    A ==> EXEC[\"闭环滚动视野执行 30Hz<br/>四真机任务均值 75.0%<br/>超 VT-WAM 37.5pp\"]\n\n    class RAW,V data\n    class SAF train\n    class Z,VF env\n    class HIST,MOD mem\n    class GEN key\n    class TF,LOSS loss\n    class DEC frozen\n    class A act\n    class EXEC loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,stroke-width:2px,color:#f57f17"
 }

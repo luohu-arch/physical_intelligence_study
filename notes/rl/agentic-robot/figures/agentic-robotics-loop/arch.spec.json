@@ -2,47 +2,47 @@
  "nodes": [
   {
    "id": "OBJ",
-   "label": "不可变 objective\n指标 + 方向 + 阈值 ",
-   "sub": "+ 评测命令 + run 目",
+   "label": "不可变 objective\n指标 + 方向 + 阈值 + 评",
+   "sub": "测命令 + run 目录",
    "icon": "chat",
    "cls": "loop",
-   "x": 40,
-   "y": 112,
-   "w": 235,
-   "h": 126
+   "x": 1205,
+   "y": 46,
+   "w": 269,
+   "h": 140
   },
   {
    "id": "CTRL",
-   "label": "LLM 主 agent 控制\n器",
-   "sub": "有限上下文只花在决策",
+   "label": "LLM 主 agent 控制器\n有限上下文只花在决策, ",
+   "sub": "从不触碰物理",
    "icon": "brain",
    "cls": "loop",
-   "x": 340,
-   "y": 112,
-   "w": 236,
-   "h": 126
+   "x": 46,
+   "y": 46,
+   "w": 254,
+   "h": 140
   },
   {
    "id": "NOTE",
-   "label": "共享 notebook 跨 r\nun 记忆",
-   "sub": "每轮一行 did/learn",
+   "label": "共享 notebook 跨 run \n记忆",
+   "sub": "每轮一行 did/learned/s",
    "icon": "db",
    "cls": "loop",
-   "x": 660,
-   "y": 112,
-   "w": 228,
-   "h": 126
+   "x": 903,
+   "y": 46,
+   "w": 264,
+   "h": 140
   },
   {
    "id": "REG",
-   "label": "能力注册表: 质量五\n态梯 + Wilson 下界",
-   "sub": "排序",
-   "icon": "refresh",
+   "label": "能力注册表: 质量五态梯 \n+ Wilson 下界排序",
+   "sub": "测量绑定 artifact 版本",
+   "icon": "lightning",
    "cls": "loop",
-   "x": 140,
-   "y": 1180,
-   "w": 227,
-   "h": 126
+   "x": 870,
+   "y": 1735,
+   "w": 264,
+   "h": 140
   },
   {
    "id": "BIND",
@@ -50,21 +50,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 140,
-   "y": 290,
-   "w": 191,
-   "h": 93
+   "x": 796,
+   "y": 282,
+   "w": 189,
+   "h": 107
   },
   {
    "id": "ANA",
-   "label": "Analyze\nworker 分析账本与历",
-   "sub": "史轮次",
-   "icon": "refresh",
+   "label": "Analyze\nworker 分析账本与历史轮",
+   "sub": "次",
+   "icon": "db",
    "cls": "loop",
-   "x": 140,
-   "y": 425,
-   "w": 233,
-   "h": 126
+   "x": 757,
+   "y": 485,
+   "w": 267,
+   "h": 140
   },
   {
    "id": "ACT",
@@ -72,21 +72,21 @@
    "sub": "",
    "icon": "tree",
    "cls": "loop",
-   "x": 140,
-   "y": 590,
-   "w": 228,
-   "h": 93
+   "x": 778,
+   "y": 721,
+   "w": 226,
+   "h": 107
   },
   {
    "id": "MEA",
-   "label": "Measure\n控制器自持解析评测输",
-   "sub": "出",
+   "label": "Measure\n控制器自持解析评测输出",
+   "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 140,
-   "y": 740,
-   "w": 236,
-   "h": 126
+   "x": 764,
+   "y": 1126,
+   "w": 252,
+   "h": 107
   },
   {
    "id": "SCO",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "reward",
    "cls": "loop",
-   "x": 140,
-   "y": 900,
-   "w": 200,
-   "h": 93
+   "x": 792,
+   "y": 1329,
+   "w": 198,
+   "h": 107
   },
   {
    "id": "COM",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 140,
-   "y": 1040,
-   "w": 140,
-   "h": 93
+   "x": 816,
+   "y": 1532,
+   "w": 150,
+   "h": 107
   },
   {
    "id": "POL",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "loop",
-   "x": 1230,
-   "y": 165,
-   "w": 179,
-   "h": 92
+   "x": 802,
+   "y": 924,
+   "w": 177,
+   "h": 106
   },
   {
    "id": "TRA",
@@ -127,10 +127,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1230,
-   "y": 297,
-   "w": 225,
-   "h": 92
+   "x": 1512,
+   "y": 63,
+   "w": 223,
+   "h": 106
   },
   {
    "id": "EVAL",
@@ -138,21 +138,21 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 1230,
-   "y": 429,
-   "w": 227,
-   "h": 92
+   "x": 338,
+   "y": 63,
+   "w": 225,
+   "h": 106
   },
   {
    "id": "GATE",
-   "label": "晋升统计门: Agresti\n-Caffo 半宽",
-   "sub": "delta >= 1.5w 直接",
+   "label": "晋升统计门: Agresti-Ca\nffo 半宽",
+   "sub": "delta >= 1.5w 直接晋升",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1000,
-   "y": 970,
-   "w": 235,
-   "h": 126
+   "x": 601,
+   "y": 46,
+   "w": 264,
+   "h": 140
   },
   {
    "id": "EXIT",
@@ -160,32 +160,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 560,
-   "y": 1180,
-   "w": 187,
-   "h": 92
+   "x": 647,
+   "y": 1752,
+   "w": 185,
+   "h": 106
   },
   {
    "id": "ACC",
-   "label": "locked acceptance \nholdout",
+   "label": "locked acceptance hol\ndout",
    "sub": "退出时只读一次",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1230,
-   "y": 1180,
-   "w": 233,
-   "h": 126
-  },
-  {
-   "id": "TOOLS",
-   "label": "TOOLS",
-   "sub": "",
-   "icon": "refresh",
-   "cls": "loop",
-   "x": 560,
-   "y": 690,
-   "w": 140,
-   "h": 92
+   "x": 760,
+   "y": 1971,
+   "w": 261,
+   "h": 140
   }
  ],
  "edges": [
@@ -217,180 +206,97 @@
   {
    "from": "OBJ",
    "to": "BIND",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.3
+   "style": "thick"
   },
   {
    "from": "CTRL",
    "to": "BIND",
    "style": "fb",
-   "label": "\"十一不变式约束下的管环决策\"",
-   "loff": [
-    -16,
-    -14
-   ],
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.62
+   "label": "\"十一不变式约束下的管环决策\""
   },
   {
    "from": "NOTE",
    "to": "BIND",
    "style": "fb",
-   "label": "\"bind 时读, 不作指令\"",
-   "loff": [
-    20,
-    -14
-   ],
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "right",
-   "pos_in": 0.35
+   "label": "\"bind 时读, 不作指令\""
   },
   {
    "from": "ACT",
-   "to": "TOOLS",
+   "to": "POL",
    "style": "thick",
-   "label": "\"skill 决定怎么做, tool 真正干活\"",
-   "loff": [
-    4,
-    -14
-   ],
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.3
+   "label": "\"skill 决定怎么做, tool 真正干"
   },
   {
-   "from": "TOOLS",
+   "from": "POL",
    "to": "MEA",
    "style": "loss",
-   "label": "\"结果信封回传: 失败与超时也是结果\"",
-   "loff": [
-    4,
-    -14
-   ],
-   "out": "bottom",
-   "pos_out": 0.3,
-   "in": "right",
-   "pos_in": 0.35
+   "label": "\"结果信封回传: 失败与超时也是结果\""
   },
   {
    "from": "GATE",
    "to": "SCO",
    "style": "fb",
-   "label": "\"拦截错误晋升: 假晋升率 0.001/run\"",
-   "loff": [
-    6,
-    -14
-   ],
-   "out": "left",
-   "pos_out": 0.7,
-   "in": "right",
-   "pos_in": 0.5
+   "label": "\"拦截错误晋升: 假晋升率 0.001/ru"
   },
   {
    "from": "REG",
    "to": "ACT",
    "style": "fb",
-   "label": "\"unvalidated 或 stale 禁入无",
-   "out": "left",
-   "in": "left",
-   "pos_out": 0.5,
-   "pos_in": 0.5,
-   "loff": [
-    -16,
-    0
-   ],
-   "k": 60
+   "label": "\"unvalidated 或 stale 禁",
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 1367
   },
   {
    "from": "COM",
    "to": "REG",
    "style": "thick",
-   "label": "\"质量按 benchmark 分 key 更新\"",
-   "loff": [
-    6,
-    -14
-   ],
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "label": "\"质量按 benchmark 分 key 更"
   },
   {
    "from": "COM",
    "to": "EXIT",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.62,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "EXIT",
    "to": "ANA",
    "style": "fb",
    "label": "\"否: 停滞强制切换策略类\"",
-   "out": "right",
-   "in": "right",
-   "pos_out": 0.5,
-   "pos_in": 0.5,
-   "k": 80,
-   "loff": [
-    30,
-    0
-   ]
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 1570
   },
   {
    "from": "EXIT",
    "to": "ACC",
    "style": "thick",
-   "label": "\"是\"",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5,
-   "loff": [
-    12,
-    -14
-   ]
+   "label": "\"是\""
   }
  ],
  "panels": [
   {
-   "label": "轮次事务 harness: commit-keyed, 崩溃恢复",
-   "x": 100,
-   "y": 252,
-   "w": 330,
-   "h": 908
-  },
-  {
-   "label": "工具边界: 世界执行皆工具 (MCP 调用面, back",
-   "x": 1200,
-   "y": 104,
-   "w": 340,
-   "h": 435
+   "label": "轮次事务 harness: co · 工具边界: 世界执行皆工具 (M",
+   "x": 312,
+   "y": 17,
+   "w": 1449,
+   "h": 1644
   }
  ],
  "canvas": [
-  1600,
-  1420
+  1781,
+  2293
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  1600,
-  1420
- ],
  "title": "agentic-robotics-loop",
  "subtitle": "AgenticRobotics 把 Claude Code/Codex 式的\"主 agent 管环 + 子 agent 执行 + 工具干活\"架构搬到机器人策略改进的外层研究循环",
  "foot": "agentic-robotics-loop · arXiv 2608.07555 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OBJ([\"不可变 objective<br/>指标 + 方向 + 阈值 + 评测命令 + run 目录\"]):::data\n    CTRL[\"LLM 主 agent 控制器<br/>有限上下文只花在决策, 从不触碰物理\"]:::frozen\n    NOTE[\"共享 notebook 跨 run 记忆<br/>每轮一行 did/learned/source, 数据非指令\"]:::mem\n    REG[\"能力注册表: 质量五态梯 + Wilson 下界排序<br/>测量绑定 artifact 版本, 重训练即自动 stale\"]:::key\n\n    subgraph TX[\"轮次事务 harness: commit-keyed, 崩溃恢复只补齐缺失阶段\"]\n        direction TB\n        BIND[\"Bind<br/>绑定 objective\"]:::loop ==> ANA[\"Analyze<br/>worker 分析账本与历史轮次\"]:::loop\n        ANA ==> ACT[\"Act<br/>经 skill 调用 tool\"]:::loop\n        ACT ==> MEA[\"Measure<br/>控制器自持解析评测输出\"]:::loop\n        MEA ==> SCO[\"Score<br/>stagnation 计数\"]:::loop\n        SCO ==> COM[\"Commit<br/>原子落账\"]:::loop\n    end\n\n    subgraph TOOLS[\"工具边界: 世界执行皆工具 (MCP 调用面, backend 无关)\"]\n        direction LR\n        POL[\"训好的 policy\"]:::env\n        TRA[\"trainer 训练流水线\"]:::env\n        EVAL[\"evaluator 评测命令\"]:::env\n    end\n\n    GATE[\"晋升统计门: Agresti-Caffo 半宽<br/>delta >= 1.5w 直接晋升, 小正差触发确认检验\"]:::reward\n    EXIT{\"exit 条件满足?\"}\n    ACC([\"locked acceptance holdout<br/>退出时只读一次\"]):::data\n\n    OBJ ==> BIND\n    CTRL -.->|\"十一不变式约束下的管环决策\"| BIND\n    NOTE -.->|\"bind 时读, 不作指令\"| BIND\n    ACT ==>|\"skill 决定怎么做, tool 真正干活\"| TOOLS\n    TOOLS -.->|\"结果信封回传: 失败与超时也是结果\"| MEA\n    GATE -.->|\"拦截错误晋升: 假晋升率 0.001/run\"| SCO\n    REG -.->|\"unvalidated 或 stale 禁入无人值守动作集\"| ACT\n    COM ==>|\"质量按 benchmark 分 key 更新\"| REG\n    COM ==> EXIT\n    EXIT -.->|\"否: 停滞强制切换策略类\"| ANA\n    EXIT ==>|\"是\"| ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

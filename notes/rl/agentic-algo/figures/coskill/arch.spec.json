@@ -2,113 +2,113 @@
  "nodes": [
   {
    "id": "OFF",
-   "label": "离线初始化: 外部 LL\nM 采每组 8 条 roll",
-   "sub": "out",
-   "icon": "refresh",
+   "label": "离线初始化: 外部 LLM 采\n每组 8 条 rollout",
+   "sub": "反思生成 1 任务技能 + 1",
+   "icon": "brain",
    "cls": "loop",
-   "x": 60,
-   "y": 150,
-   "w": 230,
-   "h": 126
+   "x": 196,
+   "y": 46,
+   "w": 267,
+   "h": 140
   },
   {
    "id": "LIB",
-   "label": "层级技能库 (mem): \n任务技能 -> 步骤技",
-   "sub": "能两级",
+   "label": "层级技能库 (mem): 任务\n技能 -> 步骤技能两级",
+   "sub": "ALFWorld 300+1625 / W",
    "icon": "tree",
    "cls": "loop",
-   "x": 400,
-   "y": 150,
-   "w": 230,
-   "h": 126
+   "x": 198,
+   "y": 282,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "RT",
-   "label": "两级检索: 先指令嵌\n入选任务束",
+   "label": "两级检索: 先指令嵌入选\n任务束",
    "sub": "再只在束内选步骤技能",
    "icon": "chat",
    "cls": "loop",
-   "x": 740,
-   "y": 150,
-   "w": 220,
-   "h": 126
+   "x": 202,
+   "y": 518,
+   "w": 254,
+   "h": 140
   },
   {
    "id": "RA",
-   "label": "Reasoning Agent (\n被 RL 的共享骨干)",
-   "sub": "Qwen2.5-7B, 执行环",
+   "label": "Reasoning Agent (被 R\nL 的共享骨干)",
+   "sub": "Qwen2.5-7B, 执行环境动",
    "icon": "brain",
    "cls": "loop",
-   "x": 1060,
-   "y": 150,
-   "w": 230,
-   "h": 126
+   "x": 198,
+   "y": 754,
+   "w": 262,
+   "h": 140
   },
   {
    "id": "ENV",
-   "label": "文本环境: ALFWorld\n / WebShop",
+   "label": "文本环境: ALFWorld / W\nebShop",
    "sub": "秒级免费重置",
    "icon": "chat",
    "cls": "loop",
-   "x": 1390,
-   "y": 150,
-   "w": 230,
-   "h": 126
+   "x": 324,
+   "y": 990,
+   "w": 264,
+   "h": 140
   },
   {
    "id": "MS",
-   "label": "Meta-Skill Agent (\n核心 novelty): 同",
-   "sub": "一共享骨干",
+   "label": "Meta-Skill Agent (核心\n novelty): 同一共享骨",
+   "sub": "干",
    "icon": "tree",
    "cls": "loop",
-   "x": 1390,
-   "y": 470,
-   "w": 230,
-   "h": 126
+   "x": 196,
+   "y": 1226,
+   "w": 267,
+   "h": 140
   },
   {
    "id": "ST",
-   "label": "暂存编辑提议: INSER\nT / UPDATE / DELET",
-   "sub": "E / KEEP",
+   "label": "暂存编辑提议: INSERT /\n UPDATE / DELETE / KE",
+   "sub": "EP",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1050,
-   "y": 470,
-   "w": 220,
-   "h": 126
+   "x": 198,
+   "y": 1462,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "PB",
-   "label": "回合结束: 暂存编辑\n应用到束的私有副本",
+   "label": "回合结束: 暂存编辑应用\n到束的私有副本",
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 740,
-   "y": 470,
-   "w": 220,
-   "h": 126
+   "x": 202,
+   "y": 1698,
+   "w": 254,
+   "h": 107
   },
   {
    "id": "VE",
-   "label": "post-edit 验证: 同\n任务重置",
-   "sub": "带私有副本重跑 M=1 ",
+   "label": "post-edit 验证: 同任务\n重置",
+   "sub": "带私有副本重跑 M=1 次",
    "icon": "refresh",
    "cls": "loop",
-   "x": 410,
-   "y": 470,
-   "w": 220,
-   "h": 126
+   "x": 198,
+   "y": 1901,
+   "w": 262,
+   "h": 140
   },
   {
    "id": "DW",
-   "label": "技能奖励 delta_ski\nll = 验证均值 - 基",
-   "sub": "线回报",
+   "label": "技能奖励 delta_skill =\n 验证均值 - 基线回报",
+   "sub": "跨回合延迟信用分配",
    "icon": "reward",
    "cls": "loop",
-   "x": 60,
-   "y": 470,
-   "w": 230,
-   "h": 126
+   "x": 197,
+   "y": 2137,
+   "w": 264,
+   "h": 140
   },
   {
    "id": "PM",
@@ -116,21 +116,21 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 40,
-   "y": 830,
-   "w": 300,
-   "h": 93
+   "x": 363,
+   "y": 2373,
+   "w": 198,
+   "h": 107
   },
   {
    "id": "TOPK",
-   "label": "组内晋升 top-2, 容\n量 300 每 5 步驱逐",
+   "label": "组内晋升 top-2, 容量 3\n00 每 5 步驱逐",
    "sub": "原始束保留维持谱系",
    "icon": "refresh",
    "cls": "loop",
-   "x": 400,
-   "y": 830,
-   "w": 230,
-   "h": 126
+   "x": 351,
+   "y": 2576,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "DRB",
@@ -138,10 +138,10 @@
    "sub": "",
    "icon": "brain",
    "cls": "loop",
-   "x": 740,
-   "y": 830,
-   "w": 220,
-   "h": 93
+   "x": 70,
+   "y": 1006,
+   "w": 216,
+   "h": 107
   },
   {
    "id": "DSB",
@@ -149,32 +149,32 @@
    "sub": "",
    "icon": "reward",
    "cls": "loop",
-   "x": 1060,
-   "y": 830,
-   "w": 220,
-   "h": 93
+   "x": 97,
+   "y": 2373,
+   "w": 228,
+   "h": 107
   },
   {
    "id": "GG",
-   "label": "GiGPO 联合更新共享\n策略: episode + st",
-   "sub": "ep 双层优势",
+   "label": "GiGPO 联合更新共享策略:\n episode + step 双层优",
+   "sub": "势",
    "icon": "lightning",
    "cls": "loop",
-   "x": 1390,
-   "y": 830,
-   "w": 230,
-   "h": 126
+   "x": 46,
+   "y": 2576,
+   "w": 267,
+   "h": 140
   },
   {
    "id": "ACC",
-   "label": "ALFWorld 98.4% (六\n类中五类 100%), We",
-   "sub": "bShop 90.6%",
+   "label": "ALFWorld 98.4% (六类中\n五类 100%), WebShop 90",
+   "sub": ".6%",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1390,
-   "y": 1010,
-   "w": 230,
-   "h": 126
+   "x": 196,
+   "y": 2812,
+   "w": 267,
+   "h": 140
   }
  ],
  "edges": [
@@ -205,25 +205,17 @@
    "to": "RA",
    "style": "fb",
    "label": "\"下一观测 / 奖励 / 反馈\"",
-   "out": "top",
-   "in": "top",
-   "pos_out": 0.72,
-   "pos_in": 0.72,
-   "k": 40,
-   "loff": [
-    0,
-    -18
-   ]
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 2142
   },
   {
    "from": "ENV",
    "to": "MS",
    "style": "fb",
-   "label": "\"同一转移: 观测+活动技能+推理动作+反馈\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"同一转移: 观测+活动技能+推理动作+反馈"
   },
   {
    "from": "MS",
@@ -255,72 +247,49 @@
    "from": "PM",
    "to": "TOPK",
    "style": "thick",
-   "label": "\"是\"",
-   "pos_out": 0.62,
-   "pos_in": 0.4
+   "label": "\"是\""
   },
   {
    "from": "PM",
    "to": "LIB",
    "style": "fb",
    "label": "\"否: 拒绝写回, 原束保留\"",
-   "out": "top",
-   "in": "left",
-   "pos_out": 1.0,
-   "pos_in": 0.72,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 2614
   },
   {
    "from": "TOPK",
    "to": "LIB",
    "style": "thick",
-   "out": "top",
+   "out": "bottom",
    "in": "bottom",
-   "pos_out": 0.0,
-   "pos_in": 0.0,
-   "k": 74
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 2614
   },
   {
    "from": "RA",
    "to": "DRB",
-   "style": "thick",
-   "out": "left",
-   "in": "right",
-   "pos_out": 0.5,
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "MS",
    "to": "DSB",
-   "style": "thick",
-   "out": "bottom",
-   "in": "top",
-   "pos_out": 0.8,
-   "pos_in": 0.8
+   "style": "thick"
   },
   {
    "from": "DW",
    "to": "DSB",
    "style": "fb",
-   "label": "\"延迟奖励\"",
-   "out": "bottom",
-   "in": "top",
-   "pos_out": 0.5,
-   "pos_in": 0.5
+   "label": "\"延迟奖励\""
   },
   {
    "from": "DRB",
    "to": "GG",
-   "style": "thick",
-   "out": "bottom",
-   "in": "bottom",
-   "pos_out": 0.48,
-   "pos_in": 0.5,
-   "k": 38
+   "style": "thick"
   },
   {
    "from": "DSB",
@@ -332,25 +301,21 @@
    "to": "RA",
    "style": "fb",
    "label": "\"同一套权重更新两个角色\"",
-   "out": "top",
+   "out": "bottom",
    "in": "bottom",
-   "pos_out": 0.75,
-   "pos_in": 1.0,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 2142
   },
   {
    "from": "GG",
    "to": "MS",
    "style": "fb",
-   "out": "right",
-   "in": "right",
-   "pos_out": 0.5,
-   "pos_in": 0.5,
-   "k": 48
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 1670
   },
   {
    "from": "GG",
@@ -360,19 +325,15 @@
  ],
  "panels": [],
  "canvas": [
-  1700,
-  1180
+  658,
+  3134
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  567,
-  2512
- ],
  "title": "coskill",
  "subtitle": "数字域对照工作（ALFWorld 文本家庭任务 + WebShop 模拟电商，LLM agent，全文无任何真机或机器人控制实验）**：把\"技能库的编辑者\"从一个固定工作流（反",
  "foot": "coskill · arXiv 2609.04865 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    OFF[\"离线初始化: 外部 LLM 采每组 8 条 rollout<br/>反思生成 1 任务技能 + 1-8 有出处步骤技能\"]:::frozen\n    LIB[\"层级技能库 (mem): 任务技能 -> 步骤技能两级<br/>ALFWorld 300+1625 / WebShop 300+1406\"]:::mem\n    RT[\"两级检索: 先指令嵌入选任务束<br/>再只在束内选步骤技能\"]:::mem\n    RA[\"Reasoning Agent (被 RL 的共享骨干)<br/>Qwen2.5-7B, 执行环境动作\"]:::train\n    ENV[\"文本环境: ALFWorld / WebShop<br/>秒级免费重置\"]:::env\n    MS[\"Meta-Skill Agent (核心 novelty): 同一共享骨干<br/>每个推理转移后提议一次库编辑\"]:::key\n    ST[\"暂存编辑提议: INSERT / UPDATE / DELETE / KEEP<br/>先不写回, 防坏编辑污染库\"]:::act\n    PB[\"回合结束: 暂存编辑应用到束的私有副本\"]:::mem\n    VE[\"post-edit 验证: 同任务重置<br/>带私有副本重跑 M=1 次\"]:::env\n    DW[\"技能奖励 delta_skill = 验证均值 - 基线回报<br/>跨回合延迟信用分配\"]:::reward\n    PM{\"编辑有效且非平凡<br/>且验证胜过基线?\"}:::reward\n    TOPK[\"组内晋升 top-2, 容量 300 每 5 步驱逐<br/>原始束保留维持谱系\"]:::mem\n    DRB[\"D_R: 推理转移轨迹<br/>保留自己的环境回报\"]:::data\n    DSB[\"D_S: 编辑轨迹<br/>奖励 = delta_skill\"]:::data\n    GG[\"GiGPO 联合更新共享策略: episode + step 双层优势<br/>推理锚 (x, o_t), 编辑锚 (x, o_t, Z_step)\"]:::loss\n    ACC([\"ALFWorld 98.4% (六类中五类 100%), WebShop 90.6%<br/>超闭源编辑器版 D2Skill 7.8pp\"]):::data\n\n    OFF ==> LIB\n    LIB ==> RT\n    RT ==>|\"技能进上下文\"| RA\n    RA ==>|\"环境动作\"| ENV\n    ENV -.->|\"下一观测 / 奖励 / 反馈\"| RA\n    ENV -.->|\"同一转移: 观测+活动技能+推理动作+反馈\"| MS\n    MS ==> ST\n    ST ==>|\"回合结束\"| PB\n    PB ==> VE\n    VE ==> DW\n    DW ==> PM\n    PM ==>|\"是\"| TOPK\n    PM -.->|\"否: 拒绝写回, 原束保留\"| LIB\n    TOPK ==> LIB\n    RA ==> DRB\n    MS ==> DSB\n    DW -.->|\"延迟奖励\"| DSB\n    DRB ==> GG\n    DSB ==> GG\n    GG -.->|\"同一套权重更新两个角色\"| RA\n    GG -.-> MS\n    GG ==> ACC\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef reward fill:#fce4ec,stroke:#ad1457,color:#880e4f\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

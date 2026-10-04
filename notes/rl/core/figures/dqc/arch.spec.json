@@ -94,11 +94,13 @@
    "to": "Q",
    "style": "thin",
    "label": "子序列观测",
-   "pos_in": 0.4,
    "loff": [
     0,
     26
-   ]
+   ],
+   "out": "right",
+   "in": "right",
+   "k": 60
   },
   {
    "from": "POL",

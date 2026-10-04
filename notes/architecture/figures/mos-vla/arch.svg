@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="810" viewBox="0 0 1220 810" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1193" height="1921" viewBox="0 0 1193 1921" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
 <style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
 <defs>
 <linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
@@ -18,30 +18,30 @@
 <marker id="arr-fb" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
-<rect width="1220" height="810" fill="#ffffff"/>
+<rect width="1193" height="1921" fill="#ffffff"/>
 <rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">mos-vla</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">MoS-VLA 将机器人操作策略表示为一组可学习基函数的线性组合（Mixture-of-Skills），在 Open X-Embodiment 上跨数据集联合预训练后，给定一次</text>
-<text x="1186" y="792" font-size="11.5" fill="#a0aab4" text-anchor="end">mos-vla · arXiv 2510.16617 · v3 auto</text>
-<rect x="56" y="130" width="850" height="360" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
-<rect x="72" y="143" width="207.25" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
-<text x="83" y="160" font-size="12.5" fill="#4a6579">OXE 27 数据集跨上下文预训练</text>
-<path d="M 280.0 398.5 L 340.0 399.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 570.0 399.0 L 630.0 399.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 283.0 298.0 L 283.0 314.0 L 653.0 314.0 L 653.0 330.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 509.5 298.0 L 509.5 314.0 L 733.5 314.0 L 733.5 330.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 763.9 298.0 L 763.9 314.0 L 814.0 314.0 L 814.0 330.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 195.0 550.0 L 195.0 509.0 L 1013.0 509.0 L 1013.0 468.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 860.0 399.0 L 950.0 399.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1055.0 468.0 L 1045.0 570.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 950.0 622.5 L 860.0 619.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 630.0 619.0 L 496.0 609.5" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 423.0 662.0 L 423.0 744.0 L 195.0 744.0 L 195.0 688.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<rect x="82.5" y="349.5" width="200" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="80" y="346" width="200" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="180.0" cy="346" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="180.0" cy="346" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(166.5,332.5) scale(1.1250)">
+<text x="1159" y="1903" font-size="11.5" fill="#a0aab4" text-anchor="end">mos-vla · arXiv 2510.16617 · v3 auto</text>
+<rect x="20" y="0" width="1153" height="680" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
+<rect x="36" y="13" width="194.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
+<text x="47" y="30" font-size="12.5" fill="#4a6579">OXE 27 数据集跨上下文预训</text>
+<path d="M 268.0 115.5 L 282.0 115.5 L 282.0 352.0 L 466.0 352.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 596.5 422.0 L 596.5 518.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 744.0 169.0 L 744.0 518.0 L 596.5 518.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 1030.0 169.0 L 1030.0 518.0 L 596.5 518.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 440.5 186.0 L 440.5 518.0 L 596.5 518.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 549.4 1739.0 L 549.4 2668.0 L 751.0 2668.0 L 751.0 894.0 L 622.4 894.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 596.5 658.0 L 596.5 754.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 596.5 894.0 L 596.5 990.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 596.5 1097.0 L 596.5 1193.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 596.5 1333.0 L 597.0 1429.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 597.0 1536.0 L 597.0 1632.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<rect x="48.5" y="65.5" width="222" height="107" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="62" width="222" height="107" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<circle cx="157.0" cy="62" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
+<circle cx="157.0" cy="62" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
+<g transform="translate(143.5,48.5) scale(1.1250)">
   <path d="M12 8V4H8" />
   <rect width="16" height="12" x="4" y="8" rx="2" />
   <path d="M2 14h2" />
@@ -49,102 +49,99 @@
   <path d="M15 13v2" />
   <path d="M9 13v2" />
 </g>
-<text x="180.0" y="402" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="180.0" dy="0">多机器人混合数据</tspan><tspan x="180.0" dy="20">(Magic Soup Plus)</tspan></text>
-<rect x="342.5" y="333.5" width="230" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="340" y="330" width="230" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="455.0" cy="330" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="455.0" cy="330" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(441.5,316.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="455.0" y="386" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="455.0" dy="0">OpenVLA backbone</tspan><tspan x="455.0" dy="20">Llama 2 + SigLIP +</tspan></text>
-<text x="455.0" y="416" font-size="12" fill="#5f6b7a" text-anchor="middle"> DinoV2, LoRA 微调</text>
-<rect x="632.5" y="333.5" width="230" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="630" y="330" width="230" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="745.0" cy="330" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="745.0" cy="330" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(731.5,316.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
-<text x="745.0" y="386" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="745.0" dy="0">k = 16 个可学习基函</tspan><tspan x="745.0" dy="20">数头</tspan></text>
-<text x="745.0" y="416" font-size="12" fill="#5f6b7a" text-anchor="middle">(function encoder </text>
-<rect x="142.5" y="163.5" width="220" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="140" y="160" width="220" height="138" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
-<circle cx="250.0" cy="160" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
-<circle cx="250.0" cy="160" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
-<g transform="translate(236.5,146.5) scale(1.1250)">
+<text x="157.0" y="118" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="157.0" dy="0">多机器人混合数据</tspan><tspan x="157.0" dy="20">(Magic Soup Plus)</tspan></text>
+<rect x="468.5" y="285.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="466" y="282" width="261" height="140" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="596.5" cy="282" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="596.5" cy="282" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(583.0,268.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
+<text x="596.5" y="338" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="596.5" dy="0">OpenVLA backbone</tspan><tspan x="596.5" dy="20">Llama 2 + SigLIP + Di</tspan></text>
+<text x="596.5" y="368" font-size="12" fill="#5f6b7a" text-anchor="middle">noV2, LoRA 微调</text>
+<rect x="465.5" y="521.5" width="267" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="463" y="518" width="267" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="596.5" cy="518" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="596.5" cy="518" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(583.0,504.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
+<text x="596.5" y="574" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="596.5" dy="0">k = 16 个可学习基函数头</tspan><tspan x="596.5" dy="20">(function encoder 头,</tspan></text>
+<text x="596.5" y="604" font-size="12" fill="#5f6b7a" text-anchor="middle"> MLPResNet)</text>
+<rect x="615.5" y="65.5" width="262" height="107" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="613" y="62" width="262" height="107" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
+<circle cx="744.0" cy="62" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
+<circle cx="744.0" cy="62" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
+<g transform="translate(730.5,48.5) scale(1.1250)">
   <path d="m18 14 4 4-4 4" />
   <path d="m18 2 4 4-4 4" />
   <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" />
   <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />
   <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" />
 </g>
-<text x="250.0" y="216" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="250.0" dy="0">训练损失 L: L1 范数</tspan><tspan x="250.0" dy="20">(抗 OXE 噪声, 替代 </tspan></text>
-<text x="250.0" y="246" font-size="12" fill="#5f6b7a" text-anchor="middle">L2)</text>
-<rect x="398.5" y="163.5" width="227" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="396" y="160" width="227" height="138" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
-<circle cx="509.5" cy="160" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
-<circle cx="509.5" cy="160" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
-<g transform="translate(496.0,146.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="509.5" y="216" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="509.5" dy="0">Gram 正交正则 L_re</tspan><tspan x="509.5" dy="20">g</tspan></text>
-<text x="509.5" y="246" font-size="12" fill="#5f6b7a" text-anchor="middle">保持基函数多样性</text>
-<rect x="661.5" y="163.5" width="233" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="659" y="160" width="233" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="775.5" cy="160" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="775.5" cy="160" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(762.0,146.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
-<text x="775.5" y="216" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="775.5" dy="0">calibration buffer</tspan><tspan x="775.5" dy="20">每数据集 512 样本, </tspan></text>
-<text x="775.5" y="246" font-size="12" fill="#5f6b7a" text-anchor="middle">每 16 步重算系数</text>
-<rect x="82.5" y="553.5" width="230" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="80" y="550" width="230" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="195.0" cy="550" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="195.0" cy="550" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(181.5,536.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="195.0" y="606" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="195.0" dy="0">单次专家演示</tspan><tspan x="195.0" dy="20">(未见环境/任务/本体</tspan></text>
-<text x="195.0" y="636" font-size="12" fill="#5f6b7a" text-anchor="middle">)</text>
-<rect x="952.5" y="333.5" width="210" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="950" y="330" width="210" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="1055.0" cy="330" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="1055.0" cy="330" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(1041.5,316.5) scale(1.1250)">
+<text x="744.0" y="118" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="744.0" dy="0">训练损失 L: L1 范数</tspan><tspan x="744.0" dy="20">(抗 OXE 噪声, 替代 L2)</tspan></text>
+<rect x="915.5" y="65.5" width="234" height="107" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="913" y="62" width="234" height="107" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
+<circle cx="1030.0" cy="62" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
+<circle cx="1030.0" cy="62" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
+<g transform="translate(1016.5,48.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
+<text x="1030.0" y="118" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1030.0" dy="0">Gram 正交正则 L_reg</tspan><tspan x="1030.0" dy="20">保持基函数多样性</tspan></text>
+<rect x="308.5" y="49.5" width="269" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="306" y="46" width="269" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<circle cx="440.5" cy="46" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="440.5" cy="46" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(427.0,32.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
+<text x="440.5" y="102" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="440.5" dy="0">calibration buffer</tspan><tspan x="440.5" dy="20">每数据集 512 样本, 每 1</tspan></text>
+<text x="440.5" y="132" font-size="12" fill="#5f6b7a" text-anchor="middle">6 步重算系数</text>
+<rect x="480.5" y="1635.5" width="238" height="107" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="478" y="1632" width="238" height="107" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<circle cx="597.0" cy="1632" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
+<circle cx="597.0" cy="1632" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
+<g transform="translate(583.5,1618.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
+<text x="597.0" y="1688" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="597.0" dy="0">单次专家演示</tspan><tspan x="597.0" dy="20">(未见环境/任务/本体)</tspan></text>
+<rect x="469.5" y="757.5" width="259" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="467" y="754" width="259" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="596.5" cy="754" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="596.5" cy="754" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(583.0,740.5) scale(1.1250)">
   <rect x="16" y="16" width="6" height="6" rx="1" />
   <rect x="2" y="16" width="6" height="6" rx="1" />
   <rect x="9" y="2" width="6" height="6" rx="1" />
   <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" />
   <path d="M12 12V8" />
 </g>
-<text x="1055.0" y="386" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="1055.0" dy="0">L1 凸优化求权重</tspan><tspan x="1055.0" dy="20">线性规划 CVXPY, 无</tspan></text>
-<text x="1055.0" y="416" font-size="12" fill="#5f6b7a" text-anchor="middle">梯度数秒完成</text>
-<rect x="952.5" y="573.5" width="190" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="950" y="570" width="190" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="1045.0" cy="570" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="1045.0" cy="570" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(1031.5,556.5) scale(1.1250)">
+<text x="596.5" y="810" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="596.5" dy="0">L1 凸优化求权重</tspan><tspan x="596.5" dy="20">线性规划 CVXPY, 无梯度</tspan></text>
+<text x="596.5" y="840" font-size="12" fill="#5f6b7a" text-anchor="middle">数秒完成</text>
+<rect x="468.5" y="993.5" width="261" height="107" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="466" y="990" width="261" height="107" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<circle cx="596.5" cy="990" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="596.5" cy="990" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(583.0,976.5) scale(1.1250)">
   <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
   <path d="M21 3v5h-5" />
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="1045.0" y="626" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1045.0" dy="0">基函数权重 alpha (k</tspan><tspan x="1045.0" dy="20"> 维)</tspan></text>
-<rect x="632.5" y="553.5" width="230" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="630" y="550" width="230" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="745.0" cy="550" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="745.0" cy="550" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(731.5,536.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="745.0" y="606" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="745.0" dy="0">策略 = sum alpha_i</tspan><tspan x="745.0" dy="20"> * g_i</tspan></text>
-<text x="745.0" y="636" font-size="12" fill="#5f6b7a" text-anchor="middle">推理 O(1), 与演示长</text>
-<rect x="352.5" y="560.5" width="146" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="350" y="557" width="146" height="105" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
-<circle cx="423.0" cy="557" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
-<circle cx="423.0" cy="557" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(409.5,543.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="423.0" y="613" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="423.0" dy="0">机器人执行</tspan><tspan x="423.0" dy="20">逐帧重观测</tspan></text>
-<g transform="translate(322.0,762.0)"><rect x="-134.9" y="-11" width="269.8" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;上下文变化需再给一条演示 重新标定系数&quot;</text></g>
-<text x="40" y="758.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="744" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="755" r="4.2" fill="#6a1b9a"/><text x="110" y="759" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="184.76" y="744" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="755" r="4.2" fill="#2e7d32"/><text x="208.76" y="759" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="290.19" y="744" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="755" r="4.2" fill="#ef6c00"/><text x="314.19" y="759" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="388.95" y="744" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="401.95" cy="755" r="4.2" fill="#546e7a"/><text x="412.95" y="759" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<g><rect x="494.38" y="744" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="507.38" cy="755" r="4.2" fill="#c62828"/><text x="518.38" y="759" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
-<g><rect x="599.81" y="744" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="612.81" cy="755" r="4.2" fill="#ef6c00"/><text x="623.81" y="759" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="798" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 794 h 44" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)"/><text x="132" y="798" font-size="11.5" fill="#546e7a">信息流</text></g>
-<g><path d="M 200.57 794 h 44" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)"/><text x="252.57" y="798" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
-<g><path d="M 333.33 794 h 44" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)"/><text x="385.33" y="798" font-size="11.5" fill="#263238">主数据流</text></g>
+<text x="596.5" y="1046" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="596.5" dy="0">基函数权重 alpha (k 维</tspan><tspan x="596.5" dy="20">)</tspan></text>
+<rect x="465.5" y="1196.5" width="267" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="463" y="1193" width="267" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="596.5" cy="1193" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="596.5" cy="1193" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(583.0,1179.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
+<text x="596.5" y="1249" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="596.5" dy="0">策略 = sum alpha_i * g</tspan><tspan x="596.5" dy="20">_i</tspan></text>
+<text x="596.5" y="1279" font-size="12" fill="#5f6b7a" text-anchor="middle">推理 O(1), 与演示长度无</text>
+<rect x="524.5" y="1432.5" width="150" height="107" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="522" y="1429" width="150" height="107" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<circle cx="597.0" cy="1429" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
+<circle cx="597.0" cy="1429" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(583.5,1415.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
+<text x="597.0" y="1485" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="597.0" dy="0">机器人执行</tspan><tspan x="597.0" dy="20">逐帧重观测</tspan></text>
+<g transform="translate(597.0,1584.0)"><rect x="-134.9" y="-11" width="269.8" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;上下文变化需再给一条演示 重新标定系数&quot;</text></g>
+<text x="40" y="1869.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1855" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1866" r="4.2" fill="#6a1b9a"/><text x="110" y="1870" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="1855" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1866" r="4.2" fill="#2e7d32"/><text x="208.76" y="1870" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="1855" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="303.19" cy="1866" r="4.2" fill="#ef6c00"/><text x="314.19" y="1870" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="388.95" y="1855" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="401.95" cy="1866" r="4.2" fill="#546e7a"/><text x="412.95" y="1870" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g><rect x="494.38" y="1855" width="93.43" height="22" rx="11" fill="url(#g-loss)" stroke="#c62828" stroke-width="1.3"/><circle cx="507.38" cy="1866" r="4.2" fill="#c62828"/><text x="518.38" y="1870" font-size="11.5" fill="#b71c1c">损失/监督</text></g>
+<g><rect x="599.81" y="1855" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="612.81" cy="1866" r="4.2" fill="#ef6c00"/><text x="623.81" y="1870" font-size="11.5" fill="#b34700">可训练模块</text></g>
+<text x="40" y="1909" font-size="11.5" fill="#78909c">线型</text>
+<g><path d="M 80 1905 h 44" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)"/><text x="132" y="1909" font-size="11.5" fill="#546e7a">信息流</text></g>
+<g><path d="M 200.57 1905 h 44" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)"/><text x="252.57" y="1909" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g><path d="M 333.33 1905 h 44" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)"/><text x="385.33" y="1909" font-size="11.5" fill="#263238">主数据流</text></g>
 </svg>

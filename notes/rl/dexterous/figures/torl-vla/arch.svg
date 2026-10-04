@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="657" height="1219" viewBox="0 0 657 1219" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="657" height="1279" viewBox="0 0 657 1279" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
 <style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
 <defs>
 <linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
@@ -18,26 +18,26 @@
 <marker id="arr-fb" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
-<rect width="657" height="1219" fill="#ffffff"/>
+<rect width="657" height="1279" fill="#ffffff"/>
 <rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">torl-vla</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">TORL-VLA 提出触觉引导在线 RL 框架：VLA 同时预测参考动作和未来 wrench（力+力矩）序列，轻量在线 RL 模块用实时 wrench 反馈精调动作，inter</text>
-<text x="623" y="1201" font-size="11.5" fill="#a0aab4" text-anchor="end">torl-vla · arXiv 2606.09337 · v3 auto</text>
-<rect x="319" y="0" width="318" height="387" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
+<text x="623" y="1261" font-size="11.5" fill="#a0aab4" text-anchor="end">torl-vla · arXiv 2606.09337 · v3 auto</text>
+<rect x="319" y="0" width="318" height="411" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
 <rect x="335" y="13" width="161.5" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
 <text x="346" y="30" font-size="12.5" fill="#4a6579">真机在线回路 (20 Hz)</text>
-<path d="M 479.5 151.0 L 478.0 237.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 424.8 375.0 L 424.8 1355.0 L 504.6 1355.0 L 504.6 151.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 478.0 375.0 L 478.0 418.0 L 328.5 418.0 L 328.5 461.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 328.5 599.0 L 328.0 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 478.0 375.0 L 478.0 611.0 L 328.0 611.0 L 328.0 685.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 328.0 823.0 L 328.5 909.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 275.1 1047.0 L 275.1 2027.0 L 504.6 2027.0 L 504.6 151.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 354.0 98.5 L 330.5 98.5 L 330.5 306.0 L 307.0 306.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 184.0 140.0 L 176.5 237.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 176.5 375.0 L 176.5 611.0 L 328.0 611.0 L 328.0 685.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<rect x="356.5" y="49.5" width="251" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="354" y="46" width="251" height="105" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<path d="M 479.5 153.0 L 478.0 249.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 424.8 389.0 L 483.0 389.0 L 483.0 1417.0 L 504.6 1417.0 L 504.6 153.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 478.0 389.0 L 478.0 485.0 L 328.5 485.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 328.5 625.0 L 328.0 721.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 478.0 389.0 L 478.0 721.0 L 328.0 721.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 328.0 861.0 L 328.5 957.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 275.1 1097.0 L 275.1 2125.0 L 631.0 2125.0 L 631.0 153.0 L 504.6 153.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 354.0 99.5 L 330.5 99.5 L 330.5 319.0 L 307.0 319.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 184.0 152.0 L 176.5 249.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<path d="M 176.5 389.0 L 176.5 721.0 L 328.0 721.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<rect x="356.5" y="49.5" width="251" height="107" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="354" y="46" width="251" height="107" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
 <circle cx="479.5" cy="46" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
 <circle cx="479.5" cy="46" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
 <g transform="translate(466.0,32.5) scale(1.1250)">
@@ -45,67 +45,67 @@
   <circle cx="12" cy="12" r="3" />
 </g>
 <text x="479.5" y="102" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="479.5" dy="0">接触丰富任务</tspan><tspan x="479.5" dy="20">coffee / latch / egg</tspan></text>
-<rect x="347.5" y="240.5" width="266" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="345" y="237" width="266" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="478.0" cy="237" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="478.0" cy="237" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(464.5,223.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="478.0" y="293" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="478.0" dy="0">实测 wrench + 观测回流</tspan><tspan x="478.0" dy="20">(12 维指尖 wrench, J =</tspan></text>
-<text x="478.0" y="323" font-size="12" fill="#5f6b7a" text-anchor="middle"> 10 历史)</text>
-<rect x="200.5" y="464.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="198" y="461" width="261" height="138" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
-<circle cx="328.5" cy="461" r="24" fill="#ffffff" stroke="#1565c0" stroke-width="1.8"/>
-<circle cx="328.5" cy="461" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
-<g transform="translate(315.0,447.5) scale(1.1250)">
+<rect x="347.5" y="252.5" width="266" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="345" y="249" width="266" height="140" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<circle cx="478.0" cy="249" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
+<circle cx="478.0" cy="249" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
+<g transform="translate(464.5,235.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
+<text x="478.0" y="305" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="478.0" dy="0">实测 wrench + 观测回流</tspan><tspan x="478.0" dy="20">(12 维指尖 wrench, J =</tspan></text>
+<text x="478.0" y="335" font-size="12" fill="#5f6b7a" text-anchor="middle"> 10 历史)</text>
+<rect x="200.5" y="488.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="198" y="485" width="261" height="140" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
+<circle cx="328.5" cy="485" r="24" fill="#ffffff" stroke="#1565c0" stroke-width="1.8"/>
+<circle cx="328.5" cy="485" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
+<g transform="translate(315.0,471.5) scale(1.1250)">
   <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
   <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
 </g>
-<text x="328.5" y="517" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="328.5" dy="0">冻结 wrench-aware VLA</tspan><tspan x="328.5" dy="20">预测参考动作 chunk (50</tspan></text>
-<text x="328.5" y="547" font-size="12" fill="#5f6b7a" text-anchor="middle"> 步, 执行前 10)</text>
-<rect x="198.5" y="688.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="196" y="685" width="264" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="328.0" cy="685" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="328.0" cy="685" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(314.5,671.5) scale(1.1250)">
+<text x="328.5" y="541" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="328.5" dy="0">冻结 wrench-aware VLA</tspan><tspan x="328.5" dy="20">预测参考动作 chunk (50</tspan></text>
+<text x="328.5" y="571" font-size="12" fill="#5f6b7a" text-anchor="middle"> 步, 执行前 10)</text>
+<rect x="198.5" y="724.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="196" y="721" width="264" height="140" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="328.0" cy="721" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="328.0" cy="721" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(314.5,707.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="328.0" y="741" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="328.0" dy="0">轻量在线 RL actor</tspan><tspan x="328.0" dy="20">学修正量: a = a_ref + </tspan></text>
-<text x="328.0" y="771" font-size="12" fill="#5f6b7a" text-anchor="middle">delta</text>
-<rect x="197.5" y="912.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="195" y="909" width="267" height="138" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
-<circle cx="328.5" cy="909" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
-<circle cx="328.5" cy="909" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(315.0,895.5) scale(1.1250)">
+<text x="328.0" y="777" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="328.0" dy="0">轻量在线 RL actor</tspan><tspan x="328.0" dy="20">学修正量: a = a_ref + </tspan></text>
+<text x="328.0" y="807" font-size="12" fill="#5f6b7a" text-anchor="middle">delta</text>
+<rect x="197.5" y="960.5" width="267" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="195" y="957" width="267" height="140" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
+<circle cx="328.5" cy="957" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
+<circle cx="328.5" cy="957" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(315.0,943.5) scale(1.1250)">
   <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
 </g>
-<text x="328.5" y="965" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="328.5" dy="0">MoE 融合</tspan><tspan x="328.5" dy="20">门控加权: 参考动作 / wr</tspan></text>
-<text x="328.5" y="995" font-size="12" fill="#5f6b7a" text-anchor="middle">ench 预测 / RL 修正</text>
-<rect x="48.5" y="240.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="237" width="261" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="176.5" cy="237" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="176.5" cy="237" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(163.0,223.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
-<text x="176.5" y="293" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="176.5" dy="0">intervention-censored</tspan><tspan x="176.5" dy="20"> critic (核心)</tspan></text>
-<text x="176.5" y="323" font-size="12" fill="#5f6b7a" text-anchor="middle">干预前策略动作回报记 0</text>
-<rect x="54.5" y="49.5" width="264" height="94" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="52" y="46" width="264" height="94" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="328.5" y="1013" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="328.5" dy="0">MoE 融合</tspan><tspan x="328.5" dy="20">门控加权: 参考动作 / wr</tspan></text>
+<text x="328.5" y="1043" font-size="12" fill="#5f6b7a" text-anchor="middle">ench 预测 / RL 修正</text>
+<rect x="48.5" y="252.5" width="261" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="249" width="261" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="176.5" cy="249" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="176.5" cy="249" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(163.0,235.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
+<text x="176.5" y="305" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="176.5" dy="0">intervention-censored</tspan><tspan x="176.5" dy="20"> critic (核心)</tspan></text>
+<text x="176.5" y="335" font-size="12" fill="#5f6b7a" text-anchor="middle">干预前策略动作回报记 0</text>
+<rect x="54.5" y="49.5" width="264" height="106" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="52" y="46" width="264" height="106" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="184.0" cy="46" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="184.0" cy="46" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(170.5,32.5) scale(0.1055)"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" opacity="0.2"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></g>
 <text x="184.0" y="109" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">人工干预 + 二值成功奖励</text>
-<g transform="translate(180.2,188.5)"><rect x="-47.1" y="-11" width="94.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;干预 mask&quot;</text></g>
-<g transform="translate(176.5,633.8)"><rect x="-62.1" y="-11" width="124.2" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;Q 梯度在线精调&quot;</text></g>
-<text x="40" y="1167.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1153" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1164" r="4.2" fill="#6a1b9a"/><text x="110" y="1168" font-size="11.5" fill="#4a148c">动作生成</text></g>
-<g><rect x="184.76" y="1153" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1164" r="4.2" fill="#2e7d32"/><text x="208.76" y="1168" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="290.19" y="1153" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="303.19" cy="1164" r="4.2" fill="#00695c"/><text x="314.19" y="1168" font-size="11.5" fill="#004d40">环境</text></g>
-<g><rect x="364.57" y="1153" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="377.57" cy="1164" r="4.2" fill="#1565c0"/><text x="388.57" y="1168" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
-<g><rect x="463.33" y="1153" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="476.33" cy="1164" r="4.2" fill="#ef6c00"/><text x="487.33" y="1168" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="562.09" y="1153" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="575.09" cy="1164" r="4.2" fill="#ef6c00"/><text x="586.09" y="1168" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="1207" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1203 h 44" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)"/><text x="132" y="1207" font-size="11.5" fill="#546e7a">信息流</text></g>
-<g><path d="M 200.57 1203 h 44" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)"/><text x="252.57" y="1207" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 333.33 1203 h 44" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)"/><text x="385.33" y="1207" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
-<g><path d="M 466.09 1203 h 44" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)"/><text x="518.0899999999999" y="1207" font-size="11.5" fill="#c62828">损失/监督</text></g>
+<g transform="translate(180.2,200.5)"><rect x="-47.1" y="-11" width="94.2" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;干预 mask&quot;</text></g>
+<g transform="translate(176.5,658.8)"><rect x="-62.1" y="-11" width="124.2" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;Q 梯度在线精调&quot;</text></g>
+<text x="40" y="1227.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1213" width="86.76" height="22" rx="11" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="1.3"/><circle cx="99" cy="1224" r="4.2" fill="#6a1b9a"/><text x="110" y="1228" font-size="11.5" fill="#4a148c">动作生成</text></g>
+<g><rect x="184.76" y="1213" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="197.76" cy="1224" r="4.2" fill="#2e7d32"/><text x="208.76" y="1228" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="290.19" y="1213" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="303.19" cy="1224" r="4.2" fill="#00695c"/><text x="314.19" y="1228" font-size="11.5" fill="#004d40">环境</text></g>
+<g><rect x="364.57" y="1213" width="86.76" height="22" rx="11" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="1.3"/><circle cx="377.57" cy="1224" r="4.2" fill="#1565c0"/><text x="388.57" y="1228" font-size="11.5" fill="#0d47a1">冻结模块</text></g>
+<g><rect x="463.33" y="1213" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="476.33" cy="1224" r="4.2" fill="#ef6c00"/><text x="487.33" y="1228" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="562.09" y="1213" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="575.09" cy="1224" r="4.2" fill="#ef6c00"/><text x="586.09" y="1228" font-size="11.5" fill="#b34700">可训练模块</text></g>
+<text x="40" y="1267" font-size="11.5" fill="#78909c">线型</text>
+<g><path d="M 80 1263 h 44" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)"/><text x="132" y="1267" font-size="11.5" fill="#546e7a">信息流</text></g>
+<g><path d="M 200.57 1263 h 44" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)"/><text x="252.57" y="1267" font-size="11.5" fill="#263238">主数据流</text></g>
+<g><path d="M 333.33 1263 h 44" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)"/><text x="385.33" y="1267" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g><path d="M 466.09 1263 h 44" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)"/><text x="518.0899999999999" y="1267" font-size="11.5" fill="#c62828">损失/监督</text></g>
 </svg>

@@ -156,80 +156,122 @@ def auto_sides(a, b):
 NORM = {"top": (0, -1), "bottom": (0, 1), "left": (-1, 0), "right": (1, 0)}
 
 
-def _avoid_v(x, y0, y1, rects):
-    """垂直转折段 x 若穿卡, 平移到卡侧空位。"""
+def _vh(x, y0, y1, rects, shr=12):
+    """垂直线 x 在 [y0,y1] 穿过的卡数(卡区向外扩 shr 安全边距)。"""
     lo, hi = min(y0, y1), max(y0, y1)
-    for _ in range(2):
-        hit = None
-        for r in rects:
-            if r[0] + 10 < x < r[2] - 10 and hi > r[1] + 8 and lo < r[3] - 8:
-                hit = r
-                break
-        if not hit:
-            break
-        cands = sorted([hit[2] + 18, hit[0] - 18], key=lambda c: abs(c - x))
-        x = cands[0]
-    return x
+    return sum(1 for r in rects if r[0] - shr < x < r[2] + shr
+               and hi > r[1] - shr and lo < r[3] + shr)
 
 
-def _avoid_h(y, x0, x1, rects):
+def _hh(y, x0, x1, rects, shr=12):
     lo, hi = min(x0, x1), max(x0, x1)
-    for _ in range(2):
-        hit = None
+    return sum(1 for r in rects if r[1] - shr < y < r[3] + shr
+               and hi > r[0] - shr and lo < r[2] + shr)
+
+
+def _pick_x(x0, y0, y1, rects, stubs=(), canvas=None):
+    """选垂直车道 x: 最小化垂直穿越 + 各水平短折(stub)穿越; 候选含原位与相交卡两侧。"""
+    lo, hi = min(y0, y1), max(y0, y1)
+    cands = [x0]
+    for r in rects:
+        if hi > r[1] and lo < r[3]:
+            cands += [r[2] + 24, r[0] - 24]
+    for (sy, sx) in stubs:
         for r in rects:
-            if r[1] + 10 < y < r[3] - 10 and hi > r[0] + 8 and lo < r[2] - 8:
-                hit = r
-                break
-        if not hit:
-            break
-        cands = sorted([hit[3] + 18, hit[1] - 18], key=lambda c: abs(c - y))
-        y = cands[0]
-    return y
+            if r[1] < sy < r[3]:
+                cands += [r[2] + 24, r[0] - 24]
+    if canvas:
+        cands += [26, canvas[0] - 26]
+    cands = [c for c in cands if c > 10]
+
+    def score(cx):
+        sc = _vh(cx, y0, y1, rects)
+        for (sy, sx) in stubs:
+            sc += _hh(sy, sx, cx, rects)
+        return (sc, abs(cx - x0))
+    return min(cands, key=score)
 
 
-def edge_path(sa, na, sb, nb, k=None, rects=()):
-    """直角折线路由: 对向=直线/肘形, 同侧=U 形环绕, 相邻侧=L 形。"""
+def _pick_y(y0, x0, x1, rects, stubs=(), canvas=None):
+    lo, hi = min(x0, x1), max(x0, x1)
+    cands = [y0]
+    for r in rects:
+        if hi > r[0] and lo < r[2]:
+            cands += [r[3] + 24, r[1] - 24]
+    for (sx, sy) in stubs:
+        for r in rects:
+            if r[0] < sx < r[2]:
+                cands += [r[3] + 24, r[1] - 24]
+    if canvas:
+        cands += [104, canvas[1] - 30]
+    cands = [c for c in cands if c > 60]
+
+    def score(cy):
+        sc = _hh(cy, x0, x1, rects)
+        for (sx, sy) in stubs:
+            sc += _vh(sx, sy, cy, rects)
+        return (sc, abs(cy - y0))
+    return min(cands, key=score)
+
+
+def edge_path(sa, na, sb, nb, k=None, rects=(), canvas=None):
+    """正交路由(计分车道): 对向=直线/肘形, 同侧=U 环绕, 相邻侧=L 形。
+    所有折线段都经车道搜索避让无关节点。"""
     k = k if k is not None else 60
     opp = {"left": "right", "right": "left", "top": "bottom", "bottom": "top"}
-    if nb == opp[na]:                                   # 对向
+    if nb == opp[na]:
         if na in ("left", "right"):
-            if abs(sa[1] - sb[1]) < 16:
+            if abs(sa[1] - sb[1]) < 16 and _hh((sa[1] + sb[1]) / 2, sa[0], sb[0], rects, shr=12) == 0:
                 pts = [sa, sb]
             else:
-                mx = _avoid_v((sa[0] + sb[0]) / 2, sa[1], sb[1], rects)
-                lo, hi = min(sa[0], sb[0]) + 24, max(sa[0], sb[0]) - 24
-                if hi <= lo or not (lo <= mx <= hi):
-                    mx = (sa[0] + sb[0]) / 2   # 绕行走廊放不下: 回中
+                mx = _pick_x((sa[0] + sb[0]) / 2, sa[1], sb[1], rects,
+                             stubs=[(sa[1] + 6, sa[0]), (sb[1] - 6, sb[0])], canvas=canvas)
                 pts = [sa, (mx, sa[1]), (mx, sb[1]), sb]
         else:
-            if abs(sa[0] - sb[0]) < 16:
+            if abs(sa[0] - sb[0]) < 16 and _vh((sa[0] + sb[0]) / 2, sa[1], sb[1], rects, shr=12) == 0:
                 pts = [sa, sb]
             else:
-                my = _avoid_h((sa[1] + sb[1]) / 2, sa[0], sb[0], rects)
-                lo, hi = min(sa[1], sb[1]) + 24, max(sa[1], sb[1]) - 24
-                if hi <= lo or not (lo <= my <= hi):
-                    my = (sa[1] + sb[1]) / 2
-                pts = [sa, (sa[0], my), (sb[0], my), sb]
-    elif na == nb:                                      # 同侧 U 形环绕
+                xa = _pick_x(sa[0], sa[1], sb[1], rects,
+                             stubs=[(sa[1] + 6, sa[0]), (sb[1] - 6, sb[0])], canvas=canvas)
+                if abs(xa - sb[0]) < 16:
+                    pts = [sa, (xa, sa[1]), (xa, sb[1]), sb]
+                else:
+                    pts = [sa, (xa, sa[1]), (xa, sb[1]), sb]
+    elif na == nb:
         if na == "bottom":
             ly = max(sa[1], sb[1]) + k
-            pts = [sa, (sa[0], ly), (sb[0], ly), sb]
+            xa = _pick_x(sa[0], sa[1], ly, rects, stubs=[(sa[1] + 6, sa[0])], canvas=canvas)
+            xb = _pick_x(sb[0], sb[1], ly, rects, stubs=[(sb[1] + 6, sb[0])], canvas=canvas)
+            pts = [sa, (xa, sa[1]), (xa, ly), (xb, ly), (xb, sb[1]), sb]
         elif na == "top":
             ly = min(sa[1], sb[1]) - k
-            pts = [sa, (sa[0], ly), (sb[0], ly), sb]
+            xa = _pick_x(sa[0], ly, sa[1], rects, stubs=[(sa[1] - 6, sa[0])], canvas=canvas)
+            xb = _pick_x(sb[0], ly, sb[1], rects, stubs=[(sb[1] - 6, sb[0])], canvas=canvas)
+            pts = [sa, (xa, sa[1]), (xa, ly), (xb, ly), (xb, sb[1]), sb]
         elif na == "right":
             lx = max(sa[0], sb[0]) + k
-            pts = [sa, (lx, sa[1]), (lx, sb[1]), sb]
+            ya = _pick_y(sa[1], sa[0], lx, rects, stubs=[(sa[0] + 6, sa[1])], canvas=canvas)
+            yb = _pick_y(sb[1], sb[0], lx, rects, stubs=[(sb[0] + 6, sb[1])], canvas=canvas)
+            pts = [sa, (sa[0], ya), (lx, ya), (lx, yb), (sb[0], yb), sb]
         else:
             lx = min(sa[0], sb[0]) - k
-            pts = [sa, (lx, sa[1]), (lx, sb[1]), sb]
-    else:                                               # 相邻侧 L 形
+            ya = _pick_y(sa[1], lx, sa[0], rects, stubs=[(sa[0] - 6, sa[1])], canvas=canvas)
+            yb = _pick_y(sb[1], lx, sb[0], rects, stubs=[(sb[0] - 6, sb[1])], canvas=canvas)
+            pts = [sa, (sa[0], ya), (lx, ya), (lx, yb), (sb[0], yb), sb]
+    else:
         if na in ("left", "right"):
-            corner = (sb[0], sa[1])
+            cx = _pick_x(sb[0], sa[1], sb[1], rects, stubs=[(sa[1] + 6 if na == "right" else sa[1] - 6, sa[0])], canvas=canvas)
+            pts = [sa, (cx, sa[1]), (cx, sb[1]), sb] if abs(cx - sb[0]) < 1 else [sa, (sb[0], sa[1]), sb]
         else:
-            corner = (sa[0], sb[1])
-        pts = [sa, corner, sb]
-    d = f"M {pts[0][0]:.1f} {pts[0][1]:.1f}" + "".join(f" L {q[0]:.1f} {q[1]:.1f}" for q in pts[1:])
+            cy = _pick_y(sb[1], sa[0], sb[0], rects, stubs=[(sa[0] + 6 if na == "bottom" else sa[0] - 6, sa[1])], canvas=canvas)
+            pts = [sa, (sa[0], cy), (sb[0], cy), sb] if abs(cy - sb[1]) < 1 else [sa, (sa[0], sb[1]), sb]
+    # 去零长段
+    q = [pts[0]]
+    for pt in pts[1:]:
+        if abs(pt[0] - q[-1][0]) > 0.5 or abs(pt[1] - q[-1][1]) > 0.5:
+            q.append(pt)
+    pts = q
+    d = f"M {pts[0][0]:.1f} {pts[0][1]:.1f}" + "".join(f" L {t[0]:.1f} {t[1]:.1f}" for t in pts[1:])
     lens = [((pts[i + 1][0] - pts[i][0]) ** 2 + (pts[i + 1][1] - pts[i][1]) ** 2) ** .5
             for i in range(len(pts) - 1)]
     half, acc, mid = sum(lens) / 2, 0.0, pts[-1]
@@ -249,7 +291,9 @@ def resolve_and_render_pills(jobs, nodes, W, H):
     node_rects = [(n["x"] - 2, n["y"] - 2, n["x"] + n["w"] + 2, n["y"] + n["h"] + 2) for n in nodes]
     CAND = [(0, 0), (0, -28), (0, 28), (0, -56), (0, 56), (26, -28), (-26, -28),
             (26, 28), (-26, 28), (0, -84), (0, 84), (0, -112), (0, 112),
-            (64, 0), (-64, 0), (64, -28), (-64, -28), (64, 28), (-64, 28)]
+            (64, 0), (-64, 0), (64, -28), (-64, -28), (64, 28), (-64, 28),
+            (0, -140), (0, 140), (90, -56), (-90, -56), (90, 56), (-90, 56),
+            (90, 0), (-90, 0), (120, -28), (-120, -28), (120, 28), (-120, 28)]
     out = []
 
     def _find(j, wl, allow_node):
@@ -272,6 +316,11 @@ def resolve_and_render_pills(jobs, nodes, W, H):
 
     for j in jobs:
         wl = tw(j["text"], 12) + 20
+        if j.get("pin"):
+            best = (j["cx"], j["cy"], (j["cx"] - wl / 2, j["cy"] - 12, j["cx"] + wl / 2, j["cy"] + 12))
+            placed.append(best[2])
+            out.append(_pill_svg(j, best[0], best[1], wl))
+            continue
         best = _find(j, wl, allow_node=False)
         if best is None:   # 全躲失败: 宁可压卡也不压别的药丸/箭头
             best = _find(j, wl, allow_node=True)
@@ -279,13 +328,17 @@ def resolve_and_render_pills(jobs, nodes, W, H):
             best = (j["cx"], j["cy"], (j["cx"] - wl / 2, j["cy"] - 12, j["cx"] + wl / 2, j["cy"] + 12))
         cx, cy, r = best
         placed.append(r)
-        t = esc(j["text"])
-        out.append(f'<g transform="translate({cx:.1f},{cy:.1f})">'
-                   f'<rect x="{-wl / 2:.1f}" y="-11" width="{wl:.1f}" height="22" rx="11" '
-                   f'fill="#ffffff" stroke="{j["color"]}" stroke-width="1.2"/>'
-                   f'<text y="4" font-size="12" fill="{j["color"]}" font-weight="600" '
-                   f'text-anchor="middle">{t}</text></g>')
+        out.append(_pill_svg(j, cx, cy, wl))
     return out
+
+
+def _pill_svg(j, cx, cy, wl):
+    t = esc(j["text"])
+    return (f'<g transform="translate({cx:.1f},{cy:.1f})">'
+            f'<rect x="{-wl / 2:.1f}" y="-11" width="{wl:.1f}" height="22" rx="11" '
+            f'fill="#ffffff" stroke="{j["color"]}" stroke-width="1.2"/>'
+            f'<text y="4" font-size="12" fill="{j["color"]}" font-weight="600" '
+            f'text-anchor="middle">{t}</text></g>')
 
 
 def render(spec):
@@ -336,9 +389,9 @@ def render(spec):
         na, nb = e.get("out", sa_), e.get("in", sb_)
         sa = anchor_pt(a, na, e.get("pos_out", 0.5))
         sb = anchor_pt(b, nb, e.get("pos_in", 0.5))
-        rects = [(n2["x"] + 6, n2["y"] + 6, n2["x"] + n2["w"] - 6, n2["y"] + n2["h"] - 6)
-                 for n2 in spec["nodes"]]
-        d, mid = edge_path(sa, na, sb, nb, e.get("k"), rects)
+        rects = [(n2["x"], n2["y"], n2["x"] + n2["w"], n2["y"] + n2["h"])
+                 for nid2, n2 in nodes.items() if nid2 not in (e["from"], e["to"])]
+        d, mid = edge_path(sa, na, sb, nb, e.get("k"), rects, (W, H))
         st = e.get("style", "main")
         c, w, dash = EDGE_STYLE[st]
         dash_a = f' stroke-dasharray="{dash}"' if dash else ""
@@ -346,9 +399,12 @@ def render(spec):
                      f'marker-end="url(#arr-{st})" opacity="0.92"/>')
         if e.get("label"):
             off = e.get("loff", (0, 0))
-            pill_jobs.append({"text": e["label"], "cx": mid[0] + off[0], "cy": mid[1] + off[1],
+            lp = e.get("labpos")          # 手工定位(绕过求解器, 用于极密区域)
+            pill_jobs.append({"text": e["label"],
+                              "cx": (lp[0] if lp else mid[0] + off[0]),
+                              "cy": (lp[1] if lp else mid[1] + off[1]),
                               "color": EDGE_STYLE[st][0], "ax": sa[0], "ay": sa[1],
-                              "bx": sb[0], "by": sb[1]})
+                              "bx": sb[0], "by": sb[1], "pin": bool(e.get("labpos"))})
     out += paths
 
     # 节点卡片

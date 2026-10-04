@@ -158,7 +158,7 @@ def layout(parsed, transpose=False):
         y0 = min(geom[m]["y"] for m in mem) - 46
         x1 = max(geom[m]["x"] + geom[m]["w"] for m in mem) + 26
         y1 = max(geom[m]["y"] + geom[m]["h"] for m in mem) + 22
-        panels.append({"label": wrap_cjk(p["label"], 20)[0] if p["label"] else sid,
+        panels.append({"label": (wrap_cjk(p["label"], 20)[0] if p["label"] else sid)[:16],
                        "x": round(x0), "y": round(y0), "w": round(x1 - x0), "h": round(y1 - y0)})
 
     # 边: 前向=直线/肘形(渲染器处理), 回边=底部走廊
@@ -179,7 +179,29 @@ def layout(parsed, transpose=False):
         if (a, b) in back or rank[b] < rank[a]:
             k = 84 + (min_bottom - min(geom[a]["y"] + geom[a]["h"], geom[b]["y"] + geom[b]["h"]))
             se.update({"out": "bottom", "in": "bottom", "pos_out": 0.3, "pos_in": 0.6, "k": round(k)})
+        elif rank[a] == rank[b]:
+            # 同级边: 走行底短 U(行距 96 足够), 避免中部肘形穿兄弟卡
+            se.update({"out": "bottom", "in": "bottom", "pos_out": 0.7, "pos_in": 0.3, "k": 56})
         spec_edges.append(se)
+
+    # 重叠面板合并(嵌套 subgraph 展平后 hull 可能交叠)
+    merged = []
+    for pnl in panels:
+        absorbed = False
+        for m in merged:
+            if not (pnl["x"] + pnl["w"] < m["x"] - 4 or m["x"] + m["w"] < pnl["x"] - 4 or
+                    pnl["y"] + pnl["h"] < m["y"] - 4 or m["y"] + m["h"] < pnl["y"] - 4):
+                x0, y0 = min(m["x"], pnl["x"]), min(m["y"], pnl["y"])
+                m["w"] = max(m["x"] + m["w"], pnl["x"] + pnl["w"]) - x0
+                m["h"] = max(m["y"] + m["h"], pnl["y"] + pnl["h"]) - y0
+                m["x"], m["y"] = x0, y0
+                if pnl["label"] and pnl["label"] not in m["label"]:
+                    m["label"] = m["label"] + " · " + pnl["label"]
+                absorbed = True
+                break
+        if not absorbed:
+            merged.append(dict(pnl))
+    panels = merged
 
     nodes_out = [{"id": nid, "label": g["label"], "sub": g["sub"] or "",
                   "icon": pick_icon(g["label"] + " " + (g["sub"] or ""), g["cls"]),
@@ -196,7 +218,9 @@ def main():
     ok = skip = fail = 0
     for sj in sorted(glob.glob("notes/**/figures/*/arch.spec.json", recursive=True)):
         rel = sj.replace("/Users/luogu/physical_intelligence/", "")
-        if rel in modified:
+        import os
+        force = os.environ.get("FORCE", "")
+        if rel in modified and rel not in force.split(";"):
             skip += 1          # agent 已改过的保留人工成果
             continue
         old = json.load(open(sj))

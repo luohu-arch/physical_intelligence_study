@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="650" height="1219" viewBox="0 0 650 1219" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="650" height="1279" viewBox="0 0 650 1279" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
 <style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
 <defs>
 <linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
@@ -18,87 +18,87 @@
 <marker id="arr-fb" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
 <marker id="arr-loss" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
 </defs>
-<rect width="650" height="1219" fill="#ffffff"/>
+<rect width="650" height="1279" fill="#ffffff"/>
 <rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
 <text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">z-1</text>
 <text x="52" y="74" font-size="13.5" fill="#78909c">Z-1 提出基于 π0.5 的模块化 RL 后训练框架：SFT 阶段只用公开 RoboCasa 演示数据，然后按任务粒度（task-wise）做 GRPO 在线精调，冻结 VL</text>
-<text x="616" y="1201" font-size="11.5" fill="#a0aab4" text-anchor="end">z-1 · arXiv 2606.31846 · v3 auto</text>
-<rect x="167" y="448" width="316" height="387" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
-<rect x="183" y="461" width="247.25" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
-<text x="194" y="478" font-size="12.5" fill="#4a6579">任务级在线 rollout (64 并行 env)</text>
-<path d="M 171.5 157.0 L 171.5 213.5 L 325.0 213.5 L 325.0 270.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 325.0 599.0 L 325.0 685.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 272.2 823.0 L 272.2 1355.0 L 348.4 1355.0 L 348.4 599.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 325.0 408.0 L 325.0 494.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 325.0 823.0 L 325.0 909.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 469.5 184.0 L 469.5 611.0 L 325.0 611.0 L 325.0 909.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
-<path d="M 271.0 1047.0 L 271.0 1770.0 L 351.4 1770.0 L 351.4 408.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
-<rect x="48.5" y="66.5" width="251" height="94" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="63" width="251" height="94" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
+<text x="616" y="1261" font-size="11.5" fill="#a0aab4" text-anchor="end">z-1 · arXiv 2606.31846 · v3 auto</text>
+<rect x="167" y="472" width="316" height="411" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
+<rect x="183" y="485" width="170.0" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
+<text x="194" y="502" font-size="12.5" fill="#4a6579">任务级在线 rollout (6</text>
+<path d="M 171.5 169.0 L 171.5 282.0 L 325.0 282.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 325.0 625.0 L 325.0 721.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 272.2 861.0 L 166.0 861.0 L 166.0 1417.0 L 484.0 1417.0 L 484.0 625.0 L 348.4 625.0" fill="none" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)" opacity="0.92"/>
+<path d="M 325.0 422.0 L 325.0 518.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 325.0 861.0 L 325.0 957.0" fill="none" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)" opacity="0.92"/>
+<path d="M 469.5 186.0 L 469.5 957.0 L 325.0 957.0" fill="none" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)" opacity="0.92"/>
+<path d="M 271.0 1097.0 L 271.0 1856.0 L 481.0 1856.0 L 481.0 422.0 L 351.4 422.0" fill="none" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)" opacity="0.92"/>
+<rect x="48.5" y="66.5" width="251" height="106" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="46" y="63" width="251" height="106" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
 <circle cx="171.5" cy="63" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
 <circle cx="171.5" cy="63" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
 <g transform="translate(158.0,49.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
 <text x="171.5" y="126" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">RoboCasa 公开演示数据</text>
-<rect x="195.5" y="273.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="193" y="270" width="264" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="325.0" cy="270" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="325.0" cy="270" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(311.5,256.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="325.0" y="326" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="325.0" dy="0">pi 0.5</tspan><tspan x="325.0" dy="20">backbone 冻结, 只训 ac</tspan></text>
-<text x="325.0" y="356" font-size="12" fill="#5f6b7a" text-anchor="middle">tion expert</text>
-<rect x="210.5" y="497.5" width="234" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="208" y="494" width="234" height="105" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
-<circle cx="325.0" cy="494" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
-<circle cx="325.0" cy="494" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
-<g transform="translate(311.5,480.5) scale(1.1250)">
+<rect x="195.5" y="285.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="193" y="282" width="264" height="140" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="325.0" cy="282" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="325.0" cy="282" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(311.5,268.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
+<text x="325.0" y="338" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="325.0" dy="0">pi 0.5</tspan><tspan x="325.0" dy="20">backbone 冻结, 只训 ac</tspan></text>
+<text x="325.0" y="368" font-size="12" fill="#5f6b7a" text-anchor="middle">tion expert</text>
+<rect x="210.5" y="521.5" width="234" height="107" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="208" y="518" width="234" height="107" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
+<circle cx="325.0" cy="518" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
+<circle cx="325.0" cy="518" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
+<g transform="translate(311.5,504.5) scale(1.1250)">
   <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
   <circle cx="12" cy="12" r="3" />
 </g>
-<text x="325.0" y="550" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="325.0" dy="0">RoboCasa 仿真场景 k</tspan><tspan x="325.0" dy="20">成功自动判定 (二值)</tspan></text>
-<rect x="195.5" y="688.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="193" y="685" width="264" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="325.0" cy="685" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="325.0" cy="685" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(311.5,671.5) scale(1.1250)">
+<text x="325.0" y="574" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="325.0" dy="0">RoboCasa 仿真场景 k</tspan><tspan x="325.0" dy="20">成功自动判定 (二值)</tspan></text>
+<rect x="195.5" y="724.5" width="264" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="193" y="721" width="264" height="140" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
+<circle cx="325.0" cy="721" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
+<circle cx="325.0" cy="721" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
+<g transform="translate(311.5,707.5) scale(1.1250)">
   <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
   <path d="M21 3v5h-5" />
   <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
   <path d="M8 16H3v5" />
 </g>
-<text x="325.0" y="741" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="325.0" dy="0">G = 8 条 rollout / 组</tspan><tspan x="325.0" dy="20">shared-prefix 共享采样</tspan></text>
-<text x="325.0" y="771" font-size="12" fill="#5f6b7a" text-anchor="middle">路径</text>
-<rect x="192.5" y="912.5" width="270" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="190" y="909" width="270" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="325.0" cy="909" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="325.0" cy="909" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(311.5,895.5) scale(1.1250)">
+<text x="325.0" y="777" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="325.0" dy="0">G = 8 条 rollout / 组</tspan><tspan x="325.0" dy="20">shared-prefix 共享采样</tspan></text>
+<text x="325.0" y="807" font-size="12" fill="#5f6b7a" text-anchor="middle">路径</text>
+<rect x="192.5" y="960.5" width="270" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="190" y="957" width="270" height="140" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
+<circle cx="325.0" cy="957" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
+<circle cx="325.0" cy="957" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
+<g transform="translate(311.5,943.5) scale(1.1250)">
   <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
   <path d="M20 2v4" />
   <path d="M22 4h-4" />
   <circle cx="4" cy="20" r="2" />
 </g>
-<text x="325.0" y="965" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="325.0" dy="0">任务级 GRPO (核心)</tspan><tspan x="325.0" dy="20">组内归一化限制在同一任务</tspan></text>
-<text x="325.0" y="995" font-size="12" fill="#5f6b7a" text-anchor="middle">内:</text>
-<rect x="337.5" y="49.5" width="269" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="335" y="46" width="269" height="138" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
+<text x="325.0" y="1013" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="325.0" dy="0">任务级 GRPO (核心)</tspan><tspan x="325.0" dy="20">组内归一化限制在同一任务</tspan></text>
+<text x="325.0" y="1043" font-size="12" fill="#5f6b7a" text-anchor="middle">内:</text>
+<rect x="337.5" y="49.5" width="269" height="140" rx="14" fill="#37474f" opacity="0.13"/>
+<rect x="335" y="46" width="269" height="140" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
 <circle cx="469.5" cy="46" r="24" fill="#ffffff" stroke="#ad1457" stroke-width="1.8"/>
 <circle cx="469.5" cy="46" r="27.5" fill="none" stroke="#ad1457" stroke-width="1" opacity="0.35"/>
 <g transform="translate(456.0,32.5) scale(0.1055)"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" opacity="0.2"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></g>
 <text x="469.5" y="102" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="469.5" dy="0">success-aware reward </tspan><tspan x="469.5" dy="20">decay</tspan></text>
 <text x="469.5" y="132" font-size="12" fill="#5f6b7a" text-anchor="middle">奖励权重 x 0.998^累计成</text>
-<g transform="translate(325.0,451.0)"><rect x="-42.4" y="-11" width="84.8" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;在线交互&quot;</text></g>
-<g transform="translate(461.8,639.0)"><rect x="-74.2" y="-11" width="148.4" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;防过度优化简单任务&quot;</text></g>
-<g transform="translate(351.4,1490.7)"><rect x="-95.2" y="-11" width="190.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;clipped 更新 (无 critic,</text></g>
-<text x="40" y="1167.5" font-size="12" fill="#78909c">图例</text>
-<g><rect x="86" y="1153" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1164" r="4.2" fill="#2e7d32"/><text x="110" y="1168" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
-<g><rect x="191.43" y="1153" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="1164" r="4.2" fill="#00695c"/><text x="215.43" y="1168" font-size="11.5" fill="#004d40">环境</text></g>
-<g><rect x="265.81" y="1153" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="278.81" cy="1164" r="4.2" fill="#ef6c00"/><text x="289.81" y="1168" font-size="11.5" fill="#9a4d00">关键组件</text></g>
-<g><rect x="364.57" y="1153" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="377.57" cy="1164" r="4.2" fill="#546e7a"/><text x="388.57" y="1168" font-size="11.5" fill="#37474f">循环/反馈</text></g>
-<g><rect x="470.0" y="1153" width="62.38" height="22" rx="11" fill="url(#g-reward)" stroke="#ad1457" stroke-width="1.3"/><circle cx="483.0" cy="1164" r="4.2" fill="#ad1457"/><text x="494.0" y="1168" font-size="11.5" fill="#880e4f">奖励</text></g>
-<g><rect x="544.38" y="1153" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="557.38" cy="1164" r="4.2" fill="#ef6c00"/><text x="568.38" y="1168" font-size="11.5" fill="#b34700">可训练模块</text></g>
-<text x="40" y="1207" font-size="11.5" fill="#78909c">线型</text>
-<g><path d="M 80 1203 h 44" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)"/><text x="132" y="1207" font-size="11.5" fill="#263238">主数据流</text></g>
-<g><path d="M 212.76 1203 h 44" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)"/><text x="264.76" y="1207" font-size="11.5" fill="#546e7a">信息流</text></g>
-<g><path d="M 333.33 1203 h 44" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)"/><text x="385.33" y="1207" font-size="11.5" fill="#c62828">损失/监督</text></g>
-<g><path d="M 472.76 1203 h 44" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)"/><text x="524.76" y="1207" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
+<g transform="translate(325.0,470.0)"><rect x="-42.4" y="-11" width="84.8" height="22" rx="11" fill="#ffffff" stroke="#263238" stroke-width="1.2"/><text y="4" font-size="12" fill="#263238" font-weight="600" text-anchor="middle">&quot;在线交互&quot;</text></g>
+<g transform="translate(469.5,643.8)"><rect x="-74.2" y="-11" width="148.4" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">&quot;防过度优化简单任务&quot;</text></g>
+<g transform="translate(481.0,1558.7)"><rect x="-95.2" y="-11" width="190.4" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">&quot;clipped 更新 (无 critic,</text></g>
+<text x="40" y="1227.5" font-size="12" fill="#78909c">图例</text>
+<g><rect x="86" y="1213" width="93.43" height="22" rx="11" fill="url(#g-data)" stroke="#2e7d32" stroke-width="1.3"/><circle cx="99" cy="1224" r="4.2" fill="#2e7d32"/><text x="110" y="1228" font-size="11.5" fill="#1b5e20">数据/输入</text></g>
+<g><rect x="191.43" y="1213" width="62.38" height="22" rx="11" fill="url(#g-env)" stroke="#00695c" stroke-width="1.3"/><circle cx="204.43" cy="1224" r="4.2" fill="#00695c"/><text x="215.43" y="1228" font-size="11.5" fill="#004d40">环境</text></g>
+<g><rect x="265.81" y="1213" width="86.76" height="22" rx="11" fill="url(#g-key)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="278.81" cy="1224" r="4.2" fill="#ef6c00"/><text x="289.81" y="1228" font-size="11.5" fill="#9a4d00">关键组件</text></g>
+<g><rect x="364.57" y="1213" width="93.43" height="22" rx="11" fill="url(#g-loop)" stroke="#546e7a" stroke-width="1.3"/><circle cx="377.57" cy="1224" r="4.2" fill="#546e7a"/><text x="388.57" y="1228" font-size="11.5" fill="#37474f">循环/反馈</text></g>
+<g><rect x="470.0" y="1213" width="62.38" height="22" rx="11" fill="url(#g-reward)" stroke="#ad1457" stroke-width="1.3"/><circle cx="483.0" cy="1224" r="4.2" fill="#ad1457"/><text x="494.0" y="1228" font-size="11.5" fill="#880e4f">奖励</text></g>
+<g><rect x="544.38" y="1213" width="98.95" height="22" rx="11" fill="url(#g-train)" stroke="#ef6c00" stroke-width="1.3"/><circle cx="557.38" cy="1224" r="4.2" fill="#ef6c00"/><text x="568.38" y="1228" font-size="11.5" fill="#b34700">可训练模块</text></g>
+<text x="40" y="1267" font-size="11.5" fill="#78909c">线型</text>
+<g><path d="M 80 1263 h 44" stroke="#263238" stroke-width="4.4" marker-end="url(#arr-thick)"/><text x="132" y="1267" font-size="11.5" fill="#263238">主数据流</text></g>
+<g><path d="M 212.76 1263 h 44" stroke="#546e7a" stroke-width="3.2" marker-end="url(#arr-main)"/><text x="264.76" y="1267" font-size="11.5" fill="#546e7a">信息流</text></g>
+<g><path d="M 333.33 1263 h 44" stroke="#c62828" stroke-width="2.8" stroke-dasharray="3 4.5 11 4.5" marker-end="url(#arr-loss)"/><text x="385.33" y="1267" font-size="11.5" fill="#c62828">损失/监督</text></g>
+<g><path d="M 472.76 1263 h 44" stroke="#1565c0" stroke-width="2.8" stroke-dasharray="12 7" marker-end="url(#arr-fb)"/><text x="524.76" y="1267" font-size="11.5" fill="#1565c0">闭环反馈</text></g>
 </svg>

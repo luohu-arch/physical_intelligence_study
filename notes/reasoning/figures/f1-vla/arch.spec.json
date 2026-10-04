@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "state",
    "cls": "loop",
-   "x": 60,
-   "y": 140,
-   "w": 167,
-   "h": 92
+   "x": 1217,
+   "y": 46,
+   "w": 165,
+   "h": 106
   },
   {
    "id": "LANG",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "loop",
-   "x": 72,
-   "y": 290,
-   "w": 148,
-   "h": 92
+   "x": 567,
+   "y": 46,
+   "w": 150,
+   "h": 106
   },
   {
    "id": "PERC",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "eye",
    "cls": "loop",
-   "x": 330,
-   "y": 460,
-   "w": 167,
-   "h": 92
+   "x": 632,
+   "y": 248,
+   "w": 165,
+   "h": 106
   },
   {
    "id": "GEN",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 610,
-   "y": 460,
-   "w": 204,
-   "h": 92
+   "x": 613,
+   "y": 450,
+   "w": 202,
+   "h": 106
   },
   {
    "id": "CTRL",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 1080,
-   "y": 460,
-   "w": 167,
-   "h": 92
+   "x": 632,
+   "y": 854,
+   "w": 165,
+   "h": 106
   },
   {
    "id": "TGT",
@@ -61,21 +61,21 @@
    "sub": "",
    "icon": "camera",
    "cls": "loop",
-   "x": 860,
-   "y": 200,
-   "w": 204,
-   "h": 92
+   "x": 613,
+   "y": 652,
+   "w": 202,
+   "h": 106
   },
   {
    "id": "ROBOT",
-   "label": "机器人动作序列 a_t \n至 a_t+T",
+   "label": "机器人动作序列 a_t 至 a\n_t+T",
    "sub": "",
    "icon": "robot",
    "cls": "loop",
-   "x": 1350,
-   "y": 460,
-   "w": 231,
-   "h": 93
+   "x": 580,
+   "y": 1056,
+   "w": 267,
+   "h": 107
   },
   {
    "id": "BASE",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 330,
-   "y": 712,
-   "w": 210,
-   "h": 88
+   "x": 46,
+   "y": 46,
+   "w": 229,
+   "h": 106
   },
   {
    "id": "LF",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 610,
-   "y": 712,
-   "w": 204,
-   "h": 88
+   "x": 755,
+   "y": 46,
+   "w": 202,
+   "h": 106
   },
   {
    "id": "LA",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 1080,
-   "y": 712,
-   "w": 218,
-   "h": 88
+   "x": 313,
+   "y": 46,
+   "w": 216,
+   "h": 106
   },
   {
    "id": "LJ",
@@ -116,126 +116,78 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 1350,
-   "y": 712,
-   "w": 186,
-   "h": 88
+   "x": 995,
+   "y": 46,
+   "w": 184,
+   "h": 106
   }
  ],
  "edges": [
   {
    "from": "OBS",
    "to": "PERC",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.35
+   "style": "thick"
   },
   {
    "from": "LANG",
    "to": "PERC",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.7
+   "style": "thick"
   },
   {
    "from": "PERC",
    "to": "GEN",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "GEN",
    "to": "TGT",
-   "style": "thick",
-   "out": "top",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "TGT",
    "to": "CTRL",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.4
+   "style": "thick"
   },
   {
    "from": "OBS",
    "to": "CTRL",
-   "style": "thick",
-   "out": "top",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.7,
-   "k": 25
+   "style": "thick"
   },
   {
    "from": "CTRL",
    "to": "ROBOT",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "LF",
    "to": "GEN",
-   "style": "fb",
-   "out": "top",
-   "pos_out": 0.5,
-   "in": "bottom",
-   "pos_in": 0.35
+   "style": "fb"
   },
   {
    "from": "LA",
    "to": "CTRL",
-   "style": "fb",
-   "out": "top",
-   "pos_out": 0.5,
-   "in": "bottom",
-   "pos_in": 0.5
+   "style": "fb"
   }
  ],
  "panels": [
   {
-   "label": "Mixture-of-Transformer 三专家",
-   "x": 290,
-   "y": 385,
-   "w": 990,
-   "h": 195
-  },
-  {
-   "label": "训练与初始化",
-   "x": 300,
-   "y": 660,
-   "w": 1290,
-   "h": 175
+   "label": "Mixture-of-Trans",
+   "x": 587,
+   "y": 202,
+   "w": 254,
+   "h": 780
   }
  ],
  "canvas": [
-  1622,
-  920
+  1428,
+  1345
  ],
  "legend": [
   "loop"
  ],
- "layout_wh": [
-  1622,
-  892
- ],
  "title": "f1-vla",
  "subtitle": "F1-VLA 在 VLA 决策流程中引入显式视觉前瞻（visual foresight）生成——先预测「目标状态应该长什么样」，再通过逆向动力学将前瞻转化为动作，相比传统 VL",
  "foot": "f1-vla · arXiv 2509.06951 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    OBS[当前观测 o_t]:::data\n    LANG[语言指令 l]:::data\n\n    subgraph MOT[\"Mixture-of-Transformer 三专家\"]\n        PERC[感知专家<br/>多模态 Transformer 编码]:::frozen\n        GEN[前瞻生成专家<br/>下一尺度预测 逐尺度残差精修]:::key\n        CTRL[控制专家<br/>前瞻引导逆动力学]:::act\n    end\n\n    OBS ==> PERC\n    LANG ==> PERC\n    PERC ==> GEN\n    GEN ==> TGT[未来视觉状态<br/>t+tau 步目标画面]:::env\n    TGT ==> CTRL\n    OBS ==> CTRL\n    CTRL ==> ROBOT([机器人动作序列 a_t 至 a_t+T]):::act\n    BASE[pi_0 预训练权重基座]:::frozen -.初始化.-> PERC\n    LF[前瞻生成损失<br/>与真实未来帧 L2]:::loss\n    LA[动作负对数似然损失]:::loss\n    LF -.-> GEN\n    LA -.-> CTRL\n    LJ[三阶段训练<br/>对齐预训练 - 联合预训练 - 平台微调]:::loss\n    LJ -.alpha/beta 加权联合优化.-> GEN\n    ROBOT -.每 action chunk 执行完重新生成前瞻.-> OBS\n\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,color:#0d47a1\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

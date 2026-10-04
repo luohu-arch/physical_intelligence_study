@@ -6,21 +6,21 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 535,
-   "y": 104,
-   "w": 151,
-   "h": 92
+   "x": 234,
+   "y": 63,
+   "w": 150,
+   "h": 106
   },
   {
    "id": "PRJ",
-   "label": "正交投影\ntop / front / righ",
-   "sub": "t 三视图",
+   "label": "正交投影\ntop / front / right ",
+   "sub": "三视图",
    "icon": "refresh",
    "cls": "loop",
-   "x": 493,
-   "y": 250,
-   "w": 233,
-   "h": 126
+   "x": 462,
+   "y": 282,
+   "w": 251,
+   "h": 140
   },
   {
    "id": "LANG",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "data",
-   "x": 254,
-   "y": 250,
-   "w": 140,
-   "h": 92
+   "x": 46,
+   "y": 63,
+   "w": 150,
+   "h": 106
   },
   {
    "id": "SL",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "frozen",
-   "x": 502,
-   "y": 440,
-   "w": 215,
-   "h": 93
+   "x": 370,
+   "y": 518,
+   "w": 213,
+   "h": 107
   },
   {
    "id": "GM",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "chat",
    "cls": "train",
-   "x": 230,
-   "y": 455,
-   "w": 187,
-   "h": 93
+   "x": 240,
+   "y": 298,
+   "w": 185,
+   "h": 107
   },
   {
    "id": "TOK",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "loop",
-   "x": 502,
-   "y": 590,
-   "w": 215,
-   "h": 93
+   "x": 370,
+   "y": 721,
+   "w": 213,
+   "h": 107
   },
   {
    "id": "UPS",
@@ -72,10 +72,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "train",
-   "x": 500,
-   "y": 720,
-   "w": 220,
-   "h": 93
+   "x": 485,
+   "y": 924,
+   "w": 218,
+   "h": 107
   },
   {
    "id": "HTM",
@@ -83,21 +83,21 @@
    "sub": "",
    "icon": "spark",
    "cls": "key",
-   "x": 499,
-   "y": 850,
-   "w": 222,
-   "h": 93
+   "x": 460,
+   "y": 1127,
+   "w": 220,
+   "h": 107
   },
   {
    "id": "BP",
-   "label": "反投影到工作区 3D \n点网格",
+   "label": "反投影到工作区 3D 点网\n格",
    "sub": "取三视角均分最高点",
    "icon": "spark",
    "cls": "key",
-   "x": 499,
-   "y": 982,
-   "w": 222,
-   "h": 126
+   "x": 473,
+   "y": 1330,
+   "w": 256,
+   "h": 140
   },
   {
    "id": "TRANS",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 528,
-   "y": 1148,
-   "w": 164,
-   "h": 92
+   "x": 268,
+   "y": 1566,
+   "w": 162,
+   "h": 106
   },
   {
    "id": "POOL",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "stack",
    "cls": "train",
-   "x": 760,
-   "y": 720,
-   "w": 199,
-   "h": 93
+   "x": 250,
+   "y": 924,
+   "w": 197,
+   "h": 107
   },
   {
    "id": "MLP",
@@ -127,10 +127,10 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 790,
-   "y": 850,
-   "w": 140,
-   "h": 92
+   "x": 272,
+   "y": 1128,
+   "w": 150,
+   "h": 106
   },
   {
    "id": "ROT",
@@ -138,10 +138,10 @@
    "sub": "",
    "icon": "robot",
    "cls": "act",
-   "x": 753,
-   "y": 982,
-   "w": 213,
-   "h": 93
+   "x": 224,
+   "y": 1346,
+   "w": 211,
+   "h": 107
   },
   {
    "id": "ZOOM",
@@ -149,10 +149,10 @@
    "sub": "",
    "icon": "refresh",
    "cls": "loop",
-   "x": 750,
-   "y": 1148,
-   "w": 218,
-   "h": 93
+   "x": 468,
+   "y": 1566,
+   "w": 216,
+   "h": 107
   },
   {
    "id": "LHM",
@@ -160,21 +160,21 @@
    "sub": "",
    "icon": "sigma",
    "cls": "loop",
-   "x": 110,
-   "y": 850,
-   "w": 182,
-   "h": 93
+   "x": 422,
+   "y": 62,
+   "w": 180,
+   "h": 107
   },
   {
    "id": "LMISC",
-   "label": "损失 L_rot / L_gri\npper / L_collision",
+   "label": "损失 L_rot / L_gripper\n / L_collision",
    "sub": "bin 分类 CE + BCE",
    "icon": "sigma",
    "cls": "loop",
-   "x": 990,
-   "y": 831,
-   "w": 233,
-   "h": 126
+   "x": 640,
+   "y": 46,
+   "w": 267,
+   "h": 140
   }
  ],
  "edges": [
@@ -226,10 +226,7 @@
   {
    "from": "TOK",
    "to": "POOL",
-   "style": "main",
-   "out": "right",
-   "in": "top",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "POOL",
@@ -245,16 +242,12 @@
    "from": "ZOOM",
    "to": "PC",
    "style": "fb",
-   "label": "\"第二次前向精化 (coarse-to-fine",
-   "out": "right",
-   "in": "right",
-   "pos_out": 0.5,
-   "pos_in": 0.5,
-   "k": 287,
-   "loff": [
-    -135,
-    0
-   ]
+   "label": "\"第二次前向精化 (coarse-to-fi",
+   "out": "bottom",
+   "in": "bottom",
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 1588
   },
   {
    "from": "BP",
@@ -264,7 +257,10 @@
   {
    "from": "LHM",
    "to": "HTM",
-   "style": "fb"
+   "style": "fb",
+   "out": "right",
+   "in": "right",
+   "k": 60
   },
   {
    "from": "LMISC",
@@ -274,23 +270,16 @@
  ],
  "panels": [
   {
-   "label": "输入对齐 (3D 压回 2D)",
-   "x": 228,
-   "y": 78,
-   "w": 524,
-   "h": 324
-  },
-  {
-   "label": "PaliGemma 主干 (3B)",
-   "x": 204,
-   "y": 412,
-   "w": 537,
-   "h": 160
+   "label": "输入对齐 (3D 压回 2D) · PaliGemma 主干 (3B",
+   "x": 20,
+   "y": 17,
+   "w": 720,
+   "h": 629
   }
  ],
  "canvas": [
-  1295,
-  1330
+  953,
+  1855
  ],
  "legend": [
   "act",
@@ -300,13 +289,9 @@
   "loop",
   "train"
  ],
- "layout_wh": [
-  2328,
-  695
- ],
  "title": "bridgevla",
  "subtitle": "BridgeVLA 主张 3D VLA 的瓶颈不在「要不要 3D 信息」，而在「输入输出是否与 VLM 预训练分布对齐」：它先用 120K 目标检测数据（RoboPoint）把",
  "foot": "bridgevla · arXiv 2506.07961 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph IN[\"输入对齐 (3D 压回 2D)\"]\n        PC([\"RGB-D 点云\"]) --> PRJ[\"正交投影<br/>top / front / right 三视图\"]\n        LANG([\"语言指令\"])\n    end\n    subgraph VLM[\"PaliGemma 主干 (3B)\"]\n        SL[\"SigLip 视觉编码器<br/>(全程冻结)\"]\n        GM[\"Gemma 语言主干<br/>(微调更新)\"]\n    end\n    PRJ ==> SL\n    LANG ==> GM\n    SL --> TOK\n    GM --> TOK[\"多模态 token<br/>重排为 patch 网格\"]\n    TOK --> UPS[\"凸上采样<br/>(可学习逐像素插值)\"]\n    UPS --> HTM[\"每视角一张 2D 热图<br/>(与输入同坐标系)\"]\n    HTM --> BP[\"反投影到工作区 3D 点网格<br/>取三视角均分最高点\"]\n    BP ==> TRANS([\"末端平移目标\"])\n    TOK --> POOL[\"逐视角 max-pool<br/>+ 峰值 token\"]\n    POOL --> MLP[\"MLP 头\"]\n    MLP ==> ROT([\"72-bin 旋转<br/>+ 夹爪 + 碰撞旗标\"])\n    ZOOM[\"以粗位置为中心<br/>裁剪放大长方体点云\"] -.->|\"第二次前向精化<br/>(coarse-to-fine)\"| PC\n    BP --> ZOOM\n    LHM[\"损失 L_trans<br/>高斯热图交叉熵\"] -.-> HTM\n    LMISC[\"损失 L_rot / L_gripper / L_collision<br/>bin 分类 CE + BCE\"] -.-> MLP\n\n    class PC,LANG data\n    class SL frozen\n    class GM,UPS,POOL,MLP train\n    class HTM,BP key\n    class TRANS,ROT act\n    class ZOOM loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100"
 }

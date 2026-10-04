@@ -2,25 +2,25 @@
  "nodes": [
   {
    "id": "D",
-   "label": "离线 play 数据集 D\nOGBench / robomimi",
-   "sub": "c",
+   "label": "离线 play 数据集 D\nOGBench / robomimic",
+   "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 50,
-   "y": 150,
-   "w": 233,
-   "h": 126
+   "x": 59,
+   "y": 46,
+   "w": 241,
+   "h": 107
   },
   {
    "id": "FB",
-   "label": "flow 行为策略 f_be\nta",
-   "sub": "预测 h 步 chunk, ",
+   "label": "flow 行为策略 f_beta\n预测 h 步 chunk, 捕获",
+   "sub": "非马尔可夫时序结构",
    "icon": "stack",
    "cls": "train",
-   "x": 383,
-   "y": 150,
-   "w": 227,
-   "h": 126
+   "x": 53,
+   "y": 249,
+   "w": 253,
+   "h": 140
   },
   {
    "id": "BUF",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "db",
    "cls": "mem",
-   "x": 1448,
-   "y": 460,
-   "w": 230,
-   "h": 92
+   "x": 66,
+   "y": 1126,
+   "w": 228,
+   "h": 106
   },
   {
    "id": "ENV",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "gear",
    "cls": "env",
-   "x": 1463,
-   "y": 150,
-   "w": 175,
-   "h": 92
+   "x": 90,
+   "y": 924,
+   "w": 179,
+   "h": 106
   },
   {
    "id": "EXE",
@@ -50,32 +50,32 @@
    "sub": "",
    "icon": "gear",
    "cls": "act",
-   "x": 1163,
-   "y": 150,
-   "w": 190,
-   "h": 93
+   "x": 80,
+   "y": 721,
+   "w": 198,
+   "h": 107
   },
   {
    "id": "BON",
-   "label": "best-of-N 选择\na* = argmax Q, KL ",
-   "sub": "上界 log N",
+   "label": "best-of-N 选择\na* = argmax Q, KL 上界",
+   "sub": " log N",
    "icon": "lightning",
    "cls": "act",
-   "x": 720,
-   "y": 150,
-   "w": 233,
-   "h": 126
+   "x": 46,
+   "y": 485,
+   "w": 267,
+   "h": 140
   },
   {
    "id": "KEYQ",
-   "label": "chunked critic Q_t\nheta (核心)",
+   "label": "chunked critic Q_thet\na (核心)",
    "sub": "Q(s_t, a_t:t+h)",
    "icon": "target",
    "cls": "key",
-   "x": 720,
-   "y": 460,
-   "w": 233,
-   "h": 126
+   "x": 49,
+   "y": 1328,
+   "w": 261,
+   "h": 140
   }
  ],
  "edges": [
@@ -87,12 +87,7 @@
   {
    "from": "D",
    "to": "BUF",
-   "style": "main",
-   "out": "top",
-   "in": "top",
-   "pos_out": 0.5,
-   "pos_in": 0.95,
-   "k": 46
+   "style": "main"
   },
   {
    "from": "ENV",
@@ -101,8 +96,8 @@
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 40
+   "pos_in": 0.6,
+   "k": 724
   },
   {
    "from": "EXE",
@@ -113,11 +108,7 @@
    "from": "FB",
    "to": "BON",
    "style": "thick",
-   "label": "\"采样 N 个 chunk (N = 16-64",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"采样 N 个 chunk (N = 16-"
   },
   {
    "from": "KEYQ",
@@ -127,42 +118,26 @@
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.3,
-   "pos_in": 0.55,
-   "k": 74,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_in": 0.6,
+   "k": 927
   },
   {
    "from": "BON",
    "to": "EXE",
    "style": "thick",
-   "label": "\"选中的 chunk 块内开环执行\"",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"选中的 chunk 块内开环执行\""
   },
   {
    "from": "ENV",
    "to": "BUF",
    "style": "thick",
-   "label": "\"(s_t, a*_t, s_t+1, r_t)",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"(s_t, a*_t, s_t+1, r_"
   },
   {
    "from": "BUF",
    "to": "KEYQ",
    "style": "thick",
-   "label": "\"高层转移 w = (s_t, a_t:t+h,",
-   "loff": [
-    0,
-    -18
-   ]
+   "label": "\"高层转移 w = (s_t, a_t:t+"
   },
   {
    "from": "BUF",
@@ -171,42 +146,34 @@
    "label": "\"flow-matching 损失\"",
    "out": "bottom",
    "in": "bottom",
-   "pos_out": 0.5,
-   "pos_in": 0.5,
-   "k": 130,
-   "loff": [
-    0,
-    -18
-   ]
+   "pos_out": 0.3,
+   "pos_in": 0.6,
+   "k": 1163
   },
   {
    "from": "KEYQ",
    "to": "KEYQ",
    "style": "loss",
-   "label": "\"TD: Q <- R^h + gamma^h ",
+   "label": "\"TD: Q <- R^h + gamma^",
    "out": "bottom",
    "in": "bottom",
-   "pos_out": 0.25,
-   "pos_in": 0.75,
-   "k": 40,
-   "loff": [
-    0,
-    -20
-   ]
+   "pos_out": 0.7,
+   "pos_in": 0.3,
+   "k": 56
   }
  ],
  "panels": [
   {
-   "label": "在线交互回路 (每 h = 5 步重规划)",
-   "x": 1147,
-   "y": 124,
-   "w": 505,
-   "h": 180
+   "label": "在线交互回路 (每 h = 5 ",
+   "x": 54,
+   "y": 675,
+   "w": 250,
+   "h": 377
   }
  ],
  "canvas": [
-  1700,
-  780
+  359,
+  1650
  ],
  "legend": [
   "act",
@@ -216,13 +183,9 @@
   "mem",
   "train"
  ],
- "layout_wh": [
-  2021,
-  346
- ],
  "title": "q-chunking",
  "subtitle": "Problem**：offline-to-online RL 在长程稀疏奖励任务上卡在两件事——1-step TD 值传播慢（有效 horizon H=1/(1-γ) 内每步只",
  "foot": "q-chunking · arXiv 2507.07969 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    D[(\"离线 play 数据集 D<br/>OGBench / robomimic\")] --> FB[\"flow 行为策略 f_beta<br/>预测 h 步 chunk, 捕获非马尔可夫时序结构<br/>(QC: best-of-N 隐式提取 / QC-FQL: 显式 actor + W2 约束)\"]\n    D --> BUF[(\"回放缓冲 + 离线数据\")]\n    subgraph LOOP[\"在线交互回路 (每 h = 5 步重规划)\"]\n        ENV[\"环境 (MuJoCo)\"] --> EXE([\"开环执行 chunk<br/>每步仍写单步转移\"])\n        EXE --> ENV\n    end\n    FB ==>|\"采样 N 个 chunk (N = 16-64)\"| BON[\"best-of-N 选择<br/>a* = argmax Q, KL 上界 log N\"]\n    KEYQ[\"chunked critic Q_theta (核心)<br/>Q(s_t, a_t:t+h)<br/>TD backup = 无偏 n-step return\"] ==>|\"为 chunk 排序\"| BON\n    BON ==>|\"选中的 chunk 块内开环执行\"| EXE\n    ENV ==>|\"(s_t, a*_t, s_t+1, r_t)\"| BUF\n    BUF ==>|\"高层转移 w = (s_t, a_t:t+h, s_t+h, R^h)\"| KEYQ\n    BUF -.->|\"flow-matching 损失\"| FB\n    KEYQ -.->|\"TD: Q <- R^h + gamma^h * Q_bar(s_t+h, 下一 chunk)\"| KEYQ\n\n    class D data\n    class FB train\n    class BUF mem\n    class ENV env\n    class EXE,BON act\n    class KEYQ key\n    class LOOP loop\n    classDef data fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef mem fill:#fffde7,stroke:#f9a825,color:#f57f17\n    classDef env fill:#e0f2f1,stroke:#00695c,color:#004d40\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f"
 }

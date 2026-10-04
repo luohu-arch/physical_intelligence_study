@@ -6,43 +6,43 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 80,
-   "y": 180,
-   "w": 230,
-   "h": 93
+   "x": 46,
+   "y": 46,
+   "w": 180,
+   "h": 107
   },
   {
    "id": "ADAPT",
-   "label": "1x1 灰度转 RGB 适配\n器",
-   "sub": "初始化为恒等拷贝",
+   "label": "1x1 灰度转 RGB 适配器\n初始化为恒等拷贝",
+   "sub": "",
    "icon": "camera",
    "cls": "train",
-   "x": 80,
-   "y": 345,
-   "w": 230,
-   "h": 126
+   "x": 125,
+   "y": 249,
+   "w": 251,
+   "h": 107
   },
   {
    "id": "VAE",
-   "label": "冻结 LTX 视觉 VAE \n编码器",
+   "label": "冻结 LTX 视觉 VAE 编码\n器",
    "sub": "十指共享权重",
    "icon": "camera",
    "cls": "frozen",
-   "x": 80,
-   "y": 510,
-   "w": 230,
-   "h": 126
+   "x": 358,
+   "y": 452,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "FIV",
-   "label": "每手 5 指各一份 lat\nent 网格",
+   "label": "每手 5 指各一份 latent\n 网格",
    "sub": "",
-   "icon": "gear",
+   "icon": "noise",
    "cls": "env",
-   "x": 80,
-   "y": 675,
-   "w": 230,
-   "h": 93
+   "x": 358,
+   "y": 688,
+   "w": 261,
+   "h": 107
   },
   {
    "id": "ADD",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "cpu",
    "cls": "train",
-   "x": 80,
-   "y": 840,
-   "w": 230,
-   "h": 92
+   "x": 372,
+   "y": 891,
+   "w": 234,
+   "h": 106
   },
   {
    "id": "POSE",
@@ -61,65 +61,65 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 470,
-   "y": 180,
-   "w": 235,
-   "h": 92
+   "x": 264,
+   "y": 46,
+   "w": 165,
+   "h": 106
   },
   {
    "id": "PE",
-   "label": "位姿编码器\n零初始化增益 alpha_",
-   "sub": "q",
+   "label": "位姿编码器\n零初始化增益 alpha_q",
+   "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 470,
-   "y": 345,
-   "w": 235,
-   "h": 126
+   "x": 414,
+   "y": 249,
+   "w": 241,
+   "h": 107
   },
   {
    "id": "POOL",
-   "label": "逐格 6-token 集合自\n注意力",
-   "sub": "手查询 + 5 指 toke",
+   "label": "逐格 6-token 集合自注意\n力",
+   "sub": "手查询 + 5 指 token, ",
    "icon": "stack",
    "cls": "key",
-   "x": 470,
-   "y": 560,
-   "w": 235,
-   "h": 126
+   "x": 354,
+   "y": 1093,
+   "w": 269,
+   "h": 140
   },
   {
    "id": "ST",
-   "label": "分治时空注意力\n覆盖 T_lat 与 H x ",
-   "sub": "W 网格",
+   "label": "分治时空注意力\n覆盖 T_lat 与 H x W 网",
+   "sub": "格",
    "icon": "cpu",
    "cls": "train",
-   "x": 470,
-   "y": 760,
-   "w": 235,
-   "h": 126
+   "x": 356,
+   "y": 1329,
+   "w": 264,
+   "h": 140
   },
   {
    "id": "TLAT",
-   "label": "每手触觉 latent\n128 x T_lat x 6 x ",
-   "sub": "8",
+   "label": "每手触觉 latent\n128 x T_lat x 6 x 8",
+   "sub": "作为额外一个视角",
    "icon": "noise",
    "cls": "key",
-   "x": 470,
-   "y": 950,
-   "w": 235,
-   "h": 126
+   "x": 368,
+   "y": 1565,
+   "w": 241,
+   "h": 140
   },
   {
    "id": "VIS",
-   "label": "头部 + 腕部 RGB 视\n角",
+   "label": "头部 + 腕部 RGB 视角",
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 1150,
-   "y": 180,
-   "w": 225,
-   "h": 93
+   "x": 690,
+   "y": 46,
+   "w": 241,
+   "h": 106
   },
   {
    "id": "LAT",
@@ -127,43 +127,43 @@
    "sub": "",
    "icon": "camera",
    "cls": "env",
-   "x": 1150,
-   "y": 330,
-   "w": 161,
-   "h": 92
+   "x": 693,
+   "y": 250,
+   "w": 159,
+   "h": 106
   },
   {
    "id": "DIT",
-   "label": "视频扩散 DiT\nV = V_v + V_tau 视",
-   "sub": "角联合去噪",
+   "label": "视频扩散 DiT\nV = V_v + V_tau 视角联",
+   "sub": "合去噪",
    "icon": "cpu",
    "cls": "train",
-   "x": 1150,
-   "y": 520,
-   "w": 232,
-   "h": 126
+   "x": 356,
+   "y": 1801,
+   "w": 266,
+   "h": 140
   },
   {
    "id": "S",
-   "label": "视触觉联合世界状态 \ns_t",
-   "sub": "触觉接触演化被显式预",
+   "label": "视触觉联合世界状态 s_t\n触觉接触演化被显式预测",
+   "sub": "",
    "icon": "state",
    "cls": "env",
-   "x": 1150,
-   "y": 700,
-   "w": 232,
-   "h": 126
+   "x": 360,
+   "y": 2037,
+   "w": 256,
+   "h": 107
   },
   {
    "id": "ACT",
    "label": "动作专家\n共享交叉注意力",
-   "sub": "逐模态 K/V RMS 归一",
+   "sub": "逐模态 K/V RMS 归一化(",
    "icon": "lightning",
    "cls": "train",
-   "x": 1150,
-   "y": 880,
-   "w": 232,
-   "h": 126
+   "x": 358,
+   "y": 2240,
+   "w": 261,
+   "h": 140
   },
   {
    "id": "PROP",
@@ -171,181 +171,117 @@
    "sub": "",
    "icon": "state",
    "cls": "data",
-   "x": 830,
-   "y": 700,
-   "w": 187,
-   "h": 92
+   "x": 467,
+   "y": 46,
+   "w": 185,
+   "h": 106
   },
   {
    "id": "OUT",
-   "label": "194 维动作\n60 维指尖力 + 臂 EE",
-   "sub": "F 位姿",
+   "label": "194 维动作\n60 维指尖力 + 臂 EEF ",
+   "sub": "位姿",
    "icon": "robot",
    "cls": "act",
-   "x": 1150,
-   "y": 1046,
-   "w": 232,
-   "h": 126
+   "x": 362,
+   "y": 2476,
+   "w": 253,
+   "h": 140
   }
  ],
  "edges": [
   {
    "from": "FING",
    "to": "ADAPT",
-   "style": "main",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "ADAPT",
    "to": "VAE",
-   "style": "main",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "VAE",
    "to": "FIV",
-   "style": "main",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "FIV",
    "to": "ADD",
-   "style": "main",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "POSE",
    "to": "PE",
-   "style": "main",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.38
+   "style": "main"
   },
   {
    "from": "ADD",
    "to": "POOL",
-   "style": "main",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "PE",
    "to": "POOL",
-   "style": "main",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "POOL",
    "to": "ST",
-   "style": "main",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "ST",
    "to": "TLAT",
-   "style": "main",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "VIS",
    "to": "LAT",
-   "style": "main",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.7
+   "style": "main"
   },
   {
    "from": "LAT",
    "to": "DIT",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.35
+   "style": "thick"
   },
   {
    "from": "TLAT",
    "to": "DIT",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.2,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "DIT",
    "to": "S",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "S",
    "to": "ACT",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "PROP",
    "to": "ACT",
-   "style": "thick",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "ACT",
    "to": "OUT",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "thick"
   }
  ],
  "panels": [
   {
-   "label": "触觉压缩器 (5:1 压缩, 保 89.4% 接触召回)",
-   "x": 40,
-   "y": 136,
-   "w": 730,
-   "h": 980
+   "label": "触觉压缩器 (5:1 压缩, 保",
+   "x": 20,
+   "y": 0,
+   "w": 661,
+   "h": 1727
   }
  ],
  "canvas": [
-  1420,
-  1270
+  977,
+  2798
  ],
  "legend": [
   "act",
@@ -355,13 +291,9 @@
   "key",
   "train"
  ],
- "layout_wh": [
-  921,
-  2292
- ],
  "title": "dextacwam",
  "subtitle": "DexTacWAM 把 TacWAM 一系的视触觉世界建模从平行夹爪推进到 22-DoF 双灵巧手：核心主张是**触觉接触演化本身要作为被预测世界状态的一部分**（$s_t=\\",
  "foot": "dextacwam · arXiv 2609.24976 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart TD\n    subgraph TACT[\"触觉压缩器 (5:1 压缩, 保 89.4% 接触召回)\"]\n        FING([\"十指指尖触觉图<br/>单通道\"]) --> ADAPT[\"1x1 灰度转 RGB 适配器<br/>初始化为恒等拷贝\"]\n        ADAPT --> VAE[\"冻结 LTX 视觉 VAE 编码器<br/>十指共享权重\"]\n        VAE --> FIV[\"每手 5 指各一份 latent 网格\"]\n        FIV --> ADD[\"加可学习手指身份嵌入\"]\n        POSE([\"手部位姿 q_t\"]) --> PE[\"位姿编码器<br/>零初始化增益 alpha_q\"]\n        ADD --> POOL[\"逐格 6-token 集合自注意力<br/>手查询 + 5 指 token, 保留手查询\"]\n        PE --> POOL\n        POOL --> ST[\"分治时空注意力<br/>覆盖 T_lat 与 H x W 网格\"]\n        ST --> TLAT[\"每手触觉 latent<br/>128 x T_lat x 6 x 8<br/>作为额外一个视角\"]\n    end\n\n    VIS([\"头部 + 腕部 RGB 视角\"]) --> LAT[\"视觉 latent\"]\n    LAT ==> DIT[\"视频扩散 DiT<br/>V = V_v + V_tau 视角联合去噪<br/>分模态加权 flow-matching 损失\"]\n    TLAT ==> DIT\n    DIT ==> S[\"视触觉联合世界状态 s_t<br/>触觉接触演化被显式预测\"]\n    S ==> ACT[\"动作专家<br/>共享交叉注意力<br/>逐模态 K/V RMS 归一化(硬依赖)\"]\n    PROP([\"本体状态 token\"]) ==> ACT\n    ACT ==> OUT[\"194 维动作<br/>60 维指尖力 + 臂 EEF 位姿<br/>+ 手目标 + 本体\"]\n\n    class FING,POSE,VIS,PROP data\n    class VAE frozen\n    class ADAPT,ADD,PE,ST,DIT,ACT train\n    class FIV,LAT,S env\n    class POOL,TLAT key\n    class OUT act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f"
 }

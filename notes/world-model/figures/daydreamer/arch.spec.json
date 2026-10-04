@@ -6,10 +6,10 @@
    "sub": "",
    "icon": "camera",
    "cls": "data",
-   "x": 50,
-   "y": 170,
-   "w": 230,
-   "h": 93
+   "x": 362,
+   "y": 46,
+   "w": 228,
+   "h": 107
   },
   {
    "id": "ENC",
@@ -17,10 +17,10 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 380,
-   "y": 170,
-   "w": 236,
-   "h": 93
+   "x": 264,
+   "y": 249,
+   "w": 234,
+   "h": 107
   },
   {
    "id": "POLICY",
@@ -28,10 +28,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "act",
-   "x": 1120,
-   "y": 170,
-   "w": 230,
-   "h": 93
+   "x": 268,
+   "y": 1530,
+   "w": 228,
+   "h": 107
   },
   {
    "id": "S0",
@@ -39,10 +39,10 @@
    "sub": "",
    "icon": "db",
    "cls": "data",
-   "x": 1490,
-   "y": 170,
-   "w": 182,
-   "h": 92
+   "x": 292,
+   "y": 1733,
+   "w": 180,
+   "h": 106
   },
   {
    "id": "ENC2",
@@ -50,10 +50,10 @@
    "sub": "",
    "icon": "eye",
    "cls": "train",
-   "x": 50,
-   "y": 570,
-   "w": 195,
-   "h": 92
+   "x": 272,
+   "y": 452,
+   "w": 220,
+   "h": 106
   },
   {
    "id": "WM",
@@ -61,10 +61,10 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 585,
-   "y": 570,
-   "w": 205,
-   "h": 92
+   "x": 274,
+   "y": 856,
+   "w": 215,
+   "h": 106
   },
   {
    "id": "DEC",
@@ -72,10 +72,10 @@
    "sub": "行为学习阶段不调用",
    "icon": "state",
    "cls": "train",
-   "x": 790,
-   "y": 395,
-   "w": 210,
-   "h": 126
+   "x": 46,
+   "y": 1058,
+   "w": 216,
+   "h": 140
   },
   {
    "id": "RWD",
@@ -83,10 +83,10 @@
    "sub": "",
    "icon": "reward",
    "cls": "reward",
-   "x": 480,
-   "y": 405,
-   "w": 146,
-   "h": 92
+   "x": 567,
+   "y": 1075,
+   "w": 150,
+   "h": 106
   },
   {
    "id": "TRAIN",
@@ -94,10 +94,10 @@
    "sub": "",
    "icon": "graph",
    "cls": "train",
-   "x": 1480,
-   "y": 570,
-   "w": 190,
-   "h": 93
+   "x": 282,
+   "y": 1935,
+   "w": 198,
+   "h": 106
   },
   {
    "id": "Z",
@@ -105,10 +105,10 @@
    "sub": "",
    "icon": "state",
    "cls": "train",
-   "x": 345,
-   "y": 570,
-   "w": 140,
-   "h": 92
+   "x": 306,
+   "y": 654,
+   "w": 150,
+   "h": 106
   },
   {
    "id": "A",
@@ -116,10 +116,10 @@
    "sub": "",
    "icon": "lightning",
    "cls": "data",
-   "x": 640,
-   "y": 405,
-   "w": 140,
-   "h": 92
+   "x": 174,
+   "y": 46,
+   "w": 150,
+   "h": 106
   },
   {
    "id": "IMAG",
@@ -127,10 +127,10 @@
    "sub": "无需环境步进",
    "icon": "gear",
    "cls": "key",
-   "x": 890,
-   "y": 570,
-   "w": 200,
-   "h": 126
+   "x": 300,
+   "y": 1058,
+   "w": 229,
+   "h": 140
   },
   {
    "id": "ACT",
@@ -138,10 +138,10 @@
    "sub": "纯潜空间更新",
    "icon": "lightning",
    "cls": "act",
-   "x": 1190,
-   "y": 570,
-   "w": 200,
-   "h": 126
+   "x": 136,
+   "y": 1294,
+   "w": 226,
+   "h": 140
   },
   {
    "id": "CRIT",
@@ -149,88 +149,58 @@
    "sub": "",
    "icon": "target",
    "cls": "reward",
-   "x": 1040,
-   "y": 405,
-   "w": 230,
-   "h": 93
+   "x": 400,
+   "y": 1310,
+   "w": 228,
+   "h": 107
   }
  ],
  "edges": [
   {
    "from": "SENS",
    "to": "ENC",
-   "style": "main",
-   "out": "right",
-   "in": "left"
+   "style": "main"
   },
   {
    "from": "POLICY",
    "to": "S0",
    "style": "fb",
-   "label": "\"新真机经验入池\"",
-   "out": "right",
-   "pos_out": 0.5,
-   "in": "left",
-   "pos_in": 0.5
+   "label": "\"新真机经验入池\""
   },
   {
    "from": "ENC",
    "to": "ENC2",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.15,
-   "in": "top",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "ENC2",
    "to": "Z",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "A",
    "to": "WM",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.6
+   "style": "thick"
   },
   {
    "from": "Z",
    "to": "WM",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "WM",
    "to": "DEC",
-   "style": "main",
-   "out": "top",
-   "pos_out": 0.85,
-   "in": "bottom",
-   "pos_in": 0.25
+   "style": "main"
   },
   {
    "from": "WM",
    "to": "RWD",
-   "style": "main",
-   "out": "top",
-   "pos_out": 0.1,
-   "in": "bottom",
-   "pos_in": 0.5
+   "style": "main"
   },
   {
    "from": "S0",
    "to": "TRAIN",
-   "style": "thick",
-   "out": "bottom",
-   "pos_out": 0.5,
-   "in": "top",
-   "pos_in": 0.53
+   "style": "thick"
   },
   {
    "from": "TRAIN",
@@ -240,60 +210,41 @@
    "in": "bottom",
    "pos_out": 0.3,
    "pos_in": 0.6,
-   "k": 45
+   "k": 927
   },
   {
    "from": "WM",
    "to": "IMAG",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "IMAG",
    "to": "ACT",
-   "style": "thick",
-   "out": "right",
-   "in": "left"
+   "style": "thick"
   },
   {
    "from": "IMAG",
    "to": "CRIT",
-   "style": "thick",
-   "out": "top",
-   "pos_out": 0.6,
-   "in": "bottom",
-   "pos_in": 0.5
+   "style": "thick"
   },
   {
    "from": "ACT",
    "to": "POLICY",
-   "style": "thick",
-   "out": "top",
-   "pos_out": 0.5,
-   "in": "bottom",
-   "pos_in": 0.74
+   "style": "thick"
   }
  ],
  "panels": [
   {
-   "label": "真机物理世界 (4 平台同一组超参)",
-   "x": 30,
-   "y": 130,
-   "w": 1660,
-   "h": 172
-  },
-  {
-   "label": "RSSM 世界模型 (单 GPU 训练)",
-   "x": 30,
-   "y": 352,
-   "w": 1660,
-   "h": 374
+   "label": "真机物理世界 (4 平台同一组超 · RSSM 世界模型 (单 GPU",
+   "x": 20,
+   "y": 0,
+   "w": 723,
+   "h": 2063
   }
  ],
  "canvas": [
-  1700,
-  830
+  763,
+  2223
  ],
  "legend": [
   "act",
@@ -302,13 +253,9 @@
   "reward",
   "train"
  ],
- "layout_wh": [
-  2809,
-  612
- ],
  "title": "daydreamer",
  "subtitle": "把 Dreamer（基于 DreamerV2 实现 + 异步 actor/learner）原封不动部署到 A1 四足、UR5 与 XArm 机械臂、Sphero 轮式机器人共 ",
  "foot": "daydreamer · arXiv 2206.14176 · v3 auto",
- "source": "mermaid-auto",
+ "source": "relayout-v2+T",
  "mermaid_original": "%%{init: {\n  'theme':'base',\n  'themeVariables':{\n    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',\n    'fontFamily':'\"PingFang SC\",\"Hiragino Sans GB\",\"Microsoft YaHei\",sans-serif',\n    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'\n  },\n  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}\n}}%%\nflowchart LR\n    subgraph REAL[\"真机物理世界 (4 平台同一组超参)\"]\n        SENS([\"传感器<br/>相机图像 + 本体感知\"]) --> ENC[\"编码器<br/>多模态融合为观测表征\"]\n        POLICY[\"策略部署到真机硬件<br/>异步 actor-learner\"] -.->|\"新真机经验入池\"| S0[(\"真机经验回放池\")]\n    end\n\n    subgraph WMT[\"RSSM 世界模型 (单 GPU 训练)\"]\n        ENC2[\"编码为离散隐码 z_t\"]\n        WM[\"RSSM 循环状态 h_t\"]\n        DEC[\"解码器<br/>仅训练期重建观测<br/>行为学习阶段不调用\"]\n        RWD[\"奖励预测头\"]\n        TRAIN[\"世界模型监督训练\"]\n    end\n\n    ENC ==> ENC2\n    ENC2 ==> Z[\"隐状态 z_t\"]\n    A([\"动作 a_t\"]) ==> WM\n    Z ==> WM\n    WM --> DEC\n    WM --> RWD\n    S0 ==> TRAIN\n    TRAIN ==> IMAG[\"潜空间想象 rollout<br/>批量并行至 16K 轨迹<br/>无需环境步进\"]\n    WM ==> IMAG\n    IMAG ==> ACT[\"actor pi<br/>Reinforce + 熵正则<br/>纯潜空间更新\"]\n    IMAG ==> CRIT[\"critic v<br/>lambda-return 回归\"]\n    ACT ==> POLICY\n\n    class SENS,A data\n    class S0 data\n    class ENC,ENC2,Z,WM,DEC,TRAIN train\n    class IMAG key\n    class RWD,CRIT reward\n    class ACT,POLICY act\n    classDef data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20\n    classDef frozen fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1\n    classDef train fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100\n    classDef loss fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c,stroke-dasharray:6 3\n    classDef act fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c\n    classDef key fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100\n    classDef loop fill:#eceff1,stroke:#546e7a,stroke-width:1.5px,color:#37474f,stroke-dasharray:4 3\n    classDef env fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#004d40\n    classDef reward fill:#fce4ec,stroke:#ad1457,stroke-width:2px,color:#880e4f"
 }
