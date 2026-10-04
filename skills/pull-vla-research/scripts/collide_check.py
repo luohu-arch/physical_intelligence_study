@@ -76,6 +76,8 @@ def check(spec, svg_path):
         r = nrect[a["id"]]
         if r[2] > W+8 or r[3] > H+8 or r[0] < -8 or r[1] < 40:
             issues.append(("out", a["id"]))
+        if r[1] < 126:
+            issues.append(("title-zone", a["id"]))
         for b in nodes[i+1:]:
             if ov(r, nrect[b["id"]]):
                 issues.append(("n-ovl", f'{a["id"]}~{b["id"]}'))
@@ -83,6 +85,8 @@ def check(spec, svg_path):
         for j in range(i+1, len(panels_r)):
             if ov(panels_r[i], panels_r[j], pad=4):
                 issues.append(("p-ovl", f"panel{i}~panel{j}"))
+        if panels_r[i][1] < 130:
+            issues.append(("panel-title", f"panel{i}"))
     for i, a in enumerate(pills):
         for nid, r in nrect.items():
             if ov(a[:4], r):
