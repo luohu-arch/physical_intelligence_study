@@ -158,7 +158,7 @@ spec 是 JSON：title/subtitle/foot、canvas、panels（虚线分组）、nodes�
 
 门禁 diagram 检查已接受 mermaid 或 v3 SVG 两者之一；文本层面 SVG 同样可 diff。
 
-**3) 验证流程**（必须全过再嵌入）：`xml.etree` 解析过 → `qlmanage -t -s 1600` 或本地 http 服务 + 浏览器截图（GitHub 渲染的 ground truth 是浏览器）→ 视觉模型只问 BAD（文字溢出/箭头穿卡/图标缺失/布局空洞）。soffice 对部分 SVG 加载失败，不要用它做 SVG 校验。
+**3) 验证流程**（必须全过再嵌入）：`xml.etree` 解析过 → `qlmanage -t -s 1600` 或本地 http 服务 + 浏览器截图（GitHub 渲染的 ground truth 是浏览器）→ 视觉模型只问 BAD（文字溢出/箭头穿卡/图标缺失/布局空洞）。soffice 对部分 SVG 加载失败，不要用它做 SVG 校验。**像素级间距问题（徽章-文字/药丸-药丸/文字-边框）必须用 ≥1400px 全分辨率单图检查；8 宫格蒙太奇只适合查布局级问题，在 5px 级擦碰上是盲的**（2026-10-04 徽章压字事故教训：全库 138 张返工）。
 
 **4) 布局经验**：列间距 ≥100px（箭头通道，防"穿卡"观感）；长反馈回路用 out bottom/in bottom + k≥70 压底走线；标签药丸放不进缝隙时用 loff 挪到通道外侧；同通道双向边（如 Q⇄蒸馏）错开 pos_out/pos_in；CJK 宽度系数 1.06（粗体实测）；同行节点 ≥5 个时间距 ×1.4。
 
