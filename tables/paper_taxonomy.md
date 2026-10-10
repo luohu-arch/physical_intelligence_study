@@ -1,6 +1,6 @@
 # Paper Taxonomy — VLA & World Model Research
 
-全部 129 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类（RL 赛道 38 篇分 9 个物理子目录）。
+全部 133 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类（RL 赛道 42 篇分 9 个物理子目录；10 月新增多智能体线 4 篇）。
 
 ---
 
@@ -63,11 +63,11 @@
 **dexterous/（灵巧操作 RL，4 篇）**：dexora, torl-vla, hapticvla, grits
 **planning/（分层/规划 RL，3 篇）**：omniretarget, dlo-routing, lessmimic
 **agentic-robot/（机器人侧 agentic 闭环，5 篇）**：harbor, enpire, agentic-robotics-loop, playful-agentic, humanvid-selfimprove
-**agentic-training/（LLM 侧训练系统，5 篇）**：lego-rl, polar, lite-researcher, arlarena, harness-1
-**agentic-algo/（算法与稳定性，5 篇）**：ragen-2, g2po, reasoning-to-agentic, dataprm, coskill
+**agentic-training/（LLM 侧训练系统，7 篇）**：lego-rl, polar, lite-researcher, arlarena, harness-1, maporl, dr-mas
+**agentic-algo/（算法与稳定性，7 篇）**：ragen-2, g2po, reasoning-to-agentic, dataprm, coskill, goa, more-agents
 **agentic-app/（应用，3 篇）**：tool-r0, openclaw-rl, tongyi-deepresearch
 
-38 篇（9 月新增：dexterous/facet0，agentic-robot/robo-harness-k1 + kintsugi-vla，vla/vlarl）
+42 篇（9 月新增：dexterous/facet0，agentic-robot/robo-harness-k1 + kintsugi-vla，vla/vlarl；10 月新增多智能体线：maporl/dr-mas 共训 RL + goa/more-agents 推理时协作）
 
 ---
 
@@ -105,6 +105,7 @@
 ## Briefs（综述与行业大纲卡）— notes/briefs/
 
 **世界模型综述卡**：wam-survey-brief, wmrm-survey-brief, wrl-survey-brief, wm-comprehensive-brief
+**多智能体综述卡**：ma-collab-survey-brief
 **行业简报**：gen-1, gene-26-5, 2026-vla-research-brief
 
 （大纲卡按 *-brief.md 命名，门禁自动豁免深度检查）
@@ -122,7 +123,7 @@
 | Architecture | 34 | 动作怎么表示和生成 |
 | Reasoning | 15 | 长程任务中的时序推理 |
 | World Model | 31 | 如何建模环境动力学 |
-| RL | 42 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
+| RL | 46 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
 | Memory | 8 | 如何让机器人不忘记 |
 
 **演进方向**：动作表示升级（频域/VQ/联合编码）→ 世界模型从被动预测变主动训练环境（WAM）→ RL 从 demo 走向自我改进 → 自我改进再升级为 agentic 闭环（coding agent 驱动 harness 自动化，HARBOR/ENPIRE 线）→ 记忆从外挂变成架构核心 → 3D 几何回归
