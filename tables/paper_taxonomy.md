@@ -1,6 +1,6 @@
 # Paper Taxonomy — VLA & World Model Research
 
-全部 133 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类（RL 赛道 42 篇分 9 个物理子目录；10 月新增多智能体线 4 篇）。
+全部 139 篇论文，按 7 个深度赛道 + 1 个大纲卡赛道分类（RL 赛道 47 篇；10 月新增多智能体线 4 篇 + ICL 线 5 篇）。
 
 ---
 
@@ -17,6 +17,7 @@
 **Action Chunking 理论**：why-chunking-works, chunking-exploratory
 **数据多样性**：diversity-is-all-you-need
 **Agentic VLA / 执行中心 VLM**：art-vla-agent, capek05
+**上下文模仿 ICL**：icrt
 **公司论文（甄别入档）**：agibot-world-go1, graspvla
 
 34 篇
@@ -57,7 +58,7 @@
 
 ## RL（RL 方法）— notes/rl/（物理子目录按子线组织）
 
-**core/（RL 基础方法，5 篇）**：flashsac, rl-100, diayn, q-chunking, dqc
+**core/（RL 基础方法，6 篇）**：flashsac, rl-100, diayn, q-chunking, dqc, algorithm-distillation
 **vla/（VLA + RL，6 篇）**：rl-token, simplevla-rl, rove, z-1, vlac, smoothrl
 **sim2real/（2 篇）**：viserdex, phys2real
 **dexterous/（灵巧操作 RL，4 篇）**：dexora, torl-vla, hapticvla, grits
@@ -78,6 +79,7 @@
 **空间地图记忆**：serf, echovla
 **多模块记忆**：robomemory
 **状态化训练记忆**：statelinformation
+**上下文学习 ICL**：icl-what-algorithm, icl-task-vectors, many-shot-icl
 **世界模型持续学习**：wam-ttt
 
 43 篇
@@ -106,6 +108,7 @@
 
 **世界模型综述卡**：wam-survey-brief, wmrm-survey-brief, wrl-survey-brief, wm-comprehensive-brief
 **多智能体综述卡**：ma-collab-survey-brief
+**ICL 综述双卡**：icl-survey-brief
 **行业简报**：gen-1, gene-26-5, 2026-vla-research-brief
 
 （大纲卡按 *-brief.md 命名，门禁自动豁免深度检查）
@@ -120,10 +123,10 @@
 
 | 赛道 | 篇数 | 核心问题 |
 |------|------|---------|
-| Architecture | 34 | 动作怎么表示和生成 |
+| Architecture | 35 | 动作怎么表示和生成 |
 | Reasoning | 15 | 长程任务中的时序推理 |
 | World Model | 31 | 如何建模环境动力学 |
-| RL | 46 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
-| Memory | 8 | 如何让机器人不忘记 |
+| RL | 47 | 如何超越模仿学习上限（含 agentic 闭环与 LLM 侧训练系统） |
+| Memory | 11 | 如何让机器人不忘记 |
 
 **演进方向**：动作表示升级（频域/VQ/联合编码）→ 世界模型从被动预测变主动训练环境（WAM）→ RL 从 demo 走向自我改进 → 自我改进再升级为 agentic 闭环（coding agent 驱动 harness 自动化，HARBOR/ENPIRE 线）→ 记忆从外挂变成架构核心 → 3D 几何回归
