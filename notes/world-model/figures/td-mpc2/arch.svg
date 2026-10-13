@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1061" height="1789" viewBox="24 98 1061 1789" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1173" height="1985" viewBox="26 112 1173 1985" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>td-mpc2</title>
-<rect x="24" y="98" width="1061" height="1789" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">td-mpc2</text>
-<text x="1063" y="128" font-size="12" fill="#57606a" text-anchor="end">TD-MPC2 在一个不含解码器的隐式（joint-embedding）世界模型上做局部轨迹优化：encoder 把观测压成 SimNorm 归一化的 latent，laten</text>
+<rect x="26" y="112" width="1173" height="1985" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">td-mpc2</text>
+<text x="1177" y="142" font-size="12" fill="#57606a" text-anchor="end">TD-MPC2 在一个不含解码器的隐式（joint-embedding）世界模型上做局部轨迹优化：encoder 把观测压成 SimNorm 归一化的 latent，laten</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,67 +10,67 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 405.0 254.0 L 555.0 353.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 649.0 255.0 L 555.0 353.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 555.0 457.0 L 555.0 555.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 422.0 624.0 L 315.0 860.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 688.0 624.0 L 628.0 624.0 L 628.0 860.0 L 913.0 860.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 555.0 693.0 L 751.0 808.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 555.0 693.0 L 471.0 791.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 315.0 860.0 L 426.0 1096.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 471.0 929.0 L 554.0 1027.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 554.0 1165.0 L 554.5 1263.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 554.5 1401.0 L 555.0 1499.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 555.0 1603.0 L 554.0 1701.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="330" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="330" y1="156" x2="330" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="405.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">状态 s</text>
-<rect x="480" y="353" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="480" y1="359" x2="480" y2="451" stroke="#1a7f37" stroke-width="3"/>
-<text x="555.0" y="409.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">编码器 h</text>
-<rect x="518" y="150" width="262" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="518" y1="156" x2="518" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="649.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可学习任务嵌入 e</text>
-<text x="649.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">单 agent 跨域共享 317M</text>
-<rect x="422" y="555" width="266" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="422" y1="561" x2="422" y2="687" stroke="#0b57d0" stroke-width="3"/>
-<text x="555.0" y="609.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">latent z</text>
-<text x="555.0" y="627.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SimNorm 单纯形 softmax</text>
-<text x="555.0" y="647.5" font-size="11.5" fill="#57606a" text-anchor="middle">消融 46.8-&gt;51.0</text>
-<rect x="46" y="791" width="269" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="797" x2="46" y2="923" stroke="#1a7f37" stroke-width="3"/>
-<text x="180.5" y="845.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动力学 d: 预测下一</text>
-<text x="180.5" y="863.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">latent</text>
-<text x="180.5" y="883.5" font-size="11.5" fill="#57606a" text-anchor="middle">免解码器的隐式世界模型</text>
-<rect x="913" y="808" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="913" y1="814" x2="913" y2="906" stroke="#8a5a00" stroke-width="3"/>
-<text x="988.0" y="864.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">奖励头 R</text>
-<rect x="627" y="808" width="248" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="627" y1="814" x2="627" y2="907" stroke="#8a5a00" stroke-width="3"/>
-<text x="751.0" y="855.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">5 x Q 集成 + dropout</text>
-<text x="751.0" y="873.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Q-ensemble 提至 57.0</text>
-<rect x="353" y="791" width="236" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="353" y1="797" x2="353" y2="923" stroke="#1a7f37" stroke-width="3"/>
-<text x="471.0" y="845.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">策略先验 p 最大熵</text>
-<text x="471.0" y="863.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">熵只在有效动作维计算</text>
-<text x="471.0" y="883.5" font-size="11.5" fill="#57606a" text-anchor="middle">(多动作空间关键细节)</text>
-<rect x="426" y="1027" width="256" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="426" y1="1033" x2="426" y2="1159" stroke="#0b57d0" stroke-width="3"/>
-<text x="554.0" y="1081.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">MPPI 规划器</text>
-<text x="554.0" y="1099.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">horizon 3, 迭代 6, 种</text>
-<text x="554.0" y="1119.5" font-size="11.5" fill="#57606a" text-anchor="middle">群 512</text>
-<rect x="421" y="1263" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="421" y1="1269" x2="421" y2="1395" stroke="#0b57d0" stroke-width="3"/>
-<text x="554.5" y="1317.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">执行首动作随即重规划</text>
-<text x="554.5" y="1335.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">80 任务 normalized</text>
-<text x="554.5" y="1355.5" font-size="11.5" fill="#57606a" text-anchor="middle">70.6</text>
-<rect x="480" y="1499" width="150" height="104" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="480" y1="1505" x2="480" y2="1597" stroke="#bf3989" stroke-width="3"/>
-<text x="555.0" y="1555.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">回放缓冲 B</text>
-<rect x="422" y="1701" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="422" y1="1707" x2="422" y2="1833" stroke="#1a7f37" stroke-width="3"/>
-<text x="554.0" y="1755.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">全部头联合训练</text>
-<text x="554.0" y="1773.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">JEP + 奖励 CE + 价值</text>
-<text x="554.0" y="1793.5" font-size="11.5" fill="#57606a" text-anchor="middle">CE</text>
-<text x="1063" y="1877" font-size="10.5" fill="#8c959f" text-anchor="end">td-mpc2 · arXiv 2310.16828 · v3 auto</text>
+<path d="M 445.0 272.0 L 613.0 395.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 711.0 273.0 L 613.0 395.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 613.0 499.0 L 606.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 473.0 691.0 L 321.0 955.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 739.0 691.0 L 1023.0 957.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 606.0 760.0 L 826.0 905.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 606.0 760.0 L 513.0 886.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 321.0 955.0 L 477.0 1219.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 513.0 1024.0 L 605.0 1150.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 605.0 1288.0 L 605.5 1415.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 605.5 1553.0 L 613.0 1679.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 613.0 1783.0 L 605.0 1905.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="370" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="370" y1="174" x2="370" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="445.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">状态 s</text>
+<rect x="538" y="395" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="538" y1="401" x2="538" y2="493" stroke="#1a7f37" stroke-width="3"/>
+<text x="613.0" y="450.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">编码器 h</text>
+<rect x="580" y="168" width="262" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="580" y1="174" x2="580" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="711.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可学习任务嵌入 e</text>
+<text x="711.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">单 agent 跨域共享 317M</text>
+<rect x="473" y="622" width="266" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="473" y1="628" x2="473" y2="754" stroke="#0b57d0" stroke-width="3"/>
+<text x="606.0" y="671.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">latent z</text>
+<text x="606.0" y="692.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SimNorm 单纯形 softmax</text>
+<text x="606.0" y="721.25" font-size="12.5" fill="#57606a" text-anchor="middle">消融 46.8-&gt;51.0</text>
+<rect x="52" y="886" width="269" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="892" x2="52" y2="1018" stroke="#1a7f37" stroke-width="3"/>
+<text x="186.5" y="935.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动力学 d: 预测下一</text>
+<text x="186.5" y="956.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">latent</text>
+<text x="186.5" y="985.25" font-size="12.5" fill="#57606a" text-anchor="middle">免解码器的隐式世界模型</text>
+<rect x="1023" y="905" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1023" y1="911" x2="1023" y2="1003" stroke="#8a5a00" stroke-width="3"/>
+<text x="1098.0" y="960.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">奖励头 R</text>
+<rect x="702" y="905" width="248" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="702" y1="911" x2="702" y2="1004" stroke="#8a5a00" stroke-width="3"/>
+<text x="826.0" y="950.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">5 x Q 集成 + dropout</text>
+<text x="826.0" y="971.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Q-ensemble 提至 57.0</text>
+<rect x="395" y="886" width="236" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="395" y1="892" x2="395" y2="1018" stroke="#1a7f37" stroke-width="3"/>
+<text x="513.0" y="935.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">策略先验 p 最大熵</text>
+<text x="513.0" y="956.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">熵只在有效动作维计算</text>
+<text x="513.0" y="985.25" font-size="12.5" fill="#57606a" text-anchor="middle">(多动作空间关键细节)</text>
+<rect x="477" y="1150" width="256" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="477" y1="1156" x2="477" y2="1282" stroke="#0b57d0" stroke-width="3"/>
+<text x="605.0" y="1199.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">MPPI 规划器</text>
+<text x="605.0" y="1220.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">horizon 3, 迭代 6, 种</text>
+<text x="605.0" y="1249.25" font-size="12.5" fill="#57606a" text-anchor="middle">群 512</text>
+<rect x="472" y="1415" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="472" y1="1421" x2="472" y2="1547" stroke="#0b57d0" stroke-width="3"/>
+<text x="605.5" y="1464.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">执行首动作随即重规划</text>
+<text x="605.5" y="1485.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">80 任务 normalized</text>
+<text x="605.5" y="1514.25" font-size="12.5" fill="#57606a" text-anchor="middle">70.6</text>
+<rect x="538" y="1679" width="150" height="104" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="538" y1="1685" x2="538" y2="1777" stroke="#bf3989" stroke-width="3"/>
+<text x="613.0" y="1734.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">回放缓冲 B</text>
+<rect x="473" y="1905" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="473" y1="1911" x2="473" y2="2037" stroke="#1a7f37" stroke-width="3"/>
+<text x="605.0" y="1954.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">全部头联合训练</text>
+<text x="605.0" y="1975.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">JEP + 奖励 CE + 价值</text>
+<text x="605.0" y="2004.25" font-size="12.5" fill="#57606a" text-anchor="middle">CE</text>
+<text x="1177" y="2085" font-size="10.5" fill="#8c959f" text-anchor="end">td-mpc2 · arXiv 2310.16828 · v3 auto</text>
 </svg>

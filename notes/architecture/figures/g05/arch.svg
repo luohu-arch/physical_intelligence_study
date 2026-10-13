@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1649" height="2242" viewBox="-2 51 1649 2242" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1818" height="2493" viewBox="-4 59 1818 2493" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>g05</title>
-<rect x="-2" y="51" width="1649" height="2242" fill="#ffffff"/>
-<text x="20" y="81" font-size="14" font-weight="700" fill="#1f2328">g05</text>
-<text x="1625" y="81" font-size="12" fill="#57606a" text-anchor="end">G0.5 以 Qwen3.5 2B 为底座，用单一 next-token cross-entropy 目标在同一个 token 流里生成 CoT（Subtask/BBox/Tr</text>
+<rect x="-4" y="59" width="1818" height="2493" fill="#ffffff"/>
+<text x="18" y="89" font-size="14" font-weight="700" fill="#1f2328">g05</text>
+<text x="1792" y="89" font-size="12" fill="#57606a" text-anchor="end">G0.5 以 Qwen3.5 2B 为底座，用单一 next-token cross-entropy 目标在同一个 token 流里生成 CoT（Subtask/BBox/Tr</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,91 +10,91 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="103" width="1327" height="222" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="123" font-size="11.5" font-weight="600" fill="#57606a">conditioning 段 (用户 token)</text>
-<rect x="676" y="322" width="319" height="1475" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="690" y="342" font-size="11.5" font-weight="600" fill="#57606a">单一自回归 token 流 (Qwen3.5 2B 单</text>
-<text x="690" y="357" font-size="11.5" font-weight="600" fill="#57606a">decoder)</text>
-<path d="M 1106.0 218.5 L 490.0 218.5 L 490.0 438.0 L 910.0 438.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 279.0 219.0 L 219.0 219.0 L 219.0 438.0 L 760.0 438.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 467.0 219.0 L 407.0 219.0 L 407.0 438.0 L 760.0 438.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 635.5 271.0 L 835.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 835.0 490.0 L 835.5 588.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 835.5 743.0 L 835.0 824.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 835.0 928.0 L 836.0 1026.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 836.0 1164.0 L 836.0 1229.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 836.0 1334.0 L 836.0 1432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 836.0 1570.0 L 835.5 1635.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 936.0 288.0 L 835.0 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1359.0 219.0 L 966.0 665.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 835.5 1773.0 L 835.5 1871.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 835.5 2009.0 L 835.5 2107.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 782.5 2245.0 L 782.5 1348.0 L 1235.0 1348.0 L 1235.0 271.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="1106" y="166" width="215" height="105" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1106" y1="172" x2="1106" y2="265" stroke="#bf3989" stroke-width="3"/>
-<text x="1213.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多视角 RGB x 6 帧</text>
-<text x="1213.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">约 5 秒视觉记忆</text>
-<rect x="46" y="167" width="233" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="162.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本体 id (14 种本体)</text>
-<rect x="317" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="317" y1="173" x2="317" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="392.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">任务指令</text>
-<rect x="505" y="167" width="261" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="505" y1="173" x2="505" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="635.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本体状态连续 embedding</text>
-<rect x="760" y="386" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="760" y1="392" x2="760" y2="484" stroke="#0b57d0" stroke-width="3"/>
-<text x="835.0" y="442.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">EOC 结束符</text>
-<rect x="705" y="588" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="705" y1="594" x2="705" y2="737" stroke="#0b57d0" stroke-width="3"/>
-<text x="835.5" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可选原生 CoT</text>
-<text x="835.5" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Subtask / BBox /</text>
-<text x="835.5" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">Trace / ActionHint</text>
-<text x="835.5" y="696.5" font-size="11.5" fill="#57606a" text-anchor="middle">(8 种组合加权采样, 可开关)</text>
-<rect x="760" y="824" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="760" y1="830" x2="760" y2="922" stroke="#0b57d0" stroke-width="3"/>
-<text x="835.0" y="880.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">EOV 结束符</text>
-<rect x="704" y="1026" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="704" y1="1032" x2="704" y2="1158" stroke="#0b57d0" stroke-width="3"/>
-<text x="836.0" y="1080.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">left_control 部件标记 </text>
-<text x="836.0" y="1098.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+</text>
-<text x="836.0" y="1118.5" font-size="11.5" fill="#57606a" text-anchor="middle">8 个 RVQ 码</text>
-<rect x="704" y="1229" width="264" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="704" y1="1235" x2="704" y2="1328" stroke="#0b57d0" stroke-width="3"/>
-<text x="836.0" y="1276.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">right_control 部件标记</text>
-<text x="836.0" y="1294.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ 8 个 RVQ 码</text>
-<rect x="704" y="1432" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="704" y1="1438" x2="704" y2="1564" stroke="#0b57d0" stroke-width="3"/>
-<text x="836.0" y="1486.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">left_gripper 部件标记 </text>
-<text x="836.0" y="1504.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+</text>
-<text x="836.0" y="1524.5" font-size="11.5" fill="#57606a" text-anchor="middle">8 个 RVQ 码</text>
-<rect x="702" y="1635" width="267" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="702" y1="1641" x2="702" y2="1767" stroke="#0b57d0" stroke-width="3"/>
-<text x="835.5" y="1689.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">共 R 轮展开</text>
-<text x="835.5" y="1707.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">idle 部件整组跳过不出</text>
-<text x="835.5" y="1727.5" font-size="11.5" fill="#57606a" text-anchor="middle">token</text>
-<rect x="804" y="150" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="804" y1="156" x2="804" y2="282" stroke="#1a7f37" stroke-width="3"/>
-<text x="936.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Qwen3.5 2B decoder</text>
-<text x="936.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(视觉塔不冻结, 全参训</text>
-<text x="936.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">练)</text>
-<rect x="1359" y="150" width="266" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1359" y1="156" x2="1359" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="1492.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">唯一损失: generative 段</text>
-<text x="1492.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">next-token 交叉熵 (</text>
-<text x="1492.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">Eq.1)</text>
-<rect x="706" y="1871" width="259" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="706" y1="1877" x2="706" y2="2003" stroke="#0b57d0" stroke-width="3"/>
-<text x="835.5" y="1925.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">ActionCodec 解码</text>
-<text x="835.5" y="1943.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RVQ 反量化回 27 维统一</text>
-<text x="835.5" y="1963.5" font-size="11.5" fill="#57606a" text-anchor="middle">动作</text>
-<rect x="703" y="2107" width="265" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="703" y1="2113" x2="703" y2="2239" stroke="#8250df" stroke-width="3"/>
-<text x="835.5" y="2161.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
-<text x="835.5" y="2179.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">下一轮动作块前重新</text>
-<text x="835.5" y="2199.5" font-size="11.5" fill="#57606a" text-anchor="middle">conditioning</text>
-<text x="885.5" y="329.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">一次前向同流生成 推理 token …</text>
-<text x="1008.8" y="1250.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重观测 + 状态</text>
-<text x="1625" y="2283" font-size="10.5" fill="#8c959f" text-anchor="end">g05 · v3 auto</text>
+<rect x="22" y="115" width="1327" height="222" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="135" font-size="11.5" font-weight="600" fill="#57606a">conditioning 段 (用户 token)</text>
+<rect x="757" y="361" width="319" height="1475" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="771" y="381" font-size="11.5" font-weight="600" fill="#57606a">单一自回归 token 流 (Qwen3.5 2B 单</text>
+<text x="771" y="396" font-size="11.5" font-weight="600" fill="#57606a">decoder)</text>
+<path d="M 1239.0 238.5 L 1001.0 484.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 285.0 239.0 L 225.0 239.0 L 225.0 484.0 L 851.0 484.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 505.0 239.0 L 445.0 239.0 L 445.0 484.0 L 851.0 484.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 696.5 291.0 L 926.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 926.0 536.0 L 920.5 659.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 920.5 814.0 L 926.0 923.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 926.0 1027.0 L 920.0 1149.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 920.0 1287.0 L 920.0 1376.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 920.0 1481.0 L 920.0 1604.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 920.0 1742.0 L 919.5 1831.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1032.0 306.0 L 926.0 432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1522.0 237.0 L 1051.0 736.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 919.5 1969.0 L 920.5 2096.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 920.5 2234.0 L 919.5 2360.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 866.5 2498.0 L 866.5 1484.5 L 1368.0 1484.5 L 1368.0 291.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="1239" y="186" width="215" height="105" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1239" y1="192" x2="1239" y2="285" stroke="#bf3989" stroke-width="3"/>
+<text x="1346.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多视角 RGB x 6 帧</text>
+<text x="1346.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">约 5 秒视觉记忆</text>
+<rect x="52" y="187" width="233" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="168.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本体 id (14 种本体)</text>
+<rect x="355" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="355" y1="193" x2="355" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="430.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">任务指令</text>
+<rect x="566" y="187" width="261" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="566" y1="193" x2="566" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="696.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本体状态连续 embedding</text>
+<rect x="851" y="432" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="851" y1="438" x2="851" y2="530" stroke="#0b57d0" stroke-width="3"/>
+<text x="926.0" y="487.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">EOC 结束符</text>
+<rect x="790" y="659" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="790" y1="665" x2="790" y2="808" stroke="#0b57d0" stroke-width="3"/>
+<text x="920.5" y="708.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可选原生 CoT</text>
+<text x="920.5" y="729.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Subtask / BBox /</text>
+<text x="920.5" y="758.0" font-size="12.5" fill="#57606a" text-anchor="middle">Trace / ActionHint</text>
+<text x="920.5" y="775.5" font-size="12.5" fill="#57606a" text-anchor="middle">(8 种组合加权采样, 可开关)</text>
+<rect x="851" y="923" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="851" y1="929" x2="851" y2="1021" stroke="#0b57d0" stroke-width="3"/>
+<text x="926.0" y="978.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">EOV 结束符</text>
+<rect x="788" y="1149" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="788" y1="1155" x2="788" y2="1281" stroke="#0b57d0" stroke-width="3"/>
+<text x="920.0" y="1198.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">left_control 部件标记 </text>
+<text x="920.0" y="1219.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+</text>
+<text x="920.0" y="1248.25" font-size="12.5" fill="#57606a" text-anchor="middle">8 个 RVQ 码</text>
+<rect x="788" y="1376" width="264" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="788" y1="1382" x2="788" y2="1475" stroke="#0b57d0" stroke-width="3"/>
+<text x="920.0" y="1421.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">right_control 部件标记</text>
+<text x="920.0" y="1442.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+ 8 个 RVQ 码</text>
+<rect x="788" y="1604" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="788" y1="1610" x2="788" y2="1736" stroke="#0b57d0" stroke-width="3"/>
+<text x="920.0" y="1653.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">left_gripper 部件标记 </text>
+<text x="920.0" y="1674.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+</text>
+<text x="920.0" y="1703.25" font-size="12.5" fill="#57606a" text-anchor="middle">8 个 RVQ 码</text>
+<rect x="786" y="1831" width="267" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="786" y1="1837" x2="786" y2="1963" stroke="#0b57d0" stroke-width="3"/>
+<text x="919.5" y="1880.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">共 R 轮展开</text>
+<text x="919.5" y="1901.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">idle 部件整组跳过不出</text>
+<text x="919.5" y="1930.25" font-size="12.5" fill="#57606a" text-anchor="middle">token</text>
+<rect x="900" y="168" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="900" y1="174" x2="900" y2="300" stroke="#1a7f37" stroke-width="3"/>
+<text x="1032.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Qwen3.5 2B decoder</text>
+<text x="1032.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(视觉塔不冻结, 全参训</text>
+<text x="1032.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">练)</text>
+<rect x="1522" y="168" width="266" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1522" y1="174" x2="1522" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="1655.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">唯一损失: generative 段</text>
+<text x="1655.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">next-token 交叉熵 (</text>
+<text x="1655.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">Eq.1)</text>
+<rect x="791" y="2096" width="259" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="791" y1="2102" x2="791" y2="2228" stroke="#0b57d0" stroke-width="3"/>
+<text x="920.5" y="2145.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">ActionCodec 解码</text>
+<text x="920.5" y="2166.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RVQ 反量化回 27 维统一</text>
+<text x="920.5" y="2195.25" font-size="12.5" fill="#57606a" text-anchor="middle">动作</text>
+<rect x="787" y="2360" width="265" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="787" y1="2366" x2="787" y2="2492" stroke="#8250df" stroke-width="3"/>
+<text x="919.5" y="2409.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
+<text x="919.5" y="2430.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">下一轮动作块前重新</text>
+<text x="919.5" y="2459.25" font-size="12.5" fill="#57606a" text-anchor="middle">conditioning</text>
+<text x="979.0" y="361.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">一次前向同流生成 推理 token …</text>
+<text x="1117.2" y="1386.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重观测 + 状态</text>
+<text x="1792" y="2540" font-size="10.5" fill="#8c959f" text-anchor="end">g05 · v3 auto</text>
 </svg>

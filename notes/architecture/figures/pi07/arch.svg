@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1721" height="1588" viewBox="24 98 1721 1588" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1897" height="1760" viewBox="26 112 1897 1760" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>pi07</title>
-<rect x="24" y="98" width="1721" height="1588" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">pi07</text>
-<text x="1723" y="128" font-size="12" fill="#57606a" text-anchor="end">π0.7 通过在训练中注入多模态上下文（语言 + 元数据 + 子目标图像），使 VLA 不仅能理解「做什么」还能理解「怎么做」，实现了推理时的 steerability、跨 e</text>
+<rect x="26" y="112" width="1897" height="1760" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">pi07</text>
+<text x="1901" y="142" font-size="12" fill="#57606a" text-anchor="end">π0.7 通过在训练中注入多模态上下文（语言 + 元数据 + 子目标图像），使 VLA 不仅能理解「做什么」还能理解「怎么做」，实现了推理时的 steerability、跨 e</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,82 +10,82 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="730" y="778" width="310" height="412" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="744" y="798" font-size="11.5" font-weight="600" fill="#57606a">pi0.7 VLA (总约 5B)</text>
-<path d="M 682.0 288.0 L 884.0 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 208.0 218.5 L 148.0 218.5 L 148.0 666.5 L 752.0 666.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 513.0 219.0 L 752.0 666.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 885.0 491.0 L 884.0 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 884.0 744.0 L 885.0 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 885.0 930.0 L 885.0 1028.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<path d="M 1454.0 227.5 L 810.0 227.5 L 810.0 438.5 L 960.0 438.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 981.5 288.0 L 981.5 748.0 L 885.0 748.0 L 885.0 1028.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1283.0 305.0 L 1283.0 565.0 L 885.0 565.0 L 885.0 825.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 885.0 1166.0 L 884.5 1264.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 884.5 1402.0 L 884.5 1500.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 833.9 1638.0 L 833.9 963.0 L 708.2 963.0 L 708.2 288.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="551" y="150" width="262" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="551" y1="156" x2="551" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="682.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">当前观测</text>
-<text x="682.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">最多 4 路 RGB + 6 帧历</text>
-<text x="682.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">史 + 关节状态</text>
-<rect x="752" y="589" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="752" y1="595" x2="752" y2="738" stroke="#0b57d0" stroke-width="3"/>
-<text x="884.0" y="644.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多模态上下文编码 (核心)</text>
-<text x="884.0" y="662.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">C_t = 指令 + 子步骤 +</text>
-<text x="884.0" y="682.5" font-size="11.5" fill="#57606a" text-anchor="middle">元数据</text>
-<text x="884.0" y="697.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 子目标图 + 控制模式</text>
-<rect x="46" y="166" width="162" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="127.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">整体任务指令</text>
-<text x="127.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(做什么)</text>
-<rect x="246" y="150" width="267" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="246" y1="156" x2="246" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="379.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">任务元数据</text>
-<text x="379.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">速度 / 质量 / 错误标记</text>
-<text x="379.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">(怎么做)</text>
-<rect x="810" y="386" width="150" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="810" y1="392" x2="810" y2="485" stroke="#0969da" stroke-width="3"/>
-<text x="885.0" y="433.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">子目标图像</text>
-<text x="885.0" y="451.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">最多 3 张</text>
-<rect x="776" y="825" width="218" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="776" y1="831" x2="776" y2="924" stroke="#1a7f37" stroke-width="3"/>
-<text x="885.0" y="872.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Gemma3 4B 骨干</text>
-<text x="885.0" y="890.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(FAST token 监督)</text>
-<rect x="756" y="1028" width="258" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="756" y1="1034" x2="756" y2="1160" stroke="#1a7f37" stroke-width="3"/>
-<text x="885.0" y="1082.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Action Expert 860M</text>
-<text x="885.0" y="1100.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">flow matching, 5 步</text>
-<text x="885.0" y="1120.5" font-size="11.5" fill="#57606a" text-anchor="middle">去噪</text>
-<rect x="1454" y="150" width="269" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1454" y1="156" x2="1454" y2="299" stroke="#57606a" stroke-width="3"/>
-<text x="1588.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">14B 子目标世界模型 (</text>
-<text x="1588.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">BAGEL)</text>
-<text x="1588.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">按观测 + 子任务异步合成子目标</text>
-<text x="1588.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">图像</text>
-<rect x="851" y="150" width="261" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="851" y1="156" x2="851" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="981.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">推理时 CFG 元数据引导</text>
-<text x="981.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">放大正向元数据影响</text>
-<text x="981.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">beta = 1.3 / 1.7 / 2.2</text>
-<rect x="1150" y="150" width="266" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1150" y1="156" x2="1150" y2="299" stroke="#8a5a00" stroke-width="3"/>
-<text x="1283.0" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失: VLM FAST token</text>
-<text x="1283.0" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">监督</text>
-<text x="1283.0" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ Action Expert 条件流匹配</text>
-<text x="1283.0" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">CFM</text>
-<rect x="758" y="1264" width="253" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="758" y1="1270" x2="758" y2="1396" stroke="#8250df" stroke-width="3"/>
-<text x="884.5" y="1318.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可 steer 的动作块</text>
-<text x="884.5" y="1336.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">50 步</text>
-<text x="884.5" y="1356.5" font-size="11.5" fill="#57606a" text-anchor="middle">执行 15-25 步后重采样</text>
-<rect x="758" y="1500" width="253" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="758" y1="1506" x2="758" y2="1632" stroke="#8250df" stroke-width="3"/>
-<text x="884.5" y="1554.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行 50Hz</text>
-<text x="884.5" y="1572.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(RTC 训练容忍 0-12 步</text>
-<text x="884.5" y="1592.5" font-size="11.5" fill="#57606a" text-anchor="middle">延迟)</text>
-<text x="885.0" y="971.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">骨干激活作条件 (KI: 动作梯度…</text>
-<text x="1207.0" y="325.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每 delta=4s 或子任务变化时刷新</text>
-<text x="771.0" y="955.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">持续重观测 跨具身零样本</text>
-<text x="1723" y="1676" font-size="10.5" fill="#8c959f" text-anchor="end">pi07 · arXiv 2604.15483 · v3 auto</text>
+<rect x="818" y="871" width="310" height="412" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="832" y="891" font-size="11.5" font-weight="600" fill="#57606a">pi0.7 VLA (总约 5B)</text>
+<path d="M 748.0 306.0 L 974.0 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 214.0 238.5 L 154.0 238.5 L 154.0 737.5 L 842.0 737.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 543.0 237.0 L 842.0 737.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 982.0 537.0 L 974.0 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 974.0 815.0 L 978.0 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 978.0 1029.0 L 976.0 1151.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 1628.0 245.5 L 907.0 245.5 L 907.0 484.5 L 1057.0 484.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1083.5 306.0 L 1083.5 818.5 L 976.0 818.5 L 976.0 1151.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1421.0 323.0 L 1421.0 623.5 L 978.0 623.5 L 978.0 924.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 976.0 1289.0 L 975.5 1416.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 975.5 1554.0 L 975.5 1680.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 924.9 1818.0 L 924.9 1062.0 L 774.2 1062.0 L 774.2 306.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="617" y="168" width="262" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="617" y1="174" x2="617" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="748.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">当前观测</text>
+<text x="748.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">最多 4 路 RGB + 6 帧历</text>
+<text x="748.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">史 + 关节状态</text>
+<rect x="842" y="660" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="842" y1="666" x2="842" y2="809" stroke="#0b57d0" stroke-width="3"/>
+<text x="974.0" y="709.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多模态上下文编码 (核心)</text>
+<text x="974.0" y="730.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">C_t = 指令 + 子步骤 +</text>
+<text x="974.0" y="759.0" font-size="12.5" fill="#57606a" text-anchor="middle">元数据</text>
+<text x="974.0" y="776.5" font-size="12.5" fill="#57606a" text-anchor="middle">+ 子目标图 + 控制模式</text>
+<rect x="52" y="186" width="162" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="133.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">整体任务指令</text>
+<text x="133.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(做什么)</text>
+<rect x="276" y="168" width="267" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="276" y1="174" x2="276" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="409.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">任务元数据</text>
+<text x="409.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">速度 / 质量 / 错误标记</text>
+<text x="409.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">(怎么做)</text>
+<rect x="907" y="432" width="150" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="907" y1="438" x2="907" y2="531" stroke="#0969da" stroke-width="3"/>
+<text x="982.0" y="477.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">子目标图像</text>
+<text x="982.0" y="498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">最多 3 张</text>
+<rect x="869" y="924" width="218" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="869" y1="930" x2="869" y2="1023" stroke="#1a7f37" stroke-width="3"/>
+<text x="978.0" y="969.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Gemma3 4B 骨干</text>
+<text x="978.0" y="990.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(FAST token 监督)</text>
+<rect x="847" y="1151" width="258" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="847" y1="1157" x2="847" y2="1283" stroke="#1a7f37" stroke-width="3"/>
+<text x="976.0" y="1200.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Action Expert 860M</text>
+<text x="976.0" y="1221.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">flow matching, 5 步</text>
+<text x="976.0" y="1250.25" font-size="12.5" fill="#57606a" text-anchor="middle">去噪</text>
+<rect x="1628" y="168" width="269" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1628" y1="174" x2="1628" y2="317" stroke="#57606a" stroke-width="3"/>
+<text x="1762.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">14B 子目标世界模型 (</text>
+<text x="1762.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">BAGEL)</text>
+<text x="1762.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">按观测 + 子任务异步合成子目标</text>
+<text x="1762.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">图像</text>
+<rect x="953" y="168" width="261" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="953" y1="174" x2="953" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="1083.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">推理时 CFG 元数据引导</text>
+<text x="1083.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">放大正向元数据影响</text>
+<text x="1083.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">beta = 1.3 / 1.7 / 2.2</text>
+<rect x="1288" y="168" width="266" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1288" y1="174" x2="1288" y2="317" stroke="#8a5a00" stroke-width="3"/>
+<text x="1421.0" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失: VLM FAST token</text>
+<text x="1421.0" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">监督</text>
+<text x="1421.0" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">+ Action Expert 条件流匹配</text>
+<text x="1421.0" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">CFM</text>
+<rect x="849" y="1416" width="253" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="849" y1="1422" x2="849" y2="1548" stroke="#8250df" stroke-width="3"/>
+<text x="975.5" y="1465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可 steer 的动作块</text>
+<text x="975.5" y="1486.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">50 步</text>
+<text x="975.5" y="1515.25" font-size="12.5" fill="#57606a" text-anchor="middle">执行 15-25 步后重采样</text>
+<rect x="849" y="1680" width="253" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="849" y1="1686" x2="849" y2="1812" stroke="#8250df" stroke-width="3"/>
+<text x="975.5" y="1729.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行 50Hz</text>
+<text x="975.5" y="1750.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(RTC 训练容忍 0-12 步</text>
+<text x="975.5" y="1779.25" font-size="12.5" fill="#57606a" text-anchor="middle">延迟)</text>
+<text x="977.0" y="1082.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">骨干激活作条件 (KI: 动作梯度…</text>
+<text x="1342.5" y="357.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每 delta=4s 或子任务变化时刷新</text>
+<text x="849.5" y="1054.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">持续重观测 跨具身零样本</text>
+<text x="1901" y="1860" font-size="10.5" fill="#8c959f" text-anchor="end">pi07 · arXiv 2604.15483 · v3 auto</text>
 </svg>

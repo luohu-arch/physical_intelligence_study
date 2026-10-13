@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1434" height="1519" viewBox="24 98 1434 1519" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1576" height="1683" viewBox="26 112 1576 1683" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>wam-ttt</title>
-<rect x="24" y="98" width="1434" height="1519" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">wam-ttt</text>
-<text x="1436" y="128" font-size="12" fill="#57606a" text-anchor="end">WAM-TTT 是面向具身世界模型的测试时训练框架：机器人部署后只需一段未标注的人类第一视角操作视频，就能通过视频预测自监督损失把人类行为"吸收"进轻量级 TTT fast w</text>
+<rect x="26" y="112" width="1576" height="1683" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">wam-ttt</text>
+<text x="1580" y="142" font-size="12" fill="#57606a" text-anchor="end">WAM-TTT 是面向具身世界模型的测试时训练框架：机器人部署后只需一段未标注的人类第一视角操作视频，就能通过视频预测自监督损失把人类行为"吸收"进轻量级 TTT fast w</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,62 +10,62 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="584" y="339" width="407" height="816" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="598" y="359" font-size="11.5" font-weight="600" fill="#57606a">LDA 基座 WAM 部署期全部冻结</text>
-<path d="M 313.0 218.5 L 253.0 218.5 L 253.0 455.0 L 516.0 455.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 763.0 271.0 L 646.5 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 646.5 524.0 L 741.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 741.0 727.0 L 741.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1169.0 218.5 L 966.0 455.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 891.0 507.0 L 891.0 756.0 L 741.5 756.0 L 741.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 741.5 929.0 L 740.5 1027.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 740.5 1131.0 L 740.5 1229.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 740.5 1333.0 L 741.0 1431.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="166" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="179.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人类 GoPro 第一视角视频</text>
-<text x="179.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;br/</text>
-<rect x="1169" y="166" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1169" y1="172" x2="1169" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="1302.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人多视角 RGB + 本体</text>
-<text x="1302.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">状态 + 语言</text>
-<rect x="816" y="403" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="816" y1="409" x2="816" y2="501" stroke="#0b57d0" stroke-width="3"/>
-<text x="891.0" y="459.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 条件化</text>
-<rect x="616" y="825" width="251" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="616" y1="831" x2="616" y2="923" stroke="#0b57d0" stroke-width="3"/>
-<text x="741.5" y="881.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">video expert DiT&lt;br/</text>
-<rect x="610" y="1027" width="261" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="610" y1="1033" x2="610" y2="1125" stroke="#0b57d0" stroke-width="3"/>
-<text x="740.5" y="1083.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">action expert DiT&lt;br/</text>
-<rect x="516" y="386" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="516" y1="392" x2="516" y2="518" stroke="#0b57d0" stroke-width="3"/>
-<text x="646.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">部署时内循环 SGD</text>
-<text x="646.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">W_(i+1) = W_i - eta *</text>
-<text x="646.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">grad L_adapt</text>
-<rect x="612" y="622" width="258" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="612" y1="628" x2="612" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="741.0" y="669.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">TTT fast weights 快速</text>
-<text x="741.0" y="687.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">权重记忆&lt;br/</text>
-<rect x="653" y="167" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="653" y1="173" x2="653" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="763.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自监督适应损失&lt;br/</text>
-<rect x="911" y="167" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="911" y1="173" x2="911" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="1021.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人机配对元训练&lt;br/</text>
-<rect x="351" y="150" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="351" y1="156" x2="351" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="483.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">对照 WAM-ICL</text>
-<text x="483.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">同一视频塞进上下文仅</text>
-<text x="483.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">7.1 百分比</text>
-<rect x="648" y="1229" width="185" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="648" y1="1235" x2="648" y2="1327" stroke="#0b57d0" stroke-width="3"/>
-<text x="740.5" y="1285.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">连续动作 chunk</text>
-<rect x="609" y="1431" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="609" y1="1437" x2="609" y2="1563" stroke="#0b57d0" stroke-width="3"/>
-<text x="741.0" y="1485.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">G1 人形 / Galbot 夹爪 </text>
-<text x="741.0" y="1503.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
-<text x="741.0" y="1523.5" font-size="11.5" fill="#57606a" text-anchor="middle">22-DoF 灵巧手</text>
-<text x="741.2" y="768.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">rollout 期间固定 注入视频流残差</text>
-<text x="1436" y="1607" font-size="10.5" fill="#8c959f" text-anchor="end">wam-ttt · arXiv 2607.06988 · v3 auto</text>
+<rect x="654" y="380" width="407" height="816" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="668" y="400" font-size="11.5" font-weight="600" fill="#57606a">LDA 基座 WAM 部署期全部冻结</text>
+<path d="M 319.0 238.5 L 578.0 501.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 841.0 291.0 L 708.5 432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 708.5 570.0 L 814.0 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 814.0 802.0 L 815.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1309.0 238.5 L 1064.0 503.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 989.0 555.0 L 989.0 829.5 L 815.5 829.5 L 815.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 815.5 1028.0 L 813.5 1150.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 813.5 1254.0 L 818.5 1376.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 818.5 1480.0 L 814.0 1603.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="186" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="185.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人类 GoPro 第一视角视频</text>
+<text x="185.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;br/</text>
+<rect x="1309" y="186" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1309" y1="192" x2="1309" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="1442.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人多视角 RGB + 本体</text>
+<text x="1442.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">状态 + 语言</text>
+<rect x="914" y="451" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="914" y1="457" x2="914" y2="549" stroke="#0b57d0" stroke-width="3"/>
+<text x="989.0" y="506.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 条件化</text>
+<rect x="690" y="924" width="251" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="690" y1="930" x2="690" y2="1022" stroke="#0b57d0" stroke-width="3"/>
+<text x="815.5" y="979.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">video expert DiT&lt;br/</text>
+<rect x="683" y="1150" width="261" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="683" y1="1156" x2="683" y2="1248" stroke="#0b57d0" stroke-width="3"/>
+<text x="813.5" y="1205.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">action expert DiT&lt;br/</text>
+<rect x="578" y="432" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="578" y1="438" x2="578" y2="564" stroke="#0b57d0" stroke-width="3"/>
+<text x="708.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">部署时内循环 SGD</text>
+<text x="708.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">W_(i+1) = W_i - eta *</text>
+<text x="708.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">grad L_adapt</text>
+<rect x="685" y="697" width="258" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="685" y1="703" x2="685" y2="796" stroke="#0b57d0" stroke-width="3"/>
+<text x="814.0" y="742.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">TTT fast weights 快速</text>
+<text x="814.0" y="763.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">权重记忆&lt;br/</text>
+<rect x="731" y="187" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="731" y1="193" x2="731" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="841.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自监督适应损失&lt;br/</text>
+<rect x="1020" y="187" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1020" y1="193" x2="1020" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="1130.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人机配对元训练&lt;br/</text>
+<rect x="393" y="168" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="393" y1="174" x2="393" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="525.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">对照 WAM-ICL</text>
+<text x="525.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">同一视频塞进上下文仅</text>
+<text x="525.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">7.1 百分比</text>
+<rect x="726" y="1376" width="185" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="726" y1="1382" x2="726" y2="1474" stroke="#0b57d0" stroke-width="3"/>
+<text x="818.5" y="1431.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">连续动作 chunk</text>
+<rect x="682" y="1603" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="682" y1="1609" x2="682" y2="1735" stroke="#0b57d0" stroke-width="3"/>
+<text x="814.0" y="1652.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">G1 人形 / Galbot 夹爪 </text>
+<text x="814.0" y="1673.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
+<text x="814.0" y="1702.25" font-size="12.5" fill="#57606a" text-anchor="middle">22-DoF 灵巧手</text>
+<text x="814.8" y="855.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">rollout 期间固定 注入视频流残差</text>
+<text x="1580" y="1783" font-size="10.5" fill="#8c959f" text-anchor="end">wam-ttt · arXiv 2607.06988 · v3 auto</text>
 </svg>

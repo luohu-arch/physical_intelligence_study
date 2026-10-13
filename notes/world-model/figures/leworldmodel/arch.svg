@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="570" height="1739" viewBox="24 98 570 1739" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="609" height="1927" viewBox="26 112 609 1927" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>leworldmodel</title>
-<rect x="24" y="98" width="570" height="1739" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">leworldmodel</text>
-<text x="572" y="128" font-size="12" fill="#57606a" text-anchor="end">把 JEPA 世界模型的防坍塌机制从"EMA target + stop-gradient"或"7-term VICReg"压缩为一项 SIGReg 正则（强制 latent </text>
+<rect x="26" y="112" width="609" height="1927" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">leworldmodel</text>
+<text x="613" y="142" font-size="12" fill="#57606a" text-anchor="end">把 JEPA 世界模型的防坍塌机制从"EMA target + stop-gradient"或"7-term VICReg"压缩为一项 SIGReg 正则（强制 latent </text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,58 +10,58 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 402.5 255.0 L 309.0 353.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 309.0 491.0 L 308.5 589.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 308.5 693.0 L 156.5 808.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 159.0 254.0 L 156.5 808.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 156.5 913.0 L 308.5 1027.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 308.5 1131.0 L 309.0 1229.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 308.5 693.0 L 438.5 791.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 309.0 1333.0 L 309.0 1431.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 438.5 946.0 L 438.5 1188.5 L 309.0 1188.5 L 309.0 1431.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 309.0 1536.0 L 309.0 1634.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="272" y="150" width="261" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="272" y1="156" x2="272" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="402.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">原始像素 o_1:T + 动作</text>
-<text x="402.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">a_1:T</text>
-<rect x="181" y="353" width="256" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="181" y1="359" x2="181" y2="485" stroke="#1a7f37" stroke-width="3"/>
-<text x="309.0" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">ViT-tiny 编码器 + BN</text>
-<text x="309.0" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">投影头</text>
-<text x="309.0" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">仅 15M 参数</text>
-<rect x="232" y="589" width="153" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="232" y1="595" x2="232" y2="687" stroke="#57606a" stroke-width="3"/>
-<text x="308.5" y="645.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">latent z_t</text>
-<rect x="46" y="808" width="221" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="814" x2="46" y2="907" stroke="#1a7f37" stroke-width="3"/>
-<text x="156.5" y="855.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测器</text>
-<text x="156.5" y="873.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">AdaLN 动作条件注入</text>
-<rect x="84" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="84" y1="156" x2="84" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="159.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 a_t</text>
-<rect x="214" y="1027" width="189" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="214" y1="1033" x2="214" y2="1125" stroke="#57606a" stroke-width="3"/>
-<text x="308.5" y="1083.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测 hat z_t+1</text>
-<rect x="234" y="1229" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="1235" x2="234" y2="1327" stroke="#8a5a00" stroke-width="3"/>
-<text x="309.0" y="1285.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测损失</text>
-<rect x="305" y="791" width="267" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="305" y1="797" x2="305" y2="940" stroke="#0b57d0" stroke-width="3"/>
-<text x="438.5" y="846.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SIGReg 正则</text>
-<text x="438.5" y="864.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">latent 边缘各向同性高斯</text>
-<text x="438.5" y="884.5" font-size="11.5" fill="#57606a" text-anchor="middle">唯一防坍塌项 替代 EMA/VICReg</text>
-<text x="438.5" y="899.5" font-size="11.5" fill="#57606a" text-anchor="middle">7 项</text>
-<rect x="176" y="1431" width="266" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="176" y1="1437" x2="176" y2="1530" stroke="#8a5a00" stroke-width="3"/>
-<text x="309.0" y="1478.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">总损失 = L_pred +</text>
-<text x="309.0" y="1496.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">lambda*SIGReg</text>
-<rect x="176" y="1634" width="266" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="176" y1="1640" x2="176" y2="1783" stroke="#0b57d0" stroke-width="3"/>
-<text x="309.0" y="1689.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">梯度流过一切</text>
-<text x="309.0" y="1707.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">无 stop-grad 无 EMA</text>
-<text x="309.0" y="1727.5" font-size="11.5" fill="#57606a" text-anchor="middle">目标</text>
-<text x="309.0" y="1742.5" font-size="11.5" fill="#57606a" text-anchor="middle">端到端训稳, 规划快最多 48x</text>
-<text x="308.8" y="1172.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L_pred: 到真实 z_t+1 的 MSE</text>
-<text x="373.5" y="734.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">投影到 M 个随机单位向量 逐 1…</text>
-<text x="572" y="1827" font-size="10.5" fill="#8c959f" text-anchor="end">leworldmodel · arXiv 2603.19312 · v3 auto</text>
+<path d="M 435.5 273.0 L 331.0 395.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 331.0 533.0 L 336.5 660.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 336.5 764.0 L 162.5 905.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 169.0 272.0 L 162.5 905.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 162.5 1010.0 L 334.5 1150.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 334.5 1254.0 L 337.0 1376.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 336.5 764.0 L 475.5 886.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 337.0 1480.0 L 330.0 1603.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 475.5 1041.0 L 475.5 1322.0 L 330.0 1322.0 L 330.0 1603.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 330.0 1708.0 L 330.0 1830.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="305" y="168" width="261" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="305" y1="174" x2="305" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="435.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">原始像素 o_1:T + 动作</text>
+<text x="435.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">a_1:T</text>
+<rect x="203" y="395" width="256" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="203" y1="401" x2="203" y2="527" stroke="#1a7f37" stroke-width="3"/>
+<text x="331.0" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">ViT-tiny 编码器 + BN</text>
+<text x="331.0" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">投影头</text>
+<text x="331.0" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">仅 15M 参数</text>
+<rect x="260" y="660" width="153" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="260" y1="666" x2="260" y2="758" stroke="#57606a" stroke-width="3"/>
+<text x="336.5" y="715.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">latent z_t</text>
+<rect x="52" y="905" width="221" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="911" x2="52" y2="1004" stroke="#1a7f37" stroke-width="3"/>
+<text x="162.5" y="950.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测器</text>
+<text x="162.5" y="971.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">AdaLN 动作条件注入</text>
+<rect x="94" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="94" y1="174" x2="94" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="169.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 a_t</text>
+<rect x="240" y="1150" width="189" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="240" y1="1156" x2="240" y2="1248" stroke="#57606a" stroke-width="3"/>
+<text x="334.5" y="1205.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测 hat z_t+1</text>
+<rect x="262" y="1376" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="1382" x2="262" y2="1474" stroke="#8a5a00" stroke-width="3"/>
+<text x="337.0" y="1431.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测损失</text>
+<rect x="342" y="886" width="267" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="342" y1="892" x2="342" y2="1035" stroke="#0b57d0" stroke-width="3"/>
+<text x="475.5" y="935.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SIGReg 正则</text>
+<text x="475.5" y="956.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">latent 边缘各向同性高斯</text>
+<text x="475.5" y="985.0" font-size="12.5" fill="#57606a" text-anchor="middle">唯一防坍塌项 替代 EMA/VICReg</text>
+<text x="475.5" y="1002.5" font-size="12.5" fill="#57606a" text-anchor="middle">7 项</text>
+<rect x="197" y="1603" width="266" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="197" y1="1609" x2="197" y2="1702" stroke="#8a5a00" stroke-width="3"/>
+<text x="330.0" y="1648.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">总损失 = L_pred +</text>
+<text x="330.0" y="1669.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">lambda*SIGReg</text>
+<rect x="197" y="1830" width="266" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="197" y1="1836" x2="197" y2="1979" stroke="#0b57d0" stroke-width="3"/>
+<text x="330.0" y="1879.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">梯度流过一切</text>
+<text x="330.0" y="1900.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">无 stop-grad 无 EMA</text>
+<text x="330.0" y="1929.0" font-size="12.5" fill="#57606a" text-anchor="middle">目标</text>
+<text x="330.0" y="1946.5" font-size="12.5" fill="#57606a" text-anchor="middle">端到端训稳, 规划快最多 48x</text>
+<text x="335.8" y="1307.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L_pred: 到真实 z_t+1 的 MSE</text>
+<text x="406.0" y="817.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">投影到 M 个随机单位向量 逐 1…</text>
+<text x="613" y="2027" font-size="10.5" fill="#8c959f" text-anchor="end">leworldmodel · arXiv 2603.19312 · v3 auto</text>
 </svg>

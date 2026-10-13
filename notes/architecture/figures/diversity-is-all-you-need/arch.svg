@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="910" height="1555" viewBox="24 98 910 1555" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="990" height="1723" viewBox="26 112 990 1723" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>diversity-is-all-you-need</title>
-<rect x="24" y="98" width="910" height="1555" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">diversity-is-all-you-need</text>
-<text x="912" y="128" font-size="12" fill="#57606a" text-anchor="end">用同规模不同采样方式构造的预训练集做受控对比，发现：任务多样性里**场景多样性比技能多样性更能带来分布偏移下的鲁棒性**（GO-1 上 10% episode 采样平均分 0.</text>
+<rect x="26" y="112" width="990" height="1723" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">diversity-is-all-you-need</text>
+<text x="994" y="142" font-size="12" fill="#57606a" text-anchor="end">用同规模不同采样方式构造的预训练集做受控对比，发现：任务多样性里**场景多样性比技能多样性更能带来分布偏移下的鲁棒性**（GO-1 上 10% episode 采样平均分 0.</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,59 +10,59 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="320" y="339" width="319" height="818" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="334" y="359" font-size="11.5" font-weight="600" fill="#57606a">Action Rate Model (ARM) 分布去偏</text>
-<path d="M 310.0 219.0 L 390.0 438.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 178.0 288.0 L 178.0 540.0 L 479.5 540.0 L 479.5 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 478.5 491.0 L 479.0 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 479.0 694.0 L 479.5 792.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 479.5 947.0 L 479.0 1028.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 780.0 288.0 L 479.0 589.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 479.0 1133.0 L 479.0 1231.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 479.0 271.0 L 479.0 751.0 L 479.0 751.0 L 479.0 1231.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 479.0 1369.0 L 479.0 1467.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="150" width="264" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="178.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">原始演示数据</text>
-<text x="178.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作速率混杂 (快手/慢</text>
-<text x="178.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">手)</text>
-<rect x="390" y="386" width="177" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="390" y1="392" x2="390" y2="485" stroke="#57606a" stroke-width="3"/>
-<text x="478.5" y="433.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP 编码器</text>
-<text x="478.5" y="451.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(全程冻结)</text>
-<rect x="380" y="589" width="198" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="380" y1="595" x2="380" y2="688" stroke="#0b57d0" stroke-width="3"/>
-<text x="479.0" y="636.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">三层 MLP</text>
-<text x="479.0" y="654.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">回归期望动作速率</text>
-<rect x="346" y="792" width="267" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="346" y1="798" x2="346" y2="941" stroke="#0b57d0" stroke-width="3"/>
-<text x="479.5" y="847.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逐样本搜索最优 chunk 长</text>
-<text x="479.5" y="865.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">度 L</text>
-<text x="479.5" y="885.5" font-size="11.5" fill="#57606a" text-anchor="middle">min | ARM(o_t) - v(a_t:t+L) |</text>
-<text x="479.5" y="900.5" font-size="11.5" fill="#57606a" text-anchor="middle">L 限定在 [0.5T, 1.5T]</text>
-<rect x="379" y="1028" width="200" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="379" y1="1034" x2="379" y2="1127" stroke="#0b57d0" stroke-width="3"/>
-<text x="479.0" y="1075.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">时间插值回长度 T</text>
-<text x="479.0" y="1093.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">得到去偏目标</text>
-<rect x="648" y="150" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="648" y1="156" x2="648" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="780.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_ARM: MSE</text>
-<text x="780.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">v = chunk 内 L1 位移</text>
-<text x="780.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">总量</text>
-<rect x="351" y="1231" width="256" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="351" y1="1237" x2="351" y2="1363" stroke="#1a7f37" stroke-width="3"/>
-<text x="479.0" y="1285.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">策略训练</text>
-<text x="479.0" y="1303.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(预训练 + 微调两阶段一</text>
-<text x="479.0" y="1323.5" font-size="11.5" fill="#57606a" text-anchor="middle">致去偏)</text>
-<rect x="348" y="166" width="262" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="172" x2="348" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="479.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">空间多模态</text>
-<text x="479.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">左/右绕行等真实策略差异</text>
-<rect x="352" y="1467" width="254" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="352" y1="1473" x2="352" y2="1599" stroke="#8250df" stroke-width="3"/>
-<text x="479.0" y="1521.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GO-1-Pro</text>
-<text x="479.0" y="1539.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">平均 +15% ~= 2.5 倍预</text>
-<text x="479.0" y="1559.5" font-size="11.5" fill="#57606a" text-anchor="middle">训练数据</text>
-<text x="479.0" y="743.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">保留不动</text>
-<text x="912" y="1643" font-size="10.5" fill="#8c959f" text-anchor="end">diversity-is-all-you-need · arXiv 2507.06219 · v3 auto</text>
+<rect x="358" y="380" width="319" height="818" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="372" y="400" font-size="11.5" font-weight="600" fill="#57606a">Action Rate Model (ARM) 分布去偏</text>
+<path d="M 316.0 237.0 L 437.0 484.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 184.0 306.0 L 184.0 596.5 L 521.5 596.5 L 521.5 887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 525.5 537.0 L 525.0 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 525.0 765.0 L 521.5 887.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 521.5 1042.0 L 524.0 1151.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 858.0 306.0 L 525.0 660.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 524.0 1256.0 L 521.0 1379.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 521.0 291.0 L 521.0 835.0 L 521.0 835.0 L 521.0 1379.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 521.0 1517.0 L 521.0 1643.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="168" width="264" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="184.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">原始演示数据</text>
+<text x="184.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作速率混杂 (快手/慢</text>
+<text x="184.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">手)</text>
+<rect x="437" y="432" width="177" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="437" y1="438" x2="437" y2="531" stroke="#57606a" stroke-width="3"/>
+<text x="525.5" y="477.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP 编码器</text>
+<text x="525.5" y="498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(全程冻结)</text>
+<rect x="426" y="660" width="198" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="426" y1="666" x2="426" y2="759" stroke="#0b57d0" stroke-width="3"/>
+<text x="525.0" y="705.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">三层 MLP</text>
+<text x="525.0" y="726.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">回归期望动作速率</text>
+<rect x="388" y="887" width="267" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="388" y1="893" x2="388" y2="1036" stroke="#0b57d0" stroke-width="3"/>
+<text x="521.5" y="936.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逐样本搜索最优 chunk 长</text>
+<text x="521.5" y="957.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">度 L</text>
+<text x="521.5" y="986.0" font-size="12.5" fill="#57606a" text-anchor="middle">min | ARM(o_t) - v(a_t:t+L) |</text>
+<text x="521.5" y="1003.5" font-size="12.5" fill="#57606a" text-anchor="middle">L 限定在 [0.5T, 1.5T]</text>
+<rect x="424" y="1151" width="200" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="424" y1="1157" x2="424" y2="1250" stroke="#0b57d0" stroke-width="3"/>
+<text x="524.0" y="1196.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">时间插值回长度 T</text>
+<text x="524.0" y="1217.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">得到去偏目标</text>
+<rect x="726" y="168" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="726" y1="174" x2="726" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="858.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_ARM: MSE</text>
+<text x="858.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">v = chunk 内 L1 位移</text>
+<text x="858.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">总量</text>
+<rect x="393" y="1379" width="256" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="393" y1="1385" x2="393" y2="1511" stroke="#1a7f37" stroke-width="3"/>
+<text x="521.0" y="1428.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">策略训练</text>
+<text x="521.0" y="1449.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(预训练 + 微调两阶段一</text>
+<text x="521.0" y="1478.25" font-size="12.5" fill="#57606a" text-anchor="middle">致去偏)</text>
+<rect x="390" y="186" width="262" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="192" x2="390" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="521.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">空间多模态</text>
+<text x="521.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">左/右绕行等真实策略差异</text>
+<rect x="394" y="1643" width="254" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="394" y1="1649" x2="394" y2="1775" stroke="#8250df" stroke-width="3"/>
+<text x="521.0" y="1692.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GO-1-Pro</text>
+<text x="521.0" y="1713.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">平均 +15% ~= 2.5 倍预</text>
+<text x="521.0" y="1742.25" font-size="12.5" fill="#57606a" text-anchor="middle">训练数据</text>
+<text x="521.0" y="827.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">保留不动</text>
+<text x="994" y="1823" font-size="10.5" fill="#8c959f" text-anchor="end">diversity-is-all-you-need · arXiv 2507.06219 · v3 auto</text>
 </svg>

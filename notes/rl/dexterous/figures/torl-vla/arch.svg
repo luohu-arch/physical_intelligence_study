@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="635" height="1196" viewBox="24 51 635 1196" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="675" height="1321" viewBox="26 59 675 1321" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>torl-vla</title>
-<rect x="24" y="51" width="635" height="1196" fill="#ffffff"/>
-<text x="46" y="81" font-size="14" font-weight="700" fill="#1f2328">torl-vla</text>
-<text x="637" y="81" font-size="12" fill="#57606a" text-anchor="end">TORL-VLA 提出触觉引导在线 RL 框架：VLA 同时预测参考动作和未来 wrench（力+力矩）序列，轻量在线 RL 模块用实时 wrench 反馈精调动作，inter</text>
+<rect x="26" y="59" width="675" height="1321" fill="#ffffff"/>
+<text x="48" y="89" font-size="14" font-weight="700" fill="#1f2328">torl-vla</text>
+<text x="679" y="89" font-size="12" fill="#57606a" text-anchor="end">TORL-VLA 提出触觉引导在线 RL 框架：VLA 同时预测参考动作和未来 wrench（力+力矩）序列，轻量在线 RL 模块用实时 wrench 反馈精调动作，inter</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,54 +10,54 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="319" y="103" width="318" height="458" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="333" y="123" font-size="11.5" font-weight="600" fill="#57606a">真机在线回路 (20 Hz)</text>
-<path d="M 479.5 255.0 L 478.0 353.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 424.8 491.0 L 504.6 255.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 478.0 491.0 L 328.5 589.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 328.5 761.0 L 328.0 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 478.0 491.0 L 478.0 838.0 L 328.0 838.0 L 328.0 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 328.0 963.0 L 328.5 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 275.1 1199.0 L 275.1 817.0 L 504.6 817.0 L 504.6 255.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 354.0 202.5 L 307.0 430.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 184.0 254.0 L 176.5 353.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 176.5 508.0 L 176.5 846.5 L 328.0 846.5 L 328.0 825.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<rect x="354" y="150" width="251" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="354" y1="156" x2="354" y2="249" stroke="#57606a" stroke-width="3"/>
-<text x="479.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">接触丰富任务</text>
-<text x="479.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">coffee / latch / egg</text>
-<rect x="345" y="353" width="266" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="345" y1="359" x2="345" y2="485" stroke="#0969da" stroke-width="3"/>
-<text x="478.0" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">实测 wrench + 观测回流</text>
-<text x="478.0" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(12 维指尖 wrench, J =</text>
-<text x="478.0" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">10 历史)</text>
-<rect x="198" y="589" width="261" height="172" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="198" y1="595" x2="198" y2="755" stroke="#57606a" stroke-width="3"/>
-<text x="328.5" y="645.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">冻结 wrench-aware VLA</text>
-<text x="328.5" y="663.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测参考动作 chunk (50</text>
-<text x="328.5" y="683.5" font-size="11.5" fill="#57606a" text-anchor="middle">步, 执行前 10)</text>
-<text x="328.5" y="698.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 未来 wrench 序列 (事前物理</text>
-<text x="328.5" y="713.5" font-size="11.5" fill="#57606a" text-anchor="middle">先验)</text>
-<rect x="196" y="825" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="196" y1="831" x2="196" y2="957" stroke="#1a7f37" stroke-width="3"/>
-<text x="328.0" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">轻量在线 RL actor</text>
-<text x="328.0" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">学修正量: a = a_ref +</text>
-<text x="328.0" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">delta</text>
-<rect x="195" y="1061" width="267" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="195" y1="1067" x2="195" y2="1193" stroke="#8250df" stroke-width="3"/>
-<text x="328.5" y="1115.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">MoE 融合</text>
-<text x="328.5" y="1133.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">门控加权: 参考动作 /</text>
-<text x="328.5" y="1153.5" font-size="11.5" fill="#57606a" text-anchor="middle">wrench 预测 / RL 修正</text>
-<rect x="46" y="353" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="359" x2="46" y2="502" stroke="#0b57d0" stroke-width="3"/>
-<text x="176.5" y="408.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">intervention-censored</text>
-<text x="176.5" y="426.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">critic (核心)</text>
-<text x="176.5" y="446.5" font-size="11.5" fill="#57606a" text-anchor="middle">干预前策略动作回报记 0</text>
-<text x="176.5" y="461.5" font-size="11.5" fill="#57606a" text-anchor="middle">切分功劳归属, 防失败动作被奖励</text>
-<rect x="52" y="150" width="264" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="52" y1="156" x2="52" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="184.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人工干预 + 二值成功奖励</text>
-<text x="180.2" y="295.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">干预 mask</text>
-<text x="252.2" y="658.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">Q 梯度在线精调</text>
-<text x="637" y="1237" font-size="10.5" fill="#8c959f" text-anchor="end">torl-vla · arXiv 2606.09337 · v3 auto</text>
+<rect x="357" y="115" width="318" height="458" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="371" y="135" font-size="11.5" font-weight="600" fill="#57606a">真机在线回路 (20 Hz)</text>
+<path d="M 521.5 273.0 L 519.0 395.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 465.8 533.0 L 546.6 273.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 519.0 533.0 L 352.5 660.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 352.5 832.0 L 352.0 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 519.0 533.0 L 519.0 908.5 L 352.0 908.5 L 352.0 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 352.0 1062.0 L 351.5 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 298.1 1326.0 L 298.1 889.5 L 546.6 889.5 L 546.6 273.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 396.0 220.5 L 313.0 472.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 190.0 272.0 L 182.5 395.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 182.5 550.0 L 182.5 917.0 L 352.0 917.0 L 352.0 924.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<rect x="396" y="168" width="251" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="396" y1="174" x2="396" y2="267" stroke="#57606a" stroke-width="3"/>
+<text x="521.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">接触丰富任务</text>
+<text x="521.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">coffee / latch / egg</text>
+<rect x="386" y="395" width="266" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="386" y1="401" x2="386" y2="527" stroke="#0969da" stroke-width="3"/>
+<text x="519.0" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">实测 wrench + 观测回流</text>
+<text x="519.0" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(12 维指尖 wrench, J =</text>
+<text x="519.0" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">10 历史)</text>
+<rect x="222" y="660" width="261" height="172" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="222" y1="666" x2="222" y2="826" stroke="#57606a" stroke-width="3"/>
+<text x="352.5" y="708.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">冻结 wrench-aware VLA</text>
+<text x="352.5" y="729.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测参考动作 chunk (50</text>
+<text x="352.5" y="758.75" font-size="12.5" fill="#57606a" text-anchor="middle">步, 执行前 10)</text>
+<text x="352.5" y="776.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ 未来 wrench 序列 (事前物理</text>
+<text x="352.5" y="793.75" font-size="12.5" fill="#57606a" text-anchor="middle">先验)</text>
+<rect x="220" y="924" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="220" y1="930" x2="220" y2="1056" stroke="#1a7f37" stroke-width="3"/>
+<text x="352.0" y="973.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">轻量在线 RL actor</text>
+<text x="352.0" y="994.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">学修正量: a = a_ref +</text>
+<text x="352.0" y="1023.25" font-size="12.5" fill="#57606a" text-anchor="middle">delta</text>
+<rect x="218" y="1188" width="267" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="218" y1="1194" x2="218" y2="1320" stroke="#8250df" stroke-width="3"/>
+<text x="351.5" y="1237.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">MoE 融合</text>
+<text x="351.5" y="1258.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">门控加权: 参考动作 /</text>
+<text x="351.5" y="1287.25" font-size="12.5" fill="#57606a" text-anchor="middle">wrench 预测 / RL 修正</text>
+<rect x="52" y="395" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="401" x2="52" y2="544" stroke="#0b57d0" stroke-width="3"/>
+<text x="182.5" y="444.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">intervention-censored</text>
+<text x="182.5" y="465.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">critic (核心)</text>
+<text x="182.5" y="494.0" font-size="12.5" fill="#57606a" text-anchor="middle">干预前策略动作回报记 0</text>
+<text x="182.5" y="511.5" font-size="12.5" fill="#57606a" text-anchor="middle">切分功劳归属, 防失败动作被奖励</text>
+<rect x="58" y="168" width="264" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="58" y1="174" x2="58" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="190.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人工干预 + 二值成功奖励</text>
+<text x="186.2" y="325.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">干预 mask</text>
+<text x="267.2" y="729.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">Q 梯度在线精调</text>
+<text x="679" y="1368" font-size="10.5" fill="#8c959f" text-anchor="end">torl-vla · arXiv 2606.09337 · v3 auto</text>
 </svg>

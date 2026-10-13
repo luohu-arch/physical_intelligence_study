@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="828" height="1554" viewBox="24 98 828 1554" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="898" height="1726" viewBox="26 112 898 1726" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>diffusion-policy</title>
-<rect x="24" y="98" width="828" height="1554" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">diffusion-policy</text>
-<text x="830" y="128" font-size="12" fill="#57606a" text-anchor="end">把机器人策略写成条件 DDPM：以视觉观测 $O_t$ 为条件，从高斯噪声出发迭代去噪出一段长度为 $T_p$ 的动作序列，配合 receding horizon contro</text>
+<rect x="26" y="112" width="898" height="1726" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">diffusion-policy</text>
+<text x="902" y="142" font-size="12" fill="#57606a" text-anchor="end">把机器人策略写成条件 DDPM：以视觉观测 $O_t$ 为条件，从高斯噪声出发迭代去噪出一段长度为 $T_p$ 的动作序列，配合 receding horizon contro</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,66 +10,66 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="226" y="322" width="369" height="1102" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="240" y="342" font-size="11.5" font-weight="600" fill="#57606a">条件去噪循环 (训练 100 步, DDIM 推理 10-16</text>
-<text x="240" y="357" font-size="11.5" font-weight="600" fill="#57606a">步)</text>
-<path d="M 399.5 288.0 L 438.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 138.5 271.0 L 138.5 536.5 L 438.5 536.5 L 438.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 438.0 1198.0 L 327.0 1296.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 438.0 524.0 L 438.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 438.5 760.0 L 438.5 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 438.5 996.0 L 438.0 1094.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 408.0 1198.0 L 408.0 1069.0 L 464.6 1069.0 L 464.6 760.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 438.0 1198.0 L 532.5 1296.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 532.5 1401.0 L 438.5 1499.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 387.9 1604.0 L 387.9 1036.0 L 425.6 1036.0 L 425.6 288.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 699.0 288.0 L 699.0 545.0 L 438.5 545.0 L 438.5 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="269" y="150" width="261" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="269" y1="156" x2="269" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="399.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">观测 O_t</text>
-<text x="399.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">最近 T_o 帧多视角 RGB </text>
-<text x="399.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">+低维状态</text>
-<rect x="311" y="386" width="254" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="311" y1="392" x2="311" y2="518" stroke="#1a7f37" stroke-width="3"/>
-<text x="438.0" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉编码器 ResNet-18</text>
-<text x="438.0" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">只编码一次, 全部去噪步</text>
-<text x="438.0" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">共享</text>
-<rect x="46" y="166" width="185" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="138.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">初始噪声 A_t^K</text>
-<text x="138.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">~ N(0, I)</text>
-<rect x="308" y="622" width="261" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="308" y1="628" x2="308" y2="754" stroke="#0b57d0" stroke-width="3"/>
-<text x="438.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">噪声预测网络 eps_theta</text>
-<text x="438.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(O_t, A_t^k, k)</text>
-<text x="438.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">CNN + FiLM 或 Transformer</text>
-<rect x="308" y="858" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="308" y1="864" x2="308" y2="990" stroke="#1a7f37" stroke-width="3"/>
-<text x="438.5" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">去噪一步</text>
-<text x="438.5" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">alpha*(A - gamma*eps)</text>
-<text x="438.5" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ noise</text>
-<rect x="363" y="1094" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="363" y1="1100" x2="363" y2="1192" stroke="#0b57d0" stroke-width="3"/>
-<text x="438.0" y="1150.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">KCHK</text>
-<rect x="252" y="1296" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="252" y1="1302" x2="252" y2="1394" stroke="#0b57d0" stroke-width="3"/>
-<text x="327.0" y="1352.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">0</text>
-<rect x="440" y="1296" width="185" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="440" y1="1302" x2="440" y2="1395" stroke="#8250df" stroke-width="3"/>
-<text x="532.5" y="1343.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">去噪结果 A_t^0</text>
-<text x="532.5" y="1361.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">T_p 步动作序列</text>
-<rect x="312" y="1499" width="253" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="312" y1="1505" x2="312" y2="1598" stroke="#8250df" stroke-width="3"/>
-<text x="438.5" y="1546.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行 T_a 步</text>
-<text x="438.5" y="1564.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">10Hz 预测插值到 125Hz</text>
-<rect x="568" y="150" width="262" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="568" y1="156" x2="568" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="699.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L: 去噪 MSE</text>
-<text x="699.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(eps 预测 vs 真噪声,</text>
-<text x="699.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">cosine 调度)</text>
-<text x="436.3" y="971.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否, k 递减</text>
-<text x="485.2" y="1239.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是</text>
-<text x="485.5" y="1442.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">receding horizon 只执行前 T_a 步</text>
-<text x="406.8" y="938.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新观测, 重新规划</text>
-<text x="830" y="1642" font-size="10.5" fill="#8c959f" text-anchor="end">diffusion-policy · arXiv 2303.04137 · v3 auto</text>
+<rect x="253" y="361" width="369" height="1102" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="267" y="381" font-size="11.5" font-weight="600" fill="#57606a">条件去噪循环 (训练 100 步, DDIM 推理 10-16</text>
+<text x="267" y="396" font-size="11.5" font-weight="600" fill="#57606a">步)</text>
+<path d="M 431.5 306.0 L 475.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 144.5 291.0 L 144.5 584.0 L 475.5 584.0 L 475.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 482.0 1329.0 L 357.0 1452.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 475.0 570.0 L 475.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 475.5 835.0 L 475.5 961.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 475.5 1099.0 L 482.0 1225.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 452.0 1329.0 L 452.0 1172.0 L 501.6 1172.0 L 501.6 835.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 482.0 1329.0 L 585.5 1452.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 585.5 1557.0 L 475.5 1679.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 424.9 1784.0 L 424.9 1135.0 L 457.6 1135.0 L 457.6 306.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 767.0 306.0 L 767.0 591.5 L 475.5 591.5 L 475.5 697.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="301" y="168" width="261" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="301" y1="174" x2="301" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="431.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">观测 O_t</text>
+<text x="431.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">最近 T_o 帧多视角 RGB </text>
+<text x="431.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">+低维状态</text>
+<rect x="348" y="432" width="254" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="348" y1="438" x2="348" y2="564" stroke="#1a7f37" stroke-width="3"/>
+<text x="475.0" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉编码器 ResNet-18</text>
+<text x="475.0" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">只编码一次, 全部去噪步</text>
+<text x="475.0" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">共享</text>
+<rect x="52" y="186" width="185" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="144.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">初始噪声 A_t^K</text>
+<text x="144.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">~ N(0, I)</text>
+<rect x="345" y="697" width="261" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="345" y1="703" x2="345" y2="829" stroke="#0b57d0" stroke-width="3"/>
+<text x="475.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">噪声预测网络 eps_theta</text>
+<text x="475.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(O_t, A_t^k, k)</text>
+<text x="475.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">CNN + FiLM 或 Transformer</text>
+<rect x="345" y="961" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="345" y1="967" x2="345" y2="1093" stroke="#1a7f37" stroke-width="3"/>
+<text x="475.5" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">去噪一步</text>
+<text x="475.5" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">alpha*(A - gamma*eps)</text>
+<text x="475.5" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ noise</text>
+<rect x="407" y="1225" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="407" y1="1231" x2="407" y2="1323" stroke="#0b57d0" stroke-width="3"/>
+<text x="482.0" y="1280.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">KCHK</text>
+<rect x="282" y="1452" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="282" y1="1458" x2="282" y2="1550" stroke="#0b57d0" stroke-width="3"/>
+<text x="357.0" y="1507.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">0</text>
+<rect x="493" y="1452" width="185" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="493" y1="1458" x2="493" y2="1551" stroke="#8250df" stroke-width="3"/>
+<text x="585.5" y="1497.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">去噪结果 A_t^0</text>
+<text x="585.5" y="1518.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">T_p 步动作序列</text>
+<rect x="349" y="1679" width="253" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="349" y1="1685" x2="349" y2="1778" stroke="#8250df" stroke-width="3"/>
+<text x="475.5" y="1724.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行 T_a 步</text>
+<text x="475.5" y="1745.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">10Hz 预测插值到 125Hz</text>
+<rect x="636" y="168" width="262" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="636" y1="174" x2="636" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="767.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L: 去噪 MSE</text>
+<text x="767.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(eps 预测 vs 真噪声,</text>
+<text x="767.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">cosine 调度)</text>
+<text x="476.8" y="1074.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否, k 递减</text>
+<text x="533.8" y="1382.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是</text>
+<text x="530.5" y="1610.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">receding horizon 只执行前 T_a 步</text>
+<text x="441.2" y="1037.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新观测, 重新规划</text>
+<text x="902" y="1826" font-size="10.5" fill="#8c959f" text-anchor="end">diffusion-policy · arXiv 2303.04137 · v3 auto</text>
 </svg>

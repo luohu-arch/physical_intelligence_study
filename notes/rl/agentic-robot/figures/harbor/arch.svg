@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="704" height="1621" viewBox="-2 98 704 1621" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="777" height="1797" viewBox="-4 112 777 1797" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>harbor</title>
-<rect x="-2" y="98" width="704" height="1621" fill="#ffffff"/>
-<text x="20" y="128" font-size="14" font-weight="700" fill="#1f2328">harbor</text>
-<text x="680" y="128" font-size="12" fill="#57606a" text-anchor="end">HARBOR 把机器人 RL 的"周边工程"（装依赖、建任务、写奖励、配 DR、接算法、调超参）整体当作一个 harness engineering 问题：主 agent 把自</text>
+<rect x="-4" y="112" width="777" height="1797" fill="#ffffff"/>
+<text x="18" y="142" font-size="14" font-weight="700" fill="#1f2328">harbor</text>
+<text x="751" y="142" font-size="12" fill="#57606a" text-anchor="end">HARBOR 把机器人 RL 的"周边工程"（装依赖、建任务、写奖励、配 DR、接算法、调超参）整体当作一个 harness engineering 问题：主 agent 把自</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,88 +10,88 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="525" width="326" height="698" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="545" font-size="11.5" font-weight="600" fill="#57606a">五元组 harness: agents / commands /</text>
-<text x="34" y="560" font-size="11.5" font-weight="600" fill="#57606a">artifacts / gates / knowledge</text>
-<path d="M 180.5 727.0 L 186.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 186.5 980.0 L 184.5 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 130.7 1216.0 L 130.7 1061.5 L 207.4 1061.5 L 207.4 727.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<path d="M 332.0 288.0 L 332.5 353.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 332.5 491.0 L 180.5 589.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 174.1 1435.0 L 174.1 1261.0 L 207.4 1261.0 L 207.4 727.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 184.5 1216.0 L 227.5 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 320.0 902.5 L 357.0 1130.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 434.4 1183.0 L 434.4 1261.5 L 213.2 1261.5 L 213.2 980.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 315.0 658.0 L 358.0 894.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 332.5 491.0 L 486.0 589.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 432.8 744.0 L 357.8 491.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 319.0 1138.5 L 571.0 1366.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 450.6 1418.0 L 450.6 954.5 L 357.8 954.5 L 357.8 491.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 485.0 1418.0 L 332.0 1533.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="200" y="150" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="200" y1="156" x2="200" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="332.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">用户请求: 仿真器代码库 </text>
-<text x="332.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+</text>
-<text x="332.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">任务规格</text>
-<rect x="206" y="353" width="253" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="206" y1="359" x2="206" y2="485" stroke="#0b57d0" stroke-width="3"/>
-<text x="332.5" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">主 agent</text>
-<text x="332.5" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">检索经验与 artifact,</text>
-<text x="332.5" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">分解有界阶段</text>
-<rect x="94" y="1297" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="94" y1="1303" x2="94" y2="1429" stroke="#0b57d0" stroke-width="3"/>
-<text x="227.5" y="1351.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可复用经验库: 模板/参考/</text>
-<text x="227.5" y="1369.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人类启发式/历史要点</text>
-<text x="227.5" y="1389.5" font-size="11.5" fill="#57606a" text-anchor="middle">stack-cube 复用 4h -&gt; 30min</text>
-<rect x="357" y="1078" width="258" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="357" y1="1084" x2="357" y2="1177" stroke="#0b57d0" stroke-width="3"/>
-<text x="486.0" y="1125.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仿真器环境</text>
-<text x="486.0" y="1143.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">6 benchmark x 16 任务</text>
-<rect x="353" y="589" width="266" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="353" y1="595" x2="353" y2="738" stroke="#0b57d0" stroke-width="3"/>
-<text x="486.0" y="644.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CCDE 并行调参: 主 agent</text>
-<text x="486.0" y="662.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">中央决策</text>
-<text x="486.0" y="682.5" font-size="11.5" fill="#57606a" text-anchor="middle">N=4 子 agent 隔离 trial 异步执</text>
-<text x="486.0" y="697.5" font-size="11.5" fill="#57606a" text-anchor="middle">行 (6.3x)</text>
-<rect x="358" y="842" width="254" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="358" y1="848" x2="358" y2="941" stroke="#0b57d0" stroke-width="3"/>
-<text x="485.0" y="889.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">标记 unresolved, 请人</text>
-<text x="485.0" y="907.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">工介入</text>
-<rect x="200" y="1533" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="200" y1="1539" x2="200" y2="1665" stroke="#0b57d0" stroke-width="3"/>
-<text x="332.0" y="1587.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可训练策略 + 全程可审计</text>
-<text x="332.0" y="1605.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">产物</text>
-<text x="332.0" y="1625.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 系统辨识/DR 真机迁移栈</text>
-<rect x="46" y="589" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="595" x2="46" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="180.5" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">阶段 agent (有界上下文)</text>
-<text x="180.5" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">依赖-&gt;任务-&gt;奖励-&gt;RL 集</text>
-<text x="180.5" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">成-&gt;DR-&gt;调参 六阶段</text>
-<rect x="53" y="825" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="53" y1="831" x2="53" y2="974" stroke="#0b57d0" stroke-width="3"/>
-<text x="186.5" y="880.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">mutable artifact: task</text>
-<text x="186.5" y="898.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">spec / reward 代码 /</text>
-<text x="186.5" y="918.5" font-size="11.5" fill="#57606a" text-anchor="middle">曲线 / rollout MP4 / install</text>
-<text x="186.5" y="933.5" font-size="11.5" fill="#57606a" text-anchor="middle">log</text>
-<rect x="50" y="1061" width="269" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="50" y1="1067" x2="50" y2="1210" stroke="#0b57d0" stroke-width="3"/>
-<text x="184.5" y="1116.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">gate: 硬接口 + 软语义</text>
-<text x="184.5" y="1134.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">检查</text>
-<text x="184.5" y="1154.5" font-size="11.5" fill="#57606a" text-anchor="middle">import / reset / obs-act 形状</text>
-<text x="184.5" y="1169.5" font-size="11.5" fill="#57606a" text-anchor="middle">/ 渲染</text>
-<rect x="399" y="1314" width="172" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="399" y1="1320" x2="399" y2="1412" stroke="#0b57d0" stroke-width="3"/>
-<text x="485.0" y="1370.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">还有下一阶段?</text>
-<text x="183.5" y="768.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">标准化命令修改/创建 artifact</text>
-<text x="169.1" y="963.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">失败: 结构化摘要回传就地修复</text>
-<text x="560.0" y="1484.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">按 simulator/task/算法标签…</text>
-<text x="205.0" y="1256.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">通过: 提交 artifact + 摘要写回</text>
-<text x="338.5" y="1008.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">短训练 / rollout / 渲染可执行反馈</text>
-<text x="205.0" y="1484.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">学习曲线与视频供 gate 与 age…</text>
-<text x="336.5" y="768.2" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重试预算耗尽</text>
-<text x="409.2" y="532.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">迭代密集阶段</text>
-<text x="98.0" y="479.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">聚合决策写回首 agent</text>
-<text x="404.2" y="946.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是: 推进下一有界阶段</text>
-<text x="408.5" y="1467.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否</text>
-<text x="680" y="1709" font-size="10.5" fill="#8c959f" text-anchor="end">harbor · arXiv 2606.08610 · v3 auto</text>
+<rect x="22" y="588" width="326" height="698" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="608" font-size="11.5" font-weight="600" fill="#57606a">五元组 harness: agents / commands /</text>
+<text x="36" y="623" font-size="11.5" font-weight="600" fill="#57606a">artifacts / gates / knowledge</text>
+<path d="M 186.5 798.0 L 192.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 192.5 1079.0 L 190.5 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 136.7 1343.0 L 136.7 1160.5 L 213.4 1160.5 L 213.4 798.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 356.0 306.0 L 357.5 395.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 357.5 533.0 L 186.5 660.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 185.1 1591.0 L 185.1 1374.5 L 213.4 1374.5 L 213.4 798.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 190.5 1343.0 L 238.5 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 326.0 1001.5 L 400.0 1259.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 477.4 1312.0 L 219.2 1079.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 321.0 729.0 L 401.0 995.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 357.5 533.0 L 528.0 660.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 474.8 815.0 L 382.8 533.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 325.0 1265.5 L 619.0 1524.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 498.6 1576.0 L 498.6 1054.5 L 382.8 1054.5 L 382.8 533.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 533.0 1576.0 L 356.0 1717.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="224" y="168" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="224" y1="174" x2="224" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="356.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">用户请求: 仿真器代码库 </text>
+<text x="356.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+</text>
+<text x="356.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">任务规格</text>
+<rect x="231" y="395" width="253" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="231" y1="401" x2="231" y2="527" stroke="#0b57d0" stroke-width="3"/>
+<text x="357.5" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">主 agent</text>
+<text x="357.5" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">检索经验与 artifact,</text>
+<text x="357.5" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">分解有界阶段</text>
+<rect x="105" y="1453" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="105" y1="1459" x2="105" y2="1585" stroke="#0b57d0" stroke-width="3"/>
+<text x="238.5" y="1502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可复用经验库: 模板/参考/</text>
+<text x="238.5" y="1523.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人类启发式/历史要点</text>
+<text x="238.5" y="1552.25" font-size="12.5" fill="#57606a" text-anchor="middle">stack-cube 复用 4h -&gt; 30min</text>
+<rect x="400" y="1207" width="258" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="400" y1="1213" x2="400" y2="1306" stroke="#0b57d0" stroke-width="3"/>
+<text x="529.0" y="1252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仿真器环境</text>
+<text x="529.0" y="1273.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">6 benchmark x 16 任务</text>
+<rect x="395" y="660" width="266" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="395" y1="666" x2="395" y2="809" stroke="#0b57d0" stroke-width="3"/>
+<text x="528.0" y="709.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CCDE 并行调参: 主 agent</text>
+<text x="528.0" y="730.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">中央决策</text>
+<text x="528.0" y="759.0" font-size="12.5" fill="#57606a" text-anchor="middle">N=4 子 agent 隔离 trial 异步执</text>
+<text x="528.0" y="776.5" font-size="12.5" fill="#57606a" text-anchor="middle">行 (6.3x)</text>
+<rect x="401" y="943" width="254" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="401" y1="949" x2="401" y2="1042" stroke="#0b57d0" stroke-width="3"/>
+<text x="528.0" y="988.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">标记 unresolved, 请人</text>
+<text x="528.0" y="1009.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">工介入</text>
+<rect x="224" y="1717" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="224" y1="1723" x2="224" y2="1849" stroke="#0b57d0" stroke-width="3"/>
+<text x="356.0" y="1766.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可训练策略 + 全程可审计</text>
+<text x="356.0" y="1787.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">产物</text>
+<text x="356.0" y="1816.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ 系统辨识/DR 真机迁移栈</text>
+<rect x="52" y="660" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="666" x2="52" y2="792" stroke="#0b57d0" stroke-width="3"/>
+<text x="186.5" y="709.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">阶段 agent (有界上下文)</text>
+<text x="186.5" y="730.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">依赖-&gt;任务-&gt;奖励-&gt;RL 集</text>
+<text x="186.5" y="759.25" font-size="12.5" fill="#57606a" text-anchor="middle">成-&gt;DR-&gt;调参 六阶段</text>
+<rect x="59" y="924" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="59" y1="930" x2="59" y2="1073" stroke="#0b57d0" stroke-width="3"/>
+<text x="192.5" y="973.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">mutable artifact: task</text>
+<text x="192.5" y="994.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">spec / reward 代码 /</text>
+<text x="192.5" y="1023.0" font-size="12.5" fill="#57606a" text-anchor="middle">曲线 / rollout MP4 / install</text>
+<text x="192.5" y="1040.5" font-size="12.5" fill="#57606a" text-anchor="middle">log</text>
+<rect x="56" y="1188" width="269" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="56" y1="1194" x2="56" y2="1337" stroke="#0b57d0" stroke-width="3"/>
+<text x="190.5" y="1237.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">gate: 硬接口 + 软语义</text>
+<text x="190.5" y="1258.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">检查</text>
+<text x="190.5" y="1287.0" font-size="12.5" fill="#57606a" text-anchor="middle">import / reset / obs-act 形状</text>
+<text x="190.5" y="1304.5" font-size="12.5" fill="#57606a" text-anchor="middle">/ 渲染</text>
+<rect x="447" y="1472" width="172" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="447" y1="1478" x2="447" y2="1570" stroke="#0b57d0" stroke-width="3"/>
+<text x="533.0" y="1527.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">还有下一阶段?</text>
+<text x="189.5" y="853.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">标准化命令修改/创建 artifact</text>
+<text x="175.1" y="1062.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">失败: 结构化摘要回传就地修复</text>
+<text x="627.0" y="1662.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">按 simulator/task/算法标签…</text>
+<text x="230.0" y="1407.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">通过: 提交 artifact + 摘要写回</text>
+<text x="363.0" y="1122.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">短训练 / rollout / 渲染可执行反馈</text>
+<text x="230.0" y="1662.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">学习曲线与视频供 gate 与 age…</text>
+<text x="361.0" y="854.2" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重试预算耗尽</text>
+<text x="442.8" y="588.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">迭代密集阶段</text>
+<text x="110.0" y="536.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">聚合决策写回首 agent</text>
+<text x="440.7" y="1046.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是: 推进下一有界阶段</text>
+<text x="444.5" y="1638.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否</text>
+<text x="751" y="1897" font-size="10.5" fill="#8c959f" text-anchor="end">harbor · arXiv 2606.08610 · v3 auto</text>
 </svg>

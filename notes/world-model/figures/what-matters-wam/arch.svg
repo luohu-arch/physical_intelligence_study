@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1089" height="1183" viewBox="-25 98 1089 1183" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1167" height="1302" viewBox="2 112 1167 1302" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>what-matters-wam</title>
-<rect x="-25" y="98" width="1089" height="1183" fill="#ffffff"/>
-<text x="-3" y="128" font-size="14" font-weight="700" fill="#1f2328">what-matters-wam</text>
-<text x="1042" y="128" font-size="12" fill="#57606a" text-anchor="end">这篇来自 Samsung Robotics eXperience 等机构的论文不做新系统、专做**受控消融**——把 WAM（世界-动作模型）的设计空间拆成三个正交轴（6 种视</text>
+<rect x="2" y="112" width="1167" height="1302" fill="#ffffff"/>
+<text x="24" y="142" font-size="14" font-weight="700" fill="#1f2328">what-matters-wam</text>
+<text x="1147" y="142" font-size="12" fill="#57606a" text-anchor="end">这篇来自 Samsung Robotics eXperience 等机构的论文不做新系统、专做**受控消融**——把 WAM（世界-动作模型）的设计空间拆成三个正交轴（6 种视</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,72 +10,72 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 413.0 202.5 L 383.0 422.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 544.0 255.0 L 547.5 370.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 675.0 202.5 L 710.0 422.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 249.5 491.0 L 132.0 606.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 249.5 491.0 L 381.5 606.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 547.5 475.0 L 675.5 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 840.5 491.0 L 943.0 606.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 249.5 491.0 L 249.5 748.0 L 694.0 748.0 L 694.0 825.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 507.0 658.5 L -3.0 658.5 L -3.0 902.5 L 826.0 902.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 218.0 658.5 L 262.0 894.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 381.5 711.0 L 392.5 825.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 675.5 727.0 L 675.5 984.0 L 544.0 984.0 L 544.0 1061.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 943.0 711.0 L 943.0 1066.0 L 544.0 1066.0 L 544.0 1061.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 694.0 980.0 L 544.0 1061.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<rect x="413" y="150" width="262" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="413" y1="156" x2="413" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="544.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">WAM 设计空间: 同一基座</text>
-<text x="544.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">单变量替换 逐轴受控消融</text>
-<rect x="116" y="353" width="267" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="116" y1="359" x2="116" y2="485" stroke="#1a7f37" stroke-width="3"/>
-<text x="249.5" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">轴 1: 6 种视频-动作因果</text>
-<text x="249.5" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">结构</text>
-<text x="249.5" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">框架 = Fast-WAM</text>
-<rect x="422" y="370" width="251" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="422" y1="376" x2="422" y2="469" stroke="#1a7f37" stroke-width="3"/>
-<text x="547.5" y="417.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">轴 2: 4 族 8 种潜表征</text>
-<text x="547.5" y="435.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">框架 = LDA-1B</text>
-<rect x="710" y="353" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="710" y1="359" x2="710" y2="485" stroke="#1a7f37" stroke-width="3"/>
-<text x="840.5" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">轴 3: 4 种训练目标</text>
-<text x="840.5" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">BC/IDM/FDM/VG</text>
-<text x="840.5" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">框架 = LDA-1B</text>
-<rect x="46" y="606" width="172" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="612" x2="46" y2="705" stroke="#0969da" stroke-width="3"/>
-<text x="132.0" y="653.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RoboCasa-GR1</text>
-<text x="132.0" y="671.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">分布内 ID</text>
-<rect x="256" y="606" width="251" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="256" y1="612" x2="256" y2="705" stroke="#0969da" stroke-width="3"/>
-<text x="381.5" y="653.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LIBERO / LIBERO-Plus</text>
-<text x="381.5" y="671.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">七类受控扰动 OOD</text>
-<rect x="545" y="589" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="545" y1="595" x2="545" y2="721" stroke="#8a5a00" stroke-width="3"/>
-<text x="675.5" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Block 0/7/15 线性探针</text>
-<text x="675.5" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测专家动作, held-out</text>
-<text x="675.5" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">R^2</text>
-<rect x="844" y="606" width="198" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="844" y1="612" x2="844" y2="705" stroke="#8a5a00" stroke-width="3"/>
-<text x="943.0" y="653.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">成对梯度余弦对齐</text>
-<text x="943.0" y="671.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ 逐维目标散度</text>
-<rect x="562" y="825" width="264" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="562" y1="831" x2="562" y2="974" stroke="#8a5a00" stroke-width="3"/>
-<text x="694.0" y="880.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">策略内干预生成未来:</text>
-<text x="694.0" y="898.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">内容腐蚀</text>
-<text x="694.0" y="918.5" font-size="11.5" fill="#57606a" text-anchor="middle">0.10/0.25/0.50</text>
-<text x="694.0" y="933.5" font-size="11.5" fill="#57606a" text-anchor="middle">去噪末端 25/50/100% 时序反转</text>
-<rect x="262" y="825" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="262" y1="831" x2="262" y2="957" stroke="#8a5a00" stroke-width="3"/>
-<text x="392.5" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DROID 离线动作预测</text>
-<text x="392.5" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">200K 步</text>
-<text x="392.5" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">MSE / L1 / Acc@0.1 / Acc@0.5</text>
-<rect x="413" y="1061" width="262" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="413" y1="1067" x2="413" y2="1227" stroke="#0b57d0" stroke-width="3"/>
-<text x="544.0" y="1117.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">共同因子: 时间组织通道</text>
-<text x="544.0" y="1135.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">时序反转 OOD 掉 24-32%</text>
-<text x="544.0" y="1155.5" font-size="11.5" fill="#57606a" text-anchor="middle">最强内容腐蚀仅 &lt;1%</text>
-<text x="544.0" y="1170.5" font-size="11.5" fill="#57606a" text-anchor="middle">在哪建模时序决定 ID 增益 vs</text>
-<text x="544.0" y="1185.5" font-size="11.5" fill="#57606a" text-anchor="middle">OOD 鲁棒</text>
-<text x="1042" y="1271" font-size="10.5" fill="#8c959f" text-anchor="end">what-matters-wam · arXiv 2609.24048 · v3 auto</text>
+<path d="M 463.0 220.5 L 397.0 464.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 594.0 273.0 L 598.5 414.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 725.0 220.5 L 795.0 464.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 263.5 533.0 L 138.0 679.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 263.5 533.0 L 412.5 679.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 598.5 519.0 L 740.5 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 925.5 533.0 L 1044.0 679.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 263.5 533.0 L 263.5 818.5 L 761.0 818.5 L 761.0 924.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 538.0 731.5 L 28.0 731.5 L 28.0 1001.5 L 893.0 1001.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 224.0 731.5 L 293.0 993.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 412.5 784.0 L 423.5 924.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 740.5 798.0 L 740.5 1083.0 L 594.0 1083.0 L 594.0 1188.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 1044.0 784.0 L 1044.0 1076.0 L 594.0 1076.0 L 594.0 1188.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 761.0 1079.0 L 594.0 1188.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<rect x="463" y="168" width="262" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="463" y1="174" x2="463" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="594.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">WAM 设计空间: 同一基座</text>
+<text x="594.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">单变量替换 逐轴受控消融</text>
+<rect x="130" y="395" width="267" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="130" y1="401" x2="130" y2="527" stroke="#1a7f37" stroke-width="3"/>
+<text x="263.5" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">轴 1: 6 种视频-动作因果</text>
+<text x="263.5" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">结构</text>
+<text x="263.5" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">框架 = Fast-WAM</text>
+<rect x="473" y="414" width="251" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="473" y1="420" x2="473" y2="513" stroke="#1a7f37" stroke-width="3"/>
+<text x="598.5" y="459.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">轴 2: 4 族 8 种潜表征</text>
+<text x="598.5" y="480.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">框架 = LDA-1B</text>
+<rect x="795" y="395" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="795" y1="401" x2="795" y2="527" stroke="#1a7f37" stroke-width="3"/>
+<text x="925.5" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">轴 3: 4 种训练目标</text>
+<text x="925.5" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">BC/IDM/FDM/VG</text>
+<text x="925.5" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">框架 = LDA-1B</text>
+<rect x="52" y="679" width="172" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="685" x2="52" y2="778" stroke="#0969da" stroke-width="3"/>
+<text x="138.0" y="724.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RoboCasa-GR1</text>
+<text x="138.0" y="745.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">分布内 ID</text>
+<rect x="287" y="679" width="251" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="287" y1="685" x2="287" y2="778" stroke="#0969da" stroke-width="3"/>
+<text x="412.5" y="724.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LIBERO / LIBERO-Plus</text>
+<text x="412.5" y="745.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">七类受控扰动 OOD</text>
+<rect x="610" y="660" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="610" y1="666" x2="610" y2="792" stroke="#8a5a00" stroke-width="3"/>
+<text x="740.5" y="709.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Block 0/7/15 线性探针</text>
+<text x="740.5" y="730.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测专家动作, held-out</text>
+<text x="740.5" y="759.25" font-size="12.5" fill="#57606a" text-anchor="middle">R^2</text>
+<rect x="945" y="679" width="198" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="945" y1="685" x2="945" y2="778" stroke="#8a5a00" stroke-width="3"/>
+<text x="1044.0" y="724.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">成对梯度余弦对齐</text>
+<text x="1044.0" y="745.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+ 逐维目标散度</text>
+<rect x="629" y="924" width="264" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="629" y1="930" x2="629" y2="1073" stroke="#8a5a00" stroke-width="3"/>
+<text x="761.0" y="973.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">策略内干预生成未来:</text>
+<text x="761.0" y="994.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">内容腐蚀</text>
+<text x="761.0" y="1023.0" font-size="12.5" fill="#57606a" text-anchor="middle">0.10/0.25/0.50</text>
+<text x="761.0" y="1040.5" font-size="12.5" fill="#57606a" text-anchor="middle">去噪末端 25/50/100% 时序反转</text>
+<rect x="293" y="924" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="293" y1="930" x2="293" y2="1056" stroke="#8a5a00" stroke-width="3"/>
+<text x="423.5" y="973.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DROID 离线动作预测</text>
+<text x="423.5" y="994.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">200K 步</text>
+<text x="423.5" y="1023.25" font-size="12.5" fill="#57606a" text-anchor="middle">MSE / L1 / Acc@0.1 / Acc@0.5</text>
+<rect x="463" y="1188" width="262" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="463" y1="1194" x2="463" y2="1354" stroke="#0b57d0" stroke-width="3"/>
+<text x="594.0" y="1236.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">共同因子: 时间组织通道</text>
+<text x="594.0" y="1257.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">时序反转 OOD 掉 24-32%</text>
+<text x="594.0" y="1286.75" font-size="12.5" fill="#57606a" text-anchor="middle">最强内容腐蚀仅 &lt;1%</text>
+<text x="594.0" y="1304.25" font-size="12.5" fill="#57606a" text-anchor="middle">在哪建模时序决定 ID 增益 vs</text>
+<text x="594.0" y="1321.75" font-size="12.5" fill="#57606a" text-anchor="middle">OOD 鲁棒</text>
+<text x="1147" y="1402" font-size="10.5" fill="#8c959f" text-anchor="end">what-matters-wam · arXiv 2609.24048 · v3 auto</text>
 </svg>

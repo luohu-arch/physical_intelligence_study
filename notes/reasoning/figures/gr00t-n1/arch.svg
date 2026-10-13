@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1644" height="1217" viewBox="24 98 1644 1217" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1819" height="1348" viewBox="26 112 1819 1348" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>gr00t-n1</title>
-<rect x="24" y="98" width="1644" height="1217" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">gr00t-n1</text>
-<text x="1646" y="128" font-size="12" fill="#57606a" text-anchor="end">GR00T N1 是首个开源（CC BY 4.0）2.2B 参数人形机器人基础模型，采用 System 2（Eagle-2 VLM, 10Hz）+ System 1（DiT +</text>
+<rect x="26" y="112" width="1819" height="1348" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">gr00t-n1</text>
+<text x="1823" y="142" font-size="12" fill="#57606a" text-anchor="end">GR00T N1 是首个开源（CC BY 4.0）2.2B 参数人形机器人基础模型，采用 System 2（Eagle-2 VLM, 10Hz）+ System 1（DiT +</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,55 +10,55 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="712" y="306" width="267" height="377" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="726" y="326" font-size="11.5" font-weight="600" fill="#57606a">System 2 慢思考 10Hz</text>
-<rect x="690" y="912" width="313" height="176" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="704" y="932" font-size="11.5" font-weight="600" fill="#57606a">System 1 快控制 120Hz</text>
-<path d="M 312.0 202.0 L 252.0 202.0 L 252.0 405.0 L 738.0 405.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 500.0 202.0 L 745.0 607.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 845.5 457.0 L 846.0 555.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 846.0 659.0 L 846.0 757.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 846.0 861.0 L 846.5 959.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1545.0 254.0 L 846.5 959.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 846.5 1064.0 L 845.5 1162.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 975.0 255.0 L 975.0 697.0 L 846.5 697.0 L 846.5 959.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 671.5 254.0 L 671.5 494.5 L 846.0 494.5 L 846.0 555.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="150" width="266" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="179.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多视角 RGB 224x224&lt;br/</text>
-<rect x="350" y="150" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="350" y1="156" x2="350" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="425.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
-<rect x="1444" y="150" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1444" y1="156" x2="1444" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="1545.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本体关节状态 q_t</text>
-<rect x="738" y="353" width="215" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="738" y1="359" x2="738" y2="451" stroke="#0b57d0" stroke-width="3"/>
-<text x="845.5" y="409.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP-2 视觉编码</text>
-<rect x="745" y="555" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="745" y1="561" x2="745" y2="653" stroke="#0b57d0" stroke-width="3"/>
-<text x="846.0" y="611.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Eagle-2 VLM&lt;br/</text>
-<rect x="716" y="959" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="716" y1="965" x2="716" y2="1058" stroke="#0b57d0" stroke-width="3"/>
-<text x="846.5" y="1006.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DiT + Flow</text>
-<text x="846.5" y="1024.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Matching&lt;br/</text>
-<rect x="736" y="757" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="736" y1="763" x2="736" y2="855" stroke="#0b57d0" stroke-width="3"/>
-<text x="846.0" y="813.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">交叉注意力注入&lt;br/</text>
-<rect x="712" y="1162" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="712" y1="1168" x2="712" y2="1261" stroke="#0b57d0" stroke-width="3"/>
-<text x="845.5" y="1209.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人形机器人 120Hz 连续</text>
-<text x="845.5" y="1227.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作</text>
-<rect x="843" y="150" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="843" y1="156" x2="843" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="975.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Flow Matching 向量场</text>
-<text x="975.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失</text>
-<rect x="538" y="150" width="267" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="538" y1="156" x2="538" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="671.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">OWL-v2 目标检测辅助损失</text>
-<rect x="1145" y="150" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1145" y1="156" x2="1145" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="1275.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">数据金字塔 592.9M 帧&lt;</text>
-<text x="1275.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
-<text x="1646" y="1305" font-size="10.5" fill="#8c959f" text-anchor="end">gr00t-n1 · arXiv 2503.14734 · v3 auto</text>
+<rect x="797" y="343" width="267" height="377" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="811" y="363" font-size="11.5" font-weight="600" fill="#57606a">System 2 慢思考 10Hz</text>
+<rect x="773" y="1021" width="313" height="176" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="787" y="1041" font-size="11.5" font-weight="600" fill="#57606a">System 1 快控制 120Hz</text>
+<path d="M 318.0 220.0 L 258.0 220.0 L 258.0 447.0 L 827.0 447.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 542.0 220.0 L 834.0 674.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 934.5 499.0 L 935.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 935.0 726.0 L 934.0 848.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 934.0 952.0 L 932.5 1074.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1718.0 272.0 L 932.5 1074.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 932.5 1179.0 L 930.5 1301.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1076.0 273.0 L 1076.0 763.5 L 932.5 763.5 L 932.5 1074.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 736.5 272.0 L 736.5 537.0 L 935.0 537.0 L 935.0 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="168" width="266" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="185.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多视角 RGB 224x224&lt;br/</text>
+<rect x="392" y="168" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="392" y1="174" x2="392" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="467.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
+<rect x="1617" y="168" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1617" y1="174" x2="1617" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="1718.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本体关节状态 q_t</text>
+<rect x="827" y="395" width="215" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="827" y1="401" x2="827" y2="493" stroke="#0b57d0" stroke-width="3"/>
+<text x="934.5" y="450.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP-2 视觉编码</text>
+<rect x="834" y="622" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="834" y1="628" x2="834" y2="720" stroke="#0b57d0" stroke-width="3"/>
+<text x="935.0" y="677.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Eagle-2 VLM&lt;br/</text>
+<rect x="802" y="1074" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="802" y1="1080" x2="802" y2="1173" stroke="#0b57d0" stroke-width="3"/>
+<text x="932.5" y="1119.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DiT + Flow</text>
+<text x="932.5" y="1140.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Matching&lt;br/</text>
+<rect x="824" y="848" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="824" y1="854" x2="824" y2="946" stroke="#0b57d0" stroke-width="3"/>
+<text x="934.0" y="903.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">交叉注意力注入&lt;br/</text>
+<rect x="797" y="1301" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="797" y1="1307" x2="797" y2="1400" stroke="#0b57d0" stroke-width="3"/>
+<text x="930.5" y="1346.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人形机器人 120Hz 连续</text>
+<text x="930.5" y="1367.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作</text>
+<rect x="944" y="168" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="944" y1="174" x2="944" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="1076.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Flow Matching 向量场</text>
+<text x="1076.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失</text>
+<rect x="603" y="168" width="267" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="603" y1="174" x2="603" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="736.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">OWL-v2 目标检测辅助损失</text>
+<rect x="1282" y="168" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1282" y1="174" x2="1282" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="1412.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">数据金字塔 592.9M 帧&lt;</text>
+<text x="1412.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
+<text x="1823" y="1448" font-size="10.5" fill="#8c959f" text-anchor="end">gr00t-n1 · arXiv 2503.14734 · v3 auto</text>
 </svg>

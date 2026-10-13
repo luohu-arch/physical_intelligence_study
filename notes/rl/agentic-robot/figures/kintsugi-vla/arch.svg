@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="616" height="2143" viewBox="24 98 616 2143" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="2380" viewBox="26 112 660 2380" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>kintsugi-vla</title>
-<rect x="24" y="98" width="616" height="2143" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">kintsugi-vla</text>
-<text x="618" y="128" font-size="12" fill="#57606a" text-anchor="end">利用仿真器的精确状态恢复与分支能力，对失败轨迹上的每个 checkpoint 反复交给固定特权专家续跑，用自适应蒙特卡洛阶梯（5→15→30 次 + 逐点 Wilson 区间）</text>
+<rect x="26" y="112" width="660" height="2380" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">kintsugi-vla</text>
+<text x="664" y="142" font-size="12" fill="#57606a" text-anchor="end">利用仿真器的精确状态恢复与分支能力，对失败轨迹上的每个 checkpoint 反复交给固定特权专家续跑，用自适应蒙特卡洛阶梯（5→15→30 次 + 逐点 Wilson 区间）</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,76 +10,76 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 485.0 271.0 L 332.0 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 189.5 305.0 L 332.0 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 332.0 541.0 L 331.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 331.5 777.0 L 332.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 332.5 996.0 L 483.0 1094.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 332.5 996.0 L 178.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 178.0 1232.0 L 332.5 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 332.5 1468.0 L 332.0 1566.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 332.0 1704.0 L 332.5 1802.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 332.5 1940.0 L 331.5 2038.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="362" y="166" width="246" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="362" y1="172" x2="362" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="485.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">失败 rollouts 200 条</text>
-<text x="485.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">33 教师 + 167 VLA</text>
-<rect x="56" y="150" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="56" y1="156" x2="56" y2="299" stroke="#0b57d0" stroke-width="3"/>
-<text x="189.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">固定特权专家: PPO 教师</text>
-<text x="189.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(seed 42)</text>
-<text x="189.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">43 维特权仿真观测, 永不暴露给</text>
-<text x="189.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">VLA</text>
-<rect x="199" y="386" width="266" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="199" y1="392" x2="199" y2="535" stroke="#0b57d0" stroke-width="3"/>
-<text x="332.0" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">restore-and-branch: 仿</text>
-<text x="332.0" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真精确状态恢复</text>
-<text x="332.0" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">容差 2e-5, 5 步 warm-up, 逐</text>
-<text x="332.0" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">checkpoint 分支重跑</text>
-<rect x="198" y="622" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="198" y1="628" x2="198" y2="771" stroke="#0b57d0" stroke-width="3"/>
-<text x="331.5" y="677.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自适应蒙特卡洛阶梯 5 -&gt;</text>
-<text x="331.5" y="695.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">15 -&gt; 30 次</text>
-<text x="331.5" y="715.5" font-size="11.5" fill="#57606a" text-anchor="middle">Wilson 区间相对阈值三分, 只细化</text>
-<text x="331.5" y="730.5" font-size="11.5" fill="#57606a" text-anchor="middle">未定槽</text>
-<rect x="198" y="858" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="198" y1="864" x2="198" y2="990" stroke="#0b57d0" stroke-width="3"/>
-<text x="332.5" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可恢复性曲线 p_rec(t)</text>
-<text x="332.5" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">教师相对量 (rho 低至</text>
-<text x="332.5" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">0.103), 均值 3.37 次穿阈</text>
-<rect x="348" y="1094" width="270" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="1100" x2="348" y2="1226" stroke="#0b57d0" stroke-width="3"/>
-<text x="483.0" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">75.6% 非单调, 70.9% 含</text>
-<text x="483.0" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">恢复岛屿</text>
-<text x="483.0" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">首次穿阈会漏掉后面的可恢复区</text>
-<rect x="46" y="1094" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1100" x2="46" y2="1226" stroke="#0b57d0" stroke-width="3"/>
-<text x="178.0" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">终段低可恢复性边界 t_f</text>
-<text x="178.0" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">60.6% episode 有稳定边</text>
-<text x="178.0" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">界, 中位归一深度 0.856</text>
-<rect x="198" y="1330" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="198" y1="1336" x2="198" y2="1462" stroke="#0b57d0" stroke-width="3"/>
-<text x="332.5" y="1384.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">目标深度采样: t_dev 到</text>
-<text x="332.5" y="1402.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">t_f 之间</text>
-<text x="332.5" y="1422.5" font-size="11.5" fill="#57606a" text-anchor="middle">归一深度 0.15 / 0.50 / 0.85</text>
-<rect x="200" y="1566" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="200" y1="1572" x2="200" y2="1698" stroke="#0b57d0" stroke-width="3"/>
-<text x="332.0" y="1620.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">专家成功续跑 = 合成恢复</text>
-<text x="332.0" y="1638.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">演示</text>
-<text x="332.0" y="1658.5" font-size="11.5" fill="#57606a" text-anchor="middle">(难度匹配 + 帧预算匹配对照)</text>
-<rect x="198" y="1802" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="198" y1="1808" x2="198" y2="1934" stroke="#0b57d0" stroke-width="3"/>
-<text x="332.5" y="1856.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SmolVLA 变体 V0 -&gt; V3</text>
-<text x="332.5" y="1874.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SFT</text>
-<text x="332.5" y="1894.5" font-size="11.5" fill="#57606a" text-anchor="middle">V2 同窗口均匀 / V3 目标深度</text>
-<rect x="198" y="2038" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="198" y1="2044" x2="198" y2="2187" stroke="#0b57d0" stroke-width="3"/>
-<text x="331.5" y="2093.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">恢复 SR 34.6% / 38.4%,</text>
-<text x="331.5" y="2111.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">比均匀采样 +5.8/+6.7pp</text>
-<text x="331.5" y="2131.5" font-size="11.5" fill="#57606a" text-anchor="middle">省 30.6% 演示 / 33.7% 帧; 干净</text>
-<text x="331.5" y="2146.5" font-size="11.5" fill="#57606a" text-anchor="middle">任务 -2.1pp</text>
-<text x="260.8" y="337.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">在预算 H 内续跑原任务, 数成功</text>
-<text x="331.8" y="573.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">逐点成功计数</text>
-<text x="407.8" y="1037.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">曲线结构</text>
-<text x="618" y="2231" font-size="10.5" fill="#8c959f" text-anchor="end">kintsugi-vla · arXiv 2609.31048 · v3 auto</text>
+<path d="M 528.0 291.0 L 356.0 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 196.5 323.0 L 356.0 432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 356.0 587.0 L 355.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 355.5 852.0 L 356.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 356.5 1099.0 L 525.0 1225.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 356.5 1099.0 L 184.0 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 184.0 1363.0 L 356.5 1490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 356.5 1628.0 L 356.0 1754.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 356.0 1892.0 L 356.5 2018.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 356.5 2156.0 L 355.5 2283.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="405" y="186" width="246" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="405" y1="192" x2="405" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="528.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">失败 rollouts 200 条</text>
+<text x="528.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">33 教师 + 167 VLA</text>
+<rect x="63" y="168" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="63" y1="174" x2="63" y2="317" stroke="#0b57d0" stroke-width="3"/>
+<text x="196.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">固定特权专家: PPO 教师</text>
+<text x="196.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(seed 42)</text>
+<text x="196.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">43 维特权仿真观测, 永不暴露给</text>
+<text x="196.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">VLA</text>
+<rect x="223" y="432" width="266" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="223" y1="438" x2="223" y2="581" stroke="#0b57d0" stroke-width="3"/>
+<text x="356.0" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">restore-and-branch: 仿</text>
+<text x="356.0" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真精确状态恢复</text>
+<text x="356.0" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">容差 2e-5, 5 步 warm-up, 逐</text>
+<text x="356.0" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">checkpoint 分支重跑</text>
+<rect x="222" y="697" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="222" y1="703" x2="222" y2="846" stroke="#0b57d0" stroke-width="3"/>
+<text x="355.5" y="746.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自适应蒙特卡洛阶梯 5 -&gt;</text>
+<text x="355.5" y="767.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">15 -&gt; 30 次</text>
+<text x="355.5" y="796.0" font-size="12.5" fill="#57606a" text-anchor="middle">Wilson 区间相对阈值三分, 只细化</text>
+<text x="355.5" y="813.5" font-size="12.5" fill="#57606a" text-anchor="middle">未定槽</text>
+<rect x="222" y="961" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="222" y1="967" x2="222" y2="1093" stroke="#0b57d0" stroke-width="3"/>
+<text x="356.5" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可恢复性曲线 p_rec(t)</text>
+<text x="356.5" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">教师相对量 (rho 低至</text>
+<text x="356.5" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">0.103), 均值 3.37 次穿阈</text>
+<rect x="390" y="1225" width="270" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="1231" x2="390" y2="1357" stroke="#0b57d0" stroke-width="3"/>
+<text x="525.0" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">75.6% 非单调, 70.9% 含</text>
+<text x="525.0" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">恢复岛屿</text>
+<text x="525.0" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">首次穿阈会漏掉后面的可恢复区</text>
+<rect x="52" y="1225" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1231" x2="52" y2="1357" stroke="#0b57d0" stroke-width="3"/>
+<text x="184.0" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">终段低可恢复性边界 t_f</text>
+<text x="184.0" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">60.6% episode 有稳定边</text>
+<text x="184.0" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">界, 中位归一深度 0.856</text>
+<rect x="222" y="1490" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="222" y1="1496" x2="222" y2="1622" stroke="#0b57d0" stroke-width="3"/>
+<text x="356.5" y="1539.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">目标深度采样: t_dev 到</text>
+<text x="356.5" y="1560.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">t_f 之间</text>
+<text x="356.5" y="1589.25" font-size="12.5" fill="#57606a" text-anchor="middle">归一深度 0.15 / 0.50 / 0.85</text>
+<rect x="224" y="1754" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="224" y1="1760" x2="224" y2="1886" stroke="#0b57d0" stroke-width="3"/>
+<text x="356.0" y="1803.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">专家成功续跑 = 合成恢复</text>
+<text x="356.0" y="1824.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">演示</text>
+<text x="356.0" y="1853.25" font-size="12.5" fill="#57606a" text-anchor="middle">(难度匹配 + 帧预算匹配对照)</text>
+<rect x="222" y="2018" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="222" y1="2024" x2="222" y2="2150" stroke="#0b57d0" stroke-width="3"/>
+<text x="356.5" y="2067.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SmolVLA 变体 V0 -&gt; V3</text>
+<text x="356.5" y="2088.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SFT</text>
+<text x="356.5" y="2117.25" font-size="12.5" fill="#57606a" text-anchor="middle">V2 同窗口均匀 / V3 目标深度</text>
+<rect x="222" y="2283" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="222" y1="2289" x2="222" y2="2432" stroke="#0b57d0" stroke-width="3"/>
+<text x="355.5" y="2332.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">恢复 SR 34.6% / 38.4%,</text>
+<text x="355.5" y="2353.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">比均匀采样 +5.8/+6.7pp</text>
+<text x="355.5" y="2382.0" font-size="12.5" fill="#57606a" text-anchor="middle">省 30.6% 演示 / 33.7% 帧; 干净</text>
+<text x="355.5" y="2399.5" font-size="12.5" fill="#57606a" text-anchor="middle">任务 -2.1pp</text>
+<text x="276.2" y="369.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">在预算 H 内续跑原任务, 数成功</text>
+<text x="355.8" y="634.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">逐点成功计数</text>
+<text x="440.8" y="1154.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">曲线结构</text>
+<text x="664" y="2480" font-size="10.5" fill="#8c959f" text-anchor="end">kintsugi-vla · arXiv 2609.31048 · v3 auto</text>
 </svg>

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1414" height="804" viewBox="6 98 1414 804" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1556" height="877" viewBox="5 112 1556 877" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>human-as-humanoid</title>
-<rect x="6" y="98" width="1414" height="804" fill="#ffffff"/>
-<text x="28" y="128" font-size="14" font-weight="700" fill="#1f2328">human-as-humanoid</text>
-<text x="1398" y="128" font-size="12" fill="#57606a" text-anchor="end">Human-as-Humanoid 提出硬件-软件联合设计：设计 PrimeU 人形使其身体比例对齐人类，配合 ego-exo 双视角视频→60-DoF 动作 pipeline</text>
+<rect x="5" y="112" width="1556" height="877" fill="#ffffff"/>
+<text x="27" y="142" font-size="14" font-weight="700" fill="#1f2328">human-as-humanoid</text>
+<text x="1539" y="142" font-size="12" fill="#57606a" text-anchor="end">Human-as-Humanoid 提出硬件-软件联合设计：设计 PrimeU 人形使其身体比例对齐人类，配合 ego-exo 双视角视频→60-DoF 动作 pipeline</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,47 +10,47 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="28" y="679" width="290" height="175" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="42" y="699" font-size="11.5" font-weight="600" fill="#57606a">PrimeU 比例对齐人形</text>
-<path d="M 292.0 346.0 L 407.0 562.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 292.0 634.0 L 407.0 562.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 668.0 562.5 L 776.0 562.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1037.0 562.5 L 1145.0 490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 299.0 202.0 L 414.0 418.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 289.0 490.0 L 414.0 418.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 662.0 418.0 L 778.0 417.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="54" y="294" width="238" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="54" y1="300" x2="54" y2="392" stroke="#0b57d0" stroke-width="3"/>
-<text x="173.0" y="350.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Egocentric 视频&lt;br/</text>
-<rect x="54" y="582" width="238" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="54" y1="588" x2="54" y2="680" stroke="#0b57d0" stroke-width="3"/>
-<text x="173.0" y="638.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Exocentric 视频&lt;br/</text>
-<rect x="407" y="510" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="407" y1="516" x2="407" y2="609" stroke="#0b57d0" stroke-width="3"/>
-<text x="537.5" y="557.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人体跟踪 + Mesh 重建&lt;</text>
-<text x="537.5" y="575.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
-<rect x="776" y="510" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="776" y1="516" x2="776" y2="609" stroke="#0b57d0" stroke-width="3"/>
-<text x="906.5" y="557.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Staged IK 分阶段重映射</text>
-<text x="906.5" y="575.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;br/</text>
-<rect x="1145" y="438" width="253" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1145" y1="444" x2="1145" y2="536" stroke="#0b57d0" stroke-width="3"/>
-<text x="1271.5" y="494.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">60-DoF 动作块标签&lt;br/</text>
-<rect x="54" y="726" width="238" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="54" y1="732" x2="54" y2="824" stroke="#0b57d0" stroke-width="3"/>
-<text x="173.0" y="782.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">硬件身体比例对齐&lt;br/</text>
-<rect x="414" y="366" width="248" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="414" y1="372" x2="414" y2="464" stroke="#0b57d0" stroke-width="3"/>
-<text x="538.0" y="422.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PhysDex VLA 策略&lt;br/</text>
-<rect x="46" y="150" width="253" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="172.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DS-HKC 双空间损失&lt;br/</text>
-<rect x="56" y="438" width="233" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="56" y1="444" x2="56" y2="536" stroke="#0b57d0" stroke-width="3"/>
-<text x="172.5" y="494.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">部署期 Ego 观测&lt;br/</text>
-<rect x="778" y="365" width="256" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="778" y1="371" x2="778" y2="464" stroke="#0b57d0" stroke-width="3"/>
-<text x="906.0" y="412.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PrimeU 上身 60-DoF</text>
-<text x="906.0" y="430.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作</text>
-<text x="1398" y="892" font-size="10.5" fill="#8c959f" text-anchor="end">human-as-humanoid · arXiv 2606.32009 · v3 auto</text>
+<rect x="31" y="760" width="290" height="175" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="45" y="780" font-size="11.5" font-weight="600" fill="#57606a">PrimeU 比例对齐人形</text>
+<path d="M 298.0 381.0 L 456.0 623.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 298.0 704.0 L 456.0 623.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 717.0 623.5 L 869.0 623.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1130.0 623.5 L 1282.0 543.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 305.0 220.0 L 464.0 462.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 296.0 543.0 L 464.0 462.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 712.0 462.0 L 871.0 461.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="60" y="329" width="238" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="60" y1="335" x2="60" y2="427" stroke="#0b57d0" stroke-width="3"/>
+<text x="179.0" y="384.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Egocentric 视频&lt;br/</text>
+<rect x="60" y="652" width="238" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="60" y1="658" x2="60" y2="750" stroke="#0b57d0" stroke-width="3"/>
+<text x="179.0" y="707.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Exocentric 视频&lt;br/</text>
+<rect x="456" y="571" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="456" y1="577" x2="456" y2="670" stroke="#0b57d0" stroke-width="3"/>
+<text x="586.5" y="616.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人体跟踪 + Mesh 重建&lt;</text>
+<text x="586.5" y="637.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
+<rect x="869" y="571" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="869" y1="577" x2="869" y2="670" stroke="#0b57d0" stroke-width="3"/>
+<text x="999.5" y="616.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Staged IK 分阶段重映射</text>
+<text x="999.5" y="637.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;br/</text>
+<rect x="1282" y="491" width="253" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1282" y1="497" x2="1282" y2="589" stroke="#0b57d0" stroke-width="3"/>
+<text x="1408.5" y="546.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">60-DoF 动作块标签&lt;br/</text>
+<rect x="60" y="813" width="238" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="60" y1="819" x2="60" y2="911" stroke="#0b57d0" stroke-width="3"/>
+<text x="179.0" y="868.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">硬件身体比例对齐&lt;br/</text>
+<rect x="464" y="410" width="248" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="464" y1="416" x2="464" y2="508" stroke="#0b57d0" stroke-width="3"/>
+<text x="588.0" y="465.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PhysDex VLA 策略&lt;br/</text>
+<rect x="52" y="168" width="253" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="178.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DS-HKC 双空间损失&lt;br/</text>
+<rect x="63" y="491" width="233" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="63" y1="497" x2="63" y2="589" stroke="#0b57d0" stroke-width="3"/>
+<text x="179.5" y="546.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">部署期 Ego 观测&lt;br/</text>
+<rect x="871" y="409" width="256" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="871" y1="415" x2="871" y2="508" stroke="#0b57d0" stroke-width="3"/>
+<text x="999.0" y="454.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PrimeU 上身 60-DoF</text>
+<text x="999.0" y="475.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作</text>
+<text x="1539" y="977" font-size="10.5" fill="#8c959f" text-anchor="end">human-as-humanoid · arXiv 2606.32009 · v3 auto</text>
 </svg>

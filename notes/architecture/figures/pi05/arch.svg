@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1163" height="1352" viewBox="24 98 1163 1352" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1273" height="1500" viewBox="26 112 1273 1500" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>pi05</title>
-<rect x="24" y="98" width="1163" height="1352" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">pi05</text>
-<text x="1165" y="128" font-size="12" fill="#57606a" text-anchor="end">π0.5 基于 π0 构建，通过跨具身联合训练（co-training）——97.6% 的训练数据来自非目标平台的机器人数据和网页数据——首次让端到端学习系统在从未见过的家庭环</text>
+<rect x="26" y="112" width="1273" height="1500" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">pi05</text>
+<text x="1277" y="142" font-size="12" fill="#57606a" text-anchor="end">π0.5 基于 π0 构建，通过跨具身联合训练（co-training）——97.6% 的训练数据来自非目标平台的机器人数据和网页数据——首次让端到端学习系统在从未见过的家庭环</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,64 +10,64 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 433.0 288.0 L 605.5 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 264.0 218.5 L 204.0 218.5 L 204.0 455.0 L 475.0 455.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 734.0 322.0 L 605.5 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 605.5 524.0 L 606.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 606.0 727.0 L 606.0 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 433.0 288.0 L 433.0 556.5 L 606.0 556.5 L 606.0 825.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 1034.5 288.0 L 1034.5 556.5 L 606.0 556.5 L 606.0 825.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 904.0 219.0 L 586.0 219.0 L 586.0 455.0 L 736.0 455.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 606.0 963.0 L 605.5 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 605.5 1199.0 L 605.5 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 559.7 1402.0 L 559.7 1025.0 L 459.2 1025.0 L 459.2 288.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="302" y="150" width="262" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="302" y1="156" x2="302" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="433.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">4 路 RGB + 本体状态</text>
-<text x="433.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">18-19 维</text>
-<text x="433.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">(2 腕 + 前 + 后)</text>
-<rect x="475" y="386" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="475" y1="392" x2="475" y2="518" stroke="#57606a" stroke-width="3"/>
-<text x="605.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP 400M + Gemma</text>
-<text x="605.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">2.6B</text>
-<text x="605.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">VLM 主干</text>
-<rect x="46" y="166" width="218" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="155.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">高层指令</text>
-<text x="155.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(可为人类口头指导)</text>
-<rect x="602" y="150" width="264" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="602" y1="156" x2="602" y2="316" stroke="#0b57d0" stroke-width="3"/>
-<text x="734.0" y="206.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">异构数据联合训练</text>
-<text x="734.0" y="224.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">跨具身机器人 + 网页多</text>
-<text x="734.0" y="244.5" font-size="11.5" fill="#57606a" text-anchor="middle">模态</text>
-<text x="734.0" y="259.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 子任务标注 + 口头指令</text>
-<text x="734.0" y="274.5" font-size="11.5" fill="#57606a" text-anchor="middle">(97.6% 非目标平台)</text>
-<rect x="514" y="622" width="184" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="514" y1="628" x2="514" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="606.0" y="669.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">高层语义子任务</text>
-<text x="606.0" y="687.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(如: 拿起枕头)</text>
-<rect x="474" y="825" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="474" y1="831" x2="474" y2="957" stroke="#1a7f37" stroke-width="3"/>
-<text x="606.0" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Action Expert 300M</text>
-<text x="606.0" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">flow matching 去噪出连</text>
-<text x="606.0" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">续动作</text>
-<rect x="904" y="150" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="904" y1="156" x2="904" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="1034.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">联合损失: token 预测</text>
-<text x="1034.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ flow matching (</text>
-<text x="1034.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">alpha = 10)</text>
-<rect x="477" y="1061" width="257" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="477" y1="1067" x2="477" y2="1193" stroke="#8250df" stroke-width="3"/>
-<text x="605.5" y="1115.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">连续动作 chunk H = 50</text>
-<text x="605.5" y="1133.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">双臂位姿 + 夹爪 + 基座</text>
-<text x="605.5" y="1153.5" font-size="11.5" fill="#57606a" text-anchor="middle">速度</text>
-<rect x="491" y="1297" width="229" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="491" y1="1303" x2="491" y2="1396" stroke="#8250df" stroke-width="3"/>
-<text x="605.5" y="1344.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">移动操作机器人 50Hz</text>
-<text x="605.5" y="1362.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PD 控制器跟踪</text>
-<text x="669.8" y="346.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">co-training 多层次知识迁移</text>
-<text x="605.8" y="565.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每步先预测</text>
-<text x="606.0" y="768.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">子任务作 condition</text>
-<text x="509.5" y="837.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">闭环重观测 高层子任务逐步重预测</text>
-<text x="1165" y="1440" font-size="10.5" fill="#8c959f" text-anchor="end">pi05 · arXiv 2504.16054 · v3 auto</text>
+<path d="M 469.0 306.0 L 662.5 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 270.0 238.5 L 532.0 501.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 806.0 340.0 L 662.5 432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 662.5 570.0 L 668.0 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 668.0 802.0 L 663.0 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 469.0 306.0 L 469.0 615.0 L 663.0 615.0 L 663.0 924.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 1142.5 306.0 L 663.0 924.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1012.0 237.0 L 793.0 501.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 663.0 1062.0 L 662.5 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 662.5 1326.0 L 664.5 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 618.7 1558.0 L 618.7 1112.0 L 495.2 1112.0 L 495.2 306.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="338" y="168" width="262" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="338" y1="174" x2="338" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="469.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">4 路 RGB + 本体状态</text>
+<text x="469.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">18-19 维</text>
+<text x="469.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">(2 腕 + 前 + 后)</text>
+<rect x="532" y="432" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="532" y1="438" x2="532" y2="564" stroke="#57606a" stroke-width="3"/>
+<text x="662.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP 400M + Gemma</text>
+<text x="662.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">2.6B</text>
+<text x="662.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">VLM 主干</text>
+<rect x="52" y="186" width="218" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="161.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">高层指令</text>
+<text x="161.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(可为人类口头指导)</text>
+<rect x="674" y="168" width="264" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="674" y1="174" x2="674" y2="334" stroke="#0b57d0" stroke-width="3"/>
+<text x="806.0" y="216.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">异构数据联合训练</text>
+<text x="806.0" y="237.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">跨具身机器人 + 网页多</text>
+<text x="806.0" y="266.75" font-size="12.5" fill="#57606a" text-anchor="middle">模态</text>
+<text x="806.0" y="284.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ 子任务标注 + 口头指令</text>
+<text x="806.0" y="301.75" font-size="12.5" fill="#57606a" text-anchor="middle">(97.6% 非目标平台)</text>
+<rect x="576" y="697" width="184" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="576" y1="703" x2="576" y2="796" stroke="#0b57d0" stroke-width="3"/>
+<text x="668.0" y="742.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">高层语义子任务</text>
+<text x="668.0" y="763.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(如: 拿起枕头)</text>
+<rect x="531" y="924" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="531" y1="930" x2="531" y2="1056" stroke="#1a7f37" stroke-width="3"/>
+<text x="663.0" y="973.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Action Expert 300M</text>
+<text x="663.0" y="994.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">flow matching 去噪出连</text>
+<text x="663.0" y="1023.25" font-size="12.5" fill="#57606a" text-anchor="middle">续动作</text>
+<rect x="1012" y="168" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1012" y1="174" x2="1012" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="1142.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">联合损失: token 预测</text>
+<text x="1142.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+ flow matching (</text>
+<text x="1142.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">alpha = 10)</text>
+<rect x="534" y="1188" width="257" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="534" y1="1194" x2="534" y2="1320" stroke="#8250df" stroke-width="3"/>
+<text x="662.5" y="1237.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">连续动作 chunk H = 50</text>
+<text x="662.5" y="1258.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">双臂位姿 + 夹爪 + 基座</text>
+<text x="662.5" y="1287.25" font-size="12.5" fill="#57606a" text-anchor="middle">速度</text>
+<rect x="550" y="1453" width="229" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="550" y1="1459" x2="550" y2="1552" stroke="#8250df" stroke-width="3"/>
+<text x="664.5" y="1498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">移动操作机器人 50Hz</text>
+<text x="664.5" y="1519.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PD 控制器跟踪</text>
+<text x="734.2" y="378.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">co-training 多层次知识迁移</text>
+<text x="665.2" y="625.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每步先预测</text>
+<text x="665.5" y="855.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">子任务作 condition</text>
+<text x="557.0" y="924.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">闭环重观测 高层子任务逐步重预测</text>
+<text x="1277" y="1600" font-size="10.5" fill="#8c959f" text-anchor="end">pi05 · arXiv 2504.16054 · v3 auto</text>
 </svg>

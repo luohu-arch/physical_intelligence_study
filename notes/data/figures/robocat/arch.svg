@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="906" height="1513" viewBox="-2 40 906 1513" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="957" height="1602" viewBox="-4 47 957 1602" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>robocat</title>
-<rect x="-2" y="40" width="906" height="1513" fill="#ffffff"/>
-<text x="20" y="70" font-size="14" font-weight="700" fill="#1f2328">robocat</text>
-<text x="882" y="70" font-size="12" fill="#57606a" text-anchor="end">RoboCat 是一个基于 Gato 架构的视觉目标条件决策 Transformer，首次实现了跨多机器人本体的大规模多任务操作，并通过「从实践中自我生成数据 -&gt; 重训练」的</text>
+<rect x="-4" y="47" width="957" height="1602" fill="#ffffff"/>
+<text x="18" y="77" font-size="14" font-weight="700" fill="#1f2328">robocat</text>
+<text x="931" y="77" font-size="12" fill="#57606a" text-anchor="end">RoboCat 是一个基于 Gato 架构的视觉目标条件决策 Transformer，首次实现了跨多机器人本体的大规模多任务操作，并通过「从实践中自我生成数据 -&gt; 重训练」的</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,66 +10,66 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="92" width="862" height="1413" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="112" font-size="11.5" font-weight="600" fill="#57606a">多任务多本体预训练数据 · Gato 式跨本体骨干 · 自改进循环 (self-improvement)</text>
-<rect x="290" y="339" width="552" height="681" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="304" y="359" font-size="11.5" font-weight="600" fill="#57606a">Gato 式跨本体骨干</text>
-<path d="M 595.0 218.5 L 585.0 455.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 450.5 524.0 L 451.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 430.5 288.0 L 430.5 545.0 L 451.5 545.0 L 451.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 585.0 699.5 L 562.0 927.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 318.0 699.5 L 337.0 926.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 156.0 271.0 L 211.5 874.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 337.0 926.5 L 318.0 1163.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 450.5 1232.0 L 451.0 1330.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 407.8 1435.0 L 407.8 1286.0 L 478.2 1286.0 L 478.2 777.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 451.5 777.0 L 449.0 875.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="595" y="166" width="261" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="595" y1="172" x2="595" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="725.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">240 任务变体 / 11 任务</text>
-<text x="725.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">族&lt;br/</text>
-<rect x="304" y="150" width="253" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="304" y1="156" x2="304" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="430.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">目标图像 g</text>
-<text x="430.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉目标条件</text>
-<text x="430.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">失败轨迹 hindsight 重标注</text>
-<rect x="316" y="386" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="316" y1="392" x2="316" y2="518" stroke="#57606a" stroke-width="3"/>
-<text x="450.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VQ-GAN 图像分词器 (冻</text>
-<text x="450.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">结)</text>
-<text x="450.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">压缩为 8x8 token</text>
-<rect x="318" y="622" width="267" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="318" y1="628" x2="318" y2="771" stroke="#1a7f37" stroke-width="3"/>
-<text x="451.5" y="677.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Decoder-only</text>
-<text x="451.5" y="695.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer 1.18B</text>
-<text x="451.5" y="715.5" font-size="11.5" fill="#57606a" text-anchor="middle">异构本体统一为 token 序列</text>
-<text x="451.5" y="730.5" font-size="11.5" fill="#57606a" text-anchor="middle">上下文 1024 token 约 3 步历史</text>
-<rect x="562" y="858" width="254" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="562" y1="864" x2="562" y2="990" stroke="#8a5a00" stroke-width="3"/>
-<text x="689.0" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">联合损失</text>
-<text x="689.0" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 token 交叉熵</text>
-<text x="689.0" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ k=5 步图像 token 预测</text>
-<rect x="46" y="167" width="220" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="156.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">新任务人类示教&lt;br/</text>
-<rect x="86" y="874" width="251" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="86" y1="880" x2="86" y2="973" stroke="#1a7f37" stroke-width="3"/>
-<text x="211.5" y="921.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">少样本微调</text>
-<text x="211.5" y="939.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">水果插碗 500 条达 84%</text>
-<rect x="318" y="1094" width="265" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="318" y1="1100" x2="318" y2="1226" stroke="#0b57d0" stroke-width="3"/>
-<text x="450.5" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真机自主收集轨迹</text>
-<text x="450.5" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">成功检测器筛选 ~90%</text>
-<text x="450.5" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">策略池互补任务互为 reset</text>
-<rect x="343" y="1330" width="216" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="343" y1="1336" x2="343" y2="1429" stroke="#0b57d0" stroke-width="3"/>
-<text x="451.0" y="1377.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">数据聚合</text>
-<text x="451.0" y="1395.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">专家数据常驻防遗忘</text>
-<rect x="374" y="875" width="150" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="374" y1="881" x2="374" y2="973" stroke="#8250df" stroke-width="3"/>
-<text x="449.0" y="931.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
-<text x="450.8" y="1273.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">自生成数据入池 一轮自改进全面超纯示教</text>
-<text x="443.0" y="1098.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重训练下一版通用模型</text>
-<text x="450.2" y="818.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">动作 token 自回归 10-20Hz …</text>
-<text x="882" y="1543" font-size="10.5" fill="#8c959f" text-anchor="end">robocat · arXiv 2306.11706 · v3 auto</text>
+<rect x="22" y="103" width="862" height="1413" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="123" font-size="11.5" font-weight="600" fill="#57606a">多任务多本体预训练数据 · Gato 式跨本体骨干 · 自改进循环 (self-improvement)</text>
+<rect x="325" y="380" width="552" height="681" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="339" y="400" font-size="11.5" font-weight="600" fill="#57606a">Gato 式跨本体骨干</text>
+<path d="M 666.0 238.5 L 623.0 501.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 488.5 570.0 L 489.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 466.5 306.0 L 466.5 591.5 L 489.5 591.5 L 489.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 623.0 774.5 L 629.0 1030.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 356.0 774.5 L 347.0 1031.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 162.0 291.0 L 221.5 979.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 347.0 1031.5 L 356.0 1294.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 488.5 1363.0 L 492.0 1490.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 448.8 1595.0 L 448.8 1223.5 L 516.2 1223.5 L 516.2 852.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 489.5 852.0 L 494.0 980.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="666" y="186" width="261" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="666" y1="192" x2="666" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="796.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">240 任务变体 / 11 任务</text>
+<text x="796.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">族&lt;br/</text>
+<rect x="340" y="168" width="253" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="340" y1="174" x2="340" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="466.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">目标图像 g</text>
+<text x="466.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉目标条件</text>
+<text x="466.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">失败轨迹 hindsight 重标注</text>
+<rect x="354" y="432" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="354" y1="438" x2="354" y2="564" stroke="#57606a" stroke-width="3"/>
+<text x="488.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VQ-GAN 图像分词器 (冻</text>
+<text x="488.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">结)</text>
+<text x="488.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">压缩为 8x8 token</text>
+<rect x="356" y="697" width="267" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="356" y1="703" x2="356" y2="846" stroke="#1a7f37" stroke-width="3"/>
+<text x="489.5" y="746.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Decoder-only</text>
+<text x="489.5" y="767.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer 1.18B</text>
+<text x="489.5" y="796.0" font-size="12.5" fill="#57606a" text-anchor="middle">异构本体统一为 token 序列</text>
+<text x="489.5" y="813.5" font-size="12.5" fill="#57606a" text-anchor="middle">上下文 1024 token 约 3 步历史</text>
+<rect x="629" y="961" width="254" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="629" y1="967" x2="629" y2="1093" stroke="#8a5a00" stroke-width="3"/>
+<text x="756.0" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">联合损失</text>
+<text x="756.0" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 token 交叉熵</text>
+<text x="756.0" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ k=5 步图像 token 预测</text>
+<rect x="52" y="187" width="220" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="162.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">新任务人类示教&lt;br/</text>
+<rect x="96" y="979" width="251" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="96" y1="985" x2="96" y2="1078" stroke="#1a7f37" stroke-width="3"/>
+<text x="221.5" y="1024.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">少样本微调</text>
+<text x="221.5" y="1045.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">水果插碗 500 条达 84%</text>
+<rect x="356" y="1225" width="265" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="356" y1="1231" x2="356" y2="1357" stroke="#0b57d0" stroke-width="3"/>
+<text x="488.5" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真机自主收集轨迹</text>
+<text x="488.5" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">成功检测器筛选 ~90%</text>
+<text x="488.5" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">策略池互补任务互为 reset</text>
+<rect x="384" y="1490" width="216" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="384" y1="1496" x2="384" y2="1589" stroke="#0b57d0" stroke-width="3"/>
+<text x="492.0" y="1535.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">数据聚合</text>
+<text x="492.0" y="1556.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">专家数据常驻防遗忘</text>
+<rect x="419" y="980" width="150" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="419" y1="986" x2="419" y2="1078" stroke="#8250df" stroke-width="3"/>
+<text x="494.0" y="1035.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
+<text x="490.2" y="1418.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">自生成数据入池 一轮自改进全面超纯示教</text>
+<text x="482.5" y="1215.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重训练下一版通用模型</text>
+<text x="491.8" y="908.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">动作 token 自回归 10-20Hz …</text>
+<text x="931" y="1637" font-size="10.5" fill="#8c959f" text-anchor="end">robocat · arXiv 2306.11706 · v3 auto</text>
 </svg>

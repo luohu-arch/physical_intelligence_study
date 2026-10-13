@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="787" height="1199" viewBox="24 98 787 1199" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="853" height="1322" viewBox="26 112 853 1322" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>hapticvla</title>
-<rect x="24" y="98" width="787" height="1199" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">hapticvla</text>
-<text x="789" y="128" font-size="12" fill="#57606a" text-anchor="end">HapticVLA 提出触觉蒸馏 (Tactile Distillation)：两阶段训练——(1) SA-RWFM: 用触觉传感器做 safety-aware reward-</text>
+<rect x="26" y="112" width="853" height="1322" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">hapticvla</text>
+<text x="857" y="142" font-size="12" fill="#57606a" text-anchor="end">HapticVLA 提出触觉蒸馏 (Tactile Distillation)：两阶段训练——(1) SA-RWFM: 用触觉传感器做 safety-aware reward-</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,50 +10,50 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 366.0 288.0 L 417.5 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 196.0 219.0 L 287.0 463.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 417.5 541.0 L 417.5 622.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<path d="M 662.5 271.0 L 662.5 626.5 L 417.5 626.5 L 417.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 417.5 794.0 L 418.0 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 418.0 1013.0 L 418.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="234" y="150" width="264" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="156" x2="234" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="366.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">触觉阵列 200 taxels @</text>
-<text x="366.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">120 Hz</text>
-<text x="366.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">(仅训练期的特权模态)</text>
-<rect x="287" y="386" width="261" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="287" y1="392" x2="287" y2="535" stroke="#57606a" stroke-width="3"/>
-<text x="417.5" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SA-RWFM teacher (</text>
-<text x="417.5" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SmolVLA 0.45B)</text>
-<text x="417.5" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">safety-aware reward-weighted</text>
-<text x="417.5" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">flow matching 离线 RL</text>
-<rect x="46" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="121.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真机演示</text>
-<rect x="287" y="622" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="287" y1="628" x2="287" y2="788" stroke="#0b57d0" stroke-width="3"/>
-<text x="417.5" y="678.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Tactile Distillation</text>
-<text x="417.5" y="696.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(核心)</text>
-<text x="417.5" y="716.5" font-size="11.5" fill="#57606a" text-anchor="middle">student 从视觉 + 本体预测</text>
-<text x="417.5" y="731.5" font-size="11.5" fill="#57606a" text-anchor="middle">compact tactile token</text>
-<text x="417.5" y="746.5" font-size="11.5" fill="#57606a" text-anchor="middle">(预测的手感替代测出的手感)</text>
-<rect x="536" y="166" width="253" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="536" y1="172" x2="536" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="662.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">3 路 RGB + 本体 (部署</text>
-<text x="662.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">观测)</text>
-<rect x="286" y="858" width="264" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="286" y1="864" x2="286" y2="1007" stroke="#1a7f37" stroke-width="3"/>
-<text x="418.0" y="913.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">student VLA</text>
-<text x="418.0" y="931.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作目标 = 0.5 * GT</text>
-<text x="418.0" y="951.5" font-size="11.5" fill="#57606a" text-anchor="middle">demo + 0.5 * teacher</text>
-<text x="418.0" y="966.5" font-size="11.5" fill="#57606a" text-anchor="middle">从模仿平滑过渡到跟随 teacher</text>
-<rect x="286" y="1094" width="264" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="286" y1="1100" x2="286" y2="1243" stroke="#8250df" stroke-width="3"/>
-<text x="418.0" y="1149.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">纯视觉部署 (无触觉硬件)</text>
-<text x="418.0" y="1167.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Jetson Orin NX 边缘</text>
-<text x="418.0" y="1187.5" font-size="11.5" fill="#57606a" text-anchor="middle">推理</text>
-<text x="418.0" y="1202.5" font-size="11.5" fill="#57606a" text-anchor="middle">86.7% 反超带触觉 teacher 75%</text>
-<text x="391.8" y="329.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">安全奖励: 抓取力 / 压力峰值 …</text>
-<text x="417.5" y="573.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">蒸馏触觉内部表征 h^T</text>
-<text x="789" y="1287" font-size="10.5" fill="#8c959f" text-anchor="end">hapticvla · arXiv 2603.15257 · v3 auto</text>
+<path d="M 394.0 306.0 L 451.5 432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 202.0 239.0 L 321.0 509.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 451.5 587.0 L 451.5 697.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 726.5 291.0 L 726.5 584.0 L 451.5 584.0 L 451.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 451.5 869.0 L 452.0 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 452.0 1116.0 L 452.0 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="262" y="168" width="264" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="174" x2="262" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="394.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">触觉阵列 200 taxels @</text>
+<text x="394.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">120 Hz</text>
+<text x="394.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">(仅训练期的特权模态)</text>
+<rect x="321" y="432" width="261" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="321" y1="438" x2="321" y2="581" stroke="#57606a" stroke-width="3"/>
+<text x="451.5" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SA-RWFM teacher (</text>
+<text x="451.5" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SmolVLA 0.45B)</text>
+<text x="451.5" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">safety-aware reward-weighted</text>
+<text x="451.5" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">flow matching 离线 RL</text>
+<rect x="52" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="127.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真机演示</text>
+<rect x="321" y="697" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="321" y1="703" x2="321" y2="863" stroke="#0b57d0" stroke-width="3"/>
+<text x="451.5" y="745.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Tactile Distillation</text>
+<text x="451.5" y="766.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(核心)</text>
+<text x="451.5" y="795.75" font-size="12.5" fill="#57606a" text-anchor="middle">student 从视觉 + 本体预测</text>
+<text x="451.5" y="813.25" font-size="12.5" fill="#57606a" text-anchor="middle">compact tactile token</text>
+<text x="451.5" y="830.75" font-size="12.5" fill="#57606a" text-anchor="middle">(预测的手感替代测出的手感)</text>
+<rect x="600" y="186" width="253" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="600" y1="192" x2="600" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="726.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">3 路 RGB + 本体 (部署</text>
+<text x="726.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">观测)</text>
+<rect x="320" y="961" width="264" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="320" y1="967" x2="320" y2="1110" stroke="#1a7f37" stroke-width="3"/>
+<text x="452.0" y="1010.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">student VLA</text>
+<text x="452.0" y="1031.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作目标 = 0.5 * GT</text>
+<text x="452.0" y="1060.0" font-size="12.5" fill="#57606a" text-anchor="middle">demo + 0.5 * teacher</text>
+<text x="452.0" y="1077.5" font-size="12.5" fill="#57606a" text-anchor="middle">从模仿平滑过渡到跟随 teacher</text>
+<rect x="320" y="1225" width="264" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="320" y1="1231" x2="320" y2="1374" stroke="#8250df" stroke-width="3"/>
+<text x="452.0" y="1274.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">纯视觉部署 (无触觉硬件)</text>
+<text x="452.0" y="1295.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Jetson Orin NX 边缘</text>
+<text x="452.0" y="1324.0" font-size="12.5" fill="#57606a" text-anchor="middle">推理</text>
+<text x="452.0" y="1341.5" font-size="12.5" fill="#57606a" text-anchor="middle">86.7% 反超带触觉 teacher 75%</text>
+<text x="422.8" y="361.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">安全奖励: 抓取力 / 压力峰值 …</text>
+<text x="451.5" y="634.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">蒸馏触觉内部表征 h^T</text>
+<text x="857" y="1422" font-size="10.5" fill="#8c959f" text-anchor="end">hapticvla · arXiv 2603.15257 · v3 auto</text>
 </svg>

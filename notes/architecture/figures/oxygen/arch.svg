@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="608" height="1890" viewBox="24 98 608 1890" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="652" height="2098" viewBox="26 112 652 2098" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>oxygen</title>
-<rect x="24" y="98" width="608" height="1890" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">oxygen</text>
-<text x="610" y="128" font-size="12" fill="#57606a" text-anchor="end">问题**：MoT 结构 VLA（如 π0.5）架构上支持动作+语言多任务并行，但现有推理系统孤立执行——同一观测被每个任务重复 prefill、语言解码阻塞动作硬实时，端侧单 </text>
+<rect x="26" y="112" width="652" height="2098" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">oxygen</text>
+<text x="656" y="142" font-size="12" fill="#57606a" text-anchor="end">问题**：MoT 结构 VLA（如 π0.5）架构上支持动作+语言多任务并行，但现有推理系统孤立执行——同一观测被每个任务重复 prefill、语言解码阻塞动作硬实时，端侧单 </text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,77 +10,77 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 476.5 271.0 L 328.5 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 328.5 524.0 L 328.0 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 328.0 760.0 L 178.5 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 328.0 760.0 L 473.5 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 201.5 288.0 L 201.5 781.0 L 479.0 781.0 L 479.0 1094.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 473.5 996.0 L 479.0 1094.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 479.0 1232.0 L 328.5 1330.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 328.5 1468.0 L 328.5 1566.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 328.5 1721.0 L 476.0 1802.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 422.8 1940.0 L 422.8 1766.0 L 505.2 1766.0 L 505.2 1232.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 178.5 996.0 L 178.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 328.5 1721.0 L 176.0 1818.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="369" y="166" width="215" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="369" y1="172" x2="369" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="476.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">新观测 o_t</text>
-<text x="476.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(多路 RGB + 语言)</text>
-<rect x="194" y="386" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="194" y1="392" x2="194" y2="518" stroke="#57606a" stroke-width="3"/>
-<text x="328.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">共享 VLM 只 prefill</text>
-<text x="328.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">一次</text>
-<text x="328.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">(pi0.5 权重完全冻结, 零训练)</text>
-<rect x="196" y="622" width="264" height="138" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="196" y1="628" x2="196" y2="754" stroke="#bf3989" stroke-width="3"/>
-<text x="328.0" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">K_t: 模态无关 KV cache</text>
-<text x="328.0" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">只编码观测本身, 两类专家</text>
-<text x="328.0" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">共享</text>
-<rect x="52" y="858" width="253" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="52" y1="864" x2="52" y2="990" stroke="#57606a" stroke-width="3"/>
-<text x="178.5" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作专家: 只读 K_t</text>
-<text x="178.5" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">S = 10 步去噪 -&gt; 动作</text>
-<text x="178.5" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">块 A_t</text>
-<rect x="343" y="858" width="261" height="138" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="343" y1="864" x2="343" y2="990" stroke="#bf3989" stroke-width="3"/>
-<text x="473.5" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言可恢复状态</text>
-<text x="473.5" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">sigma_t = (K_t, y_t,</text>
-<text x="473.5" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">delta_t)</text>
-<rect x="72" y="150" width="259" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="72" y1="156" x2="72" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="201.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">历史帧在飞语言请求</text>
-<text x="201.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">t-1, t-2, ... 的</text>
-<text x="201.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">sigma</text>
-<rect x="348" y="1094" width="262" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="1100" x2="348" y2="1226" stroke="#0b57d0" stroke-width="3"/>
-<text x="479.0" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">统一 KV cache 管理器 M</text>
-<text x="479.0" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Store / Retrieve /</text>
-<text x="479.0" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">Update / Remove</text>
-<rect x="194" y="1330" width="269" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="194" y1="1336" x2="194" y2="1462" stroke="#0b57d0" stroke-width="3"/>
-<text x="328.5" y="1384.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Retrieve + Batch</text>
-<text x="328.5" y="1402.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">m 个活跃状态沿 batch 维</text>
-<text x="328.5" y="1422.5" font-size="11.5" fill="#57606a" text-anchor="middle">堆成 sigma_hat</text>
-<rect x="196" y="1566" width="265" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="196" y1="1572" x2="196" y2="1715" stroke="#0b57d0" stroke-width="3"/>
-<text x="328.5" y="1621.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">跨帧连续批解码</text>
-<text x="328.5" y="1639.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每帧为全部请求解 k 个</text>
-<text x="328.5" y="1659.5" font-size="11.5" fill="#57606a" text-anchor="middle">token</text>
-<text x="328.5" y="1674.5" font-size="11.5" fill="#57606a" text-anchor="middle">(k 按帧率与硬件离线校准)</text>
-<rect x="343" y="1802" width="266" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="343" y1="1808" x2="343" y2="1934" stroke="#0b57d0" stroke-width="3"/>
-<text x="476.0" y="1856.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">UnBatch: 完成则 Remove</text>
-<text x="476.0" y="1874.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(delta=1)</text>
-<text x="476.0" y="1894.5" font-size="11.5" fill="#57606a" text-anchor="middle">未完成则 Update 持久化到下一帧</text>
-<rect x="46" y="1094" width="264" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1100" x2="46" y2="1226" stroke="#8250df" stroke-width="3"/>
-<text x="178.0" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人动作 60-70 Hz</text>
-<text x="178.0" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">关键路径 198 ms &lt; 333</text>
-<text x="178.0" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">ms 执行窗口</text>
-<rect x="47" y="1818" width="258" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="47" y1="1824" x2="47" y2="1917" stroke="#8250df" stroke-width="3"/>
-<text x="176.0" y="1865.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言 token 200+ tok/s</text>
-<text x="176.0" y="1883.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">藏在动作执行窗口之后</text>
-<text x="464.0" y="1578.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">断点续传, 跨帧无损续跑</text>
-<text x="610" y="1978" font-size="10.5" fill="#8c959f" text-anchor="end">oxygen · arXiv 2603.14371 · v3 auto</text>
+<path d="M 520.5 291.0 L 351.5 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 351.5 570.0 L 352.0 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 352.0 835.0 L 184.5 961.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 352.0 835.0 L 514.5 961.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 210.5 306.0 L 210.5 855.5 L 521.0 855.5 L 521.0 1225.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 514.5 1099.0 L 521.0 1225.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 521.0 1363.0 L 351.5 1490.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 351.5 1628.0 L 352.5 1754.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 352.5 1909.0 L 517.0 2018.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 463.8 2156.0 L 547.2 1363.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 184.5 1099.0 L 184.0 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 352.5 1909.0 L 182.0 2036.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="413" y="186" width="215" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="413" y1="192" x2="413" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="520.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">新观测 o_t</text>
+<text x="520.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(多路 RGB + 语言)</text>
+<rect x="217" y="432" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="217" y1="438" x2="217" y2="564" stroke="#57606a" stroke-width="3"/>
+<text x="351.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">共享 VLM 只 prefill</text>
+<text x="351.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">一次</text>
+<text x="351.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">(pi0.5 权重完全冻结, 零训练)</text>
+<rect x="220" y="697" width="264" height="138" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="220" y1="703" x2="220" y2="829" stroke="#bf3989" stroke-width="3"/>
+<text x="352.0" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">K_t: 模态无关 KV cache</text>
+<text x="352.0" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">只编码观测本身, 两类专家</text>
+<text x="352.0" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">共享</text>
+<rect x="58" y="961" width="253" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="58" y1="967" x2="58" y2="1093" stroke="#57606a" stroke-width="3"/>
+<text x="184.5" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作专家: 只读 K_t</text>
+<text x="184.5" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">S = 10 步去噪 -&gt; 动作</text>
+<text x="184.5" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">块 A_t</text>
+<rect x="384" y="961" width="261" height="138" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="384" y1="967" x2="384" y2="1093" stroke="#bf3989" stroke-width="3"/>
+<text x="514.5" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言可恢复状态</text>
+<text x="514.5" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">sigma_t = (K_t, y_t,</text>
+<text x="514.5" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">delta_t)</text>
+<rect x="81" y="168" width="259" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="81" y1="174" x2="81" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="210.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">历史帧在飞语言请求</text>
+<text x="210.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">t-1, t-2, ... 的</text>
+<text x="210.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">sigma</text>
+<rect x="390" y="1225" width="262" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="1231" x2="390" y2="1357" stroke="#0b57d0" stroke-width="3"/>
+<text x="521.0" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">统一 KV cache 管理器 M</text>
+<text x="521.0" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Store / Retrieve /</text>
+<text x="521.0" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">Update / Remove</text>
+<rect x="217" y="1490" width="269" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="217" y1="1496" x2="217" y2="1622" stroke="#0b57d0" stroke-width="3"/>
+<text x="351.5" y="1539.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Retrieve + Batch</text>
+<text x="351.5" y="1560.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">m 个活跃状态沿 batch 维</text>
+<text x="351.5" y="1589.25" font-size="12.5" fill="#57606a" text-anchor="middle">堆成 sigma_hat</text>
+<rect x="220" y="1754" width="265" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="220" y1="1760" x2="220" y2="1903" stroke="#0b57d0" stroke-width="3"/>
+<text x="352.5" y="1803.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">跨帧连续批解码</text>
+<text x="352.5" y="1824.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每帧为全部请求解 k 个</text>
+<text x="352.5" y="1853.0" font-size="12.5" fill="#57606a" text-anchor="middle">token</text>
+<text x="352.5" y="1870.5" font-size="12.5" fill="#57606a" text-anchor="middle">(k 按帧率与硬件离线校准)</text>
+<rect x="384" y="2018" width="266" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="384" y1="2024" x2="384" y2="2150" stroke="#0b57d0" stroke-width="3"/>
+<text x="517.0" y="2067.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">UnBatch: 完成则 Remove</text>
+<text x="517.0" y="2088.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(delta=1)</text>
+<text x="517.0" y="2117.25" font-size="12.5" fill="#57606a" text-anchor="middle">未完成则 Update 持久化到下一帧</text>
+<rect x="52" y="1225" width="264" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1231" x2="52" y2="1357" stroke="#8250df" stroke-width="3"/>
+<text x="184.0" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人动作 60-70 Hz</text>
+<text x="184.0" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">关键路径 198 ms &lt; 333</text>
+<text x="184.0" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">ms 执行窗口</text>
+<rect x="53" y="2036" width="258" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="53" y1="2042" x2="53" y2="2135" stroke="#8250df" stroke-width="3"/>
+<text x="182.0" y="2081.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言 token 200+ tok/s</text>
+<text x="182.0" y="2102.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">藏在动作执行窗口之后</text>
+<text x="505.5" y="1751.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">断点续传, 跨帧无损续跑</text>
+<text x="656" y="2198" font-size="10.5" fill="#8c959f" text-anchor="end">oxygen · arXiv 2603.14371 · v3 auto</text>
 </svg>

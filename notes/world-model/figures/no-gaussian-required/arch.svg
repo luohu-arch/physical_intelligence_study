@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="527" height="1722" viewBox="24 98 527 1722" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="561" height="1906" viewBox="26 112 561 1906" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>no-gaussian-required</title>
-<rect x="24" y="98" width="527" height="1722" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">no-gaussian-required</text>
-<text x="529" y="128" font-size="12" fill="#57606a" text-anchor="end">保留 LeWM 的前向 latent 预测目标 $\mathcal L_{fwd}=\|\hat z_{t+1}-z_{t+1}\|^2_2$，在训练期额外挂一个 MLP 逆动</text>
+<rect x="26" y="112" width="561" height="1906" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">no-gaussian-required</text>
+<text x="565" y="142" font-size="12" fill="#57606a" text-anchor="end">保留 LeWM 的前向 latent 预测目标 $\mathcal L_{fwd}=\|\hat z_{t+1}-z_{t+1}\|^2_2$，在训练期额外挂一个 MLP 逆动</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,65 +10,65 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 381.0 254.0 L 287.5 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 193.0 254.0 L 193.0 513.5 L 138.0 513.5 L 138.0 773.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 287.5 456.0 L 193.0 554.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 193.0 658.0 L 138.0 773.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 138.0 877.0 L 139.0 992.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 193.0 658.0 L 398.5 756.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 287.5 456.0 L 381.0 554.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 381.0 658.0 L 398.5 756.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 398.5 894.0 L 381.5 992.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 193.0 254.0 L 193.0 713.0 L 381.5 713.0 L 381.5 992.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 139.0 1096.0 L 287.0 1195.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 381.5 1097.0 L 287.0 1195.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 287.0 1300.0 L 287.0 1398.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 287.0 1502.0 L 287.5 1600.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="306" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="306" y1="156" x2="306" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="381.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">观测 o_t</text>
-<rect x="162" y="352" width="251" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="162" y1="358" x2="162" y2="450" stroke="#1a7f37" stroke-width="3"/>
-<text x="287.5" y="408.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">编码器 (与 LeWM 相同)</text>
-<rect x="118" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="118" y1="156" x2="118" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="193.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作块 a_t</text>
-<rect x="46" y="773" width="184" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="779" x2="46" y2="871" stroke="#1a7f37" stroke-width="3"/>
-<text x="138.0" y="829.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">前向预测器 fwd</text>
-<rect x="118" y="554" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="118" y1="560" x2="118" y2="652" stroke="#57606a" stroke-width="3"/>
-<text x="193.0" y="610.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">z_t</text>
-<rect x="64" y="992" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="64" y1="998" x2="64" y2="1090" stroke="#8a5a00" stroke-width="3"/>
-<text x="139.0" y="1048.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">前向损失</text>
-<rect x="268" y="756" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="268" y1="762" x2="268" y2="888" stroke="#1a7f37" stroke-width="3"/>
-<text x="398.5" y="810.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逆动力学头 inv_psi (仅</text>
-<text x="398.5" y="828.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">训练期)</text>
-<text x="398.5" y="848.5" font-size="11.5" fill="#57606a" text-anchor="middle">z_t 与 z_t+1 -&gt; hat a</text>
-<rect x="306" y="554" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="306" y1="560" x2="306" y2="652" stroke="#57606a" stroke-width="3"/>
-<text x="381.0" y="610.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">z_t+1</text>
-<rect x="252" y="992" width="259" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="252" y1="998" x2="252" y2="1091" stroke="#0b57d0" stroke-width="3"/>
-<text x="381.5" y="1039.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Action-NCE (InfoNCE)</text>
-<text x="381.5" y="1057.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">替代 SIGReg 免高斯假设</text>
-<rect x="154" y="1195" width="266" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="154" y1="1201" x2="154" y2="1294" stroke="#8a5a00" stroke-width="3"/>
-<text x="287.0" y="1242.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">总损失 = L_fwd +</text>
-<text x="287.0" y="1260.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">lambda*L_NCE</text>
-<rect x="188" y="1398" width="198" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="188" y1="1404" x2="188" y2="1496" stroke="#1a7f37" stroke-width="3"/>
-<text x="287.0" y="1454.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">训练后丢弃逆分支</text>
-<rect x="157" y="1600" width="261" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="157" y1="1606" x2="157" y2="1766" stroke="#0b57d0" stroke-width="3"/>
-<text x="287.5" y="1656.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">部署: 与 LeWM 同款</text>
-<text x="287.5" y="1674.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">encoder + predictor +</text>
-<text x="287.5" y="1694.5" font-size="11.5" fill="#57606a" text-anchor="middle">CEM 规划器</text>
-<text x="287.5" y="1709.5" font-size="11.5" fill="#57606a" text-anchor="middle">OGBench Scene 80.0 vs SIGReg</text>
-<text x="287.5" y="1724.5" font-size="11.5" fill="#57606a" text-anchor="middle">58.0</text>
-<text x="138.5" y="926.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L_fwd: latent 预测 MSE</text>
-<text x="390.0" y="935.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">batch 内 N 条动作中辨出真 a…</text>
-<text x="529" y="1810" font-size="10.5" fill="#8c959f" text-anchor="end">no-gaussian-required · arXiv 2608.17542 · v3 auto</text>
+<path d="M 418.0 272.0 L 306.5 394.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 207.0 272.0 L 207.0 569.0 L 144.0 569.0 L 144.0 866.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 306.5 498.0 L 207.0 620.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 207.0 724.0 L 144.0 866.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 144.0 970.0 L 147.0 1111.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 207.0 724.0 L 430.5 847.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 306.5 498.0 L 418.0 620.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 418.0 724.0 L 430.5 847.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 430.5 985.0 L 411.5 1111.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 207.0 272.0 L 207.0 781.5 L 411.5 781.5 L 411.5 1111.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 147.0 1215.0 L 305.0 1338.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 411.5 1216.0 L 305.0 1338.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 305.0 1443.0 L 310.0 1566.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 310.0 1670.0 L 306.5 1792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="343" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="343" y1="174" x2="343" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="418.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">观测 o_t</text>
+<rect x="181" y="394" width="251" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="181" y1="400" x2="181" y2="492" stroke="#1a7f37" stroke-width="3"/>
+<text x="306.5" y="449.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">编码器 (与 LeWM 相同)</text>
+<rect x="132" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="132" y1="174" x2="132" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="207.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作块 a_t</text>
+<rect x="52" y="866" width="184" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="872" x2="52" y2="964" stroke="#1a7f37" stroke-width="3"/>
+<text x="144.0" y="921.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">前向预测器 fwd</text>
+<rect x="132" y="620" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="132" y1="626" x2="132" y2="718" stroke="#57606a" stroke-width="3"/>
+<text x="207.0" y="675.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">z_t</text>
+<rect x="72" y="1111" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="72" y1="1117" x2="72" y2="1209" stroke="#8a5a00" stroke-width="3"/>
+<text x="147.0" y="1166.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">前向损失</text>
+<rect x="300" y="847" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="300" y1="853" x2="300" y2="979" stroke="#1a7f37" stroke-width="3"/>
+<text x="430.5" y="896.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逆动力学头 inv_psi (仅</text>
+<text x="430.5" y="917.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">训练期)</text>
+<text x="430.5" y="946.25" font-size="12.5" fill="#57606a" text-anchor="middle">z_t 与 z_t+1 -&gt; hat a</text>
+<rect x="343" y="620" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="343" y1="626" x2="343" y2="718" stroke="#57606a" stroke-width="3"/>
+<text x="418.0" y="675.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">z_t+1</text>
+<rect x="282" y="1111" width="259" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="282" y1="1117" x2="282" y2="1210" stroke="#0b57d0" stroke-width="3"/>
+<text x="411.5" y="1156.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Action-NCE (InfoNCE)</text>
+<text x="411.5" y="1177.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">替代 SIGReg 免高斯假设</text>
+<rect x="172" y="1338" width="266" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="172" y1="1344" x2="172" y2="1437" stroke="#8a5a00" stroke-width="3"/>
+<text x="305.0" y="1383.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">总损失 = L_fwd +</text>
+<text x="305.0" y="1404.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">lambda*L_NCE</text>
+<rect x="211" y="1566" width="198" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="211" y1="1572" x2="211" y2="1664" stroke="#1a7f37" stroke-width="3"/>
+<text x="310.0" y="1621.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">训练后丢弃逆分支</text>
+<rect x="176" y="1792" width="261" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="176" y1="1798" x2="176" y2="1958" stroke="#0b57d0" stroke-width="3"/>
+<text x="306.5" y="1840.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">部署: 与 LeWM 同款</text>
+<text x="306.5" y="1861.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">encoder + predictor +</text>
+<text x="306.5" y="1890.75" font-size="12.5" fill="#57606a" text-anchor="middle">CEM 规划器</text>
+<text x="306.5" y="1908.25" font-size="12.5" fill="#57606a" text-anchor="middle">OGBench Scene 80.0 vs SIGReg</text>
+<text x="306.5" y="1925.75" font-size="12.5" fill="#57606a" text-anchor="middle">58.0</text>
+<text x="145.5" y="1032.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L_fwd: latent 预测 MSE</text>
+<text x="421.0" y="1040.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">batch 内 N 条动作中辨出真 a…</text>
+<text x="565" y="2006" font-size="10.5" fill="#8c959f" text-anchor="end">no-gaussian-required · arXiv 2608.17542 · v3 auto</text>
 </svg>

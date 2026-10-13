@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1273" height="2443" viewBox="-16 51 1273 2443" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1362" height="2718" viewBox="-4 59 1362 2718" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>egogenesis</title>
-<rect x="-16" y="51" width="1273" height="2443" fill="#ffffff"/>
-<text x="6" y="81" font-size="14" font-weight="700" fill="#1f2328">egogenesis</text>
-<text x="1235" y="81" font-size="12" fill="#57606a" text-anchor="end">EgoGenesis 把 Wan2.2-5B-Control 改造成块级自回归的第一人称操控视频生成器：OAPM（Online Anchored Projective Memo</text>
+<rect x="-4" y="59" width="1362" height="2718" fill="#ffffff"/>
+<text x="18" y="89" font-size="14" font-weight="700" fill="#1f2328">egogenesis</text>
+<text x="1336" y="89" font-size="12" fill="#57606a" text-anchor="end">EgoGenesis 把 Wan2.2-5B-Control 改造成块级自回归的第一人称操控视频生成器：OAPM（Online Anchored Projective Memo</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,104 +10,104 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="103" width="1215" height="897" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="123" font-size="11.5" font-weight="600" fill="#57606a">OAPM 锚定记忆 (抗漂移核心)</text>
-<path d="M 211.0 202.0 L 368.0 405.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 487.0 458.0 L 477.0 572.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1209.0 202.5 L 6.0 202.5 L 6.0 624.5 L 606.0 624.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 477.0 677.0 L 627.0 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 648.5 255.0 L 765.5 353.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 765.5 458.0 L 776.0 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 378.5 254.0 L 378.5 731.0 L 627.5 731.0 L 627.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 888.0 255.0 L 888.0 731.5 L 627.5 731.5 L 627.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 627.0 930.0 L 627.5 1028.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 776.0 711.0 L 776.0 959.5 L 627.5 959.5 L 627.5 1028.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 627.5 1166.0 L 627.0 1264.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 627.0 1368.0 L 627.5 1466.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 627.5 1570.0 L 627.0 1668.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 552.0 1720.0 L 444.0 1939.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 627.0 1772.0 L 828.5 1870.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 627.0 1772.0 L 569.5 1887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 828.5 2008.0 L 627.0 2106.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 569.5 1991.0 L 627.0 2106.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 627.0 2210.0 L 627.5 2308.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="150" width="165" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="128.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">干净首帧 I_0</text>
-<rect x="368" y="353" width="238" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="368" y1="359" x2="368" y2="452" stroke="#0b57d0" stroke-width="3"/>
-<text x="487.0" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">锚槽 M_a = E3D(I_0)</text>
-<text x="487.0" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">永久冻结的定妆照</text>
-<rect x="1025" y="150" width="184" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1025" y1="156" x2="1025" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="1117.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">最近状态槽 M_r</text>
-<text x="1117.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">随手贴的便利贴</text>
-<rect x="348" y="572" width="258" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="578" x2="348" y2="671" stroke="#1a7f37" stroke-width="3"/>
-<text x="477.0" y="619.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SceneEncode 编码 M_a</text>
-<text x="477.0" y="637.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">拼接 M_r</text>
-<rect x="494" y="792" width="266" height="138" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="494" y1="798" x2="494" y2="924" stroke="#bf3989" stroke-width="3"/>
-<text x="627.0" y="846.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">记忆库 M_b: 3D patch</text>
-<text x="627.0" y="864.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">token</text>
-<text x="627.0" y="884.5" font-size="11.5" fill="#57606a" text-anchor="middle">带米制坐标与置信度</text>
-<rect x="546" y="150" width="205" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="546" y1="156" x2="546" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="648.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">骨架/EE 轨迹 S_b</text>
-<text x="648.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">统一关键点格式</text>
-<rect x="644" y="353" width="243" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="644" y1="359" x2="644" y2="452" stroke="#0b57d0" stroke-width="3"/>
-<text x="765.5" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">栅格化到视频网格</text>
-<text x="765.5" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">取被支撑的 patch I_b</text>
-<rect x="644" y="556" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="644" y1="562" x2="644" y2="705" stroke="#0b57d0" stroke-width="3"/>
-<text x="776.0" y="611.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">反投影到锚帧米制坐标</text>
-<text x="776.0" y="629.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">X_b</text>
-<text x="776.0" y="649.5" font-size="11.5" fill="#57606a" text-anchor="middle">A3D-RoPE: 只对 I_b 旋转 Q/K</text>
-<text x="776.0" y="664.5" font-size="11.5" fill="#57606a" text-anchor="middle">像经纬度海拔替换楼层号</text>
-<rect x="249" y="150" width="259" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="249" y1="156" x2="249" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="378.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">噪声块 Z_tb + 时间嵌入</text>
-<rect x="499" y="1028" width="257" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="499" y1="1034" x2="499" y2="1160" stroke="#1a7f37" stroke-width="3"/>
-<text x="627.5" y="1082.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DiT 堆栈</text>
-<text x="627.5" y="1100.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">因果 KV 缓存, 块级自</text>
-<text x="627.5" y="1120.5" font-size="11.5" fill="#57606a" text-anchor="middle">回归</text>
-<rect x="789" y="150" width="198" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="789" y1="156" x2="789" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="888.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">文本与图像编码器</text>
-<text x="888.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(冻结)</text>
-<rect x="526" y="1264" width="202" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="526" y1="1270" x2="526" y2="1362" stroke="#1a7f37" stroke-width="3"/>
-<text x="627.0" y="1320.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">流匹配积分到 t=0</text>
-<rect x="517" y="1466" width="221" height="104" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="517" y1="1472" x2="517" y2="1564" stroke="#bf3989" stroke-width="3"/>
-<text x="627.5" y="1522.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Z_b 写入因果缓存 K</text>
-<rect x="552" y="1668" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="552" y1="1674" x2="552" y2="1766" stroke="#0b57d0" stroke-width="3"/>
-<text x="627.0" y="1724.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">REF</text>
-<rect x="294" y="1887" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="294" y1="1893" x2="294" y2="1985" stroke="#0b57d0" stroke-width="3"/>
-<text x="369.0" y="1943.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">0</text>
-<rect x="696" y="1870" width="265" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="696" y1="1876" x2="696" y2="2002" stroke="#0b57d0" stroke-width="3"/>
-<text x="828.5" y="1924.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">解码可见前缀取最新</text>
-<text x="828.5" y="1942.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RGB 帧</text>
-<text x="828.5" y="1962.5" font-size="11.5" fill="#57606a" text-anchor="middle">重编码并整体替换 M_r</text>
-<rect x="482" y="1887" width="175" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="482" y1="1893" x2="482" y2="1985" stroke="#0b57d0" stroke-width="3"/>
-<text x="569.5" y="1943.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">保持 M_r 不变</text>
-<rect x="528" y="2106" width="198" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="528" y1="2112" x2="528" y2="2204" stroke="#0b57d0" stroke-width="3"/>
-<text x="627.0" y="2162.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">生成下一自回归块</text>
-<rect x="497" y="2308" width="261" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="497" y1="2314" x2="497" y2="2440" stroke="#8250df" stroke-width="3"/>
-<text x="627.5" y="2362.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">块级自回归视频输出</text>
-<text x="627.5" y="2380.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">增广数据: 下游 OOD</text>
-<text x="627.5" y="2400.5" font-size="11.5" fill="#57606a" text-anchor="middle">77-&gt;84% / 53-&gt;70%</text>
-<text x="627.2" y="971.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">门控交叉注意力读取</text>
-<text x="701.8" y="861.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">只在接触区注入几何</text>
-<text x="727.8" y="1813.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是</text>
-<text x="598.2" y="1821.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否</text>
-<text x="1235" y="2484" font-size="10.5" fill="#8c959f" text-anchor="end">egogenesis · arXiv 2607.28243 · v3 auto</text>
+<rect x="22" y="115" width="1215" height="897" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="135" font-size="11.5" font-weight="600" fill="#57606a">OAPM 锚定记忆 (抗漂移核心)</text>
+<path d="M 217.0 220.0 L 412.0 447.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 531.0 500.0 L 519.0 641.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1332.0 220.5 L 228.0 220.5 L 228.0 693.5 L 648.0 693.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 519.0 746.0 L 686.0 887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 714.5 273.0 L 842.5 395.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 842.5 500.0 L 853.0 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 408.5 272.0 L 408.5 801.5 L 687.5 801.5 L 687.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 983.0 273.0 L 983.0 802.0 L 687.5 802.0 L 687.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 686.0 1025.0 L 687.5 1151.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 853.0 778.0 L 853.0 1054.5 L 687.5 1054.5 L 687.5 1151.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 687.5 1289.0 L 690.0 1416.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 690.0 1520.0 L 689.5 1642.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 689.5 1746.0 L 693.0 1868.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 618.0 1920.0 L 479.0 2165.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 693.0 1972.0 L 912.5 2094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 693.0 1972.0 L 627.5 2113.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 912.5 2232.0 L 690.0 2359.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 627.5 2217.0 L 690.0 2359.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 690.0 2463.0 L 687.5 2585.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="168" width="165" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="134.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">干净首帧 I_0</text>
+<rect x="412" y="395" width="238" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="412" y1="401" x2="412" y2="494" stroke="#0b57d0" stroke-width="3"/>
+<text x="531.0" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">锚槽 M_a = E3D(I_0)</text>
+<text x="531.0" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">永久冻结的定妆照</text>
+<rect x="1148" y="168" width="184" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1148" y1="174" x2="1148" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="1240.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">最近状态槽 M_r</text>
+<text x="1240.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">随手贴的便利贴</text>
+<rect x="390" y="641" width="258" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="647" x2="390" y2="740" stroke="#1a7f37" stroke-width="3"/>
+<text x="519.0" y="686.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SceneEncode 编码 M_a</text>
+<text x="519.0" y="707.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">拼接 M_r</text>
+<rect x="553" y="887" width="266" height="138" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="553" y1="893" x2="553" y2="1019" stroke="#bf3989" stroke-width="3"/>
+<text x="686.0" y="936.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">记忆库 M_b: 3D patch</text>
+<text x="686.0" y="957.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">token</text>
+<text x="686.0" y="986.25" font-size="12.5" fill="#57606a" text-anchor="middle">带米制坐标与置信度</text>
+<rect x="612" y="168" width="205" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="612" y1="174" x2="612" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="714.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">骨架/EE 轨迹 S_b</text>
+<text x="714.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">统一关键点格式</text>
+<rect x="721" y="395" width="243" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="721" y1="401" x2="721" y2="494" stroke="#0b57d0" stroke-width="3"/>
+<text x="842.5" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">栅格化到视频网格</text>
+<text x="842.5" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">取被支撑的 patch I_b</text>
+<rect x="721" y="623" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="721" y1="629" x2="721" y2="772" stroke="#0b57d0" stroke-width="3"/>
+<text x="853.0" y="672.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">反投影到锚帧米制坐标</text>
+<text x="853.0" y="693.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">X_b</text>
+<text x="853.0" y="722.0" font-size="12.5" fill="#57606a" text-anchor="middle">A3D-RoPE: 只对 I_b 旋转 Q/K</text>
+<text x="853.0" y="739.5" font-size="12.5" fill="#57606a" text-anchor="middle">像经纬度海拔替换楼层号</text>
+<rect x="279" y="168" width="259" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="279" y1="174" x2="279" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="408.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">噪声块 Z_tb + 时间嵌入</text>
+<rect x="559" y="1151" width="257" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="559" y1="1157" x2="559" y2="1283" stroke="#1a7f37" stroke-width="3"/>
+<text x="687.5" y="1200.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DiT 堆栈</text>
+<text x="687.5" y="1221.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">因果 KV 缓存, 块级自</text>
+<text x="687.5" y="1250.25" font-size="12.5" fill="#57606a" text-anchor="middle">回归</text>
+<rect x="884" y="168" width="198" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="884" y1="174" x2="884" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="983.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">文本与图像编码器</text>
+<text x="983.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(冻结)</text>
+<rect x="589" y="1416" width="202" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="589" y1="1422" x2="589" y2="1514" stroke="#1a7f37" stroke-width="3"/>
+<text x="690.0" y="1471.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">流匹配积分到 t=0</text>
+<rect x="579" y="1642" width="221" height="104" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="579" y1="1648" x2="579" y2="1740" stroke="#bf3989" stroke-width="3"/>
+<text x="689.5" y="1697.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Z_b 写入因果缓存 K</text>
+<rect x="618" y="1868" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="618" y1="1874" x2="618" y2="1966" stroke="#0b57d0" stroke-width="3"/>
+<text x="693.0" y="1923.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">REF</text>
+<rect x="329" y="2113" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="329" y1="2119" x2="329" y2="2211" stroke="#0b57d0" stroke-width="3"/>
+<text x="404.0" y="2168.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">0</text>
+<rect x="780" y="2094" width="265" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="780" y1="2100" x2="780" y2="2226" stroke="#0b57d0" stroke-width="3"/>
+<text x="912.5" y="2143.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">解码可见前缀取最新</text>
+<text x="912.5" y="2164.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RGB 帧</text>
+<text x="912.5" y="2193.25" font-size="12.5" fill="#57606a" text-anchor="middle">重编码并整体替换 M_r</text>
+<rect x="540" y="2113" width="175" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="540" y1="2119" x2="540" y2="2211" stroke="#0b57d0" stroke-width="3"/>
+<text x="627.5" y="2168.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">保持 M_r 不变</text>
+<rect x="591" y="2359" width="198" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="591" y1="2365" x2="591" y2="2457" stroke="#0b57d0" stroke-width="3"/>
+<text x="690.0" y="2414.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">生成下一自回归块</text>
+<rect x="557" y="2585" width="261" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="557" y1="2591" x2="557" y2="2717" stroke="#8250df" stroke-width="3"/>
+<text x="687.5" y="2634.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">块级自回归视频输出</text>
+<text x="687.5" y="2655.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">增广数据: 下游 OOD</text>
+<text x="687.5" y="2684.25" font-size="12.5" fill="#57606a" text-anchor="middle">77-&gt;84% / 53-&gt;70%</text>
+<text x="686.8" y="1080.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">门控交叉注意力读取</text>
+<text x="770.2" y="956.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">只在接触区注入几何</text>
+<text x="802.8" y="2025.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是</text>
+<text x="660.2" y="2034.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否</text>
+<text x="1336" y="2765" font-size="10.5" fill="#8c959f" text-anchor="end">egogenesis · arXiv 2607.28243 · v3 auto</text>
 </svg>

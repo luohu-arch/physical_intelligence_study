@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1393" height="1219" viewBox="24 98 1393 1219" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1531" height="1351" viewBox="26 112 1531 1351" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>gemini-robotics</title>
-<rect x="24" y="98" width="1393" height="1219" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">gemini-robotics</text>
-<text x="1395" y="128" font-size="12" fill="#57606a" text-anchor="end">Gemini Robotics 是 Google DeepMind 基于 Gemini 2.0 构建的双模型 VLA 家族——Gemini Robotics 直接输出机器人动作</text>
+<rect x="26" y="112" width="1531" height="1351" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">gemini-robotics</text>
+<text x="1535" y="142" font-size="12" fill="#57606a" text-anchor="end">Gemini Robotics 是 Google DeepMind 基于 Gemini 2.0 构建的双模型 VLA 家族——Gemini Robotics 直接输出机器人动作</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,55 +10,55 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="564" y="509" width="436" height="581" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="578" y="529" font-size="11.5" font-weight="600" fill="#57606a">双模型解耦 - 推理与动作分离</text>
-<path d="M 823.0 202.5 L 852.0 405.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 721.0 458.0 L 720.5 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 720.5 661.0 L 600.5 759.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 720.5 661.0 L 873.0 760.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 873.0 864.0 L 720.0 962.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 720.0 1066.0 L 720.0 1164.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 432.0 254.0 L 432.0 507.0 L 873.0 507.0 L 873.0 760.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 673.5 254.0 L 673.5 495.0 L 720.5 495.0 L 720.5 556.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="823" y="150" width="269" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="823" y1="156" x2="823" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="957.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多视角 RGB + 语言指令&lt;</text>
-<text x="957.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
-<rect x="590" y="353" width="262" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="590" y1="359" x2="590" y2="452" stroke="#0b57d0" stroke-width="3"/>
-<text x="721.0" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Gemini 2.0 多模态基座&lt;</text>
-<text x="721.0" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
-<rect x="590" y="556" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="590" y1="562" x2="590" y2="655" stroke="#0b57d0" stroke-width="3"/>
-<text x="720.5" y="603.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Gemini Robotics-ER&lt;br</text>
-<text x="720.5" y="621.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
-<rect x="772" y="760" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="772" y1="766" x2="772" y2="858" stroke="#0b57d0" stroke-width="3"/>
-<text x="873.0" y="816.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">云侧动作骨干&lt;br/</text>
-<rect x="598" y="962" width="244" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="598" y1="968" x2="598" y2="1060" stroke="#0b57d0" stroke-width="3"/>
-<text x="720.0" y="1018.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本地动作 decoder&lt;br/</text>
-<rect x="467" y="759" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="467" y1="765" x2="467" y2="891" stroke="#0b57d0" stroke-width="3"/>
-<text x="600.5" y="813.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">检测 / 指向 / 抓取位姿 </text>
-<text x="600.5" y="831.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
-<text x="600.5" y="851.5" font-size="11.5" fill="#57606a" text-anchor="middle">&lt;br/</text>
-<rect x="588" y="1164" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="588" y1="1170" x2="588" y2="1263" stroke="#0b57d0" stroke-width="3"/>
-<text x="720.0" y="1211.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">ALOHA 2 机器人 50Hz 动</text>
-<text x="720.0" y="1229.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">作块</text>
-<rect x="1130" y="150" width="265" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1130" y1="156" x2="1130" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="1262.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">12 个月车队遥操作数据&lt;</text>
-<text x="1262.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
-<rect x="340" y="150" width="184" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="340" y1="156" x2="340" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="432.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">少样本微调&lt;br/</text>
-<rect x="562" y="150" width="223" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="562" y1="156" x2="562" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="673.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">ICL 上下文示范&lt;br/</text>
-<rect x="46" y="150" width="256" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="174.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">零样本代码生成模式&lt;br/</text>
-<text x="1395" y="1307" font-size="10.5" fill="#8c959f" text-anchor="end">gemini-robotics · arXiv 2503.20020 · v3 auto</text>
+<rect x="632" y="570" width="436" height="581" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="646" y="590" font-size="11.5" font-weight="600" fill="#57606a">双模型解耦 - 推理与动作分离</text>
+<path d="M 922.0 220.5 L 923.0 447.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 792.0 500.0 L 791.5 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 791.5 728.0 L 656.5 850.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 791.5 728.0 L 966.0 851.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 966.0 955.0 L 792.0 1077.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 792.0 1181.0 L 791.0 1304.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 473.0 272.0 L 473.0 561.5 L 966.0 561.5 L 966.0 851.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 740.5 272.0 L 740.5 537.5 L 791.5 537.5 L 791.5 623.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="922" y="168" width="269" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="922" y1="174" x2="922" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="1056.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多视角 RGB + 语言指令&lt;</text>
+<text x="1056.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
+<rect x="661" y="395" width="262" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="661" y1="401" x2="661" y2="494" stroke="#0b57d0" stroke-width="3"/>
+<text x="792.0" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Gemini 2.0 多模态基座&lt;</text>
+<text x="792.0" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
+<rect x="661" y="623" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="661" y1="629" x2="661" y2="722" stroke="#0b57d0" stroke-width="3"/>
+<text x="791.5" y="668.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Gemini Robotics-ER&lt;br</text>
+<text x="791.5" y="689.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
+<rect x="865" y="851" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="865" y1="857" x2="865" y2="949" stroke="#0b57d0" stroke-width="3"/>
+<text x="966.0" y="906.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">云侧动作骨干&lt;br/</text>
+<rect x="670" y="1077" width="244" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="670" y1="1083" x2="670" y2="1175" stroke="#0b57d0" stroke-width="3"/>
+<text x="792.0" y="1132.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本地动作 decoder&lt;br/</text>
+<rect x="523" y="850" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="523" y1="856" x2="523" y2="982" stroke="#0b57d0" stroke-width="3"/>
+<text x="656.5" y="899.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">检测 / 指向 / 抓取位姿 </text>
+<text x="656.5" y="920.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
+<text x="656.5" y="949.25" font-size="12.5" fill="#57606a" text-anchor="middle">&lt;br/</text>
+<rect x="659" y="1304" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="659" y1="1310" x2="659" y2="1403" stroke="#0b57d0" stroke-width="3"/>
+<text x="791.0" y="1349.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">ALOHA 2 机器人 50Hz 动</text>
+<text x="791.0" y="1370.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">作块</text>
+<rect x="1266" y="168" width="265" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1266" y1="174" x2="1266" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="1398.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">12 个月车队遥操作数据&lt;</text>
+<text x="1398.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
+<rect x="381" y="168" width="184" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="381" y1="174" x2="381" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="473.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">少样本微调&lt;br/</text>
+<rect x="629" y="168" width="223" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="629" y1="174" x2="629" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="740.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">ICL 上下文示范&lt;br/</text>
+<rect x="52" y="168" width="256" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="180.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">零样本代码生成模式&lt;br/</text>
+<text x="1535" y="1451" font-size="10.5" fill="#8c959f" text-anchor="end">gemini-robotics · arXiv 2503.20020 · v3 auto</text>
 </svg>

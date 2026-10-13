@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="911" height="1824" viewBox="24 98 911 1824" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="991" height="2024" viewBox="26 112 991 2024" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>chunking-exploratory</title>
-<rect x="24" y="98" width="911" height="1824" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">chunking-exploratory</text>
-<text x="913" y="128" font-size="12" fill="#57606a" text-anchor="end">Problem**：连续控制 IL 存在指数复合误差下界（Simchowitz et al. 2025：即使动力学与专家均稳定，任何平滑马尔可夫学习器都逃不掉 C^T 放大）；</text>
+<rect x="26" y="112" width="991" height="2024" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">chunking-exploratory</text>
+<text x="995" y="142" font-size="12" fill="#57606a" text-anchor="end">Problem**：连续控制 IL 存在指数复合误差下界（Simchowitz et al. 2025：即使动力学与专家均稳定，任何平滑马尔可夫学习器都逃不掉 C^T 放大）；</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,84 +10,84 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 345.0 219.0 L 313.0 454.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 479.5 288.0 L 482.0 402.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 179.5 507.0 L 332.0 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 332.0 727.0 L 352.5 825.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 352.5 963.0 L 347.5 1061.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 347.5 1166.0 L 353.0 1264.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 482.0 507.0 L 631.0 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 631.0 727.0 L 629.0 842.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 629.0 947.0 L 624.0 1061.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 624.0 1166.0 L 632.0 1280.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 632.0 1385.0 L 479.5 1500.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 353.0 1402.0 L 353.0 1659.0 L 479.5 1659.0 L 479.5 1736.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 479.5 1638.0 L 479.5 1736.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 614.0 219.0 L 651.0 455.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="345" y="150" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="345" y1="156" x2="345" y2="282" stroke="#57606a" stroke-width="3"/>
-<text x="479.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动力学 f 是否开环 EISS?</text>
-<text x="479.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(如 EE 位置控制 + 高频底</text>
-<text x="479.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">层跟踪)</text>
-<rect x="46" y="402" width="267" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="408" x2="46" y2="501" stroke="#0b57d0" stroke-width="3"/>
-<text x="179.5" y="449.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Practice 1: 动作</text>
-<text x="179.5" y="467.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">chunking</text>
-<rect x="351" y="402" width="262" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="351" y1="408" x2="351" y2="501" stroke="#0b57d0" stroke-width="3"/>
-<text x="482.0" y="449.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Practice 2: 噪声注入</text>
-<text x="482.0" y="467.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">采集</text>
-<rect x="200" y="622" width="264" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="200" y1="628" x2="200" y2="721" stroke="#1a7f37" stroke-width="3"/>
-<text x="332.0" y="669.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">开环执行长度 l 的动作块</text>
-<text x="332.0" y="687.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每 l 步才重观测一次</text>
-<rect x="222" y="825" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="222" y1="831" x2="222" y2="957" stroke="#1a7f37" stroke-width="3"/>
-<text x="352.5" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">块长只需对数级</text>
-<text x="352.5" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">l &gt; log(1/rho)^-1 *</text>
-<text x="352.5" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">log poly(L_pi, C_ISS)</text>
-<rect x="222" y="1061" width="251" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="222" y1="1067" x2="222" y2="1160" stroke="#57606a" stroke-width="3"/>
-<text x="347.5" y="1108.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">诱导出闭环 EISS</text>
-<text x="347.5" y="1126.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(C_tilde, rho^(1/2))</text>
-<rect x="220" y="1264" width="266" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="220" y1="1270" x2="220" y2="1396" stroke="#0b57d0" stroke-width="3"/>
-<text x="353.0" y="1318.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">J_TRAJ &lt;= O(1) *</text>
-<text x="353.0" y="1336.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">J_DEMO</text>
-<text x="353.0" y="1356.5" font-size="11.5" fill="#57606a" text-anchor="middle">horizon-free 误差界 (Thm 1)</text>
-<rect x="502" y="622" width="258" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="502" y1="628" x2="502" y2="721" stroke="#1a7f37" stroke-width="3"/>
-<text x="631.0" y="669.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">执行 u* + sigma_u * z</text>
-<text x="631.0" y="687.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">但记录干净标签 u*</text>
-<rect x="521" y="842" width="216" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="521" y1="848" x2="521" y2="941" stroke="#0969da" stroke-width="3"/>
-<text x="629.0" y="889.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">与干净专家轨迹混合</text>
-<text x="629.0" y="907.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(gamma = 0.5)</text>
-<rect x="511" y="1061" width="226" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="511" y1="1067" x2="511" y2="1160" stroke="#0969da" stroke-width="3"/>
-<text x="624.0" y="1108.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">等向白噪声激励</text>
-<text x="624.0" y="1126.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可控性 Gramian W_u</text>
-<rect x="524" y="1280" width="216" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="524" y1="1286" x2="524" y2="1379" stroke="#0969da" stroke-width="3"/>
-<text x="632.0" y="1327.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">大特征方向 =</text>
-<text x="632.0" y="1345.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">误差复合最快的方向</text>
-<rect x="349" y="1500" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="349" y1="1506" x2="349" y2="1632" stroke="#0b57d0" stroke-width="3"/>
-<text x="479.5" y="1554.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">J_TRAJ &lt;= O*(T) *</text>
-<text x="479.5" y="1572.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">J_DEMO</text>
-<text x="479.5" y="1592.5" font-size="11.5" fill="#57606a" text-anchor="middle">混合分布上的界 (Thm 2)</text>
-<rect x="346" y="1736" width="267" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="346" y1="1742" x2="346" y2="1868" stroke="#8250df" stroke-width="3"/>
-<text x="479.5" y="1790.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">指数复合误差下界被绕开</text>
-<text x="479.5" y="1808.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">单次采集即可, 无需</text>
-<text x="479.5" y="1828.5" font-size="11.5" fill="#57606a" text-anchor="middle">DAgger 迭代</text>
-<rect x="651" y="386" width="262" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="651" y1="392" x2="651" y2="518" stroke="#8a5a00" stroke-width="3"/>
-<text x="782.0" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">块内发散</text>
-<text x="782.0" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(开环不稳定:</text>
-<text x="782.0" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">HalfCheetah 反例)</text>
-<text x="329.0" y="328.8" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是</text>
-<text x="480.8" y="337.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否</text>
-<text x="632.5" y="329.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否却硬用朴素 chunking</text>
-<text x="913" y="1912" font-size="10.5" fill="#8c959f" text-anchor="end">chunking-exploratory · arXiv 2507.09061 · v3 auto</text>
+<path d="M 386.0 237.0 L 319.0 502.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 520.5 306.0 L 524.0 450.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 185.5 555.0 L 356.0 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 356.0 802.0 L 379.5 924.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 379.5 1062.0 L 374.5 1188.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 374.5 1293.0 L 379.0 1416.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 524.0 555.0 L 691.0 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 691.0 802.0 L 692.0 943.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 692.0 1048.0 L 685.0 1188.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 685.0 1293.0 L 695.0 1434.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 695.0 1539.0 L 521.5 1680.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 379.0 1554.0 L 379.0 1839.0 L 521.5 1839.0 L 521.5 1944.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 521.5 1818.0 L 521.5 1944.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 655.0 237.0 L 729.0 501.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="386" y="168" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="386" y1="174" x2="386" y2="300" stroke="#57606a" stroke-width="3"/>
+<text x="520.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动力学 f 是否开环 EISS?</text>
+<text x="520.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(如 EE 位置控制 + 高频底</text>
+<text x="520.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">层跟踪)</text>
+<rect x="52" y="450" width="267" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="456" x2="52" y2="549" stroke="#0b57d0" stroke-width="3"/>
+<text x="185.5" y="495.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Practice 1: 动作</text>
+<text x="185.5" y="516.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">chunking</text>
+<rect x="393" y="450" width="262" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="393" y1="456" x2="393" y2="549" stroke="#0b57d0" stroke-width="3"/>
+<text x="524.0" y="495.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Practice 2: 噪声注入</text>
+<text x="524.0" y="516.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">采集</text>
+<rect x="224" y="697" width="264" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="224" y1="703" x2="224" y2="796" stroke="#1a7f37" stroke-width="3"/>
+<text x="356.0" y="742.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">开环执行长度 l 的动作块</text>
+<text x="356.0" y="763.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每 l 步才重观测一次</text>
+<rect x="249" y="924" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="249" y1="930" x2="249" y2="1056" stroke="#1a7f37" stroke-width="3"/>
+<text x="379.5" y="973.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">块长只需对数级</text>
+<text x="379.5" y="994.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">l &gt; log(1/rho)^-1 *</text>
+<text x="379.5" y="1023.25" font-size="12.5" fill="#57606a" text-anchor="middle">log poly(L_pi, C_ISS)</text>
+<rect x="249" y="1188" width="251" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="249" y1="1194" x2="249" y2="1287" stroke="#57606a" stroke-width="3"/>
+<text x="374.5" y="1233.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">诱导出闭环 EISS</text>
+<text x="374.5" y="1254.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(C_tilde, rho^(1/2))</text>
+<rect x="246" y="1416" width="266" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="246" y1="1422" x2="246" y2="1548" stroke="#0b57d0" stroke-width="3"/>
+<text x="379.0" y="1465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">J_TRAJ &lt;= O(1) *</text>
+<text x="379.0" y="1486.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">J_DEMO</text>
+<text x="379.0" y="1515.25" font-size="12.5" fill="#57606a" text-anchor="middle">horizon-free 误差界 (Thm 1)</text>
+<rect x="562" y="697" width="258" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="562" y1="703" x2="562" y2="796" stroke="#1a7f37" stroke-width="3"/>
+<text x="691.0" y="742.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">执行 u* + sigma_u * z</text>
+<text x="691.0" y="763.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">但记录干净标签 u*</text>
+<rect x="584" y="943" width="216" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="584" y1="949" x2="584" y2="1042" stroke="#0969da" stroke-width="3"/>
+<text x="692.0" y="988.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">与干净专家轨迹混合</text>
+<text x="692.0" y="1009.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(gamma = 0.5)</text>
+<rect x="572" y="1188" width="226" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="572" y1="1194" x2="572" y2="1287" stroke="#0969da" stroke-width="3"/>
+<text x="685.0" y="1233.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">等向白噪声激励</text>
+<text x="685.0" y="1254.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可控性 Gramian W_u</text>
+<rect x="587" y="1434" width="216" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="587" y1="1440" x2="587" y2="1533" stroke="#0969da" stroke-width="3"/>
+<text x="695.0" y="1479.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">大特征方向 =</text>
+<text x="695.0" y="1500.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">误差复合最快的方向</text>
+<rect x="391" y="1680" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="391" y1="1686" x2="391" y2="1812" stroke="#0b57d0" stroke-width="3"/>
+<text x="521.5" y="1729.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">J_TRAJ &lt;= O*(T) *</text>
+<text x="521.5" y="1750.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">J_DEMO</text>
+<text x="521.5" y="1779.25" font-size="12.5" fill="#57606a" text-anchor="middle">混合分布上的界 (Thm 2)</text>
+<rect x="388" y="1944" width="267" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="388" y1="1950" x2="388" y2="2076" stroke="#8250df" stroke-width="3"/>
+<text x="521.5" y="1993.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">指数复合误差下界被绕开</text>
+<text x="521.5" y="2014.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">单次采集即可, 无需</text>
+<text x="521.5" y="2043.25" font-size="12.5" fill="#57606a" text-anchor="middle">DAgger 迭代</text>
+<rect x="729" y="432" width="262" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="729" y1="438" x2="729" y2="564" stroke="#8a5a00" stroke-width="3"/>
+<text x="860.0" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">块内发散</text>
+<text x="860.0" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(开环不稳定:</text>
+<text x="860.0" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">HalfCheetah 反例)</text>
+<text x="352.5" y="361.8" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是</text>
+<text x="522.2" y="370.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否</text>
+<text x="692.0" y="361.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否却硬用朴素 chunking</text>
+<text x="995" y="2124" font-size="10.5" fill="#8c959f" text-anchor="end">chunking-exploratory · arXiv 2507.09061 · v3 auto</text>
 </svg>

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="931" height="1773" viewBox="-2 50 931 1773" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1014" height="1971" viewBox="-4 58 1014 1971" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>bridgevla</title>
-<rect x="-2" y="50" width="931" height="1773" fill="#ffffff"/>
-<text x="20" y="80" font-size="14" font-weight="700" fill="#1f2328">bridgevla</text>
-<text x="907" y="80" font-size="12" fill="#57606a" text-anchor="end">BridgeVLA 主张 3D VLA 的瓶颈不在「要不要 3D 信息」，而在「输入输出是否与 VLM 预训练分布对齐」：它先用 120K 目标检测数据（RoboPoint）把</text>
+<rect x="-4" y="58" width="1014" height="1971" fill="#ffffff"/>
+<text x="18" y="88" font-size="14" font-weight="700" fill="#1f2328">bridgevla</text>
+<text x="988" y="88" font-size="12" fill="#57606a" text-anchor="end">BridgeVLA 主张 3D VLA 的瓶颈不在「要不要 3D 信息」，而在「输入输出是否与 VLM 预训练分布对齐」：它先用 120K 目标检测数据（RoboPoint）把</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,87 +10,87 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="102" width="720" height="677" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="122" font-size="11.5" font-weight="600" fill="#57606a">输入对齐 (3D 压回 2D) · PaliGemma 主干 (3B)</text>
-<path d="M 384.0 219.0 L 462.0 455.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 587.5 524.0 L 476.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 121.0 271.0 L 332.5 402.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 476.5 727.0 L 476.5 825.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 332.5 507.0 L 332.5 756.0 L 476.5 756.0 L 476.5 825.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 476.5 930.0 L 594.0 1028.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 594.0 1133.0 L 570.0 1231.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 570.0 1336.0 L 601.0 1434.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 473.0 1503.0 L 430.0 1722.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 476.5 930.0 L 348.5 1028.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 348.5 1133.0 L 347.0 1232.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 347.0 1336.0 L 329.5 1450.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 532.8 1775.0 L 532.8 1023.0 L 324.0 1023.0 L 324.0 271.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 601.0 1572.0 L 576.0 1670.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 512.0 271.0 L 512.0 803.5 L 570.0 803.5 L 570.0 1336.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 773.5 288.0 L 773.5 760.0 L 347.0 760.0 L 347.0 1232.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="234" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="173" x2="234" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="309.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RGB-D 点云</text>
-<rect x="462" y="386" width="251" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="462" y1="392" x2="462" y2="518" stroke="#0b57d0" stroke-width="3"/>
-<text x="587.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">正交投影</text>
-<text x="587.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">top / front / right</text>
-<text x="587.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">三视图</text>
-<rect x="46" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="121.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
-<rect x="370" y="622" width="213" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="370" y1="628" x2="370" y2="721" stroke="#57606a" stroke-width="3"/>
-<text x="476.5" y="669.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SigLip 视觉编码器</text>
-<text x="476.5" y="687.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(全程冻结)</text>
-<rect x="240" y="402" width="185" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="240" y1="408" x2="240" y2="501" stroke="#1a7f37" stroke-width="3"/>
-<text x="332.5" y="449.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Gemma 语言主干</text>
-<text x="332.5" y="467.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(微调更新)</text>
-<rect x="370" y="825" width="213" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="370" y1="831" x2="370" y2="924" stroke="#0b57d0" stroke-width="3"/>
-<text x="476.5" y="872.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多模态 token</text>
-<text x="476.5" y="890.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">重排为 patch 网格</text>
-<rect x="485" y="1028" width="218" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="485" y1="1034" x2="485" y2="1127" stroke="#1a7f37" stroke-width="3"/>
-<text x="594.0" y="1075.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">凸上采样</text>
-<text x="594.0" y="1093.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(可学习逐像素插值)</text>
-<rect x="460" y="1231" width="220" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="460" y1="1237" x2="460" y2="1330" stroke="#0b57d0" stroke-width="3"/>
-<text x="570.0" y="1278.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每视角一张 2D 热图</text>
-<text x="570.0" y="1296.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(与输入同坐标系)</text>
-<rect x="473" y="1434" width="256" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="473" y1="1440" x2="473" y2="1566" stroke="#0b57d0" stroke-width="3"/>
-<text x="601.0" y="1488.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">反投影到工作区 3D 点</text>
-<text x="601.0" y="1506.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">网格</text>
-<text x="601.0" y="1526.5" font-size="11.5" fill="#57606a" text-anchor="middle">取三视角均分最高点</text>
-<rect x="268" y="1670" width="162" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="268" y1="1676" x2="268" y2="1768" stroke="#8250df" stroke-width="3"/>
-<text x="349.0" y="1726.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">末端平移目标</text>
-<rect x="250" y="1028" width="197" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="250" y1="1034" x2="250" y2="1127" stroke="#1a7f37" stroke-width="3"/>
-<text x="348.5" y="1075.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逐视角 max-pool</text>
-<text x="348.5" y="1093.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ 峰值 token</text>
-<rect x="272" y="1232" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="272" y1="1238" x2="272" y2="1330" stroke="#1a7f37" stroke-width="3"/>
-<text x="347.0" y="1288.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">MLP 头</text>
-<rect x="224" y="1450" width="211" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="224" y1="1456" x2="224" y2="1549" stroke="#8250df" stroke-width="3"/>
-<text x="329.5" y="1497.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">72-bin 旋转</text>
-<text x="329.5" y="1515.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ 夹爪 + 碰撞旗标</text>
-<rect x="468" y="1670" width="216" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="468" y1="1676" x2="468" y2="1769" stroke="#0b57d0" stroke-width="3"/>
-<text x="576.0" y="1717.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">以粗位置为中心</text>
-<text x="576.0" y="1735.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">裁剪放大长方体点云</text>
-<rect x="422" y="166" width="180" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="422" y1="172" x2="422" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="512.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_trans</text>
-<text x="512.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">高斯热图交叉熵</text>
-<rect x="640" y="150" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="640" y1="156" x2="640" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="773.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_rot / L_gripper</text>
-<text x="773.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">/ L_collision</text>
-<text x="773.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">bin 分类 CE + BCE</text>
-<text x="428.4" y="1015.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">第二次前向精化 (coarse-to-fine)</text>
-<text x="907" y="1813" font-size="10.5" fill="#8c959f" text-anchor="end">bridgevla · arXiv 2506.07961 · v3 auto</text>
+<rect x="22" y="114" width="720" height="677" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="134" font-size="11.5" font-weight="600" fill="#57606a">输入对齐 (3D 压回 2D) · PaliGemma 主干 (3B)</text>
+<path d="M 412.0 239.0 L 517.0 501.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 642.5 570.0 L 520.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 127.0 291.0 L 361.5 450.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 520.5 802.0 L 520.5 924.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 361.5 555.0 L 361.5 829.5 L 520.5 829.5 L 520.5 924.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 520.5 1029.0 L 652.0 1151.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 652.0 1256.0 L 625.0 1379.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 625.0 1484.0 L 658.0 1606.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 530.0 1675.0 L 462.0 1922.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 520.5 1029.0 L 378.5 1151.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 378.5 1256.0 L 380.0 1380.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 380.0 1484.0 L 356.5 1624.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 588.8 1975.0 L 588.8 1133.0 L 352.0 1133.0 L 352.0 291.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 658.0 1744.0 L 632.0 1870.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 563.0 291.0 L 563.0 887.5 L 625.0 887.5 L 625.0 1484.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 850.5 306.0 L 850.5 843.0 L 380.0 843.0 L 380.0 1380.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="262" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="193" x2="262" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="337.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RGB-D 点云</text>
+<rect x="517" y="432" width="251" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="517" y1="438" x2="517" y2="564" stroke="#0b57d0" stroke-width="3"/>
+<text x="642.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">正交投影</text>
+<text x="642.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">top / front / right</text>
+<text x="642.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">三视图</text>
+<rect x="52" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="127.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
+<rect x="414" y="697" width="213" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="414" y1="703" x2="414" y2="796" stroke="#57606a" stroke-width="3"/>
+<text x="520.5" y="742.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SigLip 视觉编码器</text>
+<text x="520.5" y="763.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(全程冻结)</text>
+<rect x="269" y="450" width="185" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="269" y1="456" x2="269" y2="549" stroke="#1a7f37" stroke-width="3"/>
+<text x="361.5" y="495.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Gemma 语言主干</text>
+<text x="361.5" y="516.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(微调更新)</text>
+<rect x="414" y="924" width="213" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="414" y1="930" x2="414" y2="1023" stroke="#0b57d0" stroke-width="3"/>
+<text x="520.5" y="969.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多模态 token</text>
+<text x="520.5" y="990.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">重排为 patch 网格</text>
+<rect x="543" y="1151" width="218" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="543" y1="1157" x2="543" y2="1250" stroke="#1a7f37" stroke-width="3"/>
+<text x="652.0" y="1196.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">凸上采样</text>
+<text x="652.0" y="1217.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(可学习逐像素插值)</text>
+<rect x="515" y="1379" width="220" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="515" y1="1385" x2="515" y2="1478" stroke="#0b57d0" stroke-width="3"/>
+<text x="625.0" y="1424.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每视角一张 2D 热图</text>
+<text x="625.0" y="1445.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(与输入同坐标系)</text>
+<rect x="530" y="1606" width="256" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="530" y1="1612" x2="530" y2="1738" stroke="#0b57d0" stroke-width="3"/>
+<text x="658.0" y="1655.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">反投影到工作区 3D 点</text>
+<text x="658.0" y="1676.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">网格</text>
+<text x="658.0" y="1705.25" font-size="12.5" fill="#57606a" text-anchor="middle">取三视角均分最高点</text>
+<rect x="300" y="1870" width="162" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="300" y1="1876" x2="300" y2="1968" stroke="#8250df" stroke-width="3"/>
+<text x="381.0" y="1925.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">末端平移目标</text>
+<rect x="280" y="1151" width="197" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="280" y1="1157" x2="280" y2="1250" stroke="#1a7f37" stroke-width="3"/>
+<text x="378.5" y="1196.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逐视角 max-pool</text>
+<text x="378.5" y="1217.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+ 峰值 token</text>
+<rect x="305" y="1380" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="305" y1="1386" x2="305" y2="1478" stroke="#1a7f37" stroke-width="3"/>
+<text x="380.0" y="1435.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">MLP 头</text>
+<rect x="251" y="1624" width="211" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="251" y1="1630" x2="251" y2="1723" stroke="#8250df" stroke-width="3"/>
+<text x="356.5" y="1669.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">72-bin 旋转</text>
+<text x="356.5" y="1690.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+ 夹爪 + 碰撞旗标</text>
+<rect x="524" y="1870" width="216" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="524" y1="1876" x2="524" y2="1969" stroke="#0b57d0" stroke-width="3"/>
+<text x="632.0" y="1915.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">以粗位置为中心</text>
+<text x="632.0" y="1936.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">裁剪放大长方体点云</text>
+<rect x="473" y="186" width="180" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="473" y1="192" x2="473" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="563.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_trans</text>
+<text x="563.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">高斯热图交叉熵</text>
+<rect x="717" y="168" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="717" y1="174" x2="717" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="850.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_rot / L_gripper</text>
+<text x="850.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">/ L_collision</text>
+<text x="850.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">bin 分类 CE + BCE</text>
+<text x="470.4" y="1125.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">第二次前向精化 (coarse-to-fine)</text>
+<text x="988" y="2017" font-size="10.5" fill="#8c959f" text-anchor="end">bridgevla · arXiv 2506.07961 · v3 auto</text>
 </svg>

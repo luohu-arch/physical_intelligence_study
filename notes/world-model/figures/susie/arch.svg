@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="382" height="1148" viewBox="24 98 382 1148" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="412" height="1267" viewBox="26 112 412 1267" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>susie</title>
-<rect x="24" y="98" width="382" height="1148" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">susie</text>
-<text x="384" y="128" font-size="12" fill="#57606a" text-anchor="end">SuSIE 把预训练的 InstructPix2Pix 图像编辑扩散模型在「当前帧 + 语言指令 → 未来子目标帧」三元组上微调，作为高层规划器；再用一个语言无关的目标条件扩散</text>
+<rect x="26" y="112" width="412" height="1267" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">susie</text>
+<text x="416" y="142" font-size="12" fill="#57606a" text-anchor="end">SuSIE 把预训练的 InstructPix2Pix 图像编辑扩散模型在「当前帧 + 语言指令 → 未来子目标帧」三元组上微调，作为高层规划器；再用一个语言无关的目标条件扩散</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,40 +10,40 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 309.0 254.0 L 215.0 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 121.0 254.0 L 215.0 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 215.0 507.0 L 215.0 588.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 215.0 743.0 L 215.0 824.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 215.0 962.0 L 215.0 1060.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 163.4 1198.0 L 163.4 816.0 L 324.0 816.0 L 324.0 254.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="234" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="156" x2="234" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="309.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">观测 s_t</text>
-<rect x="87" y="352" width="256" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="87" y1="358" x2="87" y2="501" stroke="#0b57d0" stroke-width="3"/>
-<text x="215.0" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">子目标生成器 p_theta</text>
-<text x="215.0" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">InstructPix2Pix 微调</text>
-<text x="215.0" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">只生成下一子目标帧 b_s</text>
-<text x="215.0" y="460.5" font-size="11.5" fill="#57606a" text-anchor="middle">每 k_test=20 步刷新</text>
-<rect x="46" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="121.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令 l</text>
-<rect x="83" y="588" width="264" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="83" y1="594" x2="83" y2="737" stroke="#1a7f37" stroke-width="3"/>
-<text x="215.0" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">低层策略 pi_phi(a|s_t,</text>
-<text x="215.0" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">b_s)</text>
-<text x="215.0" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">语言无关扩散策略</text>
-<text x="215.0" y="696.5" font-size="11.5" fill="#57606a" text-anchor="middle">4 步动作块追子目标</text>
-<rect x="83" y="824" width="264" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="83" y1="830" x2="83" y2="956" stroke="#8250df" stroke-width="3"/>
-<text x="215.0" y="878.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">时间平均</text>
-<text x="215.0" y="896.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">执行最近 4 次预测的逐维</text>
-<text x="215.0" y="916.5" font-size="11.5" fill="#57606a" text-anchor="middle">均值</text>
-<rect x="86" y="1060" width="258" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="86" y1="1066" x2="86" y2="1192" stroke="#8250df" stroke-width="3"/>
-<text x="215.0" y="1114.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
-<text x="215.0" y="1132.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CALVIN 五连 0.26 SOTA</text>
-<text x="215.0" y="1152.5" font-size="11.5" fill="#57606a" text-anchor="middle">胜过真值目标图 Oracle</text>
-<text x="243.7" y="718.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">闭环重观测</text>
-<text x="384" y="1236" font-size="10.5" fill="#8c959f" text-anchor="end">susie · arXiv 2310.10639 · v3 auto</text>
+<path d="M 337.0 272.0 L 225.0 394.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 127.0 272.0 L 225.0 394.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 225.0 549.0 L 225.0 659.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 225.0 814.0 L 225.0 923.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 225.0 1061.0 L 225.0 1187.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 173.4 1325.0 L 173.4 888.5 L 352.0 888.5 L 352.0 272.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="262" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="174" x2="262" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="337.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">观测 s_t</text>
+<rect x="97" y="394" width="256" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="97" y1="400" x2="97" y2="543" stroke="#0b57d0" stroke-width="3"/>
+<text x="225.0" y="443.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">子目标生成器 p_theta</text>
+<text x="225.0" y="464.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">InstructPix2Pix 微调</text>
+<text x="225.0" y="493.0" font-size="12.5" fill="#57606a" text-anchor="middle">只生成下一子目标帧 b_s</text>
+<text x="225.0" y="510.5" font-size="12.5" fill="#57606a" text-anchor="middle">每 k_test=20 步刷新</text>
+<rect x="52" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="127.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令 l</text>
+<rect x="93" y="659" width="264" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="93" y1="665" x2="93" y2="808" stroke="#1a7f37" stroke-width="3"/>
+<text x="225.0" y="708.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">低层策略 pi_phi(a|s_t,</text>
+<text x="225.0" y="729.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">b_s)</text>
+<text x="225.0" y="758.0" font-size="12.5" fill="#57606a" text-anchor="middle">语言无关扩散策略</text>
+<text x="225.0" y="775.5" font-size="12.5" fill="#57606a" text-anchor="middle">4 步动作块追子目标</text>
+<rect x="93" y="923" width="264" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="93" y1="929" x2="93" y2="1055" stroke="#8250df" stroke-width="3"/>
+<text x="225.0" y="972.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">时间平均</text>
+<text x="225.0" y="993.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">执行最近 4 次预测的逐维</text>
+<text x="225.0" y="1022.25" font-size="12.5" fill="#57606a" text-anchor="middle">均值</text>
+<rect x="96" y="1187" width="258" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="96" y1="1193" x2="96" y2="1319" stroke="#8250df" stroke-width="3"/>
+<text x="225.0" y="1236.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
+<text x="225.0" y="1257.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CALVIN 五连 0.26 SOTA</text>
+<text x="225.0" y="1286.25" font-size="12.5" fill="#57606a" text-anchor="middle">胜过真值目标图 Oracle</text>
+<text x="262.7" y="790.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">闭环重观测</text>
+<text x="416" y="1367" font-size="10.5" fill="#8c959f" text-anchor="end">susie · arXiv 2310.10639 · v3 auto</text>
 </svg>

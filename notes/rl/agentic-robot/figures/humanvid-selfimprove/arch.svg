@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="829" height="2894" viewBox="12 98 829 2894" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="982" height="3200" viewBox="-60 112 982 3200" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>humanvid-selfimprove</title>
-<rect x="12" y="98" width="829" height="2894" fill="#ffffff"/>
-<text x="34" y="128" font-size="14" font-weight="700" fill="#1f2328">humanvid-selfimprove</text>
-<text x="819" y="128" font-size="12" fill="#57606a" text-anchor="end">把人类视频的用途从"策略初始化燃料"升级为"自我改进的预测基座"：在 HOI4D/Arti4D/EgoDex 约 100 万条人类视频样本上联合预训练三个具身无关模型——pol</text>
+<rect x="-60" y="112" width="982" height="3200" fill="#ffffff"/>
+<text x="-38" y="142" font-size="14" font-weight="700" fill="#1f2328">humanvid-selfimprove</text>
+<text x="900" y="142" font-size="12" fill="#57606a" text-anchor="end">把人类视频的用途从"策略初始化燃料"升级为"自我改进的预测基座"：在 HOI4D/Arti4D/EgoDex 约 100 万条人类视频样本上联合预训练三个具身无关模型——pol</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,124 +10,124 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="158" y="558" width="570" height="2386" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="172" y="578" font-size="11.5" font-weight="600" fill="#57606a">人类视频联合预训练 (flow matching, 250k iters) · 迭代自改进循环</text>
-<path d="M 445.0 2226.5 L 468.0 2446.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 585.0 2499.0 L 433.0 2613.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 433.0 2718.0 L 540.5 2816.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 433.0 2718.0 L 324.5 2816.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 289.1 2920.0 L 289.1 2167.5 L 459.4 2167.5 L 459.4 1415.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 432.5 1415.0 L 432.5 1500.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 307.0 219.0 L 302.0 472.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 433.0 558.0 L 433.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 729.0 271.0 L 729.0 728.0 L 433.0 728.0 L 433.0 825.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 433.0 727.0 L 433.0 825.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 433.0 980.0 L 433.0 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 433.0 980.0 L 433.0 1667.0 L 582.0 1667.0 L 582.0 2174.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 433.0 727.0 L 433.0 1450.5 L 314.5 1450.5 L 314.5 2174.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 345.0 219.0 L 34.0 219.0 L 34.0 2226.5 L 184.0 2226.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 505.1 2920.0 L 505.1 2167.5 L 459.4 2167.5 L 459.4 1415.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 433.0 1166.0 L 432.5 1264.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 542.4 2279.0 L 542.4 1847.0 L 459.4 1847.0 L 459.4 1415.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 505.1 2920.0 L 505.1 2380.0 L 459.0 2380.0 L 459.0 1840.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 432.5 1604.0 L 432.5 1702.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 542.4 2279.0 L 542.4 2149.5 L 459.0 2149.5 L 459.0 1840.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 432.5 1840.0 L 433.0 1938.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 433.0 2076.0 L 314.5 2174.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 379.0 2076.0 L 379.0 1621.0 L 452.8 1621.0 L 452.8 1166.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 433.0 2076.0 L 582.0 2174.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 314.5 2279.0 L 297.0 2377.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="150" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="176.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人类视频约 100 万样本</text>
-<text x="176.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">HOI4D / Arti4D /</text>
-<text x="176.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">EgoDex</text>
-<rect x="302" y="386" width="262" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="302" y1="392" x2="302" y2="552" stroke="#0b57d0" stroke-width="3"/>
-<text x="433.0" y="442.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">具身无关表征</text>
-<text x="433.0" y="460.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 = 6-DoF 腕位姿 +</text>
-<text x="433.0" y="480.5" font-size="11.5" fill="#57606a" text-anchor="middle">手部闭合标量</text>
-<text x="433.0" y="495.5" font-size="11.5" fill="#57606a" text-anchor="middle">状态 = DINO-v3 token + 短时程</text>
-<text x="433.0" y="510.5" font-size="11.5" fill="#57606a" text-anchor="middle">3D 点流</text>
-<rect x="358" y="622" width="150" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="358" y1="628" x2="358" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="433.0" y="669.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">policy</text>
-<text x="433.0" y="687.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作块生成</text>
-<rect x="334" y="1061" width="198" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="334" y1="1067" x2="334" y2="1160" stroke="#0b57d0" stroke-width="3"/>
-<text x="433.0" y="1108.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">dynamics 模型</text>
-<text x="433.0" y="1126.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测未来世界状态</text>
-<rect x="483" y="2174" width="198" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="483" y1="2180" x2="483" y2="2273" stroke="#0b57d0" stroke-width="3"/>
-<text x="582.0" y="2221.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">value 模型</text>
-<text x="582.0" y="2239.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">稀疏终局折扣回报</text>
-<rect x="639" y="166" width="180" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="639" y1="172" x2="639" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="729.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM (GPT-4o)</text>
-<text x="729.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">提原子交互指令</text>
-<rect x="306" y="825" width="254" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="306" y1="831" x2="306" y2="974" stroke="#0b57d0" stroke-width="3"/>
-<text x="433.0" y="880.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自主接地: 冻结人类预训</text>
-<text x="433.0" y="898.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">练 policy 真机滚动</text>
-<text x="433.0" y="918.5" font-size="11.5" fill="#57606a" text-anchor="middle">约 400 回合 / 约 3 小时, 专</text>
-<text x="433.0" y="933.5" font-size="11.5" fill="#57606a" text-anchor="middle">门见自然失败</text>
-<rect x="345" y="167" width="256" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="345" y1="173" x2="345" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="473.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每任务 25 条遥操作演示</text>
-<rect x="184" y="2174" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="184" y1="2180" x2="184" y2="2273" stroke="#0b57d0" stroke-width="3"/>
-<text x="314.5" y="2221.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">任务 policy (骨干可换:</text>
-<text x="314.5" y="2239.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自建 / pi0.5)</text>
-<rect x="468" y="2394" width="234" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="468" y1="2400" x2="468" y2="2493" stroke="#0b57d0" stroke-width="3"/>
-<text x="585.0" y="2441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真机 rollout 采集</text>
-<text x="585.0" y="2459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">当前策略诱导状态分布</text>
-<rect x="358" y="2613" width="150" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="358" y1="2619" x2="358" y2="2712" stroke="#0b57d0" stroke-width="3"/>
-<text x="433.0" y="2660.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">按结局划分</text>
-<text x="433.0" y="2678.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(人工标注)</text>
-<rect x="452" y="2816" width="177" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="452" y1="2822" x2="452" y2="2914" stroke="#0b57d0" stroke-width="3"/>
-<text x="540.5" y="2872.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">D_succ 成功集</text>
-<rect x="236" y="2816" width="177" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="236" y1="2822" x2="236" y2="2914" stroke="#0b57d0" stroke-width="3"/>
-<text x="324.5" y="2872.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">D_fail 失败集</text>
-<rect x="298" y="1264" width="269" height="151" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="298" y1="1270" x2="298" y2="1409" stroke="#0b57d0" stroke-width="3"/>
-<text x="432.5" y="1319.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DGAC 免训练修复 (核心)</text>
-<text x="432.5" y="1339.0" font-size="11.5" fill="#57606a" text-anchor="middle">检索成功参考 -&gt; 速度场组合</text>
-<text x="432.5" y="1354.0" font-size="11.5" fill="#57606a" text-anchor="middle">-&gt; 动力学想象 -&gt; value 择优</text>
-<text x="432.5" y="1369.0" font-size="11.5" fill="#57606a" text-anchor="middle">-&gt; 重标记; 门控放弃不可恢复</text>
-<rect x="334" y="1500" width="197" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="334" y1="1506" x2="334" y2="1598" stroke="#0b57d0" stroke-width="3"/>
-<text x="432.5" y="1556.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">D_repair 修复集</text>
-<rect x="300" y="1702" width="265" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="300" y1="1708" x2="300" y2="1834" stroke="#0b57d0" stroke-width="3"/>
-<text x="432.5" y="1756.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">块级优势: 块内奖励 + 块</text>
-<text x="432.5" y="1774.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">尾价值差</text>
-<text x="432.5" y="1794.5" font-size="11.5" fill="#57606a" text-anchor="middle">cutoff 取 70 分位</text>
-<rect x="298" y="1938" width="270" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="298" y1="1944" x2="298" y2="2070" stroke="#0b57d0" stroke-width="3"/>
-<text x="433.0" y="1992.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">优势条件化策略提取 (</text>
-<text x="433.0" y="2010.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CFGRL)</text>
-<text x="433.0" y="2030.5" font-size="11.5" fill="#57606a" text-anchor="middle">全流程唯一策略梯度式更新</text>
-<rect x="164" y="2377" width="266" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="164" y1="2383" x2="164" y2="2526" stroke="#0b57d0" stroke-width="3"/>
-<text x="297.0" y="2432.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Stretch 3 五任务 41.3%</text>
-<text x="297.0" y="2450.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">-&gt; 85.3%</text>
-<text x="297.0" y="2470.5" font-size="11.5" fill="#57606a" text-anchor="middle">pi0.5 62.7% -&gt; 88.0%, Franka</text>
-<text x="297.0" y="2485.5" font-size="11.5" fill="#57606a" text-anchor="middle">36.7% -&gt; 70.0%</text>
-<text x="486.8" y="2759.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">成功</text>
-<text x="378.8" y="2759.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">失败</text>
-<text x="581.0" y="540.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">提指令</text>
-<text x="433.0" y="768.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">冻结执行 + VidBot affordanc…</text>
-<text x="433.0" y="1012.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">接地到机器人本体分布</text>
-<text x="373.8" y="1442.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">预训练权重迁移</text>
-<text x="264.5" y="1214.8" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">初始化任务 policy</text>
-<text x="482.2" y="2159.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">两阶段检索参考</text>
-<text x="432.8" y="1207.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">想象 rollout 4 Hz</text>
-<text x="500.9" y="1839.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">排序: 比 VLM 选高 21.3pp</text>
-<text x="500.7" y="2051.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">价值差</text>
-<text x="415.9" y="1613.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每轮微调跟上分布</text>
-<text x="819" y="2982" font-size="10.5" fill="#8c959f" text-anchor="end">humanvid-selfimprove · arXiv 2606.21406 · v3 auto</text>
+<rect x="177" y="625" width="570" height="2386" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="191" y="645" font-size="11.5" font-weight="600" fill="#57606a">人类视频联合预训练 (flow matching, 250k iters) · 迭代自改进循环</text>
+<path d="M 467.0 2487.5 L 524.0 2733.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 641.0 2786.0 L 476.0 2927.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.0 3032.0 L 594.5 3154.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.0 3032.0 L 352.5 3154.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 317.1 3258.0 L 317.1 2412.5 L 495.4 2412.5 L 495.4 1567.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 468.5 1567.0 L 472.5 1680.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 313.0 237.0 L 338.0 518.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 469.0 604.0 L 476.0 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 806.0 291.0 L 806.0 607.5 L 470.0 607.5 L 470.0 924.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 476.0 802.0 L 470.0 924.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 470.0 1079.0 L 473.0 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 470.0 1079.0 L 470.0 1847.0 L 640.0 1847.0 L 640.0 2435.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.0 802.0 L 476.0 1618.5 L 336.5 1618.5 L 336.5 2435.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 386.0 239.0 L -34.0 239.0 L -34.0 2487.5 L 206.0 2487.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 559.1 3258.0 L 559.1 2412.5 L 495.4 2412.5 L 495.4 1567.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 473.0 1293.0 L 468.5 1416.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 600.4 2540.0 L 600.4 2053.5 L 495.4 2053.5 L 495.4 1567.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 559.1 3258.0 L 559.1 2651.0 L 495.0 2651.0 L 495.0 2044.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 472.5 1784.0 L 468.5 1906.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 600.4 2540.0 L 600.4 2382.0 L 495.0 2382.0 L 495.0 2044.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 468.5 2044.0 L 469.0 2171.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 469.0 2309.0 L 336.5 2435.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 415.0 2309.0 L 415.0 1801.0 L 492.8 1801.0 L 492.8 1293.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 469.0 2309.0 L 640.0 2435.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 336.5 2540.0 L 317.0 2662.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="168" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="182.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人类视频约 100 万样本</text>
+<text x="182.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">HOI4D / Arti4D /</text>
+<text x="182.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">EgoDex</text>
+<rect x="338" y="432" width="262" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="338" y1="438" x2="338" y2="598" stroke="#0b57d0" stroke-width="3"/>
+<text x="469.0" y="480.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">具身无关表征</text>
+<text x="469.0" y="501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 = 6-DoF 腕位姿 +</text>
+<text x="469.0" y="530.75" font-size="12.5" fill="#57606a" text-anchor="middle">手部闭合标量</text>
+<text x="469.0" y="548.25" font-size="12.5" fill="#57606a" text-anchor="middle">状态 = DINO-v3 token + 短时程</text>
+<text x="469.0" y="565.75" font-size="12.5" fill="#57606a" text-anchor="middle">3D 点流</text>
+<rect x="401" y="697" width="150" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="401" y1="703" x2="401" y2="796" stroke="#0b57d0" stroke-width="3"/>
+<text x="476.0" y="742.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">policy</text>
+<text x="476.0" y="763.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作块生成</text>
+<rect x="374" y="1188" width="198" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="374" y1="1194" x2="374" y2="1287" stroke="#0b57d0" stroke-width="3"/>
+<text x="473.0" y="1233.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">dynamics 模型</text>
+<text x="473.0" y="1254.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测未来世界状态</text>
+<rect x="541" y="2435" width="198" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="541" y1="2441" x2="541" y2="2534" stroke="#0b57d0" stroke-width="3"/>
+<text x="640.0" y="2480.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">value 模型</text>
+<text x="640.0" y="2501.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">稀疏终局折扣回报</text>
+<rect x="716" y="186" width="180" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="716" y1="192" x2="716" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="806.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM (GPT-4o)</text>
+<text x="806.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">提原子交互指令</text>
+<rect x="343" y="924" width="254" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="343" y1="930" x2="343" y2="1073" stroke="#0b57d0" stroke-width="3"/>
+<text x="470.0" y="973.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自主接地: 冻结人类预训</text>
+<text x="470.0" y="994.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">练 policy 真机滚动</text>
+<text x="470.0" y="1023.0" font-size="12.5" fill="#57606a" text-anchor="middle">约 400 回合 / 约 3 小时, 专</text>
+<text x="470.0" y="1040.5" font-size="12.5" fill="#57606a" text-anchor="middle">门见自然失败</text>
+<rect x="386" y="187" width="256" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="386" y1="193" x2="386" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="514.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每任务 25 条遥操作演示</text>
+<rect x="206" y="2435" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="206" y1="2441" x2="206" y2="2534" stroke="#0b57d0" stroke-width="3"/>
+<text x="336.5" y="2480.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">任务 policy (骨干可换:</text>
+<text x="336.5" y="2501.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自建 / pi0.5)</text>
+<rect x="524" y="2681" width="234" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="524" y1="2687" x2="524" y2="2780" stroke="#0b57d0" stroke-width="3"/>
+<text x="641.0" y="2726.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真机 rollout 采集</text>
+<text x="641.0" y="2747.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">当前策略诱导状态分布</text>
+<rect x="401" y="2927" width="150" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="401" y1="2933" x2="401" y2="3026" stroke="#0b57d0" stroke-width="3"/>
+<text x="476.0" y="2972.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">按结局划分</text>
+<text x="476.0" y="2993.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(人工标注)</text>
+<rect x="506" y="3154" width="177" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="506" y1="3160" x2="506" y2="3252" stroke="#0b57d0" stroke-width="3"/>
+<text x="594.5" y="3209.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">D_succ 成功集</text>
+<rect x="264" y="3154" width="177" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="264" y1="3160" x2="264" y2="3252" stroke="#0b57d0" stroke-width="3"/>
+<text x="352.5" y="3209.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">D_fail 失败集</text>
+<rect x="334" y="1416" width="269" height="151" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="334" y1="1422" x2="334" y2="1561" stroke="#0b57d0" stroke-width="3"/>
+<text x="468.5" y="1464.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DGAC 免训练修复 (核心)</text>
+<text x="468.5" y="1493.75" font-size="12.5" fill="#57606a" text-anchor="middle">检索成功参考 -&gt; 速度场组合</text>
+<text x="468.5" y="1511.25" font-size="12.5" fill="#57606a" text-anchor="middle">-&gt; 动力学想象 -&gt; value 择优</text>
+<text x="468.5" y="1528.75" font-size="12.5" fill="#57606a" text-anchor="middle">-&gt; 重标记; 门控放弃不可恢复</text>
+<rect x="374" y="1680" width="197" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="374" y1="1686" x2="374" y2="1778" stroke="#0b57d0" stroke-width="3"/>
+<text x="472.5" y="1735.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">D_repair 修复集</text>
+<rect x="336" y="1906" width="265" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="336" y1="1912" x2="336" y2="2038" stroke="#0b57d0" stroke-width="3"/>
+<text x="468.5" y="1955.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">块级优势: 块内奖励 + 块</text>
+<text x="468.5" y="1976.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">尾价值差</text>
+<text x="468.5" y="2005.25" font-size="12.5" fill="#57606a" text-anchor="middle">cutoff 取 70 分位</text>
+<rect x="334" y="2171" width="270" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="334" y1="2177" x2="334" y2="2303" stroke="#0b57d0" stroke-width="3"/>
+<text x="469.0" y="2220.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">优势条件化策略提取 (</text>
+<text x="469.0" y="2241.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CFGRL)</text>
+<text x="469.0" y="2270.25" font-size="12.5" fill="#57606a" text-anchor="middle">全流程唯一策略梯度式更新</text>
+<rect x="184" y="2662" width="266" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="184" y1="2668" x2="184" y2="2811" stroke="#0b57d0" stroke-width="3"/>
+<text x="317.0" y="2711.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Stretch 3 五任务 41.3%</text>
+<text x="317.0" y="2732.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">-&gt; 85.3%</text>
+<text x="317.0" y="2761.0" font-size="12.5" fill="#57606a" text-anchor="middle">pi0.5 62.7% -&gt; 88.0%, Franka</text>
+<text x="317.0" y="2778.5" font-size="12.5" fill="#57606a" text-anchor="middle">36.7% -&gt; 70.0%</text>
+<text x="535.2" y="3085.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">成功</text>
+<text x="414.2" y="3085.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">失败</text>
+<text x="638.0" y="599.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">提指令</text>
+<text x="473.0" y="855.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">冻结执行 + VidBot affordanc…</text>
+<text x="471.5" y="1125.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">接地到机器人本体分布</text>
+<text x="406.2" y="1610.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">预训练权重迁移</text>
+<text x="296.0" y="1355.2" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">初始化任务 policy</text>
+<text x="527.2" y="2404.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">两阶段检索参考</text>
+<text x="470.8" y="1346.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">想象 rollout 4 Hz</text>
+<text x="547.9" y="2045.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">排序: 比 VLM 选高 21.3pp</text>
+<text x="547.7" y="2284.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">价值差</text>
+<text x="453.9" y="1793.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每轮微调跟上分布</text>
+<text x="900" y="3300" font-size="10.5" fill="#8c959f" text-anchor="end">humanvid-selfimprove · arXiv 2606.21406 · v3 auto</text>
 </svg>

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1465" height="2044" viewBox="24 98 1465 2044" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1611" height="2269" viewBox="26 112 1611 2269" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>gtp-fa</title>
-<rect x="24" y="98" width="1465" height="2044" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">gtp-fa</text>
-<text x="1467" y="128" font-size="12" fill="#57606a" text-anchor="end">（Problem）抓取与下游规划强耦合，同一表面失败可能是抓错部位、抓不稳或策略不足，端到端微调把抓取错误错记在策略头上、污染训练数据 →（Insight）先用「固定抓取条件重</text>
+<rect x="26" y="112" width="1611" height="2269" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">gtp-fa</text>
+<text x="1615" y="142" font-size="12" fill="#57606a" text-anchor="end">（Problem）抓取与下游规划强耦合，同一表面失败可能是抓错部位、抓不稳或策略不足，端到端微调把抓取错误错记在策略头上、污染训练数据 →（Insight）先用「固定抓取条件重</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,100 +10,100 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 297.0 218.5 L 237.0 218.5 L 237.0 438.5 L 638.0 438.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 756.0 491.0 L 756.5 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 770.5 271.0 L 770.5 520.0 L 756.5 520.0 L 756.5 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 1049.5 271.0 L 1049.5 520.0 L 756.5 520.0 L 756.5 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 756.5 727.0 L 756.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 756.5 930.0 L 881.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 756.5 930.0 L 607.0 1044.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 881.5 1166.0 L 890.0 1264.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 890.0 1369.0 L 756.0 1467.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 607.0 1149.0 L 637.5 1264.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 756.0 1605.0 L 756.5 1703.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 637.5 1369.0 L 637.5 1626.0 L 756.5 1626.0 L 756.5 1703.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 756.5 1858.0 L 604.0 1939.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 756.5 1858.0 L 907.5 1939.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 551.2 2077.0 L 551.2 1402.0 L 782.6 1402.0 L 782.6 727.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 854.1 2094.0 L 854.1 1630.0 L 907.6 1630.0 L 907.6 1166.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 469.5 288.0 L 469.5 967.5 L 756.0 967.5 L 756.0 1467.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1333.5 288.0 L 1333.5 967.5 L 756.0 967.5 L 756.0 1467.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="166" width="251" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="171.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令 tau + 观测 o</text>
-<text x="171.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(RGB/RGBD)</text>
-<rect x="638" y="386" width="236" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="638" y1="392" x2="638" y2="485" stroke="#57606a" stroke-width="3"/>
-<text x="756.0" y="433.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GraspNet 候选抓取</text>
-<text x="756.0" y="451.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(重建点云几何可行集)</text>
-<rect x="642" y="166" width="257" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="642" y1="172" x2="642" y2="265" stroke="#57606a" stroke-width="3"/>
-<text x="770.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM + SoM 任务先验</text>
-<text x="770.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可抓区 / 禁区 / 缓冲区</text>
-<rect x="937" y="166" width="225" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="937" y1="172" x2="937" y2="265" stroke="#1a7f37" stroke-width="3"/>
-<text x="1049.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">风险头 r_phi</text>
-<text x="1049.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逼近 p(FM-G2 失稳)</text>
-<rect x="626" y="589" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="626" y1="595" x2="626" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="756.5" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">抓取评分</text>
-<text x="756.5" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">s_base +</text>
-<text x="756.5" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">lambda*s_prior - beta*r_phi</text>
-<rect x="654" y="825" width="205" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="654" y1="831" x2="654" y2="924" stroke="#8250df" stroke-width="3"/>
-<text x="756.5" y="872.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">选定单一抓取 g*</text>
-<text x="756.5" y="890.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">6-DoF + 夹爪宽度</text>
-<rect x="751" y="1028" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="751" y1="1034" x2="751" y2="1160" stroke="#1a7f37" stroke-width="3"/>
-<text x="881.5" y="1082.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">下游策略 (通用接口)</text>
-<text x="881.5" y="1100.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PPO / SAC / BC / DP /</text>
-<text x="881.5" y="1120.5" font-size="11.5" fill="#57606a" text-anchor="middle">pi0.5-LoRA</text>
-<rect x="501" y="1044" width="212" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="501" y1="1050" x2="501" y2="1143" stroke="#1a7f37" stroke-width="3"/>
-<text x="607.0" y="1091.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">抓取条件嵌入</text>
-<text x="607.0" y="1109.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">e = f_theta(x_g)</text>
-<rect x="790" y="1264" width="200" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="790" y1="1270" x2="790" y2="1363" stroke="#8250df" stroke-width="3"/>
-<text x="890.0" y="1311.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">执行 episode</text>
-<text x="890.0" y="1329.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(抓取固定后开环)</text>
-<rect x="624" y="1467" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="624" y1="1473" x2="624" y2="1599" stroke="#0b57d0" stroke-width="3"/>
-<text x="756.0" y="1521.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">失败归因判别器 D</text>
-<text x="756.0" y="1539.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">p_D: FM-G1 功能错配</text>
-<text x="756.0" y="1559.5" font-size="11.5" fill="#57606a" text-anchor="middle">FM-G2 失稳 / FM-P 规划不足</text>
-<rect x="523" y="1264" width="229" height="105" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="523" y1="1270" x2="523" y2="1363" stroke="#bf3989" stroke-width="3"/>
-<text x="637.5" y="1311.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">kNN 诊断库先验 p_E</text>
-<text x="637.5" y="1329.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">k=25 相似度加权投票</text>
-<rect x="626" y="1703" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="626" y1="1709" x2="626" y2="1852" stroke="#0b57d0" stroke-width="3"/>
-<text x="756.5" y="1758.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">融合 p_fuse</text>
-<text x="756.5" y="1776.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(1-alpha)*p_D +</text>
-<text x="756.5" y="1796.5" font-size="11.5" fill="#57606a" text-anchor="middle">alpha*p_E</text>
-<text x="756.5" y="1811.5" font-size="11.5" fill="#57606a" text-anchor="middle">alpha 由 D 置信度决定</text>
-<rect x="472" y="1939" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="472" y1="1945" x2="472" y2="2071" stroke="#0b57d0" stroke-width="3"/>
-<text x="604.0" y="1993.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">抓取侧优化</text>
-<text x="604.0" y="2011.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">任务先验强化 + 失稳风</text>
-<text x="604.0" y="2031.5" font-size="11.5" fill="#57606a" text-anchor="middle">险罚</text>
-<rect x="774" y="1939" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="774" y1="1945" x2="774" y2="2088" stroke="#0b57d0" stroke-width="3"/>
-<text x="907.5" y="1994.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">规划侧优化</text>
-<text x="907.5" y="2012.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">hard-P 挖掘 top-200 +</text>
-<text x="907.5" y="2032.5" font-size="11.5" fill="#57606a" text-anchor="middle">rho=0.2</text>
-<text x="907.5" y="2047.5" font-size="11.5" fill="#57606a" text-anchor="middle">起始态重塑 + wP 加权损失</text>
-<rect x="335" y="150" width="269" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="335" y1="156" x2="335" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="469.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">弱标签: 固定抓取</text>
-<text x="469.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">K=100 次</text>
-<text x="469.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">重复试验成功率 q_end + 阈值规则</text>
-<rect x="1200" y="150" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1200" y1="156" x2="1200" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="1333.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失: L_D 伪标签交叉熵</text>
-<text x="1333.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">L_E 监督对比 + 辅助分</text>
-<text x="1333.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">类头</text>
-<text x="823.0" y="1410.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">执行摘要 xi: slip/drop/碰撞…</text>
-<text x="680.2" y="1890.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">wG 高: 抓取侧接收更新</text>
-<text x="1150.0" y="1760.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">wP 高: 规划侧接收</text>
-<text x="1467" y="2132" font-size="10.5" fill="#8c959f" text-anchor="end">gtp-fa · arXiv 2606.03385 · v3 auto</text>
+<path d="M 303.0 238.5 L 243.0 238.5 L 243.0 484.5 L 715.0 484.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 833.0 537.0 L 831.5 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 847.5 291.0 L 847.5 565.5 L 831.5 565.5 L 831.5 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 1161.5 291.0 L 831.5 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 831.5 798.0 L 834.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 834.5 1029.0 L 971.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 834.5 1029.0 L 667.0 1169.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 971.5 1289.0 L 985.0 1416.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 985.0 1521.0 L 831.0 1643.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 667.0 1274.0 L 700.5 1416.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 831.0 1781.0 L 831.5 1907.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 700.5 1521.0 L 700.5 1804.0 L 831.5 1804.0 L 831.5 1907.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 831.5 2062.0 L 661.0 2172.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 831.5 2062.0 L 1000.5 2172.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 608.2 2310.0 L 608.2 1554.0 L 857.6 1554.0 L 857.6 798.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 947.1 2327.0 L 947.1 1808.0 L 997.6 1808.0 L 997.6 1289.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 509.5 306.0 L 509.5 1064.5 L 831.0 1064.5 L 831.0 1643.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1477.5 306.0 L 1477.5 1064.5 L 831.0 1064.5 L 831.0 1643.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="186" width="251" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="177.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令 tau + 观测 o</text>
+<text x="177.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(RGB/RGBD)</text>
+<rect x="715" y="432" width="236" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="715" y1="438" x2="715" y2="531" stroke="#57606a" stroke-width="3"/>
+<text x="833.0" y="477.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GraspNet 候选抓取</text>
+<text x="833.0" y="498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(重建点云几何可行集)</text>
+<rect x="719" y="186" width="257" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="719" y1="192" x2="719" y2="285" stroke="#57606a" stroke-width="3"/>
+<text x="847.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM + SoM 任务先验</text>
+<text x="847.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可抓区 / 禁区 / 缓冲区</text>
+<rect x="1049" y="186" width="225" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1049" y1="192" x2="1049" y2="285" stroke="#1a7f37" stroke-width="3"/>
+<text x="1161.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">风险头 r_phi</text>
+<text x="1161.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逼近 p(FM-G2 失稳)</text>
+<rect x="701" y="660" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="701" y1="666" x2="701" y2="792" stroke="#0b57d0" stroke-width="3"/>
+<text x="831.5" y="709.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">抓取评分</text>
+<text x="831.5" y="730.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">s_base +</text>
+<text x="831.5" y="759.25" font-size="12.5" fill="#57606a" text-anchor="middle">lambda*s_prior - beta*r_phi</text>
+<rect x="732" y="924" width="205" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="732" y1="930" x2="732" y2="1023" stroke="#8250df" stroke-width="3"/>
+<text x="834.5" y="969.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">选定单一抓取 g*</text>
+<text x="834.5" y="990.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">6-DoF + 夹爪宽度</text>
+<rect x="841" y="1151" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="841" y1="1157" x2="841" y2="1283" stroke="#1a7f37" stroke-width="3"/>
+<text x="971.5" y="1200.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">下游策略 (通用接口)</text>
+<text x="971.5" y="1221.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PPO / SAC / BC / DP /</text>
+<text x="971.5" y="1250.25" font-size="12.5" fill="#57606a" text-anchor="middle">pi0.5-LoRA</text>
+<rect x="561" y="1169" width="212" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="561" y1="1175" x2="561" y2="1268" stroke="#1a7f37" stroke-width="3"/>
+<text x="667.0" y="1214.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">抓取条件嵌入</text>
+<text x="667.0" y="1235.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">e = f_theta(x_g)</text>
+<rect x="885" y="1416" width="200" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="885" y1="1422" x2="885" y2="1515" stroke="#8250df" stroke-width="3"/>
+<text x="985.0" y="1461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">执行 episode</text>
+<text x="985.0" y="1482.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(抓取固定后开环)</text>
+<rect x="699" y="1643" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="699" y1="1649" x2="699" y2="1775" stroke="#0b57d0" stroke-width="3"/>
+<text x="831.0" y="1692.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">失败归因判别器 D</text>
+<text x="831.0" y="1713.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">p_D: FM-G1 功能错配</text>
+<text x="831.0" y="1742.25" font-size="12.5" fill="#57606a" text-anchor="middle">FM-G2 失稳 / FM-P 规划不足</text>
+<rect x="586" y="1416" width="229" height="105" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="586" y1="1422" x2="586" y2="1515" stroke="#bf3989" stroke-width="3"/>
+<text x="700.5" y="1461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">kNN 诊断库先验 p_E</text>
+<text x="700.5" y="1482.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">k=25 相似度加权投票</text>
+<rect x="701" y="1907" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="701" y1="1913" x2="701" y2="2056" stroke="#0b57d0" stroke-width="3"/>
+<text x="831.5" y="1956.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">融合 p_fuse</text>
+<text x="831.5" y="1977.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(1-alpha)*p_D +</text>
+<text x="831.5" y="2006.0" font-size="12.5" fill="#57606a" text-anchor="middle">alpha*p_E</text>
+<text x="831.5" y="2023.5" font-size="12.5" fill="#57606a" text-anchor="middle">alpha 由 D 置信度决定</text>
+<rect x="529" y="2172" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="529" y1="2178" x2="529" y2="2304" stroke="#0b57d0" stroke-width="3"/>
+<text x="661.0" y="2221.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">抓取侧优化</text>
+<text x="661.0" y="2242.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">任务先验强化 + 失稳风</text>
+<text x="661.0" y="2271.25" font-size="12.5" fill="#57606a" text-anchor="middle">险罚</text>
+<rect x="867" y="2172" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="867" y1="2178" x2="867" y2="2321" stroke="#0b57d0" stroke-width="3"/>
+<text x="1000.5" y="2221.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">规划侧优化</text>
+<text x="1000.5" y="2242.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">hard-P 挖掘 top-200 +</text>
+<text x="1000.5" y="2271.0" font-size="12.5" fill="#57606a" text-anchor="middle">rho=0.2</text>
+<text x="1000.5" y="2288.5" font-size="12.5" fill="#57606a" text-anchor="middle">起始态重塑 + wP 加权损失</text>
+<rect x="375" y="168" width="269" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="375" y1="174" x2="375" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="509.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">弱标签: 固定抓取</text>
+<text x="509.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">K=100 次</text>
+<text x="509.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">重复试验成功率 q_end + 阈值规则</text>
+<rect x="1344" y="168" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1344" y1="174" x2="1344" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="1477.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失: L_D 伪标签交叉熵</text>
+<text x="1477.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">L_E 监督对比 + 辅助分</text>
+<text x="1477.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">类头</text>
+<text x="908.0" y="1574.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">执行摘要 xi: slip/drop/碰撞…</text>
+<text x="746.2" y="2109.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">wG 高: 抓取侧接收更新</text>
+<text x="1288.0" y="1971.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">wP 高: 规划侧接收</text>
+<text x="1615" y="2369" font-size="10.5" fill="#8c959f" text-anchor="end">gtp-fa · arXiv 2606.03385 · v3 auto</text>
 </svg>

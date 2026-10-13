@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="357" height="1857" viewBox="2 98 357 1857" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="365" height="2061" viewBox="1 112 365 2061" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>vlac</title>
-<rect x="2" y="98" width="357" height="1857" fill="#ffffff"/>
-<text x="24" y="128" font-size="14" font-weight="700" fill="#1f2328">vlac</text>
-<text x="337" y="128" font-size="12" fill="#57606a" text-anchor="end">VLAC 提出统一 actor-critic 自回归架构：基于 InternVL 多模态模型，通过 pair-wise progress understanding 输入两张观</text>
+<rect x="1" y="112" width="365" height="2061" fill="#ffffff"/>
+<text x="23" y="142" font-size="14" font-weight="700" fill="#1f2328">vlac</text>
+<text x="344" y="142" font-size="12" fill="#57606a" text-anchor="end">VLAC 提出统一 actor-critic 自回归架构：基于 InternVL 多模态模型，通过 pair-wise progress understanding 输入两张观</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,63 +10,63 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="24" y="289" width="313" height="462" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="38" y="309" font-size="11.5" font-weight="600" fill="#57606a">异步分布式采样 (8 台 AGILE PiPER, ZeroMQ </text>
-<text x="38" y="324" font-size="11.5" font-weight="600" fill="#57606a">+…</text>
-<path d="M 180.5 491.0 L 180.5 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 128.3 727.0 L 205.6 491.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 180.5 727.0 L 180.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 180.5 963.0 L 180.5 1726.0 L 180.5 1726.0 L 180.5 1769.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 180.5 963.0 L 180.5 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 180.5 1233.0 L 180.5 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 180.5 1469.0 L 180.5 1533.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 180.5 1671.0 L 180.5 1769.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 128.3 1907.0 L 128.3 1289.0 L 205.6 1289.0 L 205.6 491.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 180.5 255.0 L 180.5 353.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="55" y="353" width="251" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="55" y1="359" x2="55" y2="485" stroke="#57606a" stroke-width="3"/>
-<text x="180.5" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真实机器人 x 8</text>
-<text x="180.5" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">7-DoF EE delta pose</text>
-<text x="180.5" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">逐步控制</text>
-<rect x="50" y="589" width="261" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="50" y1="595" x2="50" y2="721" stroke="#0969da" stroke-width="3"/>
-<text x="180.5" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">pair 输入</text>
-<text x="180.5" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">当前帧 + 历史帧 (o_t,</text>
-<text x="180.5" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">o_prev) + 指令</text>
-<rect x="64" y="825" width="233" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="64" y1="831" x2="64" y2="957" stroke="#57606a" stroke-width="3"/>
-<text x="180.5" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">InternVL 多模态主干</text>
-<text x="180.5" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">40M 样本预训练</text>
-<text x="180.5" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">prompt 切换双模式</text>
-<rect x="50" y="1769" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="50" y1="1775" x2="50" y2="1901" stroke="#1a7f37" stroke-width="3"/>
-<text x="180.5" y="1823.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">actor 模式 (2B)</text>
-<text x="180.5" y="1841.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">semantic delta EE</text>
-<text x="180.5" y="1861.5" font-size="11.5" fill="#57606a" text-anchor="middle">pose</text>
-<rect x="47" y="1061" width="267" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="47" y1="1067" x2="47" y2="1227" stroke="#0b57d0" stroke-width="3"/>
-<text x="180.5" y="1117.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">critic 模式 (8B):</text>
-<text x="180.5" y="1135.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">pair-wise 进度 (核心)</text>
-<text x="180.5" y="1155.5" font-size="11.5" fill="#57606a" text-anchor="middle">两帧对比输出连续 progress</text>
-<text x="180.5" y="1170.5" font-size="11.5" fill="#57606a" text-anchor="middle">delta</text>
-<text x="180.5" y="1185.5" font-size="11.5" fill="#57606a" text-anchor="middle">正 = 前进, 负 = 倒退</text>
-<rect x="46" y="1297" width="269" height="172" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1303" x2="46" y2="1463" stroke="#8a5a00" stroke-width="3"/>
-<text x="180.5" y="1353.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">dense 进度奖励 r 在 [-1</text>
-<text x="180.5" y="1371.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">,</text>
-<text x="180.5" y="1391.5" font-size="11.5" fill="#57606a" text-anchor="middle">1]</text>
-<text x="180.5" y="1406.5" font-size="11.5" fill="#57606a" text-anchor="middle">替代稀疏 0/1 (瓶颈是 reward</text>
-<text x="180.5" y="1421.5" font-size="11.5" fill="#57606a" text-anchor="middle">不是算法)</text>
-<rect x="47" y="1533" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="47" y1="1539" x2="47" y2="1665" stroke="#8a5a00" stroke-width="3"/>
-<text x="180.5" y="1587.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PPO 更新 (clipped</text>
-<text x="180.5" y="1605.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">surrogate)</text>
-<text x="180.5" y="1625.5" font-size="11.5" fill="#57606a" text-anchor="middle">优势 A_t 由进度 delta 累积</text>
-<rect x="55" y="150" width="251" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="55" y1="156" x2="55" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="180.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人类引导探索 HGE</text>
-<text x="180.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(困难任务辅助, +10pp)</text>
-<text x="180.5" y="1712.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新 actor</text>
-<text x="180.5" y="296.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">引导 rollout</text>
-<text x="337" y="1945" font-size="10.5" fill="#8c959f" text-anchor="end">vlac · arXiv 2509.15937 · v3 auto</text>
+<rect x="27" y="324" width="313" height="462" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="41" y="344" font-size="11.5" font-weight="600" fill="#57606a">异步分布式采样 (8 台 AGILE PiPER, ZeroMQ </text>
+<text x="41" y="359" font-size="11.5" font-weight="600" fill="#57606a">+…</text>
+<path d="M 187.5 533.0 L 186.5 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 134.3 798.0 L 212.6 533.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 186.5 798.0 L 188.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 188.5 1062.0 L 188.5 1701.5 L 186.5 1701.5 L 186.5 1981.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 188.5 1062.0 L 186.5 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 186.5 1360.0 L 186.5 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 186.5 1625.0 L 186.5 1717.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 186.5 1855.0 L 186.5 1981.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 134.3 2119.0 L 134.3 1416.0 L 212.6 1416.0 L 212.6 533.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 187.5 273.0 L 187.5 395.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="62" y="395" width="251" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="62" y1="401" x2="62" y2="527" stroke="#57606a" stroke-width="3"/>
+<text x="187.5" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真实机器人 x 8</text>
+<text x="187.5" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">7-DoF EE delta pose</text>
+<text x="187.5" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">逐步控制</text>
+<rect x="56" y="660" width="261" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="56" y1="666" x2="56" y2="792" stroke="#0969da" stroke-width="3"/>
+<text x="186.5" y="709.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">pair 输入</text>
+<text x="186.5" y="730.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">当前帧 + 历史帧 (o_t,</text>
+<text x="186.5" y="759.25" font-size="12.5" fill="#57606a" text-anchor="middle">o_prev) + 指令</text>
+<rect x="72" y="924" width="233" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="72" y1="930" x2="72" y2="1056" stroke="#57606a" stroke-width="3"/>
+<text x="188.5" y="973.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">InternVL 多模态主干</text>
+<text x="188.5" y="994.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">40M 样本预训练</text>
+<text x="188.5" y="1023.25" font-size="12.5" fill="#57606a" text-anchor="middle">prompt 切换双模式</text>
+<rect x="56" y="1981" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="56" y1="1987" x2="56" y2="2113" stroke="#1a7f37" stroke-width="3"/>
+<text x="186.5" y="2030.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">actor 模式 (2B)</text>
+<text x="186.5" y="2051.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">semantic delta EE</text>
+<text x="186.5" y="2080.25" font-size="12.5" fill="#57606a" text-anchor="middle">pose</text>
+<rect x="53" y="1188" width="267" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="53" y1="1194" x2="53" y2="1354" stroke="#0b57d0" stroke-width="3"/>
+<text x="186.5" y="1236.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">critic 模式 (8B):</text>
+<text x="186.5" y="1257.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">pair-wise 进度 (核心)</text>
+<text x="186.5" y="1286.75" font-size="12.5" fill="#57606a" text-anchor="middle">两帧对比输出连续 progress</text>
+<text x="186.5" y="1304.25" font-size="12.5" fill="#57606a" text-anchor="middle">delta</text>
+<text x="186.5" y="1321.75" font-size="12.5" fill="#57606a" text-anchor="middle">正 = 前进, 负 = 倒退</text>
+<rect x="52" y="1453" width="269" height="172" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1459" x2="52" y2="1619" stroke="#8a5a00" stroke-width="3"/>
+<text x="186.5" y="1501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">dense 进度奖励 r 在 [-1</text>
+<text x="186.5" y="1522.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">,</text>
+<text x="186.5" y="1551.75" font-size="12.5" fill="#57606a" text-anchor="middle">1]</text>
+<text x="186.5" y="1569.25" font-size="12.5" fill="#57606a" text-anchor="middle">替代稀疏 0/1 (瓶颈是 reward</text>
+<text x="186.5" y="1586.75" font-size="12.5" fill="#57606a" text-anchor="middle">不是算法)</text>
+<rect x="53" y="1717" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="53" y1="1723" x2="53" y2="1849" stroke="#8a5a00" stroke-width="3"/>
+<text x="186.5" y="1766.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PPO 更新 (clipped</text>
+<text x="186.5" y="1787.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">surrogate)</text>
+<text x="186.5" y="1816.25" font-size="12.5" fill="#57606a" text-anchor="middle">优势 A_t 由进度 delta 累积</text>
+<rect x="62" y="168" width="251" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="62" y1="174" x2="62" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="187.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人类引导探索 HGE</text>
+<text x="187.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(困难任务辅助, +10pp)</text>
+<text x="186.5" y="1910.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新 actor</text>
+<text x="187.5" y="326.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">引导 rollout</text>
+<text x="344" y="2161" font-size="10.5" fill="#8c959f" text-anchor="end">vlac · arXiv 2509.15937 · v3 auto</text>
 </svg>

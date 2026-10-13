@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1085" height="1723" viewBox="24 98 1085 1723" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1188" height="1915" viewBox="26 112 1188 1915" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>fabrica</title>
-<rect x="24" y="98" width="1085" height="1723" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">fabrica</text>
-<text x="1087" y="128" font-size="12" fill="#57606a" text-anchor="end">Fabrica 是一个端到端双臂装配系统：从 CAD 模型出发，通过层级规划（装配顺序→抓取→运动规划+自动夹具生成）+ 轻量 SE(3) 等变 RL 策略完成接触-rich </text>
+<rect x="26" y="112" width="1188" height="1915" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">fabrica</text>
+<text x="1192" y="142" font-size="12" fill="#57606a" text-anchor="end">Fabrica 是一个端到端双臂装配系统：从 CAD 模型出发，通过层级规划（装配顺序→抓取→运动规划+自动夹具生成）+ 轻量 SE(3) 等变 RL 策略完成接触-rich </text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,70 +10,70 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="407" y="339" width="319" height="817" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="421" y="359" font-size="11.5" font-weight="600" fill="#57606a">层级规划栈 (宏观离散决策, 无需训练)</text>
-<path d="M 208.0 218.5 L 148.0 218.5 L 148.0 438.0 L 476.0 438.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 566.0 490.0 L 566.5 588.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 566.5 726.0 L 567.0 824.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 567.0 929.0 L 567.0 1027.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 567.0 1132.0 L 567.0 1389.0 L 566.5 1389.0 L 566.5 1466.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 567.0 1132.0 L 566.5 1230.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 566.5 1368.0 L 566.5 1466.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 373.0 288.0 L 373.0 759.0 L 566.5 759.0 L 566.5 1230.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 670.0 288.0 L 670.0 759.0 L 566.5 759.0 L 566.5 1230.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 963.5 271.0 L 963.5 750.5 L 566.5 750.5 L 566.5 1230.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 566.5 1570.0 L 566.0 1668.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 514.8 1773.0 L 590.6 1570.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="166" width="162" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="127.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CAD 模型</text>
-<text x="127.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多零件装配体</text>
-<rect x="476" y="386" width="180" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="476" y1="392" x2="476" y2="484" stroke="#57606a" stroke-width="3"/>
-<text x="566.0" y="442.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">装配优先级推理</text>
-<rect x="433" y="588" width="267" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="433" y1="594" x2="433" y2="720" stroke="#57606a" stroke-width="3"/>
-<text x="566.5" y="642.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">装配序列规划</text>
-<text x="566.5" y="660.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">序列 + 抓取 + 运动 联合</text>
-<text x="566.5" y="680.5" font-size="11.5" fill="#57606a" text-anchor="middle">优化</text>
-<rect x="476" y="824" width="182" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="476" y1="830" x2="476" y2="923" stroke="#57606a" stroke-width="3"/>
-<text x="567.0" y="871.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">抓取规划</text>
-<text x="567.0" y="889.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ 自动夹具生成</text>
-<rect x="492" y="1027" width="150" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="492" y1="1033" x2="492" y2="1126" stroke="#57606a" stroke-width="3"/>
-<text x="567.0" y="1074.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">运动规划</text>
-<text x="567.0" y="1092.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">双臂协调</text>
-<rect x="446" y="1466" width="241" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="446" y1="1472" x2="446" y2="1564" stroke="#8250df" stroke-width="3"/>
-<text x="566.5" y="1522.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">双 Franka 执行装配步</text>
-<rect x="436" y="1230" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="436" y1="1236" x2="436" y2="1362" stroke="#1a7f37" stroke-width="3"/>
-<text x="566.5" y="1284.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SE(3) 等变 RL 策略</text>
-<text x="566.5" y="1302.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">~2M 参数, 输出残差修正</text>
-<text x="566.5" y="1322.5" font-size="11.5" fill="#57606a" text-anchor="middle">a_t = a_t^ol + pi_theta(o_t)</text>
-<rect x="246" y="150" width="254" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="246" y1="156" x2="246" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="373.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SE(3) 等变结构</text>
-<text x="373.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">零样本 sim-to-real</text>
-<text x="373.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">保证</text>
-<rect x="538" y="150" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="538" y1="156" x2="538" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="670.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">插接奖励 r = -||p -</text>
-<text x="670.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">p*||_2</text>
-<text x="670.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">零件到目标的负 L2 距离</text>
-<rect x="840" y="166" width="247" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="840" y1="172" x2="840" y2="265" stroke="#57606a" stroke-width="3"/>
-<text x="963.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Isaac Gym 仿真训练</text>
-<text x="963.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">域随机化 3mm 姿态噪声</text>
-<rect x="438" y="1668" width="256" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="438" y1="1674" x2="438" y2="1767" stroke="#8250df" stroke-width="3"/>
-<text x="566.0" y="1715.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">装配完成</text>
-<text x="566.0" y="1733.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">step-level 80% 无干预</text>
-<text x="566.8" y="1291.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">转运段: 开环跟踪规划轨迹</text>
-<text x="566.8" y="1173.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">开环参考轨迹 a_t^ol</text>
-<text x="566.5" y="1409.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">接触丰富的插接步 TSI 阻抗控制</text>
-<text x="765.0" y="742.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">零样本迁移</text>
-<text x="552.7" y="1663.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">状态检测失败 每步最多重试 3 次</text>
-<text x="1087" y="1811" font-size="10.5" fill="#8c959f" text-anchor="end">fabrica · arXiv 2506.05168 · v3 auto</text>
+<rect x="456" y="380" width="319" height="817" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="470" y="400" font-size="11.5" font-weight="600" fill="#57606a">层级规划栈 (宏观离散决策, 无需训练)</text>
+<path d="M 214.0 238.5 L 154.0 238.5 L 154.0 484.0 L 533.0 484.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 623.0 536.0 L 618.5 659.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 618.5 797.0 L 624.0 923.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 624.0 1028.0 L 626.0 1150.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 626.0 1255.0 L 626.0 1538.5 L 620.5 1538.5 L 620.5 1642.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 626.0 1255.0 L 618.5 1378.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 618.5 1516.0 L 620.5 1642.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 403.0 306.0 L 403.0 842.0 L 618.5 842.0 L 618.5 1378.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 735.0 306.0 L 735.0 842.0 L 618.5 842.0 L 618.5 1378.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1064.5 291.0 L 1064.5 834.5 L 618.5 834.5 L 618.5 1378.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 620.5 1746.0 L 619.0 1868.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 567.8 1973.0 L 644.6 1746.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="186" width="162" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="133.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CAD 模型</text>
+<text x="133.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多零件装配体</text>
+<rect x="533" y="432" width="180" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="533" y1="438" x2="533" y2="530" stroke="#57606a" stroke-width="3"/>
+<text x="623.0" y="487.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">装配优先级推理</text>
+<rect x="485" y="659" width="267" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="485" y1="665" x2="485" y2="791" stroke="#57606a" stroke-width="3"/>
+<text x="618.5" y="708.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">装配序列规划</text>
+<text x="618.5" y="729.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">序列 + 抓取 + 运动 联合</text>
+<text x="618.5" y="758.25" font-size="12.5" fill="#57606a" text-anchor="middle">优化</text>
+<rect x="533" y="923" width="182" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="533" y1="929" x2="533" y2="1022" stroke="#57606a" stroke-width="3"/>
+<text x="624.0" y="968.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">抓取规划</text>
+<text x="624.0" y="989.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+ 自动夹具生成</text>
+<rect x="551" y="1150" width="150" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="551" y1="1156" x2="551" y2="1249" stroke="#57606a" stroke-width="3"/>
+<text x="626.0" y="1195.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">运动规划</text>
+<text x="626.0" y="1216.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">双臂协调</text>
+<rect x="500" y="1642" width="241" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="500" y1="1648" x2="500" y2="1740" stroke="#8250df" stroke-width="3"/>
+<text x="620.5" y="1697.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">双 Franka 执行装配步</text>
+<rect x="488" y="1378" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="488" y1="1384" x2="488" y2="1510" stroke="#1a7f37" stroke-width="3"/>
+<text x="618.5" y="1427.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SE(3) 等变 RL 策略</text>
+<text x="618.5" y="1448.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">~2M 参数, 输出残差修正</text>
+<text x="618.5" y="1477.25" font-size="12.5" fill="#57606a" text-anchor="middle">a_t = a_t^ol + pi_theta(o_t)</text>
+<rect x="276" y="168" width="254" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="276" y1="174" x2="276" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="403.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SE(3) 等变结构</text>
+<text x="403.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">零样本 sim-to-real</text>
+<text x="403.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">保证</text>
+<rect x="603" y="168" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="603" y1="174" x2="603" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="735.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">插接奖励 r = -||p -</text>
+<text x="735.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">p*||_2</text>
+<text x="735.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">零件到目标的负 L2 距离</text>
+<rect x="941" y="186" width="247" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="941" y1="192" x2="941" y2="285" stroke="#57606a" stroke-width="3"/>
+<text x="1064.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Isaac Gym 仿真训练</text>
+<text x="1064.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">域随机化 3mm 姿态噪声</text>
+<rect x="491" y="1868" width="256" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="491" y1="1874" x2="491" y2="1967" stroke="#8250df" stroke-width="3"/>
+<text x="619.0" y="1913.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">装配完成</text>
+<text x="619.0" y="1934.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">step-level 80% 无干预</text>
+<text x="623.2" y="1440.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">转运段: 开环跟踪规划轨迹</text>
+<text x="622.2" y="1308.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">开环参考轨迹 a_t^ol</text>
+<text x="619.5" y="1571.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">接触丰富的插接步 TSI 阻抗控制</text>
+<text x="841.5" y="826.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">零样本迁移</text>
+<text x="606.2" y="1851.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">状态检测失败 每步最多重试 3 次</text>
+<text x="1192" y="2015" font-size="10.5" fill="#8c959f" text-anchor="end">fabrica · arXiv 2506.05168 · v3 auto</text>
 </svg>

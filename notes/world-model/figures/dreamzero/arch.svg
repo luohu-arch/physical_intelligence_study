@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="705" height="1689" viewBox="-58 98 705 1689" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="736" height="1877" viewBox="-34 112 736 1877" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>dreamzero</title>
-<rect x="-58" y="98" width="705" height="1689" fill="#ffffff"/>
-<text x="-36" y="128" font-size="14" font-weight="700" fill="#1f2328">dreamzero</text>
-<text x="625" y="128" font-size="12" fill="#57606a" text-anchor="end">DreamZero 把一个 14B 的预训练 image-to-video 扩散模型（Wan2.1-I2V-14B-480P）直接改造成自回归 World Action Mod</text>
+<rect x="-34" y="112" width="736" height="1877" fill="#ffffff"/>
+<text x="-12" y="142" font-size="14" font-weight="700" fill="#1f2328">dreamzero</text>
+<text x="680" y="142" font-size="12" fill="#57606a" text-anchor="end">DreamZero 把一个 14B 的预训练 image-to-video 扩散模型（Wan2.1-I2V-14B-480P）直接改造成自回归 World Action Mod</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,63 +10,63 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 523.5 254.0 L 335.5 352.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 335.5 456.0 L 335.5 554.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 121.0 254.0 L 121.0 494.0 L 335.5 494.0 L 335.5 554.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 384.0 202.0 L -36.0 202.0 L -36.0 640.0 L 466.0 640.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 335.5 726.0 L 429.0 790.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 335.5 726.0 L 199.0 790.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 429.0 895.0 L 488.0 994.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 199.0 894.0 L 225.0 993.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 225.0 1098.0 L 335.0 1196.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 335.0 1334.0 L 335.0 1432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 335.0 1536.0 L 335.0 1634.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 295.4 1739.0 L 295.4 1412.5 L 361.6 1412.5 L 361.6 726.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="422" y="150" width="203" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="422" y1="156" x2="422" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="523.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉上下文 o_0:l</text>
-<rect x="228" y="352" width="215" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="228" y1="358" x2="228" y2="450" stroke="#57606a" stroke-width="3"/>
-<text x="335.5" y="408.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">冻结 Wan VAE 编码</text>
-<rect x="205" y="554" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="205" y1="560" x2="205" y2="720" stroke="#0b57d0" stroke-width="3"/>
-<text x="335.5" y="610.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自回归 DiT 14B</text>
-<text x="335.5" y="628.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视频 + 动作联合</text>
-<text x="335.5" y="648.5" font-size="11.5" fill="#57606a" text-anchor="middle">flow-matching 去噪共享时间步</text>
-<text x="335.5" y="663.5" font-size="11.5" fill="#57606a" text-anchor="middle">解耦噪声调度 38x 加速</text>
-<text x="335.5" y="678.5" font-size="11.5" fill="#57606a" text-anchor="middle">端到端拟合视频预测 xIDM</text>
-<rect x="46" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="121.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令 c</text>
-<rect x="234" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="156" x2="234" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="309.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本体感知 q</text>
-<rect x="312" y="790" width="234" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="312" y1="796" x2="312" y2="889" stroke="#57606a" stroke-width="3"/>
-<text x="429.0" y="837.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">未来视频 latent z_t</text>
-<text x="429.0" y="855.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">物理一致性想象</text>
-<rect x="124" y="790" width="150" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="124" y1="796" x2="124" y2="888" stroke="#8250df" stroke-width="3"/>
-<text x="199.0" y="846.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作块 a_t</text>
-<rect x="396" y="994" width="184" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="396" y1="1000" x2="396" y2="1092" stroke="#57606a" stroke-width="3"/>
-<text x="488.0" y="1050.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VAE 解码未来帧</text>
-<rect x="92" y="993" width="266" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="92" y1="999" x2="92" y2="1092" stroke="#8250df" stroke-width="3"/>
-<text x="225.0" y="1040.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">上采样 2x + Savitzky-</text>
-<text x="225.0" y="1058.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Golay 滤波</text>
-<rect x="202" y="1196" width="266" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="202" y1="1202" x2="202" y2="1328" stroke="#8250df" stroke-width="3"/>
-<text x="335.0" y="1250.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">异步运动控制器</text>
-<text x="335.0" y="1268.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">30Hz 执行 chunk, 约</text>
-<text x="335.0" y="1288.5" font-size="11.5" fill="#57606a" text-anchor="middle">7Hz 闭环</text>
-<rect x="254" y="1432" width="162" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="254" y1="1438" x2="254" y2="1530" stroke="#0b57d0" stroke-width="3"/>
-<text x="335.0" y="1488.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">新真观测到达</text>
-<rect x="236" y="1634" width="198" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="236" y1="1640" x2="236" y2="1733" stroke="#57606a" stroke-width="3"/>
-<text x="335.0" y="1681.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">KV 缓存</text>
-<text x="335.0" y="1699.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">世界状态滚动更新</text>
-<text x="335.0" y="1577.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">真帧写入 KV 缓存 丢弃预测帧防漂移</text>
-<text x="625" y="1777" font-size="10.5" fill="#8c959f" text-anchor="end">dreamzero · arXiv 2602.15922 · v3 auto</text>
+<path d="M 574.5 272.0 L 362.5 394.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 362.5 498.0 L 360.5 620.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 127.0 272.0 L 127.0 536.0 L 360.5 536.0 L 360.5 620.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 412.0 220.0 L -8.0 220.0 L -8.0 706.0 L 491.0 706.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 360.5 792.0 L 466.0 885.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 360.5 792.0 L 214.0 885.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 466.0 990.0 L 536.0 1113.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 214.0 989.0 L 236.0 1112.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 236.0 1217.0 L 359.0 1340.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 359.0 1478.0 L 365.0 1604.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 365.0 1708.0 L 363.0 1830.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 323.4 1935.0 L 323.4 1543.5 L 386.6 1543.5 L 386.6 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="473" y="168" width="203" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="473" y1="174" x2="473" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="574.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉上下文 o_0:l</text>
+<rect x="255" y="394" width="215" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="255" y1="400" x2="255" y2="492" stroke="#57606a" stroke-width="3"/>
+<text x="362.5" y="449.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">冻结 Wan VAE 编码</text>
+<rect x="230" y="620" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="230" y1="626" x2="230" y2="786" stroke="#0b57d0" stroke-width="3"/>
+<text x="360.5" y="668.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自回归 DiT 14B</text>
+<text x="360.5" y="689.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视频 + 动作联合</text>
+<text x="360.5" y="718.75" font-size="12.5" fill="#57606a" text-anchor="middle">flow-matching 去噪共享时间步</text>
+<text x="360.5" y="736.25" font-size="12.5" fill="#57606a" text-anchor="middle">解耦噪声调度 38x 加速</text>
+<text x="360.5" y="753.75" font-size="12.5" fill="#57606a" text-anchor="middle">端到端拟合视频预测 xIDM</text>
+<rect x="52" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="127.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令 c</text>
+<rect x="262" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="174" x2="262" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="337.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本体感知 q</text>
+<rect x="349" y="885" width="234" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="349" y1="891" x2="349" y2="984" stroke="#57606a" stroke-width="3"/>
+<text x="466.0" y="930.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">未来视频 latent z_t</text>
+<text x="466.0" y="951.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">物理一致性想象</text>
+<rect x="139" y="885" width="150" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="139" y1="891" x2="139" y2="983" stroke="#8250df" stroke-width="3"/>
+<text x="214.0" y="940.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作块 a_t</text>
+<rect x="444" y="1113" width="184" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="444" y1="1119" x2="444" y2="1211" stroke="#57606a" stroke-width="3"/>
+<text x="536.0" y="1168.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VAE 解码未来帧</text>
+<rect x="103" y="1112" width="266" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="103" y1="1118" x2="103" y2="1211" stroke="#8250df" stroke-width="3"/>
+<text x="236.0" y="1157.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">上采样 2x + Savitzky-</text>
+<text x="236.0" y="1178.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Golay 滤波</text>
+<rect x="226" y="1340" width="266" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="226" y1="1346" x2="226" y2="1472" stroke="#8250df" stroke-width="3"/>
+<text x="359.0" y="1389.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">异步运动控制器</text>
+<text x="359.0" y="1410.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">30Hz 执行 chunk, 约</text>
+<text x="359.0" y="1439.25" font-size="12.5" fill="#57606a" text-anchor="middle">7Hz 闭环</text>
+<rect x="284" y="1604" width="162" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="284" y1="1610" x2="284" y2="1702" stroke="#0b57d0" stroke-width="3"/>
+<text x="365.0" y="1659.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">新真观测到达</text>
+<rect x="264" y="1830" width="198" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="264" y1="1836" x2="264" y2="1929" stroke="#57606a" stroke-width="3"/>
+<text x="363.0" y="1875.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">KV 缓存</text>
+<text x="363.0" y="1896.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">世界状态滚动更新</text>
+<text x="364.0" y="1761.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">真帧写入 KV 缓存 丢弃预测帧防漂移</text>
+<text x="680" y="1977" font-size="10.5" fill="#8c959f" text-anchor="end">dreamzero · arXiv 2602.15922 · v3 auto</text>
 </svg>

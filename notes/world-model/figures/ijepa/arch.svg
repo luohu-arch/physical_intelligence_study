@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="610" height="1317" viewBox="24 98 610 1317" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="654" height="1461" viewBox="26 112 654 1461" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>ijepa</title>
-<rect x="24" y="98" width="610" height="1317" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">ijepa</text>
-<text x="612" y="128" font-size="12" fill="#57606a" text-anchor="end">I-JEPA 用一张图的少量上下文 patch 去预测同图中若干大块目标区域的 EMA target-encoder 表征（L2 损失只算在表征空间），配合"多块 + 大目标块</text>
+<rect x="26" y="112" width="654" height="1461" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">ijepa</text>
+<text x="658" y="142" font-size="12" fill="#57606a" text-anchor="end">I-JEPA 用一张图的少量上下文 patch 去预测同图中若干大块目标区域的 EMA target-encoder 表征（L2 损失只算在表征空间），配合"多块 + 大目标块</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,55 +10,55 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 178.0 255.0 L 177.0 353.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 309.0 202.5 L 346.0 430.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 177.0 491.0 L 189.5 589.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 479.0 508.0 L 476.5 606.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 476.5 711.0 L 329.0 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 479.0 255.0 L 479.0 540.0 L 329.0 540.0 L 329.0 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 329.0 963.0 L 329.0 1061.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 189.5 727.0 L 189.5 984.0 L 329.0 984.0 L 329.0 1061.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 329.0 1165.0 L 329.0 1263.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<rect x="47" y="150" width="262" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="47" y1="156" x2="47" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="178.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">输入图像 y, N 个 patch</text>
-<text x="178.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">无任何视图增强</text>
-<rect x="46" y="353" width="262" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="359" x2="46" y2="485" stroke="#57606a" stroke-width="3"/>
-<text x="177.0" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">目标编码器 f_theta_bar</text>
-<text x="177.0" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">theta 的 EMA, 无梯度</text>
-<text x="177.0" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">分支</text>
-<rect x="346" y="353" width="266" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="346" y1="359" x2="346" y2="502" stroke="#0b57d0" stroke-width="3"/>
-<text x="479.0" y="408.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">multi-block 采样上下</text>
-<text x="479.0" y="426.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">文块</text>
-<text x="479.0" y="446.5" font-size="11.5" fill="#57606a" text-anchor="middle">scale 0.85-1.0, 去重叠</text>
-<text x="479.0" y="461.5" font-size="11.5" fill="#57606a" text-anchor="middle">消融 54.2 vs 随机 17.6</text>
-<rect x="61" y="589" width="257" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="61" y1="595" x2="61" y2="721" stroke="#57606a" stroke-width="3"/>
-<text x="189.5" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">输出端掩码: M=4 目标块</text>
-<text x="189.5" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">scale 0.15-0.2</text>
-<text x="189.5" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">全图上下文后切块</text>
-<rect x="356" y="606" width="241" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="356" y1="612" x2="356" y2="705" stroke="#1a7f37" stroke-width="3"/>
-<text x="476.5" y="653.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">上下文编码器 f_theta</text>
-<text x="476.5" y="671.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">梯度更新</text>
-<rect x="210" y="825" width="238" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="210" y1="831" x2="210" y2="957" stroke="#0b57d0" stroke-width="3"/>
-<text x="329.0" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">窄预测器 g_phi</text>
-<text x="329.0" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">384 维, 潜空间回归</text>
-<text x="329.0" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">不重建像素省 5x 迭代</text>
-<rect x="347" y="150" width="264" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="347" y1="156" x2="347" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="479.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可学习 mask token +</text>
-<text x="479.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">位置</text>
-<rect x="254" y="1061" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="254" y1="1067" x2="254" y2="1159" stroke="#8a5a00" stroke-width="3"/>
-<text x="329.0" y="1117.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失</text>
-<rect x="254" y="1263" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="254" y1="1269" x2="254" y2="1361" stroke="#1a7f37" stroke-width="3"/>
-<text x="329.0" y="1319.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">参数更新</text>
-<text x="329.0" y="1004.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L2 只算表征空间 潜目标 66.9 …</text>
-<text x="329.0" y="1206.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">梯度更新 theta/phi theta_ba…</text>
-<text x="612" y="1405" font-size="10.5" fill="#8c959f" text-anchor="end">ijepa · arXiv 2301.08243 · v3 auto</text>
+<path d="M 184.0 273.0 L 183.0 395.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 315.0 220.5 L 388.0 472.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 183.0 533.0 L 196.5 660.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 521.0 550.0 L 519.5 679.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 519.5 784.0 L 354.0 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 521.0 273.0 L 521.0 598.5 L 354.0 598.5 L 354.0 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 354.0 1062.0 L 359.0 1188.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 196.5 798.0 L 196.5 1083.0 L 359.0 1083.0 L 359.0 1188.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 359.0 1292.0 L 359.0 1415.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<rect x="53" y="168" width="262" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="53" y1="174" x2="53" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="184.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">输入图像 y, N 个 patch</text>
+<text x="184.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">无任何视图增强</text>
+<rect x="52" y="395" width="262" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="401" x2="52" y2="527" stroke="#57606a" stroke-width="3"/>
+<text x="183.0" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">目标编码器 f_theta_bar</text>
+<text x="183.0" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">theta 的 EMA, 无梯度</text>
+<text x="183.0" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">分支</text>
+<rect x="388" y="395" width="266" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="388" y1="401" x2="388" y2="544" stroke="#0b57d0" stroke-width="3"/>
+<text x="521.0" y="444.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">multi-block 采样上下</text>
+<text x="521.0" y="465.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">文块</text>
+<text x="521.0" y="494.0" font-size="12.5" fill="#57606a" text-anchor="middle">scale 0.85-1.0, 去重叠</text>
+<text x="521.0" y="511.5" font-size="12.5" fill="#57606a" text-anchor="middle">消融 54.2 vs 随机 17.6</text>
+<rect x="68" y="660" width="257" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="68" y1="666" x2="68" y2="792" stroke="#57606a" stroke-width="3"/>
+<text x="196.5" y="709.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">输出端掩码: M=4 目标块</text>
+<text x="196.5" y="730.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">scale 0.15-0.2</text>
+<text x="196.5" y="759.25" font-size="12.5" fill="#57606a" text-anchor="middle">全图上下文后切块</text>
+<rect x="399" y="679" width="241" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="399" y1="685" x2="399" y2="778" stroke="#1a7f37" stroke-width="3"/>
+<text x="519.5" y="724.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">上下文编码器 f_theta</text>
+<text x="519.5" y="745.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">梯度更新</text>
+<rect x="235" y="924" width="238" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="235" y1="930" x2="235" y2="1056" stroke="#0b57d0" stroke-width="3"/>
+<text x="354.0" y="973.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">窄预测器 g_phi</text>
+<text x="354.0" y="994.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">384 维, 潜空间回归</text>
+<text x="354.0" y="1023.25" font-size="12.5" fill="#57606a" text-anchor="middle">不重建像素省 5x 迭代</text>
+<rect x="389" y="168" width="264" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="389" y1="174" x2="389" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="521.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可学习 mask token +</text>
+<text x="521.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">位置</text>
+<rect x="284" y="1188" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="284" y1="1194" x2="284" y2="1286" stroke="#8a5a00" stroke-width="3"/>
+<text x="359.0" y="1243.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失</text>
+<rect x="284" y="1415" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="284" y1="1421" x2="284" y2="1513" stroke="#1a7f37" stroke-width="3"/>
+<text x="359.0" y="1470.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">参数更新</text>
+<text x="356.5" y="1117.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L2 只算表征空间 潜目标 66.9 …</text>
+<text x="359.0" y="1345.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">梯度更新 theta/phi theta_ba…</text>
+<text x="658" y="1561" font-size="10.5" fill="#8c959f" text-anchor="end">ijepa · arXiv 2301.08243 · v3 auto</text>
 </svg>

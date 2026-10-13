@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="913" viewBox="24 98 1460 913" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1606" height="1008" viewBox="26 112 1606 1008" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>why-chunking-works</title>
-<rect x="24" y="98" width="1460" height="913" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">why-chunking-works</text>
-<text x="1462" y="128" font-size="12" fill="#57606a" text-anchor="end">Problem**：action chunking 是现代 BC 的标配但其收益机制不明（时序一致性/horizon 缩减/表征学习三大流行假设均无法解释）；**Insight</text>
+<rect x="26" y="112" width="1606" height="1008" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">why-chunking-works</text>
+<text x="1610" y="142" font-size="12" fill="#57606a" text-anchor="end">Problem**：action chunking 是现代 BC 的标配但其收益机制不明（时序一致性/horizon 缩减/表征学习三大流行假设均无法解释）；**Insight</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,79 +10,79 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="596" y="322" width="618" height="462" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="610" y="342" font-size="11.5" font-weight="600" fill="#57606a">同一 pi_hat_20 的三种部署方式 (机制隔离对照)</text>
-<path d="M 449.0 271.0 L 452.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 310.0 219.0 L 320.0 472.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 584.0 472.0 L 622.0 699.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 754.0 777.0 L 754.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1056.0 558.0 L 1056.0 798.0 L 754.5 798.0 L 754.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 754.0 558.0 L 754.0 798.0 L 754.5 798.0 L 754.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 754.5 858.0 L 754.5 332.0 L 449.0 332.0 L 449.0 166.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1197.0 236.0 L 1188.0 472.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 722.5 322.0 L 754.0 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1027.0 288.0 L 1027.0 603.0 L 452.0 603.0 L 452.0 558.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="348" y="166" width="202" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="172" x2="348" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="449.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">当前与历史观测</text>
-<text x="449.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">o_t, o_t-1, ...</text>
-<rect x="320" y="386" width="264" height="172" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="320" y1="392" x2="320" y2="552" stroke="#1a7f37" stroke-width="3"/>
-<text x="452.0" y="442.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">训练好的 chunk 策略</text>
-<text x="452.0" y="460.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">pi_hat_k (k=20)</text>
-<text x="452.0" y="480.5" font-size="11.5" fill="#57606a" text-anchor="middle">同一动作被 k 种条件重复监督:</text>
-<text x="452.0" y="495.5" font-size="11.5" fill="#57606a" text-anchor="middle">a_t | o_t..o_t-k+1</text>
-<text x="452.0" y="510.5" font-size="11.5" fill="#57606a" text-anchor="middle">(隐式集成 k 个延迟成员)</text>
-<rect x="46" y="150" width="264" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="178.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人类示教</text>
-<text x="178.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(决策边界处停顿, 非马尔</text>
-<text x="178.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">可夫)</text>
-<rect x="622" y="622" width="264" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="622" y1="628" x2="622" y2="771" stroke="#0b57d0" stroke-width="3"/>
-<text x="754.0" y="677.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">AC(k): 开环 chunk 执行</text>
-<text x="754.0" y="695.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每 k 步才查询一次观测</text>
-<text x="754.0" y="715.5" font-size="11.5" fill="#57606a" text-anchor="middle">预测 a_0 ... a_k-1 整段开环</text>
-<text x="754.0" y="730.5" font-size="11.5" fill="#57606a" text-anchor="middle">执行</text>
-<rect x="924" y="386" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="924" y1="392" x2="924" y2="552" stroke="#0b57d0" stroke-width="3"/>
-<text x="1056.0" y="442.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Delay(d): 每步重算</text>
-<text x="1056.0" y="460.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">但条件于 d 步前的旧观测</text>
-<text x="1056.0" y="480.5" font-size="11.5" fill="#57606a" text-anchor="middle">o_t-d</text>
-<text x="1056.0" y="495.5" font-size="11.5" fill="#57606a" text-anchor="middle">(延迟条件预测, 可复制 chunking</text>
-<text x="1056.0" y="510.5" font-size="11.5" fill="#57606a" text-anchor="middle">)</text>
-<rect x="622" y="386" width="264" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="622" y1="392" x2="622" y2="552" stroke="#0b57d0" stroke-width="3"/>
-<text x="754.0" y="442.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RDE(n): 每步采样 i ~</text>
-<text x="754.0" y="460.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">unif{0..n-1}</text>
-<text x="754.0" y="480.5" font-size="11.5" fill="#57606a" text-anchor="middle">随机抽一个延迟成员执行</text>
-<text x="754.0" y="495.5" font-size="11.5" fill="#57606a" text-anchor="middle">9/9 设置匹配 AC, 无需 chunk</text>
-<text x="754.0" y="510.5" font-size="11.5" fill="#57606a" text-anchor="middle">执行</text>
-<rect x="628" y="858" width="253" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="628" y1="864" x2="628" y2="957" stroke="#57606a" stroke-width="3"/>
-<text x="754.5" y="905.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">环境 / 机器人 15-20Hz</text>
-<text x="754.5" y="923.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">500Hz 底层跟踪</text>
-<rect x="1197" y="150" width="265" height="172" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1197" y1="156" x2="1197" y2="316" stroke="#8a5a00" stroke-width="3"/>
-<text x="1329.5" y="206.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">TE 时间集成: 预测线性</text>
-<text x="1329.5" y="224.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">平均</text>
-<text x="1329.5" y="244.5" font-size="11.5" fill="#57606a" text-anchor="middle">压掉集成效应 (Tool Hang 仅</text>
-<text x="1329.5" y="259.5" font-size="11.5" fill="#57606a" text-anchor="middle">42.2</text>
-<text x="1329.5" y="274.5" font-size="11.5" fill="#57606a" text-anchor="middle">vs RDE 71.8)</text>
-<rect x="588" y="150" width="269" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="588" y1="156" x2="588" y2="316" stroke="#0b57d0" stroke-width="3"/>
-<text x="722.5" y="206.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">显式集成: m 个独立</text>
-<text x="722.5" y="224.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">pi_hat_20</text>
-<text x="722.5" y="244.5" font-size="11.5" fill="#57606a" text-anchor="middle">Transport 12.6 -&gt; 41.5 (+28.9</text>
-<text x="722.5" y="259.5" font-size="11.5" fill="#57606a" text-anchor="middle">点)</text>
-<text x="722.5" y="274.5" font-size="11.5" fill="#57606a" text-anchor="middle">Tool Hang 75.2 -&gt; 87.6</text>
-<rect x="895" y="150" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="895" y1="156" x2="895" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="1027.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">BC 损失 (chunk 内逐步</text>
-<text x="1027.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">以 k 种延迟条件重复监</text>
-<text x="1027.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">督)</text>
-<text x="315.0" y="337.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">BC 训练</text>
-<text x="601.8" y="504.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新观测反馈</text>
-<text x="738.2" y="346.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">放大隐式集成</text>
-<text x="1462" y="1001" font-size="10.5" fill="#8c959f" text-anchor="end">why-chunking-works · arXiv 2608.02547 · v3 auto</text>
+<rect x="668" y="361" width="618" height="462" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="682" y="381" font-size="11.5" font-weight="600" fill="#57606a">同一 pi_hat_20 的三种部署方式 (机制隔离对照)</text>
+<path d="M 491.0 291.0 L 490.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 316.0 237.0 L 358.0 518.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 622.0 518.0 L 697.0 774.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 829.0 852.0 L 829.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1167.0 604.0 L 1167.0 872.5 L 829.5 872.5 L 829.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 829.0 604.0 L 829.0 872.5 L 829.5 872.5 L 829.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 829.5 961.0 L 829.5 393.5 L 491.0 393.5 L 491.0 186.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1341.0 254.0 L 1299.0 518.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 793.5 340.0 L 829.0 432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1134.0 306.0 L 1134.0 635.0 L 490.0 635.0 L 490.0 604.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="390" y="186" width="202" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="192" x2="390" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="491.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">当前与历史观测</text>
+<text x="491.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">o_t, o_t-1, ...</text>
+<rect x="358" y="432" width="264" height="172" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="358" y1="438" x2="358" y2="598" stroke="#1a7f37" stroke-width="3"/>
+<text x="490.0" y="480.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">训练好的 chunk 策略</text>
+<text x="490.0" y="501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">pi_hat_k (k=20)</text>
+<text x="490.0" y="530.75" font-size="12.5" fill="#57606a" text-anchor="middle">同一动作被 k 种条件重复监督:</text>
+<text x="490.0" y="548.25" font-size="12.5" fill="#57606a" text-anchor="middle">a_t | o_t..o_t-k+1</text>
+<text x="490.0" y="565.75" font-size="12.5" fill="#57606a" text-anchor="middle">(隐式集成 k 个延迟成员)</text>
+<rect x="52" y="168" width="264" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="184.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人类示教</text>
+<text x="184.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(决策边界处停顿, 非马尔</text>
+<text x="184.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">可夫)</text>
+<rect x="697" y="697" width="264" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="697" y1="703" x2="697" y2="846" stroke="#0b57d0" stroke-width="3"/>
+<text x="829.0" y="746.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">AC(k): 开环 chunk 执行</text>
+<text x="829.0" y="767.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每 k 步才查询一次观测</text>
+<text x="829.0" y="796.0" font-size="12.5" fill="#57606a" text-anchor="middle">预测 a_0 ... a_k-1 整段开环</text>
+<text x="829.0" y="813.5" font-size="12.5" fill="#57606a" text-anchor="middle">执行</text>
+<rect x="1035" y="432" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1035" y1="438" x2="1035" y2="598" stroke="#0b57d0" stroke-width="3"/>
+<text x="1167.0" y="480.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Delay(d): 每步重算</text>
+<text x="1167.0" y="501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">但条件于 d 步前的旧观测</text>
+<text x="1167.0" y="530.75" font-size="12.5" fill="#57606a" text-anchor="middle">o_t-d</text>
+<text x="1167.0" y="548.25" font-size="12.5" fill="#57606a" text-anchor="middle">(延迟条件预测, 可复制 chunking</text>
+<text x="1167.0" y="565.75" font-size="12.5" fill="#57606a" text-anchor="middle">)</text>
+<rect x="697" y="432" width="264" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="697" y1="438" x2="697" y2="598" stroke="#0b57d0" stroke-width="3"/>
+<text x="829.0" y="480.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RDE(n): 每步采样 i ~</text>
+<text x="829.0" y="501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">unif{0..n-1}</text>
+<text x="829.0" y="530.75" font-size="12.5" fill="#57606a" text-anchor="middle">随机抽一个延迟成员执行</text>
+<text x="829.0" y="548.25" font-size="12.5" fill="#57606a" text-anchor="middle">9/9 设置匹配 AC, 无需 chunk</text>
+<text x="829.0" y="565.75" font-size="12.5" fill="#57606a" text-anchor="middle">执行</text>
+<rect x="703" y="961" width="253" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="703" y1="967" x2="703" y2="1060" stroke="#57606a" stroke-width="3"/>
+<text x="829.5" y="1006.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">环境 / 机器人 15-20Hz</text>
+<text x="829.5" y="1027.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">500Hz 底层跟踪</text>
+<rect x="1341" y="168" width="265" height="172" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1341" y1="174" x2="1341" y2="334" stroke="#8a5a00" stroke-width="3"/>
+<text x="1473.5" y="216.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">TE 时间集成: 预测线性</text>
+<text x="1473.5" y="237.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">平均</text>
+<text x="1473.5" y="266.75" font-size="12.5" fill="#57606a" text-anchor="middle">压掉集成效应 (Tool Hang 仅</text>
+<text x="1473.5" y="284.25" font-size="12.5" fill="#57606a" text-anchor="middle">42.2</text>
+<text x="1473.5" y="301.75" font-size="12.5" fill="#57606a" text-anchor="middle">vs RDE 71.8)</text>
+<rect x="659" y="168" width="269" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="659" y1="174" x2="659" y2="334" stroke="#0b57d0" stroke-width="3"/>
+<text x="793.5" y="216.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">显式集成: m 个独立</text>
+<text x="793.5" y="237.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">pi_hat_20</text>
+<text x="793.5" y="266.75" font-size="12.5" fill="#57606a" text-anchor="middle">Transport 12.6 -&gt; 41.5 (+28.9</text>
+<text x="793.5" y="284.25" font-size="12.5" fill="#57606a" text-anchor="middle">点)</text>
+<text x="793.5" y="301.75" font-size="12.5" fill="#57606a" text-anchor="middle">Tool Hang 75.2 -&gt; 87.6</text>
+<rect x="1002" y="168" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1002" y1="174" x2="1002" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="1134.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">BC 损失 (chunk 内逐步</text>
+<text x="1134.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">以 k 种延迟条件重复监</text>
+<text x="1134.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">督)</text>
+<text x="337.0" y="369.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">BC 训练</text>
+<text x="660.2" y="565.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新观测反馈</text>
+<text x="811.2" y="378.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">放大隐式集成</text>
+<text x="1610" y="1108" font-size="10.5" fill="#8c959f" text-anchor="end">why-chunking-works · arXiv 2608.02547 · v3 auto</text>
 </svg>

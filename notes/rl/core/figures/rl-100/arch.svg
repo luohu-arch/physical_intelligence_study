@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="605" height="1644" viewBox="24 98 605 1644" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="649" height="1800" viewBox="26 112 649 1800" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>rl-100</title>
-<rect x="24" y="98" width="605" height="1644" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">rl-100</text>
-<text x="607" y="128" font-size="12" fill="#57606a" text-anchor="end">RL-100 提出三阶段真实世界 RL 框架：(1) 模仿学习预训练（~115 demos/任务、总预算 &lt;100 小时），(2) 迭代离线 RL（PPO 风格更新 + off</text>
+<rect x="26" y="112" width="649" height="1800" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">rl-100</text>
+<text x="653" y="142" font-size="12" fill="#57606a" text-anchor="end">RL-100 提出三阶段真实世界 RL 框架：(1) 模仿学习预训练（~115 demos/任务、总预算 &lt;100 小时），(2) 迭代离线 RL（PPO 风格更新 + off</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,62 +10,62 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="170" y="1283" width="313" height="411" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="184" y="1303" font-size="11.5" font-weight="600" fill="#57606a">真机在线回路</text>
-<path d="M 177.0 305.0 L 326.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 326.5 524.0 L 327.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 476.5 305.0 L 476.5 553.5 L 327.0 553.5 L 327.0 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 327.0 777.0 L 327.0 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 326.5 1468.0 L 327.0 1566.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 280.2 1670.0 L 352.6 1468.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 327.0 996.0 L 327.0 1253.0 L 326.5 1253.0 L 326.5 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 280.2 1670.0 L 280.2 1333.0 L 353.6 1333.0 L 353.6 996.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 327.0 996.0 L 326.5 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 326.5 1249.0 L 326.5 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="150" width="262" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="299" stroke="#0969da" stroke-width="3"/>
-<text x="177.0" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">演示数据: 约 115 demos</text>
-<text x="177.0" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
-<text x="177.0" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">任务</text>
-<text x="177.0" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">总预算 &lt; 100 小时</text>
-<rect x="215" y="386" width="223" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="215" y1="392" x2="215" y2="518" stroke="#1a7f37" stroke-width="3"/>
-<text x="326.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">阶段 1: IL 预训练</text>
-<text x="326.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">3D 点云扩散策略 BC</text>
-<text x="326.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">修大体正确 (67.8%)</text>
-<rect x="196" y="622" width="262" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="196" y1="628" x2="196" y2="771" stroke="#1a7f37" stroke-width="3"/>
-<text x="327.0" y="677.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">阶段 2: 迭代离线 RL</text>
-<text x="327.0" y="695.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">clipped PPO 直接作用</text>
-<text x="327.0" y="715.5" font-size="11.5" fill="#57606a" text-anchor="middle">于去噪每一步</text>
-<text x="327.0" y="730.5" font-size="11.5" fill="#57606a" text-anchor="middle">修系统性偏差 (91.8%)</text>
-<rect x="346" y="150" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="346" y1="156" x2="346" y2="299" stroke="#0b57d0" stroke-width="3"/>
-<text x="476.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">OPE 门控 (保险丝)</text>
-<text x="476.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">保守 Q 估计</text>
-<text x="476.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">Q_new &gt;= Q_old + delta 才</text>
-<text x="476.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">接受</text>
-<rect x="194" y="858" width="266" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="194" y1="864" x2="194" y2="990" stroke="#1a7f37" stroke-width="3"/>
-<text x="327.0" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">阶段 3: 在线 RL</text>
-<text x="327.0" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">小于 50 episodes</text>
-<text x="327.0" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">修最后 1% corner case (100%)</text>
-<rect x="196" y="1330" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="196" y1="1336" x2="196" y2="1462" stroke="#57606a" stroke-width="3"/>
-<text x="326.5" y="1384.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真实机器人 (8 任务)</text>
-<text x="326.5" y="1402.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">UR5 / Franka / xArm /</text>
-<text x="326.5" y="1422.5" font-size="11.5" fill="#57606a" text-anchor="middle">LeapHand</text>
-<rect x="210" y="1566" width="234" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="210" y1="1572" x2="210" y2="1664" stroke="#8a5a00" stroke-width="3"/>
-<text x="327.0" y="1622.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人工二值终局奖励判定</text>
-<rect x="200" y="1094" width="253" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="200" y1="1100" x2="200" y2="1243" stroke="#8250df" stroke-width="3"/>
-<text x="326.5" y="1149.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">一致性蒸馏 (部署加速)</text>
-<text x="326.5" y="1167.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多步 DDIM -&gt; 1 步控</text>
-<text x="326.5" y="1187.5" font-size="11.5" fill="#57606a" text-anchor="middle">制器</text>
-<text x="326.5" y="1202.5" font-size="11.5" fill="#57606a" text-anchor="middle">延迟降约 10 倍, 20 Hz 控制</text>
-<text x="401.8" y="455.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">拒绝降质更新, 防分布偏移崩溃</text>
-<text x="316.9" y="1325.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">失败 / 成功对比样本</text>
-<text x="326.5" y="1281.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">部署级可靠性: 1000/1000 商…</text>
-<text x="607" y="1732" font-size="10.5" fill="#8c959f" text-anchor="end">rl-100 · arXiv 2510.14830 · v3 auto</text>
+<rect x="190" y="1437" width="313" height="411" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="204" y="1457" font-size="11.5" font-weight="600" fill="#57606a">真机在线回路</text>
+<path d="M 183.0 323.0 L 352.5 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 352.5 570.0 L 351.0 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 518.5 323.0 L 518.5 600.0 L 351.0 600.0 L 351.0 697.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 351.0 852.0 L 350.0 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 350.5 1628.0 L 352.0 1754.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 305.2 1858.0 L 376.6 1628.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 350.0 1099.0 L 350.0 1384.5 L 350.5 1384.5 L 350.5 1490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 305.2 1858.0 L 305.2 1478.5 L 376.6 1478.5 L 376.6 1099.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 350.0 1099.0 L 350.5 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 350.5 1380.0 L 350.5 1490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="168" width="262" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="317" stroke="#0969da" stroke-width="3"/>
+<text x="183.0" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">演示数据: 约 115 demos</text>
+<text x="183.0" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
+<text x="183.0" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">任务</text>
+<text x="183.0" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">总预算 &lt; 100 小时</text>
+<rect x="241" y="432" width="223" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="241" y1="438" x2="241" y2="564" stroke="#1a7f37" stroke-width="3"/>
+<text x="352.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">阶段 1: IL 预训练</text>
+<text x="352.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">3D 点云扩散策略 BC</text>
+<text x="352.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">修大体正确 (67.8%)</text>
+<rect x="220" y="697" width="262" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="220" y1="703" x2="220" y2="846" stroke="#1a7f37" stroke-width="3"/>
+<text x="351.0" y="746.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">阶段 2: 迭代离线 RL</text>
+<text x="351.0" y="767.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">clipped PPO 直接作用</text>
+<text x="351.0" y="796.0" font-size="12.5" fill="#57606a" text-anchor="middle">于去噪每一步</text>
+<text x="351.0" y="813.5" font-size="12.5" fill="#57606a" text-anchor="middle">修系统性偏差 (91.8%)</text>
+<rect x="388" y="168" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="388" y1="174" x2="388" y2="317" stroke="#0b57d0" stroke-width="3"/>
+<text x="518.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">OPE 门控 (保险丝)</text>
+<text x="518.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">保守 Q 估计</text>
+<text x="518.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">Q_new &gt;= Q_old + delta 才</text>
+<text x="518.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">接受</text>
+<rect x="217" y="961" width="266" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="217" y1="967" x2="217" y2="1093" stroke="#1a7f37" stroke-width="3"/>
+<text x="350.0" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">阶段 3: 在线 RL</text>
+<text x="350.0" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">小于 50 episodes</text>
+<text x="350.0" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">修最后 1% corner case (100%)</text>
+<rect x="220" y="1490" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="220" y1="1496" x2="220" y2="1622" stroke="#57606a" stroke-width="3"/>
+<text x="350.5" y="1539.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真实机器人 (8 任务)</text>
+<text x="350.5" y="1560.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">UR5 / Franka / xArm /</text>
+<text x="350.5" y="1589.25" font-size="12.5" fill="#57606a" text-anchor="middle">LeapHand</text>
+<rect x="235" y="1754" width="234" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="235" y1="1760" x2="235" y2="1852" stroke="#8a5a00" stroke-width="3"/>
+<text x="352.0" y="1809.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人工二值终局奖励判定</text>
+<rect x="224" y="1225" width="253" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="224" y1="1231" x2="224" y2="1374" stroke="#8250df" stroke-width="3"/>
+<text x="350.5" y="1274.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">一致性蒸馏 (部署加速)</text>
+<text x="350.5" y="1295.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多步 DDIM -&gt; 1 步控</text>
+<text x="350.5" y="1324.0" font-size="12.5" fill="#57606a" text-anchor="middle">制器</text>
+<text x="350.5" y="1341.5" font-size="12.5" fill="#57606a" text-anchor="middle">延迟降约 10 倍, 20 Hz 控制</text>
+<text x="434.8" y="502.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">拒绝降质更新, 防分布偏移崩溃</text>
+<text x="340.9" y="1470.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">失败 / 成功对比样本</text>
+<text x="350.5" y="1427.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">部署级可靠性: 1000/1000 商…</text>
+<text x="653" y="1900" font-size="10.5" fill="#8c959f" text-anchor="end">rl-100 · arXiv 2510.14830 · v3 auto</text>
 </svg>

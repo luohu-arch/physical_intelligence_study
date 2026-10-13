@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1215" viewBox="-2 98 1120 1215" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1197" height="1346" viewBox="-4 112 1197 1346" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>robomemory</title>
-<rect x="-2" y="98" width="1120" height="1215" fill="#ffffff"/>
-<text x="20" y="128" font-size="14" font-weight="700" fill="#1f2328">robomemory</text>
-<text x="1096" y="128" font-size="12" fill="#57606a" text-anchor="end">RoboMemory 提出脑启发四模块并行记忆架构：空间记忆（动态 KG，检索式增量更新）、时间记忆（FIFO buffer + VLM 摘要压缩）、情景记忆（RAG 任务交互</text>
+<rect x="-4" y="112" width="1197" height="1346" fill="#ffffff"/>
+<text x="18" y="142" font-size="14" font-weight="700" fill="#1f2328">robomemory</text>
+<text x="1171" y="142" font-size="12" fill="#57606a" text-anchor="end">RoboMemory 提出脑启发四模块并行记忆架构：空间记忆（动态 KG，检索式增量更新）、时间记忆（FIFO buffer + VLM 摘要压缩）、情景记忆（RAG 任务交互</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,55 +10,55 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="507" width="1076" height="176" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="527" font-size="11.5" font-weight="600" fill="#57606a">四模块并行记忆 更新与检索互不阻塞</text>
-<rect x="300" y="710" width="405" height="377" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="314" y="730" font-size="11.5" font-weight="600" fill="#57606a">前额叶 Critic-Planner 闭环</text>
-<path d="M 558.5 254.0 L 558.0 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 558.0 456.0 L 408.5 554.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 659.0 404.0 L 809.0 606.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 457.0 404.0 L 191.0 404.0 L 191.0 606.0 L 251.0 606.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 558.0 456.0 L 668.5 554.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 408.5 659.0 L 558.5 757.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 809.0 606.0 L 679.0 809.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 251.0 606.0 L 191.0 606.0 L 191.0 809.0 L 438.0 809.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 668.5 658.0 L 558.5 757.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 558.5 861.0 L 425.0 959.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 558.5 861.0 L 676.5 959.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 676.5 1063.0 L 558.0 1161.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="434" y="150" width="249" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="434" y1="156" x2="434" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="558.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多模态观测 RGB + 深度</text>
-<rect x="457" y="352" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="457" y1="358" x2="457" y2="450" stroke="#0b57d0" stroke-width="3"/>
-<text x="558.0" y="408.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">信息预处理器&lt;br/</text>
-<rect x="289" y="554" width="239" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="289" y1="560" x2="289" y2="653" stroke="#0b57d0" stroke-width="3"/>
-<text x="408.5" y="601.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">空间记忆 动态 KG</text>
-<text x="408.5" y="619.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">检索式增量更新 O(DK)</text>
-<rect x="809" y="554" width="261" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="809" y1="560" x2="809" y2="652" stroke="#0b57d0" stroke-width="3"/>
-<text x="939.5" y="610.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">时间记忆 FIFO 缓冲&lt;br/</text>
-<rect x="46" y="554" width="205" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="560" x2="46" y2="652" stroke="#0b57d0" stroke-width="3"/>
-<text x="148.5" y="610.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">情景记忆 RAG&lt;br/</text>
-<rect x="566" y="554" width="205" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="566" y1="560" x2="566" y2="652" stroke="#0b57d0" stroke-width="3"/>
-<text x="668.5" y="610.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语义记忆 RAG&lt;br/</text>
-<rect x="438" y="757" width="241" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="438" y1="763" x2="438" y2="855" stroke="#0b57d0" stroke-width="3"/>
-<text x="558.5" y="813.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Planner 生成动作计划</text>
-<rect x="326" y="959" width="198" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="326" y1="965" x2="326" y2="1057" stroke="#0b57d0" stroke-width="3"/>
-<text x="425.0" y="1015.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Critic 评估&lt;br/</text>
-<rect x="562" y="959" width="229" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="562" y1="965" x2="562" y2="1057" stroke="#0b57d0" stroke-width="3"/>
-<text x="676.5" y="1015.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">低层执行器 小脑&lt;br/</text>
-<rect x="450" y="1161" width="216" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="450" y1="1167" x2="450" y2="1259" stroke="#0b57d0" stroke-width="3"/>
-<text x="558.0" y="1217.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">厨房场景机器人执行</text>
-<text x="483.2" y="497.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">逐步摘要与检索 query 并行下发</text>
-<text x="483.5" y="700.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">并行检索</text>
-<text x="491.8" y="902.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">计划送评估</text>
-<text x="1096" y="1303" font-size="10.5" fill="#8c959f" text-anchor="end">robomemory · arXiv 2508.01415 · v3 auto</text>
+<rect x="22" y="568" width="1076" height="176" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="588" font-size="11.5" font-weight="600" fill="#57606a">四模块并行记忆 更新与检索互不阻塞</text>
+<rect x="336" y="795" width="405" height="377" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="350" y="815" font-size="11.5" font-weight="600" fill="#57606a">前额叶 Critic-Planner 闭环</text>
+<path d="M 610.5 272.0 L 613.0 394.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 613.0 498.0 L 443.5 620.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 714.0 446.0 L 906.0 672.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 512.0 446.0 L 257.0 672.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 613.0 498.0 L 736.5 620.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 443.5 725.0 L 611.5 848.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 906.0 672.0 L 732.0 900.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 257.0 672.0 L 491.0 900.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 736.5 724.0 L 611.5 848.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 611.5 952.0 L 464.0 1074.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 611.5 952.0 L 743.5 1074.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 743.5 1178.0 L 612.0 1300.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="486" y="168" width="249" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="486" y1="174" x2="486" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="610.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多模态观测 RGB + 深度</text>
+<rect x="512" y="394" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="512" y1="400" x2="512" y2="492" stroke="#0b57d0" stroke-width="3"/>
+<text x="613.0" y="449.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">信息预处理器&lt;br/</text>
+<rect x="324" y="620" width="239" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="324" y1="626" x2="324" y2="719" stroke="#0b57d0" stroke-width="3"/>
+<text x="443.5" y="665.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">空间记忆 动态 KG</text>
+<text x="443.5" y="686.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">检索式增量更新 O(DK)</text>
+<rect x="906" y="620" width="261" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="906" y1="626" x2="906" y2="718" stroke="#0b57d0" stroke-width="3"/>
+<text x="1036.5" y="675.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">时间记忆 FIFO 缓冲&lt;br/</text>
+<rect x="52" y="620" width="205" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="626" x2="52" y2="718" stroke="#0b57d0" stroke-width="3"/>
+<text x="154.5" y="675.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">情景记忆 RAG&lt;br/</text>
+<rect x="634" y="620" width="205" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="634" y1="626" x2="634" y2="718" stroke="#0b57d0" stroke-width="3"/>
+<text x="736.5" y="675.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语义记忆 RAG&lt;br/</text>
+<rect x="491" y="848" width="241" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="491" y1="854" x2="491" y2="946" stroke="#0b57d0" stroke-width="3"/>
+<text x="611.5" y="903.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Planner 生成动作计划</text>
+<rect x="365" y="1074" width="198" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="365" y1="1080" x2="365" y2="1172" stroke="#0b57d0" stroke-width="3"/>
+<text x="464.0" y="1129.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Critic 评估&lt;br/</text>
+<rect x="629" y="1074" width="229" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="629" y1="1080" x2="629" y2="1172" stroke="#0b57d0" stroke-width="3"/>
+<text x="743.5" y="1129.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">低层执行器 小脑&lt;br/</text>
+<rect x="504" y="1300" width="216" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="504" y1="1306" x2="504" y2="1398" stroke="#0b57d0" stroke-width="3"/>
+<text x="612.0" y="1355.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">厨房场景机器人执行</text>
+<text x="528.2" y="551.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">逐步摘要与检索 query 并行下发</text>
+<text x="527.5" y="778.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">并行检索</text>
+<text x="537.8" y="1005.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">计划送评估</text>
+<text x="1171" y="1446" font-size="10.5" fill="#8c959f" text-anchor="end">robomemory · arXiv 2508.01415 · v3 auto</text>
 </svg>

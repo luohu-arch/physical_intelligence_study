@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="897" height="1419" viewBox="24 98 897 1419" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="977" height="1567" viewBox="26 112 977 1567" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>thinkwvla</title>
-<rect x="24" y="98" width="897" height="1419" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">thinkwvla</text>
-<text x="899" y="128" font-size="12" fill="#57606a" text-anchor="end">ThinkWVLA 的核心洞察是把世界模型的两种资产拆开：**关于物理场景的知识在其内部特征里，生成未来只是产出这些特征的目标函数**——于是可以在训练期向一个冻结世界模型（C</text>
+<rect x="26" y="112" width="977" height="1567" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">thinkwvla</text>
+<text x="981" y="142" font-size="12" fill="#57606a" text-anchor="end">ThinkWVLA 的核心洞察是把世界模型的两种资产拆开：**关于物理场景的知识在其内部特征里，生成未来只是产出这些特征的目标函数**——于是可以在训练期向一个冻结世界模型（C</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,68 +10,68 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 415.0 271.0 L 480.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 480.0 541.0 L 336.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 709.0 288.0 L 774.5 402.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 336.5 760.0 L 472.5 858.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 774.5 507.0 L 620.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 620.5 760.0 L 472.5 858.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 179.0 271.0 L 178.0 402.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 472.5 1030.0 L 473.0 1094.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 178.0 507.0 L 178.0 800.5 L 473.0 800.5 L 473.0 1094.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 473.0 1199.0 L 473.0 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="292" y="167" width="246" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="292" y1="173" x2="292" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="415.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">训练帧 (全部相机视角)</text>
-<rect x="348" y="386" width="264" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="392" x2="348" y2="535" stroke="#57606a" stroke-width="3"/>
-<text x="480.0" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">离线教师预计算</text>
-<text x="480.0" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Cosmos3-Nano 理解塔 第</text>
-<text x="480.0" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">24 层</text>
-<text x="480.0" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">逐视角池化 (教师冻结)</text>
-<rect x="208" y="622" width="257" height="138" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="208" y1="628" x2="208" y2="754" stroke="#bf3989" stroke-width="3"/>
-<text x="336.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">内存映射教师特征缓存</text>
-<text x="336.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每视角一个池化向量</text>
-<text x="336.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">按轨迹 id + 帧索引寻址</text>
-<rect x="576" y="150" width="266" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="576" y1="156" x2="576" y2="282" stroke="#1a7f37" stroke-width="3"/>
-<text x="709.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">学生训练</text>
-<text x="709.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Qwen3.5-VL 骨干</text>
-<text x="709.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ flow-matching 动作专家</text>
-<rect x="650" y="402" width="249" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="650" y1="408" x2="650" y2="501" stroke="#1a7f37" stroke-width="3"/>
-<text x="774.5" y="449.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">学生图像 token 隐状态</text>
-<text x="774.5" y="467.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逐视角均值池化</text>
-<rect x="342" y="858" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="342" y1="864" x2="342" y2="1024" stroke="#0b57d0" stroke-width="3"/>
-<text x="472.5" y="914.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">余弦对齐损失 (stop-</text>
-<text x="472.5" y="932.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">gradient)</text>
-<text x="472.5" y="952.5" font-size="11.5" fill="#57606a" text-anchor="middle">lambda=0.5</text>
-<text x="472.5" y="967.5" font-size="11.5" fill="#57606a" text-anchor="middle">特征蒸馏免生成: 3s/45.9GB -&gt;</text>
-<text x="472.5" y="982.5" font-size="11.5" fill="#57606a" text-anchor="middle">32ms</text>
-<rect x="504" y="622" width="233" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="504" y1="628" x2="504" y2="754" stroke="#1a7f37" stroke-width="3"/>
-<text x="620.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">两层 MLP 投影器</text>
-<text x="620.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自动适配 D_s 与 D_t</text>
-<text x="620.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">训练后即丢弃</text>
-<rect x="104" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="104" y1="173" x2="104" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="179.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">演示动作块</text>
-<rect x="46" y="402" width="264" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="408" x2="46" y2="501" stroke="#8a5a00" stroke-width="3"/>
-<text x="178.0" y="449.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">flow-matching 速度回归</text>
-<text x="178.0" y="467.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">L_act</text>
-<rect x="340" y="1094" width="266" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="340" y1="1100" x2="340" y2="1193" stroke="#8a5a00" stroke-width="3"/>
-<text x="473.0" y="1141.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">总损失 L_act +</text>
-<text x="473.0" y="1159.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">lambda*L_align</text>
-<rect x="338" y="1297" width="270" height="172" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="338" y1="1303" x2="338" y2="1463" stroke="#8250df" stroke-width="3"/>
-<text x="473.0" y="1353.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">部署策略与未蒸馏基线同构</text>
-<text x="473.0" y="1371.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">1 prefill + 4 flow 步</text>
-<text x="473.0" y="1391.5" font-size="11.5" fill="#57606a" text-anchor="middle">32ms / 1.86GB @ RTX 5090</text>
-<text x="473.0" y="1406.5" font-size="11.5" fill="#57606a" text-anchor="middle">LIBERO 95.3-&gt;97.9, 真机鸡蛋</text>
-<text x="473.0" y="1421.5" font-size="11.5" fill="#57606a" text-anchor="middle">46.7-&gt;60.0</text>
-<text x="899" y="1507" font-size="10.5" fill="#8c959f" text-anchor="end">thinkwvla · arXiv 2609.24682 · v3 auto</text>
+<path d="M 450.0 291.0 L 522.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 522.0 587.0 L 361.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 778.0 306.0 L 852.5 450.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 361.5 835.0 L 513.5 961.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 852.5 555.0 L 680.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 680.5 835.0 L 513.5 961.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 191.0 291.0 L 184.0 450.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 513.5 1133.0 L 514.0 1225.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 184.0 555.0 L 184.0 890.0 L 514.0 890.0 L 514.0 1225.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 514.0 1330.0 L 514.0 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="327" y="187" width="246" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="327" y1="193" x2="327" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="450.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">训练帧 (全部相机视角)</text>
+<rect x="390" y="432" width="264" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="438" x2="390" y2="581" stroke="#57606a" stroke-width="3"/>
+<text x="522.0" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">离线教师预计算</text>
+<text x="522.0" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Cosmos3-Nano 理解塔 第</text>
+<text x="522.0" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">24 层</text>
+<text x="522.0" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">逐视角池化 (教师冻结)</text>
+<rect x="233" y="697" width="257" height="138" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="233" y1="703" x2="233" y2="829" stroke="#bf3989" stroke-width="3"/>
+<text x="361.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">内存映射教师特征缓存</text>
+<text x="361.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每视角一个池化向量</text>
+<text x="361.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">按轨迹 id + 帧索引寻址</text>
+<rect x="645" y="168" width="266" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="645" y1="174" x2="645" y2="300" stroke="#1a7f37" stroke-width="3"/>
+<text x="778.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">学生训练</text>
+<text x="778.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Qwen3.5-VL 骨干</text>
+<text x="778.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ flow-matching 动作专家</text>
+<rect x="728" y="450" width="249" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="728" y1="456" x2="728" y2="549" stroke="#1a7f37" stroke-width="3"/>
+<text x="852.5" y="495.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">学生图像 token 隐状态</text>
+<text x="852.5" y="516.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逐视角均值池化</text>
+<rect x="383" y="961" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="383" y1="967" x2="383" y2="1127" stroke="#0b57d0" stroke-width="3"/>
+<text x="513.5" y="1009.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">余弦对齐损失 (stop-</text>
+<text x="513.5" y="1030.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">gradient)</text>
+<text x="513.5" y="1059.75" font-size="12.5" fill="#57606a" text-anchor="middle">lambda=0.5</text>
+<text x="513.5" y="1077.25" font-size="12.5" fill="#57606a" text-anchor="middle">特征蒸馏免生成: 3s/45.9GB -&gt;</text>
+<text x="513.5" y="1094.75" font-size="12.5" fill="#57606a" text-anchor="middle">32ms</text>
+<rect x="564" y="697" width="233" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="564" y1="703" x2="564" y2="829" stroke="#1a7f37" stroke-width="3"/>
+<text x="680.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">两层 MLP 投影器</text>
+<text x="680.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自动适配 D_s 与 D_t</text>
+<text x="680.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">训练后即丢弃</text>
+<rect x="116" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="116" y1="193" x2="116" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="191.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">演示动作块</text>
+<rect x="52" y="450" width="264" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="456" x2="52" y2="549" stroke="#8a5a00" stroke-width="3"/>
+<text x="184.0" y="495.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">flow-matching 速度回归</text>
+<text x="184.0" y="516.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">L_act</text>
+<rect x="381" y="1225" width="266" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="381" y1="1231" x2="381" y2="1324" stroke="#8a5a00" stroke-width="3"/>
+<text x="514.0" y="1270.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">总损失 L_act +</text>
+<text x="514.0" y="1291.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">lambda*L_align</text>
+<rect x="379" y="1453" width="270" height="172" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="379" y1="1459" x2="379" y2="1619" stroke="#8250df" stroke-width="3"/>
+<text x="514.0" y="1501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">部署策略与未蒸馏基线同构</text>
+<text x="514.0" y="1522.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">1 prefill + 4 flow 步</text>
+<text x="514.0" y="1551.75" font-size="12.5" fill="#57606a" text-anchor="middle">32ms / 1.86GB @ RTX 5090</text>
+<text x="514.0" y="1569.25" font-size="12.5" fill="#57606a" text-anchor="middle">LIBERO 95.3-&gt;97.9, 真机鸡蛋</text>
+<text x="514.0" y="1586.75" font-size="12.5" fill="#57606a" text-anchor="middle">46.7-&gt;60.0</text>
+<text x="981" y="1667" font-size="10.5" fill="#8c959f" text-anchor="end">thinkwvla · arXiv 2609.24682 · v3 auto</text>
 </svg>

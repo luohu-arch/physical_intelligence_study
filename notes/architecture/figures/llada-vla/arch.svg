@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1035" height="1384" viewBox="24 98 1035 1384" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1130" height="1536" viewBox="26 112 1130 1536" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>llada-vla</title>
-<rect x="24" y="98" width="1035" height="1384" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">llada-vla</text>
-<text x="1037" y="128" font-size="12" fill="#57606a" text-anchor="end">LLaDA-VLA 是首个基于预训练扩散 VLM（扩散 VLM）而非自回归 VLM 构建的 VLA 模型，通过局部特殊 token 分类（LSC）将连续动作映射为 32 个离散</text>
+<rect x="26" y="112" width="1130" height="1536" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">llada-vla</text>
+<text x="1134" y="142" font-size="12" fill="#57606a" text-anchor="end">LLaDA-VLA 是首个基于预训练扩散 VLM（扩散 VLM）而非自回归 VLM 构建的 VLA 模型，通过局部特殊 token 分类（LSC）将连续动作映射为 32 个离散</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,58 +10,58 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 634.0 271.0 L 541.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 196.0 219.0 L 136.0 219.0 L 136.0 463.5 L 410.0 463.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 364.5 288.0 L 364.5 545.0 L 541.0 545.0 L 541.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 541.0 541.0 L 541.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 541.0 777.0 L 541.5 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 487.7 996.0 L 567.2 777.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 905.0 271.0 L 905.0 626.5 L 541.0 626.5 L 541.0 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 541.5 996.0 L 541.5 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 541.5 1232.0 L 541.0 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 511.0 1434.0 L 511.0 852.5 L 654.2 852.5 L 654.2 271.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="533" y="166" width="202" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="533" y1="172" x2="533" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="634.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉</text>
-<text x="634.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">单路第三人称 RGB</text>
-<rect x="410" y="386" width="262" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="410" y1="392" x2="410" y2="535" stroke="#1a7f37" stroke-width="3"/>
-<text x="541.0" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LLaDA-V 预训练扩散 VLM</text>
-<text x="541.0" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">掩码扩散, 非自回归并行</text>
-<text x="541.0" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">生成</text>
-<text x="541.0" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ SigLIP-2 视觉编码</text>
-<rect x="46" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="121.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
-<rect x="234" y="150" width="261" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="156" x2="234" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="364.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">完全掩码的动作序列</text>
-<text x="364.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">K x D token (K=5, D=7</text>
-<text x="364.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">)</text>
-<rect x="410" y="622" width="262" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="410" y1="628" x2="410" y2="771" stroke="#0b57d0" stroke-width="3"/>
-<text x="541.0" y="677.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LSC 局部特殊 token 分类</text>
-<text x="541.0" y="695.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仅在 32 个动作 bin</text>
-<text x="541.0" y="715.5" font-size="11.5" fill="#57606a" text-anchor="middle">token 上分类</text>
-<text x="541.0" y="730.5" font-size="11.5" fill="#57606a" text-anchor="middle">不在约 32k 全词表</text>
-<rect x="407" y="858" width="269" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="407" y1="864" x2="407" y2="990" stroke="#0b57d0" stroke-width="3"/>
-<text x="541.5" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">HAD 层次化动作解码</text>
-<text x="541.5" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作级置信度排序 remask</text>
-<text x="541.5" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 选中动作内 token 级精炼</text>
-<rect x="773" y="166" width="264" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="773" y1="172" x2="773" y2="265" stroke="#8a5a00" stroke-width="3"/>
-<text x="905.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失: 掩码预测交叉熵</text>
-<text x="905.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">L_token 只算动作 token</text>
-<rect x="407" y="1094" width="269" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="407" y1="1100" x2="407" y2="1226" stroke="#8250df" stroke-width="3"/>
-<text x="541.5" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作序列</text>
-<text x="541.5" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">delta 动作, 固定长度无</text>
-<text x="541.5" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">EOS</text>
-<rect x="466" y="1330" width="150" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="466" y1="1336" x2="466" y2="1428" stroke="#8250df" stroke-width="3"/>
-<text x="541.0" y="1386.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
-<text x="527.5" y="878.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">低置信度重掩码 迭代去噪约 10 步</text>
-<text x="582.6" y="844.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">逐动作块重新观测</text>
-<text x="1037" y="1472" font-size="10.5" fill="#8c959f" text-anchor="end">llada-vla · arXiv 2509.06932 · v3 auto</text>
+<path d="M 698.0 291.0 L 590.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 202.0 239.0 L 459.0 509.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 392.5 306.0 L 392.5 591.5 L 590.0 591.5 L 590.0 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 590.0 587.0 L 590.0 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 590.0 852.0 L 590.5 961.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 536.7 1099.0 L 616.2 852.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 998.0 291.0 L 998.0 584.0 L 590.0 584.0 L 590.0 697.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 590.5 1099.0 L 590.5 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 590.5 1363.0 L 597.0 1490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 567.0 1594.0 L 567.0 942.5 L 718.2 942.5 L 718.2 291.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="597" y="186" width="202" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="597" y1="192" x2="597" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="698.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉</text>
+<text x="698.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">单路第三人称 RGB</text>
+<rect x="459" y="432" width="262" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="459" y1="438" x2="459" y2="581" stroke="#1a7f37" stroke-width="3"/>
+<text x="590.0" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LLaDA-V 预训练扩散 VLM</text>
+<text x="590.0" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">掩码扩散, 非自回归并行</text>
+<text x="590.0" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">生成</text>
+<text x="590.0" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">+ SigLIP-2 视觉编码</text>
+<rect x="52" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="127.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
+<rect x="262" y="168" width="261" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="174" x2="262" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="392.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">完全掩码的动作序列</text>
+<text x="392.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">K x D token (K=5, D=7</text>
+<text x="392.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">)</text>
+<rect x="459" y="697" width="262" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="459" y1="703" x2="459" y2="846" stroke="#0b57d0" stroke-width="3"/>
+<text x="590.0" y="746.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LSC 局部特殊 token 分类</text>
+<text x="590.0" y="767.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仅在 32 个动作 bin</text>
+<text x="590.0" y="796.0" font-size="12.5" fill="#57606a" text-anchor="middle">token 上分类</text>
+<text x="590.0" y="813.5" font-size="12.5" fill="#57606a" text-anchor="middle">不在约 32k 全词表</text>
+<rect x="456" y="961" width="269" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="456" y1="967" x2="456" y2="1093" stroke="#0b57d0" stroke-width="3"/>
+<text x="590.5" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">HAD 层次化动作解码</text>
+<text x="590.5" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作级置信度排序 remask</text>
+<text x="590.5" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ 选中动作内 token 级精炼</text>
+<rect x="866" y="186" width="264" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="866" y1="192" x2="866" y2="285" stroke="#8a5a00" stroke-width="3"/>
+<text x="998.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失: 掩码预测交叉熵</text>
+<text x="998.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">L_token 只算动作 token</text>
+<rect x="456" y="1225" width="269" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="456" y1="1231" x2="456" y2="1357" stroke="#8250df" stroke-width="3"/>
+<text x="590.5" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作序列</text>
+<text x="590.5" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">delta 动作, 固定长度无</text>
+<text x="590.5" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">EOS</text>
+<rect x="522" y="1490" width="150" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="522" y1="1496" x2="522" y2="1588" stroke="#8250df" stroke-width="3"/>
+<text x="597.0" y="1545.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
+<text x="576.5" y="967.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">低置信度重掩码 迭代去噪约 10 步</text>
+<text x="642.6" y="934.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">逐动作块重新观测</text>
+<text x="1134" y="1636" font-size="10.5" fill="#8c959f" text-anchor="end">llada-vla · arXiv 2509.06932 · v3 auto</text>
 </svg>

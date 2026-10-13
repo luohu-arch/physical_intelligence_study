@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1684" height="1240" viewBox="24 98 1684 1240" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1856" height="1370" viewBox="26 112 1856 1370" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>reasoning-to-agentic</title>
-<rect x="24" y="98" width="1684" height="1240" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">reasoning-to-agentic</text>
-<text x="1686" y="128" font-size="12" fill="#57606a" text-anchor="end">独立作者的分析型综述（50 页，arXiv v3 2026-08，单作者、无同行评审信息）：把 credit assignment（CA）设为审视 LLM RL 的中心透镜，冻</text>
+<rect x="26" y="112" width="1856" height="1370" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">reasoning-to-agentic</text>
+<text x="1860" y="142" font-size="12" fill="#57606a" text-anchor="end">独立作者的分析型综述（50 页，arXiv v3 2026-08，单作者、无同行评审信息）：把 credit assignment（CA）设为审视 LLM RL 的中心透镜，冻</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,87 +10,87 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 935.0 720.0 L 1090.0 775.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 935.0 720.0 L 1100.0 487.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 935.0 720.0 L 1095.0 631.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1262.0 775.0 L 1421.0 865.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1262.0 775.0 L 1421.0 1043.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1176.0 827.0 L 1176.0 1169.5 L 1551.5 1169.5 L 1551.5 1152.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1253.0 487.0 L 1421.0 219.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1253.0 487.0 L 1417.0 380.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1253.0 487.0 L 1421.0 542.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1257.0 631.0 L 1421.0 703.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 677.0 737.0 L 785.0 720.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 307.0 726.5 L 415.0 737.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 935.0 720.0 L 1043.0 953.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="785" y="668" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="785" y1="674" x2="785" y2="766" stroke="#0b57d0" stroke-width="3"/>
-<text x="860.0" y="724.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">任务设定?</text>
-<rect x="415" y="651" width="262" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="415" y1="657" x2="415" y2="817" stroke="#0b57d0" stroke-width="3"/>
-<text x="546.0" y="707.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CA-ID Card 声明契约 (</text>
-<text x="546.0" y="725.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">核心): 六字段 = credit</text>
-<text x="546.0" y="745.5" font-size="11.5" fill="#57606a" text-anchor="middle">单位与估计量 /</text>
-<text x="546.0" y="760.5" font-size="11.5" fill="#57606a" text-anchor="middle">有效状态 / 干预来源 / 下游协议</text>
-<text x="546.0" y="775.5" font-size="11.5" fill="#57606a" text-anchor="middle">/ 支撑与不确定性 / 优化接口</text>
-<rect x="46" y="651" width="261" height="151" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="657" x2="46" y2="796" stroke="#0b57d0" stroke-width="3"/>
-<text x="176.5" y="706.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">四层证据分级 (核心)</text>
-<text x="176.5" y="726.0" font-size="11.5" fill="#57606a" text-anchor="middle">restored-interventional &gt;</text>
-<text x="176.5" y="741.0" font-size="11.5" fill="#57606a" text-anchor="middle">observational-causal &gt;</text>
-<text x="176.5" y="756.0" font-size="11.5" fill="#57606a" text-anchor="middle">model-relative &gt; predictive</text>
-<rect x="1043" y="867" width="266" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1043" y1="873" x2="1043" y2="1033" stroke="#0b57d0" stroke-width="3"/>
-<text x="1176.0" y="923.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">6 个已知 (task, method</text>
-<text x="1176.0" y="941.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">)</text>
-<text x="1176.0" y="961.5" font-size="11.5" fill="#57606a" text-anchor="middle">对回溯验证 6/6 命中</text>
-<text x="1176.0" y="976.5" font-size="11.5" fill="#57606a" text-anchor="middle">阈值是粗路由启发式, 叶节点非跨</text>
-<text x="1176.0" y="991.5" font-size="11.5" fill="#57606a" text-anchor="middle">论文性能排名</text>
-<rect x="1090" y="723" width="172" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1090" y1="729" x2="1090" y2="821" stroke="#0b57d0" stroke-width="3"/>
-<text x="1176.0" y="779.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Reasoning RL</text>
-<rect x="1100" y="435" width="153" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1100" y1="441" x2="1100" y2="533" stroke="#0b57d0" stroke-width="3"/>
-<text x="1176.5" y="491.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Agentic RL</text>
-<rect x="1095" y="579" width="162" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1095" y1="585" x2="1095" y2="677" stroke="#0b57d0" stroke-width="3"/>
-<text x="1176.0" y="635.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Multi-Agent</text>
-<rect x="1421" y="796" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1421" y1="802" x2="1421" y2="928" stroke="#0b57d0" stroke-width="3"/>
-<text x="1551.5" y="850.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CoT &lt;= 5K token:</text>
-<text x="1551.5" y="868.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO / PURE / SPO /</text>
-<text x="1551.5" y="888.5" font-size="11.5" fill="#57606a" text-anchor="middle">SPRO</text>
-<rect x="1421" y="974" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1421" y1="980" x2="1421" y2="1106" stroke="#0b57d0" stroke-width="3"/>
-<text x="1551.5" y="1028.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CoT &gt; 5K token:</text>
-<text x="1551.5" y="1046.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">HICRA / CAPO / SPRO /</text>
-<text x="1551.5" y="1066.5" font-size="11.5" fill="#57606a" text-anchor="middle">GRPO-lambda</text>
-<rect x="1421" y="1152" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1421" y1="1158" x2="1421" y2="1284" stroke="#0b57d0" stroke-width="3"/>
-<text x="1551.5" y="1206.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">算力充裕:</text>
-<text x="1551.5" y="1224.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VinePPO / SCAR /</text>
-<text x="1551.5" y="1244.5" font-size="11.5" fill="#57606a" text-anchor="middle">GRAIL</text>
-<rect x="1421" y="150" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1421" y1="156" x2="1421" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="1551.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;= 30 轮, 无辅助模型:</text>
-<text x="1551.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GiGPO / CARL / iStar </text>
-<text x="1551.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">/ POAD</text>
-<rect x="1417" y="328" width="269" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1417" y1="334" x2="1417" y2="427" stroke="#0b57d0" stroke-width="3"/>
-<text x="1551.5" y="375.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;= 30 轮, 可用辅助模型:</text>
-<text x="1551.5" y="393.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">AgentPRM / SWEET-RL</text>
-<rect x="1421" y="473" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1421" y1="479" x2="1421" y2="605" stroke="#0b57d0" stroke-width="3"/>
-<text x="1551.5" y="527.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">&gt; 30 轮:</text>
-<text x="1551.5" y="545.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">C3 / CCPO / HCAPO /</text>
-<text x="1551.5" y="565.5" font-size="11.5" fill="#57606a" text-anchor="middle">IGPO / CRAFT / APPO</text>
-<rect x="1421" y="651" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1421" y1="657" x2="1421" y2="750" stroke="#0b57d0" stroke-width="3"/>
-<text x="1551.5" y="698.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">M-GRPO / SHARP /</text>
-<text x="1551.5" y="716.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">MAPPA / Dr.MAS</text>
-<text x="1012.5" y="739.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">token 级 MDP, CoT 可验证</text>
-<text x="1017.5" y="595.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">turn 级 POMDP, 稀疏终端奖励</text>
-<text x="1015.0" y="667.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">团队奖励, 跨智能体 credit</text>
-<text x="731.0" y="720.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">任何选型的 credit 声明不得超…</text>
-<text x="1686" y="1328" font-size="10.5" fill="#8c959f" text-anchor="end">reasoning-to-agentic · arXiv 2604.09459 · v3 auto</text>
+<path d="M 1029.0 800.0 L 1221.0 862.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1029.0 800.0 L 1232.0 539.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1029.0 800.0 L 1226.0 700.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1393.0 862.0 L 1592.0 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1393.0 862.0 L 1592.0 1160.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1307.0 914.0 L 1307.0 1282.0 L 1722.5 1282.0 L 1722.5 1290.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1385.0 539.0 L 1592.0 237.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1385.0 539.0 L 1587.0 419.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1385.0 539.0 L 1592.0 599.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1388.0 700.0 L 1592.0 781.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 727.0 815.0 L 879.0 800.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 313.0 804.5 L 465.0 815.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1029.0 800.0 L 1168.0 1057.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="879" y="748" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="879" y1="754" x2="879" y2="846" stroke="#0b57d0" stroke-width="3"/>
+<text x="954.0" y="803.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">任务设定?</text>
+<rect x="465" y="729" width="262" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="465" y1="735" x2="465" y2="895" stroke="#0b57d0" stroke-width="3"/>
+<text x="596.0" y="777.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CA-ID Card 声明契约 (</text>
+<text x="596.0" y="798.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">核心): 六字段 = credit</text>
+<text x="596.0" y="827.75" font-size="12.5" fill="#57606a" text-anchor="middle">单位与估计量 /</text>
+<text x="596.0" y="845.25" font-size="12.5" fill="#57606a" text-anchor="middle">有效状态 / 干预来源 / 下游协议</text>
+<text x="596.0" y="862.75" font-size="12.5" fill="#57606a" text-anchor="middle">/ 支撑与不确定性 / 优化接口</text>
+<rect x="52" y="729" width="261" height="151" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="735" x2="52" y2="874" stroke="#0b57d0" stroke-width="3"/>
+<text x="182.5" y="777.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">四层证据分级 (核心)</text>
+<text x="182.5" y="806.75" font-size="12.5" fill="#57606a" text-anchor="middle">restored-interventional &gt;</text>
+<text x="182.5" y="824.25" font-size="12.5" fill="#57606a" text-anchor="middle">observational-causal &gt;</text>
+<text x="182.5" y="841.75" font-size="12.5" fill="#57606a" text-anchor="middle">model-relative &gt; predictive</text>
+<rect x="1168" y="971" width="266" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1168" y1="977" x2="1168" y2="1137" stroke="#0b57d0" stroke-width="3"/>
+<text x="1301.0" y="1019.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">6 个已知 (task, method</text>
+<text x="1301.0" y="1040.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">)</text>
+<text x="1301.0" y="1069.75" font-size="12.5" fill="#57606a" text-anchor="middle">对回溯验证 6/6 命中</text>
+<text x="1301.0" y="1087.25" font-size="12.5" fill="#57606a" text-anchor="middle">阈值是粗路由启发式, 叶节点非跨</text>
+<text x="1301.0" y="1104.75" font-size="12.5" fill="#57606a" text-anchor="middle">论文性能排名</text>
+<rect x="1221" y="810" width="172" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1221" y1="816" x2="1221" y2="908" stroke="#0b57d0" stroke-width="3"/>
+<text x="1307.0" y="865.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Reasoning RL</text>
+<rect x="1232" y="487" width="153" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1232" y1="493" x2="1232" y2="585" stroke="#0b57d0" stroke-width="3"/>
+<text x="1308.5" y="542.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Agentic RL</text>
+<rect x="1226" y="648" width="162" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1226" y1="654" x2="1226" y2="746" stroke="#0b57d0" stroke-width="3"/>
+<text x="1307.0" y="703.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Multi-Agent</text>
+<rect x="1592" y="892" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1592" y1="898" x2="1592" y2="1024" stroke="#0b57d0" stroke-width="3"/>
+<text x="1722.5" y="941.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CoT &lt;= 5K token:</text>
+<text x="1722.5" y="962.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO / PURE / SPO /</text>
+<text x="1722.5" y="991.25" font-size="12.5" fill="#57606a" text-anchor="middle">SPRO</text>
+<rect x="1592" y="1091" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1592" y1="1097" x2="1592" y2="1223" stroke="#0b57d0" stroke-width="3"/>
+<text x="1722.5" y="1140.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CoT &gt; 5K token:</text>
+<text x="1722.5" y="1161.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">HICRA / CAPO / SPRO /</text>
+<text x="1722.5" y="1190.25" font-size="12.5" fill="#57606a" text-anchor="middle">GRPO-lambda</text>
+<rect x="1592" y="1290" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1592" y1="1296" x2="1592" y2="1422" stroke="#0b57d0" stroke-width="3"/>
+<text x="1722.5" y="1339.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">算力充裕:</text>
+<text x="1722.5" y="1360.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VinePPO / SCAR /</text>
+<text x="1722.5" y="1389.25" font-size="12.5" fill="#57606a" text-anchor="middle">GRAIL</text>
+<rect x="1592" y="168" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1592" y1="174" x2="1592" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="1722.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;= 30 轮, 无辅助模型:</text>
+<text x="1722.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GiGPO / CARL / iStar </text>
+<text x="1722.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">/ POAD</text>
+<rect x="1587" y="367" width="269" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1587" y1="373" x2="1587" y2="466" stroke="#0b57d0" stroke-width="3"/>
+<text x="1721.5" y="412.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;= 30 轮, 可用辅助模型:</text>
+<text x="1721.5" y="433.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">AgentPRM / SWEET-RL</text>
+<rect x="1592" y="530" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1592" y1="536" x2="1592" y2="662" stroke="#0b57d0" stroke-width="3"/>
+<text x="1722.5" y="579.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">&gt; 30 轮:</text>
+<text x="1722.5" y="600.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">C3 / CCPO / HCAPO /</text>
+<text x="1722.5" y="629.25" font-size="12.5" fill="#57606a" text-anchor="middle">IGPO / CRAFT / APPO</text>
+<rect x="1592" y="729" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1592" y1="735" x2="1592" y2="828" stroke="#0b57d0" stroke-width="3"/>
+<text x="1722.5" y="774.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">M-GRPO / SHARP /</text>
+<text x="1722.5" y="795.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">MAPPA / Dr.MAS</text>
+<text x="1125.0" y="823.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">token 级 MDP, CoT 可验证</text>
+<text x="1130.5" y="661.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">turn 级 POMDP, 稀疏终端奖励</text>
+<text x="1127.5" y="742.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">团队奖励, 跨智能体 credit</text>
+<text x="803.0" y="799.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">任何选型的 credit 声明不得超…</text>
+<text x="1860" y="1470" font-size="10.5" fill="#8c959f" text-anchor="end">reasoning-to-agentic · arXiv 2604.09459 · v3 auto</text>
 </svg>

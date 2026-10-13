@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1398" height="1108" viewBox="-2 40 1398 1108" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1519" height="1226" viewBox="-4 47 1519 1226" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>genie-envisioner</title>
-<rect x="-2" y="40" width="1398" height="1108" fill="#ffffff"/>
-<text x="20" y="70" font-size="14" font-weight="700" fill="#1f2328">genie-envisioner</text>
-<text x="1374" y="70" font-size="12" fill="#57606a" text-anchor="end">机器人策略学习、评测、仿真被割裂在三套基建上（Problem），主流 VLA 走语言中心表征、丢失时空细节且真机评测慢贵（Bottleneck）；Genie Envisione</text>
+<rect x="-4" y="47" width="1519" height="1226" fill="#ffffff"/>
+<text x="18" y="77" font-size="14" font-weight="700" fill="#1f2328">genie-envisioner</text>
+<text x="1493" y="77" font-size="12" fill="#57606a" text-anchor="end">机器人策略学习、评测、仿真被割裂在三套基建上（Problem），主流 VLA 走语言中心表征、丢失时空细节且真机评测慢贵（Bottleneck）；Genie Envisione</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,69 +10,69 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="92" width="1354" height="875" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="112" font-size="11.5" font-weight="600" fill="#57606a">GE-Base · GE-Act · GE-Sim 闭环 (宣称, 实验未验证迁移)</text>
-<path d="M 479.0 202.5 L 419.0 202.5 L 419.0 405.5 L 787.0 405.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 604.0 254.0 L 697.0 353.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 1061.5 255.0 L 900.0 354.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 697.0 458.0 L 697.5 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 900.0 458.0 L 697.5 556.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 836.5 255.0 L 836.5 495.5 L 697.5 495.5 L 697.5 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 697.5 694.0 L 696.5 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 285.0 202.0 L 419.0 405.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 494.0 458.0 L 697.5 556.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 696.5 897.0 L 697.0 995.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 494.0 458.0 L 494.0 726.5 L 697.0 726.5 L 697.0 995.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1263.5 255.0 L 1263.5 523.5 L 696.5 523.5 L 696.5 792.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1263.5 255.0 L 1263.5 523.5 L 696.5 523.5 L 696.5 792.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="323" y="150" width="156" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="323" y1="156" x2="323" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="401.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">初始观测 x0</text>
-<text x="401.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">三视角</text>
-<rect x="607" y="353" width="180" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="607" y1="359" x2="607" y2="452" stroke="#57606a" stroke-width="3"/>
-<text x="697.0" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">共享视频编码器</text>
-<text x="697.0" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Stage2 冻结</text>
-<rect x="517" y="150" width="174" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="517" y1="156" x2="517" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="604.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">稀疏记忆 4 帧</text>
-<rect x="982" y="150" width="159" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="982" y1="156" x2="982" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="1061.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">指令 q</text>
-<text x="1061.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">冻结 T5-XXL</text>
-<rect x="825" y="354" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="825" y1="360" x2="825" y2="452" stroke="#57606a" stroke-width="3"/>
-<text x="900.0" y="410.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CA</text>
-<rect x="568" y="556" width="259" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="568" y1="562" x2="568" y2="688" stroke="#0b57d0" stroke-width="3"/>
-<text x="697.5" y="610.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DiT 块</text>
-<text x="697.5" y="628.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">跨视角注意力 (alpha 比</text>
-<text x="697.5" y="648.5" font-size="11.5" fill="#57606a" text-anchor="middle">例)</text>
-<rect x="729" y="150" width="215" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="729" y1="156" x2="729" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="836.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逐视角噪声 z</text>
-<text x="836.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ RoPE + 视角嵌入</text>
-<rect x="604" y="792" width="185" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="604" y1="798" x2="604" y2="891" stroke="#0b57d0" stroke-width="3"/>
-<text x="696.5" y="839.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">下一视频 chunk</text>
-<text x="696.5" y="857.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(自回归滚动)</text>
-<rect x="46" y="150" width="239" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="165.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">噪声初始化动作 token</text>
-<rect x="419" y="353" width="150" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="419" y1="359" x2="419" y2="452" stroke="#1a7f37" stroke-width="3"/>
-<text x="494.0" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 DiT</text>
-<text x="494.0" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">5 步去噪</text>
-<rect x="1179" y="150" width="169" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1179" y1="156" x2="1179" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="1263.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仿真 rollout</text>
-<text x="1263.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">生成轨迹回灌</text>
-<rect x="597" y="995" width="200" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="597" y1="1001" x2="597" y2="1094" stroke="#8250df" stroke-width="3"/>
-<text x="697.0" y="1042.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作输出</text>
-<text x="697.0" y="1060.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">1 小时适配跨本体</text>
-<text x="595.8" y="499.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每层跨注意力读 v_i</text>
-<text x="980.0" y="515.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">rollout 数据</text>
-<text x="980.0" y="515.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">rollout 数据</text>
-<text x="1374" y="1138" font-size="10.5" fill="#8c959f" text-anchor="end">genie-envisioner · arXiv 2508.05635 · v3 auto</text>
+<rect x="22" y="103" width="1354" height="875" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="123" font-size="11.5" font-weight="600" fill="#57606a">GE-Base · GE-Act · GE-Sim 闭环 (宣称, 实验未验证迁移)</text>
+<path d="M 518.0 220.5 L 458.0 220.5 L 458.0 447.5 L 860.0 447.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 666.0 272.0 L 770.0 395.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 1179.5 273.0 L 999.0 396.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 770.0 500.0 L 765.5 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 999.0 500.0 L 765.5 623.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 923.5 273.0 L 923.5 538.0 L 765.5 538.0 L 765.5 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 765.5 761.0 L 768.5 887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 291.0 220.0 L 469.0 447.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 544.0 500.0 L 765.5 623.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 768.5 992.0 L 769.0 1114.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 544.0 500.0 L 544.0 807.0 L 769.0 807.0 L 769.0 1114.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1404.5 273.0 L 768.5 887.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1404.5 273.0 L 768.5 887.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="362" y="168" width="156" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="362" y1="174" x2="362" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="440.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">初始观测 x0</text>
+<text x="440.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">三视角</text>
+<rect x="680" y="395" width="180" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="680" y1="401" x2="680" y2="494" stroke="#57606a" stroke-width="3"/>
+<text x="770.0" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">共享视频编码器</text>
+<text x="770.0" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Stage2 冻结</text>
+<rect x="579" y="168" width="174" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="579" y1="174" x2="579" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="666.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">稀疏记忆 4 帧</text>
+<rect x="1100" y="168" width="159" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1100" y1="174" x2="1100" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="1179.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">指令 q</text>
+<text x="1179.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">冻结 T5-XXL</text>
+<rect x="924" y="396" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="924" y1="402" x2="924" y2="494" stroke="#57606a" stroke-width="3"/>
+<text x="999.0" y="451.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CA</text>
+<rect x="636" y="623" width="259" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="636" y1="629" x2="636" y2="755" stroke="#0b57d0" stroke-width="3"/>
+<text x="765.5" y="672.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DiT 块</text>
+<text x="765.5" y="693.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">跨视角注意力 (alpha 比</text>
+<text x="765.5" y="722.25" font-size="12.5" fill="#57606a" text-anchor="middle">例)</text>
+<rect x="816" y="168" width="215" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="816" y1="174" x2="816" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="923.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逐视角噪声 z</text>
+<text x="923.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+ RoPE + 视角嵌入</text>
+<rect x="676" y="887" width="185" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="676" y1="893" x2="676" y2="986" stroke="#0b57d0" stroke-width="3"/>
+<text x="768.5" y="932.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">下一视频 chunk</text>
+<text x="768.5" y="953.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(自回归滚动)</text>
+<rect x="52" y="168" width="239" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="171.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">噪声初始化动作 token</text>
+<rect x="469" y="395" width="150" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="469" y1="401" x2="469" y2="494" stroke="#1a7f37" stroke-width="3"/>
+<text x="544.0" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 DiT</text>
+<text x="544.0" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">5 步去噪</text>
+<rect x="1320" y="168" width="169" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1320" y1="174" x2="1320" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="1404.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仿真 rollout</text>
+<text x="1404.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">生成轨迹回灌</text>
+<rect x="669" y="1114" width="200" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="669" y1="1120" x2="669" y2="1213" stroke="#8250df" stroke-width="3"/>
+<text x="769.0" y="1159.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作输出</text>
+<text x="769.0" y="1180.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">1 小时适配跨本体</text>
+<text x="654.8" y="553.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每层跨注意力读 v_i</text>
+<text x="1086.5" y="572.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">rollout 数据</text>
+<text x="1086.5" y="572.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">rollout 数据</text>
+<text x="1493" y="1261" font-size="10.5" fill="#8c959f" text-anchor="end">genie-envisioner · arXiv 2508.05635 · v3 auto</text>
 </svg>

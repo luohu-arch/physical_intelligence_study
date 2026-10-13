@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1187" height="1638" viewBox="24 98 1187 1638" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1303" height="1814" viewBox="26 112 1303 1814" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>arlarena</title>
-<rect x="24" y="98" width="1187" height="1638" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">arlarena</text>
-<text x="1189" y="128" font-size="12" fill="#57606a" text-anchor="end">ICML 2026 的 agentic RL 稳定性系统研究：先把多回合 ARL 训练拆成四个正交设计维度（损失聚合、IS 裁剪、轨迹过滤重采样、优势设计），在标准化测试床上逐</text>
+<rect x="26" y="112" width="1303" height="1814" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">arlarena</text>
+<text x="1307" y="142" font-size="12" fill="#57606a" text-anchor="end">ICML 2026 的 agentic RL 稳定性系统研究：先把多回合 ARL 训练拆成四个正交设计维度（损失聚合、IS 裁剪、轨迹过滤重采样、优势设计），在标准化测试床上逐</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,85 +10,85 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 484.0 894.0 L 247.0 894.0 L 247.0 1147.0 L 307.0 1147.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 617.5 963.0 L 476.0 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 617.5 963.0 L 778.5 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 751.0 894.0 L 331.0 894.0 L 331.0 1130.0 L 950.0 1130.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 770.5 288.0 L 618.0 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 618.0 558.0 L 617.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 617.5 727.0 L 617.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 307.0 1147.0 L 247.0 1147.0 L 247.0 1366.0 L 487.0 1366.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 476.0 1233.0 L 617.5 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 778.5 1216.0 L 617.5 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 950.0 1130.0 L 328.0 1130.0 L 328.0 1366.0 L 748.0 1366.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 464.5 305.0 L 476.0 1061.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 617.5 1435.0 L 617.5 1533.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 564.1 963.0 L 564.1 625.5 L 797.4 625.5 L 797.4 288.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<rect x="636" y="150" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="636" y1="156" x2="636" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="770.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">被 RL 的策略: Qwen3-4B</text>
-<text x="770.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">BC 冷启动 + 格式惩罚 +</text>
-<text x="770.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">k3 KL 正则测试床</text>
-<rect x="486" y="386" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="486" y1="392" x2="486" y2="552" stroke="#0b57d0" stroke-width="3"/>
-<text x="618.0" y="442.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">文本环境: ALFWorld /</text>
-<text x="618.0" y="460.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">WebShop / Sokoban /</text>
-<text x="618.0" y="480.5" font-size="11.5" fill="#57606a" text-anchor="middle">TIR Math</text>
-<text x="618.0" y="495.5" font-size="11.5" fill="#57606a" text-anchor="middle">累积多轮历史, 逐轮返回转移与终</text>
-<text x="618.0" y="510.5" font-size="11.5" fill="#57606a" text-anchor="middle">局奖励</text>
-<rect x="488" y="622" width="259" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="488" y1="628" x2="488" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="617.5" y="669.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多回合轨迹, 逐 turn 切</text>
-<text x="617.5" y="687.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">分成单回合样本</text>
-<rect x="484" y="825" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="484" y1="831" x2="484" y2="957" stroke="#0b57d0" stroke-width="3"/>
-<text x="617.5" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">agentic 策略梯度</text>
-<text x="617.5" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">IS 权重 x log-prob x</text>
-<text x="617.5" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">advantage</text>
-<rect x="46" y="1061" width="261" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1067" x2="46" y2="1227" stroke="#0b57d0" stroke-width="3"/>
-<text x="176.5" y="1117.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">维度 1 损失聚合</text>
-<text x="176.5" y="1135.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">seq-mean vs token-</text>
-<text x="176.5" y="1155.5" font-size="11.5" fill="#57606a" text-anchor="middle">mean</text>
-<text x="176.5" y="1170.5" font-size="11.5" fill="#57606a" text-anchor="middle">token-mean 稳, seq-mean -</text>
-<text x="176.5" y="1185.5" font-size="11.5" fill="#57606a" text-anchor="middle">15.0%</text>
-<rect x="345" y="1061" width="262" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="345" y1="1067" x2="345" y2="1227" stroke="#0b57d0" stroke-width="3"/>
-<text x="476.0" y="1117.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">维度 2 IS 裁剪</text>
-<text x="476.0" y="1135.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">token 级 / 容错 / 序</text>
-<text x="476.0" y="1155.5" font-size="11.5" fill="#57606a" text-anchor="middle">列级</text>
-<text x="476.0" y="1170.5" font-size="11.5" fill="#57606a" text-anchor="middle">序列级 +13.3%, 容错 ~130 步</text>
-<text x="476.0" y="1185.5" font-size="11.5" fill="#57606a" text-anchor="middle">崩溃</text>
-<rect x="645" y="1061" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="645" y1="1067" x2="645" y2="1210" stroke="#0b57d0" stroke-width="3"/>
-<text x="778.5" y="1116.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">维度 3 轨迹过滤重采样</text>
-<text x="778.5" y="1134.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DAPO 动态采样</text>
-<text x="778.5" y="1154.5" font-size="11.5" fill="#57606a" text-anchor="middle">配 GIGPO +11.0%, 配 GRPO -7.6</text>
-<text x="778.5" y="1169.5" font-size="11.5" fill="#57606a" text-anchor="middle">%</text>
-<rect x="950" y="1061" width="239" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="950" y1="1067" x2="950" y2="1193" stroke="#0b57d0" stroke-width="3"/>
-<text x="1069.5" y="1115.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">维度 4 优势设计</text>
-<text x="1069.5" y="1133.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">全局 / 步级 / 熵调制</text>
-<text x="1069.5" y="1153.5" font-size="11.5" fill="#57606a" text-anchor="middle">细粒度 +3.4%</text>
-<rect x="330" y="150" width="269" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="330" y1="156" x2="330" y2="299" stroke="#0b57d0" stroke-width="3"/>
-<text x="464.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">崩溃根因诊断: 负优势 +</text>
-<text x="464.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">低 IS 比率序列累积</text>
-<text x="464.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">序列掩码一招把 CISPO/SAPO 拉回</text>
-<text x="464.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">78.88/76.92</text>
-<rect x="487" y="1297" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="487" y1="1303" x2="487" y2="1429" stroke="#0b57d0" stroke-width="3"/>
-<text x="617.5" y="1351.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SAMPO 三合一: 序列级</text>
-<text x="617.5" y="1369.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">s_i 裁剪 +</text>
-<text x="617.5" y="1389.5" font-size="11.5" fill="#57606a" text-anchor="middle">步级优势 A' + 动态过滤</text>
-<rect x="484" y="1533" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="484" y1="1539" x2="484" y2="1682" stroke="#0b57d0" stroke-width="3"/>
-<text x="617.5" y="1588.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">四任务平均 60.21, 比</text>
-<text x="617.5" y="1606.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO +25.2%</text>
-<text x="617.5" y="1626.5" font-size="11.5" fill="#57606a" text-anchor="middle">ALFWorld 92.72% 反超 GPT-5.2</text>
-<text x="617.5" y="1641.5" font-size="11.5" fill="#57606a" text-anchor="middle">的 51.56%</text>
-<text x="694.2" y="329.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">rollout 交互</text>
-<text x="470.2" y="675.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">八组 KL 贡献分解锁定</text>
-<text x="680.8" y="617.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">梯度更新</text>
-<text x="1189" y="1726" font-size="10.5" fill="#8c959f" text-anchor="end">arlarena · arXiv 2602.21534 · v3 auto</text>
+<path d="M 542.0 993.0 L 313.0 1274.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 675.5 1062.0 L 517.0 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 675.5 1062.0 L 855.5 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 809.0 993.0 L 1064.0 1257.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 846.5 306.0 L 676.0 432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 676.0 604.0 L 676.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 676.5 802.0 L 675.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 313.0 1274.0 L 545.0 1522.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 517.0 1360.0 L 675.5 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 855.5 1343.0 L 675.5 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1064.0 1257.0 L 806.0 1522.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 504.5 323.0 L 517.0 1188.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 675.5 1591.0 L 675.5 1717.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 622.1 1062.0 L 622.1 684.0 L 873.4 684.0 L 873.4 306.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<rect x="712" y="168" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="712" y1="174" x2="712" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="846.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">被 RL 的策略: Qwen3-4B</text>
+<text x="846.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">BC 冷启动 + 格式惩罚 +</text>
+<text x="846.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">k3 KL 正则测试床</text>
+<rect x="544" y="432" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="544" y1="438" x2="544" y2="598" stroke="#0b57d0" stroke-width="3"/>
+<text x="676.0" y="480.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">文本环境: ALFWorld /</text>
+<text x="676.0" y="501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">WebShop / Sokoban /</text>
+<text x="676.0" y="530.75" font-size="12.5" fill="#57606a" text-anchor="middle">TIR Math</text>
+<text x="676.0" y="548.25" font-size="12.5" fill="#57606a" text-anchor="middle">累积多轮历史, 逐轮返回转移与终</text>
+<text x="676.0" y="565.75" font-size="12.5" fill="#57606a" text-anchor="middle">局奖励</text>
+<rect x="547" y="697" width="259" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="547" y1="703" x2="547" y2="796" stroke="#0b57d0" stroke-width="3"/>
+<text x="676.5" y="742.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多回合轨迹, 逐 turn 切</text>
+<text x="676.5" y="763.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">分成单回合样本</text>
+<rect x="542" y="924" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="542" y1="930" x2="542" y2="1056" stroke="#0b57d0" stroke-width="3"/>
+<text x="675.5" y="973.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">agentic 策略梯度</text>
+<text x="675.5" y="994.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">IS 权重 x log-prob x</text>
+<text x="675.5" y="1023.25" font-size="12.5" fill="#57606a" text-anchor="middle">advantage</text>
+<rect x="52" y="1188" width="261" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1194" x2="52" y2="1354" stroke="#0b57d0" stroke-width="3"/>
+<text x="182.5" y="1236.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">维度 1 损失聚合</text>
+<text x="182.5" y="1257.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">seq-mean vs token-</text>
+<text x="182.5" y="1286.75" font-size="12.5" fill="#57606a" text-anchor="middle">mean</text>
+<text x="182.5" y="1304.25" font-size="12.5" fill="#57606a" text-anchor="middle">token-mean 稳, seq-mean -</text>
+<text x="182.5" y="1321.75" font-size="12.5" fill="#57606a" text-anchor="middle">15.0%</text>
+<rect x="386" y="1188" width="262" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="386" y1="1194" x2="386" y2="1354" stroke="#0b57d0" stroke-width="3"/>
+<text x="517.0" y="1236.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">维度 2 IS 裁剪</text>
+<text x="517.0" y="1257.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">token 级 / 容错 / 序</text>
+<text x="517.0" y="1286.75" font-size="12.5" fill="#57606a" text-anchor="middle">列级</text>
+<text x="517.0" y="1304.25" font-size="12.5" fill="#57606a" text-anchor="middle">序列级 +13.3%, 容错 ~130 步</text>
+<text x="517.0" y="1321.75" font-size="12.5" fill="#57606a" text-anchor="middle">崩溃</text>
+<rect x="722" y="1188" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="722" y1="1194" x2="722" y2="1337" stroke="#0b57d0" stroke-width="3"/>
+<text x="855.5" y="1237.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">维度 3 轨迹过滤重采样</text>
+<text x="855.5" y="1258.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DAPO 动态采样</text>
+<text x="855.5" y="1287.0" font-size="12.5" fill="#57606a" text-anchor="middle">配 GIGPO +11.0%, 配 GRPO -7.6</text>
+<text x="855.5" y="1304.5" font-size="12.5" fill="#57606a" text-anchor="middle">%</text>
+<rect x="1064" y="1188" width="239" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1064" y1="1194" x2="1064" y2="1320" stroke="#0b57d0" stroke-width="3"/>
+<text x="1183.5" y="1237.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">维度 4 优势设计</text>
+<text x="1183.5" y="1258.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">全局 / 步级 / 熵调制</text>
+<text x="1183.5" y="1287.25" font-size="12.5" fill="#57606a" text-anchor="middle">细粒度 +3.4%</text>
+<rect x="370" y="168" width="269" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="370" y1="174" x2="370" y2="317" stroke="#0b57d0" stroke-width="3"/>
+<text x="504.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">崩溃根因诊断: 负优势 +</text>
+<text x="504.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">低 IS 比率序列累积</text>
+<text x="504.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">序列掩码一招把 CISPO/SAPO 拉回</text>
+<text x="504.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">78.88/76.92</text>
+<rect x="545" y="1453" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="545" y1="1459" x2="545" y2="1585" stroke="#0b57d0" stroke-width="3"/>
+<text x="675.5" y="1502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SAMPO 三合一: 序列级</text>
+<text x="675.5" y="1523.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">s_i 裁剪 +</text>
+<text x="675.5" y="1552.25" font-size="12.5" fill="#57606a" text-anchor="middle">步级优势 A' + 动态过滤</text>
+<rect x="542" y="1717" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="542" y1="1723" x2="542" y2="1866" stroke="#0b57d0" stroke-width="3"/>
+<text x="675.5" y="1766.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">四任务平均 60.21, 比</text>
+<text x="675.5" y="1787.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO +25.2%</text>
+<text x="675.5" y="1816.0" font-size="12.5" fill="#57606a" text-anchor="middle">ALFWorld 92.72% 反超 GPT-5.2</text>
+<text x="675.5" y="1833.5" font-size="12.5" fill="#57606a" text-anchor="middle">的 51.56%</text>
+<text x="761.2" y="361.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">rollout 交互</text>
+<text x="510.8" y="747.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">八组 KL 贡献分解锁定</text>
+<text x="747.8" y="676.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">梯度更新</text>
+<text x="1307" y="1914" font-size="10.5" fill="#8c959f" text-anchor="end">arlarena · arXiv 2602.21534 · v3 auto</text>
 </svg>

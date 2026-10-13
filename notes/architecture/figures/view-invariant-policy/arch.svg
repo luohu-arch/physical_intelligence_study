@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="917" height="1941" viewBox="24 98 917 1941" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="997" height="2153" viewBox="26 112 997 2153" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>view-invariant-policy</title>
-<rect x="24" y="98" width="917" height="1941" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">view-invariant-policy</text>
-<text x="919" y="128" font-size="12" fill="#57606a" text-anchor="end">当相机被移动或重新定位后，现有模仿学习策略大概率失效。这篇论文提出将策略条件化到相机外参（用 Plücker ray 编码每个像素的 3D 射线），使策略天然对相机视角鲁棒，在</text>
+<rect x="26" y="112" width="997" height="2153" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">view-invariant-policy</text>
+<text x="1001" y="142" font-size="12" fill="#57606a" text-anchor="end">当相机被移动或重新定位后，现有模仿学习策略大概率失效。这篇论文提出将策略条件化到相机外参（用 Plücker ray 编码每个像素的 3D 射线），使策略天然对相机视角鲁棒，在</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,76 +10,76 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 634.0 507.0 L 634.0 755.5 L 482.5 755.5 L 482.5 824.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 179.0 288.0 L 360.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 360.0 541.0 L 482.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 482.0 305.0 L 634.0 403.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 482.0 305.0 L 482.0 553.5 L 482.5 553.5 L 482.5 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 482.5 726.0 L 482.5 824.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 482.5 928.0 L 349.0 1026.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 482.5 928.0 L 611.0 1026.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 349.0 1131.0 L 482.0 1229.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 611.0 1131.0 L 611.0 1371.0 L 483.0 1371.0 L 483.0 1431.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 482.0 1333.0 L 483.0 1431.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 483.0 1535.0 L 482.5 1633.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 785.5 288.0 L 785.5 960.5 L 482.5 960.5 L 482.5 1633.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 482.5 1738.0 L 482.5 1836.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="530" y="403" width="208" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="530" y1="409" x2="530" y2="501" stroke="#0969da" stroke-width="3"/>
-<text x="634.0" y="459.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RGB 图像 [H,W,3]</text>
-<rect x="403" y="824" width="159" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="403" y1="830" x2="403" y2="922" stroke="#0b57d0" stroke-width="3"/>
-<text x="482.5" y="880.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Fusion 方式</text>
-<rect x="46" y="150" width="266" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="179.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">相机外参 (R, t)</text>
-<text x="179.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(AprilTags / 标定 / 元</text>
-<text x="179.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">数据)</text>
-<rect x="228" y="386" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="228" y1="392" x2="228" y2="535" stroke="#0b57d0" stroke-width="3"/>
-<text x="360.0" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Plucker Ray 编码</text>
-<text x="360.0" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">d = R*K^-1*[u,v,1]^T</text>
-<text x="360.0" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">m = t x d; 每像素 6 维:</text>
-<text x="360.0" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">方向 + 矩, 对相机位姿等变</text>
-<rect x="362" y="622" width="241" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="362" y1="628" x2="362" y2="720" stroke="#0969da" stroke-width="3"/>
-<text x="482.5" y="678.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Plucker map [H,W,6]</text>
-<rect x="350" y="150" width="264" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="350" y1="156" x2="350" y2="299" stroke="#0969da" stroke-width="3"/>
-<text x="482.0" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">图像与 Plucker map 联合</text>
-<text x="482.0" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">随机裁剪</text>
-<text x="482.0" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">(相同空间裁剪, 防背景泄露相机位</text>
-<text x="482.0" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">姿)</text>
-<rect x="240" y="1026" width="218" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="240" y1="1032" x2="240" y2="1125" stroke="#1a7f37" stroke-width="3"/>
-<text x="349.0" y="1073.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">channel-wise 拼接</text>
-<text x="349.0" y="1091.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">成 [H,W,9] 输入</text>
-<rect x="496" y="1026" width="230" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="496" y1="1032" x2="496" y2="1125" stroke="#1a7f37" stroke-width="3"/>
-<text x="611.0" y="1073.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">late fusion 小 CNN</text>
-<text x="611.0" y="1091.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(不污染预训练权重)</text>
-<rect x="386" y="1229" width="192" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="386" y1="1235" x2="386" y2="1327" stroke="#57606a" stroke-width="3"/>
-<text x="482.0" y="1285.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Vision Encoder</text>
-<rect x="384" y="1431" width="198" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="384" y1="1437" x2="384" y2="1529" stroke="#1a7f37" stroke-width="3"/>
-<text x="483.0" y="1487.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">与预训练特征合并</text>
-<rect x="357" y="1633" width="251" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="357" y1="1639" x2="357" y2="1732" stroke="#1a7f37" stroke-width="3"/>
-<text x="482.5" y="1680.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Action Policy</text>
-<text x="482.5" y="1698.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(ACT / DP / SmolVLA)</text>
-<rect x="652" y="150" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="652" y1="156" x2="652" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="785.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">各基线自身 BC 损失</text>
-<text x="785.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(ACT CVAE / DP 扩散 /</text>
-<text x="785.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">SmolVLA)</text>
-<rect x="350" y="1836" width="265" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="350" y1="1842" x2="350" y2="1985" stroke="#8250df" stroke-width="3"/>
-<text x="482.5" y="1891.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作输出: 相机移动后策略</text>
-<text x="482.5" y="1909.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">不失效</text>
-<text x="482.5" y="1929.5" font-size="11.5" fill="#57606a" text-anchor="middle">3 架构 6 任务全部正增益</text>
-<text x="482.5" y="1944.5" font-size="11.5" fill="#57606a" text-anchor="middle">(SmolVLA Lift 19.6 -&gt; 54.4)</text>
-<text x="415.8" y="969.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">非预训练 encoder</text>
-<text x="546.8" y="969.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">预训练 encoder</text>
-<text x="919" y="2029" font-size="10.5" fill="#8c959f" text-anchor="end">view-invariant-policy · arXiv 2510.02268 · v3 auto</text>
+<path d="M 698.0 555.0 L 698.0 829.0 L 530.5 829.0 L 530.5 923.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 185.0 306.0 L 387.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 387.0 587.0 L 525.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 524.0 323.0 L 698.0 451.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 524.0 323.0 L 525.5 697.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 525.5 801.0 L 530.5 923.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 530.5 1027.0 L 378.0 1149.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 530.5 1027.0 L 671.0 1149.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 378.0 1254.0 L 528.0 1376.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 671.0 1254.0 L 671.0 1518.5 L 529.0 1518.5 L 529.0 1603.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 528.0 1480.0 L 529.0 1603.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 529.0 1707.0 L 525.5 1829.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 863.5 306.0 L 863.5 1067.5 L 525.5 1067.5 L 525.5 1829.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 525.5 1934.0 L 524.5 2056.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="594" y="451" width="208" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="594" y1="457" x2="594" y2="549" stroke="#0969da" stroke-width="3"/>
+<text x="698.0" y="506.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RGB 图像 [H,W,3]</text>
+<rect x="451" y="923" width="159" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="451" y1="929" x2="451" y2="1021" stroke="#0b57d0" stroke-width="3"/>
+<text x="530.5" y="978.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Fusion 方式</text>
+<rect x="52" y="168" width="266" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="185.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">相机外参 (R, t)</text>
+<text x="185.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(AprilTags / 标定 / 元</text>
+<text x="185.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">数据)</text>
+<rect x="255" y="432" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="255" y1="438" x2="255" y2="581" stroke="#0b57d0" stroke-width="3"/>
+<text x="387.0" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Plucker Ray 编码</text>
+<text x="387.0" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">d = R*K^-1*[u,v,1]^T</text>
+<text x="387.0" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">m = t x d; 每像素 6 维:</text>
+<text x="387.0" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">方向 + 矩, 对相机位姿等变</text>
+<rect x="405" y="697" width="241" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="405" y1="703" x2="405" y2="795" stroke="#0969da" stroke-width="3"/>
+<text x="525.5" y="752.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Plucker map [H,W,6]</text>
+<rect x="392" y="168" width="264" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="392" y1="174" x2="392" y2="317" stroke="#0969da" stroke-width="3"/>
+<text x="524.0" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">图像与 Plucker map 联合</text>
+<text x="524.0" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">随机裁剪</text>
+<text x="524.0" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">(相同空间裁剪, 防背景泄露相机位</text>
+<text x="524.0" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">姿)</text>
+<rect x="269" y="1149" width="218" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="269" y1="1155" x2="269" y2="1248" stroke="#1a7f37" stroke-width="3"/>
+<text x="378.0" y="1194.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">channel-wise 拼接</text>
+<text x="378.0" y="1215.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">成 [H,W,9] 输入</text>
+<rect x="556" y="1149" width="230" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="556" y1="1155" x2="556" y2="1248" stroke="#1a7f37" stroke-width="3"/>
+<text x="671.0" y="1194.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">late fusion 小 CNN</text>
+<text x="671.0" y="1215.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(不污染预训练权重)</text>
+<rect x="432" y="1376" width="192" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="432" y1="1382" x2="432" y2="1474" stroke="#57606a" stroke-width="3"/>
+<text x="528.0" y="1431.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Vision Encoder</text>
+<rect x="430" y="1603" width="198" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="430" y1="1609" x2="430" y2="1701" stroke="#1a7f37" stroke-width="3"/>
+<text x="529.0" y="1658.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">与预训练特征合并</text>
+<rect x="400" y="1829" width="251" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="400" y1="1835" x2="400" y2="1928" stroke="#1a7f37" stroke-width="3"/>
+<text x="525.5" y="1874.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Action Policy</text>
+<text x="525.5" y="1895.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(ACT / DP / SmolVLA)</text>
+<rect x="730" y="168" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="730" y1="174" x2="730" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="863.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">各基线自身 BC 损失</text>
+<text x="863.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(ACT CVAE / DP 扩散 /</text>
+<text x="863.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">SmolVLA)</text>
+<rect x="392" y="2056" width="265" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="392" y1="2062" x2="392" y2="2205" stroke="#8250df" stroke-width="3"/>
+<text x="524.5" y="2105.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作输出: 相机移动后策略</text>
+<text x="524.5" y="2126.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">不失效</text>
+<text x="524.5" y="2155.0" font-size="12.5" fill="#57606a" text-anchor="middle">3 架构 6 任务全部正增益</text>
+<text x="524.5" y="2172.5" font-size="12.5" fill="#57606a" text-anchor="middle">(SmolVLA Lift 19.6 -&gt; 54.4)</text>
+<text x="454.2" y="1080.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">非预训练 encoder</text>
+<text x="600.8" y="1080.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">预训练 encoder</text>
+<text x="1001" y="2253" font-size="10.5" fill="#8c959f" text-anchor="end">view-invariant-policy · arXiv 2510.02268 · v3 auto</text>
 </svg>

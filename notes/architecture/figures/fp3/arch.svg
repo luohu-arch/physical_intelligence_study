@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1810" height="1318" viewBox="-43 98 1810 1318" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1923" height="1462" viewBox="26 112 1923 1462" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>fp3</title>
-<rect x="-43" y="98" width="1810" height="1318" fill="#ffffff"/>
-<text x="-21" y="128" font-size="14" font-weight="700" fill="#1f2328">fp3</text>
-<text x="1745" y="128" font-size="12" fill="#57606a" text-anchor="end">FP3 用 Uni3D ViT-L 编码点云（每视角 4000 点、带颜色）、CLIP 编码语言、MLP 编码本体状态，经 Transformer Encoder 融合成 la</text>
+<rect x="26" y="112" width="1923" height="1462" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">fp3</text>
+<text x="1927" y="142" font-size="12" fill="#57606a" text-anchor="end">FP3 用 Uni3D ViT-L 编码点云（每视角 4000 点、带颜色）、CLIP 编码语言、MLP 编码本体状态，经 Transformer Encoder 融合成 la</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,86 +10,86 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="394" y="339" width="1004" height="412" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="408" y="359" font-size="11.5" font-weight="600" fill="#57606a">多模态编码 (总参 1.3B)</text>
-<path d="M 590.0 288.0 L 784.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 848.5 271.0 L 1071.0 402.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 196.0 219.0 L 136.0 219.0 L 136.0 454.5 L 420.0 454.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1139.0 219.0 L -1.0 219.0 L -1.0 455.0 L 1372.0 455.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 784.5 524.0 L 895.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 1071.0 507.0 L 895.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 613.0 454.5 L 553.0 454.5 L 553.0 674.5 L 774.0 674.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 1222.0 455.0 L 957.0 455.0 L 957.0 674.5 L 1017.0 674.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 326.5 271.0 L 326.5 548.0 L 895.5 548.0 L 895.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 895.5 727.0 L 895.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1484.0 218.5 L -21.0 218.5 L -21.0 894.0 L 1029.0 894.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1311.5 288.0 L 1311.5 556.5 L 895.5 556.5 L 895.5 825.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 895.5 963.0 L 895.0 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 895.0 1165.0 L 895.0 1263.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 842.6 1368.0 L 842.6 828.0 L 616.6 828.0 L 616.6 288.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="457" y="150" width="266" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="457" y1="156" x2="457" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="590.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">第三人称点云</text>
-<text x="590.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">世界系 1m box, FPS</text>
-<text x="590.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">4000 点</text>
-<rect x="650" y="386" width="269" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="650" y1="392" x2="650" y2="518" stroke="#1a7f37" stroke-width="3"/>
-<text x="784.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Uni3D ViT-L 编码器 300M</text>
-<text x="784.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(DROID 预训练后微调,</text>
-<text x="784.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">不冻结)</text>
-<rect x="761" y="166" width="175" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="761" y1="172" x2="761" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="848.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">腕部点云</text>
-<text x="848.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">4000 点带颜色</text>
-<rect x="958" y="402" width="226" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="958" y1="408" x2="958" y2="501" stroke="#1a7f37" stroke-width="3"/>
-<text x="1071.0" y="449.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Uni3D ViT-L 编码器</text>
-<text x="1071.0" y="467.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(腕部独立一套)</text>
-<rect x="46" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="121.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
-<rect x="420" y="402" width="193" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="420" y1="408" x2="420" y2="501" stroke="#57606a" stroke-width="3"/>
-<text x="516.5" y="449.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CLIP 文本编码器</text>
-<text x="516.5" y="467.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(冻结)</text>
-<rect x="974" y="167" width="165" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="974" y1="173" x2="974" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="1056.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本体状态 q_t</text>
-<rect x="1222" y="403" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1222" y1="409" x2="1222" y2="501" stroke="#1a7f37" stroke-width="3"/>
-<text x="1297.0" y="459.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">2 层 MLP</text>
-<rect x="774" y="622" width="243" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="774" y1="628" x2="774" y2="721" stroke="#1a7f37" stroke-width="3"/>
-<text x="895.5" y="669.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer Encoder</text>
-<text x="895.5" y="687.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">融合多模态 embedding</text>
-<rect x="234" y="167" width="185" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="173" x2="234" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="326.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">噪声动作 chunk</text>
-<rect x="762" y="825" width="267" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="762" y1="831" x2="762" y2="957" stroke="#0b57d0" stroke-width="3"/>
-<text x="895.5" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DiT decoder (causal</text>
-<text x="895.5" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">mask)</text>
-<text x="895.5" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">动作 token 只看自身及之前</text>
-<rect x="1484" y="166" width="261" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1484" y1="172" x2="1484" y2="265" stroke="#8a5a00" stroke-width="3"/>
-<text x="1614.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_ddpm: 噪声回归</text>
-<text x="1614.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">MSE</text>
-<rect x="1177" y="150" width="269" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1177" y1="156" x2="1177" y2="282" stroke="#1a7f37" stroke-width="3"/>
-<text x="1311.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">post-training: LoRA</text>
-<text x="1311.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">rank 32</text>
-<text x="1311.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">80 条示教/任务, 单卡 2 小时</text>
-<rect x="768" y="1061" width="254" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="768" y1="1067" x2="768" y2="1159" stroke="#8250df" stroke-width="3"/>
-<text x="895.0" y="1117.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">去噪动作 chunk H = 16</text>
-<rect x="764" y="1263" width="262" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="764" y1="1269" x2="764" y2="1362" stroke="#8250df" stroke-width="3"/>
-<text x="895.0" y="1310.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行 15Hz</text>
-<text x="895.0" y="1328.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Cartesian 控制</text>
-<text x="895.5" y="768.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">adaLN 条件注入</text>
-<text x="1103.5" y="548.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">只训低秩增量</text>
-<text x="895.2" y="1004.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">DDIM 16 步去噪</text>
-<text x="895.0" y="1206.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">receding horizon 执行前 8 步</text>
-<text x="729.6" y="820.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重观测 (obs 2 帧历史)</text>
-<text x="1745" y="1406" font-size="10.5" fill="#8c959f" text-anchor="end">fp3 · arXiv 2503.08950 · v3 auto</text>
+<rect x="441" y="380" width="1004" height="412" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="455" y="400" font-size="11.5" font-weight="600" fill="#57606a">多模态编码 (总参 1.3B)</text>
+<path d="M 645.0 306.0 L 862.5 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 939.5 291.0 L 1186.0 450.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 202.0 239.0 L 470.0 502.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1256.0 239.0 L 1519.0 503.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 862.5 570.0 L 988.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 1186.0 555.0 L 988.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 663.0 502.5 L 867.0 749.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 1369.0 503.0 L 1110.0 749.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 354.5 291.0 L 354.5 607.5 L 986.5 607.5 L 986.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 988.5 802.0 L 986.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1662.0 238.5 L 250.0 238.5 L 250.0 993.0 L 1120.0 993.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1452.5 306.0 L 1452.5 615.0 L 986.5 615.0 L 986.5 924.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 986.5 1062.0 L 987.0 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 987.0 1292.0 L 987.0 1415.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 934.6 1520.0 L 934.6 913.0 L 671.6 913.0 L 671.6 306.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="512" y="168" width="266" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="512" y1="174" x2="512" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="645.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">第三人称点云</text>
+<text x="645.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">世界系 1m box, FPS</text>
+<text x="645.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">4000 点</text>
+<rect x="728" y="432" width="269" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="728" y1="438" x2="728" y2="564" stroke="#1a7f37" stroke-width="3"/>
+<text x="862.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Uni3D ViT-L 编码器 300M</text>
+<text x="862.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(DROID 预训练后微调,</text>
+<text x="862.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">不冻结)</text>
+<rect x="852" y="186" width="175" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="852" y1="192" x2="852" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="939.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">腕部点云</text>
+<text x="939.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">4000 点带颜色</text>
+<rect x="1073" y="450" width="226" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1073" y1="456" x2="1073" y2="549" stroke="#1a7f37" stroke-width="3"/>
+<text x="1186.0" y="495.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Uni3D ViT-L 编码器</text>
+<text x="1186.0" y="516.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(腕部独立一套)</text>
+<rect x="52" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="127.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
+<rect x="470" y="450" width="193" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="470" y1="456" x2="470" y2="549" stroke="#57606a" stroke-width="3"/>
+<text x="566.5" y="495.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CLIP 文本编码器</text>
+<text x="566.5" y="516.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(冻结)</text>
+<rect x="1091" y="187" width="165" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1091" y1="193" x2="1091" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="1173.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本体状态 q_t</text>
+<rect x="1369" y="451" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1369" y1="457" x2="1369" y2="549" stroke="#1a7f37" stroke-width="3"/>
+<text x="1444.0" y="506.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">2 层 MLP</text>
+<rect x="867" y="697" width="243" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="867" y1="703" x2="867" y2="796" stroke="#1a7f37" stroke-width="3"/>
+<text x="988.5" y="742.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer Encoder</text>
+<text x="988.5" y="763.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">融合多模态 embedding</text>
+<rect x="262" y="187" width="185" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="193" x2="262" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="354.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">噪声动作 chunk</text>
+<rect x="853" y="924" width="267" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="853" y1="930" x2="853" y2="1056" stroke="#0b57d0" stroke-width="3"/>
+<text x="986.5" y="973.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DiT decoder (causal</text>
+<text x="986.5" y="994.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">mask)</text>
+<text x="986.5" y="1023.25" font-size="12.5" fill="#57606a" text-anchor="middle">动作 token 只看自身及之前</text>
+<rect x="1662" y="186" width="261" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1662" y1="192" x2="1662" y2="285" stroke="#8a5a00" stroke-width="3"/>
+<text x="1792.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_ddpm: 噪声回归</text>
+<text x="1792.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">MSE</text>
+<rect x="1318" y="168" width="269" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1318" y1="174" x2="1318" y2="300" stroke="#1a7f37" stroke-width="3"/>
+<text x="1452.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">post-training: LoRA</text>
+<text x="1452.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">rank 32</text>
+<text x="1452.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">80 条示教/任务, 单卡 2 小时</text>
+<rect x="860" y="1188" width="254" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="860" y1="1194" x2="860" y2="1286" stroke="#8250df" stroke-width="3"/>
+<text x="987.0" y="1243.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">去噪动作 chunk H = 16</text>
+<rect x="856" y="1415" width="262" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="856" y1="1421" x2="856" y2="1514" stroke="#8250df" stroke-width="3"/>
+<text x="987.0" y="1460.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行 15Hz</text>
+<text x="987.0" y="1481.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Cartesian 控制</text>
+<text x="987.5" y="855.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">adaLN 条件注入</text>
+<text x="1219.5" y="607.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">只训低秩增量</text>
+<text x="986.8" y="1117.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">DDIM 16 步去噪</text>
+<text x="987.0" y="1345.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">receding horizon 执行前 8 步</text>
+<text x="803.1" y="905.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重观测 (obs 2 帧历史)</text>
+<text x="1927" y="1562" font-size="10.5" fill="#8c959f" text-anchor="end">fp3 · arXiv 2503.08950 · v3 auto</text>
 </svg>

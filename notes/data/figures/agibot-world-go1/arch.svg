@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="951" height="1331" viewBox="-2 51 951 1331" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1013" height="1477" viewBox="-4 59 1013 1477" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>agibot-world-go1</title>
-<rect x="-2" y="51" width="951" height="1331" fill="#ffffff"/>
-<text x="20" y="81" font-size="14" font-weight="700" fill="#1f2328">agibot-world-go1</text>
-<text x="927" y="81" font-size="12" fill="#57606a" text-anchor="end">机器人操作缺高质量大规模数据（Problem），AgiBot 用 4000 m² 场地、100+ 台同构 G1 人形、标准化采集 + 人为环校验造出 1,001,552 条轨迹</text>
+<rect x="-4" y="59" width="1013" height="1477" fill="#ffffff"/>
+<text x="18" y="89" font-size="14" font-weight="700" fill="#1f2328">agibot-world-go1</text>
+<text x="987" y="89" font-size="12" fill="#57606a" text-anchor="end">机器人操作缺高质量大规模数据（Problem），AgiBot 用 4000 m² 场地、100+ 台同构 G1 人形、标准化采集 + 人为环校验造出 1,001,552 条轨迹</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,64 +10,64 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="103" width="907" height="222" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="123" font-size="11.5" font-weight="600" fill="#57606a">预训练数据混合</text>
-<rect x="190" y="306" width="568" height="850" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="204" y="326" font-size="11.5" font-weight="600" fill="#57606a">Stage 1 · Stage 2</text>
-<path d="M 474.0 491.0 L 599.0 589.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 599.0 727.0 L 585.0 826.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 680.0 202.0 L 606.0 422.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 355.0 254.0 L 474.0 353.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 218.0 202.5 L 342.0 422.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 474.0 491.0 L 322.5 606.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 492.0 202.0 L 32.0 202.0 L 32.0 877.5 L 272.0 877.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 322.5 710.0 L 364.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 364.5 930.0 L 473.0 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 473.0 1132.0 L 474.0 1230.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 442.8 1334.0 L 442.8 1022.0 L 343.8 1022.0 L 343.8 710.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 546.2 727.0 L 500.4 491.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="680" y="150" width="221" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="680" y1="156" x2="680" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="790.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">网络人类视频 Ego4D</text>
-<rect x="492" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="492" y1="156" x2="492" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="567.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">网络图文</text>
-<rect x="256" y="150" width="198" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="256" y1="156" x2="256" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="355.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">跨本体机器人数据</text>
-<rect x="46" y="150" width="172" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="132.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">AgiBot World</text>
-<text x="132.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">1M+ 真机轨迹</text>
-<rect x="342" y="353" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="342" y1="359" x2="342" y2="485" stroke="#1a7f37" stroke-width="3"/>
-<text x="474.0" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逆动力学 ST-</text>
-<text x="474.0" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer</text>
-<text x="474.0" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">编码器</text>
-<rect x="467" y="589" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="467" y1="595" x2="467" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="599.0" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VQ-VAE 码本</text>
-<text x="599.0" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每轨迹 k=4 个 latent</text>
-<text x="599.0" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">token</text>
-<rect x="495" y="826" width="180" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="495" y1="832" x2="495" y2="924" stroke="#1a7f37" stroke-width="3"/>
-<text x="585.0" y="882.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">正动力学解码器</text>
-<rect x="216" y="606" width="213" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="216" y1="612" x2="216" y2="704" stroke="#57606a" stroke-width="3"/>
-<text x="322.5" y="662.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DiJepa 视觉编码器</text>
-<rect x="272" y="825" width="185" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="272" y1="831" x2="272" y2="924" stroke="#57606a" stroke-width="3"/>
-<text x="364.5" y="872.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Qwen2.5-VL 7B</text>
-<text x="364.5" y="890.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(MoE 路由专家)</text>
-<rect x="398" y="1028" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="398" y1="1034" x2="398" y2="1126" stroke="#1a7f37" stroke-width="3"/>
-<text x="473.0" y="1084.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作专家头</text>
-<rect x="396" y="1230" width="156" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="396" y1="1236" x2="396" y2="1328" stroke="#8250df" stroke-width="3"/>
-<text x="474.0" y="1286.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">G1 真机执行</text>
-<text x="398.2" y="540.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">latent 动作条件</text>
-<text x="473.5" y="1173.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">连续动作 chunk</text>
-<text x="393.3" y="1014.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新观测</text>
-<text x="523.3" y="601.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L_rec + L_dynamics</text>
-<text x="927" y="1372" font-size="10.5" fill="#8c959f" text-anchor="end">agibot-world-go1 · arXiv 2503.06669 · v3 auto</text>
+<rect x="22" y="115" width="907" height="222" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="135" font-size="11.5" font-weight="600" fill="#57606a">预训练数据混合</text>
+<rect x="213" y="343" width="568" height="850" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="227" y="363" font-size="11.5" font-weight="600" fill="#57606a">Stage 1 · Stage 2</text>
+<path d="M 515.0 533.0 L 655.0 660.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 655.0 798.0 L 644.0 925.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 762.0 220.0 L 647.0 464.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 386.0 272.0 L 515.0 395.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 224.0 220.5 L 383.0 464.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 515.0 533.0 L 348.5 679.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 551.0 220.0 L 245.0 220.0 L 245.0 976.5 L 305.0 976.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 348.5 783.0 L 397.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 397.5 1029.0 L 521.0 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 521.0 1255.0 L 522.0 1378.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 490.8 1482.0 L 490.8 1132.5 L 369.8 1132.5 L 369.8 783.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 602.2 798.0 L 541.4 533.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="762" y="168" width="221" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="762" y1="174" x2="762" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="872.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">网络人类视频 Ego4D</text>
+<rect x="551" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="551" y1="174" x2="551" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="626.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">网络图文</text>
+<rect x="287" y="168" width="198" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="287" y1="174" x2="287" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="386.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">跨本体机器人数据</text>
+<rect x="52" y="168" width="172" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="138.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">AgiBot World</text>
+<text x="138.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">1M+ 真机轨迹</text>
+<rect x="383" y="395" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="383" y1="401" x2="383" y2="527" stroke="#1a7f37" stroke-width="3"/>
+<text x="515.0" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逆动力学 ST-</text>
+<text x="515.0" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer</text>
+<text x="515.0" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">编码器</text>
+<rect x="523" y="660" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="523" y1="666" x2="523" y2="792" stroke="#0b57d0" stroke-width="3"/>
+<text x="655.0" y="709.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VQ-VAE 码本</text>
+<text x="655.0" y="730.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每轨迹 k=4 个 latent</text>
+<text x="655.0" y="759.25" font-size="12.5" fill="#57606a" text-anchor="middle">token</text>
+<rect x="554" y="925" width="180" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="554" y1="931" x2="554" y2="1023" stroke="#1a7f37" stroke-width="3"/>
+<text x="644.0" y="980.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">正动力学解码器</text>
+<rect x="242" y="679" width="213" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="242" y1="685" x2="242" y2="777" stroke="#57606a" stroke-width="3"/>
+<text x="348.5" y="734.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DiJepa 视觉编码器</text>
+<rect x="305" y="924" width="185" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="305" y1="930" x2="305" y2="1023" stroke="#57606a" stroke-width="3"/>
+<text x="397.5" y="969.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Qwen2.5-VL 7B</text>
+<text x="397.5" y="990.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(MoE 路由专家)</text>
+<rect x="446" y="1151" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="446" y1="1157" x2="446" y2="1249" stroke="#1a7f37" stroke-width="3"/>
+<text x="521.0" y="1206.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作专家头</text>
+<rect x="444" y="1378" width="156" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="444" y1="1384" x2="444" y2="1476" stroke="#8250df" stroke-width="3"/>
+<text x="522.0" y="1433.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">G1 真机执行</text>
+<text x="431.8" y="598.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">latent 动作条件</text>
+<text x="521.5" y="1308.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">连续动作 chunk</text>
+<text x="430.3" y="1124.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新观测</text>
+<text x="571.8" y="657.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L_rec + L_dynamics</text>
+<text x="987" y="1524" font-size="10.5" fill="#8c959f" text-anchor="end">agibot-world-go1 · arXiv 2503.06669 · v3 auto</text>
 </svg>

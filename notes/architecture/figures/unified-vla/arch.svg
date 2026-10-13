@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1555" height="1182" viewBox="-26 98 1555 1182" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1656" height="1305" viewBox="26 112 1656 1305" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>unified-vla</title>
-<rect x="-26" y="98" width="1555" height="1182" fill="#ffffff"/>
-<text x="-4" y="128" font-size="14" font-weight="700" fill="#1f2328">unified-vla</text>
-<text x="1507" y="128" font-size="12" fill="#57606a" text-anchor="end">UniVLA 将视觉、语言、动作信号全部统一为离散 token 序列，用自回归 Transformer 进行联合建模，在 post-training 阶段引入世界模型学习视频中</text>
+<rect x="26" y="112" width="1656" height="1305" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">unified-vla</text>
+<text x="1660" y="142" font-size="12" fill="#57606a" text-anchor="end">UniVLA 将视觉、语言、动作信号全部统一为离散 token 序列，用自回归 Transformer 进行联合建模，在 post-training 阶段引入世界模型学习视频中</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,66 +10,66 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 797.0 271.0 L 640.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 384.0 219.0 L 508.0 463.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 196.0 219.0 L 136.0 219.0 L 136.0 463.5 L 508.0 463.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 640.0 541.0 L 777.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 536.5 271.0 L 536.5 577.5 L 928.0 577.5 L 928.0 524.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 928.0 524.0 L 777.0 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1075.0 288.0 L 1075.0 545.0 L 777.0 545.0 L 777.0 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1245.0 218.5 L -4.0 218.5 L -4.0 455.0 L 1046.0 455.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 777.0 760.0 L 776.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 776.5 996.0 L 776.5 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 776.5 1094.0 L 776.5 540.5 L 797.0 540.5 L 797.0 167.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="689" y="167" width="216" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="689" y1="173" x2="689" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="797.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉 (2-3 路 RGB)</text>
-<rect x="508" y="386" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="508" y1="392" x2="508" y2="535" stroke="#0b57d0" stroke-width="3"/>
-<text x="640.0" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">统一 token 化 (核心)</text>
-<text x="640.0" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VQ 视觉 token + FAST</text>
-<text x="640.0" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">动作 token (1024 词表)</text>
-<text x="640.0" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">共享离散词表, 无模态特定分支</text>
-<rect x="234" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="173" x2="234" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="309.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
-<rect x="46" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="121.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作示教</text>
-<rect x="646" y="622" width="262" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="646" y1="628" x2="646" y2="754" stroke="#1a7f37" stroke-width="3"/>
-<text x="777.0" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自回归 Transformer</text>
-<text x="777.0" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(Emu3 初始化)</text>
-<text x="777.0" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">单一 next-token 目标联合建模</text>
-<rect x="422" y="166" width="229" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="422" y1="172" x2="422" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="536.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">622K 机器人操作视频</text>
-<text x="536.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(无语言/动作标注)</text>
-<rect x="810" y="386" width="236" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="810" y1="392" x2="810" y2="518" stroke="#57606a" stroke-width="3"/>
-<text x="928.0" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">世界模型后训练</text>
-<text x="928.0" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仅监督 vision token</text>
-<text x="928.0" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">预测下一帧学因果动态</text>
-<rect x="943" y="150" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="943" y1="156" x2="943" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="1075.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_AR: 统一 next-</text>
-<text x="1075.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">token NLL</text>
-<text x="1075.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">模态权重 1 : 1 : 2</text>
-<rect x="1245" y="166" width="262" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1245" y1="172" x2="1245" y2="265" stroke="#8a5a00" stroke-width="3"/>
-<text x="1376.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_WM: 下一帧</text>
-<text x="1376.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">vision token 预测</text>
-<rect x="647" y="858" width="259" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="647" y1="864" x2="647" y2="990" stroke="#1a7f37" stroke-width="3"/>
-<text x="776.5" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">下游策略学习</text>
-<text x="776.5" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">各基准 8k-20k 步任务</text>
-<text x="776.5" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">微调</text>
-<rect x="646" y="1094" width="261" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="646" y1="1100" x2="646" y2="1226" stroke="#8250df" stroke-width="3"/>
-<text x="776.5" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 token 预测</text>
-<text x="776.5" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LIBERO 95.5% vs pi0-</text>
-<text x="776.5" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">FAST 85.5%</text>
-<text x="852.5" y="565.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">因果先验注入权重 (长程任务的关键)</text>
-<text x="786.8" y="622.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">逐 chunk 重观测 (LIBERO/CAL…</text>
-<text x="1507" y="1270" font-size="10.5" fill="#8c959f" text-anchor="end">unified-vla · arXiv 2506.19850 · v3 auto</text>
+<path d="M 880.0 291.0 L 701.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 412.0 239.0 L 569.0 509.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 202.0 239.0 L 142.0 239.0 L 142.0 509.5 L 569.0 509.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 701.0 587.0 L 855.0 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 587.5 291.0 L 587.5 430.5 L 1025.0 430.5 L 1025.0 570.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1025.0 570.0 L 855.0 697.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1188.0 306.0 L 1188.0 591.5 L 855.0 591.5 L 855.0 697.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1394.0 238.5 L 1143.0 501.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 855.0 835.0 L 854.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 854.5 1099.0 L 854.5 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 854.5 1225.0 L 854.5 616.0 L 880.0 616.0 L 880.0 187.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="772" y="187" width="216" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="772" y1="193" x2="772" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="880.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉 (2-3 路 RGB)</text>
+<rect x="569" y="432" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="569" y1="438" x2="569" y2="581" stroke="#0b57d0" stroke-width="3"/>
+<text x="701.0" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">统一 token 化 (核心)</text>
+<text x="701.0" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VQ 视觉 token + FAST</text>
+<text x="701.0" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">动作 token (1024 词表)</text>
+<text x="701.0" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">共享离散词表, 无模态特定分支</text>
+<rect x="262" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="193" x2="262" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="337.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
+<rect x="52" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="127.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作示教</text>
+<rect x="724" y="697" width="262" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="724" y1="703" x2="724" y2="829" stroke="#1a7f37" stroke-width="3"/>
+<text x="855.0" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自回归 Transformer</text>
+<text x="855.0" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(Emu3 初始化)</text>
+<text x="855.0" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">单一 next-token 目标联合建模</text>
+<rect x="473" y="186" width="229" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="473" y1="192" x2="473" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="587.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">622K 机器人操作视频</text>
+<text x="587.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(无语言/动作标注)</text>
+<rect x="907" y="432" width="236" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="907" y1="438" x2="907" y2="564" stroke="#57606a" stroke-width="3"/>
+<text x="1025.0" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">世界模型后训练</text>
+<text x="1025.0" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仅监督 vision token</text>
+<text x="1025.0" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">预测下一帧学因果动态</text>
+<rect x="1056" y="168" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1056" y1="174" x2="1056" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="1188.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_AR: 统一 next-</text>
+<text x="1188.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">token NLL</text>
+<text x="1188.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">模态权重 1 : 1 : 2</text>
+<rect x="1394" y="186" width="262" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1394" y1="192" x2="1394" y2="285" stroke="#8a5a00" stroke-width="3"/>
+<text x="1525.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_WM: 下一帧</text>
+<text x="1525.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">vision token 预测</text>
+<rect x="725" y="961" width="259" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="725" y1="967" x2="725" y2="1093" stroke="#1a7f37" stroke-width="3"/>
+<text x="854.5" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">下游策略学习</text>
+<text x="854.5" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">各基准 8k-20k 步任务</text>
+<text x="854.5" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">微调</text>
+<rect x="724" y="1225" width="261" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="724" y1="1231" x2="724" y2="1357" stroke="#8250df" stroke-width="3"/>
+<text x="854.5" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 token 预测</text>
+<text x="854.5" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LIBERO 95.5% vs pi0-</text>
+<text x="854.5" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">FAST 85.5%</text>
+<text x="940.0" y="625.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">因果先验注入权重 (长程任务的关键)</text>
+<text x="867.2" y="698.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">逐 chunk 重观测 (LIBERO/CAL…</text>
+<text x="1660" y="1405" font-size="10.5" fill="#8c959f" text-anchor="end">unified-vla · arXiv 2506.19850 · v3 auto</text>
 </svg>

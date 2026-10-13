@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="616" height="1604" viewBox="24 98 616 1604" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="1776" viewBox="26 112 660 1776" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>facet0</title>
-<rect x="24" y="98" width="616" height="1604" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">facet0</text>
-<text x="618" y="128" font-size="12" fill="#57606a" text-anchor="end">PaliGemma 视觉-语言骨干 + flow-matching 动作专家联合生成 50 步 Cartesian 动作块与"该动作预期诱发的腕部 wrench"（$Y\in\</text>
+<rect x="26" y="112" width="660" height="1776" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">facet0</text>
+<text x="664" y="142" font-size="12" fill="#57606a" text-anchor="end">PaliGemma 视觉-语言骨干 + flow-matching 动作专家联合生成 50 步 Cartesian 动作块与"该动作预期诱发的腕部 wrench"（$Y\in\</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,80 +10,80 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 178.5 271.0 L 332.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 449.5 288.0 L 449.5 528.0 L 332.0 528.0 L 332.0 588.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 332.0 490.0 L 332.0 588.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 332.0 693.0 L 482.0 791.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 482.0 929.0 L 482.5 1027.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 482.5 1199.0 L 483.0 1263.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 483.0 1435.0 L 465.5 1499.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 413.3 1654.0 L 413.3 1471.5 L 508.4 1471.5 L 508.4 929.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 332.0 693.0 L 180.5 791.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 180.5 929.0 L 178.0 1027.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 348.0 1113.0 L 310.0 1332.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 178.0 1199.0 L 178.0 1263.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 178.0 1401.0 L 182.5 1516.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="80" y="167" width="197" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="80" y1="173" x2="80" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="178.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">3 路 RGB + 指令</text>
-<rect x="214" y="386" width="236" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="214" y1="392" x2="214" y2="484" stroke="#57606a" stroke-width="3"/>
-<text x="332.0" y="442.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PaliGemma VL 编码器</text>
-<rect x="315" y="150" width="269" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="315" y1="156" x2="315" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="449.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">wrench 历史 K = 10</text>
-<text x="449.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ 13 维状态 (位姿/夹爪/</text>
-<text x="449.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">wrench)</text>
-<rect x="206" y="588" width="252" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="206" y1="594" x2="206" y2="687" stroke="#0969da" stroke-width="3"/>
-<text x="332.0" y="635.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语义-接触表征 h_c</text>
-<text x="332.0" y="653.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">结构化注意力防目标泄漏</text>
-<rect x="350" y="791" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="350" y1="797" x2="350" y2="923" stroke="#1a7f37" stroke-width="3"/>
-<text x="482.0" y="845.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">flow-matching 动作专家</text>
-<text x="482.0" y="863.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(约 1000h ManuFacet-1K</text>
-<text x="482.0" y="883.5" font-size="11.5" fill="#57606a" text-anchor="middle">训练)</text>
-<rect x="348" y="1027" width="269" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="1033" x2="348" y2="1193" stroke="#0b57d0" stroke-width="3"/>
-<text x="482.5" y="1083.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">联合块 Y (核心)</text>
-<text x="482.5" y="1101.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">50 步动作 + 预期诱发</text>
-<text x="482.5" y="1121.5" font-size="11.5" fill="#57606a" text-anchor="middle">wrench 按行配对</text>
-<text x="482.5" y="1136.5" font-size="11.5" fill="#57606a" text-anchor="middle">(一步错位的因果约定)</text>
-<text x="482.5" y="1151.5" font-size="11.5" fill="#57606a" text-anchor="middle">动作被执行, wrench 始终是预测量</text>
-<rect x="348" y="1263" width="270" height="172" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="1269" x2="348" y2="1429" stroke="#8a5a00" stroke-width="3"/>
-<text x="483.0" y="1319.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">分布式 Action-Wrench</text>
-<text x="483.0" y="1337.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Critic</text>
-<text x="483.0" y="1357.5" font-size="11.5" fill="#57606a" text-anchor="middle">区分几何进度相同但接触结局不同的</text>
-<text x="483.0" y="1372.5" font-size="11.5" fill="#57606a" text-anchor="middle">运动</text>
-<text x="483.0" y="1387.5" font-size="11.5" fill="#57606a" text-anchor="middle">(干净插入 vs 卡死) + 4 辅助头</text>
-<rect x="335" y="1499" width="261" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="335" y1="1505" x2="335" y2="1648" stroke="#8a5a00" stroke-width="3"/>
-<text x="465.5" y="1554.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">contact-selective</text>
-<text x="465.5" y="1572.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">credit</text>
-<text x="465.5" y="1592.5" font-size="11.5" fill="#57606a" text-anchor="middle">无折扣短视野 delta^(N)</text>
-<text x="465.5" y="1607.5" font-size="11.5" fill="#57606a" text-anchor="middle">按接触 regime 分桶取 top 分位</text>
-<rect x="50" y="791" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="50" y1="797" x2="50" y2="923" stroke="#57606a" stroke-width="3"/>
-<text x="180.5" y="845.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">冻结瓶颈编码器 E_z</text>
-<text x="180.5" y="863.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">-&gt; FACET token (1024</text>
-<text x="180.5" y="883.5" font-size="11.5" fill="#57606a" text-anchor="middle">维)</text>
-<rect x="46" y="1027" width="264" height="172" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1033" x2="46" y2="1193" stroke="#1a7f37" stroke-width="3"/>
-<text x="178.0" y="1083.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">有界局部 actor (TD3+BC</text>
-<text x="178.0" y="1101.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">)</text>
-<text x="178.0" y="1121.5" font-size="11.5" fill="#57606a" text-anchor="middle">tanh 映射到任务盒 [a_min,</text>
-<text x="178.0" y="1136.5" font-size="11.5" fill="#57606a" text-anchor="middle">a_max]</text>
-<text x="178.0" y="1151.5" font-size="11.5" fill="#57606a" text-anchor="middle">只更新 6.6% 参数 (新零件适配)</text>
-<rect x="46" y="1263" width="264" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1269" x2="46" y2="1395" stroke="#8250df" stroke-width="3"/>
-<text x="178.0" y="1317.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">安全算子 S_task</text>
-<text x="178.0" y="1335.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">夹剪工作空间 + 单步位移</text>
-<text x="178.0" y="1355.5" font-size="11.5" fill="#57606a" text-anchor="middle">上限</text>
-<rect x="68" y="1516" width="229" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="68" y1="1522" x2="68" y2="1615" stroke="#8250df" stroke-width="3"/>
-<text x="182.5" y="1563.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">200 Hz 柔顺控制器</text>
-<text x="182.5" y="1581.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">闭在实测腕部 F/T 上</text>
-<text x="460.9" y="1283.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">tagged instruction 加权 fl…</text>
-<text x="618" y="1692" font-size="10.5" fill="#8c959f" text-anchor="end">facet0 · arXiv 2609.01596 · v3 auto</text>
+<path d="M 188.5 291.0 L 358.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 487.5 306.0 L 487.5 572.5 L 357.0 572.5 L 357.0 659.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 358.0 536.0 L 357.0 659.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 357.0 764.0 L 524.0 886.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 524.0 1024.0 L 524.5 1150.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 524.5 1322.0 L 525.0 1415.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 525.0 1587.0 L 505.5 1679.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 453.3 1834.0 L 453.3 1609.0 L 550.4 1609.0 L 550.4 1024.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 357.0 764.0 L 186.5 886.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 186.5 1024.0 L 184.0 1150.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 390.0 1236.0 L 316.0 1484.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 184.0 1322.0 L 184.0 1415.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 184.0 1553.0 L 190.5 1698.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="90" y="187" width="197" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="90" y1="193" x2="90" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="188.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">3 路 RGB + 指令</text>
+<rect x="240" y="432" width="236" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="240" y1="438" x2="240" y2="530" stroke="#57606a" stroke-width="3"/>
+<text x="358.0" y="487.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PaliGemma VL 编码器</text>
+<rect x="353" y="168" width="269" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="353" y1="174" x2="353" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="487.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">wrench 历史 K = 10</text>
+<text x="487.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+ 13 维状态 (位姿/夹爪/</text>
+<text x="487.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">wrench)</text>
+<rect x="231" y="659" width="252" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="231" y1="665" x2="231" y2="758" stroke="#0969da" stroke-width="3"/>
+<text x="357.0" y="704.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语义-接触表征 h_c</text>
+<text x="357.0" y="725.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">结构化注意力防目标泄漏</text>
+<rect x="392" y="886" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="392" y1="892" x2="392" y2="1018" stroke="#1a7f37" stroke-width="3"/>
+<text x="524.0" y="935.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">flow-matching 动作专家</text>
+<text x="524.0" y="956.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(约 1000h ManuFacet-1K</text>
+<text x="524.0" y="985.25" font-size="12.5" fill="#57606a" text-anchor="middle">训练)</text>
+<rect x="390" y="1150" width="269" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="1156" x2="390" y2="1316" stroke="#0b57d0" stroke-width="3"/>
+<text x="524.5" y="1198.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">联合块 Y (核心)</text>
+<text x="524.5" y="1219.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">50 步动作 + 预期诱发</text>
+<text x="524.5" y="1248.75" font-size="12.5" fill="#57606a" text-anchor="middle">wrench 按行配对</text>
+<text x="524.5" y="1266.25" font-size="12.5" fill="#57606a" text-anchor="middle">(一步错位的因果约定)</text>
+<text x="524.5" y="1283.75" font-size="12.5" fill="#57606a" text-anchor="middle">动作被执行, wrench 始终是预测量</text>
+<rect x="390" y="1415" width="270" height="172" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="1421" x2="390" y2="1581" stroke="#8a5a00" stroke-width="3"/>
+<text x="525.0" y="1463.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">分布式 Action-Wrench</text>
+<text x="525.0" y="1484.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Critic</text>
+<text x="525.0" y="1513.75" font-size="12.5" fill="#57606a" text-anchor="middle">区分几何进度相同但接触结局不同的</text>
+<text x="525.0" y="1531.25" font-size="12.5" fill="#57606a" text-anchor="middle">运动</text>
+<text x="525.0" y="1548.75" font-size="12.5" fill="#57606a" text-anchor="middle">(干净插入 vs 卡死) + 4 辅助头</text>
+<rect x="375" y="1679" width="261" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="375" y1="1685" x2="375" y2="1828" stroke="#8a5a00" stroke-width="3"/>
+<text x="505.5" y="1728.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">contact-selective</text>
+<text x="505.5" y="1749.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">credit</text>
+<text x="505.5" y="1778.0" font-size="12.5" fill="#57606a" text-anchor="middle">无折扣短视野 delta^(N)</text>
+<text x="505.5" y="1795.5" font-size="12.5" fill="#57606a" text-anchor="middle">按接触 regime 分桶取 top 分位</text>
+<rect x="56" y="886" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="56" y1="892" x2="56" y2="1018" stroke="#57606a" stroke-width="3"/>
+<text x="186.5" y="935.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">冻结瓶颈编码器 E_z</text>
+<text x="186.5" y="956.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">-&gt; FACET token (1024</text>
+<text x="186.5" y="985.25" font-size="12.5" fill="#57606a" text-anchor="middle">维)</text>
+<rect x="52" y="1150" width="264" height="172" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1156" x2="52" y2="1316" stroke="#1a7f37" stroke-width="3"/>
+<text x="184.0" y="1198.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">有界局部 actor (TD3+BC</text>
+<text x="184.0" y="1219.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">)</text>
+<text x="184.0" y="1248.75" font-size="12.5" fill="#57606a" text-anchor="middle">tanh 映射到任务盒 [a_min,</text>
+<text x="184.0" y="1266.25" font-size="12.5" fill="#57606a" text-anchor="middle">a_max]</text>
+<text x="184.0" y="1283.75" font-size="12.5" fill="#57606a" text-anchor="middle">只更新 6.6% 参数 (新零件适配)</text>
+<rect x="52" y="1415" width="264" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1421" x2="52" y2="1547" stroke="#8250df" stroke-width="3"/>
+<text x="184.0" y="1464.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">安全算子 S_task</text>
+<text x="184.0" y="1485.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">夹剪工作空间 + 单步位移</text>
+<text x="184.0" y="1514.25" font-size="12.5" fill="#57606a" text-anchor="middle">上限</text>
+<rect x="76" y="1698" width="229" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="76" y1="1704" x2="76" y2="1797" stroke="#8250df" stroke-width="3"/>
+<text x="190.5" y="1743.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">200 Hz 柔顺控制器</text>
+<text x="190.5" y="1764.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">闭在实测腕部 F/T 上</text>
+<text x="501.9" y="1421.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">tagged instruction 加权 fl…</text>
+<text x="664" y="1876" font-size="10.5" fill="#8c959f" text-anchor="end">facet0 · arXiv 2609.01596 · v3 auto</text>
 </svg>

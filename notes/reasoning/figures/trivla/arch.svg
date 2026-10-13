@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1111" height="1218" viewBox="24 98 1111 1218" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1229" height="1350" viewBox="26 112 1229 1350" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>trivla</title>
-<rect x="24" y="98" width="1111" height="1218" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">trivla</text>
-<text x="1113" y="128" font-size="12" fill="#57606a" text-anchor="end">TriVLA 受认知神经科学的「情景记忆」理论启发，提出首个 VLA 中的三元系统架构——VLM（System 2）负责语义接地、视频扩散模型（System 3）负责时序动态感</text>
+<rect x="26" y="112" width="1229" height="1350" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">trivla</text>
+<text x="1233" y="142" font-size="12" fill="#57606a" text-anchor="end">TriVLA 受认知神经科学的「情景记忆」理论启发，提出首个 VLA 中的三元系统架构——VLM（System 2）负责语义接地、视频扩散模型（System 3）负责时序动态感</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,61 +10,61 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="300" y="288" width="559" height="193" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="314" y="308" font-size="11.5" font-weight="600" fill="#57606a">System 2 语义接地 27.5ms · System 3 时序动态感知 85.9ms</text>
-<rect x="442" y="914" width="275" height="175" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="456" y="934" font-size="11.5" font-weight="600" fill="#57606a">System 1 动作生成</text>
-<path d="M 279.0 202.0 L 219.0 202.0 L 219.0 404.0 L 833.0 404.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 467.0 202.0 L 317.0 202.0 L 317.0 404.0 L 833.0 404.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 963.0 202.0 L 833.0 404.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 279.0 202.0 L 326.0 404.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 732.0 456.0 L 728.5 555.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 459.5 457.0 L 429.5 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 429.5 660.0 L 579.5 758.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 728.5 660.0 L 728.5 900.5 L 579.5 900.5 L 579.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 579.5 863.0 L 579.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 579.5 1065.0 L 580.0 1163.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 606.0 254.0 L 459.5 352.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 835.0 254.0 L 835.0 697.5 L 579.5 697.5 L 579.5 961.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="150" width="233" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="162.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">双视角 RGB 观测&lt;br/</text>
-<rect x="317" y="150" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="317" y1="156" x2="317" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="392.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
-<rect x="963" y="150" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="963" y1="156" x2="963" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="1038.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人状态</text>
-<rect x="631" y="352" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="631" y1="358" x2="631" y2="450" stroke="#0b57d0" stroke-width="3"/>
-<text x="732.0" y="408.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Eagle-2 VLM&lt;br/</text>
-<rect x="326" y="352" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="326" y1="358" x2="326" y2="451" stroke="#0b57d0" stroke-width="3"/>
-<text x="459.5" y="399.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">微调 Stable Video</text>
-<text x="459.5" y="417.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Diffusion&lt;br/</text>
-<rect x="468" y="961" width="223" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="468" y1="967" x2="468" y2="1059" stroke="#0b57d0" stroke-width="3"/>
-<text x="579.5" y="1017.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DiT 流匹配策略&lt;br/</text>
-<rect x="598" y="555" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="598" y1="561" x2="598" y2="654" stroke="#0b57d0" stroke-width="3"/>
-<text x="728.5" y="602.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语义特征 Q_vl + 状态</text>
-<text x="728.5" y="620.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">token Q_s</text>
-<rect x="300" y="556" width="259" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="300" y1="562" x2="300" y2="654" stroke="#0b57d0" stroke-width="3"/>
-<text x="429.5" y="612.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测性时序特征 F_p&lt;br/</text>
-<rect x="446" y="758" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="446" y1="764" x2="446" y2="857" stroke="#0b57d0" stroke-width="3"/>
-<text x="579.5" y="805.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可学习 token 时空注意力</text>
-<text x="579.5" y="823.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">压缩&lt;br/</text>
-<rect x="448" y="1163" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="448" y1="1169" x2="448" y2="1262" stroke="#0b57d0" stroke-width="3"/>
-<text x="580.0" y="1210.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">KINOVA 机器人 约 36Hz</text>
-<text x="580.0" y="1228.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作</text>
-<rect x="505" y="150" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="505" y1="156" x2="505" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="606.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">扩散重建损失&lt;br/</text>
-<rect x="745" y="150" width="180" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="745" y1="156" x2="745" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="835.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">流匹配动作损失</text>
-<text x="1113" y="1306" font-size="10.5" fill="#8c959f" text-anchor="end">trivla · arXiv 2507.01424 · v3 auto</text>
+<rect x="336" y="323" width="559" height="193" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="350" y="343" font-size="11.5" font-weight="600" fill="#57606a">System 2 语义接地 27.5ms · System 3 时序动态感知 85.9ms</text>
+<rect x="495" y="1024" width="275" height="175" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="509" y="1044" font-size="11.5" font-weight="600" fill="#57606a">System 1 动作生成</text>
+<path d="M 285.0 220.0 L 225.0 220.0 L 225.0 446.0 L 909.0 446.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 505.0 220.0 L 355.0 220.0 L 355.0 446.0 L 909.0 446.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1079.0 220.0 L 909.0 446.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 285.0 220.0 L 365.0 446.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 808.0 498.0 L 800.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 498.5 499.0 L 465.5 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 465.5 727.0 L 633.5 849.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 800.5 727.0 L 800.5 991.5 L 635.5 991.5 L 635.5 1076.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 633.5 954.0 L 635.5 1076.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 635.5 1180.0 L 634.0 1303.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 667.0 272.0 L 498.5 394.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 924.0 272.0 L 924.0 764.0 L 635.5 764.0 L 635.5 1076.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="168" width="233" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="168.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">双视角 RGB 观测&lt;br/</text>
+<rect x="355" y="168" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="355" y1="174" x2="355" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="430.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
+<rect x="1079" y="168" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1079" y1="174" x2="1079" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="1154.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人状态</text>
+<rect x="707" y="394" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="707" y1="400" x2="707" y2="492" stroke="#0b57d0" stroke-width="3"/>
+<text x="808.0" y="449.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Eagle-2 VLM&lt;br/</text>
+<rect x="365" y="394" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="365" y1="400" x2="365" y2="493" stroke="#0b57d0" stroke-width="3"/>
+<text x="498.5" y="439.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">微调 Stable Video</text>
+<text x="498.5" y="460.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Diffusion&lt;br/</text>
+<rect x="524" y="1076" width="223" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="524" y1="1082" x2="524" y2="1174" stroke="#0b57d0" stroke-width="3"/>
+<text x="635.5" y="1131.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DiT 流匹配策略&lt;br/</text>
+<rect x="670" y="622" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="670" y1="628" x2="670" y2="721" stroke="#0b57d0" stroke-width="3"/>
+<text x="800.5" y="667.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语义特征 Q_vl + 状态</text>
+<text x="800.5" y="688.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">token Q_s</text>
+<rect x="336" y="623" width="259" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="336" y1="629" x2="336" y2="721" stroke="#0b57d0" stroke-width="3"/>
+<text x="465.5" y="678.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测性时序特征 F_p&lt;br/</text>
+<rect x="500" y="849" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="500" y1="855" x2="500" y2="948" stroke="#0b57d0" stroke-width="3"/>
+<text x="633.5" y="894.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可学习 token 时空注意力</text>
+<text x="633.5" y="915.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">压缩&lt;br/</text>
+<rect x="502" y="1303" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="502" y1="1309" x2="502" y2="1402" stroke="#0b57d0" stroke-width="3"/>
+<text x="634.0" y="1348.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">KINOVA 机器人 约 36Hz</text>
+<text x="634.0" y="1369.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作</text>
+<rect x="566" y="168" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="566" y1="174" x2="566" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="667.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">扩散重建损失&lt;br/</text>
+<rect x="834" y="168" width="180" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="834" y1="174" x2="834" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="924.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">流匹配动作损失</text>
+<text x="1233" y="1450" font-size="10.5" fill="#8c959f" text-anchor="end">trivla · arXiv 2507.01424 · v3 auto</text>
 </svg>

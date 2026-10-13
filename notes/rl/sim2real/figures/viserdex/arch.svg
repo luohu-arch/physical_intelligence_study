@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="603" height="1637" viewBox="24 98 603 1637" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="646" height="1813" viewBox="26 112 646 1813" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>viserdex</title>
-<rect x="24" y="98" width="603" height="1637" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">viserdex</text>
-<text x="605" y="128" font-size="12" fill="#57606a" text-anchor="end">ViserDex 实现仅用单目 RGB（无深度、无物体 pose 真值）的灵巧手在操作零样本 Sim2Real。核心创新：3DGS 渲染替代昂贵光线追踪，在 Gaussian </text>
+<rect x="26" y="112" width="646" height="1813" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">viserdex</text>
+<text x="650" y="142" font-size="12" fill="#57606a" text-anchor="end">ViserDex 实现仅用单目 RGB（无深度、无物体 pose 真值）的灵巧手在操作零样本 Sim2Real。核心创新：3DGS 渲染替代昂贵光线追踪，在 Gaussian </text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,56 +10,56 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 174.0 288.0 L 325.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 325.5 490.0 L 325.5 588.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 325.5 739.0 L 325.5 824.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 472.5 305.0 L 472.5 800.5 L 325.5 800.5 L 325.5 1296.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<path d="M 325.5 962.0 L 325.5 1060.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 325.5 1215.0 L 325.5 1296.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 325.5 1451.0 L 325.0 1532.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="150" width="256" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="174.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">物体 3D 扫描</text>
-<text x="174.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Polycam + SAM2 微调</text>
-<text x="174.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">分割</text>
-<rect x="195" y="386" width="261" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="195" y1="392" x2="195" y2="484" stroke="#0969da" stroke-width="3"/>
-<text x="325.5" y="442.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">3D Gaussian Splatting</text>
-<rect x="192" y="588" width="267" height="151" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="192" y1="594" x2="192" y2="733" stroke="#0b57d0" stroke-width="3"/>
-<text x="325.5" y="643.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">渲染前增强 (核心)</text>
-<text x="325.5" y="663.0" font-size="11.5" fill="#57606a" text-anchor="middle">扰动 SH 系数 = 光源层面</text>
-<text x="325.5" y="678.0" font-size="11.5" fill="#57606a" text-anchor="middle">物理一致的光照变化</text>
-<text x="325.5" y="693.0" font-size="11.5" fill="#57606a" text-anchor="middle">保真+多样性兼得 (3DGS)</text>
-<rect x="191" y="824" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="191" y1="830" x2="191" y2="956" stroke="#57606a" stroke-width="3"/>
-<text x="325.5" y="878.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仿真渲染管线</text>
-<text x="325.5" y="896.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">比光线追踪快 1.6x, 仅</text>
-<text x="325.5" y="916.5" font-size="11.5" fill="#57606a" text-anchor="middle">12GB 显存</text>
-<rect x="340" y="150" width="265" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="340" y1="156" x2="340" y2="299" stroke="#57606a" stroke-width="3"/>
-<text x="472.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">特权教师 (PPO)</text>
-<text x="472.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">吃全状态: 物体速度 / 指</text>
-<text x="472.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">尖接触力</text>
-<text x="472.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">(24,576 并行 env 训练 26h)</text>
-<rect x="191" y="1296" width="269" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="191" y1="1302" x2="191" y2="1445" stroke="#1a7f37" stroke-width="3"/>
-<text x="325.5" y="1351.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">recurrent student 策略</text>
-<text x="325.5" y="1369.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仅单目 RGB + 本体 (无深</text>
-<text x="325.5" y="1389.5" font-size="11.5" fill="#57606a" text-anchor="middle">度 / 无 pose 真值)</text>
-<text x="325.5" y="1404.5" font-size="11.5" fill="#57606a" text-anchor="middle">4,096 env 蒸馏 16h</text>
-<rect x="191" y="1060" width="269" height="155" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="191" y1="1066" x2="191" y2="1209" stroke="#bf3989" stroke-width="3"/>
-<text x="325.5" y="1115.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">recurrent belief</text>
-<text x="325.5" y="1133.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">encoder</text>
-<text x="325.5" y="1153.5" font-size="11.5" fill="#57606a" text-anchor="middle">GRU 时序滤波估物体 pose</text>
-<text x="325.5" y="1168.5" font-size="11.5" fill="#57606a" text-anchor="middle">拒掉 180 度翻转类灾难错误</text>
-<rect x="192" y="1532" width="266" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="192" y1="1538" x2="192" y2="1681" stroke="#8250df" stroke-width="3"/>
-<text x="325.0" y="1587.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Allegro 16-DoF 零样本</text>
-<text x="325.0" y="1605.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">部署</text>
-<text x="325.0" y="1625.5" font-size="11.5" fill="#57606a" text-anchor="middle">30 Hz 推理 + 300 Hz 关节 PD</text>
-<text x="325.0" y="1640.5" font-size="11.5" fill="#57606a" text-anchor="middle">平均 25+ 连续成功</text>
-<text x="399.0" y="792.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">BC 蒸馏 + 状态重建</text>
-<text x="605" y="1725" font-size="10.5" fill="#8c959f" text-anchor="end">viserdex · arXiv 2604.11138 · v3 auto</text>
+<path d="M 180.0 306.0 L 348.5 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 348.5 536.0 L 348.5 659.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 348.5 810.0 L 348.5 923.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 513.5 323.0 L 513.5 887.5 L 348.5 887.5 L 348.5 1452.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 348.5 1061.0 L 348.5 1187.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 348.5 1342.0 L 348.5 1452.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 348.5 1607.0 L 348.0 1716.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="168" width="256" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="180.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">物体 3D 扫描</text>
+<text x="180.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Polycam + SAM2 微调</text>
+<text x="180.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">分割</text>
+<rect x="218" y="432" width="261" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="218" y1="438" x2="218" y2="530" stroke="#0969da" stroke-width="3"/>
+<text x="348.5" y="487.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">3D Gaussian Splatting</text>
+<rect x="215" y="659" width="267" height="151" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="215" y1="665" x2="215" y2="804" stroke="#0b57d0" stroke-width="3"/>
+<text x="348.5" y="707.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">渲染前增强 (核心)</text>
+<text x="348.5" y="736.75" font-size="12.5" fill="#57606a" text-anchor="middle">扰动 SH 系数 = 光源层面</text>
+<text x="348.5" y="754.25" font-size="12.5" fill="#57606a" text-anchor="middle">物理一致的光照变化</text>
+<text x="348.5" y="771.75" font-size="12.5" fill="#57606a" text-anchor="middle">保真+多样性兼得 (3DGS)</text>
+<rect x="214" y="923" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="214" y1="929" x2="214" y2="1055" stroke="#57606a" stroke-width="3"/>
+<text x="348.5" y="972.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仿真渲染管线</text>
+<text x="348.5" y="993.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">比光线追踪快 1.6x, 仅</text>
+<text x="348.5" y="1022.25" font-size="12.5" fill="#57606a" text-anchor="middle">12GB 显存</text>
+<rect x="381" y="168" width="265" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="381" y1="174" x2="381" y2="317" stroke="#57606a" stroke-width="3"/>
+<text x="513.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">特权教师 (PPO)</text>
+<text x="513.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">吃全状态: 物体速度 / 指</text>
+<text x="513.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">尖接触力</text>
+<text x="513.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">(24,576 并行 env 训练 26h)</text>
+<rect x="214" y="1452" width="269" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="214" y1="1458" x2="214" y2="1601" stroke="#1a7f37" stroke-width="3"/>
+<text x="348.5" y="1501.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">recurrent student 策略</text>
+<text x="348.5" y="1522.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仅单目 RGB + 本体 (无深</text>
+<text x="348.5" y="1551.0" font-size="12.5" fill="#57606a" text-anchor="middle">度 / 无 pose 真值)</text>
+<text x="348.5" y="1568.5" font-size="12.5" fill="#57606a" text-anchor="middle">4,096 env 蒸馏 16h</text>
+<rect x="214" y="1187" width="269" height="155" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="214" y1="1193" x2="214" y2="1336" stroke="#bf3989" stroke-width="3"/>
+<text x="348.5" y="1236.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">recurrent belief</text>
+<text x="348.5" y="1257.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">encoder</text>
+<text x="348.5" y="1286.0" font-size="12.5" fill="#57606a" text-anchor="middle">GRU 时序滤波估物体 pose</text>
+<text x="348.5" y="1303.5" font-size="12.5" fill="#57606a" text-anchor="middle">拒掉 180 度翻转类灾难错误</text>
+<rect x="215" y="1716" width="266" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="215" y1="1722" x2="215" y2="1865" stroke="#8250df" stroke-width="3"/>
+<text x="348.0" y="1765.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Allegro 16-DoF 零样本</text>
+<text x="348.0" y="1786.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">部署</text>
+<text x="348.0" y="1815.0" font-size="12.5" fill="#57606a" text-anchor="middle">30 Hz 推理 + 300 Hz 关节 PD</text>
+<text x="348.0" y="1832.5" font-size="12.5" fill="#57606a" text-anchor="middle">平均 25+ 连续成功</text>
+<text x="431.0" y="879.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">BC 蒸馏 + 状态重建</text>
+<text x="650" y="1913" font-size="10.5" fill="#8c959f" text-anchor="end">viserdex · arXiv 2604.11138 · v3 auto</text>
 </svg>

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="841" height="1418" viewBox="24 98 841 1418" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="912" height="1570" viewBox="26 112 912 1570" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>rt-2</title>
-<rect x="24" y="98" width="841" height="1418" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">rt-2</text>
-<text x="843" y="128" font-size="12" fill="#57606a" text-anchor="end">RT-2 不设计任何新架构、不加任何动作专用层，只把机器人动作按 RT-1 方式切成整数 token、当作普通文本放进 VLM 的训练目标里 co-fine-tune（PaLI</text>
+<rect x="26" y="112" width="912" height="1570" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">rt-2</text>
+<text x="916" y="142" font-size="12" fill="#57606a" text-anchor="end">RT-2 不设计任何新架构、不加任何动作专用层，只把机器人动作按 RT-1 方式切成整数 token、当作普通文本放进 VLM 的训练目标里 co-fine-tune（PaLI</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,63 +10,63 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 439.5 271.0 L 444.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 300.0 219.0 L 312.0 463.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 579.0 219.0 L 576.0 463.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 444.0 541.0 L 292.0 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 444.0 541.0 L 594.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 292.0 760.0 L 444.5 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 594.5 760.0 L 444.5 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 444.5 1030.0 L 444.5 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 444.5 1232.0 L 444.5 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 392.7 1468.0 L 392.7 1249.0 L 471.2 1249.0 L 471.2 1030.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="338" y="166" width="203" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="338" y1="172" x2="338" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="439.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">WebLI 网页图文对</text>
-<text x="439.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">10B 过滤到 1B</text>
-<rect x="312" y="386" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="312" y1="392" x2="312" y2="535" stroke="#0b57d0" stroke-width="3"/>
-<text x="444.0" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">co-fine-tune: 动作即一</text>
-<text x="444.0" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">门外语 (核心)</text>
-<text x="444.0" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">动作 token 与 web 数据混采</text>
-<text x="444.0" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">机器人数据占 50% / 66%, 防遗忘</text>
-<rect x="46" y="150" width="254" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="173.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RT-1 真机 episode</text>
-<text x="173.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">130k, 13 台机器人 17</text>
-<text x="173.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">个月</text>
-<rect x="579" y="150" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="579" y1="156" x2="579" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="711.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">统一 next-token 交叉熵</text>
-<text x="711.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(等价行为克隆, 零架构改</text>
-<text x="711.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">动)</text>
-<rect x="161" y="622" width="262" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="161" y1="628" x2="161" y2="754" stroke="#1a7f37" stroke-width="3"/>
-<text x="292.0" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RT-2 PaLI-X 5B / 55B</text>
-<text x="292.0" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">1000 内整数 token 直接</text>
-<text x="292.0" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">复用</text>
-<rect x="461" y="622" width="267" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="461" y1="628" x2="461" y2="754" stroke="#1a7f37" stroke-width="3"/>
-<text x="594.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RT-2 PaLM-E 12B</text>
-<text x="594.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">覆写词表 256 个最低频</text>
-<text x="594.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">token</text>
-<rect x="311" y="858" width="267" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="311" y1="864" x2="311" y2="1024" stroke="#0b57d0" stroke-width="3"/>
-<text x="444.5" y="914.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">output constraint 推理</text>
-<text x="444.5" y="932.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">约束</text>
-<text x="444.5" y="952.5" font-size="11.5" fill="#57606a" text-anchor="middle">机器人 prompt 只在合法动作</text>
-<text x="444.5" y="967.5" font-size="11.5" fill="#57606a" text-anchor="middle">token 内采样</text>
-<text x="444.5" y="982.5" font-size="11.5" fill="#57606a" text-anchor="middle">普通 VQA 任务仍开放全词表</text>
-<rect x="315" y="1094" width="259" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="315" y1="1100" x2="315" y2="1226" stroke="#8250df" stroke-width="3"/>
-<text x="444.5" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">反 token 化 8 个 bin</text>
-<text x="444.5" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">如: 1 128 91 241 5</text>
-<text x="444.5" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">101 127</text>
-<rect x="315" y="1330" width="259" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="315" y1="1336" x2="315" y2="1462" stroke="#8250df" stroke-width="3"/>
-<text x="444.5" y="1384.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">云端 TPU 闭环控制</text>
-<text x="444.5" y="1402.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">55B: 1-3Hz / 5B: 约</text>
-<text x="444.5" y="1422.5" font-size="11.5" fill="#57606a" text-anchor="middle">5Hz</text>
-<text x="431.9" y="1241.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">机器人 prompt 触发采样约束</text>
-<text x="843" y="1506" font-size="10.5" fill="#8c959f" text-anchor="end">rt-2 · arXiv 2307.15818 · v3 auto</text>
+<path d="M 480.5 291.0 L 481.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 306.0 237.0 L 349.0 509.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 648.0 237.0 L 613.0 509.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 481.0 587.0 L 311.0 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 481.0 587.0 L 649.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 311.0 835.0 L 481.5 961.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 649.5 835.0 L 481.5 961.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 481.5 1133.0 L 482.5 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 482.5 1363.0 L 482.5 1490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 430.7 1628.0 L 430.7 1380.5 L 508.2 1380.5 L 508.2 1133.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="379" y="186" width="203" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="379" y1="192" x2="379" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="480.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">WebLI 网页图文对</text>
+<text x="480.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">10B 过滤到 1B</text>
+<rect x="349" y="432" width="264" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="349" y1="438" x2="349" y2="581" stroke="#0b57d0" stroke-width="3"/>
+<text x="481.0" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">co-fine-tune: 动作即一</text>
+<text x="481.0" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">门外语 (核心)</text>
+<text x="481.0" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">动作 token 与 web 数据混采</text>
+<text x="481.0" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">机器人数据占 50% / 66%, 防遗忘</text>
+<rect x="52" y="168" width="254" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="179.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RT-1 真机 episode</text>
+<text x="179.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">130k, 13 台机器人 17</text>
+<text x="179.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">个月</text>
+<rect x="648" y="168" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="648" y1="174" x2="648" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="780.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">统一 next-token 交叉熵</text>
+<text x="780.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(等价行为克隆, 零架构改</text>
+<text x="780.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">动)</text>
+<rect x="180" y="697" width="262" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="180" y1="703" x2="180" y2="829" stroke="#1a7f37" stroke-width="3"/>
+<text x="311.0" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RT-2 PaLI-X 5B / 55B</text>
+<text x="311.0" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">1000 内整数 token 直接</text>
+<text x="311.0" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">复用</text>
+<rect x="516" y="697" width="267" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="516" y1="703" x2="516" y2="829" stroke="#1a7f37" stroke-width="3"/>
+<text x="649.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RT-2 PaLM-E 12B</text>
+<text x="649.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">覆写词表 256 个最低频</text>
+<text x="649.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">token</text>
+<rect x="348" y="961" width="267" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="348" y1="967" x2="348" y2="1127" stroke="#0b57d0" stroke-width="3"/>
+<text x="481.5" y="1009.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">output constraint 推理</text>
+<text x="481.5" y="1030.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">约束</text>
+<text x="481.5" y="1059.75" font-size="12.5" fill="#57606a" text-anchor="middle">机器人 prompt 只在合法动作</text>
+<text x="481.5" y="1077.25" font-size="12.5" fill="#57606a" text-anchor="middle">token 内采样</text>
+<text x="481.5" y="1094.75" font-size="12.5" fill="#57606a" text-anchor="middle">普通 VQA 任务仍开放全词表</text>
+<rect x="353" y="1225" width="259" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="353" y1="1231" x2="353" y2="1357" stroke="#8250df" stroke-width="3"/>
+<text x="482.5" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">反 token 化 8 个 bin</text>
+<text x="482.5" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">如: 1 128 91 241 5</text>
+<text x="482.5" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">101 127</text>
+<rect x="353" y="1490" width="259" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="353" y1="1496" x2="353" y2="1622" stroke="#8250df" stroke-width="3"/>
+<text x="482.5" y="1539.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">云端 TPU 闭环控制</text>
+<text x="482.5" y="1560.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">55B: 1-3Hz / 5B: 约</text>
+<text x="482.5" y="1589.25" font-size="12.5" fill="#57606a" text-anchor="middle">5Hz</text>
+<text x="469.4" y="1372.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">机器人 prompt 触发采样约束</text>
+<text x="916" y="1670" font-size="10.5" fill="#8c959f" text-anchor="end">rt-2 · arXiv 2307.15818 · v3 auto</text>
 </svg>

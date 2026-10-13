@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="613" height="1350" viewBox="24 98 613 1350" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="657" height="1493" viewBox="26 112 657 1493" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>grits</title>
-<rect x="24" y="98" width="613" height="1350" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">grits</text>
-<text x="615" y="128" font-size="12" fill="#57606a" text-anchor="end">GRITS 提出溅洒感知的引导扩散策略：先训练 spillage predictor（4K 仿真轨迹 + 4 种 primitive shapes 生成、随机物理参数），再在 </text>
+<rect x="26" y="112" width="657" height="1493" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">grits</text>
+<text x="661" y="142" font-size="12" fill="#57606a" text-anchor="end">GRITS 提出溅洒感知的引导扩散策略：先训练 spillage predictor（4K 仿真轨迹 + 4 种 primitive shapes 生成、随机物理参数），再在 </text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,55 +10,55 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 179.5 305.0 L 180.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 483.0 322.0 L 466.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 180.5 524.0 L 180.5 871.0 L 330.5 871.0 L 330.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 466.5 541.0 L 330.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 330.5 794.0 L 330.5 858.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<path d="M 330.5 962.0 L 330.5 1060.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 330.5 1164.0 L 331.0 1262.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="150" width="267" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="299" stroke="#0969da" stroke-width="3"/>
-<text x="179.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">分割点云</text>
-<text x="179.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">food: 深度 + SAM2 分割</text>
-<text x="179.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">spoon / bowl: CAD 模型</text>
-<text x="179.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">(DP3 式 PointNet++ 编码)</text>
-<rect x="64" y="386" width="233" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="64" y1="392" x2="64" y2="518" stroke="#1a7f37" stroke-width="3"/>
-<text x="180.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">扩散策略</text>
-<text x="180.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">80 条真机 demo 训练</text>
-<text x="180.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">(只有成功经验)</text>
-<rect x="351" y="150" width="264" height="172" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="351" y1="156" x2="351" y2="316" stroke="#0969da" stroke-width="3"/>
-<text x="483.0" y="206.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">4K 仿真轨迹 (Isaac Lab</text>
-<text x="483.0" y="224.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">)</text>
-<text x="483.0" y="244.5" font-size="11.5" fill="#57606a" text-anchor="middle">4 种 primitive shapes + 随机</text>
-<text x="483.0" y="259.5" font-size="11.5" fill="#57606a" text-anchor="middle">物理参数</text>
-<text x="483.0" y="274.5" font-size="11.5" fill="#57606a" text-anchor="middle">2000 洒 / 2000 不洒</text>
-<rect x="336" y="386" width="261" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="336" y1="392" x2="336" y2="535" stroke="#1a7f37" stroke-width="3"/>
-<text x="466.5" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">spillage predictor</text>
-<text x="466.5" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">点云 -&gt; 溅洒概率</text>
-<text x="466.5" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">p_spill</text>
-<text x="466.5" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">(廉价获得失败经验)</text>
-<rect x="243" y="858" width="175" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="243" y1="864" x2="243" y2="956" stroke="#8250df" stroke-width="3"/>
-<text x="330.5" y="914.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DDIM 去噪过程</text>
-<rect x="200" y="622" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="200" y1="628" x2="200" y2="788" stroke="#0b57d0" stroke-width="3"/>
-<text x="330.5" y="678.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可微分溅洒引导 (核心)</text>
-<text x="330.5" y="696.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">去噪 30 步后延迟激活:</text>
-<text x="330.5" y="716.5" font-size="11.5" fill="#57606a" text-anchor="middle">x &lt;- x - rho * grad log(1 -</text>
-<text x="330.5" y="731.5" font-size="11.5" fill="#57606a" text-anchor="middle">p_spill)</text>
-<text x="330.5" y="746.5" font-size="11.5" fill="#57606a" text-anchor="middle">rho = 2.5, 轨迹推离溅洒区</text>
-<rect x="210" y="1060" width="241" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="210" y1="1066" x2="210" y2="1158" stroke="#8250df" stroke-width="3"/>
-<text x="330.5" y="1116.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">安全舀取动作 (10 Hz)</text>
-<rect x="198" y="1262" width="266" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="198" y1="1268" x2="198" y2="1394" stroke="#57606a" stroke-width="3"/>
-<text x="331.0" y="1316.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Franka 真机</text>
-<text x="331.0" y="1334.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">10 类 unseen 食物 82%</text>
-<text x="331.0" y="1354.5" font-size="11.5" fill="#57606a" text-anchor="middle">成功 / 4% 溅洒</text>
-<text x="330.5" y="818.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">梯度注入去噪后期 (约束参与生…</text>
-<text x="615" y="1438" font-size="10.5" fill="#8c959f" text-anchor="end">grits · arXiv 2510.00573 · v3 auto</text>
+<path d="M 185.5 323.0 L 188.5 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 525.0 340.0 L 506.5 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 188.5 570.0 L 188.5 945.5 L 359.5 945.5 L 359.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 506.5 587.0 L 354.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 354.5 869.0 L 359.5 961.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 359.5 1065.0 L 355.5 1187.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 355.5 1291.0 L 355.0 1413.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="168" width="267" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="317" stroke="#0969da" stroke-width="3"/>
+<text x="185.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">分割点云</text>
+<text x="185.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">food: 深度 + SAM2 分割</text>
+<text x="185.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">spoon / bowl: CAD 模型</text>
+<text x="185.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">(DP3 式 PointNet++ 编码)</text>
+<rect x="72" y="432" width="233" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="72" y1="438" x2="72" y2="564" stroke="#1a7f37" stroke-width="3"/>
+<text x="188.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">扩散策略</text>
+<text x="188.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">80 条真机 demo 训练</text>
+<text x="188.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">(只有成功经验)</text>
+<rect x="393" y="168" width="264" height="172" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="393" y1="174" x2="393" y2="334" stroke="#0969da" stroke-width="3"/>
+<text x="525.0" y="216.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">4K 仿真轨迹 (Isaac Lab</text>
+<text x="525.0" y="237.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">)</text>
+<text x="525.0" y="266.75" font-size="12.5" fill="#57606a" text-anchor="middle">4 种 primitive shapes + 随机</text>
+<text x="525.0" y="284.25" font-size="12.5" fill="#57606a" text-anchor="middle">物理参数</text>
+<text x="525.0" y="301.75" font-size="12.5" fill="#57606a" text-anchor="middle">2000 洒 / 2000 不洒</text>
+<rect x="376" y="432" width="261" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="376" y1="438" x2="376" y2="581" stroke="#1a7f37" stroke-width="3"/>
+<text x="506.5" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">spillage predictor</text>
+<text x="506.5" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">点云 -&gt; 溅洒概率</text>
+<text x="506.5" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">p_spill</text>
+<text x="506.5" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">(廉价获得失败经验)</text>
+<rect x="272" y="961" width="175" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="272" y1="967" x2="272" y2="1059" stroke="#8250df" stroke-width="3"/>
+<text x="359.5" y="1016.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DDIM 去噪过程</text>
+<rect x="224" y="697" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="224" y1="703" x2="224" y2="863" stroke="#0b57d0" stroke-width="3"/>
+<text x="354.5" y="745.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可微分溅洒引导 (核心)</text>
+<text x="354.5" y="766.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">去噪 30 步后延迟激活:</text>
+<text x="354.5" y="795.75" font-size="12.5" fill="#57606a" text-anchor="middle">x &lt;- x - rho * grad log(1 -</text>
+<text x="354.5" y="813.25" font-size="12.5" fill="#57606a" text-anchor="middle">p_spill)</text>
+<text x="354.5" y="830.75" font-size="12.5" fill="#57606a" text-anchor="middle">rho = 2.5, 轨迹推离溅洒区</text>
+<rect x="235" y="1187" width="241" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="235" y1="1193" x2="235" y2="1285" stroke="#8250df" stroke-width="3"/>
+<text x="355.5" y="1242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">安全舀取动作 (10 Hz)</text>
+<rect x="222" y="1413" width="266" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="222" y1="1419" x2="222" y2="1545" stroke="#57606a" stroke-width="3"/>
+<text x="355.0" y="1462.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Franka 真机</text>
+<text x="355.0" y="1483.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">10 类 unseen 食物 82%</text>
+<text x="355.0" y="1512.25" font-size="12.5" fill="#57606a" text-anchor="middle">成功 / 4% 溅洒</text>
+<text x="357.0" y="907.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">梯度注入去噪后期 (约束参与生…</text>
+<text x="661" y="1593" font-size="10.5" fill="#8c959f" text-anchor="end">grits · arXiv 2510.00573 · v3 auto</text>
 </svg>

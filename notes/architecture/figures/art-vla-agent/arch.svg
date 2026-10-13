@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="965" height="1788" viewBox="-2 98 965 1788" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1023" height="1988" viewBox="-4 112 1023 1988" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>art-vla-agent</title>
-<rect x="-2" y="98" width="965" height="1788" fill="#ffffff"/>
-<text x="20" y="128" font-size="14" font-weight="700" fill="#1f2328">art-vla-agent</text>
-<text x="941" y="128" font-size="12" fill="#57606a" text-anchor="end">ART（Agentic Robot with Tool-use）是一个 tool-injection 微调框架：把三类现成工具模块（低层视觉增强 / 高层 affordance</text>
+<rect x="-4" y="112" width="1023" height="1988" fill="#ffffff"/>
+<text x="18" y="142" font-size="14" font-weight="700" fill="#1f2328">art-vla-agent</text>
+<text x="997" y="142" font-size="12" fill="#57606a" text-anchor="end">ART（Agentic Robot with Tool-use）是一个 tool-injection 微调框架：把三类现成工具模块（低层视觉增强 / 高层 affordance</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,83 +10,83 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="339" width="921" height="883" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="359" font-size="11.5" font-weight="600" fill="#57606a">工具旁路 (Adaptive LoRA)</text>
-<rect x="326" y="1434" width="309" height="226" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="340" y="1454" font-size="11.5" font-weight="600" fill="#57606a">冻结基座 (3B pi0-FAST, FAST/DCT 动作</text>
-<text x="340" y="1469" font-size="11.5" font-weight="600" fill="#57606a">token)</text>
-<path d="M 334.0 218.5 L 346.0 455.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 480.5 524.0 L 480.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 480.5 760.0 L 481.0 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 556.0 910.0 L 646.0 1129.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 406.0 910.0 L 313.0 1129.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 481.0 962.0 L 479.5 1060.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 646.0 1129.0 L 556.0 1348.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 313.0 1129.0 L 406.0 1348.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 479.5 1198.0 L 481.0 1296.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 481.0 1400.0 L 480.5 1498.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 480.5 1636.0 L 480.0 1734.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 441.6 1838.0 L 441.6 1054.5 L 231.2 1054.5 L 231.2 271.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 623.0 219.0 L 615.0 455.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 478.5 271.0 L 478.5 974.5 L 480.5 974.5 L 480.5 1498.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="77" y="166" width="257" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="77" y1="172" x2="77" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="205.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">原始观测 o_t</text>
-<text x="205.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉 / 语言 / 本体状态</text>
-<rect x="346" y="386" width="269" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="346" y1="392" x2="346" y2="518" stroke="#0b57d0" stroke-width="3"/>
-<text x="480.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LoRA 推理分支</text>
-<text x="480.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">生成推理 token + 工具</text>
-<text x="480.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">决策</text>
-<rect x="350" y="622" width="261" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="350" y1="628" x2="350" y2="754" stroke="#0b57d0" stroke-width="3"/>
-<text x="480.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">工具开关选择</text>
-<text x="480.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(词表尾 N 个离散 token</text>
-<text x="480.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">)</text>
-<rect x="406" y="858" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="406" y1="864" x2="406" y2="956" stroke="#0b57d0" stroke-width="3"/>
-<text x="481.0" y="914.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">工具类别</text>
-<rect x="646" y="1060" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="646" y1="1066" x2="646" y2="1192" stroke="#57606a" stroke-width="3"/>
-<text x="780.5" y="1114.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉增强工具</text>
-<text x="780.5" y="1132.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">暗光 / 去噪 / 去模糊 /</text>
-<text x="780.5" y="1152.5" font-size="11.5" fill="#57606a" text-anchor="middle">防抖</text>
-<rect x="46" y="1060" width="267" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1066" x2="46" y2="1192" stroke="#57606a" stroke-width="3"/>
-<text x="179.5" y="1114.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Affordance 工具</text>
-<text x="179.5" y="1132.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Metric3D 深度 + DINO-X</text>
-<text x="179.5" y="1152.5" font-size="11.5" fill="#57606a" text-anchor="middle">检测</text>
-<rect x="351" y="1060" width="257" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="351" y1="1066" x2="351" y2="1192" stroke="#57606a" stroke-width="3"/>
-<text x="479.5" y="1114.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">具身工具</text>
-<text x="479.5" y="1132.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">相机旋转 / 变焦 / 本体</text>
-<text x="479.5" y="1152.5" font-size="11.5" fill="#57606a" text-anchor="middle">重置</text>
-<rect x="406" y="1296" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="406" y1="1302" x2="406" y2="1394" stroke="#0969da" stroke-width="3"/>
-<text x="481.0" y="1352.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">增强后观测</text>
-<rect x="352" y="1498" width="257" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="352" y1="1504" x2="352" y2="1630" stroke="#57606a" stroke-width="3"/>
-<text x="480.5" y="1552.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLA 主干</text>
-<text x="480.5" y="1570.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作生成阶段屏蔽 LoRA</text>
-<text x="480.5" y="1590.5" font-size="11.5" fill="#57606a" text-anchor="middle">输出</text>
-<rect x="384" y="1734" width="192" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="384" y1="1740" x2="384" y2="1832" stroke="#8250df" stroke-width="3"/>
-<text x="480.0" y="1790.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行 H 步</text>
-<rect x="623" y="150" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="623" y1="156" x2="623" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="753.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_tool</text>
-<text x="753.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">推理 + 工具 token 交</text>
-<text x="753.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">叉熵</text>
-<rect x="372" y="166" width="213" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="372" y1="172" x2="372" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="478.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_action</text>
-<text x="478.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 token 交叉熵</text>
-<text x="601.0" y="1011.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">视觉</text>
-<text x="359.5" y="1011.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">affordance</text>
-<text x="480.2" y="1003.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">具身</text>
-<text x="480.2" y="1677.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">动作 chunk: H 步具身动作</text>
-<text x="336.4" y="1046.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">下一 chunk 开头重新观测 (ch…</text>
-<text x="619.0" y="329.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">只更新 LoRA</text>
-<text x="479.5" y="876.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">只走主干</text>
-<text x="941" y="1876" font-size="10.5" fill="#8c959f" text-anchor="end">art-vla-agent · arXiv 2608.14047 · v3 auto</text>
+<rect x="22" y="380" width="921" height="883" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="400" font-size="11.5" font-weight="600" fill="#57606a">工具旁路 (Adaptive LoRA)</text>
+<rect x="365" y="1606" width="309" height="226" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="379" y="1626" font-size="11.5" font-weight="600" fill="#57606a">冻结基座 (3B pi0-FAST, FAST/DCT 动作</text>
+<text x="379" y="1641" font-size="11.5" font-weight="600" fill="#57606a">token)</text>
+<path d="M 343.0 238.5 L 388.0 501.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 522.5 570.0 L 522.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 522.5 835.0 L 530.0 961.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 605.0 1013.0 L 724.0 1256.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 455.0 1013.0 L 319.0 1256.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 530.0 1065.0 L 521.5 1187.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 724.0 1256.0 L 605.0 1504.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 319.0 1256.0 L 455.0 1504.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 521.5 1325.0 L 530.0 1452.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 530.0 1556.0 L 522.5 1678.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 522.5 1816.0 L 526.0 1942.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 487.6 2046.0 L 487.6 1168.5 L 240.2 1168.5 L 240.2 291.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 698.0 237.0 L 657.0 501.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 523.5 291.0 L 523.5 1074.5 L 522.5 1074.5 L 522.5 1678.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="86" y="186" width="257" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="86" y1="192" x2="86" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="214.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">原始观测 o_t</text>
+<text x="214.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉 / 语言 / 本体状态</text>
+<rect x="388" y="432" width="269" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="388" y1="438" x2="388" y2="564" stroke="#0b57d0" stroke-width="3"/>
+<text x="522.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LoRA 推理分支</text>
+<text x="522.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">生成推理 token + 工具</text>
+<text x="522.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">决策</text>
+<rect x="392" y="697" width="261" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="392" y1="703" x2="392" y2="829" stroke="#0b57d0" stroke-width="3"/>
+<text x="522.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">工具开关选择</text>
+<text x="522.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(词表尾 N 个离散 token</text>
+<text x="522.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">)</text>
+<rect x="455" y="961" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="455" y1="967" x2="455" y2="1059" stroke="#0b57d0" stroke-width="3"/>
+<text x="530.0" y="1016.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">工具类别</text>
+<rect x="724" y="1187" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="724" y1="1193" x2="724" y2="1319" stroke="#57606a" stroke-width="3"/>
+<text x="858.5" y="1236.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉增强工具</text>
+<text x="858.5" y="1257.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">暗光 / 去噪 / 去模糊 /</text>
+<text x="858.5" y="1286.25" font-size="12.5" fill="#57606a" text-anchor="middle">防抖</text>
+<rect x="52" y="1187" width="267" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1193" x2="52" y2="1319" stroke="#57606a" stroke-width="3"/>
+<text x="185.5" y="1236.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Affordance 工具</text>
+<text x="185.5" y="1257.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Metric3D 深度 + DINO-X</text>
+<text x="185.5" y="1286.25" font-size="12.5" fill="#57606a" text-anchor="middle">检测</text>
+<rect x="393" y="1187" width="257" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="393" y1="1193" x2="393" y2="1319" stroke="#57606a" stroke-width="3"/>
+<text x="521.5" y="1236.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">具身工具</text>
+<text x="521.5" y="1257.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">相机旋转 / 变焦 / 本体</text>
+<text x="521.5" y="1286.25" font-size="12.5" fill="#57606a" text-anchor="middle">重置</text>
+<rect x="455" y="1452" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="455" y1="1458" x2="455" y2="1550" stroke="#0969da" stroke-width="3"/>
+<text x="530.0" y="1507.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">增强后观测</text>
+<rect x="394" y="1678" width="257" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="394" y1="1684" x2="394" y2="1810" stroke="#57606a" stroke-width="3"/>
+<text x="522.5" y="1727.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLA 主干</text>
+<text x="522.5" y="1748.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作生成阶段屏蔽 LoRA</text>
+<text x="522.5" y="1777.25" font-size="12.5" fill="#57606a" text-anchor="middle">输出</text>
+<rect x="430" y="1942" width="192" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="430" y1="1948" x2="430" y2="2040" stroke="#8250df" stroke-width="3"/>
+<text x="526.0" y="1997.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行 H 步</text>
+<rect x="698" y="168" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="698" y1="174" x2="698" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="828.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_tool</text>
+<text x="828.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">推理 + 工具 token 交</text>
+<text x="828.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">叉熵</text>
+<rect x="417" y="186" width="213" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="417" y1="192" x2="417" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="523.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_action</text>
+<text x="523.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 token 交叉熵</text>
+<text x="664.5" y="1126.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">视觉</text>
+<text x="387.0" y="1126.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">affordance</text>
+<text x="525.8" y="1118.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">具身</text>
+<text x="524.2" y="1871.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">动作 chunk: H 步具身动作</text>
+<text x="363.9" y="1160.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">下一 chunk 开头重新观测 (ch…</text>
+<text x="677.5" y="361.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">只更新 LoRA</text>
+<text x="523.0" y="976.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">只走主干</text>
+<text x="997" y="2088" font-size="10.5" fill="#8c959f" text-anchor="end">art-vla-agent · arXiv 2608.14047 · v3 auto</text>
 </svg>

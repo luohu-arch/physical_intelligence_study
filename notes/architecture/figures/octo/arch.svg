@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1238" height="1253" viewBox="24 98 1238 1253" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1368" height="1389" viewBox="26 112 1368 1389" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>octo</title>
-<rect x="24" y="98" width="1238" height="1253" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">octo</text>
-<text x="1240" y="128" font-size="12" fill="#57606a" text-anchor="end">Octo 是开源社区最成熟的扩散策略 VLA 模型，在 Open X-Embodiment 数据上预训练，采用 Transformer 骨干加扩散输出头实现连续动作生成，以极小</text>
+<rect x="26" y="112" width="1368" height="1389" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">octo</text>
+<text x="1372" y="142" font-size="12" fill="#57606a" text-anchor="end">Octo 是开源社区最成熟的扩散策略 VLA 模型，在 Open X-Embodiment 数据上预训练，采用 Transformer 骨干加扩散输出头实现连续动作生成，以极小</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,56 +10,56 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 231.0 202.5 L 171.0 202.5 L 171.0 405.5 L 518.0 405.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 487.0 202.5 L 518.0 405.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 625.0 255.0 L 642.5 353.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 642.5 458.0 L 643.5 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 895.0 254.0 L 895.0 506.5 L 643.0 506.5 L 643.0 759.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 643.5 661.0 L 643.0 759.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1152.5 254.0 L 1152.5 506.5 L 643.0 506.5 L 643.0 759.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 643.0 864.0 L 643.0 962.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 643.0 1100.0 L 643.0 1198.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 599.0 1303.0 L 157.0 255.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="150" width="185" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="138.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">相机视角 1 RGB</text>
-<text x="138.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(+2 帧历史)</text>
-<rect x="518" y="353" width="249" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="518" y1="359" x2="518" y2="452" stroke="#0b57d0" stroke-width="3"/>
-<text x="642.5" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">灵活 Tokenizer</text>
-<text x="642.5" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每视角独立 token 序列</text>
-<rect x="269" y="150" width="218" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="269" y1="156" x2="269" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="378.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">相机视角 2</text>
-<text x="378.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(推理时可随意增删)</text>
-<rect x="525" y="150" width="200" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="525" y1="156" x2="525" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="625.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
-<text x="625.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(或目标图像条件)</text>
-<rect x="518" y="556" width="251" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="518" y1="562" x2="518" y2="655" stroke="#1a7f37" stroke-width="3"/>
-<text x="643.5" y="603.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer 骨干</text>
-<text x="643.5" y="621.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Small 27M / Base 93M</text>
-<rect x="763" y="150" width="264" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="763" y1="156" x2="763" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="895.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">噪声动作 x_K ~ N(0, I)</text>
-<rect x="511" y="759" width="264" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="511" y1="765" x2="511" y2="858" stroke="#0b57d0" stroke-width="3"/>
-<text x="643.0" y="806.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DDPM 扩散头 (3 层 MLP)</text>
-<text x="643.0" y="824.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">10 步去噪, cosine 调度</text>
-<rect x="1065" y="150" width="175" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1065" y1="156" x2="1065" y2="248" stroke="#8a5a00" stroke-width="3"/>
-<text x="1152.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DDPM 扩散损失</text>
-<rect x="511" y="962" width="264" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="511" y1="968" x2="511" y2="1094" stroke="#8250df" stroke-width="3"/>
-<text x="643.0" y="1016.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">连续动作输出</text>
-<text x="643.0" y="1034.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多峰分布, 83% vs MSE</text>
-<text x="643.0" y="1054.5" font-size="11.5" fill="#57606a" text-anchor="middle">35% vs 离散 18%</text>
-<rect x="533" y="1198" width="220" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="533" y1="1204" x2="533" y2="1297" stroke="#8250df" stroke-width="3"/>
-<text x="643.0" y="1245.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
-<text x="643.0" y="1263.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">4090 上 13 it/sec</text>
-<text x="643.2" y="702.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">动作读出嵌入 e</text>
-<text x="378.0" y="771.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">receding horizon 执行 chun…</text>
-<text x="1240" y="1341" font-size="10.5" fill="#8c959f" text-anchor="end">octo · arXiv 2405.12213 · v3 auto</text>
+<path d="M 237.0 220.5 L 177.0 220.5 L 177.0 447.5 L 580.0 447.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 519.0 220.5 L 580.0 447.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 688.0 273.0 L 704.5 395.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 704.5 500.0 L 705.5 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 987.0 272.0 L 987.0 561.0 L 704.0 561.0 L 704.0 850.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 705.5 728.0 L 704.0 850.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1280.5 272.0 L 704.0 850.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 704.0 955.0 L 704.0 1077.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 704.0 1215.0 L 707.0 1342.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 663.0 1447.0 L 163.0 273.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="168" width="185" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="144.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">相机视角 1 RGB</text>
+<text x="144.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(+2 帧历史)</text>
+<rect x="580" y="395" width="249" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="580" y1="401" x2="580" y2="494" stroke="#0b57d0" stroke-width="3"/>
+<text x="704.5" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">灵活 Tokenizer</text>
+<text x="704.5" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每视角独立 token 序列</text>
+<rect x="301" y="168" width="218" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="301" y1="174" x2="301" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="410.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">相机视角 2</text>
+<text x="410.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(推理时可随意增删)</text>
+<rect x="588" y="168" width="200" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="588" y1="174" x2="588" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="688.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
+<text x="688.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(或目标图像条件)</text>
+<rect x="580" y="623" width="251" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="580" y1="629" x2="580" y2="722" stroke="#1a7f37" stroke-width="3"/>
+<text x="705.5" y="668.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer 骨干</text>
+<text x="705.5" y="689.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Small 27M / Base 93M</text>
+<rect x="855" y="168" width="264" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="855" y1="174" x2="855" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="987.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">噪声动作 x_K ~ N(0, I)</text>
+<rect x="572" y="850" width="264" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="572" y1="856" x2="572" y2="949" stroke="#0b57d0" stroke-width="3"/>
+<text x="704.0" y="895.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DDPM 扩散头 (3 层 MLP)</text>
+<text x="704.0" y="916.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">10 步去噪, cosine 调度</text>
+<rect x="1193" y="168" width="175" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1193" y1="174" x2="1193" y2="266" stroke="#8a5a00" stroke-width="3"/>
+<text x="1280.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DDPM 扩散损失</text>
+<rect x="572" y="1077" width="264" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="572" y1="1083" x2="572" y2="1209" stroke="#8250df" stroke-width="3"/>
+<text x="704.0" y="1126.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">连续动作输出</text>
+<text x="704.0" y="1147.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多峰分布, 83% vs MSE</text>
+<text x="704.0" y="1176.25" font-size="12.5" fill="#57606a" text-anchor="middle">35% vs 离散 18%</text>
+<rect x="597" y="1342" width="220" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="597" y1="1348" x2="597" y2="1441" stroke="#8250df" stroke-width="3"/>
+<text x="707.0" y="1387.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
+<text x="707.0" y="1408.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">4090 上 13 it/sec</text>
+<text x="704.8" y="781.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">动作读出嵌入 e</text>
+<text x="413.0" y="852.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">receding horizon 执行 chun…</text>
+<text x="1372" y="1489" font-size="10.5" fill="#8c959f" text-anchor="end">octo · arXiv 2405.12213 · v3 auto</text>
 </svg>

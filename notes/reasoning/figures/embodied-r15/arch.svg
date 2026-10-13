@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="851" height="1645" viewBox="24 98 851 1645" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="923" height="1801" viewBox="26 112 923 1801" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>embodied-r15</title>
-<rect x="24" y="98" width="851" height="1645" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">embodied-r15</text>
-<text x="853" y="128" font-size="12" fill="#57606a" text-anchor="end">（Problem）具身能力碎片化、多任务训练相互干扰、缺少长程闭环验证 →（Insight）认知/规划纠错/指位三类能力可在单一 8B VLM 内统一，且内部化的具身推理可大幅</text>
+<rect x="26" y="112" width="923" height="1801" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">embodied-r15</text>
+<text x="927" y="142" font-size="12" fill="#57606a" text-anchor="end">（Problem）具身能力碎片化、多任务训练相互干扰、缺少长程闭环验证 →（Insight）认知/规划纠错/指位三类能力可在单一 8B VLM 内统一，且内部化的具身推理可大幅</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,54 +10,54 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="166" y="306" width="442" height="1389" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="180" y="326" font-size="11.5" font-weight="600" fill="#57606a">System 2 - 单模型三角色闭环 PGC</text>
-<path d="M 449.5 458.0 L 314.0 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 449.5 458.0 L 449.0 758.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 449.5 458.0 L 449.5 1102.5 L 450.0 1102.5 L 450.0 1567.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 586.0 202.0 L 580.0 405.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 314.0 660.0 L 449.0 758.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 449.0 862.0 L 450.0 960.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 450.0 1064.0 L 449.0 1162.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 449.0 1267.0 L 449.5 1365.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 449.5 1469.0 L 450.0 1567.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 449.5 458.0 L 590.5 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 590.5 660.0 L 590.5 911.0 L 449.0 911.0 L 449.0 1162.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="586" y="150" width="267" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="586" y1="156" x2="586" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="719.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令 + 图像观测&lt;br/</text>
-<rect x="319" y="353" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="319" y1="359" x2="319" y2="452" stroke="#0b57d0" stroke-width="3"/>
-<text x="449.5" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Embodied-R1.5 8B</text>
-<text x="449.5" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM&lt;br/</text>
-<rect x="192" y="556" width="244" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="192" y1="562" x2="192" y2="654" stroke="#0b57d0" stroke-width="3"/>
-<text x="314.0" y="612.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Planner 高层规划&lt;br/</text>
-<rect x="322" y="758" width="254" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="322" y1="764" x2="322" y2="856" stroke="#0b57d0" stroke-width="3"/>
-<text x="449.0" y="814.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Grounder 指位定位&lt;br/</text>
-<rect x="318" y="1567" width="264" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="318" y1="1573" x2="318" y2="1665" stroke="#0b57d0" stroke-width="3"/>
-<text x="450.0" y="1623.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Corrector 异步轮询&lt;br/</text>
-<rect x="340" y="960" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="340" y1="966" x2="340" y2="1058" stroke="#0b57d0" stroke-width="3"/>
-<text x="450.0" y="1016.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">低层技能执行器&lt;br/</text>
-<rect x="316" y="1162" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="316" y1="1168" x2="316" y2="1261" stroke="#0b57d0" stroke-width="3"/>
-<text x="449.0" y="1209.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人 XArm6 / ARX</text>
-<text x="449.0" y="1227.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Lift2s / RM75</text>
-<rect x="342" y="1365" width="215" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="342" y1="1371" x2="342" y2="1463" stroke="#0b57d0" stroke-width="3"/>
-<text x="449.5" y="1421.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">FIFO 记忆缓冲&lt;br/</text>
-<rect x="474" y="556" width="233" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="474" y1="562" x2="474" y2="654" stroke="#0b57d0" stroke-width="3"/>
-<text x="590.5" y="612.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可选 VLA 动作头&lt;br/</text>
-<rect x="346" y="150" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="346" y1="156" x2="346" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="447.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 1 SFT&lt;br/</text>
-<rect x="46" y="150" width="262" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="177.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 2 RFT 多任务均衡</text>
-<text x="177.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO&lt;br/</text>
-<text x="853" y="1733" font-size="10.5" fill="#8c959f" text-anchor="end">embodied-r15 · arXiv 2606.11324 · v3 auto</text>
+<rect x="186" y="343" width="442" height="1389" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="200" y="363" font-size="11.5" font-weight="600" fill="#57606a">System 2 - 单模型三角色闭环 PGC</text>
+<path d="M 487.5 500.0 L 337.0 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 487.5 500.0 L 488.0 849.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 487.5 500.0 L 487.5 1217.5 L 488.0 1217.5 L 488.0 1755.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 656.0 220.0 L 618.0 447.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 337.0 727.0 L 488.0 849.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 488.0 953.0 L 491.0 1075.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 491.0 1179.0 L 487.0 1301.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 487.0 1406.0 L 490.5 1529.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 490.5 1633.0 L 488.0 1755.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 487.5 500.0 L 647.5 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 647.5 727.0 L 647.5 1014.0 L 487.0 1014.0 L 487.0 1301.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="656" y="168" width="267" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="656" y1="174" x2="656" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="789.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令 + 图像观测&lt;br/</text>
+<rect x="357" y="395" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="357" y1="401" x2="357" y2="494" stroke="#0b57d0" stroke-width="3"/>
+<text x="487.5" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Embodied-R1.5 8B</text>
+<text x="487.5" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM&lt;br/</text>
+<rect x="215" y="623" width="244" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="215" y1="629" x2="215" y2="721" stroke="#0b57d0" stroke-width="3"/>
+<text x="337.0" y="678.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Planner 高层规划&lt;br/</text>
+<rect x="361" y="849" width="254" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="361" y1="855" x2="361" y2="947" stroke="#0b57d0" stroke-width="3"/>
+<text x="488.0" y="904.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Grounder 指位定位&lt;br/</text>
+<rect x="356" y="1755" width="264" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="356" y1="1761" x2="356" y2="1853" stroke="#0b57d0" stroke-width="3"/>
+<text x="488.0" y="1810.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Corrector 异步轮询&lt;br/</text>
+<rect x="381" y="1075" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="381" y1="1081" x2="381" y2="1173" stroke="#0b57d0" stroke-width="3"/>
+<text x="491.0" y="1130.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">低层技能执行器&lt;br/</text>
+<rect x="354" y="1301" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="354" y1="1307" x2="354" y2="1400" stroke="#0b57d0" stroke-width="3"/>
+<text x="487.0" y="1346.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人 XArm6 / ARX</text>
+<text x="487.0" y="1367.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Lift2s / RM75</text>
+<rect x="383" y="1529" width="215" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="383" y1="1535" x2="383" y2="1627" stroke="#0b57d0" stroke-width="3"/>
+<text x="490.5" y="1584.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">FIFO 记忆缓冲&lt;br/</text>
+<rect x="531" y="623" width="233" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="531" y1="629" x2="531" y2="721" stroke="#0b57d0" stroke-width="3"/>
+<text x="647.5" y="678.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可选 VLA 动作头&lt;br/</text>
+<rect x="388" y="168" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="388" y1="174" x2="388" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="489.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 1 SFT&lt;br/</text>
+<rect x="52" y="168" width="262" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="183.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 2 RFT 多任务均衡</text>
+<text x="183.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO&lt;br/</text>
+<text x="927" y="1901" font-size="10.5" fill="#8c959f" text-anchor="end">embodied-r15 · arXiv 2606.11324 · v3 auto</text>
 </svg>

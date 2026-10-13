@@ -100,13 +100,13 @@ Use `--deep` for high-priority papers that need detailed technical analysis. Use
 |---|---|
 | 色板（仅 7 色） | 墨 `#1f2328` / 次 `#57606a` / 强调蓝 `#0b57d0` / 强调底 `#e8f0fe` / 警示橙 `#8a5a00`+底 `#fdf3d8` / 线 `#d0d7de` / 卡片底 `#f6f8fa` |
 | 语义类扩展色（仅左侧 3px 色条 + 极淡底色） | data `#0969da` / train `#1a7f37` / loss `#8a5a00` / frozen `#57606a` / act `#8250df` / mem `#bf3989` / key `#0b57d0`（底色见渲染器 CLS 表） |
-| 卡片 | `fill="#f6f8fa" stroke="#d0d7de" rx="6"`；标题 13px 墨色粗体，副行 11.5-12px 次色；**无渐变、无阴影、无图标徽章、无图例行** |
+| 卡片 | `fill="#f6f8fa" stroke="#d0d7de" rx="6"`；标题 14.5px 墨色粗体(行距 21px)，副行 12.5px 次色(行距 17.5px，与标题块间隔 8px)；**无渐变、无阴影、无图标徽章、无图例行** |
 | 边 | 1.5px 直线 + 7px 小箭头（`#57606a`）；反馈回路蓝色虚线 `#0b57d0 6-4`；损失/监督橙色虚线 `#8a5a00 5-3` |
-| 边标签 | 线中点旁 11.5px 次色文字 + `paint-order="stroke" stroke="#ffffff" stroke-width="3"` 白色 halo（不用药丸框） |
-| 结构 | `<svg xmlns viewBox role="img"><title>图的一句话说明</title>` 开头；内联零依赖、无 script；文字一律 ≥11.5px |
-| 分组 | 浅灰底色块 `#f6f8fa` + 左上角 11.5px 灰字标签，不用虚线框 |
+| 边标签 | 线中点旁 12.5px 次色文字 + `paint-order="stroke" stroke="#ffffff" stroke-width="3"` 白色 halo（不用药丸框） |
+| 结构 | `<svg xmlns viewBox role="img"><title>图的一句话说明</title>` 开头；内联零依赖、无 script；文字一律 ≥12.5px |
+| 分组 | 浅灰底色块 `#f6f8fa` + 左上角 12.5px 灰字标签，不用虚线框 |
 | 文字约束 | 只用中文与 ASCII；禁希腊字母/数学 Unicode（写 pi/alpha/theta）；数字下标写 x0/x_t |
-| 画布 | viewBox 宽 ≤780 优先（纵向可长）；内容外接框 + 22px 边距，不预留大面积空白 |
+| 画布 | viewBox 宽 ≤780 优先（纵向可长）；内容外接框 + 26px 边距；卡片坐标按 GAP_SCALE=1.12 外扩（卡片尺寸不变，只拉开卡片间距），参数在渲染器顶部 |
 
 **纪律**：图里的数字必须与笔记正文一致并带出处；示意/重绘要在标题里标注；每张图写完 `xml.etree` 解析自检 + `qlmanage -t -s 1600` 全分辨率目检（文字溢出/箭头穿卡/标签互压）再嵌入。嵌入格式：`![<id> 架构图](figures/<id>/arch.svg)` + 斜体一行架构速览。
 ## Reading Methodology (阅读方法论)

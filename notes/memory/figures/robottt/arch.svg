@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1874" height="1941" viewBox="-2 51 1874 1941" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="2082" height="2160" viewBox="-4 59 2082 2160" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>robottt</title>
-<rect x="-2" y="51" width="1874" height="1941" fill="#ffffff"/>
-<text x="20" y="81" font-size="14" font-weight="700" fill="#1f2328">robottt</text>
-<text x="1850" y="81" font-size="12" fill="#57606a" text-anchor="end">RoboTTT 将 Test-Time Training 引入 VLA 基础模型：在 GR00T N1.7 的 DiT 动作头的 attention 层后插入 16 个 TTT</text>
+<rect x="-4" y="59" width="2082" height="2160" fill="#ffffff"/>
+<text x="18" y="89" font-size="14" font-weight="700" fill="#1f2328">robottt</text>
+<text x="2056" y="89" font-size="12" fill="#57606a" text-anchor="end">RoboTTT 将 Test-Time Training 引入 VLA 基础模型：在 GR00T N1.7 的 DiT 动作头的 attention 层后插入 16 个 TTT</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,79 +10,79 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="103" width="1084" height="1269" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="123" font-size="11.5" font-weight="600" fill="#57606a">跨时间 TTT 层 x 16 - 记忆存于参数空间</text>
-<path d="M 1647.0 202.5 L 837.0 202.5 L 837.0 405.5 L 987.0 405.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 853.5 458.0 L 947.5 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1685.0 202.0 L 1116.0 202.0 L 1116.0 406.0 L 1176.0 406.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1101.0 458.0 L 1101.0 698.5 L 948.0 698.5 L 948.0 759.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 947.5 661.0 L 948.0 759.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1240.5 254.0 L 1240.5 506.5 L 948.0 506.5 L 948.0 759.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 948.0 864.0 L 948.0 962.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 948.0 1066.0 L 948.5 1164.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 948.5 1302.0 L 948.0 1400.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 948.0 1538.0 L 948.0 1636.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 948.0 1741.0 L 948.0 1839.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 693.5 254.0 L 693.5 709.0 L 948.5 709.0 L 948.5 1164.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 397.0 255.0 L 397.0 945.5 L 948.0 945.5 L 948.0 1636.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="1381" y="150" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1381" y1="156" x2="1381" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="1514.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">观测 o_t 3 路</text>
-<text x="1514.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RealSense</text>
-<rect x="720" y="353" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="720" y1="359" x2="720" y2="452" stroke="#0b57d0" stroke-width="3"/>
-<text x="853.5" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 骨干 GR00T N1.7&lt;br</text>
-<text x="853.5" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
-<rect x="818" y="556" width="259" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="818" y1="562" x2="818" y2="655" stroke="#0b57d0" stroke-width="3"/>
-<text x="947.5" y="603.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">16 个 register</text>
-<text x="947.5" y="621.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">token&lt;br/</text>
-<rect x="1685" y="150" width="165" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1685" y1="156" x2="1685" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="1767.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本体状态 q_t</text>
-<rect x="1026" y="354" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1026" y1="360" x2="1026" y2="452" stroke="#0b57d0" stroke-width="3"/>
-<text x="1101.0" y="410.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">状态编码器</text>
-<rect x="1138" y="150" width="205" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1138" y1="156" x2="1138" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="1240.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">加噪动作 A_t^tau</text>
-<rect x="815" y="759" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="815" y1="765" x2="815" y2="858" stroke="#0b57d0" stroke-width="3"/>
-<text x="948.0" y="806.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">单步内 self / cross-</text>
-<text x="948.0" y="824.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">attention&lt;br/</text>
-<rect x="856" y="962" width="184" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="856" y1="968" x2="856" y2="1060" stroke="#0b57d0" stroke-width="3"/>
-<text x="948.0" y="1018.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">沿时间展平&lt;br/</text>
-<rect x="818" y="1164" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="818" y1="1170" x2="818" y2="1296" stroke="#0b57d0" stroke-width="3"/>
-<text x="948.5" y="1218.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">TTT 内循环梯度写入</text>
-<text x="948.5" y="1236.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">W_t = W_(t-1) - eta *</text>
-<text x="948.5" y="1256.5" font-size="11.5" fill="#57606a" text-anchor="middle">grad L_FW</text>
-<rect x="46" y="150" width="185" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="138.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">快速权重 W&lt;br/</text>
-<rect x="821" y="1400" width="254" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="821" y1="1406" x2="821" y2="1532" stroke="#0b57d0" stroke-width="3"/>
-<text x="948.0" y="1454.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">tanh(alpha) 门控</text>
-<text x="948.0" y="1472.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">alpha 初始 0.001 保护</text>
-<text x="948.0" y="1492.5" font-size="11.5" fill="#57606a" text-anchor="middle">预训练</text>
-<rect x="815" y="1636" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="815" y1="1642" x2="815" y2="1735" stroke="#0b57d0" stroke-width="3"/>
-<text x="948.0" y="1683.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DiT 解码器 flow-</text>
-<text x="948.0" y="1701.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">matching</text>
-<rect x="819" y="1839" width="258" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="819" y1="1845" x2="819" y2="1938" stroke="#0b57d0" stroke-width="3"/>
-<text x="948.0" y="1886.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 chunk H=16 30Hz</text>
-<text x="948.0" y="1904.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">恒定延迟</text>
-<rect x="563" y="150" width="261" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="563" y1="156" x2="563" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="693.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">内循环 MSE 自监督 L_FW</text>
-<rect x="269" y="150" width="256" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="269" y1="156" x2="269" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="397.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">外循环 flow-matching</text>
-<text x="397.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作损失</text>
-<rect x="862" y="150" width="238" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="862" y1="156" x2="862" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="981.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">三种记忆写入模式&lt;br/</text>
-<text x="1850" y="1982" font-size="10.5" fill="#8c959f" text-anchor="end">robottt · arXiv 2607.15275 · v3 auto</text>
+<rect x="22" y="115" width="1084" height="1269" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="135" font-size="11.5" font-weight="600" fill="#57606a">跨时间 TTT 层 x 16 - 记忆存于参数空间</text>
+<path d="M 1813.0 220.5 L 923.0 220.5 L 923.0 447.5 L 1073.0 447.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 939.5 500.0 L 1045.5 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1887.0 220.0 L 1239.0 220.0 L 1239.0 448.0 L 1299.0 448.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1224.0 500.0 L 1224.0 765.0 L 1046.0 765.0 L 1046.0 850.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1045.5 728.0 L 1046.0 850.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1377.5 272.0 L 1377.5 561.0 L 1046.0 561.0 L 1046.0 850.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1046.0 955.0 L 1051.0 1077.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1051.0 1181.0 L 1046.5 1304.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1046.5 1442.0 L 1047.0 1568.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1047.0 1706.0 L 1046.0 1832.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1046.0 1937.0 L 1046.0 2060.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 761.5 272.0 L 761.5 788.0 L 1046.5 788.0 L 1046.5 1304.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 429.0 273.0 L 429.0 1052.5 L 1046.0 1052.5 L 1046.0 1832.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="1547" y="168" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1547" y1="174" x2="1547" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="1680.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">观测 o_t 3 路</text>
+<text x="1680.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RealSense</text>
+<rect x="806" y="395" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="806" y1="401" x2="806" y2="494" stroke="#0b57d0" stroke-width="3"/>
+<text x="939.5" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 骨干 GR00T N1.7&lt;br</text>
+<text x="939.5" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
+<rect x="916" y="623" width="259" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="916" y1="629" x2="916" y2="722" stroke="#0b57d0" stroke-width="3"/>
+<text x="1045.5" y="668.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">16 个 register</text>
+<text x="1045.5" y="689.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">token&lt;br/</text>
+<rect x="1887" y="168" width="165" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1887" y1="174" x2="1887" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="1969.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本体状态 q_t</text>
+<rect x="1149" y="396" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1149" y1="402" x2="1149" y2="494" stroke="#0b57d0" stroke-width="3"/>
+<text x="1224.0" y="451.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">状态编码器</text>
+<rect x="1275" y="168" width="205" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1275" y1="174" x2="1275" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="1377.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">加噪动作 A_t^tau</text>
+<rect x="913" y="850" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="913" y1="856" x2="913" y2="949" stroke="#0b57d0" stroke-width="3"/>
+<text x="1046.0" y="895.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">单步内 self / cross-</text>
+<text x="1046.0" y="916.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">attention&lt;br/</text>
+<rect x="959" y="1077" width="184" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="959" y1="1083" x2="959" y2="1175" stroke="#0b57d0" stroke-width="3"/>
+<text x="1051.0" y="1132.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">沿时间展平&lt;br/</text>
+<rect x="916" y="1304" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="916" y1="1310" x2="916" y2="1436" stroke="#0b57d0" stroke-width="3"/>
+<text x="1046.5" y="1353.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">TTT 内循环梯度写入</text>
+<text x="1046.5" y="1374.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">W_t = W_(t-1) - eta *</text>
+<text x="1046.5" y="1403.25" font-size="12.5" fill="#57606a" text-anchor="middle">grad L_FW</text>
+<rect x="52" y="168" width="185" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="144.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">快速权重 W&lt;br/</text>
+<rect x="920" y="1568" width="254" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="920" y1="1574" x2="920" y2="1700" stroke="#0b57d0" stroke-width="3"/>
+<text x="1047.0" y="1617.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">tanh(alpha) 门控</text>
+<text x="1047.0" y="1638.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">alpha 初始 0.001 保护</text>
+<text x="1047.0" y="1667.25" font-size="12.5" fill="#57606a" text-anchor="middle">预训练</text>
+<rect x="913" y="1832" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="913" y1="1838" x2="913" y2="1931" stroke="#0b57d0" stroke-width="3"/>
+<text x="1046.0" y="1877.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DiT 解码器 flow-</text>
+<text x="1046.0" y="1898.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">matching</text>
+<rect x="917" y="2060" width="258" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="917" y1="2066" x2="917" y2="2159" stroke="#0b57d0" stroke-width="3"/>
+<text x="1046.0" y="2105.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 chunk H=16 30Hz</text>
+<text x="1046.0" y="2126.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">恒定延迟</text>
+<rect x="631" y="168" width="261" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="631" y1="174" x2="631" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="761.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">内循环 MSE 自监督 L_FW</text>
+<rect x="301" y="168" width="256" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="301" y1="174" x2="301" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="429.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">外循环 flow-matching</text>
+<text x="429.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作损失</text>
+<rect x="965" y="168" width="238" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="965" y1="174" x2="965" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="1084.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">三种记忆写入模式&lt;br/</text>
+<text x="2056" y="2207" font-size="10.5" fill="#8c959f" text-anchor="end">robottt · arXiv 2607.15275 · v3 auto</text>
 </svg>

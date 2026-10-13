@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="608" height="1116" viewBox="24 98 608 1116" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="651" height="1231" viewBox="26 112 651 1231" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>weaver</title>
-<rect x="24" y="98" width="608" height="1116" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">weaver</text>
-<text x="610" y="128" font-size="12" fill="#57606a" text-anchor="end">WEAVER 是多视角 world model，同时优化预测保真度（ρ=0.870）、长程一致性、推理效率（5-10× Ctrl-World）。离策略改进无需真机交互即提升 π</text>
+<rect x="26" y="112" width="651" height="1231" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">weaver</text>
+<text x="655" y="142" font-size="12" fill="#57606a" text-anchor="end">WEAVER 是多视角 world model，同时优化预测保真度（ρ=0.870）、长程一致性、推理效率（5-10× Ctrl-World）。离策略改进无需真机交互即提升 π</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,41 +10,41 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 328.0 255.0 L 328.5 353.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 328.5 458.0 L 327.5 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 327.5 711.0 L 477.5 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 327.5 711.0 L 176.5 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 477.5 930.0 L 327.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 176.5 947.0 L 327.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="214" y="150" width="228" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="214" y1="156" x2="214" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="328.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多视角观测</text>
-<text x="328.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">稀疏记忆 + 短程历史</text>
-<rect x="202" y="353" width="253" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="202" y1="359" x2="202" y2="452" stroke="#57606a" stroke-width="3"/>
-<text x="328.5" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Latent 编码器</text>
-<text x="328.5" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预训练 SD3 VAE (冻结)</text>
-<rect x="194" y="556" width="267" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="194" y1="562" x2="194" y2="705" stroke="#0b57d0" stroke-width="3"/>
-<text x="327.5" y="611.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多视角 Flow Matching</text>
-<text x="327.5" y="629.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">latent 空间联合预测</text>
-<text x="327.5" y="649.5" font-size="11.5" fill="#57606a" text-anchor="middle">FID 10.20 vs 像素 26.09 约快</text>
-<text x="327.5" y="664.5" font-size="11.5" fill="#57606a" text-anchor="middle">3x</text>
-<rect x="345" y="792" width="265" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="345" y1="798" x2="345" y2="924" stroke="#57606a" stroke-width="3"/>
-<text x="477.5" y="846.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">未来 latent 预测</text>
-<text x="477.5" y="864.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可解码回像素 也可在</text>
-<text x="477.5" y="884.5" font-size="11.5" fill="#57606a" text-anchor="middle">latent 评估任意策略</text>
-<rect x="46" y="792" width="261" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="798" x2="46" y2="941" stroke="#8a5a00" stroke-width="3"/>
-<text x="176.5" y="847.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">奖励预测</text>
-<text x="176.5" y="865.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">latent reward +</text>
-<text x="176.5" y="885.5" font-size="11.5" fill="#57606a" text-anchor="middle">critic head</text>
-<text x="176.5" y="900.5" font-size="11.5" fill="#57606a" text-anchor="middle">评估/改进/规划三应用共同支点</text>
-<rect x="194" y="1028" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="194" y1="1034" x2="194" y2="1160" stroke="#0b57d0" stroke-width="3"/>
-<text x="327.5" y="1082.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">策略评估 / 改进 / 规划</text>
-<text x="327.5" y="1100.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">优势过滤离线蒸馏 pi0.5 </text>
-<text x="327.5" y="1120.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 38%</text>
-<text x="610" y="1204" font-size="10.5" fill="#8c959f" text-anchor="end">weaver · arXiv 2606.13672 · v3 auto</text>
+<path d="M 354.0 273.0 L 352.5 395.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 352.5 500.0 L 350.5 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 350.5 778.0 L 518.5 887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 350.5 778.0 L 182.5 887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 518.5 1025.0 L 350.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 182.5 1042.0 L 350.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="240" y="168" width="228" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="240" y1="174" x2="240" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="354.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多视角观测</text>
+<text x="354.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">稀疏记忆 + 短程历史</text>
+<rect x="226" y="395" width="253" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="226" y1="401" x2="226" y2="494" stroke="#57606a" stroke-width="3"/>
+<text x="352.5" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Latent 编码器</text>
+<text x="352.5" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预训练 SD3 VAE (冻结)</text>
+<rect x="217" y="623" width="267" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="217" y1="629" x2="217" y2="772" stroke="#0b57d0" stroke-width="3"/>
+<text x="350.5" y="672.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多视角 Flow Matching</text>
+<text x="350.5" y="693.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">latent 空间联合预测</text>
+<text x="350.5" y="722.0" font-size="12.5" fill="#57606a" text-anchor="middle">FID 10.20 vs 像素 26.09 约快</text>
+<text x="350.5" y="739.5" font-size="12.5" fill="#57606a" text-anchor="middle">3x</text>
+<rect x="386" y="887" width="265" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="386" y1="893" x2="386" y2="1019" stroke="#57606a" stroke-width="3"/>
+<text x="518.5" y="936.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">未来 latent 预测</text>
+<text x="518.5" y="957.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可解码回像素 也可在</text>
+<text x="518.5" y="986.25" font-size="12.5" fill="#57606a" text-anchor="middle">latent 评估任意策略</text>
+<rect x="52" y="887" width="261" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="893" x2="52" y2="1036" stroke="#8a5a00" stroke-width="3"/>
+<text x="182.5" y="936.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">奖励预测</text>
+<text x="182.5" y="957.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">latent reward +</text>
+<text x="182.5" y="986.0" font-size="12.5" fill="#57606a" text-anchor="middle">critic head</text>
+<text x="182.5" y="1003.5" font-size="12.5" fill="#57606a" text-anchor="middle">评估/改进/规划三应用共同支点</text>
+<rect x="217" y="1151" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="217" y1="1157" x2="217" y2="1283" stroke="#0b57d0" stroke-width="3"/>
+<text x="350.5" y="1200.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">策略评估 / 改进 / 规划</text>
+<text x="350.5" y="1221.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">优势过滤离线蒸馏 pi0.5 </text>
+<text x="350.5" y="1250.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ 38%</text>
+<text x="655" y="1331" font-size="10.5" fill="#8c959f" text-anchor="end">weaver · arXiv 2606.13672 · v3 auto</text>
 </svg>

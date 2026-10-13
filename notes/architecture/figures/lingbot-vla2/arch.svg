@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1462" height="1654" viewBox="24 98 1462 1654" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1609" height="1834" viewBox="26 112 1609 1834" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>lingbot-vla2</title>
-<rect x="24" y="98" width="1462" height="1654" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">lingbot-vla2</text>
-<text x="1464" y="128" font-size="12" fill="#57606a" text-anchor="end">LingBot-VLA 2.0 沿三个功能域推进前代：重构数据管线并整理约 60,000 小时预训练语料（约 90K 小时原始真机数据清洗出 50K 小时、覆盖 20 个机器人</text>
+<rect x="26" y="112" width="1609" height="1834" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">lingbot-vla2</text>
+<text x="1613" y="142" font-size="12" fill="#57606a" text-anchor="end">LingBot-VLA 2.0 沿三个功能域推进前代：重构数据管线并整理约 60,000 小时预训练语料（约 90K 小时原始真机数据清洗出 50K 小时、覆盖 20 个机器人</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,78 +10,78 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 313.0 219.0 L 478.0 463.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 608.5 541.0 L 755.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 755.5 760.0 L 754.5 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 754.5 996.0 L 754.5 1094.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 754.5 1249.0 L 754.5 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1064.5 271.0 L 905.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 905.0 524.0 L 905.0 1017.0 L 754.5 1017.0 L 754.5 1330.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 483.0 271.0 L 483.0 577.5 L 905.0 577.5 L 905.0 524.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 786.0 288.0 L 905.0 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1337.0 305.0 L 1337.0 817.5 L 754.5 817.5 L 754.5 1330.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 754.5 1485.0 L 755.0 1566.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="150" width="267" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="179.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">原始数据池</text>
-<text x="179.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">90K h 真机 + 20K h ego</text>
-<text x="179.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">视频</text>
-<rect x="478" y="386" width="261" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="478" y1="392" x2="478" y2="535" stroke="#0969da" stroke-width="3"/>
-<text x="608.5" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">三段清洗: jerk/速度 Z-</text>
-<text x="608.5" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">score</text>
-<text x="608.5" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">静止占比超 95% 剔除</text>
-<text x="608.5" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">URDF 投影重放 + SLAM 校验</text>
-<rect x="622" y="622" width="267" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="622" y1="628" x2="622" y2="754" stroke="#0969da" stroke-width="3"/>
-<text x="755.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">高质量语料</text>
-<text x="755.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">50K h x 20 构型 + 10K</text>
-<text x="755.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">h ego</text>
-<rect x="626" y="858" width="257" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="626" y1="864" x2="626" y2="990" stroke="#57606a" stroke-width="3"/>
-<text x="754.5" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自动标注: Qwen3.6-27B</text>
-<text x="754.5" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">子任务切分 + 18 类封闭</text>
-<text x="754.5" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">动作词表</text>
-<rect x="622" y="1094" width="265" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="622" y1="1100" x2="622" y2="1243" stroke="#0969da" stroke-width="3"/>
-<text x="754.5" y="1149.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">55 维统一动作向量</text>
-<text x="754.5" y="1167.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">臂/末端/夹爪/灵巧手/腰/</text>
-<text x="754.5" y="1187.5" font-size="11.5" fill="#57606a" text-anchor="middle">头/底盘</text>
-<text x="754.5" y="1202.5" font-size="11.5" fill="#57606a" text-anchor="middle">低维构型补零共享专家</text>
-<rect x="628" y="1330" width="253" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="628" y1="1336" x2="628" y2="1479" stroke="#1a7f37" stroke-width="3"/>
-<text x="754.5" y="1385.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作专家: 稀疏 MoE 层</text>
-<text x="754.5" y="1403.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Sigmoid 路由 + 修正偏</text>
-<text x="754.5" y="1423.5" font-size="11.5" fill="#57606a" text-anchor="middle">置只进 Top-K</text>
-<text x="754.5" y="1438.5" font-size="11.5" fill="#57606a" text-anchor="middle">无辅助损失负载均衡</text>
-<rect x="957" y="166" width="215" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="957" y1="172" x2="957" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="1064.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM backbone</text>
-<text x="1064.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉 + 文本 token</text>
-<rect x="778" y="386" width="254" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="778" y1="392" x2="778" y2="518" stroke="#0b57d0" stroke-width="3"/>
-<text x="905.0" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">双 query 预测蒸馏</text>
-<text x="905.0" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Q_t 当前观测 + Q_t+T</text>
-<text x="905.0" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">前瞻 T 步</text>
-<rect x="351" y="166" width="264" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="351" y1="172" x2="351" y2="265" stroke="#57606a" stroke-width="3"/>
-<text x="483.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LingBot-Depth 深度教师</text>
-<text x="483.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(L1 几何监督)</text>
-<rect x="653" y="150" width="266" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="653" y1="156" x2="653" y2="282" stroke="#57606a" stroke-width="3"/>
-<text x="786.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DINO-Video 因果视频教师</text>
-<text x="786.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(DINOv3 初始化,</text>
-<text x="786.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">Frobenius 范数)</text>
-<rect x="1210" y="150" width="254" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1210" y1="156" x2="1210" y2="299" stroke="#8a5a00" stroke-width="3"/>
-<text x="1337.0" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">相对目标 + MeanStd 归</text>
-<text x="1337.0" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">一化</text>
-<text x="1337.0" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">L2 回归损失 (relQpos 方差降</text>
-<text x="1337.0" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">65%)</text>
-<rect x="627" y="1566" width="256" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="627" y1="1572" x2="627" y2="1698" stroke="#8250df" stroke-width="3"/>
-<text x="755.0" y="1620.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">全身策略输出</text>
-<text x="755.0" y="1638.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">头/腰/底盘/灵巧手/双臂</text>
-<text x="755.0" y="1658.5" font-size="11.5" fill="#57606a" text-anchor="middle">30Hz (R1 系 15Hz)</text>
-<text x="1464" y="1742" font-size="10.5" fill="#8c959f" text-anchor="end">lingbot-vla2 · arXiv 2607.06403 · v3 auto</text>
+<path d="M 319.0 237.0 L 535.0 509.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 665.5 587.0 L 830.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 830.5 835.0 L 829.5 961.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 829.5 1099.0 L 829.5 1225.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 829.5 1380.0 L 829.5 1490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1179.5 291.0 L 998.0 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 998.0 570.0 L 998.0 1120.0 L 829.5 1120.0 L 829.5 1490.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 525.0 291.0 L 525.0 430.5 L 998.0 430.5 L 998.0 570.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 864.0 306.0 L 998.0 432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1482.0 323.0 L 1482.0 906.5 L 829.5 906.5 L 829.5 1490.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 829.5 1645.0 L 830.0 1754.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="168" width="267" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="185.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">原始数据池</text>
+<text x="185.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">90K h 真机 + 20K h ego</text>
+<text x="185.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">视频</text>
+<rect x="535" y="432" width="261" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="535" y1="438" x2="535" y2="581" stroke="#0969da" stroke-width="3"/>
+<text x="665.5" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">三段清洗: jerk/速度 Z-</text>
+<text x="665.5" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">score</text>
+<text x="665.5" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">静止占比超 95% 剔除</text>
+<text x="665.5" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">URDF 投影重放 + SLAM 校验</text>
+<rect x="697" y="697" width="267" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="697" y1="703" x2="697" y2="829" stroke="#0969da" stroke-width="3"/>
+<text x="830.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">高质量语料</text>
+<text x="830.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">50K h x 20 构型 + 10K</text>
+<text x="830.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">h ego</text>
+<rect x="701" y="961" width="257" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="701" y1="967" x2="701" y2="1093" stroke="#57606a" stroke-width="3"/>
+<text x="829.5" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自动标注: Qwen3.6-27B</text>
+<text x="829.5" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">子任务切分 + 18 类封闭</text>
+<text x="829.5" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">动作词表</text>
+<rect x="697" y="1225" width="265" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="697" y1="1231" x2="697" y2="1374" stroke="#0969da" stroke-width="3"/>
+<text x="829.5" y="1274.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">55 维统一动作向量</text>
+<text x="829.5" y="1295.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">臂/末端/夹爪/灵巧手/腰/</text>
+<text x="829.5" y="1324.0" font-size="12.5" fill="#57606a" text-anchor="middle">头/底盘</text>
+<text x="829.5" y="1341.5" font-size="12.5" fill="#57606a" text-anchor="middle">低维构型补零共享专家</text>
+<rect x="703" y="1490" width="253" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="703" y1="1496" x2="703" y2="1639" stroke="#1a7f37" stroke-width="3"/>
+<text x="829.5" y="1539.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作专家: 稀疏 MoE 层</text>
+<text x="829.5" y="1560.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Sigmoid 路由 + 修正偏</text>
+<text x="829.5" y="1589.0" font-size="12.5" fill="#57606a" text-anchor="middle">置只进 Top-K</text>
+<text x="829.5" y="1606.5" font-size="12.5" fill="#57606a" text-anchor="middle">无辅助损失负载均衡</text>
+<rect x="1072" y="186" width="215" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1072" y1="192" x2="1072" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="1179.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM backbone</text>
+<text x="1179.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉 + 文本 token</text>
+<rect x="871" y="432" width="254" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="871" y1="438" x2="871" y2="564" stroke="#0b57d0" stroke-width="3"/>
+<text x="998.0" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">双 query 预测蒸馏</text>
+<text x="998.0" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Q_t 当前观测 + Q_t+T</text>
+<text x="998.0" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">前瞻 T 步</text>
+<rect x="393" y="186" width="264" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="393" y1="192" x2="393" y2="285" stroke="#57606a" stroke-width="3"/>
+<text x="525.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LingBot-Depth 深度教师</text>
+<text x="525.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(L1 几何监督)</text>
+<rect x="731" y="168" width="266" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="731" y1="174" x2="731" y2="300" stroke="#57606a" stroke-width="3"/>
+<text x="864.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DINO-Video 因果视频教师</text>
+<text x="864.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(DINOv3 初始化,</text>
+<text x="864.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">Frobenius 范数)</text>
+<rect x="1355" y="168" width="254" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1355" y1="174" x2="1355" y2="317" stroke="#8a5a00" stroke-width="3"/>
+<text x="1482.0" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">相对目标 + MeanStd 归</text>
+<text x="1482.0" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">一化</text>
+<text x="1482.0" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">L2 回归损失 (relQpos 方差降</text>
+<text x="1482.0" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">65%)</text>
+<rect x="702" y="1754" width="256" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="702" y1="1760" x2="702" y2="1886" stroke="#8250df" stroke-width="3"/>
+<text x="830.0" y="1803.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">全身策略输出</text>
+<text x="830.0" y="1824.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">头/腰/底盘/灵巧手/双臂</text>
+<text x="830.0" y="1853.25" font-size="12.5" fill="#57606a" text-anchor="middle">30Hz (R1 系 15Hz)</text>
+<text x="1613" y="1934" font-size="10.5" fill="#8c959f" text-anchor="end">lingbot-vla2 · arXiv 2607.06403 · v3 auto</text>
 </svg>

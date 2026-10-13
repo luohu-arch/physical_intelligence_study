@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1318" height="1553" viewBox="24 67 1318 1553" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1448" height="1725" viewBox="26 77 1448 1725" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>openvla</title>
-<rect x="24" y="67" width="1318" height="1553" fill="#ffffff"/>
-<text x="46" y="97" font-size="14" font-weight="700" fill="#1f2328">openvla</text>
-<text x="1320" y="97" font-size="12" fill="#57606a" text-anchor="end">OpenVLA 是首个完全开源、可商用、性能比肩闭源 RT-2 的 7B 级端到端 VLA 模型，基于双视觉编码器（DINOv2+SigLIP）和 Llama 2 7B 骨干，</text>
+<rect x="26" y="77" width="1448" height="1725" fill="#ffffff"/>
+<text x="48" y="107" font-size="14" font-weight="700" fill="#1f2328">openvla</text>
+<text x="1452" y="107" font-size="12" fill="#57606a" text-anchor="end">OpenVLA 是首个完全开源、可商用、性能比肩闭源 RT-2 的 7B 级端到端 VLA 模型，基于双视觉编码器（DINOv2+SigLIP）和 Llama 2 7B 骨干，</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,66 +10,66 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="466" y="119" width="348" height="629" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="480" y="139" font-size="11.5" font-weight="600" fill="#57606a">双视觉编码器 (互补)</text>
-<path d="M 266.0 218.5 L 206.0 218.5 L 206.0 438.5 L 586.0 438.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 379.0 271.0 L 379.0 531.5 L 683.0 531.5 L 683.0 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 683.5 491.0 L 683.0 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 607.5 271.0 L 607.5 520.0 L 683.0 520.0 L 683.0 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 683.0 694.0 L 683.0 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 894.5 305.0 L 894.5 548.5 L 683.0 548.5 L 683.0 792.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 683.0 930.0 L 682.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1193.0 271.0 L 1193.0 739.5 L 682.5 739.5 L 682.5 1028.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 682.5 1166.0 L 683.0 1264.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 683.0 1369.0 L 683.0 1467.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 635.8 1572.0 L 178.0 271.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="166" width="220" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="156.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RGB 图像 224x224</text>
-<text x="156.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(单路, 无本体感知)</text>
-<rect x="586" y="386" width="195" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="586" y1="392" x2="586" y2="485" stroke="#57606a" stroke-width="3"/>
-<text x="683.5" y="433.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP 语义特征</text>
-<text x="683.5" y="451.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(这是什么)</text>
-<rect x="304" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="304" y1="173" x2="304" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="379.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
-<rect x="552" y="792" width="262" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="552" y1="798" x2="552" y2="924" stroke="#57606a" stroke-width="3"/>
-<text x="683.0" y="846.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Llama 2 7B 主干</text>
-<text x="683.0" y="864.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(970k OpenX 轨迹预训</text>
-<text x="683.0" y="884.5" font-size="11.5" fill="#57606a" text-anchor="middle">练, 微调时冻结)</text>
-<rect x="492" y="166" width="231" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="492" y1="172" x2="492" y2="265" stroke="#57606a" stroke-width="3"/>
-<text x="607.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DINOv2 空间几何特征</text>
-<text x="607.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(在哪里)</text>
-<rect x="578" y="589" width="210" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="578" y1="595" x2="578" y2="688" stroke="#0b57d0" stroke-width="3"/>
-<text x="683.0" y="636.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">特征融合</text>
-<text x="683.0" y="654.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语义 + 空间双通道</text>
-<rect x="761" y="150" width="267" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="761" y1="156" x2="761" y2="299" stroke="#1a7f37" stroke-width="3"/>
-<text x="894.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LoRA 低秩适配</text>
-<text x="894.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">注意力层插入, 仅约 0.1%</text>
-<text x="894.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">参数</text>
-<text x="894.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">单张 24G GPU 可微调</text>
-<rect x="548" y="1028" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="548" y1="1034" x2="548" y2="1160" stroke="#0b57d0" stroke-width="3"/>
-<text x="682.5" y="1082.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作输出头: 256 bin 离</text>
-<text x="682.5" y="1100.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">散化</text>
-<text x="682.5" y="1120.5" font-size="11.5" fill="#57606a" text-anchor="middle">7 维动作自回归逐 token 生成</text>
-<rect x="1066" y="166" width="254" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1066" y1="172" x2="1066" y2="265" stroke="#8a5a00" stroke-width="3"/>
-<text x="1193.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失: next-token 交</text>
-<text x="1193.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">叉熵</text>
-<rect x="568" y="1264" width="230" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="568" y1="1270" x2="568" y2="1363" stroke="#8250df" stroke-width="3"/>
-<text x="683.0" y="1311.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">解码回连续动作执行</text>
-<text x="683.0" y="1329.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">H = 1, 无 chunking</text>
-<rect x="565" y="1467" width="236" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="565" y1="1473" x2="565" y2="1566" stroke="#8250df" stroke-width="3"/>
-<text x="683.0" y="1514.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
-<text x="683.0" y="1532.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">未优化 6Hz@RTX 4090</text>
-<text x="406.9" y="913.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每步重观测重规划</text>
-<text x="1320" y="1610" font-size="10.5" fill="#8c959f" text-anchor="end">openvla · arXiv 2406.09246 · v3 auto</text>
+<rect x="522" y="133" width="348" height="629" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="536" y="153" font-size="11.5" font-weight="600" fill="#57606a">双视觉编码器 (互补)</text>
+<path d="M 272.0 238.5 L 656.0 484.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 415.0 291.0 L 415.0 589.0 L 749.0 589.0 L 749.0 887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 753.5 537.0 L 752.0 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 666.5 291.0 L 666.5 565.5 L 752.0 565.5 L 752.0 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 752.0 765.0 L 749.0 887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 985.5 323.0 L 985.5 605.0 L 749.0 605.0 L 749.0 887.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 749.0 1025.0 L 748.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1321.0 291.0 L 1321.0 811.0 L 748.5 811.0 L 748.5 1151.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 748.5 1289.0 L 751.0 1416.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 751.0 1521.0 L 751.0 1643.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 703.8 1748.0 L 184.0 291.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="186" width="220" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="162.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RGB 图像 224x224</text>
+<text x="162.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(单路, 无本体感知)</text>
+<rect x="656" y="432" width="195" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="656" y1="438" x2="656" y2="531" stroke="#57606a" stroke-width="3"/>
+<text x="753.5" y="477.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP 语义特征</text>
+<text x="753.5" y="498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(这是什么)</text>
+<rect x="340" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="340" y1="193" x2="340" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="415.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
+<rect x="618" y="887" width="262" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="618" y1="893" x2="618" y2="1019" stroke="#57606a" stroke-width="3"/>
+<text x="749.0" y="936.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Llama 2 7B 主干</text>
+<text x="749.0" y="957.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(970k OpenX 轨迹预训</text>
+<text x="749.0" y="986.25" font-size="12.5" fill="#57606a" text-anchor="middle">练, 微调时冻结)</text>
+<rect x="551" y="186" width="231" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="551" y1="192" x2="551" y2="285" stroke="#57606a" stroke-width="3"/>
+<text x="666.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DINOv2 空间几何特征</text>
+<text x="666.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(在哪里)</text>
+<rect x="647" y="660" width="210" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="647" y1="666" x2="647" y2="759" stroke="#0b57d0" stroke-width="3"/>
+<text x="752.0" y="705.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">特征融合</text>
+<text x="752.0" y="726.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语义 + 空间双通道</text>
+<rect x="852" y="168" width="267" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="852" y1="174" x2="852" y2="317" stroke="#1a7f37" stroke-width="3"/>
+<text x="985.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LoRA 低秩适配</text>
+<text x="985.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">注意力层插入, 仅约 0.1%</text>
+<text x="985.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">参数</text>
+<text x="985.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">单张 24G GPU 可微调</text>
+<rect x="614" y="1151" width="269" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="614" y1="1157" x2="614" y2="1283" stroke="#0b57d0" stroke-width="3"/>
+<text x="748.5" y="1200.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作输出头: 256 bin 离</text>
+<text x="748.5" y="1221.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">散化</text>
+<text x="748.5" y="1250.25" font-size="12.5" fill="#57606a" text-anchor="middle">7 维动作自回归逐 token 生成</text>
+<rect x="1194" y="186" width="254" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1194" y1="192" x2="1194" y2="285" stroke="#8a5a00" stroke-width="3"/>
+<text x="1321.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失: next-token 交</text>
+<text x="1321.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">叉熵</text>
+<rect x="636" y="1416" width="230" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="636" y1="1422" x2="636" y2="1515" stroke="#8250df" stroke-width="3"/>
+<text x="751.0" y="1461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">解码回连续动作执行</text>
+<text x="751.0" y="1482.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">H = 1, 无 chunking</text>
+<rect x="633" y="1643" width="236" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="633" y1="1649" x2="633" y2="1742" stroke="#8250df" stroke-width="3"/>
+<text x="751.0" y="1688.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
+<text x="751.0" y="1709.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">未优化 6Hz@RTX 4090</text>
+<text x="443.9" y="1011.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每步重观测重规划</text>
+<text x="1452" y="1790" font-size="10.5" fill="#8c959f" text-anchor="end">openvla · arXiv 2406.09246 · v3 auto</text>
 </svg>

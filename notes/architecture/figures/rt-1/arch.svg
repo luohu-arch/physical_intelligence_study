@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="714" height="2433" viewBox="24 98 714 2433" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="770" height="2710" viewBox="26 112 770 2710" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>rt-1</title>
-<rect x="24" y="98" width="714" height="2433" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">rt-1</text>
-<text x="716" y="128" font-size="12" fill="#57606a" text-anchor="end">RT-1 把语言指令、图像和连续机器人动作全部编码为紧凑 token，用一个 35M 参数的 Transformer 在 130k 条真机示教（13 台机器人、17 个月、70</text>
+<rect x="26" y="112" width="770" height="2710" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">rt-1</text>
+<text x="774" y="142" font-size="12" fill="#57606a" text-anchor="end">RT-1 把语言指令、图像和连续机器人动作全部编码为紧凑 token，用一个 35M 参数的 Transformer 在 130k 条真机示教（13 台机器人、17 个月、70</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,77 +10,77 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 134.5 271.0 L 134.5 564.5 L 381.0 564.5 L 381.0 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 336.0 271.0 L 380.5 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 380.5 524.0 L 381.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 381.5 760.0 L 381.0 858.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 381.0 963.0 L 381.5 1061.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 381.5 1166.0 L 381.0 1264.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 381.0 1402.0 L 381.5 1500.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 381.5 1638.0 L 381.0 1736.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 582.5 288.0 L 582.5 1012.0 L 381.0 1012.0 L 381.0 1736.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 381.0 1874.0 L 381.0 1972.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 381.0 2077.0 L 380.5 2175.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 380.5 2280.0 L 380.5 2378.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 347.5 2483.0 L 347.5 1467.0 L 152.2 1467.0 L 152.2 271.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="166" width="177" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="134.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">6 帧 RGB 历史</text>
-<text x="134.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">300 x 300</text>
-<rect x="248" y="858" width="266" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="248" y1="864" x2="248" y2="957" stroke="#1a7f37" stroke-width="3"/>
-<text x="381.0" y="905.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">FiLM-EfficientNet-B3</text>
-<text x="381.0" y="923.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(ImageNet 预训练, 16M)</text>
-<rect x="261" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="261" y1="173" x2="261" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="336.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">指令文本</text>
-<rect x="250" y="386" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="250" y1="392" x2="250" y2="518" stroke="#57606a" stroke-width="3"/>
-<text x="380.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Universal Sentence</text>
-<text x="380.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Encoder 嵌入</text>
-<text x="380.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">(冻结)</text>
-<rect x="252" y="622" width="259" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="252" y1="628" x2="252" y2="754" stroke="#1a7f37" stroke-width="3"/>
-<text x="381.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">identity-init FiLM 层</text>
-<text x="381.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">零初始化, 初始等价恒等</text>
-<text x="381.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">映射</text>
-<rect x="260" y="1061" width="243" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="260" y1="1067" x2="260" y2="1160" stroke="#0b57d0" stroke-width="3"/>
-<text x="381.5" y="1108.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每帧展平为</text>
-<text x="381.5" y="1126.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">81 个视觉-语言 token</text>
-<rect x="254" y="1264" width="254" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="254" y1="1270" x2="254" y2="1396" stroke="#0b57d0" stroke-width="3"/>
-<text x="381.0" y="1318.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">TokenLearner 软选择</text>
-<text x="381.0" y="1336.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">压缩</text>
-<text x="381.0" y="1356.5" font-size="11.5" fill="#57606a" text-anchor="middle">81 -&gt; 8 token (2.4x 加速)</text>
-<rect x="248" y="1500" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="248" y1="1506" x2="248" y2="1632" stroke="#0b57d0" stroke-width="3"/>
-<text x="381.5" y="1554.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">6 帧拼接共 48 token</text>
-<text x="381.5" y="1572.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(滑窗复用旧帧特征, 1.7x</text>
-<text x="381.5" y="1592.5" font-size="11.5" fill="#57606a" text-anchor="middle">加速)</text>
-<rect x="249" y="1736" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="249" y1="1742" x2="249" y2="1868" stroke="#1a7f37" stroke-width="3"/>
-<text x="381.0" y="1790.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">decoder-only</text>
-<text x="381.0" y="1808.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer</text>
-<text x="381.0" y="1828.5" font-size="11.5" fill="#57606a" text-anchor="middle">8 层 19M 参数 (共 35M)</text>
-<rect x="449" y="150" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="449" y1="156" x2="449" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="582.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失: 11 维 categorical</text>
-<text x="582.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CE</text>
-<text x="582.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ causal masking (等价 BC)</text>
-<rect x="246" y="1972" width="270" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="246" y1="1978" x2="246" y2="2071" stroke="#0b57d0" stroke-width="3"/>
-<text x="381.0" y="2019.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">11 维动作 x 256 bin</text>
-<text x="381.0" y="2037.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">非自回归一次前向并行输出</text>
-<rect x="248" y="2175" width="265" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="248" y1="2181" x2="248" y2="2274" stroke="#8250df" stroke-width="3"/>
-<text x="380.5" y="2222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">bin 中心反解</text>
-<text x="380.5" y="2240.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">量化误差上界半个 bin 宽</text>
-<rect x="298" y="2378" width="165" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="298" y1="2384" x2="298" y2="2477" stroke="#8250df" stroke-width="3"/>
-<text x="380.5" y="2425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">3Hz 闭环控制</text>
-<text x="380.5" y="2443.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">推理仅 15ms</text>
-<text x="381.2" y="801.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">语言早融合调制卷积特征</text>
-<text x="249.8" y="1369.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每步重观测</text>
-<text x="716" y="2521" font-size="10.5" fill="#8c959f" text-anchor="end">rt-1 · arXiv 2212.06817 · v3 auto</text>
+<path d="M 140.5 291.0 L 140.5 626.0 L 411.0 626.0 L 411.0 961.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 367.0 291.0 L 410.5 432.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 410.5 570.0 L 411.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 411.5 835.0 L 411.0 961.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 411.0 1066.0 L 412.5 1188.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 412.5 1293.0 L 411.0 1416.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 411.0 1554.0 L 411.5 1680.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 411.5 1818.0 L 411.0 1944.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 636.5 306.0 L 636.5 1125.0 L 411.0 1125.0 L 411.0 1944.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 411.0 2082.0 L 411.0 2209.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 411.0 2314.0 L 410.5 2436.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 410.5 2541.0 L 416.5 2663.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 383.5 2768.0 L 383.5 1619.5 L 158.2 1619.5 L 158.2 291.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="186" width="177" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="140.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">6 帧 RGB 历史</text>
+<text x="140.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">300 x 300</text>
+<rect x="278" y="961" width="266" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="278" y1="967" x2="278" y2="1060" stroke="#1a7f37" stroke-width="3"/>
+<text x="411.0" y="1006.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">FiLM-EfficientNet-B3</text>
+<text x="411.0" y="1027.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(ImageNet 预训练, 16M)</text>
+<rect x="292" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="292" y1="193" x2="292" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="367.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">指令文本</text>
+<rect x="280" y="432" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="280" y1="438" x2="280" y2="564" stroke="#57606a" stroke-width="3"/>
+<text x="410.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Universal Sentence</text>
+<text x="410.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Encoder 嵌入</text>
+<text x="410.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">(冻结)</text>
+<rect x="282" y="697" width="259" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="282" y1="703" x2="282" y2="829" stroke="#1a7f37" stroke-width="3"/>
+<text x="411.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">identity-init FiLM 层</text>
+<text x="411.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">零初始化, 初始等价恒等</text>
+<text x="411.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">映射</text>
+<rect x="291" y="1188" width="243" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="291" y1="1194" x2="291" y2="1287" stroke="#0b57d0" stroke-width="3"/>
+<text x="412.5" y="1233.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每帧展平为</text>
+<text x="412.5" y="1254.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">81 个视觉-语言 token</text>
+<rect x="284" y="1416" width="254" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="284" y1="1422" x2="284" y2="1548" stroke="#0b57d0" stroke-width="3"/>
+<text x="411.0" y="1465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">TokenLearner 软选择</text>
+<text x="411.0" y="1486.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">压缩</text>
+<text x="411.0" y="1515.25" font-size="12.5" fill="#57606a" text-anchor="middle">81 -&gt; 8 token (2.4x 加速)</text>
+<rect x="278" y="1680" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="278" y1="1686" x2="278" y2="1812" stroke="#0b57d0" stroke-width="3"/>
+<text x="411.5" y="1729.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">6 帧拼接共 48 token</text>
+<text x="411.5" y="1750.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(滑窗复用旧帧特征, 1.7x</text>
+<text x="411.5" y="1779.25" font-size="12.5" fill="#57606a" text-anchor="middle">加速)</text>
+<rect x="279" y="1944" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="279" y1="1950" x2="279" y2="2076" stroke="#1a7f37" stroke-width="3"/>
+<text x="411.0" y="1993.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">decoder-only</text>
+<text x="411.0" y="2014.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer</text>
+<text x="411.0" y="2043.25" font-size="12.5" fill="#57606a" text-anchor="middle">8 层 19M 参数 (共 35M)</text>
+<rect x="503" y="168" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="503" y1="174" x2="503" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="636.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失: 11 维 categorical</text>
+<text x="636.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CE</text>
+<text x="636.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ causal masking (等价 BC)</text>
+<rect x="276" y="2209" width="270" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="276" y1="2215" x2="276" y2="2308" stroke="#0b57d0" stroke-width="3"/>
+<text x="411.0" y="2254.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">11 维动作 x 256 bin</text>
+<text x="411.0" y="2275.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">非自回归一次前向并行输出</text>
+<rect x="278" y="2436" width="265" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="278" y1="2442" x2="278" y2="2535" stroke="#8250df" stroke-width="3"/>
+<text x="410.5" y="2481.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">bin 中心反解</text>
+<text x="410.5" y="2502.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">量化误差上界半个 bin 宽</text>
+<rect x="334" y="2663" width="165" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="334" y1="2669" x2="334" y2="2762" stroke="#8250df" stroke-width="3"/>
+<text x="416.5" y="2708.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">3Hz 闭环控制</text>
+<text x="416.5" y="2729.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">推理仅 15ms</text>
+<text x="411.2" y="890.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">语言早融合调制卷积特征</text>
+<text x="270.9" y="1521.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每步重观测</text>
+<text x="774" y="2810" font-size="10.5" fill="#8c959f" text-anchor="end">rt-1 · arXiv 2212.06817 · v3 auto</text>
 </svg>

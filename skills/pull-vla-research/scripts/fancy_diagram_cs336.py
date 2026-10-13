@@ -32,6 +32,13 @@ EDGE = {
 }
 FONT = "'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif"
 
+# 排版呼吸感(2026-10-13 用户反馈: 密集 -> 加大行距/段距/字号, 卡片间隙外扩)
+GAP_SCALE = 1.12   # 卡片坐标外扩系数(卡片尺寸不变, 只拉开间距)
+L_FS, L_PITCH = 14.5, 21      # 卡片标题字号/行距
+S_FS, S_PITCH = 12.5, 17.5    # 副文字号/行距
+LS_GAP = 8                    # 标题块与副文块的段间距
+E_FS = 12.5                   # 边标签字号
+
 
 def esc(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -83,6 +90,14 @@ def _route(sa, sb, na, nb, rects):
 
 
 def render(spec):
+    import copy
+    for n in spec["nodes"]:
+        n["x"], n["y"] = round(n["x"] * GAP_SCALE), round(n["y"] * GAP_SCALE)
+    for p in spec.get("panels", []):
+        p["x"], p["y"] = round(p["x"] * GAP_SCALE), round(p["y"] * GAP_SCALE)
+    for e in spec.get("edges", []):
+        if e.get("labpos"):
+            e["labpos"] = [round(e["labpos"][0] * GAP_SCALE), round(e["labpos"][1] * GAP_SCALE)]
     nodes = {n["id"]: n for n in spec["nodes"]}
     rpts = []
 
@@ -112,7 +127,7 @@ def render(spec):
             else:
                 mx, my = mx + off[0], my + off[1] - 8
             rpts += [(mx, my), (mx + 120, my + 12)]
-            labels_out.append(f'<text x="{mx:.1f}" y="{my:.1f}" font-size="11.5" fill="#57606a" '
+            labels_out.append(f'<text x="{mx:.1f}" y="{my:.1f}" font-size="12.5" fill="#57606a" '
                               f'text-anchor="middle" paint-order="stroke" stroke="#ffffff" '
                               f'stroke-width="3">{esc(e["label"])}</text>')
 
@@ -121,7 +136,7 @@ def render(spec):
     for p in spec.get("panels", []):
         xs += [p["x"], p["x"] + p["w"]]
         ys += [p["y"], p["y"] + p["h"]]
-    pad, head, foot = 22, 52, 26
+    pad, head, foot = 26, 56, 28
     x0, y0, x1, y1 = min(xs) - pad, min(ys) - head, max(xs) + pad, max(ys) + pad
     W, H = int(x1 - x0), int(y1 - y0 + foot)
 
@@ -160,12 +175,12 @@ def render(spec):
         out.append(f'<line x1="{x}" y1="{y + 6}" x2="{x}" y2="{y + h - 6}" stroke="{bar}" stroke-width="3"/>')
         labs = n["label"].split("\n")
         subs = n.get("sub", "").split("\n") if n.get("sub") else []
-        ty = y + (h - (len(labs) * 18 + len(subs) * 15 + (4 if subs else 0))) / 2 + 13
+        ty = y + (h - (len(labs) * L_PITCH + (LS_GAP if subs else 0) + len(subs) * S_PITCH)) / 2 + 14
         for i, l in enumerate(labs):
-            out.append(f'<text x="{x + w / 2}" y="{ty + i * 18}" font-size="13" font-weight="700" '
+            out.append(f'<text x="{x + w / 2}" y="{ty + i * L_PITCH}" font-size="14.5" font-weight="700" '
                        f'fill="#1f2328" text-anchor="middle">{esc(l)}</text>')
         for i, s in enumerate(subs):
-            out.append(f'<text x="{x + w / 2}" y="{ty + len(labs) * 18 + 2 + i * 15}" font-size="11.5" '
+            out.append(f'<text x="{x + w / 2}" y="{ty + len(labs) * L_PITCH + LS_GAP + i * S_PITCH}" font-size="12.5" '
                        f'fill="#57606a" text-anchor="middle">{esc(s)}</text>')
     out += labels_out
     if spec.get("foot"):

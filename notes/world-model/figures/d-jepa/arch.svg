@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="854" height="2464" viewBox="-2 67 854 2464" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="928" height="2745" viewBox="-4 77 928 2745" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>d-jepa</title>
-<rect x="-2" y="67" width="854" height="2464" fill="#ffffff"/>
-<text x="20" y="97" font-size="14" font-weight="700" fill="#1f2328">d-jepa</text>
-<text x="830" y="97" font-size="12" fill="#57606a" text-anchor="end">D-JEPA 抓住了 JEPA 潜空间世界模型一个被忽视的失效模式——**决策局部预测鸿沟**：LeWM 对 63 个候选的全集排序与真实结果的 within-start Sp</text>
+<rect x="-4" y="77" width="928" height="2745" fill="#ffffff"/>
+<text x="18" y="107" font-size="14" font-weight="700" fill="#1f2328">d-jepa</text>
+<text x="902" y="107" font-size="12" fill="#57606a" text-anchor="end">D-JEPA 抓住了 JEPA 潜空间世界模型一个被忽视的失效模式——**决策局部预测鸿沟**：LeWM 对 63 个候选的全集排序与真实结果的 within-start Sp</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,79 +10,79 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="119" width="537" height="206" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="139" font-size="11.5" font-weight="600" fill="#57606a">输入</text>
-<path d="M 424.5 271.0 L 437.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 280.0 218.5 L 304.0 455.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 437.5 524.0 L 438.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 438.5 760.0 L 438.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 438.5 1013.0 L 438.5 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 438.5 1232.0 L 437.5 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 699.5 288.0 L 699.5 1090.5 L 438.5 1090.5 L 438.5 1533.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 437.5 1435.0 L 438.5 1533.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 438.5 1638.0 L 438.0 1736.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 438.0 1841.0 L 438.0 1939.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 438.0 2044.0 L 438.0 2142.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 438.0 2280.0 L 438.0 2378.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 386.8 2483.0 L 386.8 1857.5 L 464.6 1857.5 L 464.6 1232.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<rect x="318" y="167" width="213" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="318" y1="173" x2="318" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="424.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">上下文 x + 目标 g</text>
-<rect x="46" y="166" width="234" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="163.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">K=63 候选动作序列</text>
-<text x="163.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">只重排序不生成新候选</text>
-<rect x="304" y="386" width="267" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="304" y1="392" x2="304" y2="518" stroke="#57606a" stroke-width="3"/>
-<text x="437.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">冻结预测骨干</text>
-<text x="437.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LeWM + TD-JEPA</text>
-<text x="437.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">(可选 JEPA-WM / DINO-WM)</text>
-<rect x="304" y="622" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="304" y1="628" x2="304" y2="754" stroke="#57606a" stroke-width="3"/>
-<text x="438.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">目标相对描述符 d_i</text>
-<text x="438.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">每条 192 维 + 序数排名</text>
-<text x="438.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">r_i</text>
-<rect x="308" y="858" width="261" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="308" y1="864" x2="308" y2="1007" stroke="#57606a" stroke-width="3"/>
-<text x="438.5" y="913.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">token v_i = concat(dL</text>
-<text x="438.5" y="931.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">,</text>
-<text x="438.5" y="951.5" font-size="11.5" fill="#57606a" text-anchor="middle">dT, rL, rT)</text>
-<text x="438.5" y="966.5" font-size="11.5" fill="#57606a" text-anchor="middle">386 维</text>
-<rect x="308" y="1094" width="261" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="308" y1="1100" x2="308" y2="1226" stroke="#0b57d0" stroke-width="3"/>
-<text x="438.5" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">置换等变集合</text>
-<text x="438.5" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer</text>
-<text x="438.5" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">2 层 4 头</text>
-<rect x="308" y="1330" width="259" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="308" y1="1336" x2="308" y2="1429" stroke="#0b57d0" stroke-width="3"/>
-<text x="437.5" y="1377.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">零初始化 rank-8 修正头</text>
-<text x="437.5" y="1395.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">有界输出 eps=0.2</text>
-<rect x="569" y="150" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="569" y1="156" x2="569" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="699.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">序数基础分</text>
-<text x="699.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">b_i = alpha*rL + (1-</text>
-<text x="699.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">alpha)*rT</text>
-<rect x="318" y="1533" width="241" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="318" y1="1539" x2="318" y2="1632" stroke="#8a5a00" stroke-width="3"/>
-<text x="438.5" y="1580.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">对齐分数</text>
-<text x="438.5" y="1598.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">s_i = b_i + delta_i</text>
-<rect x="319" y="1736" width="238" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="319" y1="1742" x2="319" y2="1835" stroke="#0b57d0" stroke-width="3"/>
-<text x="438.0" y="1783.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">校准门控</text>
-<text x="438.0" y="1801.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">关系胜者 vs 可塑提案</text>
-<rect x="306" y="1939" width="264" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="306" y1="1945" x2="306" y2="2038" stroke="#0b57d0" stroke-width="3"/>
-<text x="438.0" y="1986.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">表征提升回写</text>
-<text x="438.0" y="2004.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">时序传输 + 精确序数实现</text>
-<rect x="310" y="2142" width="256" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="310" y1="2148" x2="310" y2="2274" stroke="#8250df" stroke-width="3"/>
-<text x="438.0" y="2196.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">原生潜距离规划</text>
-<text x="438.0" y="2214.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">argmin 到目标 latent</text>
-<text x="438.0" y="2234.5" font-size="11.5" fill="#57606a" text-anchor="middle">距离</text>
-<rect x="310" y="2378" width="256" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="310" y1="2384" x2="310" y2="2477" stroke="#8250df" stroke-width="3"/>
-<text x="438.0" y="2425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">执行选中的 25 步控制</text>
-<text x="438.0" y="2443.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">序列</text>
-<text x="425.7" y="1849.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">执行结果监督关系对齐 消融 +1…</text>
-<text x="830" y="2521" font-size="10.5" fill="#8c959f" text-anchor="end">d-jepa · arXiv 2609.24749 · v3 auto</text>
+<rect x="22" y="133" width="537" height="206" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="153" font-size="11.5" font-weight="600" fill="#57606a">输入</text>
+<path d="M 462.5 291.0 L 473.5 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 286.0 238.5 L 340.0 501.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 473.5 570.0 L 474.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 474.5 835.0 L 475.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 475.5 1116.0 L 475.5 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 475.5 1363.0 L 474.5 1490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 767.5 306.0 L 767.5 1191.5 L 476.5 1191.5 L 476.5 1717.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 474.5 1595.0 L 476.5 1717.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.5 1822.0 L 476.0 1944.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.0 2049.0 L 475.0 2172.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 475.0 2277.0 L 475.0 2399.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 475.0 2537.0 L 475.0 2663.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 423.8 2768.0 L 423.8 2065.5 L 501.6 2065.5 L 501.6 1363.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<rect x="356" y="187" width="213" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="356" y1="193" x2="356" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="462.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">上下文 x + 目标 g</text>
+<rect x="52" y="186" width="234" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="169.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">K=63 候选动作序列</text>
+<text x="169.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">只重排序不生成新候选</text>
+<rect x="340" y="432" width="267" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="340" y1="438" x2="340" y2="564" stroke="#57606a" stroke-width="3"/>
+<text x="473.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">冻结预测骨干</text>
+<text x="473.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LeWM + TD-JEPA</text>
+<text x="473.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">(可选 JEPA-WM / DINO-WM)</text>
+<rect x="340" y="697" width="269" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="340" y1="703" x2="340" y2="829" stroke="#57606a" stroke-width="3"/>
+<text x="474.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">目标相对描述符 d_i</text>
+<text x="474.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">每条 192 维 + 序数排名</text>
+<text x="474.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">r_i</text>
+<rect x="345" y="961" width="261" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="345" y1="967" x2="345" y2="1110" stroke="#57606a" stroke-width="3"/>
+<text x="475.5" y="1010.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">token v_i = concat(dL</text>
+<text x="475.5" y="1031.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">,</text>
+<text x="475.5" y="1060.0" font-size="12.5" fill="#57606a" text-anchor="middle">dT, rL, rT)</text>
+<text x="475.5" y="1077.5" font-size="12.5" fill="#57606a" text-anchor="middle">386 维</text>
+<rect x="345" y="1225" width="261" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="345" y1="1231" x2="345" y2="1357" stroke="#0b57d0" stroke-width="3"/>
+<text x="475.5" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">置换等变集合</text>
+<text x="475.5" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Transformer</text>
+<text x="475.5" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">2 层 4 头</text>
+<rect x="345" y="1490" width="259" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="345" y1="1496" x2="345" y2="1589" stroke="#0b57d0" stroke-width="3"/>
+<text x="474.5" y="1535.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">零初始化 rank-8 修正头</text>
+<text x="474.5" y="1556.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">有界输出 eps=0.2</text>
+<rect x="637" y="168" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="637" y1="174" x2="637" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="767.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">序数基础分</text>
+<text x="767.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">b_i = alpha*rL + (1-</text>
+<text x="767.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">alpha)*rT</text>
+<rect x="356" y="1717" width="241" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="356" y1="1723" x2="356" y2="1816" stroke="#8a5a00" stroke-width="3"/>
+<text x="476.5" y="1762.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">对齐分数</text>
+<text x="476.5" y="1783.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">s_i = b_i + delta_i</text>
+<rect x="357" y="1944" width="238" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="357" y1="1950" x2="357" y2="2043" stroke="#0b57d0" stroke-width="3"/>
+<text x="476.0" y="1989.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">校准门控</text>
+<text x="476.0" y="2010.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">关系胜者 vs 可塑提案</text>
+<rect x="343" y="2172" width="264" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="343" y1="2178" x2="343" y2="2271" stroke="#0b57d0" stroke-width="3"/>
+<text x="475.0" y="2217.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">表征提升回写</text>
+<text x="475.0" y="2238.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">时序传输 + 精确序数实现</text>
+<rect x="347" y="2399" width="256" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="347" y1="2405" x2="347" y2="2531" stroke="#8250df" stroke-width="3"/>
+<text x="475.0" y="2448.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">原生潜距离规划</text>
+<text x="475.0" y="2469.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">argmin 到目标 latent</text>
+<text x="475.0" y="2498.25" font-size="12.5" fill="#57606a" text-anchor="middle">距离</text>
+<rect x="347" y="2663" width="256" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="347" y1="2669" x2="347" y2="2762" stroke="#8250df" stroke-width="3"/>
+<text x="475.0" y="2708.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">执行选中的 25 步控制</text>
+<text x="475.0" y="2729.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">序列</text>
+<text x="462.7" y="2057.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">执行结果监督关系对齐 消融 +1…</text>
+<text x="902" y="2810" font-size="10.5" fill="#8c959f" text-anchor="end">d-jepa · arXiv 2609.24749 · v3 auto</text>
 </svg>

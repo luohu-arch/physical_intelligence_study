@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1091" height="2275" viewBox="-2 51 1091 2275" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1194" height="2534" viewBox="-4 59 1194 2534" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>membodied</title>
-<rect x="-2" y="51" width="1091" height="2275" fill="#ffffff"/>
-<text x="20" y="81" font-size="14" font-weight="700" fill="#1f2328">membodied</text>
-<text x="1067" y="81" font-size="12" fill="#57606a" text-anchor="end">MemBodied（NTU declare-lab + Griffin Labs + École Centrale de Lyon，2026-09-23，Soujanya Po</text>
+<rect x="-4" y="59" width="1194" height="2534" fill="#ffffff"/>
+<text x="18" y="89" font-size="14" font-weight="700" fill="#1f2328">membodied</text>
+<text x="1168" y="89" font-size="12" fill="#57606a" text-anchor="end">MemBodied（NTU declare-lab + Griffin Labs + École Centrale de Lyon，2026-09-23，Soujanya Po</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,67 +10,67 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="103" width="683" height="423" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="123" font-size="11.5" font-weight="600" fill="#57606a">固定容量情节记忆 与 episode 长度解耦</text>
-<path d="M 936.5 255.0 L 557.0 555.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 556.5 457.0 L 557.0 555.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 557.0 660.0 L 557.0 758.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 936.5 255.0 L 936.5 697.5 L 557.0 697.5 L 557.0 960.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 557.0 862.0 L 557.0 960.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 557.0 1064.0 L 557.0 1162.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 557.0 1266.0 L 557.0 1364.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 557.0 1468.0 L 556.5 1566.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 556.5 1670.0 L 556.5 1768.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 556.5 1872.0 L 556.5 1970.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 556.5 2075.0 L 557.0 2173.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 636.0 255.0 L 636.0 697.5 L 557.0 697.5 L 557.0 960.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 367.5 254.0 L 556.5 353.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="806" y="150" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="806" y1="156" x2="806" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="936.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">当前观测 I_t + 状态</text>
-<text x="936.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">s_t + 语言</text>
-<rect x="436" y="353" width="241" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="436" y1="359" x2="436" y2="451" stroke="#0b57d0" stroke-width="3"/>
-<text x="556.5" y="409.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">关联矩阵状态 M_t&lt;br/</text>
-<rect x="46" y="150" width="185" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="138.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">情节锚点 A&lt;br/</text>
-<rect x="446" y="555" width="222" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="446" y1="561" x2="446" y2="654" stroke="#0b57d0" stroke-width="3"/>
-<text x="557.0" y="602.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逐层读取</text>
-<text x="557.0" y="620.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">r_t = S_(t-1) q_t</text>
-<rect x="428" y="758" width="258" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="428" y1="764" x2="428" y2="856" stroke="#0b57d0" stroke-width="3"/>
-<text x="557.0" y="814.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">memory token 注入&lt;br/</text>
-<rect x="456" y="960" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="456" y1="966" x2="456" y2="1058" stroke="#0b57d0" stroke-width="3"/>
-<text x="557.0" y="1016.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作专家后缀&lt;br/</text>
-<rect x="458" y="1162" width="198" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="458" y1="1168" x2="458" y2="1260" stroke="#0b57d0" stroke-width="3"/>
-<text x="557.0" y="1218.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 chunk H=50</text>
-<rect x="482" y="1364" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="482" y1="1370" x2="482" y2="1462" stroke="#0b57d0" stroke-width="3"/>
-<text x="557.0" y="1420.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">环境执行</text>
-<rect x="464" y="1566" width="185" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="464" y1="1572" x2="464" y2="1664" stroke="#0b57d0" stroke-width="3"/>
-<text x="556.5" y="1622.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">下一观测 I_t+1</text>
-<rect x="454" y="1768" width="205" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="454" y1="1774" x2="454" y2="1866" stroke="#0b57d0" stroke-width="3"/>
-<text x="556.5" y="1824.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">写值构造 y_t&lt;br/</text>
-<rect x="422" y="1970" width="269" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="422" y1="1976" x2="422" y2="2069" stroke="#0b57d0" stroke-width="3"/>
-<text x="556.5" y="2017.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">写 key 与保留/写入门&lt;br</text>
-<text x="556.5" y="2035.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
-<rect x="426" y="2173" width="262" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="426" y1="2179" x2="426" y2="2272" stroke="#0b57d0" stroke-width="3"/>
-<text x="557.0" y="2220.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">gated delta 误差修正写</text>
-<text x="557.0" y="2238.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">入&lt;br/</text>
-<rect x="504" y="150" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="504" y1="156" x2="504" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="636.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">纯动作目标端到端学习&lt;br</text>
-<text x="636.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
-<rect x="269" y="150" width="197" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="269" y1="156" x2="269" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="367.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">序列级 BPTT&lt;br/</text>
-<text x="1067" y="2316" font-size="10.5" fill="#8c959f" text-anchor="end">membodied · arXiv 2609.28256 · v3 auto</text>
+<rect x="22" y="115" width="683" height="423" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="135" font-size="11.5" font-weight="600" fill="#57606a">固定容量情节记忆 与 episode 长度解耦</text>
+<path d="M 1033.5 273.0 L 611.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 608.5 499.0 L 611.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 611.0 727.0 L 608.0 849.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1033.5 273.0 L 1033.5 764.0 L 612.0 764.0 L 612.0 1075.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 608.0 953.0 L 612.0 1075.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 612.0 1179.0 L 612.0 1301.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 612.0 1405.0 L 615.0 1528.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 615.0 1632.0 L 612.5 1754.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 612.5 1858.0 L 610.5 1980.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 610.5 2084.0 L 607.5 2206.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 607.5 2311.0 L 608.0 2434.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 696.0 273.0 L 696.0 764.0 L 612.0 764.0 L 612.0 1075.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 399.5 272.0 L 608.5 395.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="903" y="168" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="903" y1="174" x2="903" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="1033.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">当前观测 I_t + 状态</text>
+<text x="1033.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">s_t + 语言</text>
+<rect x="488" y="395" width="241" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="488" y1="401" x2="488" y2="493" stroke="#0b57d0" stroke-width="3"/>
+<text x="608.5" y="450.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">关联矩阵状态 M_t&lt;br/</text>
+<rect x="52" y="168" width="185" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="144.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">情节锚点 A&lt;br/</text>
+<rect x="500" y="622" width="222" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="500" y1="628" x2="500" y2="721" stroke="#0b57d0" stroke-width="3"/>
+<text x="611.0" y="667.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逐层读取</text>
+<text x="611.0" y="688.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">r_t = S_(t-1) q_t</text>
+<rect x="479" y="849" width="258" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="479" y1="855" x2="479" y2="947" stroke="#0b57d0" stroke-width="3"/>
+<text x="608.0" y="904.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">memory token 注入&lt;br/</text>
+<rect x="511" y="1075" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="511" y1="1081" x2="511" y2="1173" stroke="#0b57d0" stroke-width="3"/>
+<text x="612.0" y="1130.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作专家后缀&lt;br/</text>
+<rect x="513" y="1301" width="198" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="513" y1="1307" x2="513" y2="1399" stroke="#0b57d0" stroke-width="3"/>
+<text x="612.0" y="1356.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 chunk H=50</text>
+<rect x="540" y="1528" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="540" y1="1534" x2="540" y2="1626" stroke="#0b57d0" stroke-width="3"/>
+<text x="615.0" y="1583.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">环境执行</text>
+<rect x="520" y="1754" width="185" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="520" y1="1760" x2="520" y2="1852" stroke="#0b57d0" stroke-width="3"/>
+<text x="612.5" y="1809.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">下一观测 I_t+1</text>
+<rect x="508" y="1980" width="205" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="508" y1="1986" x2="508" y2="2078" stroke="#0b57d0" stroke-width="3"/>
+<text x="610.5" y="2035.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">写值构造 y_t&lt;br/</text>
+<rect x="473" y="2206" width="269" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="473" y1="2212" x2="473" y2="2305" stroke="#0b57d0" stroke-width="3"/>
+<text x="607.5" y="2251.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">写 key 与保留/写入门&lt;br</text>
+<text x="607.5" y="2272.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
+<rect x="477" y="2434" width="262" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="477" y1="2440" x2="477" y2="2533" stroke="#0b57d0" stroke-width="3"/>
+<text x="608.0" y="2479.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">gated delta 误差修正写</text>
+<text x="608.0" y="2500.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">入&lt;br/</text>
+<rect x="564" y="168" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="564" y1="174" x2="564" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="696.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">纯动作目标端到端学习&lt;br</text>
+<text x="696.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">/</text>
+<rect x="301" y="168" width="197" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="301" y1="174" x2="301" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="399.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">序列级 BPTT&lt;br/</text>
+<text x="1168" y="2581" font-size="10.5" fill="#8c959f" text-anchor="end">membodied · arXiv 2609.28256 · v3 auto</text>
 </svg>

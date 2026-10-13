@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1095" height="2628" viewBox="-2 40 1095 2628" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1171" height="2850" viewBox="-4 47 1171 2850" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>rise</title>
-<rect x="-2" y="40" width="1095" height="2628" fill="#ffffff"/>
-<text x="20" y="70" font-size="14" font-weight="700" fill="#1f2328">rise</text>
-<text x="1071" y="70" font-size="12" fill="#57606a" text-anchor="end">RISE 用一个「组合世界模型」替换真实环境来做 on-policy RL：可控多视角视频扩散模型（由 Genie Envisioner GE-Base 改造）负责"这个动作会</text>
+<rect x="-4" y="47" width="1171" height="2850" fill="#ffffff"/>
+<text x="18" y="77" font-size="14" font-weight="700" fill="#1f2328">rise</text>
+<text x="1145" y="77" font-size="12" fill="#57606a" text-anchor="end">RISE 用一个「组合世界模型」替换真实环境来做 on-policy RL：可控多视角视频扩散模型（由 Genie Envisioner GE-Base 改造）负责"这个动作会</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,84 +10,84 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="92" width="1051" height="2528" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="112" font-size="11.5" font-weight="600" fill="#57606a">想象环境闭环 (每帧最多复用 2 次, 零真机风险) · 训练阶段</text>
-<path d="M 415.5 254.0 L 545.5 353.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 923.0 255.0 L 545.5 555.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 545.5 693.0 L 545.5 791.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 545.5 895.0 L 545.0 993.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 156.0 254.0 L 156.0 713.5 L 545.0 713.5 L 545.0 993.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 545.0 1148.0 L 545.0 1229.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 545.0 1334.0 L 445.0 1432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 445.0 1537.0 L 545.5 1635.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 545.0 1334.0 L 639.0 1432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 606.6 1536.0 L 606.6 1204.5 L 572.2 1204.5 L 572.2 693.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 545.5 457.0 L 545.5 555.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 545.5 457.0 L 545.5 1147.5 L 546.0 1147.5 L 546.0 1838.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 545.5 1740.0 L 546.0 1838.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 664.0 255.0 L 664.0 1147.5 L 545.0 1147.5 L 545.0 2040.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 546.0 1942.0 L 545.0 2040.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 545.0 2144.0 L 546.0 2242.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 546.0 2347.0 L 546.0 2445.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="304" y="150" width="223" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="304" y1="156" x2="304" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="415.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Warm-up 离线数据集</text>
-<rect x="461" y="353" width="169" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="461" y1="359" x2="461" y2="451" stroke="#0b57d0" stroke-width="3"/>
-<text x="545.5" y="409.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Rollout 阶段</text>
-<rect x="46" y="150" width="220" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="156.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">当前多视角观测 O_t</text>
-<rect x="412" y="555" width="267" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="412" y1="561" x2="412" y2="687" stroke="#1a7f37" stroke-width="3"/>
-<text x="545.5" y="609.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">rollout 策略</text>
-<text x="545.5" y="627.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">pi_rollout</text>
-<text x="545.5" y="647.5" font-size="11.5" fill="#57606a" text-anchor="middle">行为策略的 EMA</text>
-<rect x="801" y="150" width="244" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="801" y1="156" x2="801" y2="249" stroke="#8a5a00" stroke-width="3"/>
-<text x="923.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">提示最优 advantage=1</text>
-<text x="923.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">即我要变好条件</text>
-<rect x="462" y="791" width="167" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="462" y1="797" x2="462" y2="889" stroke="#8250df" stroke-width="3"/>
-<text x="545.5" y="847.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作块 hat a</text>
-<rect x="410" y="993" width="270" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="410" y1="999" x2="410" y2="1142" stroke="#0b57d0" stroke-width="3"/>
-<text x="545.0" y="1048.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动力学模型 D</text>
-<text x="545.0" y="1066.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可控多视角视频扩散世界</text>
-<text x="545.0" y="1086.5" font-size="11.5" fill="#57606a" text-anchor="middle">模型</text>
-<text x="545.0" y="1101.5" font-size="11.5" fill="#57606a" text-anchor="middle">充当组合环境</text>
-<rect x="412" y="1229" width="266" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="412" y1="1235" x2="412" y2="1328" stroke="#57606a" stroke-width="3"/>
-<text x="545.0" y="1276.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">想象帧 hat o_(t+1..t+H</text>
-<text x="545.0" y="1294.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">)</text>
-<rect x="370" y="1432" width="150" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="370" y1="1438" x2="370" y2="1531" stroke="#8a5a00" stroke-width="3"/>
-<text x="445.0" y="1479.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">价值模型 V</text>
-<text x="445.0" y="1497.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">进度 + TD</text>
-<rect x="415" y="1635" width="261" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="415" y1="1641" x2="415" y2="1734" stroke="#8a5a00" stroke-width="3"/>
-<text x="545.5" y="1682.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">评估优势 A 离散 10</text>
-<text x="545.5" y="1700.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">bins</text>
-<rect x="558" y="1432" width="162" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="558" y1="1438" x2="558" y2="1530" stroke="#57606a" stroke-width="3"/>
-<text x="639.0" y="1488.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">下一想象观测</text>
-<rect x="432" y="1838" width="228" height="104" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
-<line x1="432" y1="1844" x2="432" y2="1936" stroke="#bf3989" stroke-width="3"/>
-<text x="546.0" y="1894.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(o, hat a, A) 缓冲</text>
-<rect x="565" y="150" width="198" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="565" y1="156" x2="565" y2="249" stroke="#1a7f37" stroke-width="3"/>
-<text x="664.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">行为策略 pi</text>
-<text x="664.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLA pi_0.5 底座</text>
-<rect x="470" y="2040" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="470" y1="2046" x2="470" y2="2138" stroke="#1a7f37" stroke-width="3"/>
-<text x="545.0" y="2096.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">策略训练</text>
-<rect x="432" y="2242" width="228" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="432" y1="2248" x2="432" y2="2341" stroke="#8a5a00" stroke-width="3"/>
-<text x="546.0" y="2289.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">flow matching 损失</text>
-<text x="546.0" y="2307.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">优势条件加权</text>
-<rect x="456" y="2445" width="180" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="456" y1="2451" x2="456" y2="2544" stroke="#8250df" stroke-width="3"/>
-<text x="546.0" y="2492.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">更新后策略部署</text>
-<text x="546.0" y="2510.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">零世界模型开销</text>
-<text x="1071" y="2658" font-size="10.5" fill="#8c959f" text-anchor="end">rise · arXiv 2602.11075 · v3 auto</text>
+<rect x="22" y="103" width="1051" height="2528" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="123" font-size="11.5" font-weight="600" fill="#57606a">想象环境闭环 (每帧最多复用 2 次, 零真机风险) · 训练阶段</text>
+<path d="M 451.5 272.0 L 600.5 395.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1019.0 273.0 L 594.5 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 594.5 760.0 L 600.5 886.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 600.5 990.0 L 594.0 1112.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 162.0 272.0 L 162.0 782.0 L 594.0 782.0 L 594.0 1112.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 594.0 1267.0 L 594.0 1376.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 594.0 1481.0 L 489.0 1604.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 489.0 1709.0 L 595.5 1831.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 594.0 1481.0 L 706.0 1604.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 673.6 1708.0 L 673.6 1324.0 L 621.2 1324.0 L 621.2 760.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 600.5 499.0 L 594.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 600.5 499.0 L 600.5 1279.0 L 598.0 1279.0 L 598.0 2059.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 595.5 1936.0 L 598.0 2059.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 732.0 273.0 L 732.0 1279.0 L 601.0 1279.0 L 601.0 2285.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 598.0 2163.0 L 601.0 2285.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 601.0 2389.0 L 598.0 2511.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 598.0 2616.0 L 601.0 2738.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="340" y="168" width="223" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="340" y1="174" x2="340" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="451.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Warm-up 离线数据集</text>
+<rect x="516" y="395" width="169" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="516" y1="401" x2="516" y2="493" stroke="#0b57d0" stroke-width="3"/>
+<text x="600.5" y="450.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Rollout 阶段</text>
+<rect x="52" y="168" width="220" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="162.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">当前多视角观测 O_t</text>
+<rect x="461" y="622" width="267" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="461" y1="628" x2="461" y2="754" stroke="#1a7f37" stroke-width="3"/>
+<text x="594.5" y="671.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">rollout 策略</text>
+<text x="594.5" y="692.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">pi_rollout</text>
+<text x="594.5" y="721.25" font-size="12.5" fill="#57606a" text-anchor="middle">行为策略的 EMA</text>
+<rect x="897" y="168" width="244" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="897" y1="174" x2="897" y2="267" stroke="#8a5a00" stroke-width="3"/>
+<text x="1019.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">提示最优 advantage=1</text>
+<text x="1019.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">即我要变好条件</text>
+<rect x="517" y="886" width="167" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="517" y1="892" x2="517" y2="984" stroke="#8250df" stroke-width="3"/>
+<text x="600.5" y="941.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作块 hat a</text>
+<rect x="459" y="1112" width="270" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="459" y1="1118" x2="459" y2="1261" stroke="#0b57d0" stroke-width="3"/>
+<text x="594.0" y="1161.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动力学模型 D</text>
+<text x="594.0" y="1182.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可控多视角视频扩散世界</text>
+<text x="594.0" y="1211.0" font-size="12.5" fill="#57606a" text-anchor="middle">模型</text>
+<text x="594.0" y="1228.5" font-size="12.5" fill="#57606a" text-anchor="middle">充当组合环境</text>
+<rect x="461" y="1376" width="266" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="461" y1="1382" x2="461" y2="1475" stroke="#57606a" stroke-width="3"/>
+<text x="594.0" y="1421.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">想象帧 hat o_(t+1..t+H</text>
+<text x="594.0" y="1442.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">)</text>
+<rect x="414" y="1604" width="150" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="414" y1="1610" x2="414" y2="1703" stroke="#8a5a00" stroke-width="3"/>
+<text x="489.0" y="1649.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">价值模型 V</text>
+<text x="489.0" y="1670.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">进度 + TD</text>
+<rect x="465" y="1831" width="261" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="465" y1="1837" x2="465" y2="1930" stroke="#8a5a00" stroke-width="3"/>
+<text x="595.5" y="1876.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">评估优势 A 离散 10</text>
+<text x="595.5" y="1897.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">bins</text>
+<rect x="625" y="1604" width="162" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="625" y1="1610" x2="625" y2="1702" stroke="#57606a" stroke-width="3"/>
+<text x="706.0" y="1659.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">下一想象观测</text>
+<rect x="484" y="2059" width="228" height="104" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="484" y1="2065" x2="484" y2="2157" stroke="#bf3989" stroke-width="3"/>
+<text x="598.0" y="2114.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(o, hat a, A) 缓冲</text>
+<rect x="633" y="168" width="198" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="633" y1="174" x2="633" y2="267" stroke="#1a7f37" stroke-width="3"/>
+<text x="732.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">行为策略 pi</text>
+<text x="732.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLA pi_0.5 底座</text>
+<rect x="526" y="2285" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="526" y1="2291" x2="526" y2="2383" stroke="#1a7f37" stroke-width="3"/>
+<text x="601.0" y="2340.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">策略训练</text>
+<rect x="484" y="2511" width="228" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="484" y1="2517" x2="484" y2="2610" stroke="#8a5a00" stroke-width="3"/>
+<text x="598.0" y="2556.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">flow matching 损失</text>
+<text x="598.0" y="2577.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">优势条件加权</text>
+<rect x="511" y="2738" width="180" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="511" y1="2744" x2="511" y2="2837" stroke="#8250df" stroke-width="3"/>
+<text x="601.0" y="2783.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">更新后策略部署</text>
+<text x="601.0" y="2804.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">零世界模型开销</text>
+<text x="1145" y="2885" font-size="10.5" fill="#8c959f" text-anchor="end">rise · arXiv 2602.11075 · v3 auto</text>
 </svg>

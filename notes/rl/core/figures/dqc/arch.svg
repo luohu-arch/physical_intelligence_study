@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1218" height="471" viewBox="28 79 1218 471" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1334" height="485" viewBox="30 91 1334 485" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>DQC：解耦 Q-Chunking</title>
-<rect x="28" y="79" width="1218" height="471" fill="#ffffff"/>
-<text x="50" y="109" font-size="14" font-weight="700" fill="#1f2328">DQC：解耦 Q-Chunking</text>
-<text x="1224" y="109" font-size="12" fill="#57606a" text-anchor="end">Actor 短 chunk 保在线反应 × Critic 大 chunk 保信用分配 —— chunk 长度解耦的 POMDP 修正（ICLR 2026）</text>
+<rect x="30" y="91" width="1334" height="485" fill="#ffffff"/>
+<text x="52" y="121" font-size="14" font-weight="700" fill="#1f2328">DQC：解耦 Q-Chunking</text>
+<text x="1342" y="121" font-size="12" fill="#57606a" text-anchor="end">Actor 短 chunk 保在线反应 × Critic 大 chunk 保信用分配 —— chunk 长度解耦的 POMDP 修正（ICLR 2026）</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,45 +10,45 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="330" y="131" width="600" height="371" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="344" y="151" font-size="11.5" font-weight="600" fill="#57606a">DQC 解耦核心</text>
-<rect x="950" y="150" width="274" height="352" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="964" y="170" font-size="11.5" font-weight="600" fill="#57606a">OGBench 长程操作</text>
-<path d="M 262.0 354.0 L 368.0 227.6" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 262.0 354.0 L 202.0 354.0 L 202.0 240.0 L 892.0 240.0" fill="none" stroke="#8c959f" stroke-width="1.2" marker-end="url(#arw-thin)"/>
-<path d="M 556.8 302.0 L 986.0 354.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 986.0 367.0 L 262.0 354.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 650.0 240.0 L 610.0 240.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<path d="M 703.2 302.0 L 578.6 366.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<path d="M 704.6 366.0 L 855.7 302.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<rect x="50" y="300" width="212" height="108" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="50" y1="306" x2="50" y2="402" stroke="#0969da" stroke-width="3"/>
-<text x="156.0" y="348.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">状态 s_t</text>
-<text x="156.0" y="368.5" font-size="11.5" fill="#57606a" text-anchor="middle">部分可观测环境</text>
-<rect x="368" y="178" width="242" height="124" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="368" y1="184" x2="368" y2="296" stroke="#1a7f37" stroke-width="3"/>
-<text x="489.0" y="227.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">chunk 策略 π</text>
-<text x="489.0" y="247.0" font-size="11.5" fill="#57606a" text-anchor="middle">动作块长度 4</text>
-<text x="489.0" y="262.0" font-size="11.5" fill="#57606a" text-anchor="middle">在线执行，不等 critic</text>
-<rect x="650" y="178" width="242" height="124" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="650" y1="184" x2="650" y2="296" stroke="#57606a" stroke-width="3"/>
-<text x="771.0" y="227.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">部分可观测 Q</text>
-<text x="771.0" y="247.0" font-size="11.5" fill="#57606a" text-anchor="middle">子序列长度 16</text>
-<text x="771.0" y="262.0" font-size="11.5" fill="#57606a" text-anchor="middle">只看 o(t..t+16) 的 Q</text>
-<rect x="508" y="366" width="252" height="112" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="508" y1="372" x2="508" y2="472" stroke="#8a5a00" stroke-width="3"/>
-<text x="634.0" y="416.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">partial critic 蒸馏</text>
-<text x="634.0" y="436.5" font-size="11.5" fill="#57606a" text-anchor="middle">expectile 乐观回归</text>
-<rect x="986" y="300" width="200" height="108" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="986" y1="306" x2="986" y2="402" stroke="#57606a" stroke-width="3"/>
-<text x="1086.0" y="348.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">环境转移</text>
-<text x="1086.0" y="368.5" font-size="11.5" fill="#57606a" text-anchor="middle">执行 a(t..t+4)</text>
-<text x="315.0" y="282.8" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">观测 s_t</text>
-<text x="577.0" y="315.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">子序列观测</text>
-<text x="771.4" y="320.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">短块 ×4 执行</text>
-<text x="624.0" y="352.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">下一状态</text>
-<text x="630.0" y="198.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">TD 信号（无偏 n-step）</text>
-<text x="568.9" y="330.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">expectile 优化</text>
-<text x="858.1" y="330.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">部分-Q 蒸馏</text>
-<text x="1224" y="540" font-size="10.5" fill="#8c959f" text-anchor="end">DQC · arXiv 2512.10926 · Levine 组</text>
+<rect x="370" y="147" width="600" height="371" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="384" y="167" font-size="11.5" font-weight="600" fill="#57606a">DQC 解耦核心</text>
+<rect x="1064" y="168" width="274" height="352" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="1078" y="188" font-size="11.5" font-weight="600" fill="#57606a">OGBench 长程操作</text>
+<path d="M 268.0 390.0 L 412.0 248.6" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 268.0 390.0 L 970.0 261.0" fill="none" stroke="#8c959f" stroke-width="1.2" marker-end="url(#arw-thin)"/>
+<path d="M 600.8 323.0 L 1104.0 390.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1104.0 403.0 L 268.0 390.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 728.0 261.0 L 654.0 261.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 781.2 323.0 L 639.6 410.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 765.6 410.0 L 933.7 323.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<rect x="56" y="336" width="212" height="108" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="56" y1="342" x2="56" y2="438" stroke="#0969da" stroke-width="3"/>
+<text x="162.0" y="380.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">状态 s_t</text>
+<text x="162.0" y="409.75" font-size="12.5" fill="#57606a" text-anchor="middle">部分可观测环境</text>
+<rect x="412" y="199" width="242" height="124" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="412" y1="205" x2="412" y2="317" stroke="#1a7f37" stroke-width="3"/>
+<text x="533.0" y="243.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">chunk 策略 π</text>
+<text x="533.0" y="272.0" font-size="12.5" fill="#57606a" text-anchor="middle">动作块长度 4</text>
+<text x="533.0" y="289.5" font-size="12.5" fill="#57606a" text-anchor="middle">在线执行，不等 critic</text>
+<rect x="728" y="199" width="242" height="124" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="728" y1="205" x2="728" y2="317" stroke="#57606a" stroke-width="3"/>
+<text x="849.0" y="243.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">部分可观测 Q</text>
+<text x="849.0" y="272.0" font-size="12.5" fill="#57606a" text-anchor="middle">子序列长度 16</text>
+<text x="849.0" y="289.5" font-size="12.5" fill="#57606a" text-anchor="middle">只看 o(t..t+16) 的 Q</text>
+<rect x="569" y="410" width="252" height="112" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="569" y1="416" x2="569" y2="516" stroke="#8a5a00" stroke-width="3"/>
+<text x="695.0" y="456.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">partial critic 蒸馏</text>
+<text x="695.0" y="485.75" font-size="12.5" fill="#57606a" text-anchor="middle">expectile 乐观回归</text>
+<rect x="1104" y="336" width="200" height="108" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1104" y1="342" x2="1104" y2="438" stroke="#57606a" stroke-width="3"/>
+<text x="1204.0" y="380.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">环境转移</text>
+<text x="1204.0" y="409.75" font-size="12.5" fill="#57606a" text-anchor="middle">执行 a(t..t+4)</text>
+<text x="340.0" y="311.3" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">观测 s_t</text>
+<text x="619.0" y="343.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">子序列观测</text>
+<text x="852.4" y="348.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">短块 ×4 执行</text>
+<text x="686.0" y="388.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">下一状态</text>
+<text x="691.0" y="219.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">TD 信号（无偏 n-step）</text>
+<text x="638.4" y="362.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">expectile 优化</text>
+<text x="927.6" y="362.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">部分-Q 蒸馏</text>
+<text x="1342" y="564" font-size="10.5" fill="#8c959f" text-anchor="end">DQC · arXiv 2512.10926 · Levine 组</text>
 </svg>

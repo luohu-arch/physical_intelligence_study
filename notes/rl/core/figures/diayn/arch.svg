@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="794" height="1484" viewBox="-2 51 794 1484" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="865" height="1589" viewBox="-4 59 865 1589" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>diayn</title>
-<rect x="-2" y="51" width="794" height="1484" fill="#ffffff"/>
-<text x="20" y="81" font-size="14" font-weight="700" fill="#1f2328">diayn</text>
-<text x="770" y="81" font-size="12" fill="#57606a" text-anchor="end">不给出任何任务奖励，只用一个信息论目标——最大化技能与状态的互信息 $I(S;Z)$、同时压低给定状态下技能与动作的互信息 $I(A;Z|S)$、再加上最大熵正则——就能让 S</text>
+<rect x="-4" y="59" width="865" height="1589" fill="#ffffff"/>
+<text x="18" y="89" font-size="14" font-weight="700" fill="#1f2328">diayn</text>
+<text x="839" y="89" font-size="12" fill="#57606a" text-anchor="end">不给出任何任务奖励，只用一个信息论目标——最大化技能与状态的互信息 $I(S;Z)$、同时压低给定状态下技能与动作的互信息 $I(A;Z|S)$、再加上最大熵正则——就能让 S</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,58 +10,58 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="103" width="489" height="1384" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="123" font-size="11.5" font-weight="600" fill="#57606a">技能 rollout 回路 (MuJoCo 5 环境)</text>
-<path d="M 121.0 271.0 L 121.0 800.5 L 408.0 800.5 L 408.0 1330.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 378.0 1434.0 L 378.0 852.5 L 136.0 852.5 L 136.0 271.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 367.5 305.0 L 367.5 789.5 L 408.5 789.5 L 408.5 1094.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 121.0 271.0 L 121.0 1042.5 L 408.5 1042.5 L 408.5 1094.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 408.5 1249.0 L 408.0 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 196.0 219.0 L 281.0 455.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 408.0 524.0 L 408.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 408.5 777.0 L 408.0 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 408.0 996.0 L 408.5 1094.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 539.0 218.5 L 535.0 455.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="167" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="121.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">状态 s_t</text>
-<rect x="333" y="1330" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="333" y1="1336" x2="333" y2="1428" stroke="#57606a" stroke-width="3"/>
-<text x="408.0" y="1386.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">环境转移</text>
-<rect x="234" y="150" width="267" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="156" x2="234" y2="299" stroke="#0969da" stroke-width="3"/>
-<text x="367.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">技能 z: 固定均匀先验 p(</text>
-<text x="367.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">z)</text>
-<text x="367.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">(每回合采样一次, 不学 p(z) 防</text>
-<text x="367.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">Matthew Effect)</text>
-<rect x="278" y="1094" width="261" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="278" y1="1100" x2="278" y2="1243" stroke="#1a7f37" stroke-width="3"/>
-<text x="408.5" y="1149.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">技能策略 pi(a | s, z)</text>
-<text x="408.5" y="1167.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SAC 最大熵, 熵系数</text>
-<text x="408.5" y="1187.5" font-size="11.5" fill="#57606a" text-anchor="middle">alpha = 0.1</text>
-<text x="408.5" y="1202.5" font-size="11.5" fill="#57606a" text-anchor="middle">z 直接拼接到状态后输入</text>
-<rect x="281" y="386" width="254" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="281" y1="392" x2="281" y2="518" stroke="#8a5a00" stroke-width="3"/>
-<text x="408.0" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">判别器 q_phi(z | s)</text>
-<text x="408.0" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">从状态反推技能 (状态判</text>
-<text x="408.0" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">别而非动作判别)</text>
-<rect x="278" y="622" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="278" y1="628" x2="278" y2="771" stroke="#0b57d0" stroke-width="3"/>
-<text x="408.5" y="677.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">伪奖励 (核心)</text>
-<text x="408.5" y="695.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">r = log q_phi(z|s) -</text>
-<text x="408.5" y="715.5" font-size="11.5" fill="#57606a" text-anchor="middle">log p(z)</text>
-<text x="408.5" y="730.5" font-size="11.5" fill="#57606a" text-anchor="middle">互信息下界的逐时刻形式</text>
-<rect x="276" y="858" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="276" y1="864" x2="276" y2="990" stroke="#8a5a00" stroke-width="3"/>
-<text x="408.0" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SAC actor-critic 更新</text>
-<text x="408.0" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">无监督目标退化为普通</text>
-<text x="408.0" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">off-policy RL</text>
-<rect x="539" y="166" width="231" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="539" y1="172" x2="539" y2="265" stroke="#8a5a00" stroke-width="3"/>
-<text x="654.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">判别器 SGD 分类损失</text>
-<text x="654.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">max log q_phi(z|s)</text>
-<text x="408.2" y="1281.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">动作 a_t (块内高熵探索)</text>
-<text x="408.2" y="1037.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新策略 theta</text>
-<text x="537.0" y="328.8" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新 phi (合作博弈, 非对抗)</text>
-<text x="770" y="1525" font-size="10.5" fill="#8c959f" text-anchor="end">diayn · arXiv 1802.06070 · v3 auto</text>
+<rect x="22" y="115" width="489" height="1384" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="135" font-size="11.5" font-weight="600" fill="#57606a">技能 rollout 回路 (MuJoCo 5 环境)</text>
+<path d="M 127.0 291.0 L 127.0 890.5 L 448.0 890.5 L 448.0 1490.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 418.0 1594.0 L 418.0 942.5 L 142.0 942.5 L 142.0 291.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 395.5 323.0 L 395.5 864.0 L 441.5 864.0 L 441.5 1225.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 127.0 291.0 L 127.0 938.0 L 441.5 938.0 L 441.5 1225.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 441.5 1380.0 L 448.0 1490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 202.0 239.0 L 315.0 501.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 442.0 570.0 L 441.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 441.5 852.0 L 441.0 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 441.0 1099.0 L 441.5 1225.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 604.0 238.5 L 569.0 501.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="187" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="127.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">状态 s_t</text>
+<rect x="373" y="1490" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="373" y1="1496" x2="373" y2="1588" stroke="#57606a" stroke-width="3"/>
+<text x="448.0" y="1545.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">环境转移</text>
+<rect x="262" y="168" width="267" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="174" x2="262" y2="317" stroke="#0969da" stroke-width="3"/>
+<text x="395.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">技能 z: 固定均匀先验 p(</text>
+<text x="395.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">z)</text>
+<text x="395.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">(每回合采样一次, 不学 p(z) 防</text>
+<text x="395.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">Matthew Effect)</text>
+<rect x="311" y="1225" width="261" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="311" y1="1231" x2="311" y2="1374" stroke="#1a7f37" stroke-width="3"/>
+<text x="441.5" y="1274.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">技能策略 pi(a | s, z)</text>
+<text x="441.5" y="1295.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SAC 最大熵, 熵系数</text>
+<text x="441.5" y="1324.0" font-size="12.5" fill="#57606a" text-anchor="middle">alpha = 0.1</text>
+<text x="441.5" y="1341.5" font-size="12.5" fill="#57606a" text-anchor="middle">z 直接拼接到状态后输入</text>
+<rect x="315" y="432" width="254" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="315" y1="438" x2="315" y2="564" stroke="#8a5a00" stroke-width="3"/>
+<text x="442.0" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">判别器 q_phi(z | s)</text>
+<text x="442.0" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">从状态反推技能 (状态判</text>
+<text x="442.0" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">别而非动作判别)</text>
+<rect x="311" y="697" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="311" y1="703" x2="311" y2="846" stroke="#0b57d0" stroke-width="3"/>
+<text x="441.5" y="746.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">伪奖励 (核心)</text>
+<text x="441.5" y="767.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">r = log q_phi(z|s) -</text>
+<text x="441.5" y="796.0" font-size="12.5" fill="#57606a" text-anchor="middle">log p(z)</text>
+<text x="441.5" y="813.5" font-size="12.5" fill="#57606a" text-anchor="middle">互信息下界的逐时刻形式</text>
+<rect x="309" y="961" width="264" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="309" y1="967" x2="309" y2="1093" stroke="#8a5a00" stroke-width="3"/>
+<text x="441.0" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SAC actor-critic 更新</text>
+<text x="441.0" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">无监督目标退化为普通</text>
+<text x="441.0" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">off-policy RL</text>
+<rect x="604" y="186" width="231" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="604" y1="192" x2="604" y2="285" stroke="#8a5a00" stroke-width="3"/>
+<text x="719.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">判别器 SGD 分类损失</text>
+<text x="719.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">max log q_phi(z|s)</text>
+<text x="444.8" y="1427.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">动作 a_t (块内高熵探索)</text>
+<text x="441.2" y="1154.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新策略 theta</text>
+<text x="586.5" y="361.8" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新 phi (合作博弈, 非对抗)</text>
+<text x="839" y="1636" font-size="10.5" fill="#8c959f" text-anchor="end">diayn · arXiv 1802.06070 · v3 auto</text>
 </svg>

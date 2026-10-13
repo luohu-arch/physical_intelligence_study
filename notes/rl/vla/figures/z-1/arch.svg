@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="602" height="1183" viewBox="24 98 602 1183" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="644" height="1302" viewBox="26 112 644 1302" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>z-1</title>
-<rect x="24" y="98" width="602" height="1183" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">z-1</text>
-<text x="604" y="128" font-size="12" fill="#57606a" text-anchor="end">Z-1 提出基于 π0.5 的模块化 RL 后训练框架：SFT 阶段只用公开 RoboCasa 演示数据，然后按任务粒度（task-wise）做 GRPO 在线精调，冻结 VL</text>
+<rect x="26" y="112" width="644" height="1302" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">z-1</text>
+<text x="648" y="142" font-size="12" fill="#57606a" text-anchor="end">Z-1 提出基于 π0.5 的模块化 RL 后训练框架：SFT 阶段只用公开 RoboCasa 演示数据，然后按任务粒度（task-wise）做 GRPO 在线精调，冻结 VL</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,49 +10,49 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="167" y="575" width="316" height="412" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="181" y="595" font-size="11.5" font-weight="600" fill="#57606a">任务级在线 rollout (64 并行 env)</text>
-<path d="M 171.5 271.0 L 325.0 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 325.0 727.0 L 325.0 825.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 272.2 980.0 L 348.4 727.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 325.0 541.0 L 325.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 325.0 980.0 L 325.0 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 469.5 305.0 L 469.5 773.0 L 325.0 773.0 L 325.0 1061.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<path d="M 271.0 1233.0 L 271.0 977.0 L 351.4 977.0 L 351.4 541.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="167" width="251" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="171.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RoboCasa 公开演示数据</text>
-<rect x="193" y="386" width="264" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="193" y1="392" x2="193" y2="535" stroke="#1a7f37" stroke-width="3"/>
-<text x="325.0" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">pi 0.5</text>
-<text x="325.0" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">backbone 冻结, 只训</text>
-<text x="325.0" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">action expert</text>
-<text x="325.0" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">不覆盖预训练知识</text>
-<rect x="208" y="622" width="234" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="208" y1="628" x2="208" y2="721" stroke="#57606a" stroke-width="3"/>
-<text x="325.0" y="669.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RoboCasa 仿真场景 k</text>
-<text x="325.0" y="687.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">成功自动判定 (二值)</text>
-<rect x="193" y="825" width="264" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="193" y1="831" x2="193" y2="974" stroke="#0b57d0" stroke-width="3"/>
-<text x="325.0" y="880.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">G = 8 条 rollout / 组</text>
-<text x="325.0" y="898.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">shared-prefix 共享采样</text>
-<text x="325.0" y="918.5" font-size="11.5" fill="#57606a" text-anchor="middle">路径</text>
-<text x="325.0" y="933.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 分歧点 tree branching</text>
-<rect x="190" y="1061" width="270" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="190" y1="1067" x2="190" y2="1227" stroke="#0b57d0" stroke-width="3"/>
-<text x="325.0" y="1117.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">任务级 GRPO (核心)</text>
-<text x="325.0" y="1135.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">组内归一化限制在同一任务</text>
-<text x="325.0" y="1155.5" font-size="11.5" fill="#57606a" text-anchor="middle">内:</text>
-<text x="325.0" y="1170.5" font-size="11.5" fill="#57606a" text-anchor="middle">A_i = (R_i - mu_R) / sigma_R</text>
-<text x="325.0" y="1185.5" font-size="11.5" fill="#57606a" text-anchor="middle">防简单任务抢梯度 / 难任务饿死</text>
-<rect x="335" y="150" width="269" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="335" y1="156" x2="335" y2="299" stroke="#8a5a00" stroke-width="3"/>
-<text x="469.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">success-aware reward</text>
-<text x="469.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">decay</text>
-<text x="469.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">奖励权重 x 0.998^累计成功率</text>
-<text x="469.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">已掌握任务自动让出梯度预算</text>
-<text x="325.0" y="573.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">在线交互</text>
-<text x="397.2" y="675.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">防过度优化简单任务</text>
-<text x="311.2" y="879.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">clipped 更新 (无 critic, 无 KL)</text>
-<text x="604" y="1271" font-size="10.5" fill="#8c959f" text-anchor="end">z-1 · arXiv 2606.31846 · v3 auto</text>
+<rect x="187" y="644" width="316" height="412" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="201" y="664" font-size="11.5" font-weight="600" fill="#57606a">任务级在线 rollout (64 并行 env)</text>
+<path d="M 177.5 291.0 L 348.0 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 350.0 802.0 L 348.0 924.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 295.2 1079.0 L 373.4 802.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 348.0 587.0 L 350.0 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 348.0 1079.0 L 348.0 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 509.5 323.0 L 509.5 845.5 L 348.0 845.5 L 348.0 1188.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 294.0 1360.0 L 294.0 1153.5 L 374.4 1153.5 L 374.4 587.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="187" width="251" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="177.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RoboCasa 公开演示数据</text>
+<rect x="216" y="432" width="264" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="216" y1="438" x2="216" y2="581" stroke="#1a7f37" stroke-width="3"/>
+<text x="348.0" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">pi 0.5</text>
+<text x="348.0" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">backbone 冻结, 只训</text>
+<text x="348.0" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">action expert</text>
+<text x="348.0" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">不覆盖预训练知识</text>
+<rect x="233" y="697" width="234" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="233" y1="703" x2="233" y2="796" stroke="#57606a" stroke-width="3"/>
+<text x="350.0" y="742.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RoboCasa 仿真场景 k</text>
+<text x="350.0" y="763.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">成功自动判定 (二值)</text>
+<rect x="216" y="924" width="264" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="216" y1="930" x2="216" y2="1073" stroke="#0b57d0" stroke-width="3"/>
+<text x="348.0" y="973.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">G = 8 条 rollout / 组</text>
+<text x="348.0" y="994.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">shared-prefix 共享采样</text>
+<text x="348.0" y="1023.0" font-size="12.5" fill="#57606a" text-anchor="middle">路径</text>
+<text x="348.0" y="1040.5" font-size="12.5" fill="#57606a" text-anchor="middle">+ 分歧点 tree branching</text>
+<rect x="213" y="1188" width="270" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="213" y1="1194" x2="213" y2="1354" stroke="#0b57d0" stroke-width="3"/>
+<text x="348.0" y="1236.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">任务级 GRPO (核心)</text>
+<text x="348.0" y="1257.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">组内归一化限制在同一任务</text>
+<text x="348.0" y="1286.75" font-size="12.5" fill="#57606a" text-anchor="middle">内:</text>
+<text x="348.0" y="1304.25" font-size="12.5" fill="#57606a" text-anchor="middle">A_i = (R_i - mu_R) / sigma_R</text>
+<text x="348.0" y="1321.75" font-size="12.5" fill="#57606a" text-anchor="middle">防简单任务抢梯度 / 难任务饿死</text>
+<rect x="375" y="168" width="269" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="375" y1="174" x2="375" y2="317" stroke="#8a5a00" stroke-width="3"/>
+<text x="509.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">success-aware reward</text>
+<text x="509.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">decay</text>
+<text x="509.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">奖励权重 x 0.998^累计成功率</text>
+<text x="509.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">已掌握任务自动让出梯度预算</text>
+<text x="349.0" y="634.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">在线交互</text>
+<text x="428.8" y="747.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">防过度优化简单任务</text>
+<text x="334.2" y="965.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">clipped 更新 (无 critic, 无 KL)</text>
+<text x="648" y="1402" font-size="10.5" fill="#8c959f" text-anchor="end">z-1 · arXiv 2606.31846 · v3 auto</text>
 </svg>

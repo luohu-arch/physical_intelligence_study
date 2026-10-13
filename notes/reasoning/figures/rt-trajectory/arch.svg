@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1545" height="1420" viewBox="24 98 1545 1420" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1705" height="1576" viewBox="26 112 1705 1576" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>rt-trajectory</title>
-<rect x="24" y="98" width="1545" height="1420" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">rt-trajectory</text>
-<text x="1547" y="128" font-size="12" fill="#57606a" text-anchor="end">RT-Trajectory 提出将粗粒度 2D 轨迹草图画到 RGB 图像上作为策略的条件输入，从而让机器人泛化到训练中从未见过的全新操作任务——这是 VLA 中「任务表征」维</text>
+<rect x="26" y="112" width="1705" height="1576" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">rt-trajectory</text>
+<text x="1709" y="142" font-size="12" fill="#57606a" text-anchor="end">RT-Trajectory 提出将粗粒度 2D 轨迹草图画到 RGB 图像上作为策略的条件输入，从而让机器人泛化到训练中从未见过的全新操作任务——这是 VLA 中「任务表征」维</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,55 +10,55 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 860.5 254.0 L 860.5 495.0 L 797.0 495.0 L 797.0 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 796.5 458.0 L 797.0 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 797.0 660.0 L 796.5 758.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 796.5 862.0 L 796.5 960.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 796.5 1064.0 L 796.5 1162.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 796.5 1267.0 L 797.0 1365.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 609.5 254.0 L 796.5 353.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1313.0 202.0 L 507.0 202.0 L 507.0 405.5 L 927.0 405.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1006.0 202.5 L 927.0 405.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 136.0 254.0 L 136.0 697.0 L 796.5 697.0 L 796.5 960.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="753" y="150" width="215" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="753" y1="156" x2="753" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="860.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">相机 RGB 图像&lt;br/</text>
-<rect x="666" y="353" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="666" y1="359" x2="666" y2="452" stroke="#0b57d0" stroke-width="3"/>
-<text x="796.5" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">2.5D 轨迹草图 3 通道&lt;</text>
-<text x="796.5" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
-<rect x="722" y="556" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="722" y1="562" x2="722" y2="654" stroke="#0b57d0" stroke-width="3"/>
-<text x="797.0" y="612.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">6 通道拼接</text>
-<rect x="676" y="758" width="241" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="676" y1="764" x2="676" y2="856" stroke="#0b57d0" stroke-width="3"/>
-<text x="796.5" y="814.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">EfficientNet-B3&lt;br/</text>
-<rect x="671" y="960" width="251" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="671" y1="966" x2="671" y2="1058" stroke="#0b57d0" stroke-width="3"/>
-<text x="796.5" y="1016.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RT-1 Transformer&lt;br/</text>
-<rect x="670" y="1162" width="253" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="670" y1="1168" x2="670" y2="1261" stroke="#0b57d0" stroke-width="3"/>
-<text x="796.5" y="1209.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">256 离散动作 token</text>
-<text x="796.5" y="1227.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测</text>
-<rect x="664" y="1365" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="664" y1="1371" x2="664" y2="1464" stroke="#0b57d0" stroke-width="3"/>
-<text x="797.0" y="1412.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Everyday Robots 移动操</text>
-<text x="797.0" y="1430.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">作臂</text>
-<rect x="504" y="150" width="211" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="504" y1="156" x2="504" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="609.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人工 GUI 手绘草图</text>
-<rect x="1313" y="150" width="234" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1313" y1="156" x2="1313" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="1430.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人类示范视频轨迹提取</text>
-<rect x="1006" y="150" width="269" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1006" y1="156" x2="1006" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="1140.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LLM 代码生成 3D 路径点&lt;</text>
-<text x="1140.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
-<rect x="264" y="150" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="264" y1="156" x2="264" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="365.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">事后轨迹标注&lt;br/</text>
-<rect x="46" y="150" width="180" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="136.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">行为克隆交叉熵</text>
-<text x="1547" y="1508" font-size="10.5" fill="#8c959f" text-anchor="end">rt-trajectory · arXiv 2311.01977 · v3 auto</text>
+<path d="M 950.5 272.0 L 950.5 537.5 L 884.0 537.5 L 884.0 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 876.5 500.0 L 884.0 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 884.0 727.0 L 877.5 849.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 877.5 953.0 L 877.5 1075.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 877.5 1179.0 L 876.5 1301.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 876.5 1406.0 L 877.0 1529.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 669.5 272.0 L 876.5 395.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1471.0 220.0 L 497.0 220.0 L 497.0 447.5 L 1007.0 447.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1127.0 220.5 L 1007.0 447.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 142.0 272.0 L 877.5 1075.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="843" y="168" width="215" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="843" y1="174" x2="843" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="950.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">相机 RGB 图像&lt;br/</text>
+<rect x="746" y="395" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="746" y1="401" x2="746" y2="494" stroke="#0b57d0" stroke-width="3"/>
+<text x="876.5" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">2.5D 轨迹草图 3 通道&lt;</text>
+<text x="876.5" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
+<rect x="809" y="623" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="809" y1="629" x2="809" y2="721" stroke="#0b57d0" stroke-width="3"/>
+<text x="884.0" y="678.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">6 通道拼接</text>
+<rect x="757" y="849" width="241" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="757" y1="855" x2="757" y2="947" stroke="#0b57d0" stroke-width="3"/>
+<text x="877.5" y="904.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">EfficientNet-B3&lt;br/</text>
+<rect x="752" y="1075" width="251" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="752" y1="1081" x2="752" y2="1173" stroke="#0b57d0" stroke-width="3"/>
+<text x="877.5" y="1130.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RT-1 Transformer&lt;br/</text>
+<rect x="750" y="1301" width="253" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="750" y1="1307" x2="750" y2="1400" stroke="#0b57d0" stroke-width="3"/>
+<text x="876.5" y="1346.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">256 离散动作 token</text>
+<text x="876.5" y="1367.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测</text>
+<rect x="744" y="1529" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="744" y1="1535" x2="744" y2="1628" stroke="#0b57d0" stroke-width="3"/>
+<text x="877.0" y="1574.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Everyday Robots 移动操</text>
+<text x="877.0" y="1595.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">作臂</text>
+<rect x="564" y="168" width="211" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="564" y1="174" x2="564" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="669.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人工 GUI 手绘草图</text>
+<rect x="1471" y="168" width="234" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1471" y1="174" x2="1471" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="1588.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人类示范视频轨迹提取</text>
+<rect x="1127" y="168" width="269" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1127" y1="174" x2="1127" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="1261.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LLM 代码生成 3D 路径点&lt;</text>
+<text x="1261.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
+<rect x="296" y="168" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="296" y1="174" x2="296" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="397.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">事后轨迹标注&lt;br/</text>
+<rect x="52" y="168" width="180" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="142.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">行为克隆交叉熵</text>
+<text x="1709" y="1676" font-size="10.5" fill="#8c959f" text-anchor="end">rt-trajectory · arXiv 2311.01977 · v3 auto</text>
 </svg>

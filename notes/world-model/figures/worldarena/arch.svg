@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1194" height="1301" viewBox="-26 98 1194 1301" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1252" height="1437" viewBox="26 112 1252 1437" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>worldarena</title>
-<rect x="-26" y="98" width="1194" height="1301" fill="#ffffff"/>
-<text x="-4" y="128" font-size="14" font-weight="700" fill="#1f2328">worldarena</text>
-<text x="1146" y="128" font-size="12" fill="#57606a" text-anchor="end">WorldArena 的核心主张是：**视觉保真度不等于具身可用性**。它对 14 个代表性世界模型（通用视频生成模型 CogvideoX/Wan 2.2/Wan 2.6/Ve</text>
+<rect x="26" y="112" width="1252" height="1437" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">worldarena</text>
+<text x="1256" y="142" font-size="12" fill="#57606a" text-anchor="end">WorldArena 的核心主张是：**视觉保真度不等于具身可用性**。它对 14 个代表性世界模型（通用视频生成模型 CogvideoX/Wan 2.2/Wan 2.6/Ve</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,56 +10,56 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 596.0 254.0 L 596.0 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 686.0 404.5 L -4.0 404.5 L -4.0 624.5 L 887.0 624.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 506.0 404.5 L 237.0 404.5 L 237.0 624.0 L 297.0 624.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 596.0 457.0 L 446.5 555.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 596.0 457.0 L 722.5 555.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 887.0 624.5 L -1.0 624.5 L -1.0 843.5 L 689.0 843.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 596.5 896.0 L 596.0 994.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 596.0 1098.0 L 596.5 1196.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 171.5 693.0 L 171.5 944.5 L 596.5 944.5 L 596.5 1196.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 446.5 693.0 L 446.5 944.5 L 596.5 944.5 L 596.5 1196.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 722.5 710.0 L 722.5 953.0 L 596.5 953.0 L 596.5 1196.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="490" y="150" width="212" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="490" y1="156" x2="490" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="596.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RoboTwin 2.0&lt;br/</text>
-<rect x="506" y="352" width="180" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="506" y1="358" x2="506" y2="451" stroke="#1a7f37" stroke-width="3"/>
-<text x="596.0" y="399.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">14 个世界模型</text>
-<text x="596.0" y="417.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">同一数据后训练</text>
-<rect x="887" y="572" width="259" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="887" y1="578" x2="887" y2="671" stroke="#8a5a00" stroke-width="3"/>
-<text x="1016.5" y="619.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">感知评测: 6 维度 16</text>
-<text x="1016.5" y="637.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">指标</text>
-<rect x="46" y="555" width="251" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="561" x2="46" y2="687" stroke="#0969da" stroke-width="3"/>
-<text x="171.5" y="609.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">数据引擎角色</text>
-<text x="171.5" y="627.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">WM + IDM 生成配对数据</text>
-<text x="171.5" y="647.5" font-size="11.5" fill="#57606a" text-anchor="middle">训练 pi0.5</text>
-<rect x="335" y="555" width="223" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="335" y1="561" x2="335" y2="687" stroke="#0b57d0" stroke-width="3"/>
-<text x="446.5" y="609.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">策略评估器角色</text>
-<text x="446.5" y="627.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">带策略动作 rollout</text>
-<text x="446.5" y="647.5" font-size="11.5" fill="#57606a" text-anchor="middle">成功率对齐仿真器</text>
-<rect x="596" y="555" width="253" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="596" y1="561" x2="596" y2="704" stroke="#8250df" stroke-width="3"/>
-<text x="722.5" y="610.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作规划器角色</text>
-<text x="722.5" y="628.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">WM 预测帧 -&gt; IDM 提取</text>
-<text x="722.5" y="648.5" font-size="11.5" fill="#57606a" text-anchor="middle">动作</text>
-<text x="722.5" y="663.5" font-size="11.5" fill="#57606a" text-anchor="middle">仿真器执行</text>
-<rect x="504" y="791" width="185" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="504" y1="797" x2="504" y2="890" stroke="#8a5a00" stroke-width="3"/>
-<text x="596.5" y="838.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">百分位上下界</text>
-<text x="596.5" y="856.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">归一化到 0-100</text>
-<rect x="479" y="994" width="234" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="479" y1="1000" x2="479" y2="1092" stroke="#8a5a00" stroke-width="3"/>
-<text x="596.0" y="1050.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">EWMScore = 算术平均</text>
-<rect x="470" y="1196" width="253" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="470" y1="1202" x2="470" y2="1345" stroke="#0b57d0" stroke-width="3"/>
-<text x="596.5" y="1251.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">与人评及三功能分做相关</text>
-<text x="596.5" y="1269.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人评 r=0.825 / 数据引</text>
-<text x="596.5" y="1289.5" font-size="11.5" fill="#57606a" text-anchor="middle">擎 r=0.600</text>
-<text x="596.5" y="1304.5" font-size="11.5" fill="#57606a" text-anchor="middle">规划仅 r=0.360 保真不保证效用</text>
-<text x="1146" y="1389" font-size="10.5" fill="#8c959f" text-anchor="end">worldarena · arXiv 2602.08971 · v3 auto</text>
+<path d="M 655.0 272.0 L 657.0 394.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 747.0 446.5 L 993.0 693.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 567.0 446.5 L 303.0 691.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 657.0 499.0 L 486.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 657.0 499.0 L 794.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 993.0 693.5 L 599.0 693.5 L 599.0 938.5 L 749.0 938.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 656.5 991.0 L 653.0 1113.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 653.0 1217.0 L 652.5 1340.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 177.5 760.0 L 177.5 1050.0 L 652.5 1050.0 L 652.5 1340.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 486.5 760.0 L 486.5 1050.0 L 652.5 1050.0 L 652.5 1340.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 794.5 777.0 L 794.5 1058.5 L 652.5 1058.5 L 652.5 1340.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="549" y="168" width="212" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="549" y1="174" x2="549" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="655.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RoboTwin 2.0&lt;br/</text>
+<rect x="567" y="394" width="180" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="567" y1="400" x2="567" y2="493" stroke="#1a7f37" stroke-width="3"/>
+<text x="657.0" y="439.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">14 个世界模型</text>
+<text x="657.0" y="460.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">同一数据后训练</text>
+<rect x="993" y="641" width="259" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="993" y1="647" x2="993" y2="740" stroke="#8a5a00" stroke-width="3"/>
+<text x="1122.5" y="686.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">感知评测: 6 维度 16</text>
+<text x="1122.5" y="707.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">指标</text>
+<rect x="52" y="622" width="251" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="628" x2="52" y2="754" stroke="#0969da" stroke-width="3"/>
+<text x="177.5" y="671.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">数据引擎角色</text>
+<text x="177.5" y="692.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">WM + IDM 生成配对数据</text>
+<text x="177.5" y="721.25" font-size="12.5" fill="#57606a" text-anchor="middle">训练 pi0.5</text>
+<rect x="375" y="622" width="223" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="375" y1="628" x2="375" y2="754" stroke="#0b57d0" stroke-width="3"/>
+<text x="486.5" y="671.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">策略评估器角色</text>
+<text x="486.5" y="692.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">带策略动作 rollout</text>
+<text x="486.5" y="721.25" font-size="12.5" fill="#57606a" text-anchor="middle">成功率对齐仿真器</text>
+<rect x="668" y="622" width="253" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="668" y1="628" x2="668" y2="771" stroke="#8250df" stroke-width="3"/>
+<text x="794.5" y="671.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作规划器角色</text>
+<text x="794.5" y="692.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">WM 预测帧 -&gt; IDM 提取</text>
+<text x="794.5" y="721.0" font-size="12.5" fill="#57606a" text-anchor="middle">动作</text>
+<text x="794.5" y="738.5" font-size="12.5" fill="#57606a" text-anchor="middle">仿真器执行</text>
+<rect x="564" y="886" width="185" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="564" y1="892" x2="564" y2="985" stroke="#8a5a00" stroke-width="3"/>
+<text x="656.5" y="931.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">百分位上下界</text>
+<text x="656.5" y="952.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">归一化到 0-100</text>
+<rect x="536" y="1113" width="234" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="536" y1="1119" x2="536" y2="1211" stroke="#8a5a00" stroke-width="3"/>
+<text x="653.0" y="1168.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">EWMScore = 算术平均</text>
+<rect x="526" y="1340" width="253" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="526" y1="1346" x2="526" y2="1489" stroke="#0b57d0" stroke-width="3"/>
+<text x="652.5" y="1389.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">与人评及三功能分做相关</text>
+<text x="652.5" y="1410.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人评 r=0.825 / 数据引</text>
+<text x="652.5" y="1439.0" font-size="12.5" fill="#57606a" text-anchor="middle">擎 r=0.600</text>
+<text x="652.5" y="1456.5" font-size="12.5" fill="#57606a" text-anchor="middle">规划仅 r=0.360 保真不保证效用</text>
+<text x="1256" y="1537" font-size="10.5" fill="#8c959f" text-anchor="end">worldarena · arXiv 2602.08971 · v3 auto</text>
 </svg>

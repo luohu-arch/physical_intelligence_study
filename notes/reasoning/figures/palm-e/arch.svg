@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1451" viewBox="24 98 1440 1451" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1592" height="1611" viewBox="26 112 1592 1611" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>palm-e</title>
-<rect x="24" y="98" width="1440" height="1451" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">palm-e</text>
-<text x="1442" y="128" font-size="12" fill="#57606a" text-anchor="end">PaLM-E 用「多模态句子」把图像、状态估计、神经 3D 场景表征（OSRT）以向量形式直接插入 PaLM（8B/62B/540B）的语言 token 流中端到端训练——最大</text>
+<rect x="26" y="112" width="1592" height="1611" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">palm-e</text>
+<text x="1596" y="142" font-size="12" fill="#57606a" text-anchor="end">PaLM-E 用「多模态句子」把图像、状态估计、神经 3D 场景表征（OSRT）以向量形式直接插入 PaLM（8B/62B/540B）的语言 token 流中端到端训练——最大</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,64 +10,64 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="346" y="339" width="795" height="377" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="360" y="359" font-size="11.5" font-weight="600" fill="#57606a">观测编码与嵌入空间对齐</text>
-<path d="M 196.0 219.0 L 372.0 438.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1134.0 271.0 L 1009.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 931.0 271.0 L 744.0 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 584.0 438.0 L 634.0 640.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 904.0 438.0 L 854.0 640.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 744.0 490.0 L 744.0 588.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 744.0 692.0 L 744.5 790.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1344.5 271.0 L 1344.5 530.5 L 744.5 530.5 L 744.5 790.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 744.5 895.0 L 744.0 993.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 744.0 1097.0 L 744.0 1195.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 744.0 1299.0 L 744.5 1397.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 367.5 271.0 L 367.5 530.5 L 744.5 530.5 L 744.5 790.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="167" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="121.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RGB 图像 I</text>
-<rect x="1059" y="167" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1059" y1="173" x2="1059" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="1134.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">状态估计 s</text>
-<rect x="841" y="167" width="180" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="841" y1="173" x2="841" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="931.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多视角图像序列</text>
-<rect x="1247" y="167" width="195" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1247" y1="173" x2="1247" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="1344.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">文本 token 序列</text>
-<rect x="372" y="386" width="212" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="372" y1="392" x2="372" y2="484" stroke="#0b57d0" stroke-width="3"/>
-<text x="478.0" y="442.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">ViT-4B / 22B&lt;br/</text>
-<rect x="904" y="386" width="211" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="904" y1="392" x2="904" y2="484" stroke="#0b57d0" stroke-width="3"/>
-<text x="1009.5" y="442.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">状态向量 MLP 编码</text>
-<rect x="622" y="386" width="244" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="622" y1="392" x2="622" y2="484" stroke="#0b57d0" stroke-width="3"/>
-<text x="744.0" y="442.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">OSRT 3D 场景表征&lt;br/</text>
-<rect x="634" y="588" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="634" y1="594" x2="634" y2="686" stroke="#0b57d0" stroke-width="3"/>
-<text x="744.0" y="644.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多模态句子注入&lt;br/</text>
-<rect x="614" y="790" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="614" y1="796" x2="614" y2="889" stroke="#0b57d0" stroke-width="3"/>
-<text x="744.5" y="837.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PaLM LLM 8B / 62B /</text>
-<text x="744.5" y="855.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">540B&lt;br/</text>
-<rect x="643" y="993" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="643" y1="999" x2="643" y2="1091" stroke="#0b57d0" stroke-width="3"/>
-<text x="744.0" y="1049.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自然语言计划&lt;br/</text>
-<rect x="643" y="1195" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="643" y1="1201" x2="643" y2="1293" stroke="#0b57d0" stroke-width="3"/>
-<text x="744.0" y="1251.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">低层技能策略&lt;br/</text>
-<rect x="612" y="1397" width="265" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="612" y1="1403" x2="612" y2="1495" stroke="#0b57d0" stroke-width="3"/>
-<text x="744.5" y="1453.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">移动操作机器人 5Hz 执行</text>
-<rect x="234" y="167" width="267" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="234" y1="173" x2="234" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="367.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">前缀后文本 token 交叉熵</text>
-<rect x="539" y="150" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="539" y1="156" x2="539" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="671.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">full mixture 共训</text>
-<text x="671.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Webli 52.4 百分比 + 具</text>
-<text x="671.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">身数据 8.9 百分比</text>
-<text x="1442" y="1539" font-size="10.5" fill="#8c959f" text-anchor="end">palm-e · arXiv 2303.03378 · v3 auto</text>
+<rect x="388" y="380" width="795" height="377" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="402" y="400" font-size="11.5" font-weight="600" fill="#57606a">观测编码与嵌入空间对齐</text>
+<path d="M 202.0 239.0 L 417.0 484.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1261.0 291.0 L 1117.5 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1032.0 291.0 L 819.0 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 629.0 484.0 L 710.0 711.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1012.0 484.0 L 930.0 711.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 819.0 536.0 L 820.0 659.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 820.0 763.0 L 818.5 885.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1494.5 291.0 L 818.5 885.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 818.5 990.0 L 821.0 1112.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 821.0 1216.0 L 821.0 1338.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 821.0 1442.0 L 817.5 1565.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 395.5 291.0 L 395.5 588.0 L 818.5 588.0 L 818.5 885.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="187" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="127.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RGB 图像 I</text>
+<rect x="1186" y="187" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1186" y1="193" x2="1186" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="1261.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">状态估计 s</text>
+<rect x="942" y="187" width="180" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="942" y1="193" x2="942" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="1032.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多视角图像序列</text>
+<rect x="1397" y="187" width="195" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1397" y1="193" x2="1397" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="1494.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">文本 token 序列</text>
+<rect x="417" y="432" width="212" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="417" y1="438" x2="417" y2="530" stroke="#0b57d0" stroke-width="3"/>
+<text x="523.0" y="487.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">ViT-4B / 22B&lt;br/</text>
+<rect x="1012" y="432" width="211" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1012" y1="438" x2="1012" y2="530" stroke="#0b57d0" stroke-width="3"/>
+<text x="1117.5" y="487.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">状态向量 MLP 编码</text>
+<rect x="697" y="432" width="244" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="697" y1="438" x2="697" y2="530" stroke="#0b57d0" stroke-width="3"/>
+<text x="819.0" y="487.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">OSRT 3D 场景表征&lt;br/</text>
+<rect x="710" y="659" width="220" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="710" y1="665" x2="710" y2="757" stroke="#0b57d0" stroke-width="3"/>
+<text x="820.0" y="714.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多模态句子注入&lt;br/</text>
+<rect x="688" y="885" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="688" y1="891" x2="688" y2="984" stroke="#0b57d0" stroke-width="3"/>
+<text x="818.5" y="930.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PaLM LLM 8B / 62B /</text>
+<text x="818.5" y="951.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">540B&lt;br/</text>
+<rect x="720" y="1112" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="720" y1="1118" x2="720" y2="1210" stroke="#0b57d0" stroke-width="3"/>
+<text x="821.0" y="1167.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自然语言计划&lt;br/</text>
+<rect x="720" y="1338" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="720" y1="1344" x2="720" y2="1436" stroke="#0b57d0" stroke-width="3"/>
+<text x="821.0" y="1393.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">低层技能策略&lt;br/</text>
+<rect x="685" y="1565" width="265" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="685" y1="1571" x2="685" y2="1663" stroke="#0b57d0" stroke-width="3"/>
+<text x="817.5" y="1620.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">移动操作机器人 5Hz 执行</text>
+<rect x="262" y="187" width="267" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="262" y1="193" x2="262" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="395.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">前缀后文本 token 交叉熵</text>
+<rect x="604" y="168" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="604" y1="174" x2="604" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="736.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">full mixture 共训</text>
+<text x="736.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Webli 52.4 百分比 + 具</text>
+<text x="736.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">身数据 8.9 百分比</text>
+<text x="1596" y="1711" font-size="10.5" fill="#8c959f" text-anchor="end">palm-e · arXiv 2303.03378 · v3 auto</text>
 </svg>

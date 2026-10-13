@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1241" height="1115" viewBox="-36 98 1241 1115" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1354" height="1230" viewBox="-34 112 1354 1230" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>simdist</title>
-<rect x="-36" y="98" width="1241" height="1115" fill="#ffffff"/>
-<text x="-14" y="128" font-size="14" font-weight="700" fill="#1f2328">simdist</text>
-<text x="1183" y="128" font-size="12" fill="#57606a" text-anchor="end">SimDist 提出仿真蒸馏框架：在仿真中预训练完整世界模型管线（编码器 + 动力学 + 奖励 + 价值），将结构化先验蒸馏到 latent world model。真实部署时</text>
+<rect x="-34" y="112" width="1354" height="1230" fill="#ffffff"/>
+<text x="-12" y="142" font-size="14" font-weight="700" fill="#1f2328">simdist</text>
+<text x="1298" y="142" font-size="12" fill="#57606a" text-anchor="end">SimDist 提出仿真蒸馏框架：在仿真中预训练完整世界模型管线（编码器 + 动力学 + 奖励 + 价值），将结构化先验蒸馏到 latent world model。真实部署时</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,58 +10,58 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 767.0 255.0 L 766.5 370.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 637.0 422.5 L 595.0 658.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 766.5 475.0 L 761.0 606.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 896.0 422.5 L 927.0 658.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 637.0 422.5 L -14.0 422.5 L -14.0 658.0 L 46.0 658.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 472.5 255.0 L 466.0 353.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 333.0 422.0 L 310.0 658.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 471.5 710.0 L 614.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 761.0 711.0 L 614.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 927.0 658.5 L 9.0 658.5 L 9.0 877.0 L 699.0 877.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 310.0 658.0 L 250.0 658.0 L 250.0 877.0 L 530.0 877.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 614.5 929.0 L 614.5 1027.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="644" y="150" width="246" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="644" y1="156" x2="644" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="767.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仿真环境 (丰富动力学)</text>
-<text x="767.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">特权专家产数据</text>
-<rect x="637" y="370" width="259" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="637" y1="376" x2="637" y2="469" stroke="#1a7f37" stroke-width="3"/>
-<text x="766.5" y="417.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预训练完整 latent 世界</text>
-<text x="766.5" y="435.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">模型</text>
-<rect x="348" y="606" width="247" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="612" x2="348" y2="704" stroke="#57606a" stroke-width="3"/>
-<text x="471.5" y="662.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">编码器 (冻结, 零迁移)</text>
-<rect x="633" y="606" width="256" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="633" y1="612" x2="633" y2="705" stroke="#57606a" stroke-width="3"/>
-<text x="761.0" y="653.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">奖励模型 (冻结, 零样本</text>
-<text x="761.0" y="671.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">迁移)</text>
-<rect x="927" y="606" width="256" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="927" y1="612" x2="927" y2="705" stroke="#57606a" stroke-width="3"/>
-<text x="1055.0" y="653.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">价值模型 (冻结, 零样本</text>
-<text x="1055.0" y="671.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">迁移)</text>
-<rect x="46" y="589" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="595" x2="46" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="178.0" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动力学模型 (唯一可微调</text>
-<text x="178.0" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">项)</text>
-<text x="178.0" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">gap 集中在 dynamics 的假设</text>
-<rect x="339" y="150" width="267" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="339" y1="156" x2="339" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="472.5" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真实机器人 15-30 分钟</text>
-<text x="472.5" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">数据</text>
-<rect x="333" y="353" width="266" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="333" y1="359" x2="333" y2="485" stroke="#1a7f37" stroke-width="3"/>
-<text x="466.0" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仅微调 latent dynamics</text>
-<text x="466.0" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">等价于系统辨识</text>
-<text x="466.0" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">加像素重构损失反掉到 0.32</text>
-<rect x="530" y="825" width="169" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="530" y1="831" x2="530" y2="923" stroke="#0b57d0" stroke-width="3"/>
-<text x="614.5" y="881.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">在线 Planner</text>
-<rect x="499" y="1027" width="231" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="499" y1="1033" x2="499" y2="1159" stroke="#8250df" stroke-width="3"/>
-<text x="614.5" y="1081.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作输出</text>
-<text x="614.5" y="1099.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Peg Insertion 0.90</text>
-<text x="614.5" y="1119.5" font-size="11.5" fill="#57606a" text-anchor="middle">真机吞吐提升 1.5-2x</text>
-<text x="1183" y="1203" font-size="10.5" fill="#8c959f" text-anchor="end">simdist · arXiv 2603.15759 · v3 auto</text>
+<path d="M 844.0 273.0 L 842.5 414.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 713.0 466.5 L 637.0 731.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 842.5 519.0 L 837.0 679.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 972.0 466.5 L 1038.0 731.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 713.0 466.5 L -8.0 466.5 L -8.0 729.0 L 52.0 729.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 513.5 273.0 L 506.0 395.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 373.0 464.0 L 316.0 729.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 513.5 783.0 L 678.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 837.0 784.0 L 678.5 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1038.0 731.5 L 763.0 976.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 316.0 729.0 L 594.0 976.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 678.5 1028.0 L 674.5 1150.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="721" y="168" width="246" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="721" y1="174" x2="721" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="844.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仿真环境 (丰富动力学)</text>
+<text x="844.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">特权专家产数据</text>
+<rect x="713" y="414" width="259" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="713" y1="420" x2="713" y2="513" stroke="#1a7f37" stroke-width="3"/>
+<text x="842.5" y="459.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预训练完整 latent 世界</text>
+<text x="842.5" y="480.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">模型</text>
+<rect x="390" y="679" width="247" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="685" x2="390" y2="777" stroke="#57606a" stroke-width="3"/>
+<text x="513.5" y="734.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">编码器 (冻结, 零迁移)</text>
+<rect x="709" y="679" width="256" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="709" y1="685" x2="709" y2="778" stroke="#57606a" stroke-width="3"/>
+<text x="837.0" y="724.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">奖励模型 (冻结, 零样本</text>
+<text x="837.0" y="745.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">迁移)</text>
+<rect x="1038" y="679" width="256" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1038" y1="685" x2="1038" y2="778" stroke="#57606a" stroke-width="3"/>
+<text x="1166.0" y="724.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">价值模型 (冻结, 零样本</text>
+<text x="1166.0" y="745.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">迁移)</text>
+<rect x="52" y="660" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="666" x2="52" y2="792" stroke="#0b57d0" stroke-width="3"/>
+<text x="184.0" y="709.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动力学模型 (唯一可微调</text>
+<text x="184.0" y="730.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">项)</text>
+<text x="184.0" y="759.25" font-size="12.5" fill="#57606a" text-anchor="middle">gap 集中在 dynamics 的假设</text>
+<rect x="380" y="168" width="267" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="380" y1="174" x2="380" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="513.5" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真实机器人 15-30 分钟</text>
+<text x="513.5" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">数据</text>
+<rect x="373" y="395" width="266" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="373" y1="401" x2="373" y2="527" stroke="#1a7f37" stroke-width="3"/>
+<text x="506.0" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仅微调 latent dynamics</text>
+<text x="506.0" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">等价于系统辨识</text>
+<text x="506.0" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">加像素重构损失反掉到 0.32</text>
+<rect x="594" y="924" width="169" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="594" y1="930" x2="594" y2="1022" stroke="#0b57d0" stroke-width="3"/>
+<text x="678.5" y="979.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">在线 Planner</text>
+<rect x="559" y="1150" width="231" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="559" y1="1156" x2="559" y2="1282" stroke="#8250df" stroke-width="3"/>
+<text x="674.5" y="1199.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作输出</text>
+<text x="674.5" y="1220.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Peg Insertion 0.90</text>
+<text x="674.5" y="1249.25" font-size="12.5" fill="#57606a" text-anchor="middle">真机吞吐提升 1.5-2x</text>
+<text x="1298" y="1330" font-size="10.5" fill="#8c959f" text-anchor="end">simdist · arXiv 2603.15759 · v3 auto</text>
 </svg>

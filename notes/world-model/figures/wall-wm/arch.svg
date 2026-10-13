@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="834" height="2246" viewBox="-2 40 834 2246" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="884" height="2488" viewBox="-4 47 884 2488" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>wall-wm</title>
-<rect x="-2" y="40" width="834" height="2246" fill="#ffffff"/>
-<text x="20" y="70" font-size="14" font-weight="700" fill="#1f2328">wall-wm</text>
-<text x="810" y="70" font-size="12" fill="#57606a" text-anchor="end">Problem**：WAM 从多模态/视频基础模型适配时沿用「固定长度 action chunk」作优化原子单位，语言（语义目标）、视觉（连续场景演化）、动作（控制级时标）被同</text>
+<rect x="-4" y="47" width="884" height="2488" fill="#ffffff"/>
+<text x="18" y="77" font-size="14" font-weight="700" fill="#1f2328">wall-wm</text>
+<text x="858" y="77" font-size="12" fill="#57606a" text-anchor="end">Problem**：WAM 从多模态/视频基础模型适配时沿用「固定长度 action chunk」作优化原子单位，语言（语义目标）、视觉（连续场景演化）、动作（控制级时标）被同</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,116 +10,116 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="76" y="92" width="678" height="1956" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="90" y="112" font-size="11.5" font-weight="600" fill="#57606a">离线事件数据生态 · 推理输入 · 冻结底座 · 事件级训练组件</text>
-<rect x="20" y="2029" width="790" height="209" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="2049" font-size="11.5" font-weight="600" fill="#57606a">双模式推理</text>
-<path d="M 224.0 255.0 L 308.5 353.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 308.5 508.0 L 415.0 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 415.0 1539.0 L 532.5 1637.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 493.9 1742.0 L 493.9 1336.0 L 441.2 1336.0 L 441.2 930.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 462.0 255.0 L 565.0 370.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 565.0 474.0 L 565.0 723.0 L 415.0 723.0 L 415.0 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 415.0 694.0 L 415.0 792.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 415.0 694.0 L 415.0 951.0 L 286.5 951.0 L 286.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 415.0 930.0 L 286.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 653.0 254.0 L 653.0 731.0 L 286.5 731.0 L 286.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 415.0 1539.0 L 299.0 1638.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 462.0 255.0 L 462.0 946.5 L 299.0 946.5 L 299.0 1638.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 398.0 1690.0 L 416.0 1909.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 299.0 1742.0 L 264.0 1856.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 415.0 930.0 L 548.0 1028.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 401.0 1080.5 L 422.0 1283.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 264.0 1961.0 L 419.5 2076.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 548.5 1978.0 L 685.0 2076.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 264.0 1961.0 L 149.5 2076.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 286.5 1133.0 L 271.0 1231.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 645.4 2214.0 L 645.4 1775.0 L 293.6 1775.0 L 293.6 1336.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 108.1 2214.0 L 108.1 1775.0 L 293.6 1775.0 L 293.6 1336.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 271.0 1336.0 L 415.0 1434.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="102" y="150" width="244" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="102" y1="156" x2="102" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="224.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">时间同步</text>
-<text x="224.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">光流-动作互相关估滞后</text>
-<rect x="178" y="353" width="261" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="178" y1="359" x2="178" y2="502" stroke="#0969da" stroke-width="3"/>
-<text x="308.5" y="408.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">四级层级字幕</text>
-<text x="308.5" y="426.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Task/Subtask/Action/S</text>
-<text x="308.5" y="446.5" font-size="11.5" fill="#57606a" text-anchor="middle">egment</text>
-<text x="308.5" y="461.5" font-size="11.5" fill="#57606a" text-anchor="middle">在原子动作边界切分</text>
-<rect x="298" y="589" width="234" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="298" y1="595" x2="298" y2="688" stroke="#0969da" stroke-width="3"/>
-<text x="415.0" y="636.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VL 聚类 + 动作聚类</text>
-<text x="415.0" y="654.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">平衡采样上浮长尾恢复</text>
-<rect x="319" y="1434" width="192" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="319" y1="1440" x2="319" y2="1533" stroke="#0b57d0" stroke-width="3"/>
-<text x="415.0" y="1481.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多视角关键帧 V0</text>
-<text x="415.0" y="1499.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">ego + 左右腕</text>
-<rect x="384" y="150" width="156" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="384" y1="156" x2="384" y2="249" stroke="#0b57d0" stroke-width="3"/>
-<text x="462.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">事件描述 ce</text>
-<text x="462.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">或全局指令</text>
-<rect x="578" y="150" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="578" y1="156" x2="578" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="653.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本体状态 s</text>
-<rect x="436" y="1637" width="193" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="436" y1="1643" x2="436" y2="1736" stroke="#57606a" stroke-width="3"/>
-<text x="532.5" y="1684.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">3D VAE</text>
-<text x="532.5" y="1702.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">1+4N 时间编解码</text>
-<rect x="478" y="370" width="174" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="478" y1="376" x2="478" y2="468" stroke="#57606a" stroke-width="3"/>
-<text x="565.0" y="426.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">T5 文本编码器</text>
-<rect x="284" y="792" width="262" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="284" y1="798" x2="284" y2="924" stroke="#57606a" stroke-width="3"/>
-<text x="415.0" y="846.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Wan2.2-5B 多视角视频</text>
-<text x="415.0" y="864.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DiT</text>
-<text x="415.0" y="884.5" font-size="11.5" fill="#57606a" text-anchor="middle">视频预训练后冻结</text>
-<rect x="200" y="1638" width="198" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="200" y1="1644" x2="200" y2="1736" stroke="#57606a" stroke-width="3"/>
-<text x="299.0" y="1694.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Qwen3.5-9B 主干</text>
-<rect x="172" y="1028" width="229" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="172" y1="1034" x2="172" y2="1127" stroke="#1a7f37" stroke-width="3"/>
-<text x="286.5" y="1075.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 DiT 随机初始化</text>
-<text x="286.5" y="1093.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逐层单向读视频特征</text>
-<rect x="416" y="1840" width="265" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="416" y1="1846" x2="416" y2="1972" stroke="#1a7f37" stroke-width="3"/>
-<text x="548.5" y="1894.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 投影出头</text>
-<text x="548.5" y="1912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ 下一事件头 + 剩余时</text>
-<text x="548.5" y="1932.5" font-size="11.5" fill="#57606a" text-anchor="middle">间头</text>
-<rect x="150" y="1856" width="228" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="150" y1="1862" x2="150" y2="1955" stroke="#1a7f37" stroke-width="3"/>
-<text x="264.0" y="1903.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Staircase MoT 分支</text>
-<text x="264.0" y="1921.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">深度并行潜在 CoT</text>
-<rect x="586" y="2076" width="198" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="586" y1="2082" x2="586" y2="2208" stroke="#0b57d0" stroke-width="3"/>
-<text x="685.0" y="2130.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">事件模式</text>
-<text x="685.0" y="2148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">变长执行整段</text>
-<text x="685.0" y="2168.5" font-size="11.5" fill="#57606a" text-anchor="middle">事件边界处重观测</text>
-<rect x="46" y="2076" width="207" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="2082" x2="46" y2="2208" stroke="#0b57d0" stroke-width="3"/>
-<text x="149.5" y="2130.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">统一模式</text>
-<text x="149.5" y="2148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">固定 Ha 步 chunk</text>
-<text x="149.5" y="2168.5" font-size="11.5" fill="#57606a" text-anchor="middle">潜在 CoT 条件</text>
-<rect x="438" y="1028" width="220" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="438" y1="1034" x2="438" y2="1127" stroke="#8a5a00" stroke-width="3"/>
-<text x="548.0" y="1075.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 LV 视频流匹配</text>
-<text x="548.0" y="1093.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视频预训练阶段</text>
-<rect x="422" y="1231" width="251" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="422" y1="1237" x2="422" y2="1330" stroke="#8a5a00" stroke-width="3"/>
-<text x="547.5" y="1278.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 LA 动作流匹配</text>
-<text x="547.5" y="1296.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">锚定视频步 s*=45，K=6</text>
-<rect x="291" y="2076" width="257" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="291" y1="2082" x2="291" y2="2208" stroke="#8a5a00" stroke-width="3"/>
-<text x="419.5" y="2130.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 LCoT 潜在到文本</text>
-<text x="419.5" y="2148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">重建</text>
-<text x="419.5" y="2168.5" font-size="11.5" fill="#57606a" text-anchor="middle">冻结 0.8B 语言模型</text>
-<rect x="158" y="1231" width="226" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="158" y1="1237" x2="158" y2="1330" stroke="#8250df" stroke-width="3"/>
-<text x="271.0" y="1278.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
-<text x="271.0" y="1296.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">蒸馏 + FP8 后 10Hz</text>
-<text x="350.8" y="971.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">锚定 s*=45 的视频特征 作交叉…</text>
-<text x="616.8" y="2019.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">下一事件描述 + 剩余时间</text>
-<text x="278.8" y="1174.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">末端轨迹 ae 变长</text>
-<text x="343.0" y="1377.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新观测闭环反馈</text>
-<text x="810" y="2276" font-size="10.5" fill="#8c959f" text-anchor="end">wall-wm · arXiv 2606.01955 · v3 auto</text>
+<rect x="85" y="103" width="678" height="1956" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="99" y="123" font-size="11.5" font-weight="600" fill="#57606a">离线事件数据生态 · 推理输入 · 冻结底座 · 事件级训练组件</text>
+<rect x="22" y="2272" width="790" height="209" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="2292" font-size="11.5" font-weight="600" fill="#57606a">双模式推理</text>
+<path d="M 236.0 273.0 L 329.5 395.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 329.5 550.0 L 451.0 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 453.0 1711.0 L 584.5 1833.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 545.9 1938.0 L 545.9 1481.5 L 475.2 1481.5 L 475.2 1025.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 508.0 273.0 L 622.0 414.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 622.0 518.0 L 622.0 792.5 L 449.0 792.5 L 449.0 887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 451.0 765.0 L 449.0 887.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 451.0 765.0 L 451.0 1048.0 L 307.5 1048.0 L 307.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 449.0 1025.0 L 307.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 722.0 272.0 L 722.0 801.5 L 307.5 801.5 L 307.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 453.0 1711.0 L 323.0 1835.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 508.0 273.0 L 508.0 1054.0 L 323.0 1054.0 L 323.0 1835.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 422.0 1887.0 L 466.0 2130.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 323.0 1939.0 L 282.0 2079.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 449.0 1025.0 L 601.0 1151.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 422.0 1203.5 L 473.0 1431.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 282.0 2184.0 L 454.5 2325.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 598.5 2199.0 L 755.0 2325.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 282.0 2184.0 L 155.5 2325.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 307.5 1256.0 L 290.0 1379.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 715.4 2463.0 L 715.4 1973.5 L 312.6 1973.5 L 312.6 1484.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 114.1 2463.0 L 114.1 1973.5 L 312.6 1973.5 L 312.6 1484.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 290.0 1484.0 L 453.0 1606.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="114" y="168" width="244" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="114" y1="174" x2="114" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="236.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">时间同步</text>
+<text x="236.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">光流-动作互相关估滞后</text>
+<rect x="199" y="395" width="261" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="199" y1="401" x2="199" y2="544" stroke="#0969da" stroke-width="3"/>
+<text x="329.5" y="444.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">四级层级字幕</text>
+<text x="329.5" y="465.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Task/Subtask/Action/S</text>
+<text x="329.5" y="494.0" font-size="12.5" fill="#57606a" text-anchor="middle">egment</text>
+<text x="329.5" y="511.5" font-size="12.5" fill="#57606a" text-anchor="middle">在原子动作边界切分</text>
+<rect x="334" y="660" width="234" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="334" y1="666" x2="334" y2="759" stroke="#0969da" stroke-width="3"/>
+<text x="451.0" y="705.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VL 聚类 + 动作聚类</text>
+<text x="451.0" y="726.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">平衡采样上浮长尾恢复</text>
+<rect x="357" y="1606" width="192" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="357" y1="1612" x2="357" y2="1705" stroke="#0b57d0" stroke-width="3"/>
+<text x="453.0" y="1651.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多视角关键帧 V0</text>
+<text x="453.0" y="1672.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">ego + 左右腕</text>
+<rect x="430" y="168" width="156" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="430" y1="174" x2="430" y2="267" stroke="#0b57d0" stroke-width="3"/>
+<text x="508.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">事件描述 ce</text>
+<text x="508.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">或全局指令</text>
+<rect x="647" y="168" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="647" y1="174" x2="647" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="722.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本体状态 s</text>
+<rect x="488" y="1833" width="193" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="488" y1="1839" x2="488" y2="1932" stroke="#57606a" stroke-width="3"/>
+<text x="584.5" y="1878.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">3D VAE</text>
+<text x="584.5" y="1899.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">1+4N 时间编解码</text>
+<rect x="535" y="414" width="174" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="535" y1="420" x2="535" y2="512" stroke="#57606a" stroke-width="3"/>
+<text x="622.0" y="469.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">T5 文本编码器</text>
+<rect x="318" y="887" width="262" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="318" y1="893" x2="318" y2="1019" stroke="#57606a" stroke-width="3"/>
+<text x="449.0" y="936.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Wan2.2-5B 多视角视频</text>
+<text x="449.0" y="957.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">DiT</text>
+<text x="449.0" y="986.25" font-size="12.5" fill="#57606a" text-anchor="middle">视频预训练后冻结</text>
+<rect x="224" y="1835" width="198" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="224" y1="1841" x2="224" y2="1933" stroke="#57606a" stroke-width="3"/>
+<text x="323.0" y="1890.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Qwen3.5-9B 主干</text>
+<rect x="193" y="1151" width="229" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="193" y1="1157" x2="193" y2="1250" stroke="#1a7f37" stroke-width="3"/>
+<text x="307.5" y="1196.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 DiT 随机初始化</text>
+<text x="307.5" y="1217.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逐层单向读视频特征</text>
+<rect x="466" y="2061" width="265" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="466" y1="2067" x2="466" y2="2193" stroke="#1a7f37" stroke-width="3"/>
+<text x="598.5" y="2110.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 投影出头</text>
+<text x="598.5" y="2131.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">+ 下一事件头 + 剩余时</text>
+<text x="598.5" y="2160.25" font-size="12.5" fill="#57606a" text-anchor="middle">间头</text>
+<rect x="168" y="2079" width="228" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="168" y1="2085" x2="168" y2="2178" stroke="#1a7f37" stroke-width="3"/>
+<text x="282.0" y="2124.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Staircase MoT 分支</text>
+<text x="282.0" y="2145.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">深度并行潜在 CoT</text>
+<rect x="656" y="2325" width="198" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="656" y1="2331" x2="656" y2="2457" stroke="#0b57d0" stroke-width="3"/>
+<text x="755.0" y="2374.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">事件模式</text>
+<text x="755.0" y="2395.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">变长执行整段</text>
+<text x="755.0" y="2424.25" font-size="12.5" fill="#57606a" text-anchor="middle">事件边界处重观测</text>
+<rect x="52" y="2325" width="207" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="2331" x2="52" y2="2457" stroke="#0b57d0" stroke-width="3"/>
+<text x="155.5" y="2374.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">统一模式</text>
+<text x="155.5" y="2395.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">固定 Ha 步 chunk</text>
+<text x="155.5" y="2424.25" font-size="12.5" fill="#57606a" text-anchor="middle">潜在 CoT 条件</text>
+<rect x="491" y="1151" width="220" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="491" y1="1157" x2="491" y2="1250" stroke="#8a5a00" stroke-width="3"/>
+<text x="601.0" y="1196.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 LV 视频流匹配</text>
+<text x="601.0" y="1217.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视频预训练阶段</text>
+<rect x="473" y="1379" width="251" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="473" y1="1385" x2="473" y2="1478" stroke="#8a5a00" stroke-width="3"/>
+<text x="598.5" y="1424.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 LA 动作流匹配</text>
+<text x="598.5" y="1445.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">锚定视频步 s*=45，K=6</text>
+<rect x="326" y="2325" width="257" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="326" y1="2331" x2="326" y2="2457" stroke="#8a5a00" stroke-width="3"/>
+<text x="454.5" y="2374.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 LCoT 潜在到文本</text>
+<text x="454.5" y="2395.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">重建</text>
+<text x="454.5" y="2424.25" font-size="12.5" fill="#57606a" text-anchor="middle">冻结 0.8B 语言模型</text>
+<rect x="177" y="1379" width="226" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="177" y1="1385" x2="177" y2="1478" stroke="#8250df" stroke-width="3"/>
+<text x="290.0" y="1424.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
+<text x="290.0" y="1445.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">蒸馏 + FP8 后 10Hz</text>
+<text x="378.2" y="1080.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">锚定 s*=45 的视频特征 作交叉…</text>
+<text x="676.8" y="2254.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">下一事件描述 + 剩余时间</text>
+<text x="298.8" y="1309.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">末端轨迹 ae 变长</text>
+<text x="371.5" y="1537.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新观测闭环反馈</text>
+<text x="858" y="2523" font-size="10.5" fill="#8c959f" text-anchor="end">wall-wm · arXiv 2606.01955 · v3 auto</text>
 </svg>

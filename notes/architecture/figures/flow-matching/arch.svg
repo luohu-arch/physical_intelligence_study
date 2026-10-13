@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="847" height="1352" viewBox="24 98 847 1352" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="1500" viewBox="26 112 920 1500" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>flow-matching</title>
-<rect x="24" y="98" width="847" height="1352" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">flow-matching</text>
-<text x="849" y="128" font-size="12" fill="#57606a" text-anchor="end">Flow Matching 提出了一种无需模拟（simulation-free）的连续归一化流（CNF）训练框架，通过直接回归条件概率路径的速度场，避免了传统 CNF 的昂贵 </text>
+<rect x="26" y="112" width="920" height="1500" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">flow-matching</text>
+<text x="924" y="142" font-size="12" fill="#57606a" text-anchor="end">Flow Matching 提出了一种无需模拟（simulation-free）的连续归一化流（CNF）训练框架，通过直接回归条件概率路径的速度场，避免了传统 CNF 的昂贵 </text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,51 +10,51 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 418.0 271.0 L 447.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 248.0 219.0 L 317.0 463.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 447.5 541.0 L 447.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 718.5 322.0 L 718.5 562.0 L 447.5 562.0 L 447.5 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 447.5 760.0 L 447.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 395.3 996.0 L 474.4 760.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 447.5 996.0 L 447.5 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 447.5 1199.0 L 447.5 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="286" y="167" width="264" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="286" y1="173" x2="286" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="418.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">高斯噪声 x_0 ~ N(0, I)</text>
-<rect x="317" y="386" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="317" y1="392" x2="317" y2="535" stroke="#0b57d0" stroke-width="3"/>
-<text x="447.5" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">OT 线性概率路径 (核心)</text>
-<text x="447.5" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">x_t = t*x_1 + (1-t)*</text>
-<text x="447.5" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">x_0</text>
-<text x="447.5" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">粒子沿直线匀速运动, 路径更直</text>
-<rect x="46" y="167" width="202" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="173" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="147.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真实动作数据 x_1</text>
-<rect x="313" y="622" width="269" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="313" y1="628" x2="313" y2="754" stroke="#1a7f37" stroke-width="3"/>
-<text x="447.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">速度场预测网络 v_theta(</text>
-<text x="447.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">x_t, t)</text>
-<text x="447.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">回归条件速度场, 免模拟训练</text>
-<rect x="588" y="150" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="588" y1="156" x2="588" y2="316" stroke="#0b57d0" stroke-width="3"/>
-<text x="718.5" y="206.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_CFM</text>
-<text x="718.5" y="224.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">|| v_theta - (x_1 -</text>
-<text x="718.5" y="244.5" font-size="11.5" fill="#57606a" text-anchor="middle">x_0) ||^2</text>
-<text x="718.5" y="259.5" font-size="11.5" fill="#57606a" text-anchor="middle">无需模拟 ODE, 与 L_FM 梯度</text>
-<text x="718.5" y="274.5" font-size="11.5" fill="#57606a" text-anchor="middle">等价</text>
-<rect x="317" y="858" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="317" y1="864" x2="317" y2="990" stroke="#0b57d0" stroke-width="3"/>
-<text x="447.5" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RK4 高阶积分</text>
-<text x="447.5" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仅 10 步, 截断误差 O(</text>
-<text x="447.5" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">dt^4)</text>
-<rect x="365" y="1094" width="165" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="365" y1="1100" x2="365" y2="1193" stroke="#8250df" stroke-width="3"/>
-<text x="447.5" y="1141.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">连续动作 x_1</text>
-<text x="447.5" y="1159.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">平滑无台阶</text>
-<rect x="319" y="1297" width="257" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="319" y1="1303" x2="319" y2="1396" stroke="#8250df" stroke-width="3"/>
-<text x="447.5" y="1344.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
-<text x="447.5" y="1362.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(pi0 动作专家同款机制)</text>
-<text x="434.9" y="870.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每步 4 次速度场求值</text>
-<text x="849" y="1440" font-size="10.5" fill="#8c959f" text-anchor="end">flow-matching · arXiv 2210.02747 · v3 auto</text>
+<path d="M 452.0 291.0 L 485.5 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 254.0 239.0 L 355.0 509.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 485.5 587.0 L 485.5 697.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 789.5 340.0 L 789.5 608.5 L 485.5 608.5 L 485.5 697.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 485.5 835.0 L 485.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 433.3 1099.0 L 512.4 835.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 485.5 1099.0 L 491.5 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 491.5 1330.0 L 485.5 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="320" y="187" width="264" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="320" y1="193" x2="320" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="452.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">高斯噪声 x_0 ~ N(0, I)</text>
+<rect x="355" y="432" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="355" y1="438" x2="355" y2="581" stroke="#0b57d0" stroke-width="3"/>
+<text x="485.5" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">OT 线性概率路径 (核心)</text>
+<text x="485.5" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">x_t = t*x_1 + (1-t)*</text>
+<text x="485.5" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">x_0</text>
+<text x="485.5" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">粒子沿直线匀速运动, 路径更直</text>
+<rect x="52" y="187" width="202" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="193" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="153.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真实动作数据 x_1</text>
+<rect x="351" y="697" width="269" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="351" y1="703" x2="351" y2="829" stroke="#1a7f37" stroke-width="3"/>
+<text x="485.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">速度场预测网络 v_theta(</text>
+<text x="485.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">x_t, t)</text>
+<text x="485.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">回归条件速度场, 免模拟训练</text>
+<rect x="659" y="168" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="659" y1="174" x2="659" y2="334" stroke="#0b57d0" stroke-width="3"/>
+<text x="789.5" y="216.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">损失 L_CFM</text>
+<text x="789.5" y="237.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">|| v_theta - (x_1 -</text>
+<text x="789.5" y="266.75" font-size="12.5" fill="#57606a" text-anchor="middle">x_0) ||^2</text>
+<text x="789.5" y="284.25" font-size="12.5" fill="#57606a" text-anchor="middle">无需模拟 ODE, 与 L_FM 梯度</text>
+<text x="789.5" y="301.75" font-size="12.5" fill="#57606a" text-anchor="middle">等价</text>
+<rect x="355" y="961" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="355" y1="967" x2="355" y2="1093" stroke="#0b57d0" stroke-width="3"/>
+<text x="485.5" y="1010.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RK4 高阶积分</text>
+<text x="485.5" y="1031.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仅 10 步, 截断误差 O(</text>
+<text x="485.5" y="1060.25" font-size="12.5" fill="#57606a" text-anchor="middle">dt^4)</text>
+<rect x="409" y="1225" width="165" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="409" y1="1231" x2="409" y2="1324" stroke="#8250df" stroke-width="3"/>
+<text x="491.5" y="1270.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">连续动作 x_1</text>
+<text x="491.5" y="1291.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">平滑无台阶</text>
+<rect x="357" y="1453" width="257" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="357" y1="1459" x2="357" y2="1552" stroke="#8250df" stroke-width="3"/>
+<text x="485.5" y="1498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人执行</text>
+<text x="485.5" y="1519.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(pi0 动作专家同款机制)</text>
+<text x="472.9" y="959.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每步 4 次速度场求值</text>
+<text x="924" y="1600" font-size="10.5" fill="#8c959f" text-anchor="end">flow-matching · arXiv 2210.02747 · v3 auto</text>
 </svg>

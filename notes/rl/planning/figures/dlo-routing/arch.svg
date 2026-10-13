@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="615" height="1182" viewBox="24 98 615 1182" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="659" height="1305" viewBox="26 112 659 1305" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>dlo-routing</title>
-<rect x="24" y="98" width="615" height="1182" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">dlo-routing</text>
-<text x="617" y="128" font-size="12" fill="#57606a" text-anchor="end">提出分层框架处理可变形线性物体（线缆/绳子）的多夹点路由：高层 VLM (GPT-5, CoT prompting) 做任务进度推理和技能选择，低层 SAC RL 执行 Ins</text>
+<rect x="26" y="112" width="659" height="1305" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">dlo-routing</text>
+<text x="663" y="142" font-size="12" fill="#57606a" text-anchor="end">提出分层框架处理可变形线性物体（线缆/绳子）的多夹点路由：高层 VLM (GPT-5, CoT prompting) 做任务进度推理和技能选择，低层 SAC RL 执行 Ins</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,61 +10,61 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 182.0 271.0 L 331.0 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 331.0 541.0 L 332.0 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 331.0 541.0 L 481.0 638.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 331.0 541.0 L 203.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 203.5 777.0 L 332.0 858.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 126.1 1215.0 L 126.1 1058.0 L 357.6 1058.0 L 357.6 541.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 332.0 1013.0 L 179.5 1110.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 481.5 305.0 L 481.5 581.5 L 332.0 581.5 L 332.0 858.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 332.0 1013.0 L 484.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 481.0 743.0 L 484.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 203.5 777.0 L 203.5 1025.5 L 484.0 1025.5 L 484.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="51" y="166" width="262" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="51" y1="172" x2="51" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="182.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">场景俯视图 + clip</text>
-<text x="182.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">zoom-in</text>
-<rect x="198" y="386" width="266" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="198" y1="392" x2="198" y2="535" stroke="#57606a" stroke-width="3"/>
-<text x="331.0" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 规划器 (GPT-5 +</text>
-<text x="331.0" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CoT)</text>
-<text x="331.0" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">进度推理 + 技能选择 + 完成判定</text>
-<text x="331.0" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">纯 in-context, 不参与梯度训练</text>
-<rect x="204" y="858" width="256" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="204" y1="864" x2="204" y2="1007" stroke="#1a7f37" stroke-width="3"/>
-<text x="332.0" y="913.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Insert: SAC RL 低层</text>
-<text x="332.0" y="931.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">7 参数运动原语, 接触敏</text>
-<text x="332.0" y="951.5" font-size="11.5" fill="#57606a" text-anchor="middle">感区需闭环</text>
-<text x="332.0" y="966.5" font-size="11.5" fill="#57606a" text-anchor="middle">(87% vs heuristic 45%)</text>
-<rect x="372" y="638" width="218" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="372" y1="644" x2="372" y2="737" stroke="#8250df" stroke-width="3"/>
-<text x="481.0" y="685.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Pull: 脚本原语</text>
-<text x="481.0" y="703.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自由空间, 无需学习</text>
-<rect x="73" y="622" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="73" y1="628" x2="73" y2="771" stroke="#0b57d0" stroke-width="3"/>
-<text x="203.5" y="677.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Flatten: 自动故障恢复</text>
-<text x="203.5" y="695.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(核心)</text>
-<text x="203.5" y="715.5" font-size="11.5" fill="#57606a" text-anchor="middle">重整线缆释放弯曲势能</text>
-<text x="203.5" y="730.5" font-size="11.5" fill="#57606a" text-anchor="middle">把不可插入恢复成可插入</text>
-<rect x="46" y="1110" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1116" x2="46" y2="1209" stroke="#0b57d0" stroke-width="3"/>
-<text x="179.5" y="1157.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">连续插入失败计数 + step</text>
-<text x="179.5" y="1175.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">limit</text>
-<rect x="351" y="150" width="261" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="351" y1="156" x2="351" y2="299" stroke="#8a5a00" stroke-width="3"/>
-<text x="481.5" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">dense shaped 奖励</text>
-<text x="481.5" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">rope_in / rope_out +</text>
-<text x="481.5" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">碰撞惩罚</text>
-<text x="481.5" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 分段距离 + 前端平直度</text>
-<rect x="351" y="1094" width="266" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="351" y1="1100" x2="351" y2="1226" stroke="#57606a" stroke-width="3"/>
-<text x="484.0" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Franka + D415 + SAM2</text>
-<text x="484.0" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">分割</text>
-<text x="484.0" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">零微调 sim-to-real (62.5%)</text>
-<text x="267.8" y="809.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重整后重试</text>
-<text x="241.9" y="870.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重复失败 -&gt; 触发恢复</text>
-<text x="255.8" y="1053.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">失败反馈</text>
-<text x="406.8" y="573.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">SAC 训练信号 (6.2k 步)</text>
-<text x="617" y="1270" font-size="10.5" fill="#8c959f" text-anchor="end">dlo-routing · arXiv 2510.19268 · v3 auto</text>
+<path d="M 188.0 291.0 L 355.0 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 355.0 587.0 L 356.0 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 355.0 587.0 L 526.0 715.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 355.0 587.0 L 212.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 212.5 852.0 L 356.0 961.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 132.1 1348.0 L 132.1 1147.5 L 381.6 1147.5 L 381.6 587.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 356.0 1116.0 L 185.5 1243.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 523.5 323.0 L 523.5 642.0 L 356.0 642.0 L 356.0 961.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 356.0 1116.0 L 526.0 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 526.0 820.0 L 526.0 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 212.5 852.0 L 212.5 1128.5 L 526.0 1128.5 L 526.0 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="57" y="186" width="262" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="57" y1="192" x2="57" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="188.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">场景俯视图 + clip</text>
+<text x="188.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">zoom-in</text>
+<rect x="222" y="432" width="266" height="155" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="222" y1="438" x2="222" y2="581" stroke="#57606a" stroke-width="3"/>
+<text x="355.0" y="481.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 规划器 (GPT-5 +</text>
+<text x="355.0" y="502.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CoT)</text>
+<text x="355.0" y="531.0" font-size="12.5" fill="#57606a" text-anchor="middle">进度推理 + 技能选择 + 完成判定</text>
+<text x="355.0" y="548.5" font-size="12.5" fill="#57606a" text-anchor="middle">纯 in-context, 不参与梯度训练</text>
+<rect x="228" y="961" width="256" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="228" y1="967" x2="228" y2="1110" stroke="#1a7f37" stroke-width="3"/>
+<text x="356.0" y="1010.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Insert: SAC RL 低层</text>
+<text x="356.0" y="1031.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">7 参数运动原语, 接触敏</text>
+<text x="356.0" y="1060.0" font-size="12.5" fill="#57606a" text-anchor="middle">感区需闭环</text>
+<text x="356.0" y="1077.5" font-size="12.5" fill="#57606a" text-anchor="middle">(87% vs heuristic 45%)</text>
+<rect x="417" y="715" width="218" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="417" y1="721" x2="417" y2="814" stroke="#8250df" stroke-width="3"/>
+<text x="526.0" y="760.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Pull: 脚本原语</text>
+<text x="526.0" y="781.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">自由空间, 无需学习</text>
+<rect x="82" y="697" width="261" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="82" y1="703" x2="82" y2="846" stroke="#0b57d0" stroke-width="3"/>
+<text x="212.5" y="746.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Flatten: 自动故障恢复</text>
+<text x="212.5" y="767.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(核心)</text>
+<text x="212.5" y="796.0" font-size="12.5" fill="#57606a" text-anchor="middle">重整线缆释放弯曲势能</text>
+<text x="212.5" y="813.5" font-size="12.5" fill="#57606a" text-anchor="middle">把不可插入恢复成可插入</text>
+<rect x="52" y="1243" width="267" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1249" x2="52" y2="1342" stroke="#0b57d0" stroke-width="3"/>
+<text x="185.5" y="1288.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">连续插入失败计数 + step</text>
+<text x="185.5" y="1309.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">limit</text>
+<rect x="393" y="168" width="261" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="393" y1="174" x2="393" y2="317" stroke="#8a5a00" stroke-width="3"/>
+<text x="523.5" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">dense shaped 奖励</text>
+<text x="523.5" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">rope_in / rope_out +</text>
+<text x="523.5" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">碰撞惩罚</text>
+<text x="523.5" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">+ 分段距离 + 前端平直度</text>
+<rect x="393" y="1225" width="266" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="393" y1="1231" x2="393" y2="1357" stroke="#57606a" stroke-width="3"/>
+<text x="526.0" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Franka + D415 + SAM2</text>
+<text x="526.0" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">分割</text>
+<text x="526.0" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">零微调 sim-to-real (62.5%)</text>
+<text x="284.2" y="898.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重整后重试</text>
+<text x="256.9" y="959.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">重复失败 -&gt; 触发恢复</text>
+<text x="270.8" y="1171.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">失败反馈</text>
+<text x="439.8" y="634.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">SAC 训练信号 (6.2k 步)</text>
+<text x="663" y="1405" font-size="10.5" fill="#8c959f" text-anchor="end">dlo-routing · arXiv 2510.19268 · v3 auto</text>
 </svg>

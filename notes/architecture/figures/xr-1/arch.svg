@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1501" height="1638" viewBox="-36 98 1501 1638" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1645" height="1814" viewBox="-34 112 1645 1814" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>xr-1</title>
-<rect x="-36" y="98" width="1501" height="1638" fill="#ffffff"/>
-<text x="-14" y="128" font-size="14" font-weight="700" fill="#1f2328">xr-1</text>
-<text x="1443" y="128" font-size="12" fill="#57606a" text-anchor="end">XR-1 提出 Unified Vision-Motion Codes (UVMC)：用双分支 VQ-VAE 将视觉动态和机器人运动联合编码到共享离散 latent 空间。三阶</text>
+<rect x="-34" y="112" width="1645" height="1814" fill="#ffffff"/>
+<text x="-12" y="142" font-size="14" font-weight="700" fill="#1f2328">xr-1</text>
+<text x="1589" y="142" font-size="12" fill="#57606a" text-anchor="end">XR-1 提出 Unified Vision-Motion Codes (UVMC)：用双分支 VQ-VAE 将视觉动态和机器人运动联合编码到共享离散 latent 空间。三阶</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,81 +10,81 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="520" y="322" width="450" height="429" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="534" y="342" font-size="11.5" font-weight="600" fill="#57606a">UVMC: 统一视动编码 (核心)&lt;br/&gt;双分支 VQ-VAE, 共享</text>
-<text x="534" y="357" font-size="11.5" font-weight="600" fill="#57606a">离散空间</text>
-<path d="M 46.0 218.5 L -14.0 218.5 L -14.0 438.5 L 764.0 438.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 400.0 288.0 L 854.0 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 531.0 219.0 L 546.0 438.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 854.0 491.0 L 744.5 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 636.0 491.0 L 744.5 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 704.0 305.0 L 854.0 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 1182.0 219.0 L 877.0 666.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 744.5 744.0 L 745.0 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 745.0 963.0 L 744.5 1061.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
-<path d="M 1010.5 288.0 L 1010.5 764.5 L 744.5 764.5 L 744.5 1061.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 744.5 1199.0 L 744.0 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 744.0 1435.0 L 744.0 1533.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="166" width="185" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="172" x2="46" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="138.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人类视频 Ego4D</text>
-<text x="138.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(无动作标签)</text>
-<rect x="764" y="386" width="180" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="764" y1="392" x2="764" y2="485" stroke="#0b57d0" stroke-width="3"/>
-<text x="854.0" y="433.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉分支编码器</text>
-<text x="854.0" y="451.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">编码场景动态</text>
-<rect x="269" y="150" width="262" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="269" y1="156" x2="269" y2="282" stroke="#0969da" stroke-width="3"/>
-<text x="400.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人数据 RoboMIND /</text>
-<text x="400.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">OXE</text>
-<text x="400.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">(带动作标注)</text>
-<rect x="546" y="386" width="180" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="546" y1="392" x2="546" y2="485" stroke="#0b57d0" stroke-width="3"/>
-<text x="636.0" y="433.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">运动分支编码器</text>
-<text x="636.0" y="451.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">编码机器人动作</text>
-<rect x="612" y="589" width="265" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="612" y1="595" x2="612" y2="738" stroke="#0b57d0" stroke-width="3"/>
-<text x="744.5" y="644.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">共享离散 codebook 约</text>
-<text x="744.5" y="662.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">8192</text>
-<text x="744.5" y="682.5" font-size="11.5" fill="#57606a" text-anchor="middle">具身无关: 同一码 = 抓取</text>
-<text x="744.5" y="697.5" font-size="11.5" fill="#57606a" text-anchor="middle">(UR5 与人形共用)</text>
-<rect x="569" y="150" width="270" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="569" y1="156" x2="569" y2="299" stroke="#8a5a00" stroke-width="3"/>
-<text x="704.0" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">KL 对齐损失 D_KL(q_vis</text>
-<text x="704.0" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">|| q_mot)</text>
-<text x="704.0" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">强制视觉分布靠拢运动分布</text>
-<text x="704.0" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">(去 KL: 66.7% -&gt; 48.3%)</text>
-<rect x="1182" y="150" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1182" y1="156" x2="1182" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="1312.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 1 损失: 双分支重</text>
-<text x="1312.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">建 L1 + VQ 目标</text>
-<text x="1312.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ beta * KL 对齐</text>
-<rect x="610" y="825" width="270" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="610" y1="831" x2="610" y2="957" stroke="#0b57d0" stroke-width="3"/>
-<text x="745.0" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">UVMC token</text>
-<text x="745.0" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉动态与运动模式的翻</text>
-<text x="745.0" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">译层</text>
-<rect x="615" y="1061" width="259" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="615" y1="1067" x2="615" y2="1193" stroke="#1a7f37" stroke-width="3"/>
-<text x="744.5" y="1115.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM backbone</text>
-<text x="744.5" y="1133.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(SigLIP 约 400M + LLM</text>
-<text x="744.5" y="1153.5" font-size="11.5" fill="#57606a" text-anchor="middle">)</text>
-<rect x="877" y="150" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="877" y1="156" x2="877" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="1010.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 2 损失: UVMC</text>
-<text x="1010.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">token 回归 MSE</text>
-<text x="1010.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 动作头 MSE 并行回归</text>
-<rect x="612" y="1297" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="612" y1="1303" x2="612" y2="1429" stroke="#1a7f37" stroke-width="3"/>
-<text x="744.0" y="1351.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 3: 任务适配</text>
-<text x="744.0" y="1369.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">post-training</text>
-<text x="744.0" y="1389.5" font-size="11.5" fill="#57606a" text-anchor="middle">新任务仅 20 demos</text>
-<rect x="612" y="1533" width="264" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="612" y1="1539" x2="612" y2="1682" stroke="#8250df" stroke-width="3"/>
-<text x="744.0" y="1588.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作预测</text>
-<text x="744.0" y="1606.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">6 具身 120+ 任务 14000</text>
-<text x="744.0" y="1626.5" font-size="11.5" fill="#57606a" text-anchor="middle">+真机 rollouts</text>
-<text x="744.0" y="1641.5" font-size="11.5" fill="#57606a" text-anchor="middle">平均 72.0% (pi0.5 为 41.0%)</text>
-<text x="744.8" y="1004.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">Stage 2: 辅助监督注入</text>
-<text x="1443" y="1726" font-size="10.5" fill="#8c959f" text-anchor="end">xr-1 · arXiv 2511.02776 · v3 auto</text>
+<rect x="582" y="361" width="450" height="429" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="596" y="381" font-size="11.5" font-weight="600" fill="#57606a">UVMC: 统一视动编码 (核心)&lt;br/&gt;双分支 VQ-VAE, 共享</text>
+<text x="596" y="396" font-size="11.5" font-weight="600" fill="#57606a">离散空间</text>
+<path d="M 52.0 238.5 L -8.0 238.5 L -8.0 484.5 L 856.0 484.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 432.0 306.0 L 946.0 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 563.0 237.0 L 612.0 484.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 946.0 537.0 L 817.5 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 702.0 537.0 L 817.5 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 772.0 323.0 L 946.0 432.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1324.0 237.0 L 950.0 737.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 817.5 815.0 L 818.0 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 818.0 1062.0 L 818.5 1188.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 1115.5 306.0 L 1115.5 837.0 L 818.5 837.0 L 818.5 1188.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 818.5 1326.0 L 817.0 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 817.0 1591.0 L 817.0 1717.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="186" width="185" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="192" x2="52" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="144.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">人类视频 Ego4D</text>
+<text x="144.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(无动作标签)</text>
+<rect x="856" y="432" width="180" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="856" y1="438" x2="856" y2="531" stroke="#0b57d0" stroke-width="3"/>
+<text x="946.0" y="477.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉分支编码器</text>
+<text x="946.0" y="498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">编码场景动态</text>
+<rect x="301" y="168" width="262" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="301" y1="174" x2="301" y2="300" stroke="#0969da" stroke-width="3"/>
+<text x="432.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">机器人数据 RoboMIND /</text>
+<text x="432.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">OXE</text>
+<text x="432.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">(带动作标注)</text>
+<rect x="612" y="432" width="180" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="612" y1="438" x2="612" y2="531" stroke="#0b57d0" stroke-width="3"/>
+<text x="702.0" y="477.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">运动分支编码器</text>
+<text x="702.0" y="498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">编码机器人动作</text>
+<rect x="685" y="660" width="265" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="685" y1="666" x2="685" y2="809" stroke="#0b57d0" stroke-width="3"/>
+<text x="817.5" y="709.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">共享离散 codebook 约</text>
+<text x="817.5" y="730.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">8192</text>
+<text x="817.5" y="759.0" font-size="12.5" fill="#57606a" text-anchor="middle">具身无关: 同一码 = 抓取</text>
+<text x="817.5" y="776.5" font-size="12.5" fill="#57606a" text-anchor="middle">(UR5 与人形共用)</text>
+<rect x="637" y="168" width="270" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="637" y1="174" x2="637" y2="317" stroke="#8a5a00" stroke-width="3"/>
+<text x="772.0" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">KL 对齐损失 D_KL(q_vis</text>
+<text x="772.0" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">|| q_mot)</text>
+<text x="772.0" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">强制视觉分布靠拢运动分布</text>
+<text x="772.0" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">(去 KL: 66.7% -&gt; 48.3%)</text>
+<rect x="1324" y="168" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1324" y1="174" x2="1324" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="1454.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 1 损失: 双分支重</text>
+<text x="1454.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">建 L1 + VQ 目标</text>
+<text x="1454.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ beta * KL 对齐</text>
+<rect x="683" y="924" width="270" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="683" y1="930" x2="683" y2="1056" stroke="#0b57d0" stroke-width="3"/>
+<text x="818.0" y="973.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">UVMC token</text>
+<text x="818.0" y="994.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">视觉动态与运动模式的翻</text>
+<text x="818.0" y="1023.25" font-size="12.5" fill="#57606a" text-anchor="middle">译层</text>
+<rect x="689" y="1188" width="259" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="689" y1="1194" x2="689" y2="1320" stroke="#1a7f37" stroke-width="3"/>
+<text x="818.5" y="1237.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM backbone</text>
+<text x="818.5" y="1258.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(SigLIP 约 400M + LLM</text>
+<text x="818.5" y="1287.25" font-size="12.5" fill="#57606a" text-anchor="middle">)</text>
+<rect x="982" y="168" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="982" y1="174" x2="982" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="1115.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 2 损失: UVMC</text>
+<text x="1115.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">token 回归 MSE</text>
+<text x="1115.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">+ 动作头 MSE 并行回归</text>
+<rect x="685" y="1453" width="264" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="685" y1="1459" x2="685" y2="1585" stroke="#1a7f37" stroke-width="3"/>
+<text x="817.0" y="1502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Stage 3: 任务适配</text>
+<text x="817.0" y="1523.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">post-training</text>
+<text x="817.0" y="1552.25" font-size="12.5" fill="#57606a" text-anchor="middle">新任务仅 20 demos</text>
+<rect x="685" y="1717" width="264" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="685" y1="1723" x2="685" y2="1866" stroke="#8250df" stroke-width="3"/>
+<text x="817.0" y="1766.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作预测</text>
+<text x="817.0" y="1787.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">6 具身 120+ 任务 14000</text>
+<text x="817.0" y="1816.0" font-size="12.5" fill="#57606a" text-anchor="middle">+真机 rollouts</text>
+<text x="817.0" y="1833.5" font-size="12.5" fill="#57606a" text-anchor="middle">平均 72.0% (pi0.5 为 41.0%)</text>
+<text x="818.2" y="1117.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">Stage 2: 辅助监督注入</text>
+<text x="1589" y="1914" font-size="10.5" fill="#8c959f" text-anchor="end">xr-1 · arXiv 2511.02776 · v3 auto</text>
 </svg>

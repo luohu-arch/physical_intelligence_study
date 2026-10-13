@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="767" height="2221" viewBox="-2 40 767 2221" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="815" height="2395" viewBox="-4 47 815 2395" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>daydreamer</title>
-<rect x="-2" y="40" width="767" height="2221" fill="#ffffff"/>
-<text x="20" y="70" font-size="14" font-weight="700" fill="#1f2328">daydreamer</text>
-<text x="743" y="70" font-size="12" fill="#57606a" text-anchor="end">把 Dreamer（基于 DreamerV2 实现 + 异步 actor/learner）原封不动部署到 A1 四足、UR5 与 XArm 机械臂、Sphero 轮式机器人共 </text>
+<rect x="-4" y="47" width="815" height="2395" fill="#ffffff"/>
+<text x="18" y="77" font-size="14" font-weight="700" fill="#1f2328">daydreamer</text>
+<text x="789" y="77" font-size="12" fill="#57606a" text-anchor="end">把 Dreamer（基于 DreamerV2 实现 + 异步 actor/learner）原封不动部署到 A1 四足、UR5 与 XArm 机械臂、Sphero 轮式机器人共 </text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,74 +10,74 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="92" width="723" height="2121" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="112" font-size="11.5" font-weight="600" fill="#57606a">真机物理世界 (4 平台同一组超参) · RSSM 世界模型 (单 GPU 训练)</text>
-<path d="M 476.0 255.0 L 381.0 353.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 382.0 1739.0 L 382.0 1837.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 381.0 458.0 L 382.0 556.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 382.0 660.0 L 381.0 758.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 249.0 254.0 L 249.0 697.0 L 381.5 697.0 L 381.5 960.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 381.0 862.0 L 381.5 960.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 274.0 1012.0 L 262.0 1231.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 489.0 1012.0 L 567.0 1231.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 382.0 1941.0 L 381.0 2039.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 341.4 2143.0 L 341.4 1811.5 L 437.4 1811.5 L 437.4 1300.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 381.5 1064.0 L 414.5 1162.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 414.5 1300.0 L 249.0 1398.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 414.5 1300.0 L 514.0 1414.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 249.0 1536.0 L 382.0 1634.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="362" y="150" width="228" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="362" y1="156" x2="362" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="476.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">传感器</text>
-<text x="476.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">相机图像 + 本体感知</text>
-<rect x="264" y="353" width="234" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="264" y1="359" x2="264" y2="452" stroke="#1a7f37" stroke-width="3"/>
-<text x="381.0" y="400.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">编码器</text>
-<text x="381.0" y="418.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多模态融合为观测表征</text>
-<rect x="268" y="1634" width="228" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="268" y1="1640" x2="268" y2="1733" stroke="#8250df" stroke-width="3"/>
-<text x="382.0" y="1681.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">策略部署到真机硬件</text>
-<text x="382.0" y="1699.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">异步 actor-learner</text>
-<rect x="292" y="1837" width="180" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="292" y1="1843" x2="292" y2="1935" stroke="#0969da" stroke-width="3"/>
-<text x="382.0" y="1893.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真机经验回放池</text>
-<rect x="272" y="556" width="220" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="272" y1="562" x2="272" y2="654" stroke="#1a7f37" stroke-width="3"/>
-<text x="382.0" y="612.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">编码为离散隐码 z_t</text>
-<rect x="274" y="960" width="215" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="274" y1="966" x2="274" y2="1058" stroke="#1a7f37" stroke-width="3"/>
-<text x="381.5" y="1016.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RSSM 循环状态 h_t</text>
-<rect x="46" y="1162" width="216" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1168" x2="46" y2="1294" stroke="#1a7f37" stroke-width="3"/>
-<text x="154.0" y="1216.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">解码器</text>
-<text x="154.0" y="1234.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仅训练期重建观测</text>
-<text x="154.0" y="1254.5" font-size="11.5" fill="#57606a" text-anchor="middle">行为学习阶段不调用</text>
-<rect x="567" y="1179" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="567" y1="1185" x2="567" y2="1277" stroke="#8a5a00" stroke-width="3"/>
-<text x="642.0" y="1235.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">奖励预测头</text>
-<rect x="282" y="2039" width="198" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="282" y1="2045" x2="282" y2="2137" stroke="#1a7f37" stroke-width="3"/>
-<text x="381.0" y="2095.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">世界模型监督训练</text>
-<rect x="306" y="758" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="306" y1="764" x2="306" y2="856" stroke="#1a7f37" stroke-width="3"/>
-<text x="381.0" y="814.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">隐状态 z_t</text>
-<rect x="174" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="174" y1="156" x2="174" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="249.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作 a_t</text>
-<rect x="300" y="1162" width="229" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="300" y1="1168" x2="300" y2="1294" stroke="#0b57d0" stroke-width="3"/>
-<text x="414.5" y="1216.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">潜空间想象 rollout</text>
-<text x="414.5" y="1234.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">批量并行至 16K 轨迹</text>
-<text x="414.5" y="1254.5" font-size="11.5" fill="#57606a" text-anchor="middle">无需环境步进</text>
-<rect x="136" y="1398" width="226" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="136" y1="1404" x2="136" y2="1530" stroke="#8250df" stroke-width="3"/>
-<text x="249.0" y="1452.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">actor pi</text>
-<text x="249.0" y="1470.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Reinforce + 熵正则</text>
-<text x="249.0" y="1490.5" font-size="11.5" fill="#57606a" text-anchor="middle">纯潜空间更新</text>
-<rect x="400" y="1414" width="228" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="400" y1="1420" x2="400" y2="1513" stroke="#8a5a00" stroke-width="3"/>
-<text x="514.0" y="1461.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">critic v</text>
-<text x="514.0" y="1479.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">lambda-return 回归</text>
-<text x="382.0" y="1780.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新真机经验入池</text>
-<text x="743" y="2251" font-size="10.5" fill="#8c959f" text-anchor="end">daydreamer · arXiv 2206.14176 · v3 auto</text>
+<rect x="22" y="103" width="723" height="2121" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="123" font-size="11.5" font-weight="600" fill="#57606a">真机物理世界 (4 平台同一组超参) · RSSM 世界模型 (单 GPU 训练)</text>
+<path d="M 519.0 273.0 L 413.0 395.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 414.0 1935.0 L 417.0 2057.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 413.0 500.0 L 415.0 623.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 415.0 727.0 L 418.0 849.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 270.0 272.0 L 270.0 763.5 L 414.5 763.5 L 414.5 1075.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 418.0 953.0 L 414.5 1075.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 307.0 1127.0 L 268.0 1370.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 522.0 1127.0 L 635.0 1372.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 417.0 2161.0 L 415.0 2284.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 375.4 2388.0 L 375.4 2003.5 L 473.4 2003.5 L 473.4 1439.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 414.5 1179.0 L 450.5 1301.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 450.5 1439.0 L 265.0 1566.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 450.5 1439.0 L 562.0 1584.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 265.0 1704.0 L 414.0 1830.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="405" y="168" width="228" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="405" y1="174" x2="405" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="519.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">传感器</text>
+<text x="519.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">相机图像 + 本体感知</text>
+<rect x="296" y="395" width="234" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="296" y1="401" x2="296" y2="494" stroke="#1a7f37" stroke-width="3"/>
+<text x="413.0" y="440.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">编码器</text>
+<text x="413.0" y="461.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多模态融合为观测表征</text>
+<rect x="300" y="1830" width="228" height="105" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="300" y1="1836" x2="300" y2="1929" stroke="#8250df" stroke-width="3"/>
+<text x="414.0" y="1875.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">策略部署到真机硬件</text>
+<text x="414.0" y="1896.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">异步 actor-learner</text>
+<rect x="327" y="2057" width="180" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="327" y1="2063" x2="327" y2="2155" stroke="#0969da" stroke-width="3"/>
+<text x="417.0" y="2112.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真机经验回放池</text>
+<rect x="305" y="623" width="220" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="305" y1="629" x2="305" y2="721" stroke="#1a7f37" stroke-width="3"/>
+<text x="415.0" y="678.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">编码为离散隐码 z_t</text>
+<rect x="307" y="1075" width="215" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="307" y1="1081" x2="307" y2="1173" stroke="#1a7f37" stroke-width="3"/>
+<text x="414.5" y="1130.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RSSM 循环状态 h_t</text>
+<rect x="52" y="1301" width="216" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1307" x2="52" y2="1433" stroke="#1a7f37" stroke-width="3"/>
+<text x="160.0" y="1350.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">解码器</text>
+<text x="160.0" y="1371.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仅训练期重建观测</text>
+<text x="160.0" y="1400.25" font-size="12.5" fill="#57606a" text-anchor="middle">行为学习阶段不调用</text>
+<rect x="635" y="1320" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="635" y1="1326" x2="635" y2="1418" stroke="#8a5a00" stroke-width="3"/>
+<text x="710.0" y="1375.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">奖励预测头</text>
+<rect x="316" y="2284" width="198" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="316" y1="2290" x2="316" y2="2382" stroke="#1a7f37" stroke-width="3"/>
+<text x="415.0" y="2339.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">世界模型监督训练</text>
+<rect x="343" y="849" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="343" y1="855" x2="343" y2="947" stroke="#1a7f37" stroke-width="3"/>
+<text x="418.0" y="904.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">隐状态 z_t</text>
+<rect x="195" y="168" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="195" y1="174" x2="195" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="270.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作 a_t</text>
+<rect x="336" y="1301" width="229" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="336" y1="1307" x2="336" y2="1433" stroke="#0b57d0" stroke-width="3"/>
+<text x="450.5" y="1350.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">潜空间想象 rollout</text>
+<text x="450.5" y="1371.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">批量并行至 16K 轨迹</text>
+<text x="450.5" y="1400.25" font-size="12.5" fill="#57606a" text-anchor="middle">无需环境步进</text>
+<rect x="152" y="1566" width="226" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="152" y1="1572" x2="152" y2="1698" stroke="#8250df" stroke-width="3"/>
+<text x="265.0" y="1615.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">actor pi</text>
+<text x="265.0" y="1636.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Reinforce + 熵正则</text>
+<text x="265.0" y="1665.25" font-size="12.5" fill="#57606a" text-anchor="middle">纯潜空间更新</text>
+<rect x="448" y="1584" width="228" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="448" y1="1590" x2="448" y2="1683" stroke="#8a5a00" stroke-width="3"/>
+<text x="562.0" y="1629.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">critic v</text>
+<text x="562.0" y="1650.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">lambda-return 回归</text>
+<text x="415.5" y="1988.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">新真机经验入池</text>
+<text x="789" y="2430" font-size="10.5" fill="#8c959f" text-anchor="end">daydreamer · arXiv 2206.14176 · v3 auto</text>
 </svg>

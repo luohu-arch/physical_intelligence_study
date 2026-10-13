@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="663" height="1937" viewBox="-2 51 663 1937" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="685" height="2151" viewBox="-4 59 685 2151" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>openclaw-rl</title>
-<rect x="-2" y="51" width="663" height="1937" fill="#ffffff"/>
-<text x="20" y="81" font-size="14" font-weight="700" fill="#1f2328">openclaw-rl</text>
-<text x="639" y="81" font-size="12" fill="#57606a" text-anchor="end">把 agent 每次交互自然产生的**下一状态信号**（next-state signal：用户回复、工具输出、终端或 GUI 状态变化）就地转化为两类互补训练信号——评价性（</text>
+<rect x="-4" y="59" width="685" height="2151" fill="#ffffff"/>
+<text x="18" y="89" font-size="14" font-weight="700" fill="#1f2328">openclaw-rl</text>
+<text x="659" y="89" font-size="12" fill="#57606a" text-anchor="end">把 agent 每次交互自然产生的**下一状态信号**（next-state signal：用户回复、工具输出、终端或 GUI 状态变化）就地转化为两类互补训练信号——评价性（</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,77 +10,77 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="37" y="103" width="585" height="255" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="51" y="123" font-size="11.5" font-weight="600" fill="#57606a">Client 侧: 任意 agent 框架即数据源</text>
-<rect x="20" y="339" width="619" height="1389" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="359" font-size="11.5" font-weight="600" fill="#57606a">RL Server: slime 异步四组件解耦</text>
-<path d="M 178.5 271.0 L 329.0 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 464.0 288.0 L 329.0 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 329.0 524.0 L 329.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 329.5 760.0 L 330.0 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 330.0 1013.0 L 179.5 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 330.0 1013.0 L 482.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 179.5 1232.0 L 179.5 1489.0 L 330.0 1489.0 L 330.0 1566.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 482.0 1249.0 L 329.5 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 329.5 1485.0 L 330.0 1566.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 277.2 1704.0 L 277.2 1294.0 L 355.6 1294.0 L 355.6 524.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 330.0 1704.0 L 329.5 1802.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="63" y="166" width="231" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="63" y1="172" x2="63" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="178.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">个人 Agent 用户终端</text>
-<text x="178.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">用户回复 / 工具输出</text>
-<rect x="332" y="150" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="332" y1="156" x2="332" y2="282" stroke="#0b57d0" stroke-width="3"/>
-<text x="464.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Terminal / GUI / SWE /</text>
-<text x="464.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Tool-call</text>
-<text x="464.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">云环境 128/64/64/32 并行</text>
-<rect x="196" y="386" width="266" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="196" y1="392" x2="196" y2="518" stroke="#0b57d0" stroke-width="3"/>
-<text x="329.0" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Policy Server (被训策略</text>
-<text x="329.0" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">挂载)</text>
-<text x="329.0" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">SGLang 无状态 completion API</text>
-<rect x="197" y="622" width="265" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="197" y1="628" x2="197" y2="754" stroke="#0b57d0" stroke-width="3"/>
-<text x="329.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">主线/侧线分流: 主线回合</text>
-<text x="329.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">可训练</text>
-<text x="329.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">侧线 (记忆/辅助查询) 只转发</text>
-<rect x="202" y="858" width="256" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="202" y1="864" x2="202" y2="1007" stroke="#0b57d0" stroke-width="3"/>
-<text x="330.0" y="913.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PRM Server (核心): 下</text>
-<text x="330.0" y="931.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">一状态信号就地提取</text>
-<text x="330.0" y="951.5" font-size="11.5" fill="#57606a" text-anchor="middle">用户回复/工具输出/状态变化 =</text>
-<text x="330.0" y="966.5" font-size="11.5" fill="#57606a" text-anchor="middle">免费裁判</text>
-<rect x="46" y="1094" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1100" x2="46" y2="1226" stroke="#0b57d0" stroke-width="3"/>
-<text x="179.5" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">评价性: 标量 PRM 多数</text>
-<text x="179.5" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">投票</text>
-<text x="179.5" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">r_t in {+1, -1, 0}</text>
-<rect x="351" y="1094" width="262" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="351" y1="1100" x2="351" y2="1243" stroke="#0b57d0" stroke-width="3"/>
-<text x="482.0" y="1149.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">指导性: 下一状态含修</text>
-<text x="482.0" y="1167.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">正时</text>
-<text x="482.0" y="1187.5" font-size="11.5" fill="#57606a" text-anchor="middle">蒸馏 [HINT] 包裹的 token 级</text>
-<text x="482.0" y="1202.5" font-size="11.5" fill="#57606a" text-anchor="middle">hint</text>
-<rect x="199" y="1330" width="261" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="199" y1="1336" x2="199" y2="1479" stroke="#0b57d0" stroke-width="3"/>
-<text x="329.5" y="1385.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PRM Actor (teacher</text>
-<text x="329.5" y="1403.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">log-prob)</text>
-<text x="329.5" y="1423.5" font-size="11.5" fill="#57606a" text-anchor="middle">overlap 选 hint + Delta clip</text>
-<text x="329.5" y="1438.5" font-size="11.5" fill="#57606a" text-anchor="middle">锁比率</text>
-<rect x="198" y="1566" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="198" y1="1572" x2="198" y2="1698" stroke="#0b57d0" stroke-width="3"/>
-<text x="330.0" y="1620.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Megatron 训练引擎</text>
-<text x="330.0" y="1638.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">混合目标 L =</text>
-<text x="330.0" y="1658.5" font-size="11.5" fill="#57606a" text-anchor="middle">w_RL*L_GRPO + w_OPD*L_OPD</text>
-<rect x="199" y="1802" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="199" y1="1808" x2="199" y2="1934" stroke="#0b57d0" stroke-width="3"/>
-<text x="329.5" y="1856.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">偏好对齐 10.3 会话 vs</text>
-<text x="329.5" y="1874.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 14.1 / Mem0 14.5</text>
-<text x="329.5" y="1894.5" font-size="11.5" fill="#57606a" text-anchor="middle">部署中在线学习: 被使用就在变强</text>
-<text x="253.8" y="320.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">HTTP API + session id</text>
-<text x="396.5" y="329.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">交互流</text>
-<text x="254.8" y="1391.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">稠密但薄的标量优势</text>
-<text x="329.8" y="1517.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">稀疏但厚的 token 级优势</text>
-<text x="316.4" y="1106.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">同步边界推权重, 零服务中断</text>
-<text x="639" y="1978" font-size="10.5" fill="#8c959f" text-anchor="end">openclaw-rl · arXiv 2603.10165 · v3 auto</text>
+<rect x="41" y="115" width="585" height="255" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="55" y="135" font-size="11.5" font-weight="600" fill="#57606a">Client 侧: 任意 agent 框架即数据源</text>
+<rect x="22" y="380" width="619" height="1389" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="400" font-size="11.5" font-weight="600" fill="#57606a">RL Server: slime 异步四组件解耦</text>
+<path d="M 186.5 291.0 L 353.0 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 504.0 306.0 L 353.0 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 353.0 570.0 L 353.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 353.5 835.0 L 354.0 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 354.0 1116.0 L 185.5 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 354.0 1116.0 L 524.0 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 185.5 1363.0 L 185.5 1648.5 L 354.0 1648.5 L 354.0 1754.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 524.0 1380.0 L 353.5 1490.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 353.5 1645.0 L 354.0 1754.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 301.2 1892.0 L 301.2 1411.0 L 379.6 1411.0 L 379.6 570.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 354.0 1892.0 L 353.5 2018.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="71" y="186" width="231" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="71" y1="192" x2="71" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="186.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">个人 Agent 用户终端</text>
+<text x="186.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">用户回复 / 工具输出</text>
+<rect x="372" y="168" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="372" y1="174" x2="372" y2="300" stroke="#0b57d0" stroke-width="3"/>
+<text x="504.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Terminal / GUI / SWE /</text>
+<text x="504.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Tool-call</text>
+<text x="504.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">云环境 128/64/64/32 并行</text>
+<rect x="220" y="432" width="266" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="220" y1="438" x2="220" y2="564" stroke="#0b57d0" stroke-width="3"/>
+<text x="353.0" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Policy Server (被训策略</text>
+<text x="353.0" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">挂载)</text>
+<text x="353.0" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">SGLang 无状态 completion API</text>
+<rect x="221" y="697" width="265" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="221" y1="703" x2="221" y2="829" stroke="#0b57d0" stroke-width="3"/>
+<text x="353.5" y="746.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">主线/侧线分流: 主线回合</text>
+<text x="353.5" y="767.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">可训练</text>
+<text x="353.5" y="796.25" font-size="12.5" fill="#57606a" text-anchor="middle">侧线 (记忆/辅助查询) 只转发</text>
+<rect x="226" y="961" width="256" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="226" y1="967" x2="226" y2="1110" stroke="#0b57d0" stroke-width="3"/>
+<text x="354.0" y="1010.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PRM Server (核心): 下</text>
+<text x="354.0" y="1031.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">一状态信号就地提取</text>
+<text x="354.0" y="1060.0" font-size="12.5" fill="#57606a" text-anchor="middle">用户回复/工具输出/状态变化 =</text>
+<text x="354.0" y="1077.5" font-size="12.5" fill="#57606a" text-anchor="middle">免费裁判</text>
+<rect x="52" y="1225" width="267" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1231" x2="52" y2="1357" stroke="#0b57d0" stroke-width="3"/>
+<text x="185.5" y="1274.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">评价性: 标量 PRM 多数</text>
+<text x="185.5" y="1295.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">投票</text>
+<text x="185.5" y="1324.25" font-size="12.5" fill="#57606a" text-anchor="middle">r_t in {+1, -1, 0}</text>
+<rect x="393" y="1225" width="262" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="393" y1="1231" x2="393" y2="1374" stroke="#0b57d0" stroke-width="3"/>
+<text x="524.0" y="1274.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">指导性: 下一状态含修</text>
+<text x="524.0" y="1295.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">正时</text>
+<text x="524.0" y="1324.0" font-size="12.5" fill="#57606a" text-anchor="middle">蒸馏 [HINT] 包裹的 token 级</text>
+<text x="524.0" y="1341.5" font-size="12.5" fill="#57606a" text-anchor="middle">hint</text>
+<rect x="223" y="1490" width="261" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="223" y1="1496" x2="223" y2="1639" stroke="#0b57d0" stroke-width="3"/>
+<text x="353.5" y="1539.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PRM Actor (teacher</text>
+<text x="353.5" y="1560.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">log-prob)</text>
+<text x="353.5" y="1589.0" font-size="12.5" fill="#57606a" text-anchor="middle">overlap 选 hint + Delta clip</text>
+<text x="353.5" y="1606.5" font-size="12.5" fill="#57606a" text-anchor="middle">锁比率</text>
+<rect x="222" y="1754" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="222" y1="1760" x2="222" y2="1886" stroke="#0b57d0" stroke-width="3"/>
+<text x="354.0" y="1803.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Megatron 训练引擎</text>
+<text x="354.0" y="1824.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">混合目标 L =</text>
+<text x="354.0" y="1853.25" font-size="12.5" fill="#57606a" text-anchor="middle">w_RL*L_GRPO + w_OPD*L_OPD</text>
+<rect x="223" y="2018" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="223" y1="2024" x2="223" y2="2150" stroke="#0b57d0" stroke-width="3"/>
+<text x="353.5" y="2067.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">偏好对齐 10.3 会话 vs</text>
+<text x="353.5" y="2088.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 14.1 / Mem0 14.5</text>
+<text x="353.5" y="2117.25" font-size="12.5" fill="#57606a" text-anchor="middle">部署中在线学习: 被使用就在变强</text>
+<text x="269.8" y="353.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">HTTP API + session id</text>
+<text x="428.5" y="361.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">交互流</text>
+<text x="269.8" y="1550.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">稠密但薄的标量优势</text>
+<text x="353.8" y="1691.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">稀疏但厚的 token 级优势</text>
+<text x="340.4" y="1223.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">同步边界推权重, 零服务中断</text>
+<text x="659" y="2198" font-size="10.5" fill="#8c959f" text-anchor="end">openclaw-rl · arXiv 2603.10165 · v3 auto</text>
 </svg>

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="1199" viewBox="11 98 920 1199" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="986" height="1322" viewBox="26 112 986 1322" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>phys2real</title>
-<rect x="11" y="98" width="920" height="1199" fill="#ffffff"/>
-<text x="33" y="128" font-size="14" font-weight="700" fill="#1f2328">phys2real</text>
-<text x="909" y="128" font-size="12" fill="#57606a" text-anchor="end">Phys2Real 提出 Real-to-Sim-to-Real 三阶段管道：3D Gaussian Splatting 重建真实场景，VLM 从 RGB 图像估计物理参数先验</text>
+<rect x="26" y="112" width="986" height="1322" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">phys2real</text>
+<text x="990" y="142" font-size="12" fill="#57606a" text-anchor="end">Phys2Real 提出 Real-to-Sim-to-Real 三阶段管道：3D Gaussian Splatting 重建真实场景，VLM 从 RGB 图像估计物理参数先验</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,66 +10,66 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 455.5 271.0 L 476.0 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 476.0 524.0 L 627.5 638.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 543.0 219.0 L 33.0 219.0 L 33.0 455.0 L 909.0 455.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 712.5 288.0 L 712.5 573.0 L 477.5 573.0 L 477.5 858.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 627.5 743.0 L 477.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 221.0 271.0 L 178.0 402.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 909.0 455.0 L 331.0 455.0 L 331.0 708.0 L 481.0 708.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 178.0 507.0 L 350.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 477.5 1013.0 L 478.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 350.5 794.0 L 350.5 1034.0 L 478.0 1034.0 L 478.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="368" y="167" width="175" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="368" y1="173" x2="368" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="455.5" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真实 RGB 图像</text>
-<rect x="348" y="386" width="256" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="348" y1="392" x2="348" y2="518" stroke="#0969da" stroke-width="3"/>
-<text x="476.0" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">3DGS 重建</text>
-<text x="476.0" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SAM-2 分割 + SuGaR 网</text>
-<text x="476.0" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">格提取</text>
-<rect x="520" y="638" width="215" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="520" y1="644" x2="520" y2="737" stroke="#57606a" stroke-width="3"/>
-<text x="627.5" y="685.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">IsaacLab 仿真资产</text>
-<text x="627.5" y="703.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(real-to-sim)</text>
-<rect x="642" y="386" width="267" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="642" y1="392" x2="642" y2="518" stroke="#57606a" stroke-width="3"/>
-<text x="775.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 先验 (GPT-5, 冻结)</text>
-<text x="775.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多视角多次查询取均值</text>
-<text x="775.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">CoM 估计 + 自报不确定度</text>
-<rect x="582" y="150" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="582" y1="156" x2="582" y2="282" stroke="#57606a" stroke-width="3"/>
-<text x="712.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">仿真真值物理参数</text>
-<text x="712.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(Phase 1 GT / Phase</text>
-<text x="712.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">1.5 带噪)</text>
-<rect x="344" y="858" width="267" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="344" y1="864" x2="344" y2="1007" stroke="#1a7f37" stroke-width="3"/>
-<text x="477.5" y="913.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PPO 策略 (asymmetric</text>
-<text x="477.5" y="931.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">actor-critic)</text>
-<text x="477.5" y="951.5" font-size="11.5" fill="#57606a" text-anchor="middle">显式条件化于物理参数 theta</text>
-<text x="477.5" y="966.5" font-size="11.5" fill="#57606a" text-anchor="middle">Phase 2 冻结策略训 ensemble</text>
-<rect x="112" y="166" width="218" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="112" y1="172" x2="112" y2="265" stroke="#0969da" stroke-width="3"/>
-<text x="221.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">在线交互</text>
-<text x="221.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">state-action 历史</text>
-<rect x="46" y="402" width="264" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="408" x2="46" y2="501" stroke="#1a7f37" stroke-width="3"/>
-<text x="178.0" y="449.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">RMA ensemble x 10</text>
-<text x="178.0" y="467.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">认知 + 偶然不确定性分解</text>
-<rect x="220" y="622" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="220" y1="628" x2="220" y2="788" stroke="#0b57d0" stroke-width="3"/>
-<text x="350.5" y="678.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逆方差加权融合 (核心)</text>
-<text x="350.5" y="696.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">theta_hat = (</text>
-<text x="350.5" y="716.5" font-size="11.5" fill="#57606a" text-anchor="middle">theta_vlm/sigma_vlm^2 +</text>
-<text x="350.5" y="731.5" font-size="11.5" fill="#57606a" text-anchor="middle">/ (1/sigma_vlm^2 +</text>
-<text x="350.5" y="746.5" font-size="11.5" fill="#57606a" text-anchor="middle">1/sigma_rma^2)</text>
-<rect x="346" y="1094" width="264" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="346" y1="1100" x2="346" y2="1243" stroke="#8250df" stroke-width="3"/>
-<text x="478.0" y="1149.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真机部署 (sim-to-real)</text>
-<text x="478.0" y="1167.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">sigma_rma 小 -&gt; 信交互</text>
-<text x="478.0" y="1187.5" font-size="11.5" fill="#57606a" text-anchor="middle">估计</text>
-<text x="478.0" y="1202.5" font-size="11.5" fill="#57606a" text-anchor="middle">sigma_rma 大 -&gt; 回退 VLM 先验</text>
-<text x="595.0" y="565.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">特权条件化训练</text>
-<text x="414.2" y="936.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">融合估计实时条件化策略</text>
-<text x="909" y="1287" font-size="10.5" fill="#8c959f" text-anchor="end">phys2real · arXiv 2510.11689 · v3 auto</text>
+<path d="M 499.5 291.0 L 518.0 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 518.0 570.0 L 689.5 715.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 587.0 239.0 L 347.0 239.0 L 347.0 501.0 L 986.0 501.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 782.5 306.0 L 782.5 633.5 L 518.5 633.5 L 518.5 961.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 689.5 820.0 L 518.5 961.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 234.0 291.0 L 184.0 450.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 986.0 501.0 L 357.0 501.0 L 357.0 783.0 L 507.0 783.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 184.0 555.0 L 376.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 518.5 1116.0 L 520.0 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 376.5 869.0 L 376.5 1137.0 L 520.0 1137.0 L 520.0 1225.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="412" y="187" width="175" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="412" y1="193" x2="412" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="499.5" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真实 RGB 图像</text>
+<rect x="390" y="432" width="256" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="390" y1="438" x2="390" y2="564" stroke="#0969da" stroke-width="3"/>
+<text x="518.0" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">3DGS 重建</text>
+<text x="518.0" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SAM-2 分割 + SuGaR 网</text>
+<text x="518.0" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">格提取</text>
+<rect x="582" y="715" width="215" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="582" y1="721" x2="582" y2="814" stroke="#57606a" stroke-width="3"/>
+<text x="689.5" y="760.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">IsaacLab 仿真资产</text>
+<text x="689.5" y="781.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(real-to-sim)</text>
+<rect x="719" y="432" width="267" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="719" y1="438" x2="719" y2="564" stroke="#57606a" stroke-width="3"/>
+<text x="852.5" y="481.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">VLM 先验 (GPT-5, 冻结)</text>
+<text x="852.5" y="502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">多视角多次查询取均值</text>
+<text x="852.5" y="531.25" font-size="12.5" fill="#57606a" text-anchor="middle">CoM 估计 + 自报不确定度</text>
+<rect x="652" y="168" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="652" y1="174" x2="652" y2="300" stroke="#57606a" stroke-width="3"/>
+<text x="782.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">仿真真值物理参数</text>
+<text x="782.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(Phase 1 GT / Phase</text>
+<text x="782.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">1.5 带噪)</text>
+<rect x="385" y="961" width="267" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="385" y1="967" x2="385" y2="1110" stroke="#1a7f37" stroke-width="3"/>
+<text x="518.5" y="1010.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PPO 策略 (asymmetric</text>
+<text x="518.5" y="1031.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">actor-critic)</text>
+<text x="518.5" y="1060.0" font-size="12.5" fill="#57606a" text-anchor="middle">显式条件化于物理参数 theta</text>
+<text x="518.5" y="1077.5" font-size="12.5" fill="#57606a" text-anchor="middle">Phase 2 冻结策略训 ensemble</text>
+<rect x="125" y="186" width="218" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="125" y1="192" x2="125" y2="285" stroke="#0969da" stroke-width="3"/>
+<text x="234.0" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">在线交互</text>
+<text x="234.0" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">state-action 历史</text>
+<rect x="52" y="450" width="264" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="456" x2="52" y2="549" stroke="#1a7f37" stroke-width="3"/>
+<text x="184.0" y="495.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">RMA ensemble x 10</text>
+<text x="184.0" y="516.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">认知 + 偶然不确定性分解</text>
+<rect x="246" y="697" width="261" height="172" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="246" y1="703" x2="246" y2="863" stroke="#0b57d0" stroke-width="3"/>
+<text x="376.5" y="745.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">逆方差加权融合 (核心)</text>
+<text x="376.5" y="766.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">theta_hat = (</text>
+<text x="376.5" y="795.75" font-size="12.5" fill="#57606a" text-anchor="middle">theta_vlm/sigma_vlm^2 +</text>
+<text x="376.5" y="813.25" font-size="12.5" fill="#57606a" text-anchor="middle">/ (1/sigma_vlm^2 +</text>
+<text x="376.5" y="830.75" font-size="12.5" fill="#57606a" text-anchor="middle">1/sigma_rma^2)</text>
+<rect x="388" y="1225" width="264" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="388" y1="1231" x2="388" y2="1374" stroke="#8250df" stroke-width="3"/>
+<text x="520.0" y="1274.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">真机部署 (sim-to-real)</text>
+<text x="520.0" y="1295.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">sigma_rma 小 -&gt; 信交互</text>
+<text x="520.0" y="1324.0" font-size="12.5" fill="#57606a" text-anchor="middle">估计</text>
+<text x="520.0" y="1341.5" font-size="12.5" fill="#57606a" text-anchor="middle">sigma_rma 大 -&gt; 回退 VLM 先验</text>
+<text x="650.5" y="625.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">特权条件化训练</text>
+<text x="448.2" y="1039.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">融合估计实时条件化策略</text>
+<text x="990" y="1422" font-size="10.5" fill="#8c959f" text-anchor="end">phys2real · arXiv 2510.11689 · v3 auto</text>
 </svg>

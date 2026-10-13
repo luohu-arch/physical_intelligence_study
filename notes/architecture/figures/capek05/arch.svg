@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1623" height="1349" viewBox="5 67 1623 1349" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1767" height="1497" viewBox="26 77 1767 1497" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>capek05</title>
-<rect x="5" y="67" width="1623" height="1349" fill="#ffffff"/>
-<text x="27" y="97" font-size="14" font-weight="700" fill="#1f2328">capek05</text>
-<text x="1606" y="97" font-size="12" fill="#57606a" text-anchor="end">Capek 0.5 是一个以"执行"为组织原则的具身 VLM：把机器人在执行循环中反复调用的能力分成 Spatial Reasoning、Temporal Understand</text>
+<rect x="26" y="77" width="1767" height="1497" fill="#ffffff"/>
+<text x="48" y="107" font-size="14" font-weight="700" fill="#1f2328">capek05</text>
+<text x="1771" y="107" font-size="12" fill="#57606a" text-anchor="end">Capek 0.5 是一个以"执行"为组织原则的具身 VLM：把机器人在执行循环中反复调用的能力分成 Spatial Reasoning、Temporal Understand</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,67 +10,67 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="319" y="119" width="727" height="1100" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="333" y="139" font-size="11.5" font-weight="600" fill="#57606a">阶段一 · 阶段二</text>
-<path d="M 307.0 219.0 L 247.0 219.0 L 247.0 438.5 L 632.0 438.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1307.0 219.0 L 27.0 219.0 L 27.0 438.5 L 807.0 438.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 719.5 491.0 L 825.5 589.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 825.5 727.0 L 826.0 825.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 826.0 929.0 L 826.5 1027.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 462.0 271.0 L 462.0 739.0 L 826.5 739.0 L 826.5 1027.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 826.5 1165.0 L 826.0 1263.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1345.0 219.0 L 600.0 219.0 L 600.0 438.5 L 1020.0 438.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="46" y="150" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="282" stroke="#57606a" stroke-width="3"/>
-<text x="176.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">共享 Qwen backbone</text>
-<text x="176.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">起点</text>
-<text x="176.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">(2B dense / 35B-A3B MoE)</text>
-<rect x="632" y="386" width="175" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="632" y1="392" x2="632" y2="485" stroke="#1a7f37" stroke-width="3"/>
-<text x="719.5" y="433.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Spatial 专家</text>
-<text x="719.5" y="451.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 强化学习</text>
-<rect x="834" y="166" width="179" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="834" y1="172" x2="834" y2="265" stroke="#1a7f37" stroke-width="3"/>
-<text x="923.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Temporal 专家</text>
-<text x="923.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 强化学习</text>
-<rect x="617" y="166" width="179" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="617" y1="172" x2="617" y2="265" stroke="#1a7f37" stroke-width="3"/>
-<text x="706.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Guidance 专家</text>
-<text x="706.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 强化学习</text>
-<rect x="845" y="386" width="175" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="845" y1="392" x2="845" y2="485" stroke="#1a7f37" stroke-width="3"/>
-<text x="932.5" y="433.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">State 专家</text>
-<text x="932.5" y="451.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 强化学习</text>
-<rect x="1051" y="150" width="256" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1051" y1="156" x2="1051" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="1179.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 组相对奖励</text>
-<text x="1179.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">R_fmt 格式 + R_acc 正</text>
-<text x="1179.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">确性</text>
-<rect x="692" y="589" width="267" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="692" y1="595" x2="692" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="825.5" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">TIES 权重合并</text>
-<text x="825.5" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">裁掉低幅值 80% + 符号投</text>
-<text x="825.5" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">票 + 平均</text>
-<rect x="751" y="825" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="751" y1="831" x2="751" y2="923" stroke="#1a7f37" stroke-width="3"/>
-<text x="826.0" y="881.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">学生初始化</text>
-<rect x="692" y="1027" width="269" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="692" y1="1033" x2="692" y2="1159" stroke="#0b57d0" stroke-width="3"/>
-<text x="826.5" y="1081.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">routed MOPD 在线策略</text>
-<text x="826.5" y="1099.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">蒸馏</text>
-<text x="826.5" y="1119.5" font-size="11.5" fill="#57606a" text-anchor="middle">学生 rollout 前缀上逐样本路由</text>
-<rect x="345" y="167" width="234" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="345" y1="173" x2="345" y2="265" stroke="#57606a" stroke-width="3"/>
-<text x="462.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">冻结的按能力路由教师</text>
-<rect x="709" y="1263" width="234" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="709" y1="1269" x2="709" y2="1362" stroke="#0b57d0" stroke-width="3"/>
-<text x="826.0" y="1310.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">单一推理 checkpoint</text>
-<text x="826.0" y="1328.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">四族能力合一</text>
-<rect x="1345" y="150" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="1345" y1="156" x2="1345" y2="282" stroke="#8a5a00" stroke-width="3"/>
-<text x="1475.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">进度奖励 R_prog+act</text>
-<text x="1475.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(PVE: 0.5 r_value +</text>
-<text x="1475.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">0.4 r_action + 0.1 r_fmt)</text>
-<text x="644.2" y="641.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">token 级反向 KL</text>
-<text x="1606" y="1406" font-size="10.5" fill="#8c959f" text-anchor="end">capek05 · arXiv 2608.06756 · v3 auto</text>
+<rect x="357" y="133" width="727" height="1100" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="371" y="153" font-size="11.5" font-weight="600" fill="#57606a">阶段一 · 阶段二</text>
+<path d="M 313.0 237.0 L 253.0 237.0 L 253.0 484.5 L 708.0 484.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1433.0 237.0 L 643.0 237.0 L 643.0 484.5 L 883.0 484.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 795.5 537.0 L 908.5 660.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 908.5 798.0 L 916.0 924.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 916.0 1028.0 L 909.5 1150.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 503.0 291.0 L 503.0 810.5 L 909.5 810.5 L 909.5 1150.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 909.5 1288.0 L 911.0 1415.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1506.0 237.0 L 881.0 237.0 L 881.0 484.5 L 1121.0 484.5" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="52" y="168" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="300" stroke="#57606a" stroke-width="3"/>
+<text x="182.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">共享 Qwen backbone</text>
+<text x="182.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">起点</text>
+<text x="182.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">(2B dense / 35B-A3B MoE)</text>
+<rect x="708" y="432" width="175" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="708" y1="438" x2="708" y2="531" stroke="#1a7f37" stroke-width="3"/>
+<text x="795.5" y="477.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Spatial 专家</text>
+<text x="795.5" y="498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 强化学习</text>
+<rect x="934" y="186" width="179" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="934" y1="192" x2="934" y2="285" stroke="#1a7f37" stroke-width="3"/>
+<text x="1023.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Temporal 专家</text>
+<text x="1023.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 强化学习</text>
+<rect x="691" y="186" width="179" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="691" y1="192" x2="691" y2="285" stroke="#1a7f37" stroke-width="3"/>
+<text x="780.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Guidance 专家</text>
+<text x="780.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 强化学习</text>
+<rect x="946" y="432" width="175" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="946" y1="438" x2="946" y2="531" stroke="#1a7f37" stroke-width="3"/>
+<text x="1033.5" y="477.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">State 专家</text>
+<text x="1033.5" y="498.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 强化学习</text>
+<rect x="1177" y="168" width="256" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1177" y1="174" x2="1177" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="1305.0" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">GRPO 组相对奖励</text>
+<text x="1305.0" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">R_fmt 格式 + R_acc 正</text>
+<text x="1305.0" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">确性</text>
+<rect x="775" y="660" width="267" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="775" y1="666" x2="775" y2="792" stroke="#0b57d0" stroke-width="3"/>
+<text x="908.5" y="709.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">TIES 权重合并</text>
+<text x="908.5" y="730.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">裁掉低幅值 80% + 符号投</text>
+<text x="908.5" y="759.25" font-size="12.5" fill="#57606a" text-anchor="middle">票 + 平均</text>
+<rect x="841" y="924" width="150" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="841" y1="930" x2="841" y2="1022" stroke="#1a7f37" stroke-width="3"/>
+<text x="916.0" y="979.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">学生初始化</text>
+<rect x="775" y="1150" width="269" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="775" y1="1156" x2="775" y2="1282" stroke="#0b57d0" stroke-width="3"/>
+<text x="909.5" y="1199.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">routed MOPD 在线策略</text>
+<text x="909.5" y="1220.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">蒸馏</text>
+<text x="909.5" y="1249.25" font-size="12.5" fill="#57606a" text-anchor="middle">学生 rollout 前缀上逐样本路由</text>
+<rect x="386" y="187" width="234" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="386" y1="193" x2="386" y2="285" stroke="#57606a" stroke-width="3"/>
+<text x="503.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">冻结的按能力路由教师</text>
+<rect x="794" y="1415" width="234" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="794" y1="1421" x2="794" y2="1514" stroke="#0b57d0" stroke-width="3"/>
+<text x="911.0" y="1460.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">单一推理 checkpoint</text>
+<text x="911.0" y="1481.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">四族能力合一</text>
+<rect x="1506" y="168" width="261" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1506" y1="174" x2="1506" y2="300" stroke="#8a5a00" stroke-width="3"/>
+<text x="1636.5" y="217.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">进度奖励 R_prog+act</text>
+<text x="1636.5" y="238.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">(PVE: 0.5 r_value +</text>
+<text x="1636.5" y="267.25" font-size="12.5" fill="#57606a" text-anchor="middle">0.4 r_action + 0.1 r_fmt)</text>
+<text x="706.2" y="712.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">token 级反向 KL</text>
+<text x="1771" y="1562" font-size="10.5" fill="#8c959f" text-anchor="end">capek05 · arXiv 2608.06756 · v3 auto</text>
 </svg>

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1015" height="1621" viewBox="24 98 1015 1621" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1121" height="1801" viewBox="26 112 1121 1801" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>echovla</title>
-<rect x="24" y="98" width="1015" height="1621" fill="#ffffff"/>
-<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">echovla</text>
-<text x="1017" y="128" font-size="12" fill="#57606a" text-anchor="end">把人脑陈述性记忆的双系统搬进 VLA：scene memory 维护跨 episode 持久演化的 voxel 3D 特征图提供缓慢变化的空间结构，episodic memor</text>
+<rect x="26" y="112" width="1121" height="1801" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">echovla</text>
+<text x="1125" y="142" font-size="12" fill="#57606a" text-anchor="end">把人脑陈述性记忆的双系统搬进 VLA：scene memory 维护跨 episode 持久演化的 voxel 3D 特征图提供缓慢变化的空间结构，episodic memor</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,84 +10,84 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="130" y="305" width="803" height="176" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="144" y="325" font-size="11.5" font-weight="600" fill="#57606a">多模态统一 token 编码</text>
-<path d="M 326.0 254.0 L 286.5 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 129.5 254.0 L 286.5 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 417.0 404.5 L 414.0 607.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 942.0 254.0 L 775.0 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 643.0 404.0 L 648.0 607.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 679.0 202.0 L 605.0 404.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 530.0 456.0 L 531.0 555.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 531.0 659.0 L 684.0 757.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 531.0 659.0 L 381.0 757.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 684.0 862.0 L 680.5 960.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 381.0 862.0 L 382.5 960.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 680.5 1065.0 L 531.0 1163.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 382.5 1065.0 L 531.0 1163.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 531.0 1267.0 L 416.0 1365.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 531.0 1267.0 L 642.5 1365.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 416.0 1469.0 L 531.0 1567.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 642.5 1469.0 L 531.0 1567.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 540.0 150.0 L 540.0 757.5 L 416.0 757.5 L 416.0 1365.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 540.0 254.0 L 540.0 899.5 L 642.5 899.5 L 642.5 1365.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<rect x="251" y="150" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="251" y1="156" x2="251" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="326.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
-<rect x="46" y="150" width="167" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="129.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">3 路固定 RGB</text>
-<rect x="867" y="150" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="867" y1="156" x2="867" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="942.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">深度点云</text>
-<rect x="679" y="150" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="679" y1="156" x2="679" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="754.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本体感知</text>
-<rect x="156" y="352" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="156" y1="358" x2="156" y2="451" stroke="#0b57d0" stroke-width="3"/>
-<text x="286.5" y="399.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP 语言塔 + 视觉塔</text>
-<text x="286.5" y="417.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;br/</text>
-<rect x="643" y="352" width="264" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="643" y1="358" x2="643" y2="450" stroke="#0b57d0" stroke-width="3"/>
-<text x="775.0" y="408.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">PointAttn 点云编码&lt;br/</text>
-<rect x="455" y="352" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="455" y1="358" x2="455" y2="450" stroke="#0b57d0" stroke-width="3"/>
-<text x="530.0" y="408.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本体小 MLP</text>
-<rect x="414" y="555" width="234" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="414" y1="561" x2="414" y2="653" stroke="#0b57d0" stroke-width="3"/>
-<text x="531.0" y="611.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">统一 token 序列 S_t</text>
-<rect x="552" y="757" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="552" y1="763" x2="552" y2="856" stroke="#0b57d0" stroke-width="3"/>
-<text x="684.0" y="804.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Scene Memory 场景记忆&lt;</text>
-<text x="684.0" y="822.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
-<rect x="248" y="757" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="248" y1="763" x2="248" y2="856" stroke="#0b57d0" stroke-width="3"/>
-<text x="381.0" y="804.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Episodic Memory 情景记</text>
-<text x="381.0" y="822.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">忆&lt;br/</text>
-<rect x="550" y="960" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="550" y1="966" x2="550" y2="1059" stroke="#0b57d0" stroke-width="3"/>
-<text x="680.5" y="1007.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">coarse cross-</text>
-<text x="680.5" y="1025.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">attention&lt;br/</text>
-<rect x="252" y="960" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="252" y1="966" x2="252" y2="1059" stroke="#0b57d0" stroke-width="3"/>
-<text x="382.5" y="1007.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">fine cross-</text>
-<text x="382.5" y="1025.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">attention&lt;br/</text>
-<rect x="430" y="1163" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="430" y1="1169" x2="430" y2="1261" stroke="#0b57d0" stroke-width="3"/>
-<text x="531.0" y="1219.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">融合记忆条件 H_t</text>
-<rect x="324" y="1365" width="184" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="324" y1="1371" x2="324" y2="1463" stroke="#0b57d0" stroke-width="3"/>
-<text x="416.0" y="1421.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">arm 扩散去噪器</text>
-<rect x="546" y="1365" width="193" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="546" y1="1371" x2="546" y2="1463" stroke="#0b57d0" stroke-width="3"/>
-<text x="642.5" y="1421.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">base 扩散去噪器</text>
-<rect x="402" y="1567" width="258" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="402" y1="1573" x2="402" y2="1665" stroke="#0b57d0" stroke-width="3"/>
-<text x="531.0" y="1623.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">base / arm 动作 chunk</text>
-<rect x="439" y="150" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="439" y1="156" x2="439" y2="248" stroke="#0b57d0" stroke-width="3"/>
-<text x="540.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">扩散去噪损失&lt;br/</text>
-<text x="682.2" y="903.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">top-k cosine 检索</text>
-<text x="381.8" y="903.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">top-k cosine 检索</text>
-<text x="1017" y="1709" font-size="10.5" fill="#8c959f" text-anchor="end">echovla · arXiv 2511.18112 · v3 auto</text>
+<rect x="146" y="342" width="803" height="176" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="160" y="362" font-size="11.5" font-weight="600" fill="#57606a">多模态统一 token 编码</text>
+<path d="M 356.0 272.0 L 305.5 394.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 135.5 272.0 L 305.5 394.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 436.0 446.5 L 464.0 674.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1046.0 272.0 L 852.0 394.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 720.0 446.0 L 698.0 674.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 760.0 220.0 L 660.0 446.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 585.0 498.0 L 581.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 581.0 726.0 L 750.0 848.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 581.0 726.0 L 411.0 848.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 750.0 953.0 L 746.5 1075.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 411.0 953.0 L 412.5 1075.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 746.5 1180.0 L 583.0 1303.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 412.5 1180.0 L 583.0 1303.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 583.0 1407.0 L 455.0 1529.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 583.0 1407.0 L 708.5 1529.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 455.0 1633.0 L 579.0 1755.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 708.5 1633.0 L 579.0 1755.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 593.0 168.0 L 593.0 848.5 L 455.0 848.5 L 455.0 1529.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 593.0 272.0 L 593.0 990.5 L 708.5 990.5 L 708.5 1529.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="281" y="168" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="281" y1="174" x2="281" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="356.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">语言指令</text>
+<rect x="52" y="168" width="167" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="135.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">3 路固定 RGB</text>
+<rect x="971" y="168" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="971" y1="174" x2="971" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="1046.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">深度点云</text>
+<rect x="760" y="168" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="760" y1="174" x2="760" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="835.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本体感知</text>
+<rect x="175" y="394" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="175" y1="400" x2="175" y2="493" stroke="#0b57d0" stroke-width="3"/>
+<text x="305.5" y="439.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SigLIP 语言塔 + 视觉塔</text>
+<text x="305.5" y="460.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">&lt;br/</text>
+<rect x="720" y="394" width="264" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="720" y1="400" x2="720" y2="492" stroke="#0b57d0" stroke-width="3"/>
+<text x="852.0" y="449.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">PointAttn 点云编码&lt;br/</text>
+<rect x="510" y="394" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="510" y1="400" x2="510" y2="492" stroke="#0b57d0" stroke-width="3"/>
+<text x="585.0" y="449.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本体小 MLP</text>
+<rect x="464" y="622" width="234" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="464" y1="628" x2="464" y2="720" stroke="#0b57d0" stroke-width="3"/>
+<text x="581.0" y="677.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">统一 token 序列 S_t</text>
+<rect x="618" y="848" width="264" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="618" y1="854" x2="618" y2="947" stroke="#0b57d0" stroke-width="3"/>
+<text x="750.0" y="893.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Scene Memory 场景记忆&lt;</text>
+<text x="750.0" y="914.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
+<rect x="278" y="848" width="266" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="278" y1="854" x2="278" y2="947" stroke="#0b57d0" stroke-width="3"/>
+<text x="411.0" y="893.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Episodic Memory 情景记</text>
+<text x="411.0" y="914.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">忆&lt;br/</text>
+<rect x="616" y="1075" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="616" y1="1081" x2="616" y2="1174" stroke="#0b57d0" stroke-width="3"/>
+<text x="746.5" y="1120.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">coarse cross-</text>
+<text x="746.5" y="1141.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">attention&lt;br/</text>
+<rect x="282" y="1075" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="282" y1="1081" x2="282" y2="1174" stroke="#0b57d0" stroke-width="3"/>
+<text x="412.5" y="1120.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">fine cross-</text>
+<text x="412.5" y="1141.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">attention&lt;br/</text>
+<rect x="482" y="1303" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="482" y1="1309" x2="482" y2="1401" stroke="#0b57d0" stroke-width="3"/>
+<text x="583.0" y="1358.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">融合记忆条件 H_t</text>
+<rect x="363" y="1529" width="184" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="363" y1="1535" x2="363" y2="1627" stroke="#0b57d0" stroke-width="3"/>
+<text x="455.0" y="1584.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">arm 扩散去噪器</text>
+<rect x="612" y="1529" width="193" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="612" y1="1535" x2="612" y2="1627" stroke="#0b57d0" stroke-width="3"/>
+<text x="708.5" y="1584.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">base 扩散去噪器</text>
+<rect x="450" y="1755" width="258" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="450" y1="1761" x2="450" y2="1853" stroke="#0b57d0" stroke-width="3"/>
+<text x="579.0" y="1810.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">base / arm 动作 chunk</text>
+<rect x="492" y="168" width="202" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="492" y1="174" x2="492" y2="266" stroke="#0b57d0" stroke-width="3"/>
+<text x="593.0" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">扩散去噪损失&lt;br/</text>
+<text x="748.2" y="1006.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">top-k cosine 检索</text>
+<text x="411.8" y="1006.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">top-k cosine 检索</text>
+<text x="1125" y="1901" font-size="10.5" fill="#8c959f" text-anchor="end">echovla · arXiv 2511.18112 · v3 auto</text>
 </svg>

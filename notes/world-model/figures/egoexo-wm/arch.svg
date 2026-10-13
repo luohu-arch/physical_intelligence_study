@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="597" height="2024" viewBox="-2 51 597 2024" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="638" height="2247" viewBox="-4 59 638 2247" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>egoexo-wm</title>
-<rect x="-2" y="51" width="597" height="2024" fill="#ffffff"/>
-<text x="20" y="81" font-size="14" font-weight="700" fill="#1f2328">egoexo-wm</text>
-<text x="573" y="81" font-size="12" fill="#57606a" text-anchor="end">ego 世界模型被「ego 数据稀缺 + ego 视角身体大部分不可见（动作标注难）」双重卡死的问题，被 EgoExo-WM 用「3D 人体姿态当桥」解决：从海量第三方视角视频</text>
+<rect x="-4" y="59" width="638" height="2247" fill="#ffffff"/>
+<text x="18" y="89" font-size="14" font-weight="700" fill="#1f2328">egoexo-wm</text>
+<text x="612" y="89" font-size="12" fill="#57606a" text-anchor="end">ego 世界模型被「ego 数据稀缺 + ego 视角身体大部分不可见（动作标注难）」双重卡死的问题，被 EgoExo-WM 用「3D 人体姿态当桥」解决：从海量第三方视角视频</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,72 +10,72 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect x="20" y="103" width="553" height="1099" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
-<text x="34" y="123" font-size="11.5" font-weight="600" fill="#57606a">互联网 exo 视频转化为 ego 母语</text>
-<path d="M 157.5 254.0 L 187.0 353.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 269.0 202.0 L 29.0 202.0 L 29.0 422.0 L 547.0 422.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
-<path d="M 187.0 491.0 L 308.5 589.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 444.5 474.0 L 308.5 589.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 308.5 727.0 L 308.0 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 308.0 930.0 L 308.5 1028.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 187.0 491.0 L 187.0 951.0 L 308.5 951.0 L 308.5 1231.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 308.5 1133.0 L 308.5 1231.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 439.0 255.0 L 439.0 743.0 L 308.5 743.0 L 308.5 1231.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 308.5 1336.0 L 183.0 1434.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 308.5 1336.0 L 402.5 1434.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 402.5 1538.0 L 308.5 1636.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 308.5 1774.0 L 308.5 1872.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="46" y="150" width="223" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="156" x2="46" y2="248" stroke="#0969da" stroke-width="3"/>
-<text x="157.5" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Exo 互联网视频&lt;br/</text>
-<rect x="70" y="353" width="234" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="70" y1="359" x2="70" y2="485" stroke="#0b57d0" stroke-width="3"/>
-<text x="187.0" y="407.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SAM-Body4D 人体姿态</text>
-<text x="187.0" y="425.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">MHR -&gt; SMPL-X</text>
-<text x="187.0" y="445.5" font-size="11.5" fill="#57606a" text-anchor="middle">视角无关的动作坐标系</text>
-<rect x="342" y="370" width="205" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="342" y1="376" x2="342" y2="468" stroke="#1a7f37" stroke-width="3"/>
-<text x="444.5" y="426.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">ViPE 4D 场景重建</text>
-<rect x="175" y="589" width="267" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="175" y1="595" x2="175" y2="721" stroke="#0b57d0" stroke-width="3"/>
-<text x="308.5" y="643.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">EgoX-Body 转换器</text>
-<text x="308.5" y="661.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">骨架叠加 + ego 手部先验</text>
-<text x="308.5" y="681.5" font-size="11.5" fill="#57606a" text-anchor="middle">Wan DiT + LoRA</text>
-<rect x="184" y="825" width="248" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="184" y1="831" x2="184" y2="924" stroke="#0969da" stroke-width="3"/>
-<text x="308.0" y="872.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">时域降采样 16-&gt;8Hz</text>
-<text x="308.0" y="890.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">裁剪 85%, resize 224</text>
-<rect x="187" y="1028" width="243" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="187" y1="1034" x2="187" y2="1127" stroke="#57606a" stroke-width="3"/>
-<text x="308.5" y="1075.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">冻结 DINOv3-L 编码器</text>
-<text x="308.5" y="1093.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">z_t patch tokens</text>
-<rect x="205" y="1231" width="207" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
-<line x1="205" y1="1237" x2="205" y2="1330" stroke="#1a7f37" stroke-width="3"/>
-<text x="308.5" y="1278.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">世界模型 f_theta</text>
-<text x="308.5" y="1296.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">CDiT-L/2, 可训练</text>
-<rect x="307" y="150" width="264" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="307" y1="156" x2="307" y2="249" stroke="#0969da" stroke-width="3"/>
-<text x="439.0" y="197.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Nymeria 真实 ego 数据&lt;</text>
-<text x="439.0" y="215.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
-<rect x="108" y="1434" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
-<line x1="108" y1="1440" x2="108" y2="1532" stroke="#8a5a00" stroke-width="3"/>
-<text x="183.0" y="1490.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测损失</text>
-<rect x="296" y="1434" width="213" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
-<line x1="296" y1="1440" x2="296" y2="1532" stroke="#57606a" stroke-width="3"/>
-<text x="402.5" y="1490.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测的下一 latent</text>
-<rect x="192" y="1636" width="233" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="192" y1="1642" x2="192" y2="1768" stroke="#8250df" stroke-width="3"/>
-<text x="308.5" y="1690.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">UniEgoMotion 采样</text>
-<text x="308.5" y="1708.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">N=4 候选, 视野 8 帧</text>
-<text x="308.5" y="1728.5" font-size="11.5" fill="#57606a" text-anchor="middle">运动先验负责提议</text>
-<rect x="182" y="1872" width="253" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="182" y1="1878" x2="182" y2="2021" stroke="#0b57d0" stroke-width="3"/>
-<text x="308.5" y="1927.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">想象 rollout 2s</text>
-<text x="308.5" y="1945.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">取到目标 latent L2</text>
-<text x="308.5" y="1965.5" font-size="11.5" fill="#57606a" text-anchor="middle">最小者</text>
-<text x="308.5" y="1980.5" font-size="11.5" fill="#57606a" text-anchor="middle">WM 只当裁判不开车</text>
-<text x="308.2" y="768.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">合成 ego 视频</text>
-<text x="247.8" y="853.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">69 维动作 a_t 一份数据两用</text>
-<text x="245.8" y="1377.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L_latent + L_wrist 腕部 he…</text>
-<text x="573" y="2065" font-size="10.5" fill="#8c959f" text-anchor="end">egoexo-wm · arXiv 2605.15477 · v3 auto</text>
+<rect x="22" y="115" width="553" height="1099" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="36" y="135" font-size="11.5" font-weight="600" fill="#57606a">互联网 exo 视频转化为 ego 母语</text>
+<path d="M 163.5 272.0 L 195.0 395.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 275.0 220.0 L 588.0 466.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 195.0 533.0 L 329.5 660.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 485.5 518.0 L 329.5 660.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 329.5 798.0 L 330.0 924.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 330.0 1029.0 L 330.5 1151.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 195.0 533.0 L 195.0 1046.0 L 333.5 1046.0 L 333.5 1379.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 330.5 1256.0 L 333.5 1379.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.0 273.0 L 476.0 826.0 L 333.5 826.0 L 333.5 1379.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 333.5 1484.0 L 196.0 1606.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 333.5 1484.0 L 438.5 1606.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 438.5 1710.0 L 331.5 1832.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 331.5 1970.0 L 330.5 2097.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="52" y="168" width="223" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="174" x2="52" y2="266" stroke="#0969da" stroke-width="3"/>
+<text x="163.5" y="223.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Exo 互联网视频&lt;br/</text>
+<rect x="78" y="395" width="234" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="78" y1="401" x2="78" y2="527" stroke="#0b57d0" stroke-width="3"/>
+<text x="195.0" y="444.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">SAM-Body4D 人体姿态</text>
+<text x="195.0" y="465.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">MHR -&gt; SMPL-X</text>
+<text x="195.0" y="494.25" font-size="12.5" fill="#57606a" text-anchor="middle">视角无关的动作坐标系</text>
+<rect x="383" y="414" width="205" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="383" y1="420" x2="383" y2="512" stroke="#1a7f37" stroke-width="3"/>
+<text x="485.5" y="469.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">ViPE 4D 场景重建</text>
+<rect x="196" y="660" width="267" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="196" y1="666" x2="196" y2="792" stroke="#0b57d0" stroke-width="3"/>
+<text x="329.5" y="709.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">EgoX-Body 转换器</text>
+<text x="329.5" y="730.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">骨架叠加 + ego 手部先验</text>
+<text x="329.5" y="759.25" font-size="12.5" fill="#57606a" text-anchor="middle">Wan DiT + LoRA</text>
+<rect x="206" y="924" width="248" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="206" y1="930" x2="206" y2="1023" stroke="#0969da" stroke-width="3"/>
+<text x="330.0" y="969.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">时域降采样 16-&gt;8Hz</text>
+<text x="330.0" y="990.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">裁剪 85%, resize 224</text>
+<rect x="209" y="1151" width="243" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="209" y1="1157" x2="209" y2="1250" stroke="#57606a" stroke-width="3"/>
+<text x="330.5" y="1196.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">冻结 DINOv3-L 编码器</text>
+<text x="330.5" y="1217.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">z_t patch tokens</text>
+<rect x="230" y="1379" width="207" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="230" y1="1385" x2="230" y2="1478" stroke="#1a7f37" stroke-width="3"/>
+<text x="333.5" y="1424.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">世界模型 f_theta</text>
+<text x="333.5" y="1445.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">CDiT-L/2, 可训练</text>
+<rect x="344" y="168" width="264" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="344" y1="174" x2="344" y2="267" stroke="#0969da" stroke-width="3"/>
+<text x="476.0" y="213.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">Nymeria 真实 ego 数据&lt;</text>
+<text x="476.0" y="234.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">br/</text>
+<rect x="121" y="1606" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="121" y1="1612" x2="121" y2="1704" stroke="#8a5a00" stroke-width="3"/>
+<text x="196.0" y="1661.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测损失</text>
+<rect x="332" y="1606" width="213" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="332" y1="1612" x2="332" y2="1704" stroke="#57606a" stroke-width="3"/>
+<text x="438.5" y="1661.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">预测的下一 latent</text>
+<rect x="215" y="1832" width="233" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="215" y1="1838" x2="215" y2="1964" stroke="#8250df" stroke-width="3"/>
+<text x="331.5" y="1881.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">UniEgoMotion 采样</text>
+<text x="331.5" y="1902.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">N=4 候选, 视野 8 帧</text>
+<text x="331.5" y="1931.25" font-size="12.5" fill="#57606a" text-anchor="middle">运动先验负责提议</text>
+<rect x="204" y="2097" width="253" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="204" y1="2103" x2="204" y2="2246" stroke="#0b57d0" stroke-width="3"/>
+<text x="330.5" y="2146.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">想象 rollout 2s</text>
+<text x="330.5" y="2167.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">取到目标 latent L2</text>
+<text x="330.5" y="2196.0" font-size="12.5" fill="#57606a" text-anchor="middle">最小者</text>
+<text x="330.5" y="2213.5" font-size="12.5" fill="#57606a" text-anchor="middle">WM 只当裁判不开车</text>
+<text x="329.8" y="853.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">合成 ego 视频</text>
+<text x="264.2" y="948.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">69 维动作 a_t 一份数据两用</text>
+<text x="264.8" y="1537.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L_latent + L_wrist 腕部 he…</text>
+<text x="612" y="2294" font-size="10.5" fill="#8c959f" text-anchor="end">egoexo-wm · arXiv 2605.15477 · v3 auto</text>
 </svg>

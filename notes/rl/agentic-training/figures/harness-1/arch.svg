@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1223" height="2262" viewBox="2 98 1223 2262" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1317" height="2519" viewBox="26 112 1317 2519" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
 <title>harness-1</title>
-<rect x="2" y="98" width="1223" height="2262" fill="#ffffff"/>
-<text x="24" y="128" font-size="14" font-weight="700" fill="#1f2328">harness-1</text>
-<text x="1203" y="128" font-size="12" fill="#57606a" text-anchor="end">把多轮搜索 agent 里"可恢复的记账"从策略上下文搬进环境侧：Harness-1 是基于 gpt-oss-20b 的 20B 检索 subagent（UIUC + UC B</text>
+<rect x="26" y="112" width="1317" height="2519" fill="#ffffff"/>
+<text x="48" y="142" font-size="14" font-weight="700" fill="#1f2328">harness-1</text>
+<text x="1321" y="142" font-size="12" fill="#57606a" text-anchor="end">把多轮搜索 agent 里"可恢复的记账"从策略上下文搬进环境侧：Harness-1 是基于 gpt-oss-20b 的 20B 检索 subagent（UIUC + UC B</text>
 <defs>
 <marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
 <marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
@@ -10,131 +10,131 @@
 <marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
 <marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<path d="M 622.0 271.0 L 624.0 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 624.0 558.0 L 624.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 624.5 777.0 L 624.0 858.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 624.0 963.0 L 777.0 1061.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 624.0 963.0 L 624.0 1248.0 L 624.0 1248.0 L 624.0 1533.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 534.0 910.5 L 247.0 910.5 L 247.0 1130.0 L 307.0 1130.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 714.0 910.5 L 24.0 910.5 L 24.0 1130.0 L 947.0 1130.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 624.0 963.0 L 476.0 1078.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 378.5 271.0 L 378.5 846.0 L 777.0 846.0 L 777.0 1061.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 796.0 1366.0 L 756.0 1610.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 777.0 1233.0 L 928.5 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 777.0 1233.0 L 777.0 1501.0 L 624.5 1501.0 L 624.5 1769.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 624.0 1688.0 L 624.5 1769.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 176.5 1199.0 L 176.5 1484.0 L 624.5 1484.0 L 624.5 1769.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 1075.0 1199.0 L 1075.0 1484.0 L 624.5 1484.0 L 624.5 1769.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 624.5 1924.0 L 624.5 2005.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 581.9 2109.0 L 581.9 1513.5 L 650.4 1513.5 L 650.4 558.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 624.5 2109.0 L 624.0 2207.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 575.2 2312.0 L 575.2 1525.0 L 650.4 1525.0 L 650.4 558.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 476.0 1183.0 L 623.5 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<path d="M 570.1 1469.0 L 570.1 1303.0 L 651.2 1303.0 L 651.2 777.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 868.0 305.0 L 868.0 643.5 L 624.5 643.5 L 624.5 622.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
-<path d="M 476.0 1183.0 L 320.0 1297.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
-<rect x="547" y="167" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="547" y1="173" x2="547" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="622.0" y="223.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">query 查询</text>
-<rect x="492" y="386" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="492" y1="392" x2="492" y2="552" stroke="#0b57d0" stroke-width="3"/>
-<text x="624.0" y="442.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">WORKING MEMORY</text>
-<text x="624.0" y="460.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">七槽位渲染</text>
-<text x="624.0" y="480.5" font-size="11.5" fill="#57606a" text-anchor="middle">候选池 / curated 集(容量30)</text>
-<text x="624.0" y="495.5" font-size="11.5" fill="#57606a" text-anchor="middle">重要性 / 证据图 / 验证缓存</text>
-<text x="624.0" y="510.5" font-size="11.5" fill="#57606a" text-anchor="middle">历史 / 预算 — 状态外化</text>
-<rect x="491" y="622" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="491" y1="628" x2="491" y2="771" stroke="#0b57d0" stroke-width="3"/>
-<text x="624.5" y="677.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">策略 gpt-oss-20b +</text>
-<text x="624.5" y="695.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LoRA</text>
-<text x="624.5" y="715.5" font-size="11.5" fill="#57606a" text-anchor="middle">只做语义决策: 搜什么/留什么/验</text>
-<text x="624.5" y="730.5" font-size="11.5" fill="#57606a" text-anchor="middle">什么/何时停</text>
-<rect x="534" y="858" width="180" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="534" y1="864" x2="534" y2="957" stroke="#0b57d0" stroke-width="3"/>
-<text x="624.0" y="905.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作类型</text>
-<text x="624.0" y="923.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作即状态编辑</text>
-<rect x="645" y="1061" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="645" y1="1067" x2="645" y2="1227" stroke="#0b57d0" stroke-width="3"/>
-<text x="777.0" y="1117.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">检索三件:</text>
-<text x="777.0" y="1135.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">fan_out_search /</text>
-<text x="777.0" y="1155.5" font-size="11.5" fill="#57606a" text-anchor="middle">search_corpus /</text>
-<text x="777.0" y="1170.5" font-size="11.5" fill="#57606a" text-anchor="middle">句级 BM25 压缩 + 两级去</text>
-<text x="777.0" y="1185.5" font-size="11.5" fill="#57606a" text-anchor="middle">重 + 首搜 auto-seed</text>
-<rect x="492" y="1533" width="264" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="492" y1="1539" x2="492" y2="1682" stroke="#0b57d0" stroke-width="3"/>
-<text x="624.0" y="1588.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">记忆检查:</text>
-<text x="624.0" y="1606.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">read_document /</text>
-<text x="624.0" y="1626.5" font-size="11.5" fill="#57606a" text-anchor="middle">review_docs</text>
-<text x="624.0" y="1641.5" font-size="11.5" fill="#57606a" text-anchor="middle">零 corpus 调用</text>
-<rect x="46" y="1061" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="46" y1="1067" x2="46" y2="1193" stroke="#0b57d0" stroke-width="3"/>
-<text x="176.5" y="1115.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">curate: 增/删/四级重要</text>
-<text x="176.5" y="1133.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">性标签</text>
-<text x="176.5" y="1153.5" font-size="11.5" fill="#57606a" text-anchor="middle">满员按 rank 驱逐最劣</text>
-<rect x="947" y="1061" width="256" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="947" y1="1067" x2="947" y2="1193" stroke="#0b57d0" stroke-width="3"/>
-<text x="1075.0" y="1115.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">verify: 对 claim 逐文</text>
-<text x="1075.0" y="1133.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">档 LLM 蕴含判定</text>
-<text x="1075.0" y="1153.5" font-size="11.5" fill="#57606a" text-anchor="middle">写入验证缓存 V, 过关才升格</text>
-<rect x="248" y="166" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="248" y1="172" x2="248" y2="265" stroke="#0b57d0" stroke-width="3"/>
-<text x="378.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">本地语料库约 3200 万页</text>
-<text x="378.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">BM25 + dense + rerank</text>
-<rect x="796" y="1297" width="265" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="796" y1="1303" x2="796" y2="1429" stroke="#0b57d0" stroke-width="3"/>
-<text x="928.5" y="1351.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">外层全文库 D: 全部取回</text>
-<text x="928.5" y="1369.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">chunk</text>
-<text x="928.5" y="1389.5" font-size="11.5" fill="#57606a" text-anchor="middle">回看不占 prompt</text>
-<rect x="345" y="1078" width="262" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="345" y1="1084" x2="345" y2="1177" stroke="#0b57d0" stroke-width="3"/>
-<text x="476.0" y="1125.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">end_search: 提交按重要</text>
-<text x="476.0" y="1143.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">性排序的 curated 集</text>
-<rect x="492" y="1769" width="265" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="492" y1="1775" x2="492" y2="1918" stroke="#0b57d0" stroke-width="3"/>
-<text x="624.5" y="1824.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">程序化结果摘要 + 条件</text>
-<text x="624.5" y="1842.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">nudge</text>
-<text x="624.5" y="1862.5" font-size="11.5" fill="#57606a" text-anchor="middle">[WARN]/[TIP]/[ACTION</text>
-<text x="624.5" y="1877.5" font-size="11.5" fill="#57606a" text-anchor="middle">REQUIRED], 无 LLM 调用</text>
-<rect x="518" y="2005" width="213" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="518" y1="2011" x2="518" y2="2103" stroke="#0b57d0" stroke-width="3"/>
-<text x="624.5" y="2061.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">上下文预算 30720?</text>
-<rect x="502" y="2207" width="244" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="502" y1="2213" x2="502" y2="2306" stroke="#0b57d0" stroke-width="3"/>
-<text x="624.0" y="2254.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">5-pass 渐进截断</text>
-<text x="624.0" y="2272.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">curated set 最后被裁</text>
-<rect x="735" y="150" width="266" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="735" y1="156" x2="735" y2="299" stroke="#0b57d0" stroke-width="3"/>
-<text x="868.0" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">教师 GPT-5.4 在同一</text>
-<text x="868.0" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">harness 内跑 899 条轨迹</text>
-<text x="868.0" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">约 26K turn 样本 (SFT 教接口操</text>
-<text x="868.0" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">作)</text>
-<rect x="490" y="1297" width="267" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="490" y1="1303" x2="490" y2="1463" stroke="#0b57d0" stroke-width="3"/>
-<text x="623.5" y="1353.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">终局组合奖励: F2 + 轨</text>
-<text x="623.5" y="1371.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">迹/答案 recall + 工具多</text>
-<text x="623.5" y="1391.5" font-size="11.5" fill="#57606a" text-anchor="middle">样性</text>
-<text x="623.5" y="1406.5" font-size="11.5" fill="#57606a" text-anchor="middle">- 漏答罚 - turn 罚, 发现与选择</text>
-<text x="623.5" y="1421.5" font-size="11.5" fill="#57606a" text-anchor="middle">分开记账</text>
-<rect x="188" y="1297" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
-<line x1="188" y1="1303" x2="188" y2="1463" stroke="#0b57d0" stroke-width="3"/>
-<text x="320.0" y="1353.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">8 基准平均 curated</text>
-<text x="320.0" y="1371.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">recall 0.730, 超</text>
-<text x="320.0" y="1391.5" font-size="11.5" fill="#57606a" text-anchor="middle">Tongyi 30B 11.4 分</text>
-<text x="320.0" y="1406.5" font-size="11.5" fill="#57606a" text-anchor="middle">held-out 增益 +17.0 是源域</text>
-<text x="320.0" y="1421.5" font-size="11.5" fill="#57606a" text-anchor="middle">2.2 倍</text>
-<text x="624.2" y="809.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">emit 一个结构化动作</text>
-<text x="700.5" y="1004.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">搜索类</text>
-<text x="624.0" y="1240.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">记忆检查</text>
-<text x="420.5" y="1012.2" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">curation</text>
-<text x="830.5" y="1012.2" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">验证</text>
-<text x="550.0" y="1012.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">终止</text>
-<text x="577.8" y="658.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">混合检索取回</text>
-<text x="700.8" y="1493.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新候选池 + auto-seed 初稿</text>
-<text x="400.5" y="1476.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新 curated 集与重要性</text>
-<text x="849.8" y="1476.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">写验证记录</text>
-<text x="616.1" y="1325.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是</text>
-<text x="624.2" y="2150.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否</text>
-<text x="963.0" y="1785.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">on-policy CISPO, SEC 单域 …</text>
-<text x="746.2" y="455.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">SFT 初始化</text>
-<text x="1203" y="2350" font-size="10.5" fill="#8c959f" text-anchor="end">harness-1 · arXiv 2606.02373 · v3 auto</text>
+<path d="M 688.0 291.0 L 683.0 432.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 683.0 604.0 L 683.5 697.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 683.5 852.0 L 688.0 961.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 688.0 1066.0 L 854.0 1188.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 688.0 1066.0 L 688.0 1391.5 L 683.0 1391.5 L 683.0 1717.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 598.0 1013.5 L 313.0 1257.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 778.0 1013.5 L 1061.0 1257.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 688.0 1066.0 L 517.0 1207.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 408.5 291.0 L 408.5 919.5 L 854.0 919.5 L 854.0 1188.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 892.0 1522.0 L 815.0 1794.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 854.0 1360.0 L 1024.5 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 854.0 1360.0 L 854.0 1670.5 L 683.5 1670.5 L 683.5 1981.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 683.0 1872.0 L 683.5 1981.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 182.5 1326.0 L 182.5 1653.5 L 683.5 1653.5 L 683.5 1981.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1189.0 1326.0 L 1189.0 1653.5 L 683.5 1653.5 L 683.5 1981.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 683.5 2136.0 L 686.5 2246.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 643.9 2350.0 L 643.9 1657.0 L 709.4 1657.0 L 709.4 604.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 686.5 2350.0 L 684.0 2472.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 635.2 2577.0 L 635.2 1680.5 L 709.4 1680.5 L 709.4 604.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 517.0 1312.0 L 682.5 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 629.1 1625.0 L 629.1 1328.5 L 710.2 1328.5 L 710.2 852.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 956.0 323.0 L 956.0 690.0 L 683.5 690.0 L 683.5 697.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 517.0 1312.0 L 343.0 1453.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="613" y="187" width="150" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="613" y1="193" x2="613" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="688.0" y="242.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">query 查询</text>
+<rect x="551" y="432" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="551" y1="438" x2="551" y2="598" stroke="#0b57d0" stroke-width="3"/>
+<text x="683.0" y="480.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">WORKING MEMORY</text>
+<text x="683.0" y="501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">七槽位渲染</text>
+<text x="683.0" y="530.75" font-size="12.5" fill="#57606a" text-anchor="middle">候选池 / curated 集(容量30)</text>
+<text x="683.0" y="548.25" font-size="12.5" fill="#57606a" text-anchor="middle">重要性 / 证据图 / 验证缓存</text>
+<text x="683.0" y="565.75" font-size="12.5" fill="#57606a" text-anchor="middle">历史 / 预算 — 状态外化</text>
+<rect x="550" y="697" width="267" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="550" y1="703" x2="550" y2="846" stroke="#0b57d0" stroke-width="3"/>
+<text x="683.5" y="746.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">策略 gpt-oss-20b +</text>
+<text x="683.5" y="767.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">LoRA</text>
+<text x="683.5" y="796.0" font-size="12.5" fill="#57606a" text-anchor="middle">只做语义决策: 搜什么/留什么/验</text>
+<text x="683.5" y="813.5" font-size="12.5" fill="#57606a" text-anchor="middle">什么/何时停</text>
+<rect x="598" y="961" width="180" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="598" y1="967" x2="598" y2="1060" stroke="#0b57d0" stroke-width="3"/>
+<text x="688.0" y="1006.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作类型</text>
+<text x="688.0" y="1027.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">动作即状态编辑</text>
+<rect x="722" y="1188" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="722" y1="1194" x2="722" y2="1354" stroke="#0b57d0" stroke-width="3"/>
+<text x="854.0" y="1236.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">检索三件:</text>
+<text x="854.0" y="1257.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">fan_out_search /</text>
+<text x="854.0" y="1286.75" font-size="12.5" fill="#57606a" text-anchor="middle">search_corpus /</text>
+<text x="854.0" y="1304.25" font-size="12.5" fill="#57606a" text-anchor="middle">句级 BM25 压缩 + 两级去</text>
+<text x="854.0" y="1321.75" font-size="12.5" fill="#57606a" text-anchor="middle">重 + 首搜 auto-seed</text>
+<rect x="551" y="1717" width="264" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="551" y1="1723" x2="551" y2="1866" stroke="#0b57d0" stroke-width="3"/>
+<text x="683.0" y="1766.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">记忆检查:</text>
+<text x="683.0" y="1787.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">read_document /</text>
+<text x="683.0" y="1816.0" font-size="12.5" fill="#57606a" text-anchor="middle">review_docs</text>
+<text x="683.0" y="1833.5" font-size="12.5" fill="#57606a" text-anchor="middle">零 corpus 调用</text>
+<rect x="52" y="1188" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="1194" x2="52" y2="1320" stroke="#0b57d0" stroke-width="3"/>
+<text x="182.5" y="1237.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">curate: 增/删/四级重要</text>
+<text x="182.5" y="1258.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">性标签</text>
+<text x="182.5" y="1287.25" font-size="12.5" fill="#57606a" text-anchor="middle">满员按 rank 驱逐最劣</text>
+<rect x="1061" y="1188" width="256" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1061" y1="1194" x2="1061" y2="1320" stroke="#0b57d0" stroke-width="3"/>
+<text x="1189.0" y="1237.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">verify: 对 claim 逐文</text>
+<text x="1189.0" y="1258.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">档 LLM 蕴含判定</text>
+<text x="1189.0" y="1287.25" font-size="12.5" fill="#57606a" text-anchor="middle">写入验证缓存 V, 过关才升格</text>
+<rect x="278" y="186" width="261" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="278" y1="192" x2="278" y2="285" stroke="#0b57d0" stroke-width="3"/>
+<text x="408.5" y="231.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">本地语料库约 3200 万页</text>
+<text x="408.5" y="252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">BM25 + dense + rerank</text>
+<rect x="892" y="1453" width="265" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="892" y1="1459" x2="892" y2="1585" stroke="#0b57d0" stroke-width="3"/>
+<text x="1024.5" y="1502.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">外层全文库 D: 全部取回</text>
+<text x="1024.5" y="1523.25" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">chunk</text>
+<text x="1024.5" y="1552.25" font-size="12.5" fill="#57606a" text-anchor="middle">回看不占 prompt</text>
+<rect x="386" y="1207" width="262" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="386" y1="1213" x2="386" y2="1306" stroke="#0b57d0" stroke-width="3"/>
+<text x="517.0" y="1252.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">end_search: 提交按重要</text>
+<text x="517.0" y="1273.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">性排序的 curated 集</text>
+<rect x="551" y="1981" width="265" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="551" y1="1987" x2="551" y2="2130" stroke="#0b57d0" stroke-width="3"/>
+<text x="683.5" y="2030.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">程序化结果摘要 + 条件</text>
+<text x="683.5" y="2051.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">nudge</text>
+<text x="683.5" y="2080.0" font-size="12.5" fill="#57606a" text-anchor="middle">[WARN]/[TIP]/[ACTION</text>
+<text x="683.5" y="2097.5" font-size="12.5" fill="#57606a" text-anchor="middle">REQUIRED], 无 LLM 调用</text>
+<rect x="580" y="2246" width="213" height="104" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="580" y1="2252" x2="580" y2="2344" stroke="#0b57d0" stroke-width="3"/>
+<text x="686.5" y="2301.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">上下文预算 30720?</text>
+<rect x="562" y="2472" width="244" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="562" y1="2478" x2="562" y2="2571" stroke="#0b57d0" stroke-width="3"/>
+<text x="684.0" y="2517.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">5-pass 渐进截断</text>
+<text x="684.0" y="2538.5" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">curated set 最后被裁</text>
+<rect x="823" y="168" width="266" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="823" y1="174" x2="823" y2="317" stroke="#0b57d0" stroke-width="3"/>
+<text x="956.0" y="217.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">教师 GPT-5.4 在同一</text>
+<text x="956.0" y="238.0" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">harness 内跑 899 条轨迹</text>
+<text x="956.0" y="267.0" font-size="12.5" fill="#57606a" text-anchor="middle">约 26K turn 样本 (SFT 教接口操</text>
+<text x="956.0" y="284.5" font-size="12.5" fill="#57606a" text-anchor="middle">作)</text>
+<rect x="549" y="1453" width="267" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="549" y1="1459" x2="549" y2="1619" stroke="#0b57d0" stroke-width="3"/>
+<text x="682.5" y="1501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">终局组合奖励: F2 + 轨</text>
+<text x="682.5" y="1522.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">迹/答案 recall + 工具多</text>
+<text x="682.5" y="1551.75" font-size="12.5" fill="#57606a" text-anchor="middle">样性</text>
+<text x="682.5" y="1569.25" font-size="12.5" fill="#57606a" text-anchor="middle">- 漏答罚 - turn 罚, 发现与选择</text>
+<text x="682.5" y="1586.75" font-size="12.5" fill="#57606a" text-anchor="middle">分开记账</text>
+<rect x="211" y="1453" width="264" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="211" y1="1459" x2="211" y2="1619" stroke="#0b57d0" stroke-width="3"/>
+<text x="343.0" y="1501.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">8 基准平均 curated</text>
+<text x="343.0" y="1522.75" font-size="14.5" font-weight="700" fill="#1f2328" text-anchor="middle">recall 0.730, 超</text>
+<text x="343.0" y="1551.75" font-size="12.5" fill="#57606a" text-anchor="middle">Tongyi 30B 11.4 分</text>
+<text x="343.0" y="1569.25" font-size="12.5" fill="#57606a" text-anchor="middle">held-out 增益 +17.0 是源域</text>
+<text x="343.0" y="1586.75" font-size="12.5" fill="#57606a" text-anchor="middle">2.2 倍</text>
+<text x="685.8" y="898.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">emit 一个结构化动作</text>
+<text x="771.0" y="1119.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">搜索类</text>
+<text x="685.5" y="1383.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">记忆检查</text>
+<text x="455.5" y="1127.2" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">curation</text>
+<text x="919.5" y="1127.2" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">验证</text>
+<text x="602.5" y="1128.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">终止</text>
+<text x="631.2" y="731.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">混合检索取回</text>
+<text x="768.8" y="1662.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新候选池 + auto-seed 初稿</text>
+<text x="433.0" y="1645.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">更新 curated 集与重要性</text>
+<text x="936.2" y="1645.5" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">写验证记录</text>
+<text x="676.6" y="1469.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">是</text>
+<text x="685.2" y="2403.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">否</text>
+<text x="1079.0" y="1999.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">on-policy CISPO, SEC 单域 …</text>
+<text x="819.8" y="502.0" font-size="12.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">SFT 初始化</text>
+<text x="1321" y="2619" font-size="10.5" fill="#8c959f" text-anchor="end">harness-1 · arXiv 2606.02373 · v3 auto</text>
 </svg>
