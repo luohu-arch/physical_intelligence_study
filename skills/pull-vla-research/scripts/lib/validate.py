@@ -29,7 +29,7 @@ def validate_notes(workspace: Path, notes_dir: str | None = None) -> tuple[int, 
       1. All 9 deep-dive sections present
       2. Zero 待补充 placeholders
       3. At least 1 LaTeX $$ math block
-      4. At least 1 mermaid diagram
+      4. At least 1 architecture diagram (arch.svg embed)
       5. Trade-off table with | delimiter
       6. Local PDF path is non-empty
       7. Metadata: arXiv link, year, category
@@ -77,13 +77,13 @@ def validate_notes(workspace: Path, notes_dir: str | None = None) -> tuple[int, 
         checks.append(("math", True,  # never blocks — informative only
                        f"{math_count} LaTeX markers" if has_math else "no LaTeX found (info)"))
 
-        # 4. Diagram presence (v2 mermaid 或 v3 SVG 内嵌图标图均可)
+        # 4. Diagram presence (arch.svg 内嵌)
         has_v3_svg = bool(re.search(r"!\[[^\]]*\]\(figures/[^)]+/arch\.svg\)", text))
         has_diagram = "mermaid" in text or has_v3_svg or is_no_paper
         checks.append(("diagram", has_diagram,
                        "v3 svg present" if has_v3_svg else
                        ("mermaid present" if "mermaid" in text else
-                        ("skipped (non-paper)" if is_no_paper else "no mermaid diagram"))))
+                        ("skipped (non-paper)" if is_no_paper else "no diagram"))))
 
         # 4.5 Mermaid sanitization (no Unicode math that breaks rendering)
         MERMAID_UNSAFE = re.compile(

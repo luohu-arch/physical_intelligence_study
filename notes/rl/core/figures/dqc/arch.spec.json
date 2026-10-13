@@ -27,7 +27,6 @@
    "id": "S",
    "label": "状态 s_t",
    "sub": "部分可观测环境",
-   "icon": "state",
    "cls": "data",
    "x": 50,
    "y": 300,
@@ -38,31 +37,26 @@
    "id": "POL",
    "label": "chunk 策略 π",
    "sub": "动作块长度 4\n在线执行，不等 critic",
-   "icon": "lightning",
    "cls": "train",
    "x": 368,
    "y": 178,
    "w": 242,
-   "h": 124,
-   "tag": "h_a=4"
+   "h": 124
   },
   {
    "id": "Q",
    "label": "部分可观测 Q",
    "sub": "子序列长度 16\n只看 o(t..t+16) 的 Q",
-   "icon": "target",
    "cls": "frozen",
    "x": 650,
    "y": 178,
    "w": 242,
-   "h": 124,
-   "tag": "h_c=16"
+   "h": 124
   },
   {
    "id": "PART",
    "label": "partial critic 蒸馏",
    "sub": "expectile 乐观回归",
-   "icon": "flask",
    "cls": "loss",
    "x": 508,
    "y": 366,
@@ -73,7 +67,6 @@
    "id": "TRANS",
    "label": "环境转移",
    "sub": "执行 a(t..t+4)",
-   "icon": "gear",
    "cls": "env",
    "x": 986,
    "y": 300,
@@ -99,8 +92,7 @@
     26
    ],
    "out": "right",
-   "in": "right",
-   "k": 60
+   "in": "right"
   },
   {
    "from": "POL",
@@ -110,8 +102,7 @@
    "out": "bottom",
    "in": "left",
    "pos_out": 0.78,
-   "pos_in": 0.5,
-   "k": 70
+   "pos_in": 0.5
   },
   {
    "from": "TRANS",
@@ -121,8 +112,7 @@
    "out": "left",
    "in": "right",
    "pos_out": 0.62,
-   "pos_in": 0.5,
-   "k": 60
+   "pos_in": 0.5
   },
   {
    "from": "Q",
@@ -134,8 +124,7 @@
    "loff": [
     0,
     -34
-   ],
-   "k": 60
+   ]
   },
   {
    "from": "Q",
@@ -146,7 +135,6 @@
    "in": "top",
    "pos_out": 0.22,
    "pos_in": 0.28,
-   "k": 40,
    "loff": [
     -72,
     4
@@ -161,7 +149,6 @@
    "in": "bottom",
    "pos_out": 0.78,
    "pos_in": 0.85,
-   "k": 40,
    "loff": [
     78,
     4

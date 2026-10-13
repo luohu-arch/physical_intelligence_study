@@ -11,7 +11,6 @@
    "id": "img",
    "label": "多视角 RGB",
    "sub": "3 相机 · 224×224",
-   "icon": "camera",
    "cls": "data",
    "x": 44,
    "y": 192,
@@ -22,7 +21,6 @@
    "id": "lang",
    "label": "语言指令",
    "sub": "把盘子放进烘干机",
-   "icon": "chat",
    "cls": "data",
    "x": 44,
    "y": 328,
@@ -33,7 +31,6 @@
    "id": "prop",
    "label": "本体状态 q_t",
    "sub": "关节角 + 夹爪开度",
-   "icon": "activity",
    "cls": "data",
    "x": 44,
    "y": 446,
@@ -44,19 +41,16 @@
    "id": "vlm",
    "label": "PaliGemma VLM 主干",
    "sub": "SigLIP 视觉编码 + Gemma LM\n约 3B 参数 · 端到端微调",
-   "icon": "brain",
    "cls": "frozen",
    "x": 340,
    "y": 292,
    "w": 260,
-   "h": 162,
-   "tag": "3B"
+   "h": 162
   },
   {
    "id": "noise",
    "label": "噪声 x_0",
    "sub": "从 N(0, I) 采样",
-   "icon": "noise",
    "cls": "loop",
    "x": 720,
    "y": 150,
@@ -67,19 +61,16 @@
    "id": "expert",
    "label": "动作专家",
    "sub": "Flow Matching 去噪\nv(x_t, t) · 10 步积分",
-   "icon": "lightning",
    "cls": "act",
    "x": 700,
    "y": 312,
    "w": 240,
-   "h": 140,
-   "tag": "300M"
+   "h": 140
   },
   {
    "id": "act",
    "label": "连续动作块",
    "sub": "平移 + 旋转 + 夹爪\n50 Hz 覆盖连续域",
-   "icon": "flow",
    "cls": "key",
    "x": 1000,
    "y": 182,
@@ -90,7 +81,6 @@
    "id": "robot",
    "label": "机器人执行",
    "sub": "灵巧操作任务",
-   "icon": "robot",
    "cls": "env",
    "x": 1000,
    "y": 392,
@@ -131,8 +121,7 @@
    "out": "bottom",
    "in": "top",
    "pos_out": 0.4,
-   "pos_in": 0.72,
-   "k": 40
+   "pos_in": 0.72
   },
   {
    "from": "expert",
@@ -155,8 +144,7 @@
    "out": "bottom",
    "in": "bottom",
    "pos_out": 0.32,
-   "pos_in": 0.35,
-   "k": 88
+   "pos_in": 0.35
   }
  ]
 }
