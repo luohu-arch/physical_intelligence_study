@@ -1,142 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1510" height="1888" viewBox="0 0 1510 1888" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
-<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1462" height="1654" viewBox="24 98 1462 1654" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<title>lingbot-vla2</title>
+<rect x="24" y="98" width="1462" height="1654" fill="#ffffff"/>
+<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">lingbot-vla2</text>
+<text x="1464" y="128" font-size="12" fill="#57606a" text-anchor="end">LingBot-VLA 2.0 沿三个功能域推进前代：重构数据管线并整理约 60,000 小时预训练语料（约 90K 小时原始真机数据清洗出 50K 小时、覆盖 20 个机器人</text>
 <defs>
-<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
-<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
-<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
-<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
-<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
-<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
-<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
-<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
-<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
-<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
-<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
-<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
-<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+<marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+<marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
+<marker id="arw-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker>
+<marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
+<marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect width="1510" height="1888" fill="#ffffff"/>
-<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
-<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">lingbot-vla2</text>
-<text x="52" y="74" font-size="13.5" fill="#78909c">LingBot-VLA 2.0 沿三个功能域推进前代：重构数据管线并整理约 60,000 小时预训练语料（约 90K 小时原始真机数据清洗出 50K 小时、覆盖 20 个机器人</text>
-<text x="1476" y="1870" font-size="11.5" fill="#a0aab4" text-anchor="end">lingbot-vla2 · arXiv 2607.06403 · v3 auto</text>
-<path d="M 313.0 219.0 L 327.0 219.0 L 327.0 463.5 L 478.0 463.5" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 608.5 541.0 C 608.5 636.8, 755.5 526.2, 755.5 622.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 755.5 760.0 C 755.5 806.0, 754.5 812.0, 754.5 858.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 754.5 996.0 C 754.5 1042.0, 754.5 1048.0, 754.5 1094.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 754.5 1249.0 C 754.5 1295.0, 754.5 1284.0, 754.5 1330.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 1064.5 271.0 C 1064.5 386.3, 905.0 270.7, 905.0 386.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 905.0 524.0 L 905.0 1330.0 L 754.5 1330.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 483.0 271.0 L 454.0 271.0 L 454.0 614.0 L 905.0 614.0 L 905.0 524.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 786.0 288.0 C 786.0 379.1, 905.0 294.9, 905.0 386.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 1337.0 305.0 L 1337.0 1330.0 L 754.5 1330.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 754.5 1485.0 C 754.5 1531.0, 755.0 1520.0, 755.0 1566.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<rect x="48.5" y="153.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="150" width="267" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="179.5" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="179.5" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(166.0,136.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
-<text x="179.5" y="206" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="179.5" dy="0">原始数据池</tspan><tspan x="179.5" dy="20">90K h 真机 + 20K h ego</tspan></text>
-<text x="179.5" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">视频</text>
-<rect x="480.5" y="389.5" width="261" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="478" y="386" width="261" height="155" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="608.5" cy="386" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="608.5" cy="386" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(595.0,372.5) scale(0.1055)"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" opacity="0.2"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></g>
-<text x="608.5" y="442" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="608.5" dy="0">三段清洗: jerk/速度 Z-</tspan><tspan x="608.5" dy="20">score</tspan></text>
-<text x="608.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">静止占比超 95% 剔除
-URDF 投影重放 + SLAM 校验</text>
-<rect x="624.5" y="625.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="622" y="622" width="267" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="755.5" cy="622" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="755.5" cy="622" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(742.0,608.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
-<text x="755.5" y="678" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="755.5" dy="0">高质量语料</tspan><tspan x="755.5" dy="20">50K h x 20 构型 + 10K</tspan></text>
-<text x="755.5" y="708" font-size="12" fill="#5f6b7a" text-anchor="middle">h ego</text>
-<rect x="628.5" y="861.5" width="257" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="626" y="858" width="257" height="138" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
-<circle cx="754.5" cy="858" r="24" fill="#ffffff" stroke="#1565c0" stroke-width="1.8"/>
-<circle cx="754.5" cy="858" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
-<g transform="translate(741.0,844.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="754.5" y="914" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="754.5" dy="0">自动标注: Qwen3.6-27B</tspan><tspan x="754.5" dy="20">子任务切分 + 18 类封闭</tspan></text>
-<text x="754.5" y="944" font-size="12" fill="#5f6b7a" text-anchor="middle">动作词表</text>
-<rect x="624.5" y="1097.5" width="265" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="622" y="1094" width="265" height="155" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="754.5" cy="1094" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="754.5" cy="1094" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(741.0,1080.5) scale(1.1250)">
-  <path d="M12 8V4H8" />
-  <rect width="16" height="12" x="4" y="8" rx="2" />
-  <path d="M2 14h2" />
-  <path d="M20 14h2" />
-  <path d="M15 13v2" />
-  <path d="M9 13v2" />
-</g>
-<text x="754.5" y="1150" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="754.5" dy="0">55 维统一动作向量</tspan><tspan x="754.5" dy="20">臂/末端/夹爪/灵巧手/腰/</tspan></text>
-<text x="754.5" y="1180" font-size="12" fill="#5f6b7a" text-anchor="middle">头/底盘
-低维构型补零共享专家</text>
-<rect x="630.5" y="1333.5" width="253" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="628" y="1330" width="253" height="155" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="754.5" cy="1330" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="754.5" cy="1330" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(741.0,1316.5) scale(1.1250)">
-  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
-</g>
-<text x="754.5" y="1386" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="754.5" dy="0">动作专家: 稀疏 MoE 层</tspan><tspan x="754.5" dy="20">Sigmoid 路由 + 修正偏</tspan></text>
-<text x="754.5" y="1416" font-size="12" fill="#5f6b7a" text-anchor="middle">置只进 Top-K
-无辅助损失负载均衡</text>
-<rect x="959.5" y="169.5" width="215" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="957" y="166" width="215" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="1064.5" cy="166" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="1064.5" cy="166" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(1051.0,152.5) scale(1.1250)">
-  <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
-  <circle cx="12" cy="13" r="3" />
-</g>
-<text x="1064.5" y="222" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="1064.5" dy="0">VLM backbone</tspan><tspan x="1064.5" dy="20">视觉 + 文本 token</tspan></text>
-<rect x="780.5" y="389.5" width="254" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="778" y="386" width="254" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="905.0" cy="386" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="905.0" cy="386" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(891.5,372.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="905.0" y="442" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="905.0" dy="0">双 query 预测蒸馏</tspan><tspan x="905.0" dy="20">Q_t 当前观测 + Q_t+T</tspan></text>
-<text x="905.0" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">前瞻 T 步</text>
-<rect x="353.5" y="169.5" width="264" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="351" y="166" width="264" height="105" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
-<circle cx="483.0" cy="166" r="24" fill="#ffffff" stroke="#1565c0" stroke-width="1.8"/>
-<circle cx="483.0" cy="166" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
-<g transform="translate(469.5,152.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="483.0" y="222" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="483.0" dy="0">LingBot-Depth 深度教师</tspan><tspan x="483.0" dy="20">(L1 几何监督)</tspan></text>
-<rect x="655.5" y="153.5" width="266" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="653" y="150" width="266" height="138" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
-<circle cx="786.0" cy="150" r="24" fill="#ffffff" stroke="#1565c0" stroke-width="1.8"/>
-<circle cx="786.0" cy="150" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
-<g transform="translate(772.5,136.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="786.0" y="206" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="786.0" dy="0">DINO-Video 因果视频教师</tspan><tspan x="786.0" dy="20">(DINOv3 初始化,</tspan></text>
-<text x="786.0" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">Frobenius 范数)</text>
-<rect x="1212.5" y="153.5" width="254" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="1210" y="150" width="254" height="155" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
-<circle cx="1337.0" cy="150" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
-<circle cx="1337.0" cy="150" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
-<g transform="translate(1323.5,136.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="1337.0" y="206" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="1337.0" dy="0">相对目标 + MeanStd 归</tspan><tspan x="1337.0" dy="20">一化</tspan></text>
-<text x="1337.0" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">L2 回归损失 (relQpos 方差降
-65%)</text>
-<rect x="629.5" y="1569.5" width="256" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="627" y="1566" width="256" height="138" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
-<circle cx="755.0" cy="1566" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
-<circle cx="755.0" cy="1566" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(741.5,1552.5) scale(1.1250)">
-  <path d="M12 8V4H8" />
-  <rect width="16" height="12" x="4" y="8" rx="2" />
-  <path d="M2 14h2" />
-  <path d="M20 14h2" />
-  <path d="M15 13v2" />
-  <path d="M9 13v2" />
-</g>
-<text x="755.0" y="1622" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="755.0" dy="0">全身策略输出</tspan><tspan x="755.0" dy="20">头/腰/底盘/灵巧手/双臂</tspan></text>
-<text x="755.0" y="1652" font-size="12" fill="#5f6b7a" text-anchor="middle">30Hz (R1 系 15Hz)</text>
+<path d="M 313.0 219.0 L 478.0 463.5" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 608.5 541.0 L 755.5 622.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 755.5 760.0 L 754.5 858.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 754.5 996.0 L 754.5 1094.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 754.5 1249.0 L 754.5 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 1064.5 271.0 L 905.0 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 905.0 524.0 L 905.0 1017.0 L 754.5 1017.0 L 754.5 1330.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 483.0 271.0 L 483.0 577.5 L 905.0 577.5 L 905.0 524.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 786.0 288.0 L 905.0 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 1337.0 305.0 L 1337.0 817.5 L 754.5 817.5 L 754.5 1330.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 754.5 1485.0 L 755.0 1566.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="46" y="150" width="267" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="46" y1="156" x2="46" y2="282" stroke="#0969da" stroke-width="3"/>
+<text x="179.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">原始数据池</text>
+<text x="179.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">90K h 真机 + 20K h ego</text>
+<text x="179.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">视频</text>
+<rect x="478" y="386" width="261" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="478" y1="392" x2="478" y2="535" stroke="#0969da" stroke-width="3"/>
+<text x="608.5" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">三段清洗: jerk/速度 Z-</text>
+<text x="608.5" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">score</text>
+<text x="608.5" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">静止占比超 95% 剔除</text>
+<text x="608.5" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">URDF 投影重放 + SLAM 校验</text>
+<rect x="622" y="622" width="267" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="622" y1="628" x2="622" y2="754" stroke="#0969da" stroke-width="3"/>
+<text x="755.5" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">高质量语料</text>
+<text x="755.5" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">50K h x 20 构型 + 10K</text>
+<text x="755.5" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">h ego</text>
+<rect x="626" y="858" width="257" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="626" y1="864" x2="626" y2="990" stroke="#57606a" stroke-width="3"/>
+<text x="754.5" y="912.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">自动标注: Qwen3.6-27B</text>
+<text x="754.5" y="930.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">子任务切分 + 18 类封闭</text>
+<text x="754.5" y="950.5" font-size="11.5" fill="#57606a" text-anchor="middle">动作词表</text>
+<rect x="622" y="1094" width="265" height="155" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="622" y1="1100" x2="622" y2="1243" stroke="#0969da" stroke-width="3"/>
+<text x="754.5" y="1149.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">55 维统一动作向量</text>
+<text x="754.5" y="1167.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">臂/末端/夹爪/灵巧手/腰/</text>
+<text x="754.5" y="1187.5" font-size="11.5" fill="#57606a" text-anchor="middle">头/底盘</text>
+<text x="754.5" y="1202.5" font-size="11.5" fill="#57606a" text-anchor="middle">低维构型补零共享专家</text>
+<rect x="628" y="1330" width="253" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="628" y1="1336" x2="628" y2="1479" stroke="#1a7f37" stroke-width="3"/>
+<text x="754.5" y="1385.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作专家: 稀疏 MoE 层</text>
+<text x="754.5" y="1403.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Sigmoid 路由 + 修正偏</text>
+<text x="754.5" y="1423.5" font-size="11.5" fill="#57606a" text-anchor="middle">置只进 Top-K</text>
+<text x="754.5" y="1438.5" font-size="11.5" fill="#57606a" text-anchor="middle">无辅助损失负载均衡</text>
+<rect x="957" y="166" width="215" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="957" y1="172" x2="957" y2="265" stroke="#0b57d0" stroke-width="3"/>
+<text x="1064.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLM backbone</text>
+<text x="1064.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">视觉 + 文本 token</text>
+<rect x="778" y="386" width="254" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="778" y1="392" x2="778" y2="518" stroke="#0b57d0" stroke-width="3"/>
+<text x="905.0" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">双 query 预测蒸馏</text>
+<text x="905.0" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Q_t 当前观测 + Q_t+T</text>
+<text x="905.0" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">前瞻 T 步</text>
+<rect x="351" y="166" width="264" height="105" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="351" y1="172" x2="351" y2="265" stroke="#57606a" stroke-width="3"/>
+<text x="483.0" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LingBot-Depth 深度教师</text>
+<text x="483.0" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(L1 几何监督)</text>
+<rect x="653" y="150" width="266" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="653" y1="156" x2="653" y2="282" stroke="#57606a" stroke-width="3"/>
+<text x="786.0" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">DINO-Video 因果视频教师</text>
+<text x="786.0" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">(DINOv3 初始化,</text>
+<text x="786.0" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">Frobenius 范数)</text>
+<rect x="1210" y="150" width="254" height="155" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="1210" y1="156" x2="1210" y2="299" stroke="#8a5a00" stroke-width="3"/>
+<text x="1337.0" y="205.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">相对目标 + MeanStd 归</text>
+<text x="1337.0" y="223.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">一化</text>
+<text x="1337.0" y="243.5" font-size="11.5" fill="#57606a" text-anchor="middle">L2 回归损失 (relQpos 方差降</text>
+<text x="1337.0" y="258.5" font-size="11.5" fill="#57606a" text-anchor="middle">65%)</text>
+<rect x="627" y="1566" width="256" height="138" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="627" y1="1572" x2="627" y2="1698" stroke="#8250df" stroke-width="3"/>
+<text x="755.0" y="1620.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">全身策略输出</text>
+<text x="755.0" y="1638.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">头/腰/底盘/灵巧手/双臂</text>
+<text x="755.0" y="1658.5" font-size="11.5" fill="#57606a" text-anchor="middle">30Hz (R1 系 15Hz)</text>
+<text x="1464" y="1742" font-size="10.5" fill="#8c959f" text-anchor="end">lingbot-vla2 · arXiv 2607.06403 · v3 auto</text>
 </svg>

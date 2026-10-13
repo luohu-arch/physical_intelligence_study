@@ -1,137 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="430" height="2275" viewBox="0 0 430 2275" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
-<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<svg xmlns="http://www.w3.org/2000/svg" width="382" height="2041" viewBox="24 98 382 2041" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<title>wow</title>
+<rect x="24" y="98" width="382" height="2041" fill="#ffffff"/>
+<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">wow</text>
+<text x="384" y="128" font-size="12" fill="#57606a" text-anchor="end">WoW 是一个 14B 参数的视频扩散世界模型，用 203 万条真机交互轨迹（约 7300 小时、6.33 亿帧 @24fps、12 种机器人本体、过滤掉约 75% 原始数据）</text>
 <defs>
-<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
-<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
-<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
-<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
-<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
-<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
-<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
-<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
-<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
-<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
-<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
-<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
-<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+<marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+<marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
+<marker id="arw-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker>
+<marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
+<marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect width="430" height="2275" fill="#ffffff"/>
-<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
-<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">wow</text>
-<text x="52" y="74" font-size="13.5" fill="#78909c">WoW 是一个 14B 参数的视频扩散世界模型，用 203 万条真机交互轨迹（约 7300 小时、6.33 亿帧 @24fps、12 种机器人本体、过滤掉约 75% 原始数据）</text>
-<text x="396" y="2257" font-size="11.5" fill="#a0aab4" text-anchor="end">wow · arXiv 2509.22642 · v3 auto</text>
-<path d="M 121.0 254.0 C 121.0 334.4, 214.5 271.6, 214.5 352.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 214.5 490.0 C 214.5 536.0, 215.0 542.0, 215.0 588.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 309.0 254.0 L 373.0 254.0 L 373.0 790.0 L 214.5 790.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 215.0 692.0 C 215.0 738.0, 214.5 744.0, 214.5 790.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 214.5 962.0 C 214.5 1008.0, 215.0 980.0, 215.0 1026.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 215.0 1164.0 C 215.0 1210.0, 215.0 1216.0, 215.0 1262.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 162.2 1400.0 L 162.2 1484.0 L 358.0 1484.0 L 358.0 490.0 L 241.4 490.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 215.0 1400.0 C 215.0 1446.0, 215.0 1452.0, 215.0 1498.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 215.0 1653.0 C 215.0 1699.0, 215.0 1688.0, 215.0 1734.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 215.0 1838.0 C 215.0 1884.0, 215.0 1890.0, 215.0 1936.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 162.2 2091.0 L 162.2 2175.0 L 365.0 2175.0 L 365.0 962.0 L 239.8 962.0" fill="none" stroke="#c62828" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arr-loss)" opacity="0.92"/>
-<rect x="48.5" y="153.5" width="150" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="150" width="150" height="104" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="121.0" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="121.0" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(107.5,136.5) scale(1.1250)">
-  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
-</g>
-<text x="121.0" y="213" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">用户指令 g</text>
-<rect x="82.5" y="355.5" width="269" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="80" y="352" width="269" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="214.5" cy="352" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="214.5" cy="352" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(201.0,338.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
-<text x="214.5" y="408" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="214.5" dy="0">Refiner Agent</tspan><tspan x="214.5" dy="20">改写提示词 (SOPHIA 迭</tspan></text>
-<text x="214.5" y="438" font-size="12" fill="#5f6b7a" text-anchor="middle">代)</text>
-<rect x="98.5" y="591.5" width="238" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="96" y="588" width="238" height="104" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="215.0" cy="588" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="215.0" cy="588" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(201.5,574.5) scale(1.1250)">
-  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-  <circle cx="12" cy="12" r="3" />
-</g>
-<text x="215.0" y="651" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">物理细节化提示词 p_k</text>
-<rect x="236.5" y="153.5" width="150" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="234" y="150" width="150" height="104" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="309.0" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="309.0" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(295.5,136.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
-<text x="309.0" y="213" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">初始帧 o_t</text>
-<rect x="90.5" y="793.5" width="253" height="172" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="88" y="790" width="253" height="172" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="214.5" cy="790" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="214.5" cy="790" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(201.0,776.5) scale(1.1250)">
-  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
-</g>
-<text x="214.5" y="846" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="214.5" dy="0">WoW DiT 14B</tspan><tspan x="214.5" dy="20">T5 文本条件 + Haar 小</tspan></text>
-<text x="214.5" y="876" font-size="12" fill="#5f6b7a" text-anchor="middle">波 VAE latent
-+ DINOv2 中间层注入
-203 万真机轨迹训练</text>
-<rect x="91.5" y="1029.5" width="252" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="89" y="1026" width="252" height="138" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
-<circle cx="215.0" cy="1026" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
-<circle cx="215.0" cy="1026" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
-<g transform="translate(201.5,1012.5) scale(1.1250)">
-  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-  <circle cx="12" cy="12" r="3" />
-</g>
-<text x="215.0" y="1082" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="215.0" dy="0">候选视频 hat x</tspan><tspan x="215.0" dy="20">扩散学的是合理结果分布</tspan></text>
-<text x="215.0" y="1112" font-size="12" fill="#5f6b7a" text-anchor="middle">无因果兜底</text>
-<rect x="85.5" y="1265.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="83" y="1262" width="264" height="138" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="215.0" cy="1262" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="215.0" cy="1262" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(201.5,1248.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
-<text x="215.0" y="1318" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="215.0" dy="0">Critic Team: 物理/运</tspan><tspan x="215.0" dy="20">动/语义/质量</tspan></text>
-<text x="215.0" y="1348" font-size="12" fill="#5f6b7a" text-anchor="middle">四模板各 1-5 分打分</text>
-<rect x="86.5" y="1501.5" width="262" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="84" y="1498" width="262" height="155" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="215.0" cy="1498" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="215.0" cy="1498" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(201.5,1484.5) scale(1.1250)">
-  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-  <circle cx="12" cy="12" r="3" />
-</g>
-<text x="215.0" y="1554" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="215.0" dy="0">FM-IDM 逆动力学</tspan><tspan x="215.0" dy="20">掩码帧 SAM 分支 +</tspan></text>
-<text x="215.0" y="1584" font-size="12" fill="#5f6b7a" text-anchor="middle">CoTracker3 光流分支
-+ DINO 特征</text>
-<rect x="99.5" y="1737.5" width="236" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="97" y="1734" width="236" height="104" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
-<circle cx="215.0" cy="1734" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
-<circle cx="215.0" cy="1734" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(201.5,1720.5) scale(1.1250)">
-  <path d="M12 8V4H8" />
-  <rect width="16" height="12" x="4" y="8" rx="2" />
-  <path d="M2 14h2" />
-  <path d="M20 14h2" />
-  <path d="M15 13v2" />
-  <path d="M9 13v2" />
-</g>
-<text x="215.0" y="1797" font-size="16" class="lbl" fill="#4a148c" text-anchor="middle">7 自由度增量末端动作</text>
-<rect x="85.5" y="1939.5" width="264" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="83" y="1936" width="264" height="155" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
-<circle cx="215.0" cy="1936" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
-<circle cx="215.0" cy="1936" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(201.5,1922.5) scale(1.1250)">
-  <path d="M12 8V4H8" />
-  <rect width="16" height="12" x="4" y="8" rx="2" />
-  <path d="M2 14h2" />
-  <path d="M20 14h2" />
-  <path d="M15 13v2" />
-  <path d="M9 13v2" />
-</g>
-<text x="215.0" y="1992" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="215.0" dy="0">真机执行: 成功率/位置</tspan><tspan x="215.0" dy="20">误差</tspan></text>
-<text x="215.0" y="2022" font-size="12" fill="#5f6b7a" text-anchor="middle">/力矩稳定/能耗
-Easy 94.5% Mid 75.2%</text>
-<g transform="translate(111.0,991.0)"><rect x="-100.2" y="-11" width="200.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">不通过: 文字反馈退回重抽 对…</text></g>
-<g transform="translate(215.0,1449.0)"><rect x="-22.7" y="-11" width="45.4" height="22" rx="11" fill="#ffffff" stroke="#37474f" stroke-width="1.2"/><text y="4" font-size="12" fill="#37474f" font-weight="600" text-anchor="middle">通过</text></g>
-<g transform="translate(339.0,1677.3)"><rect x="-65.6" y="-11" width="131.1" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">GRPO 奖励信号回传</text></g>
+<path d="M 121.0 254.0 L 214.5 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 214.5 490.0 L 215.0 588.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 309.0 254.0 L 309.0 522.0 L 214.5 522.0 L 214.5 790.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 215.0 692.0 L 214.5 790.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 214.5 962.0 L 215.0 1026.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 215.0 1164.0 L 215.0 1262.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 162.2 1400.0 L 162.2 1215.0 L 241.4 1215.0 L 241.4 490.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 215.0 1400.0 L 215.0 1498.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 215.0 1653.0 L 215.0 1734.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 215.0 1838.0 L 215.0 1936.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 162.2 2091.0 L 162.2 1706.5 L 239.8 1706.5 L 239.8 962.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<rect x="46" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="46" y1="156" x2="46" y2="248" stroke="#0969da" stroke-width="3"/>
+<text x="121.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">用户指令 g</text>
+<rect x="80" y="352" width="269" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="80" y1="358" x2="80" y2="484" stroke="#1a7f37" stroke-width="3"/>
+<text x="214.5" y="406.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Refiner Agent</text>
+<text x="214.5" y="424.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">改写提示词 (SOPHIA 迭</text>
+<text x="214.5" y="444.5" font-size="11.5" fill="#57606a" text-anchor="middle">代)</text>
+<rect x="96" y="588" width="238" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="96" y1="594" x2="96" y2="686" stroke="#0969da" stroke-width="3"/>
+<text x="215.0" y="644.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">物理细节化提示词 p_k</text>
+<rect x="234" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="234" y1="156" x2="234" y2="248" stroke="#0969da" stroke-width="3"/>
+<text x="309.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">初始帧 o_t</text>
+<rect x="88" y="790" width="253" height="172" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="88" y1="796" x2="88" y2="956" stroke="#1a7f37" stroke-width="3"/>
+<text x="214.5" y="846.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">WoW DiT 14B</text>
+<text x="214.5" y="864.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">T5 文本条件 + Haar 小</text>
+<text x="214.5" y="884.5" font-size="11.5" fill="#57606a" text-anchor="middle">波 VAE latent</text>
+<text x="214.5" y="899.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ DINOv2 中间层注入</text>
+<text x="214.5" y="914.5" font-size="11.5" fill="#57606a" text-anchor="middle">203 万真机轨迹训练</text>
+<rect x="89" y="1026" width="252" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="89" y1="1032" x2="89" y2="1158" stroke="#57606a" stroke-width="3"/>
+<text x="215.0" y="1080.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">候选视频 hat x</text>
+<text x="215.0" y="1098.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">扩散学的是合理结果分布</text>
+<text x="215.0" y="1118.5" font-size="11.5" fill="#57606a" text-anchor="middle">无因果兜底</text>
+<rect x="83" y="1262" width="264" height="138" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="83" y1="1268" x2="83" y2="1394" stroke="#0b57d0" stroke-width="3"/>
+<text x="215.0" y="1316.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Critic Team: 物理/运</text>
+<text x="215.0" y="1334.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动/语义/质量</text>
+<text x="215.0" y="1354.5" font-size="11.5" fill="#57606a" text-anchor="middle">四模板各 1-5 分打分</text>
+<rect x="84" y="1498" width="262" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="84" y1="1504" x2="84" y2="1647" stroke="#0b57d0" stroke-width="3"/>
+<text x="215.0" y="1553.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">FM-IDM 逆动力学</text>
+<text x="215.0" y="1571.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">掩码帧 SAM 分支 +</text>
+<text x="215.0" y="1591.5" font-size="11.5" fill="#57606a" text-anchor="middle">CoTracker3 光流分支</text>
+<text x="215.0" y="1606.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ DINO 特征</text>
+<rect x="97" y="1734" width="236" height="104" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="97" y1="1740" x2="97" y2="1832" stroke="#8250df" stroke-width="3"/>
+<text x="215.0" y="1790.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">7 自由度增量末端动作</text>
+<rect x="83" y="1936" width="264" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="83" y1="1942" x2="83" y2="2085" stroke="#8250df" stroke-width="3"/>
+<text x="215.0" y="1991.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">真机执行: 成功率/位置</text>
+<text x="215.0" y="2009.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">误差</text>
+<text x="215.0" y="2029.5" font-size="11.5" fill="#57606a" text-anchor="middle">/力矩稳定/能耗</text>
+<text x="215.0" y="2044.5" font-size="11.5" fill="#57606a" text-anchor="middle">Easy 94.5% Mid 75.2%</text>
+<text x="111.0" y="991.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">不通过: 文字反馈退回重抽 对…</text>
+<text x="215.0" y="1441.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">通过</text>
+<text x="201.0" y="1518.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">GRPO 奖励信号回传</text>
+<text x="384" y="2129" font-size="10.5" fill="#8c959f" text-anchor="end">wow · arXiv 2509.22642 · v3 auto</text>
 </svg>

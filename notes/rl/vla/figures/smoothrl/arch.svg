@@ -1,126 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="661" height="1433" viewBox="0 0 661 1433" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
-<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<svg xmlns="http://www.w3.org/2000/svg" width="634" height="1246" viewBox="24 51 634 1246" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<title>smoothrl</title>
+<rect x="24" y="51" width="634" height="1246" fill="#ffffff"/>
+<text x="46" y="81" font-size="14" font-weight="700" fill="#1f2328">smoothrl</text>
+<text x="636" y="81" font-size="12" fill="#57606a" text-anchor="end">Problem**：VLA/WAM 推理延迟高 → 部署标配是"异步推理 + action chunk"（推理与执行重叠），但现有在线 RL 全部假设同步执行——训练目标与部署</text>
 <defs>
-<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
-<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
-<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
-<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
-<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
-<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
-<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
-<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
-<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
-<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
-<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
-<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
-<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+<marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+<marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
+<marker id="arw-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker>
+<marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
+<marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect width="661" height="1433" fill="#ffffff"/>
-<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
-<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">smoothrl</text>
-<text x="52" y="74" font-size="13.5" fill="#78909c">Problem**：VLA/WAM 推理延迟高 → 部署标配是&quot;异步推理 + action chunk&quot;（推理与执行重叠），但现有在线 RL 全部假设同步执行——训练目标与部署</text>
-<text x="627" y="1415" font-size="11.5" fill="#a0aab4" text-anchor="end">smoothrl · arXiv 2608.29768 · v3 auto</text>
-<rect x="322" y="103" width="314" height="491" rx="18" fill="#fbfdff" stroke="#b7c6d6" stroke-width="1.4" stroke-dasharray="8 5"/>
-<rect x="338" y="116" width="279.75" height="26" rx="13" fill="#eef3f8" stroke="#b7c6d6"/>
-<text x="349" y="133" font-size="12.5" fill="#4a6579">异步执行循环 (30 Hz 控制 / 5 Hz 推理)</text>
-<path d="M 478.5 288.0 C 478.5 334.0, 478.5 340.0, 478.5 386.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 426.3 524.0 C 426.3 608.0, 504.6 372.0, 504.6 288.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 478.5 524.0 C 478.5 570.0, 483.0 576.0, 483.0 622.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 483.0 760.0 C 483.0 865.2, 330.5 752.8, 330.5 858.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 330.5 1009.0 C 330.5 1055.0, 330.5 1048.0, 330.5 1094.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 277.1 1249.0 L 277.1 1333.0 L 633.0 1333.0 L 633.0 288.0 L 504.6 288.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 478.5 288.0 C 478.5 453.9, 181.5 220.1, 181.5 386.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 180.5 271.0 C 180.5 319.7, 181.5 337.3, 181.5 386.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 181.5 541.0 C 181.5 587.0, 179.5 576.0, 179.5 622.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 179.5 794.0 L 179.5 1094.0 L 330.5 1094.0" fill="none" stroke="#c62828" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arr-loss)" opacity="0.92"/>
-<path d="M 179.5 622.0 C 179.5 549.8, 179.5 866.2, 179.5 794.0" fill="none" stroke="#c62828" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arr-loss)" opacity="0.92"/>
-<rect x="350.5" y="153.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="348" y="150" width="261" height="138" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
-<circle cx="478.5" cy="150" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
-<circle cx="478.5" cy="150" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
-<g transform="translate(465.0,136.5) scale(1.1250)">
-  <path d="M12 8V4H8" />
-  <rect width="16" height="12" x="4" y="8" rx="2" />
-  <path d="M2 14h2" />
-  <path d="M20 14h2" />
-  <path d="M15 13v2" />
-  <path d="M9 13v2" />
-</g>
-<text x="478.5" y="206" font-size="15" class="lbl" fill="#004d40" text-anchor="middle"><tspan x="478.5" dy="0">机器人 (Astribot S1)</tspan><tspan x="478.5" dy="20">latency budget n = 6</tspan></text>
-<text x="478.5" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">帧 = 200 ms</text>
-<rect x="350.5" y="389.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="348" y="386" width="261" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="478.5" cy="386" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="478.5" cy="386" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(465.0,372.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="478.5" y="442" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="478.5" dy="0">观测 s_t</tspan><tspan x="478.5" dy="20">+ 在飞动作前缀 a_tilde</tspan></text>
-<text x="478.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">[0,n)</text>
-<rect x="353.5" y="625.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="351" y="622" width="264" height="138" rx="14" fill="url(#g-frozen)" stroke="#1565c0" stroke-width="2.0"/>
-<circle cx="483.0" cy="622" r="24" fill="#ffffff" stroke="#1565c0" stroke-width="1.8"/>
-<circle cx="483.0" cy="622" r="27.5" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.35"/>
-<g transform="translate(469.5,608.5) scale(1.1250)">
-  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
-  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
-  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
-</g>
-<text x="483.0" y="678" font-size="15" class="lbl" fill="#0d47a1" text-anchor="middle"><tspan x="483.0" dy="0">冻结 pi_base (pi 0.5)</tspan><tspan x="483.0" dy="20">输出参考 chunk a_bar (</tspan></text>
-<text x="483.0" y="708" font-size="12" fill="#5f6b7a" text-anchor="middle">H = 32) + RL token z_t</text>
-<rect x="199.5" y="861.5" width="267" height="151" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="197" y="858" width="267" height="151" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="330.5" cy="858" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="330.5" cy="858" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(317.0,844.5) scale(1.1250)">
-  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
-  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
-  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
-</g>
-<text x="330.5" y="921" font-size="16" class="lbl" fill="#9a4d00" text-anchor="middle">chunk 三区划分 (核心)</text>
-<text x="330.5" y="940" font-size="12" fill="#5f6b7a" text-anchor="middle">committed [0,n): 已占用</text>
-<text x="330.5" y="957" font-size="12" fill="#5f6b7a" text-anchor="middle">execution [n,2n): 唯一执行</text>
-<text x="330.5" y="974" font-size="12" fill="#5f6b7a" text-anchor="middle">discarded [2n,H): 被覆盖</text>
-<rect x="199.5" y="1097.5" width="267" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="197" y="1094" width="267" height="155" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="330.5" cy="1094" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="330.5" cy="1094" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(317.0,1080.5) scale(1.1250)">
-  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
-</g>
-<text x="330.5" y="1150" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="330.5" dy="0">残差 actor (3 层 MLP)</tspan><tspan x="330.5" dy="20">a = a_bar + 有界 delta</tspan></text>
-<text x="330.5" y="1180" font-size="12" fill="#5f6b7a" text-anchor="middle">(界 0.05)
-梯度只流经 execution 区</text>
-<rect x="54.5" y="389.5" width="259" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="52" y="386" width="259" height="155" rx="14" fill="url(#g-mem)" stroke="#b8860b" stroke-width="2.0"/>
-<circle cx="181.5" cy="386" r="24" fill="#ffffff" stroke="#b8860b" stroke-width="1.8"/>
-<circle cx="181.5" cy="386" r="27.5" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.35"/>
-<g transform="translate(168.0,372.5) scale(1.1250)">
-  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
-</g>
-<text x="181.5" y="442" font-size="15" class="lbl" fill="#8a6d00" text-anchor="middle"><tspan x="181.5" dy="0">回放缓冲</tspan><tspan x="181.5" dy="20">base policy 50 eps 初</tspan></text>
-<text x="181.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">始化
-+ 在线 rollout + 人工干预</text>
-<rect x="54.5" y="169.5" width="257" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="52" y="166" width="257" height="105" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="180.5" cy="166" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="180.5" cy="166" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(167.0,152.5) scale(0.1055)"><path d="M200,48v63.1c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,112V48Z" opacity="0.2"/><path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-29,64.64-64,64.9a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/></g>
-<text x="180.5" y="222" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="180.5" dy="0">人工干预 (绝对 / 残差)</tspan><tspan x="180.5" dy="20">+ 二值终局奖励</tspan></text>
-<rect x="48.5" y="625.5" width="267" height="172" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="622" width="267" height="172" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
-<circle cx="179.5" cy="622" r="24" fill="#ffffff" stroke="#ad1457" stroke-width="1.8"/>
-<circle cx="179.5" cy="622" r="27.5" fill="none" stroke="#ad1457" stroke-width="1" opacity="0.35"/>
-<g transform="translate(166.0,608.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
-<text x="179.5" y="678" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="179.5" dy="0">critic 集成 (REDQ)</tspan><tspan x="179.5" dy="20">输入 [z, s, a_tilde[0,</tspan></text>
-<text x="179.5" y="708" font-size="12" fill="#5f6b7a" text-anchor="middle">n), a[n,2n)]
-committed 区 stop-gradient 状
-态增广</text>
-<g transform="translate(373.0,810.0)"><rect x="-103.8" y="-11" width="207.7" height="22" rx="11" fill="#ffffff" stroke="#37474f" stroke-width="1.2"/><text y="4" font-size="12" fill="#37474f" font-weight="600" text-anchor="middle">execution 区 6 帧生效 训练 …</text></g>
-<!--WARN pill-tier2 干预 chunk 既作 BC 目标 又… -->
-<g transform="translate(181.0,328.5)"><rect x="-99.8" y="-11" width="199.5" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">干预 chunk 既作 BC 目标 又…</text></g>
-<g transform="translate(179.5,1047.5)"><rect x="-102.8" y="-11" width="205.5" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">actor 损失: -Q + w_bc * MS…</text></g>
-<!--WARN pill-tier2 chunk-skip TD: y = r + g -->
-<g transform="translate(179.5,568.0)"><rect x="-104.0" y="-11" width="207.9" height="22" rx="11" fill="#ffffff" stroke="#c62828" stroke-width="1.2"/><text y="4" font-size="12" fill="#c62828" font-weight="600" text-anchor="middle">chunk-skip TD: y = r + gam…</text></g>
+<rect x="322" y="103" width="314" height="491" rx="8" fill="#f6f8fa" stroke="#d8dee4"/>
+<text x="336" y="123" font-size="11.5" font-weight="600" fill="#57606a">异步执行循环 (30 Hz 控制 / 5 Hz 推理)</text>
+<path d="M 478.5 288.0 L 478.5 386.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 426.3 524.0 L 504.6 288.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 478.5 524.0 L 483.0 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 483.0 760.0 L 330.5 858.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 330.5 1009.0 L 330.5 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 277.1 1249.0 L 277.1 858.5 L 504.6 858.5 L 504.6 288.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 348.0 219.0 L 311.0 463.5" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 180.5 271.0 L 181.5 386.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 181.5 541.0 L 179.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 179.5 794.0 L 179.5 1034.0 L 330.5 1034.0 L 330.5 1094.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<path d="M 179.5 622.0 L 179.5 794.0" fill="none" stroke="#8a5a00" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arw-loss)"/>
+<rect x="348" y="150" width="261" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="348" y1="156" x2="348" y2="282" stroke="#57606a" stroke-width="3"/>
+<text x="478.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">机器人 (Astribot S1)</text>
+<text x="478.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">latency budget n = 6</text>
+<text x="478.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">帧 = 200 ms</text>
+<rect x="348" y="386" width="261" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="348" y1="392" x2="348" y2="518" stroke="#0969da" stroke-width="3"/>
+<text x="478.5" y="440.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">观测 s_t</text>
+<text x="478.5" y="458.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ 在飞动作前缀 a_tilde</text>
+<text x="478.5" y="478.5" font-size="11.5" fill="#57606a" text-anchor="middle">[0,n)</text>
+<rect x="351" y="622" width="264" height="138" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="351" y1="628" x2="351" y2="754" stroke="#57606a" stroke-width="3"/>
+<text x="483.0" y="676.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">冻结 pi_base (pi 0.5)</text>
+<text x="483.0" y="694.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">输出参考 chunk a_bar (</text>
+<text x="483.0" y="714.5" font-size="11.5" fill="#57606a" text-anchor="middle">H = 32) + RL token z_t</text>
+<rect x="197" y="858" width="267" height="151" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="197" y1="864" x2="197" y2="1003" stroke="#0b57d0" stroke-width="3"/>
+<text x="330.5" y="913.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">chunk 三区划分 (核心)</text>
+<text x="330.5" y="933.0" font-size="11.5" fill="#57606a" text-anchor="middle">committed [0,n): 已占用</text>
+<text x="330.5" y="948.0" font-size="11.5" fill="#57606a" text-anchor="middle">execution [n,2n): 唯一执行</text>
+<text x="330.5" y="963.0" font-size="11.5" fill="#57606a" text-anchor="middle">discarded [2n,H): 被覆盖</text>
+<rect x="197" y="1094" width="267" height="155" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="197" y1="1100" x2="197" y2="1243" stroke="#1a7f37" stroke-width="3"/>
+<text x="330.5" y="1149.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">残差 actor (3 层 MLP)</text>
+<text x="330.5" y="1167.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">a = a_bar + 有界 delta</text>
+<text x="330.5" y="1187.5" font-size="11.5" fill="#57606a" text-anchor="middle">(界 0.05)</text>
+<text x="330.5" y="1202.5" font-size="11.5" fill="#57606a" text-anchor="middle">梯度只流经 execution 区</text>
+<rect x="52" y="386" width="259" height="155" rx="6" fill="#fdf3f8" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="392" x2="52" y2="535" stroke="#bf3989" stroke-width="3"/>
+<text x="181.5" y="441.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">回放缓冲</text>
+<text x="181.5" y="459.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">base policy 50 eps 初</text>
+<text x="181.5" y="479.5" font-size="11.5" fill="#57606a" text-anchor="middle">始化</text>
+<text x="181.5" y="494.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 在线 rollout + 人工干预</text>
+<rect x="52" y="166" width="257" height="105" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="52" y1="172" x2="52" y2="265" stroke="#0969da" stroke-width="3"/>
+<text x="180.5" y="213.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">人工干预 (绝对 / 残差)</text>
+<text x="180.5" y="231.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">+ 二值终局奖励</text>
+<rect x="46" y="622" width="267" height="172" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="46" y1="628" x2="46" y2="788" stroke="#8a5a00" stroke-width="3"/>
+<text x="179.5" y="678.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">critic 集成 (REDQ)</text>
+<text x="179.5" y="696.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">输入 [z, s, a_tilde[0,</text>
+<text x="179.5" y="716.5" font-size="11.5" fill="#57606a" text-anchor="middle">n), a[n,2n)]</text>
+<text x="179.5" y="731.5" font-size="11.5" fill="#57606a" text-anchor="middle">committed 区 stop-gradient 状</text>
+<text x="179.5" y="746.5" font-size="11.5" fill="#57606a" text-anchor="middle">态增广</text>
+<text x="373.0" y="810.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">execution 区 6 帧生效 训练 …</text>
+<text x="181.0" y="320.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">干预 chunk 既作 BC 目标 又…</text>
+<text x="255.0" y="936.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">actor 损失: -Q + w_bc * MS…</text>
+<text x="179.5" y="700.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">chunk-skip TD: y = r + gam…</text>
+<text x="636" y="1287" font-size="10.5" fill="#8c959f" text-anchor="end">smoothrl · arXiv 2608.29768 · v3 auto</text>
 </svg>

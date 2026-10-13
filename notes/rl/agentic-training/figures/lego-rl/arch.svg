@@ -1,150 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="952" height="2124" viewBox="0 0 952 2124" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
-<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<svg xmlns="http://www.w3.org/2000/svg" width="904" height="1924" viewBox="24 98 904 1924" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<title>lego-rl</title>
+<rect x="24" y="98" width="904" height="1924" fill="#ffffff"/>
+<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">lego-rl</text>
+<text x="906" y="128" font-size="12" fill="#57606a" text-anchor="end">LEGO-RL（LegoX 技术报告，华为 + 港中文，**无同行评审**）解决的是"原生 coding-agent harness 与策略梯度训练天生不对齐"的问题：harn</text>
 <defs>
-<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
-<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
-<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
-<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
-<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
-<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
-<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
-<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
-<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
-<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
-<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
-<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
-<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+<marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+<marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
+<marker id="arw-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker>
+<marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
+<marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect width="952" height="2124" fill="#ffffff"/>
-<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
-<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">lego-rl</text>
-<text x="52" y="74" font-size="13.5" fill="#78909c">LEGO-RL（LegoX 技术报告，华为 + 港中文，**无同行评审**）解决的是&quot;原生 coding-agent harness 与策略梯度训练天生不对齐&quot;的问题：harn</text>
-<text x="918" y="2106" font-size="11.5" fill="#a0aab4" text-anchor="end">lego-rl · arXiv 2608.17393 · v3 auto</text>
-<path d="M 476.5 322.0 C 476.5 368.0, 476.5 340.0, 476.5 386.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 476.5 558.0 C 476.5 604.0, 476.5 576.0, 476.5 622.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 476.5 777.0 C 476.5 872.1, 331.0 762.9, 331.0 858.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 331.0 1013.0 L 331.0 1802.0 L 475.5 1802.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 476.5 777.0 C 476.5 880.3, 625.5 770.7, 625.5 874.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 331.0 1013.0 C 331.0 1107.9, 476.0 999.1, 476.0 1094.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 625.5 979.0 C 625.5 1090.1, 476.0 982.9, 476.0 1094.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 476.0 1232.0 C 476.0 1278.0, 476.0 1284.0, 476.0 1330.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 476.0 1468.0 C 476.0 1514.0, 476.0 1520.0, 476.0 1566.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 476.0 1704.0 C 476.0 1750.0, 475.5 1756.0, 475.5 1802.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 608.0 1635.0 C 722.2 1635.0, 529.8 1871.0, 644.0 1871.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 476.0 1704.0 C 476.0 1871.0, 176.5 1635.0, 176.5 1802.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<rect x="344.5" y="153.5" width="269" height="172" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="342" y="150" width="269" height="172" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="476.5" cy="150" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="476.5" cy="150" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(463.0,136.5) scale(1.1250)">
-  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
-</g>
-<text x="476.5" y="206" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="476.5" dy="0">任务池: OpenSWE 36,884 </tspan><tspan x="476.5" dy="20">-&gt;</tspan></text>
-<text x="476.5" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">策略相对难度筛 2,699
-4 条 rollout 解出 1-3 次的难
-度带</text>
-<rect x="344.5" y="389.5" width="269" height="172" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="342" y="386" width="269" height="172" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="476.5" cy="386" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="476.5" cy="386" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(463.0,372.5) scale(1.1250)">
-  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
-  <path d="M21 3v5h-5" />
-  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
-  <path d="M8 16H3v5" />
-</g>
-<text x="476.5" y="442" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="476.5" dy="0">隔离沙箱</tspan><tspan x="476.5" dy="20">Docker / K8s / Nydus</tspan></text>
-<text x="476.5" y="472" font-size="12" fill="#5f6b7a" text-anchor="middle">分级防作弊: 特权 sidecar
-防火墙 + 隐藏 git 历史
-+ 评分前扣住测试</text>
-<rect x="348.5" y="625.5" width="261" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="346" y="622" width="261" height="155" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="476.5" cy="622" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="476.5" cy="622" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(463.0,608.5) scale(1.1250)">
-  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-  <circle cx="12" cy="12" r="3" />
-</g>
-<text x="476.5" y="678" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="476.5" dy="0">原生 harness (当环境的</tspan><tspan x="476.5" dy="20">一部分, 不改控制流)</tspan></text>
-<text x="476.5" y="708" font-size="12" fill="#5f6b7a" text-anchor="middle">OpenHands / Claude Code /
-OpenCode</text>
-<rect x="202.5" y="861.5" width="262" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="200" y="858" width="262" height="155" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="331.0" cy="858" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="331.0" cy="858" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(317.5,844.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="331.0" y="914" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="331.0" dy="0">进程内 LLM 代理:</tspan><tspan x="331.0" dy="20">serving 边界捕获</tspan></text>
-<text x="331.0" y="944" font-size="12" fill="#5f6b7a" text-anchor="middle">token + log-prob + mask +
-MoE 路由 (R3 重放)</text>
-<rect x="347.5" y="1805.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="345" y="1802" width="261" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="475.5" cy="1802" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="475.5" cy="1802" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(462.0,1788.5) scale(0.1055)"><path d="M240,124a48,48,0,0,1-32,45.27h0V176a40,40,0,0,1-80,0,40,40,0,0,1-80,0v-6.73h0a48,48,0,0,1,0-90.54V72a40,40,0,0,1,80,0,40,40,0,0,1,80,0v6.73A48,48,0,0,1,240,124Z" opacity="0.2"/><path d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"/></g>
-<text x="475.5" y="1858" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="475.5" dy="0">推理服务器 vLLM</tspan><tspan x="475.5" dy="20">承载被训策略 Qwen3.5-</tspan></text>
-<text x="475.5" y="1888" font-size="12" fill="#5f6b7a" text-anchor="middle">35B-A3B 稀疏 MoE</text>
-<rect x="502.5" y="877.5" width="251" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="500" y="874" width="251" height="105" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="625.5" cy="874" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="625.5" cy="874" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(612.0,860.5) scale(0.1055)"><path d="M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z" opacity="0.2"/><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></g>
-<text x="625.5" y="930" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="625.5" dy="0">沙箱内可执行 verifier</tspan><tspan x="625.5" dy="20">二值 0/1 奖励</tspan></text>
-<rect x="345.5" y="1097.5" width="266" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="343" y="1094" width="266" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="476.0" cy="1094" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="476.0" cy="1094" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(462.5,1080.5) scale(0.1055)"><path d="M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z" opacity="0.2"/><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"/></g>
-<text x="476.0" y="1150" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="476.0" dy="0">Data buffer: 轨迹 +</tspan><tspan x="476.0" dy="20">奖励</tspan></text>
-<text x="476.0" y="1180" font-size="12" fill="#5f6b7a" text-anchor="middle">全异步 rollout + 部分轨迹恢复</text>
-<rect x="351.5" y="1333.5" width="254" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="349" y="1330" width="254" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="476.0" cy="1330" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="476.0" cy="1330" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(462.5,1316.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
-<text x="476.0" y="1386" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="476.0" dy="0">终止感知准入: 基础设施</tspan><tspan x="476.0" dy="20">失败轨迹</tspan></text>
-<text x="476.0" y="1416" font-size="12" fill="#5f6b7a" text-anchor="middle">权重置零, 不进组相对优势</text>
-<rect x="346.5" y="1569.5" width="264" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="344" y="1566" width="264" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="476.0" cy="1566" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="476.0" cy="1566" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(462.5,1552.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
-<text x="476.0" y="1622" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="476.0" dy="0">Trainer: verl + GSPO</tspan><tspan x="476.0" dy="20">序列级几何平均比率 + 非</tspan></text>
-<text x="476.0" y="1652" font-size="12" fill="#5f6b7a" text-anchor="middle">对称 clip</text>
-<rect x="646.5" y="1805.5" width="262" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="644" y="1802" width="262" height="138" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="775.0" cy="1802" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="775.0" cy="1802" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(761.5,1788.5) scale(1.1250)">
-  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
-  <path d="M21 3v5h-5" />
-  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
-  <path d="M8 16H3v5" />
-</g>
-<text x="775.0" y="1858" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="775.0" dy="0">Live UI: 终止原因 / 任</tspan><tspan x="775.0" dy="20">务网格 /</tspan></text>
-<text x="775.0" y="1888" font-size="12" fill="#5f6b7a" text-anchor="middle">rollout-training 一致性面板</text>
-<rect x="48.5" y="1805.5" width="261" height="172" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="1802" width="261" height="172" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="176.5" cy="1802" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="176.5" cy="1802" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(163.0,1788.5) scale(1.1250)">
-  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
-  <path d="M21 3v5h-5" />
-  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
-  <path d="M8 16H3v5" />
-</g>
-<text x="176.5" y="1858" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="176.5" dy="0">SWE-bench Verified:</tspan><tspan x="176.5" dy="20">OpenHands 64.0% -&gt;</tspan></text>
-<text x="176.5" y="1888" font-size="12" fill="#5f6b7a" text-anchor="middle">70.4%
-Claude Code 62.4% -&gt; 68.2%,
-相关性保持 &gt;0.99</text>
-<g transform="translate(403.8,817.5)"><rect x="-65.6" y="-11" width="131.1" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">每次模型 API 调用</text></g>
-<g transform="translate(331.0,1507.8)"><rect x="-101.0" y="-11" width="201.9" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">sticky routing, 训练时重放…</text></g>
-<g transform="translate(551.0,825.5)"><rect x="-41.8" y="-11" width="83.6" height="22" rx="11" fill="#ffffff" stroke="#37474f" stroke-width="1.2"/><text y="4" font-size="12" fill="#37474f" font-weight="600" text-anchor="middle">执行后评分</text></g>
-<!--WARN pill-tier2 忠实捕获的 token 序列 -->
-<g transform="translate(403.5,1053.5)"><rect x="-78.9" y="-11" width="157.8" height="22" rx="11" fill="#ffffff" stroke="#37474f" stroke-width="1.2"/><text y="4" font-size="12" fill="#37474f" font-weight="600" text-anchor="middle">忠实捕获的 token 序列</text></g>
-<g transform="translate(550.8,1036.5)"><rect x="-49.4" y="-11" width="98.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">0/1 终局奖励</text></g>
-<!--WARN pill-tier2 weight sync, staleness & -->
-<g transform="translate(475.8,1753.0)"><rect x="-104.0" y="-11" width="207.9" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">weight sync, staleness &lt;= 1</text></g>
+<path d="M 476.5 322.0 L 476.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.5 558.0 L 476.5 622.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.5 777.0 L 331.0 858.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 331.0 1013.0 L 331.0 1497.5 L 475.5 1497.5 L 475.5 1802.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 476.5 777.0 L 625.5 874.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 331.0 1013.0 L 476.0 1094.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 625.5 979.0 L 476.0 1094.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 476.0 1232.0 L 476.0 1330.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.0 1468.0 L 476.0 1566.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 476.0 1704.0 L 475.5 1802.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 608.0 1635.0 L 644.0 1871.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 344.0 1635.0 L 307.0 1888.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="342" y="150" width="269" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="342" y1="156" x2="342" y2="316" stroke="#0b57d0" stroke-width="3"/>
+<text x="476.5" y="206.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">任务池: OpenSWE 36,884 </text>
+<text x="476.5" y="224.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">-&gt;</text>
+<text x="476.5" y="244.5" font-size="11.5" fill="#57606a" text-anchor="middle">策略相对难度筛 2,699</text>
+<text x="476.5" y="259.5" font-size="11.5" fill="#57606a" text-anchor="middle">4 条 rollout 解出 1-3 次的难</text>
+<text x="476.5" y="274.5" font-size="11.5" fill="#57606a" text-anchor="middle">度带</text>
+<rect x="342" y="386" width="269" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="342" y1="392" x2="342" y2="552" stroke="#0b57d0" stroke-width="3"/>
+<text x="476.5" y="442.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">隔离沙箱</text>
+<text x="476.5" y="460.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Docker / K8s / Nydus</text>
+<text x="476.5" y="480.5" font-size="11.5" fill="#57606a" text-anchor="middle">分级防作弊: 特权 sidecar</text>
+<text x="476.5" y="495.5" font-size="11.5" fill="#57606a" text-anchor="middle">防火墙 + 隐藏 git 历史</text>
+<text x="476.5" y="510.5" font-size="11.5" fill="#57606a" text-anchor="middle">+ 评分前扣住测试</text>
+<rect x="346" y="622" width="261" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="346" y1="628" x2="346" y2="771" stroke="#0b57d0" stroke-width="3"/>
+<text x="476.5" y="677.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">原生 harness (当环境的</text>
+<text x="476.5" y="695.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">一部分, 不改控制流)</text>
+<text x="476.5" y="715.5" font-size="11.5" fill="#57606a" text-anchor="middle">OpenHands / Claude Code /</text>
+<text x="476.5" y="730.5" font-size="11.5" fill="#57606a" text-anchor="middle">OpenCode</text>
+<rect x="200" y="858" width="262" height="155" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="200" y1="864" x2="200" y2="1007" stroke="#0b57d0" stroke-width="3"/>
+<text x="331.0" y="913.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">进程内 LLM 代理:</text>
+<text x="331.0" y="931.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">serving 边界捕获</text>
+<text x="331.0" y="951.5" font-size="11.5" fill="#57606a" text-anchor="middle">token + log-prob + mask +</text>
+<text x="331.0" y="966.5" font-size="11.5" fill="#57606a" text-anchor="middle">MoE 路由 (R3 重放)</text>
+<rect x="345" y="1802" width="261" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="345" y1="1808" x2="345" y2="1934" stroke="#0b57d0" stroke-width="3"/>
+<text x="475.5" y="1856.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">推理服务器 vLLM</text>
+<text x="475.5" y="1874.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">承载被训策略 Qwen3.5-</text>
+<text x="475.5" y="1894.5" font-size="11.5" fill="#57606a" text-anchor="middle">35B-A3B 稀疏 MoE</text>
+<rect x="500" y="874" width="251" height="105" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="500" y1="880" x2="500" y2="973" stroke="#0b57d0" stroke-width="3"/>
+<text x="625.5" y="921.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">沙箱内可执行 verifier</text>
+<text x="625.5" y="939.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">二值 0/1 奖励</text>
+<rect x="343" y="1094" width="266" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="343" y1="1100" x2="343" y2="1226" stroke="#0b57d0" stroke-width="3"/>
+<text x="476.0" y="1148.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Data buffer: 轨迹 +</text>
+<text x="476.0" y="1166.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">奖励</text>
+<text x="476.0" y="1186.5" font-size="11.5" fill="#57606a" text-anchor="middle">全异步 rollout + 部分轨迹恢复</text>
+<rect x="349" y="1330" width="254" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="349" y1="1336" x2="349" y2="1462" stroke="#0b57d0" stroke-width="3"/>
+<text x="476.0" y="1384.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">终止感知准入: 基础设施</text>
+<text x="476.0" y="1402.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">失败轨迹</text>
+<text x="476.0" y="1422.5" font-size="11.5" fill="#57606a" text-anchor="middle">权重置零, 不进组相对优势</text>
+<rect x="344" y="1566" width="264" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="344" y1="1572" x2="344" y2="1698" stroke="#0b57d0" stroke-width="3"/>
+<text x="476.0" y="1620.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Trainer: verl + GSPO</text>
+<text x="476.0" y="1638.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">序列级几何平均比率 + 非</text>
+<text x="476.0" y="1658.5" font-size="11.5" fill="#57606a" text-anchor="middle">对称 clip</text>
+<rect x="644" y="1802" width="262" height="138" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="644" y1="1808" x2="644" y2="1934" stroke="#0b57d0" stroke-width="3"/>
+<text x="775.0" y="1856.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Live UI: 终止原因 / 任</text>
+<text x="775.0" y="1874.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">务网格 /</text>
+<text x="775.0" y="1894.5" font-size="11.5" fill="#57606a" text-anchor="middle">rollout-training 一致性面板</text>
+<rect x="46" y="1802" width="261" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="46" y1="1808" x2="46" y2="1968" stroke="#0b57d0" stroke-width="3"/>
+<text x="176.5" y="1858.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">SWE-bench Verified:</text>
+<text x="176.5" y="1876.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">OpenHands 64.0% -&gt;</text>
+<text x="176.5" y="1896.5" font-size="11.5" fill="#57606a" text-anchor="middle">70.4%</text>
+<text x="176.5" y="1911.5" font-size="11.5" fill="#57606a" text-anchor="middle">Claude Code 62.4% -&gt; 68.2%,</text>
+<text x="176.5" y="1926.5" font-size="11.5" fill="#57606a" text-anchor="middle">相关性保持 &gt;0.99</text>
+<text x="403.8" y="809.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">每次模型 API 调用</text>
+<text x="403.2" y="1399.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">sticky routing, 训练时重放…</text>
+<text x="551.0" y="817.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">执行后评分</text>
+<text x="403.5" y="1045.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">忠实捕获的 token 序列</text>
+<text x="550.8" y="1028.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">0/1 终局奖励</text>
+<text x="475.8" y="1745.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">weight sync, staleness &lt;= 1</text>
+<text x="906" y="2012" font-size="10.5" fill="#8c959f" text-anchor="end">lego-rl · arXiv 2608.17393 · v3 auto</text>
 </svg>

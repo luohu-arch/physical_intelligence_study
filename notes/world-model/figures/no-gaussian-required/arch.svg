@@ -1,133 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="575" height="1922" viewBox="0 0 575 1922" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
-<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<svg xmlns="http://www.w3.org/2000/svg" width="527" height="1722" viewBox="24 98 527 1722" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<title>no-gaussian-required</title>
+<rect x="24" y="98" width="527" height="1722" fill="#ffffff"/>
+<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">no-gaussian-required</text>
+<text x="529" y="128" font-size="12" fill="#57606a" text-anchor="end">保留 LeWM 的前向 latent 预测目标 $\mathcal L_{fwd}=\|\hat z_{t+1}-z_{t+1}\|^2_2$，在训练期额外挂一个 MLP 逆动</text>
 <defs>
-<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
-<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
-<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
-<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
-<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
-<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
-<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
-<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
-<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
-<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
-<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
-<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
-<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+<marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+<marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
+<marker id="arw-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker>
+<marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
+<marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect width="575" height="1922" fill="#ffffff"/>
-<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
-<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">no-gaussian-required</text>
-<text x="52" y="74" font-size="13.5" fill="#78909c">保留 LeWM 的前向 latent 预测目标 $\mathcal L_{fwd}=\|\hat z_{t+1}-z_{t+1}\|^2_2$，在训练期额外挂一个 MLP 逆动</text>
-<text x="541" y="1904" font-size="11.5" fill="#a0aab4" text-anchor="end">no-gaussian-required · arXiv 2608.17542 · v3 auto</text>
-<path d="M 381.0 254.0 C 381.0 334.4, 287.5 271.6, 287.5 352.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 193.0 254.0 L 94.0 254.0 L 94.0 773.0 L 138.0 773.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 287.5 456.0 C 287.5 536.9, 193.0 473.1, 193.0 554.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 193.0 658.0 C 193.0 729.4, 138.0 701.6, 138.0 773.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 138.0 877.0 C 138.0 925.7, 139.0 943.3, 139.0 992.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 193.0 658.0 C 193.0 785.5, 398.5 628.5, 398.5 756.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 287.5 456.0 C 287.5 536.4, 381.0 473.6, 381.0 554.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 381.0 658.0 C 381.0 706.5, 398.5 707.5, 398.5 756.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 398.5 894.0 C 398.5 942.3, 381.5 943.7, 381.5 992.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 193.0 254.0 L 26.0 254.0 L 26.0 992.0 L 381.5 992.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<path d="M 139.0 1096.0 C 139.0 1199.7, 287.0 1091.3, 287.0 1195.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 381.5 1097.0 C 381.5 1177.8, 287.0 1114.2, 287.0 1195.0" fill="none" stroke="#607d8b" stroke-width="2.4" marker-end="url(#arr-main)" opacity="0.92"/>
-<path d="M 287.0 1300.0 C 287.0 1346.0, 287.0 1352.0, 287.0 1398.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 287.0 1502.0 C 287.0 1548.0, 287.5 1554.0, 287.5 1600.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<rect x="308.5" y="153.5" width="150" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="306" y="150" width="150" height="104" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="381.0" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="381.0" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(367.5,136.5) scale(0.1055)"><path d="M176,80v96H80V80Z" opacity="0.2"/><path d="M224,40V80a8,8,0,0,1-16,0V48H176a8,8,0,0,1,0-16h40A8,8,0,0,1,224,40ZM80,208H48V176a8,8,0,0,0-16,0v40a8,8,0,0,0,8,8H80a8,8,0,0,0,0-16Zm136-40a8,8,0,0,0-8,8v32H176a8,8,0,0,0,0,16h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168ZM40,88a8,8,0,0,0,8-8V48H80a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V80A8,8,0,0,0,40,88ZM80,72h96a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V80A8,8,0,0,1,80,72Zm8,96h80V88H88Z"/></g>
-<text x="381.0" y="213" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">观测 o_t</text>
-<rect x="164.5" y="355.5" width="251" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="162" y="352" width="251" height="104" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="287.5" cy="352" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="287.5" cy="352" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(274.0,338.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
-<text x="287.5" y="415" font-size="16" class="lbl" fill="#b34700" text-anchor="middle">编码器 (与 LeWM 相同)</text>
-<rect x="120.5" y="153.5" width="150" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="118" y="150" width="150" height="104" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="193.0" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="193.0" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(179.5,136.5) scale(1.1250)">
-  <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
-  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
-  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
-</g>
-<text x="193.0" y="213" font-size="16" class="lbl" fill="#1b5e20" text-anchor="middle">动作块 a_t</text>
-<rect x="48.5" y="776.5" width="184" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="773" width="184" height="104" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="138.0" cy="773" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="138.0" cy="773" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(124.5,759.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
-<text x="138.0" y="836" font-size="16" class="lbl" fill="#b34700" text-anchor="middle">前向预测器 fwd</text>
-<rect x="120.5" y="557.5" width="150" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="118" y="554" width="150" height="104" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
-<circle cx="193.0" cy="554" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
-<circle cx="193.0" cy="554" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
-<g transform="translate(179.5,540.5) scale(1.1250)">
-  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-  <circle cx="12" cy="12" r="3" />
-</g>
-<text x="193.0" y="617" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">z_t</text>
-<rect x="66.5" y="995.5" width="150" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="64" y="992" width="150" height="104" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
-<circle cx="139.0" cy="992" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
-<circle cx="139.0" cy="992" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
-<g transform="translate(125.5,978.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="139.0" y="1055" font-size="16" class="lbl" fill="#b71c1c" text-anchor="middle">前向损失</text>
-<rect x="270.5" y="759.5" width="261" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="268" y="756" width="261" height="138" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="398.5" cy="756" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="398.5" cy="756" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(385.0,742.5) scale(1.1250)">
-  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-  <circle cx="12" cy="12" r="3" />
-</g>
-<text x="398.5" y="812" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="398.5" dy="0">逆动力学头 inv_psi (仅</tspan><tspan x="398.5" dy="20">训练期)</tspan></text>
-<text x="398.5" y="842" font-size="12" fill="#5f6b7a" text-anchor="middle">z_t 与 z_t+1 -&gt; hat a</text>
-<rect x="308.5" y="557.5" width="150" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="306" y="554" width="150" height="104" rx="14" fill="url(#g-env)" stroke="#00695c" stroke-width="2.0"/>
-<circle cx="381.0" cy="554" r="24" fill="#ffffff" stroke="#00695c" stroke-width="1.8"/>
-<circle cx="381.0" cy="554" r="27.5" fill="none" stroke="#00695c" stroke-width="1" opacity="0.35"/>
-<g transform="translate(367.5,540.5) scale(1.1250)">
-  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-  <circle cx="12" cy="12" r="3" />
-</g>
-<text x="381.0" y="617" font-size="16" class="lbl" fill="#004d40" text-anchor="middle">z_t+1</text>
-<rect x="254.5" y="995.5" width="259" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="252" y="992" width="259" height="105" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="381.5" cy="992" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="381.5" cy="992" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(368.0,978.5) scale(1.1250)">
-  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
-</g>
-<text x="381.5" y="1048" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="381.5" dy="0">Action-NCE (InfoNCE)</tspan><tspan x="381.5" dy="20">替代 SIGReg 免高斯假设</tspan></text>
-<rect x="156.5" y="1198.5" width="266" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="154" y="1195" width="266" height="105" rx="14" fill="url(#g-loss)" stroke="#c62828" stroke-width="2.0" stroke-dasharray="7 4"/>
-<circle cx="287.0" cy="1195" r="24" fill="#ffffff" stroke="#c62828" stroke-width="1.8"/>
-<circle cx="287.0" cy="1195" r="27.5" fill="none" stroke="#c62828" stroke-width="1" opacity="0.35"/>
-<g transform="translate(273.5,1181.5) scale(0.1055)"><path d="M192,48V208H64l64-80L64,48Z" opacity="0.2"/><path d="M184,72V56H80.65l53.6,67a8,8,0,0,1,0,10l-53.6,67H184V184a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H64a8,8,0,0,1-6.25-13l60-75-60-75A8,8,0,0,1,64,40H192a8,8,0,0,1,8,8V72a8,8,0,0,1-16,0Z"/></g>
-<text x="287.0" y="1251" font-size="15" class="lbl" fill="#b71c1c" text-anchor="middle"><tspan x="287.0" dy="0">总损失 = L_fwd +</tspan><tspan x="287.0" dy="20">lambda*L_NCE</tspan></text>
-<rect x="190.5" y="1401.5" width="198" height="104" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="188" y="1398" width="198" height="104" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="287.0" cy="1398" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="287.0" cy="1398" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(273.5,1384.5) scale(0.1055)"><path d="M200,48H56a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H200a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48ZM152,152H104V104h48Z" opacity="0.2"/><path d="M152,96H104a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V104A8,8,0,0,0,152,96Zm-8,48H112V112h32Zm88,0H216V112h16a8,8,0,0,0,0-16H216V56a16,16,0,0,0-16-16H160V24a8,8,0,0,0-16,0V40H112V24a8,8,0,0,0-16,0V40H56A16,16,0,0,0,40,56V96H24a8,8,0,0,0,0,16H40v32H24a8,8,0,0,0,0,16H40v40a16,16,0,0,0,16,16H96v16a8,8,0,0,0,16,0V216h32v16a8,8,0,0,0,16,0V216h40a16,16,0,0,0,16-16V160h16a8,8,0,0,0,0-16Zm-32,56H56V56H200v95.87s0,.09,0,.13,0,.09,0,.13V200Z"/></g>
-<text x="287.0" y="1461" font-size="16" class="lbl" fill="#b34700" text-anchor="middle">训练后丢弃逆分支</text>
-<rect x="159.5" y="1603.5" width="261" height="172" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="157" y="1600" width="261" height="172" rx="14" fill="url(#g-loop)" stroke="#546e7a" stroke-width="2.0"/>
-<circle cx="287.5" cy="1600" r="24" fill="#ffffff" stroke="#546e7a" stroke-width="1.8"/>
-<circle cx="287.5" cy="1600" r="27.5" fill="none" stroke="#546e7a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(274.0,1586.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
-<text x="287.5" y="1656" font-size="15" class="lbl" fill="#37474f" text-anchor="middle"><tspan x="287.5" dy="0">部署: 与 LeWM 同款</tspan><tspan x="287.5" dy="20">encoder + predictor +</tspan></text>
-<text x="287.5" y="1686" font-size="12" fill="#5f6b7a" text-anchor="middle">CEM 规划器
-OGBench Scene 80.0 vs SIGReg
-58.0</text>
-<g transform="translate(138.5,934.5)"><rect x="-85.4" y="-11" width="170.7" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">L_fwd: latent 预测 MSE</text></g>
-<g transform="translate(390.0,943.0)"><rect x="-102.6" y="-11" width="205.3" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">batch 内 N 条动作中辨出真 a…</text></g>
+<path d="M 381.0 254.0 L 287.5 352.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 193.0 254.0 L 193.0 513.5 L 138.0 513.5 L 138.0 773.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 287.5 456.0 L 193.0 554.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 193.0 658.0 L 138.0 773.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 138.0 877.0 L 139.0 992.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 193.0 658.0 L 398.5 756.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 287.5 456.0 L 381.0 554.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 381.0 658.0 L 398.5 756.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 398.5 894.0 L 381.5 992.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 193.0 254.0 L 193.0 713.0 L 381.5 713.0 L 381.5 992.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<path d="M 139.0 1096.0 L 287.0 1195.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 381.5 1097.0 L 287.0 1195.0" fill="none" stroke="#57606a" stroke-width="1.5" marker-end="url(#arw-main)"/>
+<path d="M 287.0 1300.0 L 287.0 1398.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 287.0 1502.0 L 287.5 1600.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<rect x="306" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="306" y1="156" x2="306" y2="248" stroke="#0969da" stroke-width="3"/>
+<text x="381.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">观测 o_t</text>
+<rect x="162" y="352" width="251" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="162" y1="358" x2="162" y2="450" stroke="#1a7f37" stroke-width="3"/>
+<text x="287.5" y="408.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">编码器 (与 LeWM 相同)</text>
+<rect x="118" y="150" width="150" height="104" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="118" y1="156" x2="118" y2="248" stroke="#0969da" stroke-width="3"/>
+<text x="193.0" y="206.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动作块 a_t</text>
+<rect x="46" y="773" width="184" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="46" y1="779" x2="46" y2="871" stroke="#1a7f37" stroke-width="3"/>
+<text x="138.0" y="829.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">前向预测器 fwd</text>
+<rect x="118" y="554" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="118" y1="560" x2="118" y2="652" stroke="#57606a" stroke-width="3"/>
+<text x="193.0" y="610.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">z_t</text>
+<rect x="64" y="992" width="150" height="104" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="64" y1="998" x2="64" y2="1090" stroke="#8a5a00" stroke-width="3"/>
+<text x="139.0" y="1048.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">前向损失</text>
+<rect x="268" y="756" width="261" height="138" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="268" y1="762" x2="268" y2="888" stroke="#1a7f37" stroke-width="3"/>
+<text x="398.5" y="810.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">逆动力学头 inv_psi (仅</text>
+<text x="398.5" y="828.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">训练期)</text>
+<text x="398.5" y="848.5" font-size="11.5" fill="#57606a" text-anchor="middle">z_t 与 z_t+1 -&gt; hat a</text>
+<rect x="306" y="554" width="150" height="104" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="306" y1="560" x2="306" y2="652" stroke="#57606a" stroke-width="3"/>
+<text x="381.0" y="610.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">z_t+1</text>
+<rect x="252" y="992" width="259" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="252" y1="998" x2="252" y2="1091" stroke="#0b57d0" stroke-width="3"/>
+<text x="381.5" y="1039.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">Action-NCE (InfoNCE)</text>
+<text x="381.5" y="1057.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">替代 SIGReg 免高斯假设</text>
+<rect x="154" y="1195" width="266" height="105" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="154" y1="1201" x2="154" y2="1294" stroke="#8a5a00" stroke-width="3"/>
+<text x="287.0" y="1242.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">总损失 = L_fwd +</text>
+<text x="287.0" y="1260.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">lambda*L_NCE</text>
+<rect x="188" y="1398" width="198" height="104" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="188" y1="1404" x2="188" y2="1496" stroke="#1a7f37" stroke-width="3"/>
+<text x="287.0" y="1454.0" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">训练后丢弃逆分支</text>
+<rect x="157" y="1600" width="261" height="172" rx="6" fill="#f0f4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="157" y1="1606" x2="157" y2="1766" stroke="#0b57d0" stroke-width="3"/>
+<text x="287.5" y="1656.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">部署: 与 LeWM 同款</text>
+<text x="287.5" y="1674.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">encoder + predictor +</text>
+<text x="287.5" y="1694.5" font-size="11.5" fill="#57606a" text-anchor="middle">CEM 规划器</text>
+<text x="287.5" y="1709.5" font-size="11.5" fill="#57606a" text-anchor="middle">OGBench Scene 80.0 vs SIGReg</text>
+<text x="287.5" y="1724.5" font-size="11.5" fill="#57606a" text-anchor="middle">58.0</text>
+<text x="138.5" y="926.5" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">L_fwd: latent 预测 MSE</text>
+<text x="390.0" y="935.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">batch 内 N 条动作中辨出真 a…</text>
+<text x="529" y="1810" font-size="10.5" fill="#8c959f" text-anchor="end">no-gaussian-required · arXiv 2608.17542 · v3 auto</text>
 </svg>

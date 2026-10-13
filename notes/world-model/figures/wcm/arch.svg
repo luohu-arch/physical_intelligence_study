@@ -1,88 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="590" height="1383" viewBox="0 0 590 1383" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif">
-<style>text{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif;} .lbl{font-weight:700;}</style>
+<svg xmlns="http://www.w3.org/2000/svg" width="542" height="1166" viewBox="24 98 542 1166" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Segoe UI',sans-serif" role="img">
+<title>wcm</title>
+<rect x="24" y="98" width="542" height="1166" fill="#ffffff"/>
+<text x="46" y="128" font-size="14" font-weight="700" fill="#1f2328">wcm</text>
+<text x="544" y="128" font-size="12" fill="#57606a" text-anchor="end">WCM 把世界模型从"旁观评估器"升级为"策略的条件信号源"：LeJEPA 世界批判模型同时挂 value head（预测任务成功概率）与 dynamics head（预测未来</text>
 <defs>
-<linearGradient id="g-data" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f9f1"/><stop offset="1" stop-color="#e2f0e2"/></linearGradient>
-<linearGradient id="g-frozen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f7fe"/><stop offset="1" stop-color="#dcecfb"/></linearGradient>
-<linearGradient id="g-train" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e8"/><stop offset="1" stop-color="#ffedd4"/></linearGradient>
-<linearGradient id="g-loss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0f1"/><stop offset="1" stop-color="#f9e0e2"/></linearGradient>
-<linearGradient id="g-act" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f1fb"/><stop offset="1" stop-color="#f0e4f7"/></linearGradient>
-<linearGradient id="g-loop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5f7"/><stop offset="1" stop-color="#e6ebee"/></linearGradient>
-<linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8f6"/><stop offset="1" stop-color="#dcf0ec"/></linearGradient>
-<linearGradient id="g-mem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef0"/><stop offset="1" stop-color="#fdf6d8"/></linearGradient>
-<linearGradient id="g-reward" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf2f7"/><stop offset="1" stop-color="#f9e2ed"/></linearGradient>
-<linearGradient id="g-key" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#fff1d6"/></linearGradient>
-<linearGradient id="g-title" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00695c"/><stop offset="1" stop-color="#1565c0"/></linearGradient>
-<marker id="arr-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607d8b"/></marker>
-<marker id="arr-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#37474f"/></marker>
-<marker id="arr-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#90a4ae"/></marker>
-<marker id="arr-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1565c0"/></marker>
-<marker id="arr-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c62828"/></marker>
+<marker id="arw-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+<marker id="arw-thick" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/></marker>
+<marker id="arw-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker>
+<marker id="arw-fb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b57d0"/></marker>
+<marker id="arw-loss" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a5a00"/></marker>
 </defs>
-<rect width="590" height="1383" fill="#ffffff"/>
-<rect x="34" y="30" width="5" height="42" rx="2.5" fill="url(#g-title)"/>
-<text x="52" y="52" font-size="25" font-weight="800" fill="#1a2733">wcm</text>
-<text x="52" y="74" font-size="13.5" fill="#78909c">WCM 把世界模型从&quot;旁观评估器&quot;升级为&quot;策略的条件信号源&quot;：LeJEPA 世界批判模型同时挂 value head（预测任务成功概率）与 dynamics head（预测未来</text>
-<text x="556" y="1365" font-size="11.5" fill="#a0aab4" text-anchor="end">wcm · arXiv 2607.29613 · v3 auto</text>
-<path d="M 294.5 288.0 C 294.5 334.0, 294.5 340.0, 294.5 386.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 294.5 491.0 C 294.5 602.5, 445.0 494.5, 445.0 606.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 294.5 491.0 C 294.5 581.5, 177.0 498.5, 177.0 589.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 445.0 711.0 C 445.0 821.7, 295.5 714.3, 295.5 825.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 177.0 744.0 C 177.0 827.8, 295.5 741.2, 295.5 825.0" fill="none" stroke="#37474f" stroke-width="3.2" marker-end="url(#arr-thick)" opacity="0.92"/>
-<path d="M 295.5 963.0 C 295.5 1009.0, 294.5 1015.0, 294.5 1061.0" fill="none" stroke="#1565c0" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arr-fb)" opacity="0.92"/>
-<rect x="162.5" y="153.5" width="269" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="160" y="150" width="269" height="138" rx="14" fill="url(#g-data)" stroke="#2e7d32" stroke-width="2.0"/>
-<circle cx="294.5" cy="150" r="24" fill="#ffffff" stroke="#2e7d32" stroke-width="1.8"/>
-<circle cx="294.5" cy="150" r="27.5" fill="none" stroke="#2e7d32" stroke-width="1" opacity="0.35"/>
-<g transform="translate(281.0,136.5) scale(1.1250)">
-  <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
-  <circle cx="12" cy="13" r="3" />
-</g>
-<text x="294.5" y="206" font-size="15" class="lbl" fill="#1b5e20" text-anchor="middle"><tspan x="294.5" dy="0">观测 (RGB + 状态)</tspan><tspan x="294.5" dy="20">多帧历史: 补时序盲区</tspan></text>
-<text x="294.5" y="236" font-size="12" fill="#5f6b7a" text-anchor="middle">单帧 critic 会撞桌/堵转</text>
-<rect x="162.5" y="389.5" width="269" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="160" y="386" width="269" height="105" rx="14" fill="url(#g-train)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="294.5" cy="386" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="294.5" cy="386" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(281.0,372.5) scale(0.1055)"><path d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z" opacity="0.2"/><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></g>
-<text x="294.5" y="442" font-size="15" class="lbl" fill="#b34700" text-anchor="middle"><tspan x="294.5" dy="0">LeJEPA 共享表征编码器 E</tspan><tspan x="294.5" dy="20">-&gt; latent z</tspan></text>
-<rect x="348.5" y="609.5" width="198" height="105" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="346" y="606" width="198" height="105" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="445.0" cy="606" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="445.0" cy="606" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(431.5,592.5) scale(1.1250)">
-  <path d="M20 6 9 17l-5-5" />
-</g>
-<text x="445.0" y="662" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="445.0" dy="0">价值头 V(z)</tspan><tspan x="445.0" dy="20">任务成功概率估计</tspan></text>
-<rect x="48.5" y="592.5" width="262" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="46" y="589" width="262" height="155" rx="14" fill="url(#g-key)" stroke="#ef6c00" stroke-width="3.2"/>
-<circle cx="177.0" cy="589" r="24" fill="#ffffff" stroke="#ef6c00" stroke-width="1.8"/>
-<circle cx="177.0" cy="589" r="27.5" fill="none" stroke="#ef6c00" stroke-width="1" opacity="0.35"/>
-<g transform="translate(163.5,575.5) scale(1.1250)">
-  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-  <circle cx="12" cy="12" r="3" />
-</g>
-<text x="177.0" y="645" font-size="15" class="lbl" fill="#9a4d00" text-anchor="middle"><tspan x="177.0" dy="0">动力学头 D(z, a)</tspan><tspan x="177.0" dy="20">预测未来表征</tspan></text>
-<text x="177.0" y="675" font-size="12" fill="#5f6b7a" text-anchor="middle">dense 预测误差让 critic 更懂
-环境</text>
-<rect x="164.5" y="828.5" width="267" height="138" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="162" y="825" width="267" height="138" rx="14" fill="url(#g-reward)" stroke="#ad1457" stroke-width="2.0"/>
-<circle cx="295.5" cy="825" r="24" fill="#ffffff" stroke="#ad1457" stroke-width="1.8"/>
-<circle cx="295.5" cy="825" r="27.5" fill="none" stroke="#ad1457" stroke-width="1" opacity="0.35"/>
-<g transform="translate(282.0,811.5) scale(1.1250)">
-  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
-</g>
-<text x="295.5" y="881" font-size="15" class="lbl" fill="#880e4f" text-anchor="middle"><tspan x="295.5" dy="0">条件引导信号</tspan><tspan x="295.5" dy="20">训练期引导 RECAP 式策略</tspan></text>
-<text x="295.5" y="911" font-size="12" fill="#5f6b7a" text-anchor="middle">更新</text>
-<rect x="166.5" y="1064.5" width="261" height="155" rx="14" fill="#37474f" opacity="0.13"/>
-<rect x="164" y="1061" width="261" height="155" rx="14" fill="url(#g-act)" stroke="#6a1b9a" stroke-width="2.0"/>
-<circle cx="294.5" cy="1061" r="24" fill="#ffffff" stroke="#6a1b9a" stroke-width="1.8"/>
-<circle cx="294.5" cy="1061" r="27.5" fill="none" stroke="#6a1b9a" stroke-width="1" opacity="0.35"/>
-<g transform="translate(281.0,1047.5) scale(1.1250)">
-  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-  <circle cx="12" cy="12" r="3" />
-</g>
-<text x="294.5" y="1117" font-size="15" class="lbl" fill="#4a148c" text-anchor="middle"><tspan x="294.5" dy="0">VLA 策略</tspan><tspan x="294.5" dy="20">pi0 / pi0.5 /</tspan></text>
-<text x="294.5" y="1147" font-size="12" fill="#5f6b7a" text-anchor="middle">OpenVLA-OFT
-IND 84.4% vs SFT 38.4%</text>
-<g transform="translate(295.0,1012.0)"><rect x="-35.4" y="-11" width="70.9" height="22" rx="11" fill="#ffffff" stroke="#1565c0" stroke-width="1.2"/><text y="4" font-size="12" fill="#1565c0" font-weight="600" text-anchor="middle">即插即用</text></g>
+<path d="M 294.5 288.0 L 294.5 386.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 294.5 491.0 L 445.0 606.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 294.5 491.0 L 177.0 589.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 445.0 711.0 L 295.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 177.0 744.0 L 295.5 825.0" fill="none" stroke="#1f2328" stroke-width="2.0" marker-end="url(#arw-thick)"/>
+<path d="M 295.5 963.0 L 294.5 1061.0" fill="none" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arw-fb)"/>
+<rect x="160" y="150" width="269" height="138" rx="6" fill="#f0f6fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="160" y1="156" x2="160" y2="282" stroke="#0969da" stroke-width="3"/>
+<text x="294.5" y="204.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">观测 (RGB + 状态)</text>
+<text x="294.5" y="222.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">多帧历史: 补时序盲区</text>
+<text x="294.5" y="242.5" font-size="11.5" fill="#57606a" text-anchor="middle">单帧 critic 会撞桌/堵转</text>
+<rect x="160" y="386" width="269" height="105" rx="6" fill="#f2f9f3" stroke="#d0d7de" stroke-width="1"/>
+<line x1="160" y1="392" x2="160" y2="485" stroke="#1a7f37" stroke-width="3"/>
+<text x="294.5" y="433.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">LeJEPA 共享表征编码器 E</text>
+<text x="294.5" y="451.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">-&gt; latent z</text>
+<rect x="346" y="606" width="198" height="105" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="346" y1="612" x2="346" y2="705" stroke="#0b57d0" stroke-width="3"/>
+<text x="445.0" y="653.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">价值头 V(z)</text>
+<text x="445.0" y="671.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">任务成功概率估计</text>
+<rect x="46" y="589" width="262" height="155" rx="6" fill="#eef4fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="46" y1="595" x2="46" y2="738" stroke="#0b57d0" stroke-width="3"/>
+<text x="177.0" y="644.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">动力学头 D(z, a)</text>
+<text x="177.0" y="662.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">预测未来表征</text>
+<text x="177.0" y="682.5" font-size="11.5" fill="#57606a" text-anchor="middle">dense 预测误差让 critic 更懂</text>
+<text x="177.0" y="697.5" font-size="11.5" fill="#57606a" text-anchor="middle">环境</text>
+<rect x="162" y="825" width="267" height="138" rx="6" fill="#fdf8ec" stroke="#d0d7de" stroke-width="1"/>
+<line x1="162" y1="831" x2="162" y2="957" stroke="#8a5a00" stroke-width="3"/>
+<text x="295.5" y="879.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">条件引导信号</text>
+<text x="295.5" y="897.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">训练期引导 RECAP 式策略</text>
+<text x="295.5" y="917.5" font-size="11.5" fill="#57606a" text-anchor="middle">更新</text>
+<rect x="164" y="1061" width="261" height="155" rx="6" fill="#f8f5fe" stroke="#d0d7de" stroke-width="1"/>
+<line x1="164" y1="1067" x2="164" y2="1210" stroke="#8250df" stroke-width="3"/>
+<text x="294.5" y="1116.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">VLA 策略</text>
+<text x="294.5" y="1134.5" font-size="13" font-weight="700" fill="#1f2328" text-anchor="middle">pi0 / pi0.5 /</text>
+<text x="294.5" y="1154.5" font-size="11.5" fill="#57606a" text-anchor="middle">OpenVLA-OFT</text>
+<text x="294.5" y="1169.5" font-size="11.5" fill="#57606a" text-anchor="middle">IND 84.4% vs SFT 38.4%</text>
+<text x="295.0" y="1004.0" font-size="11.5" fill="#57606a" text-anchor="middle" paint-order="stroke" stroke="#ffffff" stroke-width="3">即插即用</text>
+<text x="544" y="1254" font-size="10.5" fill="#8c959f" text-anchor="end">wcm · arXiv 2607.29613 · v3 auto</text>
 </svg>

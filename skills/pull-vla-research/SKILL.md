@@ -85,93 +85,30 @@ Use `--deep` for high-priority papers that need detailed technical analysis. Use
 **After generating deep templates:** the AI must fill in each section by reading the paper PDF and/or extracting relevant content from `vla.md`. The `--backfill` mode only handles metadata (abstract, authors, PDF paths); the deep technical content requires AI analysis of the paper.
 
 
-## Mermaid House Style（全库图表规范，v2）
+## 架构图规范（cs336 风格 SVG，2026-10-13 起唯一绘图方法）
 
-所有深度笔记的 mermaid 架构图必须用以下规范绘制（在 GitHub/VS Code 原生渲染）：
+旧绘图方法（mermaid v2 代码块、v3 渐变/图标/药丸管线、贝塞尔 v1 渲染器）已全部删除。规范移植自 `~/cs336/html-report-work/FRAGMENT_SPEC.md`。
 
-**1) 主题头**（每个图开头，必填）：
+**产出方式两种**：
 
-```
-%%{init: {
-  'theme':'base',
-  'themeVariables':{
-    'primaryColor':'#fafbfd','primaryBorderColor':'#4a5d7d','primaryTextColor':'#1f2937',
-    'fontFamily':'"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif',
-    'fontSize':'14px','clusterBkg':'#fbfcfe','clusterBorder':'#b9c6d8','edgeLabelBackground':'#ffffff'
-  },
-  'flowchart':{'curve':'basis','nodeSpacing':26,'rankSpacing':42,'padding':10}
-}}%%
-```
+1. **新笔记**：按本节规范**直接手写 `notes/<track>/figures/<id>/arch.svg`**——每张图的拓扑为内容定制（横排管线/竖排层级/循环回路怎么贴切怎么排），这是首选方式，质量对标 cs336 报告里的 RLHF/MoE/GRPO 图。
+2. **存量修改/批量**：spec JSON（`arch.spec.json`，与 svg 同目录，内容已清洗干净：无引号/无 `<br/`/无截断）→ `python3 scripts/fancy_diagram_cs336.py spec.json --out arch.svg`。标签位置可用边的 `labpos:[x,y]`（钉死）或 `loff:[dx,dy]`（偏移）微调；直线穿卡的边渲染器自动改 L 形绕行。
 
-**2) 语义配色 classDef**（按笔记事实上色，颜色是信息不是装饰）：
+**视觉规范（手写与渲染器输出都必须遵守）**：
 
-| 语义 | classDef | 用途 |
-|---|---|---|
-| data | `fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20` | 输入/数据/观测 |
-| frozen | `fill:#e3f2fd,stroke:#1565c0,color:#0d47a1` | 预训练冻结模块 |
-| train | `fill:#fff3e0,stroke:#ef6c00,stroke-width:2.5px,color:#e65100` | 可训练模块（加粗描边） |
-| loss | `fill:#ffebee,stroke:#c62828,stroke-dasharray:6 3,color:#b71c1c` | 损失/监督信号（虚线） |
-| act | `fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2.5px,color:#4a148c` | 动作输出路径 |
-| loop | `fill:#eceff1,stroke:#546e7a,stroke-dasharray:4 3,color:#37474f` | 闭环/反馈/重规划 |
-| env | `fill:#e0f2f1,stroke:#00695c,color:#004d40` | 环境/世界模型/仿真 |
-| mem | `fill:#fffde7,stroke:#f9a825,color:#f57f17` | 记忆/历史/上下文 |
-| reward | `fill:#fce4ec,stroke:#ad1457,color:#880e4f` | 奖励/评分/critic |
-| key | `fill:#fff8e1,stroke:#ff8f00,stroke-width:3px,color:#e65100` | 本文核心 novelty（金框） |
+| 元素 | 规范 |
+|---|---|
+| 色板（仅 7 色） | 墨 `#1f2328` / 次 `#57606a` / 强调蓝 `#0b57d0` / 强调底 `#e8f0fe` / 警示橙 `#8a5a00`+底 `#fdf3d8` / 线 `#d0d7de` / 卡片底 `#f6f8fa` |
+| 语义类扩展色（仅左侧 3px 色条 + 极淡底色） | data `#0969da` / train `#1a7f37` / loss `#8a5a00` / frozen `#57606a` / act `#8250df` / mem `#bf3989` / key `#0b57d0`（底色见渲染器 CLS 表） |
+| 卡片 | `fill="#f6f8fa" stroke="#d0d7de" rx="6"`；标题 13px 墨色粗体，副行 11.5-12px 次色；**无渐变、无阴影、无图标徽章、无图例行** |
+| 边 | 1.5px 直线 + 7px 小箭头（`#57606a`）；反馈回路蓝色虚线 `#0b57d0 6-4`；损失/监督橙色虚线 `#8a5a00 5-3` |
+| 边标签 | 线中点旁 11.5px 次色文字 + `paint-order="stroke" stroke="#ffffff" stroke-width="3"` 白色 halo（不用药丸框） |
+| 结构 | `<svg xmlns viewBox role="img"><title>图的一句话说明</title>` 开头；内联零依赖、无 script；文字一律 ≥11.5px |
+| 分组 | 浅灰底色块 `#f6f8fa` + 左上角 11.5px 灰字标签，不用虚线框 |
+| 文字约束 | 只用中文与 ASCII；禁希腊字母/数学 Unicode（写 pi/alpha/theta）；数字下标写 x0/x_t |
+| 画布 | viewBox 宽 ≤780 优先（纵向可长）；内容外接框 + 22px 边距，不预留大面积空白 |
 
-**2.5) 边线型语义**（v3 图内底部"线型"图例行自动展示，只列图中实际用到的）：
-
-| 线型 | 颜色 | 语义 |
-|---|---|---|
-| 粗实线 4.4px | #263238 深灰 | 主数据流（mermaid `==>`） |
-| 实线 3.2px | #546e7a 中灰 | 一般信息流（`-->`） |
-| 细实线 2.2px | #9fb0bb 浅灰 | 弱关联（`---`） |
-| 长虚线 12-7 | #1565c0 蓝 | 闭环反馈：执行→观测回灌（`-.->` 无训练语义） |
-| 点划线 3-4.5-11-4.5 | #c62828 红 | 损失/监督/蒸馏/TD/梯度（`-.->` 标签含关键词时自动归入） |
-
-连线一律**直角折线**（对向=直线/肘形，同侧=U 形环绕，相邻侧=L 形），转折段自动避让卡片；箭头固定 13px 不随线宽缩放。
-
-规则：**实线=前向数据流（推理时存在），虚线=非数据流信号**；边标签药丸描边与文字跟随边色。自动转换的 loss 关键词：蒸馏|损失|TD|监督|梯度|优化|反传|学习信号|expectile|n-step|回传。
-
-**3) 结构规范**：`flowchart LR/TD`（管线横排、层级竖排）；subgraph 分组建框（模块/阶段/双系统）；主数据流 `==>` 粗箭头；反馈/监督 `-.->` 虚线并带边标签；端点用体育场形 `([文本])`；数据库形 `[(名称)]` 只用于数据集。
-
-**4) 硬约束**：节点/标签只用中文与 ASCII；禁用希腊字母与数学 Unicode（写 pi/alpha/beta，不写 π/α/β）；数字下标用 x0/x_t 形式。门禁 mermaid-safe 会拦截。
-
-## v3 SVG 架构图（全库默认，2026-10 起全量铺开）
-
-深度笔记的架构图一律用 v3 SVG（图标 + 渐变 + 阴影，观感接近论文原图）；mermaid v2 只用于 briefs 大纲卡与快速草图。全库已由 `scripts/mermaid_to_spec.py` 从 v2 mermaid 自动转换完成（每篇的 `figures/<id>/arch.spec.json` 含布局 spec 与原始 mermaid 备份，可手调后用 fancy_diagram 重渲染）。
-
-**1) 工具链**：`scripts/mermaid_to_spec.py`（mermaid→spec 自动转换+分层布局+图标分配，`--dry`/`--all`）+ `scripts/fancy_diagram.py`（spec→SVG，手调用）+ 图标库 `assets/ml-paper-icons/`（512 个 SVG，ISC 许可，duotone/lucide/phosphor/tabler 四族，已 vendor 含 LICENSE）。自动转换：
-
-```bash
-python3 skills/pull-vla-research/scripts/fancy_diagram.py notes/<track>/figures/<id>/arch.spec.json --png
-```
-
-spec 是 JSON：title/subtitle/foot、canvas、panels（虚线分组）、nodes（label/sub/icon/cls/x/y/w/h/tag）、edges（from/to/style/label + 锚点 out/in/pos 与偏移 loff 可省略自动判断）、legend。语义类沿用 v2 十类同色系；图标用语义名（brain/lightning/robot/target/db/chart/state/flask/noise…，别名表在脚本 ALIASES）。
-
-**2) 嵌入格式**（替换原 mermaid 块，spec 与 arch.svg 存 `notes/<track>/figures/<id>/`（PNG 仅按需 `--png` 生成用于目检，不入库））：
-
-```
-![<id> 架构图 v3](figures/<id>/arch.svg)
-
-*架构速览：<一句话，主数据流 + 关键机制>*
-```
-
-门禁 diagram 检查已接受 mermaid 或 v3 SVG 两者之一；文本层面 SVG 同样可 diff。
-
-**3) 验证流程**（必须全过再嵌入）：`xml.etree` 解析过 → `qlmanage -t -s 1600` 或本地 http 服务 + 浏览器截图（GitHub 渲染的 ground truth 是浏览器）→ 视觉模型只问 BAD（文字溢出/箭头穿卡/图标缺失/布局空洞）。soffice 对部分 SVG 加载失败，不要用它做 SVG 校验。**像素级间距问题（徽章-文字/药丸-药丸/文字-边框）必须用 ≥1400px 全分辨率单图检查；8 宫格蒙太奇只适合查布局级问题，在 5px 级擦碰上是盲的**（2026-10-04 徽章压字事故教训：全库 138 张返工）。
-
-**4) 布局经验**：列间距 ≥100px（箭头通道，防"穿卡"观感）；长反馈回路用 out bottom/in bottom + k≥70 压底走线（**k 上限 ~120：k>300 的走廊会画出画布外被裁掉，箭头消失、药丸无处放**，渲染器有画布自动扩高兜底但不要依赖）；标签药丸放不进缝隙时用 loff 挪到通道外侧、极端密区用 labpos 钉死（fix_pills.py 会网格搜位）；同通道双向边（如 Q⇄蒸馏）错开 pos_out/pos_in；CJK 宽度系数 1.06（粗体实测）；同行节点 ≥5 个时间距 ×1.4。
-
-**4b) 文本规则**（2026-10-05 拆词事故后固化）：换行一律走 `wrap_cjk`（词边界：ASCII 词元不拆、连字符挂行尾、行首禁则 + 虚词行尾禁则、孤字下行），宽度预算 label=(w-34)/17.8、sub=(w-34)/13.8 em，与 collide_check 的 text-ovf 公式严格一致，不留容差；边标签不得带引号（解析器已剥，存量用脚本清）；mermaid 转换的 `[:3]` 截断与 `<br/` 形状残片由 `repair_wrap.py` 从 spec 内嵌的 mermaid_original 幂等重排修复；pill 放置分 4 级兜底，落到 tier≥2 会在 SVG 里写 `<!--WARN pill-tierN -->`，collide_check 读取并计为 issue（全库必须 0 WARN）。
-
-**4c) 图形风格已由用户锁定（2026-10-13 重生成版，最高优先级）**：全库 138 张 arch.svg 由 **`fancy_diagram_v1.py`** 生成——以 3f15aa9 原版视觉为基底（**贝塞尔曲线连线、原线宽 main 2.4/thick 3.2/thin 1.8、fb 7-5 虚线、loss 6-4 虚线、7.5px 箭头、无图例行**），叠加全部正确性修复（词边界换行、无引号/无 `<br/`/无截断的标签、药丸避障求解器含路径障碍、画布兜底、panel 两行标签、曲线穿卡的边自动回退正交路由防箭头消失）。spec 内容 = aad528d 修复版（已去 legend 字段）。**改图一律用 fancy_diagram_v1.py 重渲染**（不是主渲染器 fancy_diagram.py——那个是 orthogonal/图例风格，仅作工具箱保留）；批量改前先与用户确认。
-
-**5) 外部画图 skill 路线图**（2026-10 评估结论）：
-- K-Dense `pptx-posters`：强门禁 manifest 审批工作流，面向**印刷级会议海报**（打印/无障碍/包安全检查），不适合笔记内嵌图；真要做 poster 时再启用。
-- 本机 `presentations:pptx`（python-pptx）+ `soffice` 转 PNG：适合做汇报 slide / 求职材料里的框架图，不做笔记。
-- 本机 `tikz-figure-code` / `thesis-figure-skill`：写论文时的 TikZ 路线。
-- 笔记内嵌图一律 mermaid v2（默认）或 v3 SVG（旗舰），不引入 PPT/图片依赖。
-
+**纪律**：图里的数字必须与笔记正文一致并带出处；示意/重绘要在标题里标注；每张图写完 `xml.etree` 解析自检 + `qlmanage -t -s 1600` 全分辨率目检（文字溢出/箭头穿卡/标签互压）再嵌入。嵌入格式：`![<id> 架构图](figures/<id>/arch.svg)` + 斜体一行架构速览。
 ## Reading Methodology (阅读方法论)
 
 **阅读顺序**（不要从第一页逐字读）：Abstract → Figure 1 → Introduction → Main Results → Experimental Setup → Method Overview → Method Details → Ablation → Failure Cases → Appendix（第一档）→ Related Work。第一遍 10–20 分钟只求填出 Problem→Insight→Mechanism→Evidence 链条；讲不出这四环就不钻公式。
