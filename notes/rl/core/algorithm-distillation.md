@@ -2,7 +2,7 @@
 
 - arXiv: https://arxiv.org/abs/2210.14215
 - Source: https://arxiv.org/abs/2210.14215
-- Project: https://github.com/dannybritz/AD (社区复现；官方未放码)
+- Project: https://github.com/CarperAI/Algorithm-Distillation-RLHF（社区复现）；https://github.com/jaehyeon-son/dicp（后续 DICP）——官方未放码
 - 本地 PDF：`papers/rl/core/AlgorithmDistillation_2210.14215.pdf`
 - Year: 2022 (ICLR 2023, 304+ 引用)
 - Category: rl
@@ -86,7 +86,7 @@ $$\mathcal{L}(\theta) = -\sum_{n=1}^{N}\sum_{t=1}^{T-1} \log P_\theta(A=a^{(n)}_
 - 源算法选择：任何收敛的单任务 RL 都行（论文 A3C/DQN/UCB）；源算法的数据效率会限制蒸馏上限（模型学到的改进节奏来自源）。
 - 上下文长度是第一瓶颈：Dark 任务几万步可塞进当时 1B 级模型窗口；真机器人历史必须做压缩/摘要（分层摘要、事件截断——即 statelinformation 的 Markovian 重建与 tongyi CM 模式）。
 - 评估时保持自回归一致性：上下文队列追加的是**模型自己**的轨迹（不是源算法的），否则测的是模仿不是 in-context RL。
-- 官方代码未放；社区复现 github.com/dannybritz/AD（JAX）；环境：google-research 的 dark_room + DM-Lab Watermaze。
+- 官方代码未放；社区复现 CarperAI/Algorithm-Distillation-RLHF（RLHF 化的单任务 AD 示例）与 jaehyeon-son/dicp（AD 后续扩展）；环境：google-research 的 dark_room + DM-Lab Watermaze。
 - 迁移到 VLA 的最小实验设计：用 LIBERO/RoboTwin 的多任务 RL 微调轨迹做源历史，蒸馏 pi0 级小模型，测上下文内成功率曲线。
 
 ## 实验协议清单

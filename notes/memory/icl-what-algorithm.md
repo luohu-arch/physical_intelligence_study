@@ -2,7 +2,7 @@
 
 - arXiv: https://arxiv.org/abs/2211.15661
 - Source: https://arxiv.org/abs/2211.15661
-- Project: https://github.com/google-research/what-learning-algorithm-is-in-context-learning
+- Project: （论文未放官方代码；合成线性回归实验复现门槛低，正文"工程细节"有配方）
 - 本地 PDF：`papers/memory/ICL-WhatAlgorithm_2211.15661.pdf`
 - Year: 2022 (ICLR 2023)
 - Category: rl
@@ -84,7 +84,7 @@ $$w' = \left(\lambda I + x_i x_i^\top\right)^{-1} x_i y_i = \left(\frac{I}{\lamb
 
 ## 工程细节与实操指南
 
-- 代码：google-research 官方仓库（JAX/Flax），合成线性回归训练管线齐全，是做 ICL 机制实验的最短路径。
+- 代码：论文未放官方代码；合成线性回归管线自造很快（任务采样：w~N(0,I)+可调噪声，GPT-2 式 decoder，MSE 损失），Dai et al.（2212.10559）的 aka.ms/icl 有可对标的实现。
 - 参考算法比对工具：论文的"预测匹配率"分析（与 GD/ridge/OLS 逐点比较）可直接复用于任何"我的模型在上下文里学什么"的诊断。
 - 探针方法：隐藏态线性回归到 w / 矩矩阵——可平移到机器人上下文（探"任务目标向量""动力学参数向量"是否线性可读出）。
 - 合成域预训练→真任务微调的两阶段用法：用可控的"算法先验"（想让模型偏向 ridge 就在噪声分布上预训）塑造下游 ICL 偏置。
